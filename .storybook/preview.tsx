@@ -2,16 +2,8 @@ import React from 'react';
 
 import { GlobalStyle } from '../src/shared/global';
 
-interface StoryFn {
-  (): React.ReactElement | null;
-}
-
-interface Decorator {
-  (Story: StoryFn): React.ReactElement | null;
-}
-
-export const decorators: Decorator[] = [
-  (Story: StoryFn) => (
+export const decorators = [
+  (Story: any) => (
     <>
       <GlobalStyle />
       <Story />
