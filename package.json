@@ -1,25 +1,28 @@
 {
-  "name": "ge-design-system",
-  "description": "Garcia Enterprise react design system",
+  "name": "gvtech-design-system",
   "version": "0.6.3",
+  "description": "Garcia Ventures react design system",
+  "license": "MIT",
+  "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "main": "dist/index.js",
   "repository": "git@github.com:Garcia-ventures/gvtech-design.git",
-  "author": "Eric N. Garcia <eng618@garciaericn.com>",
-  "license": "MIT",
   "scripts": {
-    "start": "react-scripts start",
     "build": "BABEL_ENV=production babel src -d dist",
-    "test": "react-scripts test",
-    "test:ci": "CI=true react-scripts test",
-    "eject": "react-scripts eject",
-    "format": "prettier --write \"src/**/*.{scss,css,js,md,mdx}\"",
-    "format:diff": "prettier --check \"src/**/*.{scss,css,js,md,mdx}\"",
-    "storybook": "start-storybook -p 9009",
     "build-storybook": "build-storybook",
     "build-storybook-docs": "build-storybook --docs",
+    "eject": "react-scripts eject",
+    "format": "prettier --write .",
+    "format:ci": "prettier --check .",
+    "format:diff": "prettier --check \"src/**/*.{scss,css,js,md,mdx}\"",
+    "lint": "eslint . --cache",
+    "lint:fix": "eslint . --cache --fix",
+    "lint:report": "eslint . --cache -o ./eslintReport.html -f html",
+    "prepare": "husky",
     "release": "auto shipit",
-    "lint": "eslint .",
-    "prepare": "husky install"
+    "start": "react-scripts start",
+    "storybook": "start-storybook -p 9009",
+    "test": "react-scripts test",
+    "test:ci": "CI=true react-scripts test"
   },
   "dependencies": {
     "polished": "^4.3.1",
@@ -31,15 +34,14 @@
     "styled-components": "^6.0.0"
   },
   "devDependencies": {
-    "@types/react": "^19.0.0",
-    "@types/react-dom": "^19.0.0",
     "@auto-it/conventional-commits": "^10.46.0",
     "@auto-it/twitter": "^10.46.0",
     "@babel/cli": "^7.26.0",
     "@babel/core": "^7.26.0",
     "@babel/preset-env": "^7.26.0",
     "@babel/preset-react": "^7.26.0",
-    "@eng618/prettier-config": "^2.1.0",
+    "@eng618/prettier-config": "^2.5.2",
+    "@eslint/js": "^9.39.2",
     "@storybook/addon-a11y": "^6.5.16",
     "@storybook/addon-actions": "^6.5.16",
     "@storybook/addon-docs": "^6.5.16",
@@ -55,35 +57,35 @@
     "@storybook/preset-create-react-app": "^4.1.2",
     "@storybook/react": "^6.5.16",
     "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.54.0",
+    "@typescript-eslint/parser": "^8.54.0",
     "auto": "^10.46.0",
     "babel-loader": "^9.2.1",
-    "eslint": "^8.57.0",
-    "eslint-config-prettier": "^8.10.0",
+    "eslint": "^9.39.2",
+    "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-jsx-a11y": "^6.8.0",
+    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.34.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.15",
-    "husky": "^8.0.3",
-    "lint-staged": "^13.3.0",
+    "globals": "^17.2.0",
+    "husky": "^9.1.7",
+    "lint-staged": "^16.2.7",
+    "prettier": "^3.8.1",
     "typescript": "^5.0.0"
   },
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead"
+  "lint-staged": {
+    "*.(js|ts|mjs|cjs)?(x)": [
+      "prettier --write",
+      "eslint --cache --fix"
     ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
+    "*.(md)?(x)": [
+      "prettier --write"
     ]
   },
+  "prettier": "@eng618/prettier-config",
   "auto": {
     "plugins": [
       [
@@ -103,11 +105,22 @@
       "released"
     ]
   },
-  "prettier": "@eng618/prettier-config",
-  "lint-staged": {
-    "src/**/*.(js|ts)?(x)": "eslint . --fix",
-    "*.(js|md|ts)?(x)": "prettier --write",
-    "*.(scss|css|json)": "prettier --write"
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead"
+    ]
   },
   "packageManager": "yarn@4.12.0"
 }

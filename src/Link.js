@@ -8,7 +8,9 @@ import { color } from './shared/styles';
 
 const linkStyles = css`
   display: inline-block;
-  transition: transform 150ms ease-out, color 150ms ease-out;
+  transition:
+    transform 150ms ease-out,
+    color 150ms ease-out;
   text-decoration: none;
 
   color: ${color.secondary};

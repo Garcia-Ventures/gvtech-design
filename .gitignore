@@ -37,3 +37,6 @@ dist
 !.yarn/releases
 !.yarn/sdks
 !.yarn/versions
+
+# eslint cache
+.eslintcache

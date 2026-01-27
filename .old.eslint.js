@@ -1,10 +1,6 @@
+// TODO: ensure all this is migrated to eslint.config.mjs
 module.exports = {
-  extends: [
-    'plugin:react/recommended',
-    'plugin:jsx-a11y/recommended',
-    'prettier',
-    'plugin:storybook/recommended',
-  ],
+  extends: ['plugin:react/recommended', 'plugin:jsx-a11y/recommended', 'prettier', 'plugin:storybook/recommended'],
   parserOptions: {
     settings: {
       react: {
