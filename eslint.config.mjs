@@ -18,6 +18,7 @@ export default [
     languageOptions: {
       globals: {
         ...globals.node,
+        ...globals.browser,
       },
       parserOptions: {
         ecmaVersion: 'latest',
@@ -37,10 +38,20 @@ export default [
       ...ts.configs.base.rules,
       ...ts.configs['eslint-recommended'].rules,
       ...ts.configs.recommended.rules,
+      '@typescript-eslint/no-unused-vars': ['error', { argsIgnorePattern: '^_', varsIgnorePattern: '^_' }],
     },
   },
   {
     files: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.cjs'],
+    languageOptions: {
+      parserOptions: {
+        ecmaVersion: 'latest',
+        sourceType: 'module',
+        ecmaFeatures: {
+          jsx: true,
+        },
+      },
+    },
     rules: {
       ...js.configs.recommended.rules,
     },

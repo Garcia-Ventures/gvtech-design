@@ -1,5 +1,3 @@
-import React from 'react';
-import { createRoot, unmountComponentAtNode } from 'react-dom/client';
 import { Link } from './Link';
 
 // A straightforward link wrapper that renders an <a> with the passed props. What we are testing

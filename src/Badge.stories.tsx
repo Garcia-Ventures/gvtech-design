@@ -15,7 +15,7 @@ export const AllBadges: Story = {
   args: {
     children: 'Badge',
   },
-  render: (args) => (
+  render: (_args) => (
     <div>
       <Badge status="positive">Positive</Badge>
       <Badge status="negative">Negative</Badge>

@@ -145,13 +145,7 @@ const Initial = styled.div<InitialProps>`
  * <Avatar loading username="Loading..." />
  * ```
  */
-export const Avatar = ({
-  loading = false,
-  username = 'loading',
-  src,
-  size = 'medium',
-  ...props
-}: AvatarProps) => {
+export const Avatar = ({ loading = false, username = 'loading', src, size = 'medium', ...props }: AvatarProps) => {
   let avatarFigure = <Icon icon="useralt" block={false} />;
   const a11yProps: {
     'aria-busy'?: boolean;

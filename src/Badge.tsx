@@ -1,9 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import styled, { css } from 'styled-components';
 import { background, color, typography } from './shared/styles';
+import { BadgeProps, BADGE_STATUSES, StatusProps } from './types';
 
-const BadgeWrapper = styled.div`
+/**
+ * Styled badge wrapper with status-based styling
+ */
+const BadgeWrapper = styled.div<StatusProps>`
   display: inline-block;
   vertical-align: top;
   font-size: 11px;
@@ -20,35 +23,35 @@ const BadgeWrapper = styled.div`
   }
 
   ${(props) =>
-    props.status === 'positive' &&
+    props.status === BADGE_STATUSES.POSITIVE &&
     css`
       color: ${color.positive};
       background: ${background.positive};
     `};
 
   ${(props) =>
-    props.status === 'negative' &&
+    props.status === BADGE_STATUSES.NEGATIVE &&
     css`
       color: ${color.negative};
       background: ${background.negative};
     `};
 
   ${(props) =>
-    props.status === 'warning' &&
+    props.status === BADGE_STATUSES.WARNING &&
     css`
       color: ${color.warning};
       background: ${background.warning};
     `};
 
   ${(props) =>
-    props.status === 'error' &&
+    props.status === BADGE_STATUSES.ERROR &&
     css`
       color: ${color.lightest};
       background: ${color.negative};
     `};
 
   ${(props) =>
-    props.status === 'neutral' &&
+    props.status === BADGE_STATUSES.NEUTRAL &&
     css`
       color: ${color.dark};
       background: ${color.mediumlight};
@@ -56,15 +59,19 @@ const BadgeWrapper = styled.div`
 `;
 
 /**
- * **Badges?!** We don't need no stinkin' badges!!
+ * Badge component for displaying status indicators and labels
+ *
+ * @example
+ * ```tsx
+ * <Badge status="positive">Success</Badge>
+ * <Badge status="error">Error</Badge>
+ * <Badge>Default</Badge>
+ * ```
  */
-export function Badge({ ...props }) {
-  return <BadgeWrapper {...props} />;
-}
-Badge.propTypes = {
-  status: PropTypes.oneOf(['positive', 'negative', 'neutral', 'error', 'warning']),
-};
-
-Badge.defaultProps = {
-  status: 'neutral',
+export const Badge = ({ status = BADGE_STATUSES.NEUTRAL, children, ...props }: BadgeProps) => {
+  return (
+    <BadgeWrapper status={status} {...props}>
+      {children}
+    </BadgeWrapper>
+  );
 };

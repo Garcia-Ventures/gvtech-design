@@ -25,7 +25,7 @@ export default {
   component: Button,
 };
 
-export const AllButtons = (args) => (
+export const AllButtons = (_args) => (
   <div>
     <Button appearance="primary">Primary</Button>
     <Button appearance="secondary">Secondary</Button>
@@ -81,7 +81,7 @@ export const AllButtons = (args) => (
 AllButtons.storyName = 'all buttons';
 
 // eslint-disable-next-line storybook/prefer-pascal-case
-export const buttonWrapper = (args) => (
+export const buttonWrapper = (_args) => (
   <div>
     <ButtonWrapper>Original Button Wrapper</ButtonWrapper>
     <br />
@@ -150,7 +150,7 @@ export const buttonWrapper = (args) => (
 
 buttonWrapper.storyName = 'button wrapper';
 
-export const AnchorWrapper = (args) => (
+export const AnchorWrapper = (_args) => (
   <div>
     <StoryLinkWrapper to="http://storybook.js.org">Original Link Wrapper</StoryLinkWrapper>
     <br />
@@ -242,7 +242,7 @@ AnchorWrapper.storyName = 'anchor wrapper';
  * See https://storybook.js.org/docs/react/writing-stories/play-function
  * to learn more about the play function.
  */
-export const WithInteractions = (args) => <Button {...args} />;
+export const WithInteractions = (_args) => <Button {..._args} />;
 WithInteractions.args = {
   appearance: 'primary',
   href: 'http://storybook.js.org',

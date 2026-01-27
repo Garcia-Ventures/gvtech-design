@@ -53,7 +53,7 @@ export default {
   component: Icon,
 };
 
-export const Labels = (args) => (
+export const Labels = (_args) => (
   <Fragment>
     There are {Object.keys(icons).length} icons
     <List>
@@ -67,7 +67,7 @@ export const Labels = (args) => (
   </Fragment>
 );
 
-export const NoLabels = (args) => (
+export const NoLabels = (_args) => (
   <List>
     {Object.keys(icons).map((key) => (
       <Item minimal key={key}>

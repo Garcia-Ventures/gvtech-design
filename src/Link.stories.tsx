@@ -19,7 +19,7 @@ export default {
   component: Link,
 };
 
-export const All = (args) => (
+export const All = () => (
   <div>
     <Link href="https://storybook.js.org/tutorials/">Default</Link>
     <br />
@@ -55,7 +55,6 @@ export const All = (args) => (
     </span>
     <br />
     {/* gatsby and styled-components don't work nicely together  */}
-    {/* eslint-disable-next-line */}
     <Link isButton onClick={onLinkClick}>
       is actually a button
     </Link>
