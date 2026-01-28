@@ -93,12 +93,6 @@
   "prettier": "@eng618/prettier-config",
   "auto": {
     "plugins": [
-      [
-        "twitter",
-        {
-          "threshold": "patch"
-        }
-      ],
       "npm",
       "all-contributors",
       [
