@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { ComponentProps, Fragment } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Icon } from './Icon';
@@ -9,7 +9,7 @@ const Meta = styled.div`
   font-size: 12px;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ minimal?: boolean }>`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -53,7 +53,7 @@ export default {
   component: Icon,
 };
 
-export const Labels = (args) => (
+export const Labels = (_args: Record<string, unknown>) => (
   <Fragment>
     There are {Object.keys(icons).length} icons
     <List>
@@ -67,7 +67,7 @@ export const Labels = (args) => (
   </Fragment>
 );
 
-export const NoLabels = (args) => (
+export const NoLabels = (_args: Record<string, unknown>) => (
   <List>
     {Object.keys(icons).map((key) => (
       <Item minimal key={key}>
@@ -79,9 +79,9 @@ export const NoLabels = (args) => (
 
 NoLabels.storyName = 'no labels';
 
-export const Inline = (args) => (
+export const Inline = (args: Partial<ComponentProps<typeof Icon>>) => (
   <Fragment>
-    this is an inline <Icon {...args} /> icon (default)
+    this is an inline <Icon {...(args as ComponentProps<typeof Icon>)} /> icon (default)
   </Fragment>
 );
 Inline.args = {
@@ -89,9 +89,9 @@ Inline.args = {
   'aria-label': 'Happy face',
 };
 
-export const Block = (args) => (
+export const Block = (args: Partial<ComponentProps<typeof Icon>>) => (
   <Fragment>
-    this is a block <Icon {...args} /> icon
+    this is a block <Icon {...(args as ComponentProps<typeof Icon>)} /> icon
   </Fragment>
 );
 Block.args = {

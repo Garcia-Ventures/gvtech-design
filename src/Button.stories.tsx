@@ -1,4 +1,4 @@
-import React from 'react';
+import type { ComponentProps } from 'react';
 import styled from 'styled-components';
 
 import { userEvent, within } from '@storybook/testing-library';
@@ -6,6 +6,7 @@ import { expect } from '@storybook/jest';
 
 import { Button } from './Button';
 import { Icon } from './Icon';
+import { IconName } from './types';
 import { StoryLinkWrapper } from './StoryLinkWrapper';
 
 const CustomButton = styled.button`
@@ -16,7 +17,7 @@ const CustomButton = styled.button`
   font-size: 1.2em;
 `;
 
-function ButtonWrapper(props) {
+function ButtonWrapper(props: ComponentProps<typeof CustomButton>) {
   return <CustomButton {...props} />;
 }
 
@@ -25,7 +26,8 @@ export default {
   component: Button,
 };
 
-export const AllButtons = (args) => (
+import type { StoryFn } from '@storybook/react';
+export const AllButtons: StoryFn = (_args: Record<string, unknown>) => (
   <div>
     <Button appearance="primary">Primary</Button>
     <Button appearance="secondary">Secondary</Button>
@@ -33,23 +35,23 @@ export const AllButtons = (args) => (
     <Button appearance="outline">Outline</Button>
     <Button appearance="primaryOutline">Outline primary</Button>
     <Button appearance="secondaryOutline">Outline secondary</Button>
-    <Button appearance="primary" isDisabled>
+    <Button appearance="primary" disabled>
       Disabled
     </Button>
     <br />
-    <Button appearance="primary" isLoading>
+    <Button appearance="primary" loading>
       Primary
     </Button>
-    <Button appearance="secondary" isLoading>
+    <Button appearance="secondary" loading>
       Secondary
     </Button>
-    <Button appearance="tertiary" isLoading>
+    <Button appearance="tertiary" loading>
       Tertiary
     </Button>
-    <Button appearance="outline" isLoading>
+    <Button appearance="outline" loading>
       Outline
     </Button>
-    <Button appearance="outline" isLoading loadingText="Custom...">
+    <Button appearance="outline" loading loadingText="Custom...">
       Outline
     </Button>
     <br />
@@ -65,14 +67,14 @@ export const AllButtons = (args) => (
     <Button appearance="outline" size="small">
       Outline
     </Button>
-    <Button appearance="primary" isDisabled size="small">
+    <Button appearance="primary" disabled size="small">
       Disabled
     </Button>
     <Button appearance="outline" size="small" containsIcon>
-      <Icon icon="link" aria-label="Link" />
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
     <Button appearance="outline" size="small">
-      <Icon icon="link" />
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>
@@ -80,8 +82,7 @@ export const AllButtons = (args) => (
 
 AllButtons.storyName = 'all buttons';
 
-// eslint-disable-next-line storybook/prefer-pascal-case
-export const buttonWrapper = (args) => (
+export const ButtonWrapperStory: StoryFn = (_args: Record<string, unknown>) => (
   <div>
     <ButtonWrapper>Original Button Wrapper</ButtonWrapper>
     <br />
@@ -103,23 +104,23 @@ export const buttonWrapper = (args) => (
     <Button ButtonWrapper={ButtonWrapper} appearance="secondaryOutline">
       Outline secondary
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isDisabled>
+    <Button ButtonWrapper={ButtonWrapper} appearance="primary" disabled>
       Disabled
     </Button>
     <br />
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isLoading>
+    <Button ButtonWrapper={ButtonWrapper} appearance="primary" loading>
       Primary
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="secondary" isLoading>
+    <Button ButtonWrapper={ButtonWrapper} appearance="secondary" loading>
       Secondary
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="tertiary" isLoading>
+    <Button ButtonWrapper={ButtonWrapper} appearance="tertiary" loading>
       Tertiary
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" isLoading>
+    <Button ButtonWrapper={ButtonWrapper} appearance="outline" loading>
       Outline
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="outline" isLoading loadingText="Custom...">
+    <Button ButtonWrapper={ButtonWrapper} appearance="outline" loading loadingText="Custom...">
       Outline
     </Button>
     <br />
@@ -135,101 +136,83 @@ export const buttonWrapper = (args) => (
     <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small">
       Outline
     </Button>
-    <Button ButtonWrapper={ButtonWrapper} appearance="primary" isDisabled size="small">
+    <Button ButtonWrapper={ButtonWrapper} appearance="primary" disabled size="small">
       Disabled
     </Button>
     <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small" containsIcon>
-      <Icon icon="link" aria-label="Link" />
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
     <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small">
-      <Icon icon="link" />
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>
 );
 
-buttonWrapper.storyName = 'button wrapper';
+ButtonWrapperStory.storyName = 'button wrapper';
 
-export const AnchorWrapper = (args) => (
+export const AnchorWrapper: StoryFn = (_args: Record<string, unknown>) => (
   <div>
     <StoryLinkWrapper to="http://storybook.js.org">Original Link Wrapper</StoryLinkWrapper>
     <br />
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary">
       Primary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary">
       Secondary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary">
       Tertiary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline">
       Outline
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primaryOutline" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primaryOutline">
       Outline primary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondaryOutline" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondaryOutline">
       Outline secondary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" isDisabled href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" disabled>
       Disabled
     </Button>
     <br />
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" isLoading href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" loading>
       Primary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" isLoading href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" loading>
       Secondary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" isLoading href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" loading>
       Tertiary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" isLoading href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" loading>
       Outline
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      isLoading
-      loadingText="Custom..."
-      href="http://storybook.js.org"
-    >
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" loading loadingText="Custom...">
       Outline
     </Button>
     <br />
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" size="small" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" size="small">
       Primary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" size="small" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="secondary" size="small">
       Secondary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" size="small" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="tertiary" size="small">
       Tertiary
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small" href="http://storybook.js.org">
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small">
       Outline
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="primary"
-      isDisabled
-      size="small"
-      href="http://storybook.js.org"
-    >
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" disabled size="small">
       Disabled
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      containsIcon
-      href="http://storybook.js.org"
-    >
-      <Icon icon="link" aria-label="Link" />
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small" containsIcon>
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
-    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small" href="http://storybook.js.org">
-      <Icon icon="link" />
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small">
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>
@@ -242,7 +225,10 @@ AnchorWrapper.storyName = 'anchor wrapper';
  * See https://storybook.js.org/docs/react/writing-stories/play-function
  * to learn more about the play function.
  */
-export const WithInteractions = (args) => <Button {...args} />;
+export const WithInteractions: StoryFn = (_args: Record<string, unknown>) => {
+  const args = _args as unknown as ComponentProps<typeof Button>;
+  return <Button {...args} />;
+};
 WithInteractions.args = {
   appearance: 'primary',
   href: 'http://storybook.js.org',
@@ -250,7 +236,7 @@ WithInteractions.args = {
   children: 'Button',
 };
 
-WithInteractions.play = async ({ canvasElement }) => {
+WithInteractions.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   // Assigns canvas to the component root element
   const canvas = within(canvasElement);
   await userEvent.click(canvas.getByRole('link'));

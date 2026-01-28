@@ -1,14 +1,37 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import type { ComponentType, ReactNode } from 'react';
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
 import { Icon } from './Icon';
 import { color } from './shared/styles';
+import { LinkProps } from './types';
 
-const linkStyles = css`
+/**
+ * Props for styled link components
+ */
+interface StyledLinkProps {
+  secondary?: boolean;
+  tertiary?: boolean;
+  nochrome?: boolean;
+  inverse?: boolean;
+  isButton?: boolean;
+  containsIcon?: boolean;
+  withArrow?: boolean;
+}
+
+/**
+ * Props for LinkInner component
+ */
+interface LinkInnerProps {
+  withArrow?: boolean;
+}
+
+const linkStyles = css<StyledLinkProps>`
   display: inline-block;
-  transition: transform 150ms ease-out, color 150ms ease-out;
+  transition:
+    transform 150ms ease-out,
+    color 150ms ease-out;
   text-decoration: none;
 
   color: ${color.secondary};
@@ -112,7 +135,7 @@ const linkStyles = css`
     `};
 `;
 
-const LinkInner = styled.span`
+const LinkInner = styled.span<LinkInnerProps>`
   ${(props) =>
     props.withArrow &&
     css`
@@ -127,11 +150,11 @@ const LinkInner = styled.span`
     `};
 `;
 
-const LinkA = styled.a`
+const LinkA = styled.a<StyledLinkProps>`
   ${linkStyles};
 `;
 
-const LinkButton = styled.button`
+const LinkButton = styled.button<StyledLinkProps>`
   /* reset button styles */
   background: none;
   color: inherit;
@@ -144,12 +167,22 @@ const LinkButton = styled.button`
   ${linkStyles};
 `;
 
-const applyStyle = (LinkWrapper) => {
+const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
   return (
     LinkWrapper &&
-    styled(({ containsIcon, inverse, nochrome, secondary, tertiary, ...linkWrapperRest }) => (
-      <LinkWrapper {...linkWrapperRest} />
-    ))`
+    styled(
+      ({
+        containsIcon: _containsIcon,
+        inverse: _inverse,
+        nochrome: _nochrome,
+        secondary: _secondary,
+        tertiary: _tertiary,
+        children: _children,
+        ...linkWrapperRest
+      }: Record<string, unknown>) => (
+        <LinkWrapper {...(linkWrapperRest as Record<string, unknown>)}>{_children as ReactNode}</LinkWrapper>
+      ),
+    )`
       ${linkStyles};
     `
   );
@@ -157,8 +190,26 @@ const applyStyle = (LinkWrapper) => {
 
 /**
  * Links can contains text and/or icons. Be careful using only icons, you must provide a text alternative via aria-label for accessibility.
+ *
+ * @example
+ * ```tsx
+ * <Link href="/home">Home</Link>
+ * <Link secondary href="/about">About</Link>
+ * <Link withArrow>Learn more</Link>
+ * ```
  */
-export function Link({ isButton, withArrow, LinkWrapper, children, ...rest }) {
+export const Link = ({
+  isButton = false,
+  withArrow = false,
+  secondary = false,
+  tertiary = false,
+  nochrome = false,
+  inverse = false,
+  containsIcon = false,
+  LinkWrapper,
+  children,
+  ...props
+}: LinkProps) => {
   const content = (
     <Fragment>
       <LinkInner withArrow={withArrow}>
@@ -170,36 +221,24 @@ export function Link({ isButton, withArrow, LinkWrapper, children, ...rest }) {
 
   const StyledLinkWrapper = applyStyle(LinkWrapper);
 
-  let SelectedLink = LinkA;
+  let SelectedLink: ComponentType<Record<string, unknown>> = LinkA;
   if (LinkWrapper) {
-    SelectedLink = StyledLinkWrapper;
+    SelectedLink = StyledLinkWrapper as ComponentType<Record<string, unknown>>;
   } else if (isButton) {
-    SelectedLink = LinkButton;
+    SelectedLink = LinkButton as ComponentType<Record<string, unknown>>;
   }
 
-  return <SelectedLink {...rest}>{content}</SelectedLink>;
-}
-
-Link.propTypes = {
-  isButton: PropTypes.bool,
-  children: PropTypes.node,
-  withArrow: PropTypes.bool,
-  containsIcon: PropTypes.bool,
-  LinkWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-  inverse: PropTypes.bool,
-  nochrome: PropTypes.bool,
-  secondary: PropTypes.bool,
-  tertiary: PropTypes.bool,
-};
-
-Link.defaultProps = {
-  isButton: false,
-  children: null,
-  withArrow: false,
-  containsIcon: false,
-  LinkWrapper: undefined,
-  inverse: false,
-  nochrome: false,
-  secondary: false,
-  tertiary: false,
+  return (
+    <SelectedLink
+      secondary={secondary}
+      tertiary={tertiary}
+      nochrome={nochrome}
+      inverse={inverse}
+      isButton={isButton}
+      containsIcon={containsIcon}
+      {...props}
+    >
+      {content}
+    </SelectedLink>
+  );
 };

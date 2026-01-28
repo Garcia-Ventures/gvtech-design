@@ -17,6 +17,15 @@ Based on the Learn Storybook design system is a subset of the full [Storybook de
 
 Learn more at [Learn Storybook](https://learnstorybook.com).
 
+## Testing
+
+We use **Vitest** for running unit tests (configured in `vitest.config.ts`) and the testing-library suite for DOM and React testing. Commands:
+
+- `yarn test` — run tests locally (watch mode by default)
+- `yarn test:ci` — run tests in CI (non-interactive)
+
+Tests are set up to auto-import `@testing-library/jest-dom` via `src/setupTests.ts`.
+
 <!-- ## Contributing
 
 If you would like to contribute to the system please follow the [Contributing Guidelines](CONTRIBUTING.md) -->

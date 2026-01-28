@@ -21,16 +21,7 @@
   },
   "peacock.color": "#505050",
   "spellright.language": ["en"],
-  "spellright.documentTypes": [
-    "markdown",
-    "latex",
-    "plaintext",
-    "json",
-    "jsonc",
-    "mdx",
-    "javascript",
-    "html"
-  ],
+  "spellright.documentTypes": ["markdown", "latex", "plaintext", "json", "jsonc", "mdx", "javascript", "html"],
   "spellright.parserByClass": {
     "mdx": {
       "parser": "plain"

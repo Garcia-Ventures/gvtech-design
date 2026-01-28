@@ -412,7 +412,7 @@
 
 # v0.1.10 (Tue Jun 09 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - Merge branch 'develop' ([@ENG618](https://github.com/ENG618))
 
@@ -424,7 +424,7 @@
 
 # v0.1.9 (Tue Jun 09 2020)
 
-#### ⚠️  Pushed to `master`
+#### ⚠️ Pushed to `master`
 
 - add link to npm ([@ENG618](https://github.com/ENG618))
 
@@ -467,4 +467,4 @@
 
 #### Authors: 1
 
-- Eric N. Garcia (eng618@garciaericn.com)
+- Eric N. Garcia (<eng618@garciaericn.com>)

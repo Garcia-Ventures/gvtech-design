@@ -1,38 +1,35 @@
-import React, { Fragment } from 'react';
-import PropTypes from 'prop-types';
+import React, { Fragment, JSX } from 'react';
 import styled from 'styled-components';
 import { darken, rgba } from 'polished';
+
 import { color, typography } from './shared/styles';
 import { easing } from './shared/animation';
+import {
+  ButtonProps,
+  BUTTON_APPEARANCES,
+  BUTTON_SIZES,
+  SizeableProps,
+  AppearanceProps,
+  DisableableProps,
+  LoadableProps,
+} from './types';
 
-const Text = styled.span`
-  display: inline-block;
-  vertical-align: top;
-`;
+/**
+ * Props for styled button components
+ */
+interface StyledButtonProps extends SizeableProps, AppearanceProps, DisableableProps, LoadableProps {
+  isUnclickable?: boolean;
+  containsIcon?: boolean;
+}
 
-const Loading = styled.span`
-  position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
-  opacity: 0;
-`;
+const APPEARANCES = BUTTON_APPEARANCES;
+const SIZES = BUTTON_SIZES;
 
-const APPEARANCES = {
-  PRIMARY: 'primary',
-  PRIMARY_OUTLINE: 'primaryOutline',
-  SECONDARY: 'secondary',
-  SECONDARY_OUTLINE: 'secondaryOutline',
-  TERTIARY: 'tertiary',
-  OUTLINE: 'outline',
-};
+const Text = styled.span``;
 
-const SIZES = {
-  SMALL: 'small',
-  MEDIUM: 'medium',
-};
+const Loading = styled.span``;
 
-const StyledButton = styled.button`
+const StyledButton = styled.button<StyledButtonProps>`
   border: 0;
   border-radius: 3em;
   cursor: pointer;
@@ -305,16 +302,48 @@ const StyledButton = styled.button`
       `};
 `;
 
-const ButtonLink = StyledButton.withComponent('a');
+type WrapperProps = Record<string, unknown> & { children?: React.ReactNode };
 
-const applyStyle = (ButtonWrapper) => {
-  return (
-    ButtonWrapper &&
-    StyledButton.withComponent(({ containsIcon, isLoading, isUnclickable, ...rest }) => <ButtonWrapper {...rest} />)
-  );
+const ButtonLink: React.ComponentType<WrapperProps> = (props) => <StyledButton as="a" {...props} />;
+
+const applyStyle = (ButtonWrapper?: ButtonProps['ButtonWrapper']): React.ComponentType<WrapperProps> | undefined => {
+  if (!ButtonWrapper) return undefined;
+
+  const Wrapped = ({
+    containsIcon: _containsIcon,
+    isLoading: _isLoading,
+    isUnclickable: _isUnclickable,
+    children: _children,
+    ...rest
+  }: WrapperProps): JSX.Element => <ButtonWrapper {...(rest as Record<string, unknown>)}>{_children}</ButtonWrapper>;
+
+  return styled(StyledButton).attrs({ as: Wrapped })`` as unknown as React.ComponentType<WrapperProps>;
 };
 
-export function Button({ isDisabled, isLoading, loadingText, isLink, children, ButtonWrapper, ...props }) {
+/**
+ * Button component with multiple appearance and size variants
+ *
+ * @example
+ * ```tsx
+ * <Button>Default Button</Button>
+ * <Button appearance="primary" size="large">Primary Large</Button>
+ * <Button loading loadingText="Saving...">Save</Button>
+ * <Button disabled>Disabled</Button>
+ * ```
+ */
+export const Button = ({
+  isLoading = false,
+  loadingText,
+  isLink = false,
+  appearance = APPEARANCES.TERTIARY,
+  isDisabled = false,
+  isUnclickable = false,
+  containsIcon = false,
+  size = SIZES.MEDIUM,
+  children,
+  ButtonWrapper,
+  ...props
+}: ButtonProps) => {
   const buttonInner = (
     <Fragment>
       <Text>{children}</Text>
@@ -324,53 +353,24 @@ export function Button({ isDisabled, isLoading, loadingText, isLink, children, B
 
   const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [ButtonWrapper]);
 
-  let SelectedButton = StyledButton;
-  if (ButtonWrapper) {
+  let SelectedButton: React.ComponentType<WrapperProps> = StyledButton as unknown as React.ComponentType<WrapperProps>;
+  if (ButtonWrapper && StyledButtonWrapper) {
     SelectedButton = StyledButtonWrapper;
   } else if (isLink) {
     SelectedButton = ButtonLink;
   }
 
   return (
-    <SelectedButton isLoading={isLoading} disabled={isDisabled} {...props}>
+    <SelectedButton
+      size={size}
+      appearance={appearance}
+      isLoading={isLoading}
+      disabled={isDisabled}
+      isUnclickable={isUnclickable}
+      containsIcon={containsIcon}
+      {...props}
+    >
       {buttonInner}
     </SelectedButton>
   );
-}
-
-Button.propTypes = {
-  isLoading: PropTypes.bool,
-  /**
-   When a button is in the loading state you can supply custom text
-  */
-  loadingText: PropTypes.node,
-  /**
-   Buttons that have hrefs should use <a> instead of <button>
-  */
-  isLink: PropTypes.bool,
-  children: PropTypes.node.isRequired,
-  appearance: PropTypes.oneOf(Object.values(APPEARANCES)),
-  isDisabled: PropTypes.bool,
-  /**
-   Prevents users from clicking on a button multiple times (for things like payment forms)
-  */
-  isUnclickable: PropTypes.bool,
-  /**
-   Buttons with icons by themselves have a circular shape
-  */
-  containsIcon: PropTypes.bool,
-  size: PropTypes.oneOf(Object.values(SIZES)),
-  ButtonWrapper: PropTypes.oneOfType([PropTypes.func, PropTypes.object]),
-};
-
-Button.defaultProps = {
-  isLoading: false,
-  loadingText: null,
-  isLink: false,
-  appearance: APPEARANCES.TERTIARY,
-  isDisabled: false,
-  isUnclickable: false,
-  containsIcon: false,
-  size: SIZES.MEDIUM,
-  ButtonWrapper: undefined,
 };

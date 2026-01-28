@@ -6,10 +6,10 @@ jobs:
   fossa-scan:
     runs-on: ubuntu-latest
     steps:
-      - name: 'Checkout Code'
+      - name: "Checkout Code"
         uses: actions/checkout@v4
 
-      - name: 'Run FOSSA Scan'
+      - name: "Run FOSSA Scan"
         uses: fossas/fossa-action@main # Use a specific version if locking is preferred
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
@@ -19,17 +19,29 @@ jobs:
     if: (!contains(github.event.head_commit.message , 'ci skip') && !contains(github.event.head_commit.message, 'skip ci'))
     strategy:
       matrix:
-        node: ['18', '20']
+        node: ["20", "22", "24"]
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: 'yarn'
+          cache: "yarn"
+
+      - name: Cache Yarn (optional extra)
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/unplugged
+            .yarn/build-state.yml
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
 
       - name: Install dependencies
-        run: yarn
+        run: yarn install
 
       - name: Format
         run: yarn format:diff
@@ -57,7 +69,7 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
-          cache: 'yarn'
+          cache: "yarn"
 
       - name: Install dependencies
         run: yarn install --immutable
@@ -75,8 +87,4 @@ jobs:
     env:
       GH_TOKEN: ${{ secrets.GH_TOKEN }}
       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      TWITTER_ACCESS_TOKEN: ${{ secrets.TWITTER_ACCESS_TOKEN }}
-      TWITTER_ACCESS_TOKEN_SECRET: ${{ secrets.TWITTER_ACCESS_TOKEN_SECRET }}
-      TWITTER_CONSUMER_KEY: ${{ secrets.TWITTER_CONSUMER_KEY }}
-      TWITTER_CONSUMER_KEY_SECRET: ${{ secrets.TWITTER_CONSUMER_KEY_SECRET }}
       SKIP_PREFLIGHT_CHECK: true
