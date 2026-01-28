@@ -1,9 +1,10 @@
 import React from 'react';
+import type { StoryFn } from '@storybook/react';
 
 import { GlobalStyle } from '../src/shared/global';
 
 export const decorators = [
-  (Story: any) => (
+  (Story: StoryFn) => (
     <>
       <GlobalStyle />
       <Story />

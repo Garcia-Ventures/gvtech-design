@@ -8,7 +8,7 @@ import storybook from 'eslint-plugin-storybook';
 
 export default [
   {
-    ignores: ['dist', 'node_modules', 'coverage', 'eslint.config.mjs'],
+    ignores: ['dist', 'node_modules', '.yarn', 'coverage', 'eslint.config.mjs'],
   },
   js.configs.recommended,
   {
@@ -44,15 +44,6 @@ export default [
   },
   {
     files: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.cjs'],
-    languageOptions: {
-      parserOptions: {
-        ecmaVersion: 'latest',
-        sourceType: 'module',
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
-    },
     rules: {
       ...js.configs.recommended.rules,
     },

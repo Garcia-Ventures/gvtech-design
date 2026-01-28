@@ -1,5 +1,4 @@
-import { mergeConfig, type UserConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import type { UserConfig } from 'vite';
 
 export default {
   stories: ['../src/Intro.stories.tsx', '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
