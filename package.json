@@ -21,15 +21,16 @@
     "release": "auto shipit",
     "start": "vite dev",
     "storybook": "storybook dev -p 9009",
+    "validate": "yarn lint && yarn format:ci && yarn build && yarn build-storybook && yarn build-storybook-docs",
     "test": "vitest",
     "test:ci": "CI=true vitest --run --reporter=dot"
   },
   "dependencies": {
     "polished": "^4.3.1",
     "prop-types": "^15.8.1",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-is": "^19.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-is": "^19.2.4",
     "styled-components": "^6.3.8"
   },
   "devDependencies": {
@@ -73,14 +74,14 @@
     "eslint-plugin-storybook": "^10.2.1",
     "globals": "^17.2.0",
     "husky": "^9.1.7",
-    "jsdom": "^21.1.0",
+    "jsdom": "^27.4.0",
     "lint-staged": "^16.2.7",
     "prettier": "^3.8.1",
     "react-docgen-typescript": "^2.4.0",
     "storybook": "^10.2.1",
     "typescript": "^5.9.3",
     "vite": "^7.3.1",
-    "vitest": "^1.6.1"
+    "vitest": "^4.0.18"
   },
   "lint-staged": {
     "*.(js|ts|mjs|cjs)?(x)": [
