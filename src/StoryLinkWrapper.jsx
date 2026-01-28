@@ -1,6 +1,6 @@
 // This is allows us to test whether the link works via the actions addon
 import PropTypes from 'prop-types';
-import { action } from '@storybook/addon-actions';
+import { action } from 'storybook/actions';
 
 const fireClickAction = action('onLinkClick');
 

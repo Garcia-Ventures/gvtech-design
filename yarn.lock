@@ -4244,7 +4244,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdx-js/react@npm:^3.0.0":
+"@mdx-js/react@npm:^3.0.0, @mdx-js/react@npm:^3.1.1":
   version: 3.1.1
   resolution: "@mdx-js/react@npm:3.1.1"
   dependencies:
@@ -4825,13 +4825,6 @@ __metadata:
   peerDependencies:
     storybook: ^10.2.1
   checksum: 10/40a06c043f296e448fa02032fda3ce7ad711b30df36ebdf66674e1bbb76958251448f80ed0f8d284a9d83593e36f72d574ef08e7c97843ac3d6df7d17208fd74
-  languageName: node
-  linkType: hard
-
-"@storybook/addon-actions@npm:^9.0.8":
-  version: 9.0.8
-  resolution: "@storybook/addon-actions@npm:9.0.8"
-  checksum: 10/3c5ad1ea7cfe80064aa55ff332c6f2849269520a84ce28b0ca36263ac45710ed9a0983d6f244d562425bc8d8d33400715f61f10303b5fd5e6a6b8183066deb0d
   languageName: node
   linkType: hard
 
@@ -11626,8 +11619,8 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.28.5"
     "@eng618/prettier-config": "npm:^2.5.2"
     "@eslint/js": "npm:^9.39.2"
+    "@mdx-js/react": "npm:^3.1.1"
     "@storybook/addon-a11y": "npm:^10.2.1"
-    "@storybook/addon-actions": "npm:^9.0.8"
     "@storybook/addon-docs": "npm:10.2.1"
     "@storybook/addon-links": "npm:^10.2.1"
     "@storybook/builder-vite": "npm:^10.2.1"

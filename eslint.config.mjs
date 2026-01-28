@@ -4,6 +4,7 @@ import ts from '@typescript-eslint/eslint-plugin';
 import tsParser from '@typescript-eslint/parser';
 import prettier from 'eslint-plugin-prettier';
 import prettierConfig from 'eslint-config-prettier';
+import storybook from 'eslint-plugin-storybook';
 
 export default [
   {
@@ -54,6 +55,15 @@ export default [
     },
     rules: {
       ...js.configs.recommended.rules,
+    },
+  },
+  {
+    files: ['**/*.stories.@(js|jsx|ts|tsx|mdx)'],
+    plugins: {
+      storybook: storybook,
+    },
+    rules: {
+      ...storybook.configs.recommended.rules,
     },
   },
   {
