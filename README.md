@@ -14,10 +14,9 @@ A React component design system derived from the [Storybook Design System](https
 
 ---
 
-## Table of Contents
+**Table of Contents**
 
 - [GE Design System](#ge-design-system)
-  - [Table of Contents](#table-of-contents)
   - [Demo](#demo)
   - [Install](#install)
   - [Usage](#usage)

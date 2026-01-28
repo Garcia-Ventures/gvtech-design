@@ -72,7 +72,3 @@ This document outlines recommended steps to rename and publish the package under
 
 - npm Access Tokens: <https://docs.npmjs.com/creating-and-viewing-access-tokens>
 - GitHub OIDC for npm: <https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages>
-
----
-
-If you'd like, I can draft the exact PR content (diff) for the `package.json` rename and a staged publish workflow to publish to `--tag next` first. Let me know and I will prepare the patch.
