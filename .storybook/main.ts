@@ -28,16 +28,8 @@ export default {
   },
 
   async viteFinal(config: UserConfig) {
-    // Use the project's React plugin so Storybook's Vite matches the app behavior
-    const projectPlugins = [react()];
-    const projectResolve = {};
-
-    return mergeConfig(config, {
-      plugins: [...(config.plugins || []), ...projectPlugins],
-      resolve: {
-        ...(config.resolve || {}),
-        ...(projectResolve || {}),
-      },
-    });
+    // Use the project's Vite config as-is to avoid duplicating or re-injecting runtime plugins
+    // (adding the project's `react()` plugin here previously caused duplicate injections)
+    return config;
   },
 };
