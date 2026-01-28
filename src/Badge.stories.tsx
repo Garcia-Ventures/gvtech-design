@@ -1,5 +1,6 @@
-import React from 'react';
+import type { ReactNode } from 'react';
 import { Meta, StoryObj } from '@storybook/react-vite';
+
 import { Badge } from './Badge';
 import { Icon } from './Icon';
 
@@ -40,7 +41,7 @@ export const Error = () => <Badge status="error">Error</Badge>;
 
 interface BadgeArgs {
   status?: 'positive' | 'negative' | 'neutral' | 'error' | 'warning';
-  children?: React.ReactNode;
+  children?: ReactNode;
 }
 
 interface IconArgs {

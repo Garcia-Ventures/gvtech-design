@@ -120,7 +120,7 @@ const Initial = styled.div<InitialProps>`
   line-height: ${sizes.medium}px;
 
   ${(props) => props.size === 'tiny' && css`
-    font-size: ${typography.size.s1 - 2}px;
+    font-size: ${Number(typography.size.s1) - 2}px;
     line-height: ${sizes.tiny}px;
   `}
 

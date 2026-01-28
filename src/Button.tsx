@@ -24,6 +24,10 @@ interface StyledButtonProps extends SizeableProps, AppearanceProps, DisableableP
 const APPEARANCES = BUTTON_APPEARANCES;
 const SIZES = BUTTON_SIZES;
 
+const Text = styled.span``;
+
+const Loading = styled.span``;
+
 const StyledButton = styled.button<StyledButtonProps>`
   border: 0;
   border-radius: 3em;
@@ -297,17 +301,14 @@ const StyledButton = styled.button<StyledButtonProps>`
       `};
 `;
 
-const Text = styled.span``;
+const ButtonLink = (StyledButton as any).withComponent('a');
 
-const Loading = styled.span``;
-
-const ButtonLink = StyledButton.withComponent('a');
-
-const applyStyle = (ButtonWrapper) => {
+const applyStyle = (ButtonWrapper?: ButtonProps['ButtonWrapper']) => {
   return (
     ButtonWrapper &&
-    StyledButton.withComponent(
-      ({ containsIcon: _containsIcon, isLoading: _isLoading, isUnclickable: _isUnclickable, ...rest }) => (
+    // we intentionally allow `any` here for the rest props to avoid verbose typings for passthrough
+    (StyledButton as any).withComponent(
+      ({ containsIcon: _containsIcon, isLoading: _isLoading, isUnclickable: _isUnclickable, ...rest }: any) => (
         <ButtonWrapper {...rest} />
       ),
     )

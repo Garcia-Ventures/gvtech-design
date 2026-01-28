@@ -1,4 +1,3 @@
-import React from 'react';
 import styled from 'styled-components';
 import { icons } from './shared/icons';
 import { IconProps } from './types';

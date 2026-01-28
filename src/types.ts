@@ -135,6 +135,8 @@ export interface DisableableProps {
 export interface LoadableProps {
   /** Whether the component is in a loading state */
   loading?: boolean;
+  /** Backwards-compatible alias used across the codebase */
+  isLoading?: boolean;
   /** Text to display while loading */
   loadingText?: string;
 }
@@ -167,11 +169,13 @@ export interface StatusProps {
 /**
  * Props for icon components
  */
-export interface IconProps extends CommonProps {
+export interface IconProps extends CommonProps, React.SVGProps<SVGSVGElement> {
   /** The icon name/key */
-  icon: IconName;
+  icon: IconName | string;
   /** Whether to display as a block element */
   block?: boolean;
+  /** Whether to display as an inline-only variant */
+  inline?: boolean;
 }
 
 /**
@@ -208,8 +212,12 @@ export interface ButtonProps extends CommonProps, ButtonHTMLAttributes, Disablea
   containsIcon?: boolean;
   /** Whether the button should render as a link */
   isLink?: boolean;
+  /** Backwards-compatible aliases used in the codebase */
+  isLoading?: boolean;
+  isDisabled?: boolean;
+  isUnclickable?: boolean;
   /** Custom wrapper component */
-  ButtonWrapper?: React.ComponentType<Record<string, unknown>>;
+  ButtonWrapper?: React.ComponentType<any>;
 }
 
 /**
@@ -231,7 +239,7 @@ export interface LinkProps extends CommonProps, AnchorHTMLAttributes {
   /** Whether the link contains only an icon */
   containsIcon?: boolean;
   /** Custom wrapper component */
-  LinkWrapper?: React.ComponentType<Record<string, unknown>>;
+  LinkWrapper?: React.ComponentType<any>;
 }
 
 // =============================================================================

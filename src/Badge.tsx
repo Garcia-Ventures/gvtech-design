@@ -1,4 +1,3 @@
-import React from 'react';
 import styled, { css } from 'styled-components';
 import { background, color, typography } from './shared/styles';
 import { BadgeProps, BADGE_STATUSES, StatusProps } from './types';

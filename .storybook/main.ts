@@ -1,4 +1,4 @@
-import { mergeConfig } from 'vite';
+import { mergeConfig, type UserConfig } from 'vite';
 import react from '@vitejs/plugin-react';
 
 export default {
@@ -27,7 +27,7 @@ export default {
     interactionsDebugger: true,
   },
 
-  async viteFinal(config) {
+  async viteFinal(config: UserConfig) {
     // Use the project's React plugin so Storybook's Vite matches the app behavior
     const projectPlugins = [react()];
     const projectResolve = {};

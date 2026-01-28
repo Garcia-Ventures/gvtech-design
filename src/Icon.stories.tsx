@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Icon } from './Icon';
@@ -9,7 +9,7 @@ const Meta = styled.div`
   font-size: 12px;
 `;
 
-const Item = styled.li`
+const Item = styled.li<{ minimal?: boolean }>`
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -42,6 +42,7 @@ const Item = styled.li`
     `};
 `;
 
+
 const List = styled.ul`
   display: flex;
   flex-flow: row wrap;
@@ -53,7 +54,7 @@ export default {
   component: Icon,
 };
 
-export const Labels = (_args) => (
+export const Labels = (_args: any) => (
   <Fragment>
     There are {Object.keys(icons).length} icons
     <List>
@@ -67,7 +68,7 @@ export const Labels = (_args) => (
   </Fragment>
 );
 
-export const NoLabels = (_args) => (
+export const NoLabels = (_args: any) => (
   <List>
     {Object.keys(icons).map((key) => (
       <Item minimal key={key}>
@@ -79,7 +80,7 @@ export const NoLabels = (_args) => (
 
 NoLabels.storyName = 'no labels';
 
-export const Inline = (args) => (
+export const Inline = (args: any) => (
   <Fragment>
     this is an inline <Icon {...args} /> icon (default)
   </Fragment>
@@ -89,7 +90,7 @@ Inline.args = {
   'aria-label': 'Happy face',
 };
 
-export const Block = (args) => (
+export const Block = (args: any) => (
   <Fragment>
     this is a block <Icon {...args} /> icon
   </Fragment>

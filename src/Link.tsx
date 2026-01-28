@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
@@ -150,7 +150,7 @@ const LinkInner = styled.span<LinkInnerProps>`
 `;
 
 const LinkA = styled.a`
-  ${linkStyles};
+  ${(linkStyles as any)};
 `;
 
 const LinkButton = styled.button`
@@ -163,10 +163,10 @@ const LinkButton = styled.button`
   cursor: pointer;
   outline: inherit;
 
-  ${linkStyles};
+  ${(linkStyles as any)};
 `;
 
-const applyStyle = (LinkWrapper) => {
+const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
   return (
     LinkWrapper &&
     styled(
@@ -177,9 +177,9 @@ const applyStyle = (LinkWrapper) => {
         secondary: _secondary,
         tertiary: _tertiary,
         ...linkWrapperRest
-      }) => <LinkWrapper {...linkWrapperRest} />,
+      }: any) => <LinkWrapper {...linkWrapperRest} />,
     )`
-      ${linkStyles};
+      ${(linkStyles as any)};
     `
   );
 };
@@ -217,7 +217,7 @@ export const Link = ({
 
   const StyledLinkWrapper = applyStyle(LinkWrapper);
 
-  let SelectedLink = LinkA;
+  let SelectedLink: any = LinkA;
   if (LinkWrapper) {
     SelectedLink = StyledLinkWrapper;
   } else if (isButton) {
