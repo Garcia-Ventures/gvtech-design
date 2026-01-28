@@ -57,8 +57,6 @@ jobs:
     needs: [test]
     steps:
       - uses: actions/checkout@v6
-        with:
-          token: ${{ secrets.GH_TOKEN }}
 
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v6
