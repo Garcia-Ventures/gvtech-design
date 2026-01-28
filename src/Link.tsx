@@ -210,6 +210,14 @@ export const Link = ({
   children,
   ...props
 }: LinkProps) => {
+  // Dev-time accessibility check for icon-only links
+  if (process.env.NODE_ENV !== 'production') {
+    const hasAriaLabel = Object.prototype.hasOwnProperty.call(props, 'aria-label');
+    const noVisibleChildren = !children || (typeof children === 'string' && children.trim() === '');
+    if (containsIcon && noVisibleChildren && !hasAriaLabel) {
+      console.warn('Link: icon-only links should include an `aria-label` or visible text for accessibility.');
+    }
+  }
   const content = (
     <Fragment>
       <LinkInner withArrow={withArrow}>

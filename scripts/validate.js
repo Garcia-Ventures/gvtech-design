@@ -3,8 +3,8 @@
 const { spawnSync } = require('child_process');
 
 const steps = [
-  { name: 'Lint (eslint)', cmd: 'yarn lint' },
   { name: 'Prettier check', cmd: 'yarn format:ci' },
+  { name: 'Lint (eslint)', cmd: 'yarn lint' },
   { name: 'TypeScript type check', cmd: 'npx tsc --noEmit' },
   { name: 'Build (vite)', cmd: 'yarn build' },
   { name: 'Storybook build', cmd: 'yarn build-storybook' },

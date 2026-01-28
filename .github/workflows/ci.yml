@@ -44,7 +44,7 @@ jobs:
         run: yarn install
 
       - name: Format
-        run: yarn format:diff
+        run: yarn format:ci
 
       - name: Lint
         run: yarn lint

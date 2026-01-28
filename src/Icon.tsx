@@ -42,9 +42,23 @@ const Path = styled.path`
  * ```
  */
 export const Icon = ({ icon, block = false, ...props }: IconProps) => {
+  const path = icons[icon as keyof typeof icons];
+  if (!path) {
+    if (process.env.NODE_ENV !== 'production') {
+      console.warn(`Icon: icon key "${icon}" not found in icons map.`);
+    }
+
+    // Render an empty, aria-hidden SVG so consumers don't get a broken path element
+    return (
+      <Svg viewBox="0 0 1024 1024" width="20px" height="20px" block={block} aria-hidden {...props}>
+        <Path d="" />
+      </Svg>
+    );
+  }
+
   return (
     <Svg viewBox="0 0 1024 1024" width="20px" height="20px" block={block} {...props}>
-      <Path d={icons[icon]} />
+      <Path d={path} />
     </Svg>
   );
 };

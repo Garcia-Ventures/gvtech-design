@@ -3187,7 +3187,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"axe-core@npm:^4.10.0, axe-core@npm:^4.2.0":
+"axe-core@npm:^4.10.0, axe-core@npm:^4.2.0, axe-core@npm:^4.7.2":
   version: 4.11.1
   resolution: "axe-core@npm:4.11.1"
   checksum: 10/bbc8e8959258a229b92fbaa73437050825579815051cac7b0fdbb6752946fea226e403bfeeef3d60d712477bdd4c01afdc8455f27c3d85e4251df88b032b6250
@@ -4893,6 +4893,7 @@ __metadata:
     "@typescript-eslint/eslint-plugin": "npm:^8.54.0"
     "@typescript-eslint/parser": "npm:^8.54.0"
     "@vitejs/plugin-react": "npm:5.1.2"
+    axe-core: "npm:^4.7.2"
     babel-loader: "npm:^10.0.0"
     eslint: "npm:^9.39.2"
     eslint-config-prettier: "npm:^10.1.8"
@@ -4917,6 +4918,13 @@ __metadata:
     typescript: "npm:^5.9.3"
     vite: "npm:7.3.1"
     vitest: "npm:^4.0.18"
+  peerDependencies:
+    polished: ^4.0.0
+    prop-types: ^15.8.0
+    react: ^18 || ^19
+    react-dom: ^18 || ^19
+    react-is: ^16 || ^17 || ^18 || ^19
+    styled-components: ^5 || ^6
   languageName: unknown
   linkType: soft
 

@@ -344,6 +344,14 @@ export const Button = ({
   ButtonWrapper,
   ...props
 }: ButtonProps) => {
+  // Dev-time accessibility check: if the button is icon-only, require an accessible name
+  if (process.env.NODE_ENV !== 'production') {
+    const hasAriaLabel = Object.prototype.hasOwnProperty.call(props, 'aria-label');
+    const noVisibleChildren = !children || (typeof children === 'string' && children.trim() === '');
+    if (containsIcon && noVisibleChildren && !hasAriaLabel) {
+      console.warn('Button: icon-only buttons should include an `aria-label` or visible text for accessibility.');
+    }
+  }
   const buttonInner = (
     <Fragment>
       <Text>{children}</Text>

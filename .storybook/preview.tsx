@@ -1,18 +1,17 @@
 import React from 'react';
-import type { StoryFn } from '@storybook/react';
-
+import type { StoryFn, Preview, StoryContext } from '@storybook/react';
 import { GlobalStyle } from '../src/shared/global';
 
-export const decorators = [
-  (Story: StoryFn) => (
+export const decorators: Preview['decorators'] = [
+  (Story: StoryFn, context: StoryContext) => (
     <>
       <GlobalStyle />
-      <Story />
+      {Story(context.args, context)}
     </>
   ),
 ];
 
-export const parameters = {
+export const parameters: Preview['parameters'] = {
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -28,4 +27,4 @@ export const parameters = {
     options: {},
   },
 };
-export const tags = ['autodocs'];
+export const tags: string[] = ['autodocs'];

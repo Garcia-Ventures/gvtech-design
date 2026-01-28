@@ -1,8 +1,9 @@
 import type { UserConfig } from 'vite';
+import type { StorybookConfig } from '@storybook/react-vite';
 
 export default {
   stories: ['../src/Intro.stories.tsx', '../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  staticDirs: ['../public'],
+  staticDirs: [{ from: '../public', to: '/public' }],
   addons: ['@storybook/addon-links', '@storybook/addon-a11y', '@storybook/addon-docs'],
 
   framework: {
@@ -16,7 +17,10 @@ export default {
         reactDocgenTypescriptOptions: {
           shouldExtractLiteralValuesFromEnum: true,
           shouldRemoveUndefinedFromOptional: true,
-          propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
+          propFilter: (prop: unknown) => {
+            const p = prop as { parent?: { fileName?: string } } | undefined;
+            return p?.parent ? !/node_modules/.test(p.parent.fileName || '') : true;
+          },
         },
       },
     },
@@ -31,4 +35,4 @@ export default {
     // (adding the project's `react()` plugin here previously caused duplicate injections)
     return config;
   },
-};
+} as StorybookConfig;
