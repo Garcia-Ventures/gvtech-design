@@ -1,4 +1,15 @@
-# v0.6.3 (Wed Aug 30 2023)
+# Changelog
+
+## [0.7.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.6.3...v0.7.0) (2026-01-28)
+
+
+### Features
+
+* enhance accessibility checks and improve build process ([482dc51](https://github.com/Garcia-Ventures/gvtech-design/commit/482dc51e36545217d886b13fae55c0e527cbb8a5))
+* **release:** update release process ([#47](https://github.com/Garcia-Ventures/gvtech-design/issues/47)) ([d0dc2af](https://github.com/Garcia-Ventures/gvtech-design/commit/d0dc2afab6c992e0f4a2d9b94d4f70ffefebc279))
+* rename and modernize the design system ([#45](https://github.com/Garcia-Ventures/gvtech-design/issues/45)) ([5bc936d](https://github.com/Garcia-Ventures/gvtech-design/commit/5bc936dc3a831c431eb80a2679d6c0785e6e622d))
+
+## v0.6.3 (Wed Aug 30 2023)
 
 #### 🐛 Bug Fix
 
@@ -10,7 +21,7 @@
 
 ---
 
-# v0.6.1 (Wed Aug 30 2023)
+## v0.6.1 (Wed Aug 30 2023)
 
 #### 🐛 Bug Fix
 
@@ -42,7 +53,7 @@
 
 ---
 
-# v0.6.0 (Tue Nov 15 2022)
+## v0.6.0 (Tue Nov 15 2022)
 
 #### 🚀 Enhancement
 
@@ -54,7 +65,7 @@
 
 ---
 
-# v0.5.15 (Mon Nov 14 2022)
+## v0.5.15 (Mon Nov 14 2022)
 
 #### 🐛 Bug Fix
 
@@ -67,7 +78,7 @@
 
 ---
 
-# v0.5.14 (Mon Nov 14 2022)
+## v0.5.14 (Mon Nov 14 2022)
 
 #### 🐛 Bug Fix
 
@@ -83,7 +94,7 @@
 
 ---
 
-# v0.5.13 (Mon Nov 14 2022)
+## v0.5.13 (Mon Nov 14 2022)
 
 #### 🐛 Bug Fix
 
@@ -110,7 +121,7 @@
 
 ---
 
-# v0.5.12 (Fri Nov 05 2021)
+## v0.5.12 (Fri Nov 05 2021)
 
 #### 🐛 Bug Fix
 
@@ -122,7 +133,7 @@
 
 ---
 
-# v0.5.11 (Fri Nov 05 2021)
+## v0.5.11 (Fri Nov 05 2021)
 
 #### 🐛 Bug Fix
 
@@ -136,7 +147,7 @@
 
 ---
 
-# v0.5.10 (Thu Jun 03 2021)
+## v0.5.10 (Thu Jun 03 2021)
 
 #### 🐛 Bug Fix
 
@@ -148,7 +159,7 @@
 
 ---
 
-# v0.5.9 (Thu Jun 03 2021)
+## v0.5.9 (Thu Jun 03 2021)
 
 #### 🐛 Bug Fix
 
@@ -161,7 +172,7 @@
 
 ---
 
-# v0.5.8 (Thu Jun 03 2021)
+## v0.5.8 (Thu Jun 03 2021)
 
 #### 🐛 Bug Fix
 
@@ -173,7 +184,7 @@
 
 ---
 
-# v0.5.7 (Thu Jun 03 2021)
+## v0.5.7 (Thu Jun 03 2021)
 
 #### 🐛 Bug Fix
 
@@ -185,7 +196,7 @@
 
 ---
 
-# v0.5.6 (Thu Apr 22 2021)
+## v0.5.6 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -197,7 +208,7 @@
 
 ---
 
-# v0.5.5 (Thu Apr 22 2021)
+## v0.5.5 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -210,7 +221,7 @@
 
 ---
 
-# v0.5.4 (Thu Apr 22 2021)
+## v0.5.4 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -222,7 +233,7 @@
 
 ---
 
-# v0.5.3 (Thu Apr 22 2021)
+## v0.5.3 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -235,7 +246,7 @@
 
 ---
 
-# v0.5.2 (Thu Apr 22 2021)
+## v0.5.2 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -248,7 +259,7 @@
 
 ---
 
-# v0.5.1 (Thu Apr 22 2021)
+## v0.5.1 (Thu Apr 22 2021)
 
 #### 🐛 Bug Fix
 
@@ -260,7 +271,7 @@
 
 ---
 
-# v0.2.0 (Wed Apr 21 2021)
+## v0.2.0 (Wed Apr 21 2021)
 
 #### 🚀 Enhancement
 
@@ -287,7 +298,7 @@
 
 ---
 
-# v0.2.0 (Wed Apr 21 2021)
+## v0.2.0 (Wed Apr 21 2021)
 
 #### 🚀 Enhancement
 
@@ -314,7 +325,7 @@
 
 ---
 
-# v0.1.14 (Thu Dec 24 2020)
+## v0.1.14 (Thu Dec 24 2020)
 
 #### 🔩 Dependency Updates
 
@@ -326,7 +337,7 @@
 
 ---
 
-# (Thu Dec 24 2020)
+## (Thu Dec 24 2020)
 
 #### 🔩 Dependency Updates
 
@@ -338,7 +349,7 @@
 
 ---
 
-# v0.1.13 (Fri Sep 11 2020)
+## v0.1.13 (Fri Sep 11 2020)
 
 #### 🔩 Dependency Updates
 
@@ -350,7 +361,7 @@
 
 ---
 
-# (Fri Sep 11 2020)
+## (Fri Sep 11 2020)
 
 #### 🔩 Dependency Updates
 
@@ -362,7 +373,7 @@
 
 ---
 
-# v0.1.12 (Sun Aug 02 2020)
+## v0.1.12 (Sun Aug 02 2020)
 
 #### 🔩 Dependency Updates
 
@@ -374,7 +385,7 @@
 
 ---
 
-# (Sun Aug 02 2020)
+## (Sun Aug 02 2020)
 
 #### 🔩 Dependency Updates
 
@@ -386,7 +397,7 @@
 
 ---
 
-# v0.1.11 (Thu Jun 11 2020)
+## v0.1.11 (Thu Jun 11 2020)
 
 #### 🐛 Bug Fix
 
@@ -398,7 +409,7 @@
 
 ---
 
-# v0.1.11 (Thu Jun 11 2020)
+## v0.1.11 (Thu Jun 11 2020)
 
 #### 🐛 Bug Fix
 
@@ -410,7 +421,7 @@
 
 ---
 
-# v0.1.10 (Tue Jun 09 2020)
+## v0.1.10 (Tue Jun 09 2020)
 
 #### ⚠️ Pushed to `master`
 
@@ -422,7 +433,7 @@
 
 ---
 
-# v0.1.9 (Tue Jun 09 2020)
+## v0.1.9 (Tue Jun 09 2020)
 
 #### ⚠️ Pushed to `master`
 
@@ -434,7 +445,7 @@
 
 ---
 
-# v0.1.8 (Mon Jun 08 2020)
+## v0.1.8 (Mon Jun 08 2020)
 
 #### 🐛 Bug Fix
 
@@ -446,7 +457,7 @@
 
 ---
 
-# v0.1.1 (Tue Mar 17 2020)
+## v0.1.1 (Tue Mar 17 2020)
 
 #### 🐛 Bug Fix
 
@@ -461,7 +472,7 @@
 
 ---
 
-# v0.1.0 (Fri Nov 15 2019)
+## v0.1.0 (Fri Nov 15 2019)
 
 - Created first version of the design system, with `Avatar`, `Badge`, `Button`, `Icon` and `Link` components.
 
