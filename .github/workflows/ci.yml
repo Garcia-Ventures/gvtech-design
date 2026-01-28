@@ -69,3 +69,9 @@ jobs:
 
       - name: Build
         run: yarn build
+
+      - name: Build Storybook
+        run: yarn build-storybook
+
+      - name: Build Storybook Docs
+        run: yarn build-storybook-docs
