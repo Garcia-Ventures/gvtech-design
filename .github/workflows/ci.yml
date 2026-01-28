@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v4
+        uses: actions/checkout@v6
 
       - name: "Run FOSSA Scan"
         uses: fossas/fossa-action@main # Use a specific version if locking is preferred
@@ -21,9 +21,9 @@ jobs:
       matrix:
         node: ["20", "22", "24"]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: "yarn"
@@ -52,21 +52,16 @@ jobs:
       - name: Run Tests
         run: yarn test:ci
 
-  build-and-release:
+  build:
     runs-on: ubuntu-latest
     needs: [test]
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
         with:
           token: ${{ secrets.GH_TOKEN }}
 
-      - name: Prepare repository
-        run: |
-          echo "Fetching git tags for auto"
-          git fetch --unshallow --tags
-
       - name: Use Node.js ${{ matrix.node }}
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
           cache: "yarn"
@@ -76,15 +71,3 @@ jobs:
 
       - name: Build
         run: yarn build
-
-      - name: Auto Info
-        run: yarn auto info
-
-      - name: Auto Release
-        if: github.ref == 'refs/heads/main'
-        run: yarn release
-
-    env:
-      GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      SKIP_PREFLIGHT_CHECK: true
