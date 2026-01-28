@@ -28,8 +28,20 @@ jobs:
           node-version: ${{ matrix.node }}
           cache: "yarn"
 
+      - name: Cache Yarn (optional extra)
+        uses: actions/cache@v4
+        with:
+          path: |
+            .yarn/cache
+            .yarn/unplugged
+            .yarn/build-state.yml
+            .yarn/install-state.gz
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+
       - name: Install dependencies
-        run: yarn
+        run: yarn install --immutable --immutable-cache
 
       - name: Format
         run: yarn format:diff
