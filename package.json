@@ -6,6 +6,9 @@
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "main": "dist/index.js",
   "repository": "git@github.com:Garcia-ventures/gvtech-design.git",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "vite build",
     "build-storybook": "storybook build",
