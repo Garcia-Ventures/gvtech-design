@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react';
 import styled from 'styled-components';
 import { darken, rgba } from 'polished';
+
 import { color, typography } from './shared/styles';
 import { easing } from './shared/animation';
 import {
@@ -301,16 +302,26 @@ const StyledButton = styled.button<StyledButtonProps>`
       `};
 `;
 
-const ButtonLink = (StyledButton as any).withComponent('a');
+const ButtonLink = (
+  StyledButton as unknown as { withComponent: (name: string) => React.ComponentType<Record<string, unknown>> }
+).withComponent('a');
 
 const applyStyle = (ButtonWrapper?: ButtonProps['ButtonWrapper']) => {
   return (
     ButtonWrapper &&
-    // we intentionally allow `any` here for the rest props to avoid verbose typings for passthrough
-    (StyledButton as any).withComponent(
-      ({ containsIcon: _containsIcon, isLoading: _isLoading, isUnclickable: _isUnclickable, ...rest }: any) => (
-        <ButtonWrapper {...rest} />
-      ),
+    (
+      StyledButton as unknown as {
+        withComponent: (
+          component: React.ComponentType<Record<string, unknown>>,
+        ) => React.ComponentType<Record<string, unknown>>;
+      }
+    ).withComponent(
+      ({
+        containsIcon: _containsIcon,
+        isLoading: _isLoading,
+        isUnclickable: _isUnclickable,
+        ...rest
+      }: Record<string, unknown>) => <ButtonWrapper {...(rest as Record<string, unknown>)} />,
     )
   );
 };

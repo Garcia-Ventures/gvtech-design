@@ -217,7 +217,7 @@ export interface ButtonProps extends CommonProps, ButtonHTMLAttributes, Disablea
   isDisabled?: boolean;
   isUnclickable?: boolean;
   /** Custom wrapper component */
-  ButtonWrapper?: React.ComponentType<any>;
+  ButtonWrapper?: React.ComponentType<Record<string, unknown>>;
 }
 
 /**
@@ -239,7 +239,7 @@ export interface LinkProps extends CommonProps, AnchorHTMLAttributes {
   /** Whether the link contains only an icon */
   containsIcon?: boolean;
   /** Custom wrapper component */
-  LinkWrapper?: React.ComponentType<any>;
+  LinkWrapper?: React.ComponentType<Record<string, unknown>>;
 }
 
 // =============================================================================

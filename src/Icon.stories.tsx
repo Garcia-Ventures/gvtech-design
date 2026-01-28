@@ -53,7 +53,7 @@ export default {
   component: Icon,
 };
 
-export const Labels = (_args: any) => (
+export const Labels = (_args: Record<string, unknown>) => (
   <Fragment>
     There are {Object.keys(icons).length} icons
     <List>
@@ -67,7 +67,7 @@ export const Labels = (_args: any) => (
   </Fragment>
 );
 
-export const NoLabels = (_args: any) => (
+export const NoLabels = (_args: Record<string, unknown>) => (
   <List>
     {Object.keys(icons).map((key) => (
       <Item minimal key={key}>
@@ -79,7 +79,7 @@ export const NoLabels = (_args: any) => (
 
 NoLabels.storyName = 'no labels';
 
-export const Inline = (args: any) => (
+export const Inline = (args: Record<string, unknown>) => (
   <Fragment>
     this is an inline <Icon {...args} /> icon (default)
   </Fragment>
@@ -89,7 +89,7 @@ Inline.args = {
   'aria-label': 'Happy face',
 };
 
-export const Block = (args: any) => (
+export const Block = (args: Record<string, unknown>) => (
   <Fragment>
     this is a block <Icon {...args} /> icon
   </Fragment>

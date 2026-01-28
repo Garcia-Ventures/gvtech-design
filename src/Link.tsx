@@ -1,4 +1,5 @@
-import { Fragment } from 'react';
+import type { ComponentType } from 'react';
+import React, { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
@@ -149,11 +150,11 @@ const LinkInner = styled.span<LinkInnerProps>`
     `};
 `;
 
-const LinkA = styled.a`
-  ${linkStyles as any};
+const LinkA = styled.a<StyledLinkProps>`
+  ${linkStyles};
 `;
 
-const LinkButton = styled.button`
+const LinkButton = styled.button<StyledLinkProps>`
   /* reset button styles */
   background: none;
   color: inherit;
@@ -163,7 +164,7 @@ const LinkButton = styled.button`
   cursor: pointer;
   outline: inherit;
 
-  ${linkStyles as any};
+  ${linkStyles};
 `;
 
 const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
@@ -177,9 +178,9 @@ const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
         secondary: _secondary,
         tertiary: _tertiary,
         ...linkWrapperRest
-      }: any) => <LinkWrapper {...linkWrapperRest} />,
+      }: Record<string, unknown>) => <LinkWrapper {...(linkWrapperRest as Record<string, unknown>)} />,
     )`
-      ${linkStyles as any};
+      ${linkStyles};
     `
   );
 };
@@ -217,11 +218,11 @@ export const Link = ({
 
   const StyledLinkWrapper = applyStyle(LinkWrapper);
 
-  let SelectedLink: any = LinkA;
+  let SelectedLink: ComponentType<Record<string, unknown>> = LinkA;
   if (LinkWrapper) {
-    SelectedLink = StyledLinkWrapper;
+    SelectedLink = StyledLinkWrapper as ComponentType<Record<string, unknown>>;
   } else if (isButton) {
-    SelectedLink = LinkButton;
+    SelectedLink = LinkButton as ComponentType<Record<string, unknown>>;
   }
 
   return (
