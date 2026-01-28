@@ -55,10 +55,10 @@ export default [
           jsx: true,
         },
       },
-      settings: {
-        react: {
-          version: 'detect',
-        },
+    },
+    settings: {
+      react: {
+        version: 'detect',
       },
     },
     plugins: {
