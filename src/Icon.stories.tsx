@@ -1,4 +1,4 @@
-import { Fragment } from 'react';
+import { ComponentProps, Fragment } from 'react';
 import styled, { css } from 'styled-components';
 
 import { Icon } from './Icon';
@@ -79,9 +79,9 @@ export const NoLabels = (_args: Record<string, unknown>) => (
 
 NoLabels.storyName = 'no labels';
 
-export const Inline = (args: Record<string, unknown>) => (
+export const Inline = (args: Partial<ComponentProps<typeof Icon>>) => (
   <Fragment>
-    this is an inline <Icon {...args} /> icon (default)
+    this is an inline <Icon {...(args as ComponentProps<typeof Icon>)} /> icon (default)
   </Fragment>
 );
 Inline.args = {
@@ -89,9 +89,9 @@ Inline.args = {
   'aria-label': 'Happy face',
 };
 
-export const Block = (args: Record<string, unknown>) => (
+export const Block = (args: Partial<ComponentProps<typeof Icon>>) => (
   <Fragment>
-    this is a block <Icon {...args} /> icon
+    this is a block <Icon {...(args as ComponentProps<typeof Icon>)} /> icon
   </Fragment>
 );
 Block.args = {

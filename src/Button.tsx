@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, JSX } from 'react';
 import styled from 'styled-components';
 import { darken, rgba } from 'polished';
 
@@ -302,28 +302,22 @@ const StyledButton = styled.button<StyledButtonProps>`
       `};
 `;
 
-const ButtonLink = (
-  StyledButton as unknown as { withComponent: (name: string) => React.ComponentType<Record<string, unknown>> }
-).withComponent('a');
+type WrapperProps = Record<string, unknown> & { children?: React.ReactNode };
 
-const applyStyle = (ButtonWrapper?: ButtonProps['ButtonWrapper']) => {
-  return (
-    ButtonWrapper &&
-    (
-      StyledButton as unknown as {
-        withComponent: (
-          component: React.ComponentType<Record<string, unknown>>,
-        ) => React.ComponentType<Record<string, unknown>>;
-      }
-    ).withComponent(
-      ({
-        containsIcon: _containsIcon,
-        isLoading: _isLoading,
-        isUnclickable: _isUnclickable,
-        ...rest
-      }: Record<string, unknown>) => <ButtonWrapper {...(rest as Record<string, unknown>)} />,
-    )
-  );
+const ButtonLink: React.ComponentType<WrapperProps> = (props) => <StyledButton as="a" {...props} />;
+
+const applyStyle = (ButtonWrapper?: ButtonProps['ButtonWrapper']): React.ComponentType<WrapperProps> | undefined => {
+  if (!ButtonWrapper) return undefined;
+
+  const Wrapped = ({
+    containsIcon: _containsIcon,
+    isLoading: _isLoading,
+    isUnclickable: _isUnclickable,
+    children: _children,
+    ...rest
+  }: WrapperProps): JSX.Element => <ButtonWrapper {...(rest as Record<string, unknown>)}>{_children}</ButtonWrapper>;
+
+  return styled(StyledButton).attrs({ as: Wrapped })`` as unknown as React.ComponentType<WrapperProps>;
 };
 
 /**
@@ -359,8 +353,8 @@ export const Button = ({
 
   const StyledButtonWrapper = React.useMemo(() => applyStyle(ButtonWrapper), [ButtonWrapper]);
 
-  let SelectedButton = StyledButton;
-  if (ButtonWrapper) {
+  let SelectedButton: React.ComponentType<WrapperProps> = StyledButton as unknown as React.ComponentType<WrapperProps>;
+  if (ButtonWrapper && StyledButtonWrapper) {
     SelectedButton = StyledButtonWrapper;
   } else if (isLink) {
     SelectedButton = ButtonLink;

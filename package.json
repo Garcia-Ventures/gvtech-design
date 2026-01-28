@@ -23,7 +23,7 @@
     "storybook": "storybook dev -p 9009",
     "test": "vitest",
     "test:ci": "CI=true vitest --run --reporter=dot",
-    "validate": "yarn lint && yarn format:ci && yarn build && yarn build-storybook && yarn build-storybook-docs"
+    "validate": "yarn lint && yarn format:ci && npx tsc --noEmit && yarn build && yarn build-storybook && yarn build-storybook-docs"
   },
   "dependencies": {
     "polished": "^4.3.1",

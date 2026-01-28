@@ -1,5 +1,5 @@
-import type { ComponentType } from 'react';
-import React, { Fragment } from 'react';
+import type { ComponentType, ReactNode } from 'react';
+import { Fragment } from 'react';
 import styled, { css } from 'styled-components';
 import { darken } from 'polished';
 
@@ -177,8 +177,11 @@ const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
         nochrome: _nochrome,
         secondary: _secondary,
         tertiary: _tertiary,
+        children: _children,
         ...linkWrapperRest
-      }: Record<string, unknown>) => <LinkWrapper {...(linkWrapperRest as Record<string, unknown>)} />,
+      }: Record<string, unknown>) => (
+        <LinkWrapper {...(linkWrapperRest as Record<string, unknown>)}>{_children as ReactNode}</LinkWrapper>
+      ),
     )`
       ${linkStyles};
     `
