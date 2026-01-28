@@ -11,7 +11,14 @@ interface Props {
   to?: string | null;
 }
 
-export const StoryLinkWrapper: React.FC<Props> = ({ children, className = '', href = null, onClick = () => {}, to = null, ...rest }) => {
+export const StoryLinkWrapper: React.FC<Props> = ({
+  children,
+  className = '',
+  href = null,
+  onClick = () => {},
+  to = null,
+  ...rest
+}) => {
   const modifiedOnClick = (event: React.MouseEvent) => {
     event.preventDefault();
     onClick?.();
@@ -24,5 +31,3 @@ export const StoryLinkWrapper: React.FC<Props> = ({ children, className = '', hr
     </a>
   );
 };
-
-

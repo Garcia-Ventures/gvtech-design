@@ -42,7 +42,6 @@ const Item = styled.li<{ minimal?: boolean }>`
     `};
 `;
 
-
 const List = styled.ul`
   display: flex;
   flex-flow: row wrap;

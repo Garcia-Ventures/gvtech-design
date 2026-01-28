@@ -150,7 +150,7 @@ const LinkInner = styled.span<LinkInnerProps>`
 `;
 
 const LinkA = styled.a`
-  ${(linkStyles as any)};
+  ${linkStyles as any};
 `;
 
 const LinkButton = styled.button`
@@ -163,7 +163,7 @@ const LinkButton = styled.button`
   cursor: pointer;
   outline: inherit;
 
-  ${(linkStyles as any)};
+  ${linkStyles as any};
 `;
 
 const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
@@ -179,7 +179,7 @@ const applyStyle = (LinkWrapper?: LinkProps['LinkWrapper']) => {
         ...linkWrapperRest
       }: any) => <LinkWrapper {...linkWrapperRest} />,
     )`
-      ${(linkStyles as any)};
+      ${linkStyles as any};
     `
   );
 };
