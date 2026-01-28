@@ -41,3 +41,6 @@ dist
 
 # eslint cache
 .eslintcache
+
+# codacy
+.github/instructions/codacy.instructions.md
