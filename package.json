@@ -6,6 +6,9 @@
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "main": "dist/index.js",
   "repository": "git@github.com:Garcia-ventures/gvtech-design.git",
+  "engines": {
+    "node": ">=20"
+  },
   "scripts": {
     "build": "vite build",
     "build-storybook": "storybook build",
@@ -18,7 +21,6 @@
     "lint:fix": "eslint . --cache --fix",
     "lint:report": "eslint . --cache -o ./eslintReport.html -f html",
     "prepare": "husky",
-    "release": "auto shipit",
     "start": "vite dev",
     "storybook": "storybook dev -p 9009",
     "test": "vitest",
@@ -34,8 +36,6 @@
     "styled-components": "^6.3.8"
   },
   "devDependencies": {
-    "@auto-it/conventional-commits": "^11.3.6",
-    "@auto-it/twitter": "^11.3.6",
     "@babel/cli": "^7.28.6",
     "@babel/core": "^7.28.6",
     "@babel/preset-env": "^7.28.6",
@@ -61,7 +61,6 @@
     "@typescript-eslint/eslint-plugin": "^8.54.0",
     "@typescript-eslint/parser": "^8.54.0",
     "@vitejs/plugin-react": "5.1.2",
-    "auto": "^11.3.6",
     "babel-loader": "^10.0.0",
     "eslint": "^9.39.2",
     "eslint-config-prettier": "^10.1.8",
@@ -91,19 +90,6 @@
     ]
   },
   "prettier": "@eng618/prettier-config",
-  "auto": {
-    "plugins": [
-      "npm",
-      "all-contributors",
-      [
-        "conventional-commits",
-        {
-          "defaultReleaseType": "patch"
-        }
-      ],
-      "released"
-    ]
-  },
   "babel": {
     "presets": [
       "@babel/preset-env",

@@ -1,0 +1,28 @@
+name: Release Please
+
+on:
+    push:
+        branches: [main]
+    workflow_dispatch:
+
+permissions:
+    id-token: write # For OIDC trusted publishing
+    contents: write # For tags and releases
+    pull-requests: write # For creating release PRs
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v6
+
+            - name: Run release-please
+              uses: googleapis/release-please-action@v4.4
+              with:
+                  release-type: node
+                  # Use a PAT with repo scopes; set as repository secret `RELEASE_PLEASE_TOKEN`
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Show notice
+              run: echo "If a release PR is created, review and merge it to create a tag/release."

@@ -1,35 +1,116 @@
-<center>
-
 # GE Design System
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/c104d072-a3bb-4f8a-bd93-a7d5652ff75f/deploy-status)](https://app.netlify.com/sites/ge-design/deploys)
-[![CI](https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml/badge.svg)](https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml)
-[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git.svg?type=shield)](https://app.fossa.com/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git?ref=badge_shield)
+<p align="center">
+  <img alt="GE Design System" src="https://raw.githubusercontent.com/Garcia-Enterprise/ge-design/main/assets/logo.png" width="180" />
 
-[![Auto Release](https://img.shields.io/badge/release-auto.svg?colorA=888888&colorB=9B065A&label=auto&logo=data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAACzElEQVR4AYXBW2iVBQAA4O+/nLlLO9NM7JSXasko2ASZMaKyhRKEDH2ohxHVWy6EiIiiLOgiZG9CtdgG0VNQoJEXRogVgZYylI1skiKVITPTTtnv3M7+v8UvnG3M+r7APLIRxStn69qzqeBBrMYyBDiL4SD0VeFmRwtrkrI5IjP0F7rjzrSjvbTqwubiLZffySrhRrSghBJa8EBYY0NyLJt8bDBOtzbEY72TldQ1kRm6otana8JK3/kzN/3V/NBPU6HsNnNlZAz/ukOalb0RBJKeQnykd7LiX5Fp/YXuQlfUuhXbg8Di5GL9jbXFq/tLa86PpxPhAPrwCYaiorS8L/uuPJh1hZFbcR8mewrx0d7JShr3F7pNW4vX0GRakKWVk7taDq7uPvFWw8YkMcPVb+vfvfRZ1i7zqFwjtmFouL72y6C/0L0Ie3GvaQXRyYVB3YZNE32/+A/D9bVLcRB3yw3hkRCdaDUtFl6Ykr20aaLvKoqIXUdbMj6GFzAmdxfWx9iIRrkDr1f27cFONGMUo/gRI/jNbIMYxJOoR1cY0OGaVPb5z9mlKbyJP/EsdmIXvsFmM7Ql42nEblX3xI1BbYbTkXCqRnxUbgzPo4T7sQBNeBG7zbAiDI8nWfZDhQWYCG4PFr+HMBQ6l5VPJybeRyJXwsdYJ/cRnlJV0yB4ZlUYtFQIkMZnst8fRrPcKezHCblz2IInMIkPzbbyb9mW42nWInc2xmE0y61AJ06oGsXL5rcOK1UdCbEXiVwNXsEy/6+EbaiVG8eeEAfxvaoSBnCH61uOD7BS1Ul8ESHBKWxCrdyd6EYNKihgEVrwOAbQruoytuBYIFfAc3gVN6iawhjKyNCEpYhVJXgbOzARyaU4hCtYizq5EI1YgiUoIlT1B7ZjByqmRWYbwtdYjoWoN7+LOIQefIqKawLzK6ID69GGpQgwhhEcwGGUzfEPAiPqsCXadFsAAAAASUVORK5CYII=)](https://github.com/intuit/auto)
-![npm](https://img.shields.io/npm/dt/ge-design-system)
+  <br />
+  <a href="https://app.netlify.com/sites/ge-design/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/c104d072-a3bb-4f8a-bd93-a7d5652ff75f/deploy-status" /></a>
+  <a href="https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://app.fossa.com/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git?ref=badge_shield"><img alt="FOSSA" src="https://app.fossa.com/api/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git.svg?type=shield" /></a>
+  <a href="https://www.npmjs.com/package/ge-design-system"><img alt="npm" src="https://img.shields.io/npm/dt/ge-design-system" /></a>
+</p>
 
-</center>
+A React component design system derived from the [Storybook Design System](https://github.com/storybookjs/design-system). This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects.
 
-[npm ge-design-system](https://www.npmjs.com/package/ge-design-system)
+---
 
-Based on the Learn Storybook design system is a subset of the full [Storybook design system](https://github.com/storybookjs/design-system/), created as a learning resource for those interested in learning how to write and publish a design system using best in practice techniques.
+**Table of Contents**
 
-Learn more at [Learn Storybook](https://learnstorybook.com).
+- [GE Design System](#ge-design-system)
+  - [Demo](#demo)
+  - [Install](#install)
+  - [Usage](#usage)
+  - [Development](#development)
+  - [Testing](#testing)
+  - [Releases \& Publishing](#releases--publishing)
+  - [Contributing](#contributing)
+  - [Migration to @gvtech scope](#migration-to-gvtech-scope)
+  - [Roadmap](#roadmap)
+  - [License](#license)
+
+---
+
+## Demo
+
+Storybook static docs are available in this repository (`stories` + `src`): run locally with `yarn storybook` or view the compiled output if hosted.
+
+## Install
+
+For now the public package is published as `ge-design-system`:
+
+```bash
+# npm
+npm install ge-design-system
+
+# yarn
+yarn add ge-design-system
+```
+
+> Note: We are planning a scoped rename to `@gvtech/<name>` (see [MIGRATE_TO_GVTECH_SCOPE.md](docs/MIGRATE_TO_GVTECH_SCOPE.md)).
+
+## Usage
+
+Example import:
+
+```js
+import { Button } from 'ge-design-system';
+
+function App() {
+  return <Button>Click me</Button>;
+}
+```
+
+## Development
+
+Start a local dev server:
+
+```bash
+yarn dev
+```
+
+Available scripts (selected):
+
+- `yarn dev` — start Vite dev server
+- `yarn build` — build the package
+- `yarn storybook` — run Storybook locally
+- `yarn test` — run tests locally
+- `yarn test:ci` — run tests in CI
+- `yarn lint` — run eslint
+
+For full commands and details see `package.json`.
 
 ## Testing
 
-We use **Vitest** for running unit tests (configured in `vitest.config.ts`) and the testing-library suite for DOM and React testing. Commands:
+Unit tests use Vitest and React Testing Library.
 
-- `yarn test` — run tests locally (watch mode by default)
-- `yarn test:ci` — run tests in CI (non-interactive)
+- Run tests locally: `yarn test`
+- CI runs: `yarn test:ci`
 
-Tests are set up to auto-import `@testing-library/jest-dom` via `src/setupTests.ts`.
+## Releases & Publishing
 
-<!-- ## Contributing
+We use [`googleapis/release-please-action`](https://github.com/googleapis/release-please-action) to create release PRs and tags. For details on how to set it up and test releases, see [.github/RELEASING.md](.github/RELEASING.md).
 
-If you would like to contribute to the system please follow the [Contributing Guidelines](CONTRIBUTING.md) -->
+Publishing currently uses an `NPM_TOKEN` secret; we will later migrate to OIDC and scoped automation tokens for `@gvtech` publishing.
+
+## Contributing
+
+Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) before contributing. Key points:
+
+- Follow **Conventional Commits** to ensure release tooling produces accurate changelogs.
+- Run `yarn lint` and `yarn test` before opening PRs.
+
+## Migration to @gvtech scope
+
+See the migration plan and checklist: [docs/MIGRATE_TO_GVTECH_SCOPE.md](docs/MIGRATE_TO_GVTECH_SCOPE.md).
+
+## Roadmap
+
+See issues and milestones for planned work.
 
 ## License
 
-[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git.svg?type=large)](https://app.fossa.com/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git?ref=badge_large)
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
+
+---
+
+> For README best practices, we follow guidance from <https://www.makeareadme.com/>
