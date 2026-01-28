@@ -1,5 +1,5 @@
 [build]
-command = "yarn install --immutable && yarn build && yarn build-storybook && yarn build-storybook-docs"
+command = "yarn install --immutable && yarn build-storybook"
 publish = "storybook-static"
 
 [build.environment]
