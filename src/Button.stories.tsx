@@ -69,10 +69,10 @@ export const AllButtons = (_args: any) => (
       Disabled
     </Button>
     <Button appearance="outline" size="small" containsIcon>
-      <Icon icon={"link" as IconName} aria-label="Link" />
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
     <Button appearance="outline" size="small">
-      <Icon icon={"link" as IconName} />
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>
@@ -139,10 +139,10 @@ export const buttonWrapper = (_args: any) => (
       Disabled
     </Button>
     <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small" containsIcon>
-      <Icon icon={"link" as IconName} aria-label="Link" />
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
     <Button ButtonWrapper={ButtonWrapper} appearance="outline" size="small">
-      <Icon icon={"link" as IconName} />
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>
@@ -188,13 +188,7 @@ export const AnchorWrapper = (_args: any) => (
     <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" loading>
       Outline
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      loading
-      loadingText="Custom..."
-     
-    >
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" loading loadingText="Custom...">
       Outline
     </Button>
     <br />
@@ -213,17 +207,11 @@ export const AnchorWrapper = (_args: any) => (
     <Button ButtonWrapper={StoryLinkWrapper} appearance="primary" disabled size="small">
       Disabled
     </Button>
-    <Button
-      ButtonWrapper={StoryLinkWrapper}
-      appearance="outline"
-      size="small"
-      containsIcon
-     
-    >
-      <Icon icon={"link" as IconName} aria-label="Link" />
+    <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small" containsIcon>
+      <Icon icon={'link' as IconName} aria-label="Link" />
     </Button>
     <Button ButtonWrapper={StoryLinkWrapper} appearance="outline" size="small">
-      <Icon icon={"link" as IconName} />
+      <Icon icon={'link' as IconName} />
       Link
     </Button>
   </div>

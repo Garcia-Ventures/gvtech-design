@@ -27,3 +27,4 @@ export const parameters = {
     options: {},
   },
 };
+export const tags = ['autodocs'];
