@@ -1,5 +1,5 @@
 {
-  "name": "gvtech-design-system",
+  "name": "@gv-tech/design-system",
   "version": "0.8.0",
   "description": "Garcia Ventures react design system",
   "license": "MIT",
@@ -8,6 +8,10 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "repository": "git@github.com:Garcia-ventures/gvtech-design.git",
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "engines": {
     "node": ">=20"
   },
