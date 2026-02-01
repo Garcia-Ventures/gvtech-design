@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.8.0...v0.9.0) (2026-02-01)
+
+
+### Features
+
+* Automate npm publishing for the scoped design system package with provenance. ([e3bef59](https://github.com/Garcia-Ventures/gvtech-design/commit/e3bef59f66d02c561a7eef8caab6a80019cb4127))
+
 ## [0.8.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.7.0...v0.8.0) (2026-02-01)
 
 
