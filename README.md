@@ -1,14 +1,15 @@
-# GE Design System
+# GV Tech Design System
 
 <p align="center">
-  <img alt="GE Design System" src="https://raw.githubusercontent.com/Garcia-Enterprise/ge-design/main/assets/logo.png" width="180" />
+  <img alt="GV Tech Design System" src="https://raw.githubusercontent.com/Garcia-Ventures/gvtech-design/main/assets/logo.png" width="180" />
 
   <br />
   <a href="https://app.netlify.com/sites/ge-design/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/c104d072-a3bb-4f8a-bd93-a7d5652ff75f/deploy-status" /></a>
-  <a href="https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Enterprise/ge-design/actions/workflows/ci.yml/badge.svg" /></a>
-  <a href="https://app.fossa.com/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git?ref=badge_shield"><img alt="FOSSA" src="https://app.fossa.com/api/projects/custom%2B20755%2Fgit%40github.com%3AGarcia-Enterprise%2Fge-design.git.svg?type=shield" /></a>
-  <a href="https://www.npmjs.com/package/ge-design-system"><img alt="npm" src="https://img.shields.io/npm/dt/ge-design-system" /></a>
+  <a href="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml/badge.svg" /></a>
+  <a href="https://www.npmjs.com/package/@gv-tech/design-system"><img alt="npm" src="https://img.shields.io/npm/dt/@gv-tech/design-system" /></a>
 </p>
+
+[![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design?ref=badge_shield&issueType=license)
 
 A React component design system derived from the [Storybook Design System](https://github.com/storybookjs/design-system). This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects.
 
@@ -16,7 +17,7 @@ A React component design system derived from the [Storybook Design System](https
 
 **Table of Contents**
 
-- [GE Design System](#ge-design-system)
+- [GV Tech Design System](#gv-tech-design-system)
   - [Demo](#demo)
   - [Install](#install)
   - [Usage](#usage)
@@ -24,7 +25,6 @@ A React component design system derived from the [Storybook Design System](https
   - [Testing](#testing)
   - [Releases \& Publishing](#releases--publishing)
   - [Contributing](#contributing)
-  - [Migration to @gvtech scope](#migration-to-gvtech-scope)
   - [Roadmap](#roadmap)
   - [License](#license)
 
@@ -36,24 +36,22 @@ Storybook static docs are available in this repository (`stories` + `src`): run 
 
 ## Install
 
-For now the public package is published as `ge-design-system`:
+The public package is published as `@gv-tech/design-system`:
 
 ```bash
 # npm
-npm install ge-design-system
+npm install @gv-tech/design-system
 
 # yarn
-yarn add ge-design-system
+yarn add @gv-tech/design-system
 ```
-
-> Note: We are planning a scoped rename to `@gvtech/<name>` (see [MIGRATE_TO_GVTECH_SCOPE.md](docs/MIGRATE_TO_GVTECH_SCOPE.md)).
 
 ## Usage
 
 Example import:
 
 ```js
-import { Button } from 'ge-design-system';
+import { Button } from '@gv-tech/design-system';
 
 function App() {
   return <Button>Click me</Button>;
@@ -90,7 +88,7 @@ Unit tests use Vitest and React Testing Library.
 
 We use [`googleapis/release-please-action`](https://github.com/googleapis/release-please-action) to create release PRs and tags. For details on how to set it up and test releases, see [.github/RELEASING.md](.github/RELEASING.md).
 
-Publishing currently uses an `NPM_TOKEN` secret; we will later migrate to OIDC and scoped automation tokens for `@gvtech` publishing.
+Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` publishing.
 
 ## Contributing
 
@@ -98,10 +96,6 @@ Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) be
 
 - Follow **Conventional Commits** to ensure release tooling produces accurate changelogs.
 - Run `yarn lint` and `yarn test` before opening PRs.
-
-## Migration to @gvtech scope
-
-See the migration plan and checklist: [docs/MIGRATE_TO_GVTECH_SCOPE.md](docs/MIGRATE_TO_GVTECH_SCOPE.md).
 
 ## Roadmap
 
