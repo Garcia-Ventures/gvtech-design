@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.8.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.7.0...v0.8.0) (2026-02-01)
+
+
+### Features
+
+* Add `validate:fix` script to automatically fix formatting and linting issues, and ignore `CHANGELOG.md` in Prettier. ([a441b17](https://github.com/Garcia-Ventures/gvtech-design/commit/a441b179e4dc8b1c8e5b1517fc6e673e8b0123ea))
+* Add Storybook test runner with CI integration and optimize Vite build chunking. ([e3c6818](https://github.com/Garcia-Ventures/gvtech-design/commit/e3c6818957d34bc39c76818238c6645b923aaf68))
+* Introduce `serve.json` for static URL configuration and adjust the `package.json` serve script. ([797a1ab](https://github.com/Garcia-Ventures/gvtech-design/commit/797a1ab58fe208848205b8a36770ba7df0d577a6))
+
 ## [0.7.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.6.3...v0.7.0) (2026-01-28)
 
 
