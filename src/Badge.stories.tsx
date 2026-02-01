@@ -9,6 +9,9 @@ const meta: Meta<typeof Badge> = {
   component: Badge,
 };
 
+import { expect } from '@storybook/jest';
+import { within } from '@storybook/testing-library';
+
 export default meta;
 type Story = StoryObj<typeof meta>;
 
@@ -66,3 +69,19 @@ WithIcon.args = {
 };
 
 WithIcon.storyName = 'with icon';
+WithIcon.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  const canvas = within(canvasElement);
+  const badge = canvas.getByText(/with icon/i);
+  expect(badge).toBeInTheDocument();
+  const icon = canvas.getByRole('presentation', { hidden: true });
+  expect(icon).toBeInTheDocument();
+};
+
+AllBadges.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
+  const canvas = within(canvasElement);
+  expect(canvas.getByText('Positive')).toBeInTheDocument();
+  expect(canvas.getByText('Negative')).toBeInTheDocument();
+  expect(canvas.getByText('Neutral')).toBeInTheDocument();
+  expect(canvas.getByText('Error')).toBeInTheDocument();
+  expect(canvas.getByText('Warning')).toBeInTheDocument();
+};
