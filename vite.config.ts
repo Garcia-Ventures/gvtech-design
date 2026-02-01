@@ -22,6 +22,13 @@ export default defineConfig({
           polished: 'polished',
           'prop-types': 'PropTypes',
         },
+        manualChunks(id) {
+          if (id.includes('node_modules')) {
+            if (id.includes('axe-core')) return 'axe';
+            if (id.includes('react-docgen')) return 'docgen';
+            return 'vendor';
+          }
+        },
       },
     },
   },

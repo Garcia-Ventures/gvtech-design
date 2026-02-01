@@ -75,3 +75,9 @@ jobs:
 
       - name: Build Storybook Docs
         run: yarn build-storybook-docs
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps
+
+      - name: Run Storybook Tests
+        run: yarn test-storybook:ci
