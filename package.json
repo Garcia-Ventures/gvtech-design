@@ -30,7 +30,8 @@
     "test:watch": "vitest --watch",
     "test-storybook": "test-storybook",
     "test-storybook:ci": "concurrently -k -s first -n \"SB,TEST\" \"yarn dlx serve storybook-static -p 6006\" \"wait-on http://127.0.0.1:6006 && test-storybook --url http://127.0.0.1:6006\"",
-    "validate": "node ./scripts/validate.js"
+    "validate": "node ./scripts/validate.js",
+    "validate:fix": "node ./scripts/validate.js --fix"
   },
   "peerDependencies": {
     "polished": "^4.0.0",

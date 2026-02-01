@@ -2,9 +2,18 @@
 
 const { spawnSync } = require('child_process');
 
+const args = process.argv.slice(2);
+const fix = args.includes('--fix');
+
 const steps = [
-  { name: 'Prettier check', cmd: 'yarn format:ci' },
-  { name: 'Lint (eslint)', cmd: 'yarn lint' },
+  {
+    name: fix ? 'Prettier fix' : 'Prettier check',
+    cmd: fix ? 'yarn format' : 'yarn format:ci',
+  },
+  {
+    name: fix ? 'Lint fix (eslint)' : 'Lint (eslint)',
+    cmd: fix ? 'yarn lint:fix' : 'yarn lint',
+  },
   { name: 'TypeScript type check', cmd: 'npx tsc --noEmit' },
   { name: 'Build (vite)', cmd: 'yarn build' },
   { name: 'Storybook build', cmd: 'yarn build-storybook' },
