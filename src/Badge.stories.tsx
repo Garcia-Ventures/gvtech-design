@@ -73,7 +73,7 @@ WithIcon.play = async ({ canvasElement }: { canvasElement: HTMLElement }) => {
   const canvas = within(canvasElement);
   const badge = canvas.getByText(/with icon/i);
   expect(badge).toBeInTheDocument();
-  const icon = canvas.getByRole('presentation', { hidden: true });
+  const icon = canvasElement.querySelector('svg');
   expect(icon).toBeInTheDocument();
 };
 

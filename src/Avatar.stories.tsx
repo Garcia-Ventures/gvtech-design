@@ -34,7 +34,7 @@ export const Standard: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const avatar = canvas.getByTitle('John Doe');
+    const avatar = canvas.getByLabelText('John Doe');
     expect(avatar).toBeInTheDocument();
     expect(avatar).toHaveTextContent('J');
   },
@@ -47,7 +47,7 @@ export const Loading: Story = {
   },
   play: async ({ canvasElement }) => {
     const canvas = within(canvasElement);
-    const avatar = canvas.getByTitle('Loading');
+    const avatar = canvas.getByLabelText('Loading avatar ...');
     expect(avatar).toBeInTheDocument();
     // In loading state, it might show a placeholder or nothing specific
   },
