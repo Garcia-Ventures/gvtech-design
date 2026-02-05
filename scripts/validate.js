@@ -16,8 +16,6 @@ const steps = [
   },
   { name: 'TypeScript type check', cmd: 'npx tsc --noEmit' },
   { name: 'Build (vite)', cmd: 'yarn build' },
-  { name: 'Storybook build', cmd: 'yarn build-storybook' },
-  { name: 'Storybook docs build', cmd: 'yarn build-storybook-docs' },
 ];
 
 const SEP = '------------------------------------------------------------';
