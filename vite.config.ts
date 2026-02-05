@@ -1,9 +1,14 @@
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 export default defineConfig({
   plugins: [react()],
+  resolve: {
+    alias: {
+      '@': resolve(__dirname, './src'),
+    },
+  },
   build: {
     sourcemap: true,
     lib: {
@@ -12,14 +17,14 @@ export default defineConfig({
       fileName: 'index',
       formats: ['es', 'cjs'],
     },
+    outDir: 'dist',
+    emptyOutDir: true,
     rollupOptions: {
-      external: ['react', 'react-dom', 'styled-components', 'polished', 'prop-types'],
+      external: ['react', 'react-dom', 'prop-types'],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
-          'styled-components': 'styled',
-          polished: 'polished',
           'prop-types': 'PropTypes',
         },
         manualChunks(id) {
