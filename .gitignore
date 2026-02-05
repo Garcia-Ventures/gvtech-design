@@ -29,6 +29,7 @@ storybook-static
 
 #builds
 dist
+public/registry
 
 # yarn v2
 .pnp.*
