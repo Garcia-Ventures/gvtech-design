@@ -14,6 +14,7 @@ import {
   Table2,
 } from 'lucide-react';
 import * as React from 'react';
+import { version } from '../../../package.json';
 
 export type ComponentCategory =
   | 'getting-started'
@@ -135,7 +136,7 @@ export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
     <div className="w-64 border-r bg-muted/30 flex flex-col h-full">
       <div className="p-4 border-b">
         <h2 className="font-semibold text-lg">GV Design System</h2>
-        <p className="text-xs text-muted-foreground">v0.9.0</p>
+        <p className="text-xs text-muted-foreground">v{version}</p>
       </div>
       <ScrollArea className="flex-1">
         <nav className="p-2">
