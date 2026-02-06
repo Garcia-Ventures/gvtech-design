@@ -22,8 +22,8 @@ jobs:
         uses: googleapis/release-please-action@v4.4
         with:
           release-type: node
-          # Use a PAT with repo scopes; set as repository secret `RELEASE_PLEASE_TOKEN`
-          token: ${{ secrets.GITHUB_TOKEN }}
+          # PAT with repo scopes to trigger CI on release PRs
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
       - name: Show notice
         run: echo "If a release PR is created, review and merge it to create a tag/release."
