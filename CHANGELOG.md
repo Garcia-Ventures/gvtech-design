@@ -1,5 +1,29 @@
 # Changelog
 
+## [1.0.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.9.0...v1.0.0) (2026-02-06)
+
+
+### ⚠ BREAKING CHANGES
+
+* **design-system:** Legacy components and styling system (styled-components) removed in favor of tailwindcss and shadcn/ui.
+
+### Features
+
+* Add .vscode/mcp.json to configure shadcn server command. ([27da4ba](https://github.com/Garcia-Ventures/gvtech-design/commit/27da4ba6ef8576fa5edb34263199b4fd1acde5ee))
+* add `direction` prop to `ResizablePanelGroup` and map it to `orientation` ([c081063](https://github.com/Garcia-Ventures/gvtech-design/commit/c081063ae893b0bd95450b3025b8c81cdcc40b94))
+* add documentation pages for NavigationMenu, Chart, Form, Menubar, Resizable, Carousel, Toast, and Pagination components. ([0fb8327](https://github.com/Garcia-Ventures/gvtech-design/commit/0fb8327d1007305ba438a8d8ebbcbcf4a765d7dd))
+* Add documentation pages for numerous new UI components and implement a footer. ([1a05766](https://github.com/Garcia-Ventures/gvtech-design/commit/1a057664ba0ffb896133876cdec9803a5083b6f8))
+* **design-system:** restart and redesign with shadcn/ui ([bea7850](https://github.com/Garcia-Ventures/gvtech-design/commit/bea7850ae8070c9d9e6ccf86ba36c53354eafbd0))
+* implement automated shadcn registry and batch import components ([0e9dfde](https://github.com/Garcia-Ventures/gvtech-design/commit/0e9dfde1570e32489a5c9e6cb18e5870b96e1dd2))
+* Implement documentation site structure with dedicated pages for various components and a navigation sidebar. ([857b5aa](https://github.com/Garcia-Ventures/gvtech-design/commit/857b5aa4e5fa9b1c5aa425d09adbf29a75b17859))
+* migrate to shadcn design system and remove storyboard ([69bb668](https://github.com/Garcia-Ventures/gvtech-design/commit/69bb668bce39743bd0d0081c9a230730eca7e5d1))
+* Remove custom build configuration and add explicit environment-specific settings for preview and production environments. ([f5bbfde](https://github.com/Garcia-Ventures/gvtech-design/commit/f5bbfde5389d71fefaf0e8d0e4bbcbdaa7ed1066))
+
+
+### Bug Fixes
+
+* correct validations ([b032a1d](https://github.com/Garcia-Ventures/gvtech-design/commit/b032a1db833976af7e3c14d4d12cf1d19ef8b7a9))
+
 ## [0.9.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.8.0...v0.9.0) (2026-02-01)
 
 
