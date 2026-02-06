@@ -1,5 +1,25 @@
 name = "gvtech-design"
-pages_build_output_dir = "dist"
+compatibility_date = "2024-11-01"
+# Enable Node.js compatibility for Pages Functions if needed
+compatibility_flags = ["nodejs_compat"]
+pages_build_output_dir = "dist-site"
+
+[build]
+command = "yarn build:site"
+# Only watch relevant directories to avoid unnecessary build triggers
+watch_dir = ["src", "public", "scripts", "index.html", "vite.config.ts", "tailwind.config.js"]
 
 [vars]
+# Global variables
 NODE_VERSION = "24"
+APP_ENV = "production"
+
+# You can define environment-specific overrides
+[env.preview.vars]
+APP_ENV = "preview"
+# Add preview-specific flags or API endpoints here
+# PREVIEW_MODE = "true"
+
+[env.production.vars]
+APP_ENV = "production"
+# Add production-specific flags or API endpoints here

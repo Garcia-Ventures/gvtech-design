@@ -29,6 +29,7 @@ storybook-static
 
 #builds
 dist
+dist-site
 public/registry
 
 # yarn v2

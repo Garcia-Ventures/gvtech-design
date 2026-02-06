@@ -9,7 +9,8 @@
   "types": "dist/index.d.ts",
   "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
   "scripts": {
-    "build": "yarn build:registry && tsc -p tsconfig.build.json && vite build",
+    "build": "yarn build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
+    "build:site": "yarn build:registry && vite build",
     "build:registry": "tsx scripts/build-registry.ts",
     "setup:ui": "tsx scripts/import-all-shadcn.ts",
     "dev": "vite",

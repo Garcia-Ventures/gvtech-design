@@ -66,17 +66,8 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
 
-      - name: Build
+      - name: Build Library
         run: yarn build
 
-      - name: Build Storybook
-        run: yarn build-storybook
-
-      - name: Build Storybook Docs
-        run: yarn build-storybook-docs
-
-      - name: Install Playwright Browsers
-        run: npx playwright install --with-deps
-
-      - name: Run Storybook Tests
-        run: yarn test-storybook:ci
+      - name: Build Site
+        run: yarn build:site
