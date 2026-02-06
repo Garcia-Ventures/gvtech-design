@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v1.0.0...v1.1.0) (2026-02-06)
+
+
+### Features
+
+* display dynamic version from package.json in the sidebar ([7be0b14](https://github.com/Garcia-Ventures/gvtech-design/commit/7be0b14f69da21e4bf9109a1d6ed31551d74d6cb))
+* Upgrade to Tailwind CSS v4, migrating configuration to CSS and ESM, and updating dependencies. ([41d67f2](https://github.com/Garcia-Ventures/gvtech-design/commit/41d67f23d00a058e55225e30e9d7e8b7a20a0d7a))
+
 ## [1.0.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v0.9.0...v1.0.0) (2026-02-06)
 
 
