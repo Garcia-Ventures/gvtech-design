@@ -5,21 +5,18 @@ import { ScrollArea } from './components/ui/scroll-area';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import {
-  // Advanced
   AccordionDocs,
   AlertDialogDocs,
-  // Feedback
   AlertDocs,
   AspectRatioDocs,
   AvatarDocs,
-  // Data Display
   BadgeDocs,
   BreadcrumbDocs,
-  // Forms
   ButtonDocs,
   CalendarDocs,
-  // Layout
   CardDocs,
+  CarouselDocs,
+  ChartDocs,
   CheckboxDocs,
   CollapsibleDocs,
   CommandDocs,
@@ -27,16 +24,19 @@ import {
   DialogDocs,
   DrawerDocs,
   DropdownMenuDocs,
-  // Getting Started
+  FormDocs,
   GettingStartedPage,
   HoverCardDocs,
   InputDocs,
   InstallationPage,
   LabelDocs,
-  // Overlay
+  MenubarDocs,
+  NavigationMenuDocs,
+  PaginationDocs,
   PopoverDocs,
   ProgressDocs,
   RadioGroupDocs,
+  ResizableDocs,
   ScrollAreaDocs,
   SelectDocs,
   SeparatorDocs,
@@ -46,23 +46,13 @@ import {
   SonnerDocs,
   SwitchDocs,
   TableDocs,
-  // Navigation
   TabsDocs,
   TextareaDocs,
+  ToastDocs,
   ToggleDocs,
   ToggleGroupDocs,
   TooltipDocs,
 } from './pages';
-
-// Placeholder component for pages not yet implemented
-function PlaceholderDocs({ name }: { name: string }) {
-  return (
-    <div className="space-y-4">
-      <h1 className="text-3xl font-bold tracking-tight">{name}</h1>
-      <p className="text-muted-foreground">Documentation coming soon.</p>
-    </div>
-  );
-}
 
 function App() {
   const [activeItem, setActiveItem] = React.useState('getting-started');
@@ -81,7 +71,7 @@ function App() {
       case 'separator':
         return <SeparatorDocs />;
       case 'resizable':
-        return <PlaceholderDocs name="Resizable" />;
+        return <ResizableDocs />;
       case 'scroll-area':
         return <ScrollAreaDocs />;
       case 'aspect-ratio':
@@ -107,7 +97,7 @@ function App() {
       case 'slider':
         return <SliderDocs />;
       case 'form':
-        return <PlaceholderDocs name="Form" />;
+        return <FormDocs />;
 
       // Data Display
       case 'badge':
@@ -121,7 +111,7 @@ function App() {
       case 'skeleton':
         return <SkeletonDocs />;
       case 'chart':
-        return <PlaceholderDocs name="Chart" />;
+        return <ChartDocs />;
       case 'calendar':
         return <CalendarDocs />;
 
@@ -131,11 +121,11 @@ function App() {
       case 'breadcrumb':
         return <BreadcrumbDocs />;
       case 'pagination':
-        return <PlaceholderDocs name="Pagination" />;
+        return <PaginationDocs />;
       case 'navigation-menu':
-        return <PlaceholderDocs name="Navigation Menu" />;
+        return <NavigationMenuDocs />;
       case 'menubar':
-        return <PlaceholderDocs name="Menubar" />;
+        return <MenubarDocs />;
 
       // Feedback
       case 'alert':
@@ -145,7 +135,7 @@ function App() {
       case 'dialog':
         return <DialogDocs />;
       case 'toast':
-        return <PlaceholderDocs name="Toast" />;
+        return <ToastDocs />;
       case 'sonner':
         return <SonnerDocs />;
 
@@ -173,7 +163,7 @@ function App() {
       case 'collapsible':
         return <CollapsibleDocs />;
       case 'carousel':
-        return <PlaceholderDocs name="Carousel" />;
+        return <CarouselDocs />;
       case 'toggle':
         return <ToggleDocs />;
       case 'toggle-group':
