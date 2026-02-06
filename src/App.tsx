@@ -1,26 +1,35 @@
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
-import { Sidebar, ThemeToggle } from './components/docs';
+import { Footer, Sidebar, ThemeToggle } from './components/docs';
 import { ScrollArea } from './components/ui/scroll-area';
 import { Toaster } from './components/ui/sonner';
 import { TooltipProvider } from './components/ui/tooltip';
 import {
   // Advanced
   AccordionDocs,
+  AlertDialogDocs,
   // Feedback
   AlertDocs,
+  AspectRatioDocs,
   AvatarDocs,
   // Data Display
   BadgeDocs,
   BreadcrumbDocs,
   // Forms
   ButtonDocs,
+  CalendarDocs,
   // Layout
   CardDocs,
   CheckboxDocs,
+  CollapsibleDocs,
+  CommandDocs,
+  ContextMenuDocs,
   DialogDocs,
+  DrawerDocs,
   DropdownMenuDocs,
+  // Getting Started
   GettingStartedPage,
+  HoverCardDocs,
   InputDocs,
   InstallationPage,
   LabelDocs,
@@ -28,15 +37,20 @@ import {
   PopoverDocs,
   ProgressDocs,
   RadioGroupDocs,
+  ScrollAreaDocs,
   SelectDocs,
   SeparatorDocs,
+  SheetDocs,
   SkeletonDocs,
   SliderDocs,
+  SonnerDocs,
   SwitchDocs,
+  TableDocs,
   // Navigation
   TabsDocs,
   TextareaDocs,
   ToggleDocs,
+  ToggleGroupDocs,
   TooltipDocs,
 } from './pages';
 
@@ -69,9 +83,9 @@ function App() {
       case 'resizable':
         return <PlaceholderDocs name="Resizable" />;
       case 'scroll-area':
-        return <PlaceholderDocs name="Scroll Area" />;
+        return <ScrollAreaDocs />;
       case 'aspect-ratio':
-        return <PlaceholderDocs name="Aspect Ratio" />;
+        return <AspectRatioDocs />;
 
       // Forms
       case 'button':
@@ -101,7 +115,7 @@ function App() {
       case 'avatar':
         return <AvatarDocs />;
       case 'table':
-        return <PlaceholderDocs name="Table" />;
+        return <TableDocs />;
       case 'progress':
         return <ProgressDocs />;
       case 'skeleton':
@@ -109,7 +123,7 @@ function App() {
       case 'chart':
         return <PlaceholderDocs name="Chart" />;
       case 'calendar':
-        return <PlaceholderDocs name="Calendar" />;
+        return <CalendarDocs />;
 
       // Navigation
       case 'tabs':
@@ -127,13 +141,13 @@ function App() {
       case 'alert':
         return <AlertDocs />;
       case 'alert-dialog':
-        return <PlaceholderDocs name="Alert Dialog" />;
+        return <AlertDialogDocs />;
       case 'dialog':
         return <DialogDocs />;
       case 'toast':
         return <PlaceholderDocs name="Toast" />;
       case 'sonner':
-        return <PlaceholderDocs name="Sonner" />;
+        return <SonnerDocs />;
 
       // Overlay
       case 'popover':
@@ -141,29 +155,29 @@ function App() {
       case 'tooltip':
         return <TooltipDocs />;
       case 'hover-card':
-        return <PlaceholderDocs name="Hover Card" />;
+        return <HoverCardDocs />;
       case 'dropdown-menu':
         return <DropdownMenuDocs />;
       case 'context-menu':
-        return <PlaceholderDocs name="Context Menu" />;
+        return <ContextMenuDocs />;
       case 'command':
-        return <PlaceholderDocs name="Command" />;
+        return <CommandDocs />;
       case 'sheet':
-        return <PlaceholderDocs name="Sheet" />;
+        return <SheetDocs />;
       case 'drawer':
-        return <PlaceholderDocs name="Drawer" />;
+        return <DrawerDocs />;
 
       // Advanced
       case 'accordion':
         return <AccordionDocs />;
       case 'collapsible':
-        return <PlaceholderDocs name="Collapsible" />;
+        return <CollapsibleDocs />;
       case 'carousel':
         return <PlaceholderDocs name="Carousel" />;
       case 'toggle':
         return <ToggleDocs />;
       case 'toggle-group':
-        return <PlaceholderDocs name="Toggle Group" />;
+        return <ToggleGroupDocs />;
 
       default:
         return <GettingStartedPage />;
@@ -190,8 +204,11 @@ function App() {
             </header>
 
             {/* Content Area */}
-            <ScrollArea className="flex-1">
-              <main className="p-8 max-w-4xl">{renderContent()}</main>
+            <ScrollArea className="flex-1 [&>[data-radix-scroll-area-viewport]]:h-full">
+              <div className="flex-1 flex flex-col min-h-full">
+                <main className="flex-1 p-8 max-w-4xl">{renderContent()}</main>
+                <Footer />
+              </div>
             </ScrollArea>
           </div>
         </div>
