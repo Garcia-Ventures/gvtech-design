@@ -5,12 +5,37 @@ import prettierConfig from 'eslint-config-prettier';
 import prettier from 'eslint-plugin-prettier';
 import globals from 'globals';
 
+// File patterns for JS/TS files only
+const jsFiles = ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.cjs'];
+const tsFiles = ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'];
+const allJsTsFiles = [...jsFiles, ...tsFiles];
+
 export default [
   {
-    ignores: ['dist', 'node_modules', '.yarn', 'coverage', 'eslint.config.mjs'],
+    // Global ignores - at the top of the array
+    ignores: [
+      '**/node_modules/**',
+      '**/.yarn/**',
+      '**/dist/**',
+      '**/dist-site/**',
+      '**/storybook-static/**',
+      '**/coverage/**',
+      '**/public/**',
+      '**/.github/**',
+      '**/.vscode/**',
+      '**/.husky/**',
+      'eslint.config.mjs',
+      '**/.*', // Ignore all hidden files
+      '**/*.json',
+      '**/*.md',
+      '**/*.yml',
+      '**/*.log',
+    ],
   },
-  js.configs.recommended,
   {
+    // Base config for all JS/TS files
+    files: allJsTsFiles,
+    ...js.configs.recommended,
     linterOptions: {
       noInlineConfig: true,
       reportUnusedDisableDirectives: true,
@@ -27,7 +52,8 @@ export default [
     },
   },
   {
-    files: ['**/*.ts', '**/*.tsx', '**/*.mts', '**/*.cts'],
+    // TypeScript-specific config
+    files: tsFiles,
     languageOptions: {
       parser: tsParser,
     },
@@ -41,12 +67,14 @@ export default [
     },
   },
   {
-    files: ['**/*.js', '**/*.jsx', '**/*.mjs', '**/*.cjs'],
+    files: jsFiles,
     rules: {
       ...js.configs.recommended.rules,
     },
   },
   {
+    // Prettier config for all JS/TS files
+    files: allJsTsFiles,
     plugins: {
       prettier: prettier,
     },

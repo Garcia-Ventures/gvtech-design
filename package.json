@@ -10,9 +10,8 @@
   "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
   "scripts": {
     "build": "yarn build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
-    "build:site": "yarn build:registry && vite build",
     "build:registry": "tsx scripts/build-registry.ts",
-    "setup:ui": "tsx scripts/import-all-shadcn.ts",
+    "build:site": "yarn build:registry && vite build",
     "dev": "vite",
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
@@ -20,6 +19,7 @@
     "lint:fix": "eslint . --cache --fix",
     "lint:report": "eslint . --cache -o ./eslintReport.html -f html",
     "prepare": "husky",
+    "setup:ui": "tsx scripts/import-all-shadcn.ts",
     "start": "vite",
     "test": "vitest",
     "test:ci": "CI=true vitest --run --reporter=dot --passWithNoTests",
