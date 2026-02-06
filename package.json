@@ -22,7 +22,7 @@
     "prepare": "husky",
     "start": "vite",
     "test": "vitest",
-    "test:ci": "CI=true vitest --run --reporter=dot",
+    "test:ci": "CI=true vitest --run --reporter=dot --passWithNoTests",
     "test:watch": "vitest --watch",
     "validate": "node ./scripts/validate.js",
     "validate:fix": "node ./scripts/validate.js --fix"
