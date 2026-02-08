@@ -2,12 +2,12 @@
   "name": "@gv-tech/design-system",
   "version": "1.1.0",
   "description": "Garcia Ventures react design system",
+  "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
-  "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
   "scripts": {
     "build": "yarn build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
     "build:registry": "tsx scripts/build-registry.ts",
@@ -27,6 +27,33 @@
     "validate": "node ./scripts/validate.js",
     "validate:fix": "node ./scripts/validate.js --fix"
   },
+  "lint-staged": {
+    "*.(js|ts|mjs|cjs)?(x)": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.(md)?(x)": [
+      "prettier --write"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-env",
+      "@babel/preset-react"
+    ]
+  },
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead"
+    ]
+  },
+  "prettier": "@eng618/prettier-config",
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
     "@radix-ui/react-accordion": "^1.2.12",
@@ -74,8 +101,8 @@
     "zod": "^4.3.6"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.5.3",
-    "@eslint/js": "^9.39.2",
+    "@eng618/prettier-config": "^2.6.0",
+    "@gv-tech/eslint-config": "^0.1.8",
     "@testing-library/dom": "^10.4.1",
     "@testing-library/jest-dom": "^6.9.1",
     "@testing-library/react": "^16.3.2",
@@ -87,13 +114,10 @@
     "@typescript-eslint/parser": "^8.54.0",
     "@vitejs/plugin-react-swc": "^4.2.3",
     "axe-core": "^4.11.1",
-    "eslint": "^9.39.2",
-    "eslint-config-prettier": "^10.1.8",
+    "eslint": "^10.0.0",
     "eslint-plugin-jsx-a11y": "^6.10.2",
-    "eslint-plugin-prettier": "^5.5.5",
     "eslint-plugin-react": "^7.37.5",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "globals": "^17.3.0",
     "husky": "^9.1.7",
     "jsdom": "^27.4.0",
     "lint-staged": "^16.2.7",
@@ -116,39 +140,12 @@
     "react-dom": "^18 || ^19",
     "react-is": "^16 || ^17 || ^18 || ^19"
   },
+  "packageManager": "yarn@4.12.0",
   "engines": {
     "node": ">=20"
   },
   "publishConfig": {
     "access": "public",
     "provenance": true
-  },
-  "lint-staged": {
-    "*.(js|ts|mjs|cjs)?(x)": [
-      "prettier --write",
-      "eslint --cache --fix"
-    ],
-    "*.(md)?(x)": [
-      "prettier --write"
-    ]
-  },
-  "prettier": "@eng618/prettier-config",
-  "babel": {
-    "presets": [
-      "@babel/preset-env",
-      "@babel/preset-react"
-    ]
-  },
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
-    "production": [
-      ">0.2%",
-      "not dead"
-    ]
-  },
-  "packageManager": "yarn@4.12.0"
+  }
 }
