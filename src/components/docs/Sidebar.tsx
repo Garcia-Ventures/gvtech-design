@@ -112,6 +112,7 @@ export const navItems: NavItem[] = [
   { id: 'carousel', label: 'Carousel', category: 'advanced' },
   { id: 'toggle', label: 'Toggle', category: 'advanced' },
   { id: 'toggle-group', label: 'Toggle Group', category: 'advanced' },
+  { id: 'theme-toggle', label: 'Theme Toggle', category: 'advanced' },
 ];
 
 export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {

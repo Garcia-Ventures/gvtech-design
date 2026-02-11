@@ -44,6 +44,7 @@ export { SwitchDocs } from './components/SwitchDocs';
 export { TableDocs } from './components/TableDocs';
 export { TabsDocs } from './components/TabsDocs';
 export { TextareaDocs } from './components/TextareaDocs';
+export { ThemeToggleDocs } from './components/ThemeToggleDocs';
 export { ToastDocs } from './components/ToastDocs';
 export { ToggleDocs } from './components/ToggleDocs';
 export { ToggleGroupDocs } from './components/ToggleGroupDocs';

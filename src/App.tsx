@@ -1,8 +1,9 @@
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
-import { Footer, Sidebar, ThemeToggle } from './components/docs';
+import { Footer, Sidebar } from './components/docs';
 import { ScrollArea } from './components/ui/scroll-area';
 import { Toaster } from './components/ui/sonner';
+import { ThemeToggle } from './components/ui/theme-toggle';
 import { TooltipProvider } from './components/ui/tooltip';
 import {
   AccordionDocs,
@@ -49,6 +50,7 @@ import {
   TableDocs,
   TabsDocs,
   TextareaDocs,
+  ThemeToggleDocs,
   ToastDocs,
   ToggleDocs,
   ToggleGroupDocs,
@@ -171,6 +173,8 @@ function App() {
         return <ToggleDocs />;
       case 'toggle-group':
         return <ToggleGroupDocs />;
+      case 'theme-toggle':
+        return <ThemeToggleDocs />;
 
       default:
         return <GettingStartedPage />;
@@ -192,7 +196,7 @@ function App() {
                 <h1 className="text-sm font-medium text-muted-foreground">Components</h1>
               </div>
               <div className="flex items-center gap-2">
-                <ThemeToggle />
+                <ThemeToggle variant="ternary" />
               </div>
             </header>
 
