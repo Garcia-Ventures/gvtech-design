@@ -51,6 +51,7 @@ const categoryConfig: Record<ComponentCategory, { label: string; icon: React.Rea
 export const navItems: NavItem[] = [
   // Getting Started
   { id: 'getting-started', label: 'Introduction', category: 'getting-started' },
+  { id: 'color-tokens', label: 'Color Tokens', category: 'getting-started' },
   { id: 'installation', label: 'Installation', category: 'getting-started' },
 
   // Layout

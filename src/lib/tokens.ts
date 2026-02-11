@@ -1,4 +1,4 @@
-/** Design system color tokens for Garcia Ventures. These tokens follow the "Structured Growth" theme. */
+/** Design system color tokens for Garcia Ventures. */
 export const tokens = {
   colors: {
     light: {

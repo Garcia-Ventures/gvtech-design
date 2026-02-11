@@ -19,6 +19,7 @@ import {
   ChartDocs,
   CheckboxDocs,
   CollapsibleDocs,
+  ColorTokensDocs,
   CommandDocs,
   ContextMenuDocs,
   DialogDocs,
@@ -62,6 +63,8 @@ function App() {
       // Getting Started
       case 'getting-started':
         return <GettingStartedPage />;
+      case 'color-tokens':
+        return <ColorTokensDocs />;
       case 'installation':
         return <InstallationPage />;
 

@@ -1,4 +1,5 @@
 // Getting Started
+export { ColorTokensDocs } from './ColorTokensDocs';
 export { GettingStartedPage, InstallationPage } from './GettingStarted';
 
 // Component Docs
