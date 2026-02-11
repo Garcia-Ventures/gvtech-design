@@ -134,7 +134,7 @@ export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
   const categories = Object.keys(categoryConfig) as ComponentCategory[];
 
   return (
-    <div className="w-64 border-r bg-muted/30 flex flex-col h-full">
+    <div className="w-64 border-r bg-muted/50 flex flex-col h-full">
       <div className="p-4 border-b">
         <h2 className="font-semibold text-lg">GV Design System</h2>
         <p className="text-xs text-muted-foreground">v{version}</p>
