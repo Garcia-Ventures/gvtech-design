@@ -1,3 +1,5 @@
+import './globals.css';
+
 export * from './lib/tokens';
 export * from './lib/utils';
 
