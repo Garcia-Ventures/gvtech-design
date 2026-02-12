@@ -6,6 +6,26 @@ import { toast } from 'sonner';
 export function SonnerDocs() {
   return (
     <ComponentSection title="Sonner" description="An opinionated toast component for React.">
+      <div className="bg-muted/50 border rounded-lg p-6 space-y-4 mb-8">
+        <h3 className="text-lg font-semibold">Which to use?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-2">
+            <h4 className="font-medium text-primary">Sonner</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Designed for modern applications. It stacks automatically, looks great by default, and uses a very simple
+              function call (<code>toast()</code>) that can be used anywhere—no hooks required.
+            </p>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-medium text-primary">Toast (Radix UI)</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Traditional Radix UI based toasts. Use this if you need deep programmatic control over the toast lifecycle
+              or if you require specific accessibility patterns not covered by Sonner.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <ComponentShowcase
         title="Default"
         description="A default toast."

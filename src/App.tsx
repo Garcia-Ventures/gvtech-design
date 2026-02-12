@@ -2,8 +2,9 @@ import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
 import { Footer, Sidebar } from './components/docs';
 import { ScrollArea } from './components/ui/scroll-area';
-import { Toaster } from './components/ui/sonner';
+import { Toaster as SonnerToaster } from './components/ui/sonner';
 import { ThemeToggle } from './components/ui/theme-toggle';
+import { Toaster } from './components/ui/toaster';
 import { TooltipProvider } from './components/ui/tooltip';
 import {
   AccordionDocs,
@@ -210,6 +211,7 @@ function App() {
           </div>
         </div>
         <Toaster />
+        <SonnerToaster />
       </TooltipProvider>
     </ThemeProvider>
   );

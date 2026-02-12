@@ -8,6 +8,27 @@ export function ToastDocs() {
 
   return (
     <ComponentSection title="Toast" description="A succinct message that is displayed temporarily.">
+      <div className="bg-muted/50 border rounded-lg p-6 space-y-4 mb-8">
+        <h3 className="text-lg font-semibold">Which to use?</h3>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="space-y-2">
+            <h4 className="font-medium text-primary">Toast (Radix UI)</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              Based on Radix UI. Provides more granular control over individual toast elements. Uses the{' '}
+              <code>useToast</code> hook and is best for situations requiring manual state management or complex, custom
+              toast behavior.
+            </p>
+          </div>
+          <div className="space-y-2">
+            <h4 className="font-medium text-primary">Sonner</h4>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              An opinionated, modern alternative. Features automatic stacking, swipe-to-dismiss, and a simpler API (
+              <code>toast("message")</code>). Best for general feedback and high-quality UX with minimal effort.
+            </p>
+          </div>
+        </div>
+      </div>
+
       <ComponentShowcase
         title="Default"
         description="A default toast."
@@ -36,6 +57,37 @@ export function ToastDocs() {
         </Button>
       </ComponentShowcase>
 
+      <ComponentShowcase
+        title="Destructive"
+        description="A destructive toast."
+        code={`const { toast } = useToast()
+ 
+ <Button
+   variant="outline"
+   onClick={() => {
+     toast({
+       variant: "destructive",
+       title: "Uh oh! Something went wrong.",
+       description: "There was a problem with your request.",
+     })
+   }}
+ >
+   Show Toast
+ </Button>`}
+      >
+        <Button
+          variant="outline"
+          onClick={() => {
+            toast({
+              variant: 'destructive',
+              title: 'Uh oh! Something went wrong.',
+              description: 'There was a problem with your request.',
+            });
+          }}
+        >
+          Show Toast
+        </Button>
+      </ComponentShowcase>
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-sm text-muted-foreground">
