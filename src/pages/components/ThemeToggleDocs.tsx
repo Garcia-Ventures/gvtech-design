@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { ThemeToggle } from '@/components/ui/theme-toggle';
 import { useState } from 'react';
 
@@ -45,6 +46,77 @@ export function ThemeToggleDocs() {
           <p className="text-sm font-medium">Current Selection: {customTheme}</p>
         </div>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">ThemeToggle Props</h3>
+        <PropsTable
+          props={[
+            {
+              name: 'variant',
+              type: '"binary" | "ternary"',
+              defaultValue: '"binary"',
+              required: false,
+              description:
+                "The toggle behavior. 'binary' switches between light/dark, while 'ternary' includes system.",
+            },
+            {
+              name: 'onThemeChange',
+              type: '(theme: string) => void',
+              required: false,
+              description: 'Optional callback for custom theme management logic.',
+            },
+            {
+              name: 'customTheme',
+              type: 'string',
+              required: false,
+              description: 'Overrides the internal theme detection (useful for previews or external control).',
+            },
+            {
+              name: 'className',
+              type: 'string',
+              required: false,
+              description: 'Additional CSS classes for the toggle button.',
+            },
+          ]}
+        />
+      </div>
+
+      <div className="mt-12 space-y-6">
+        <div>
+          <h3 className="text-xl font-semibold">Integration</h3>
+          <p className="mt-2 text-muted-foreground">
+            The `ThemeToggle` component is built to be flexible and works seamlessly with `next-themes` by default, but
+            it can also be used in a fully controlled manner with any theme provider or custom state.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="rounded-lg border bg-muted/50 p-6">
+            <h4 className="font-medium text-foreground">With next-themes</h4>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Simply drop the component anywhere. It will automatically detect the `ThemeProvider` and handle switching.
+            </p>
+            <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
+              <code>{`<ThemeProvider attribute="class">
+  <ThemeToggle />
+</ThemeProvider>`}</code>
+            </pre>
+          </div>
+
+          <div className="rounded-lg border bg-muted/50 p-6">
+            <h4 className="font-medium text-foreground">Custom Provider</h4>
+            <p className="mt-1 text-sm text-muted-foreground">
+              Pass your own theme state and change handler to integrate with custom logic or external storage.
+            </p>
+            <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
+              <code>{`<ThemeToggle 
+  customTheme={myTheme} 
+  onThemeChange={(t) => updateMyTheme(t)} 
+/>`}</code>
+            </pre>
+          </div>
+        </div>
+      </div>
     </ComponentSection>
   );
 }

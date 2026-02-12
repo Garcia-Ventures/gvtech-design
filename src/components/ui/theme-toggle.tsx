@@ -72,7 +72,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className={cn('h-9 w-9', className)}>
+          <Button variant="ghost" size="icon" className={cn('relative h-9 w-9', className)}>
             <IconToggle />
           </Button>
         </DropdownMenuTrigger>
@@ -98,7 +98,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
     <Button
       variant="ghost"
       size="icon"
-      className={cn('h-9 w-9', className)}
+      className={cn('relative h-9 w-9', className)}
       onClick={() => handleThemeChange(currentTheme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle theme"
     >
