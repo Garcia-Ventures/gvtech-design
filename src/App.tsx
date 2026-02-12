@@ -1,6 +1,15 @@
 import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
 import { Footer, Sidebar } from './components/docs';
+import { navItems } from './components/docs/Sidebar';
+import {
+  Breadcrumb,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './components/ui/breadcrumb';
 import { ScrollArea } from './components/ui/scroll-area';
 import { Toaster as SonnerToaster } from './components/ui/sonner';
 import { ThemeToggle } from './components/ui/theme-toggle';
@@ -192,10 +201,22 @@ function App() {
           {/* Main Content */}
           <div className="flex-1 flex flex-col overflow-hidden">
             {/* Header */}
-            <header className="h-14 border-b flex items-center justify-between px-6">
-              <div className="flex items-center gap-4">
-                <h1 className="text-sm font-medium text-muted-foreground">Components</h1>
-              </div>
+            <header className="h-14 border-b flex items-center justify-between px-6 shrink-0 bg-background/50 backdrop-blur-sm sticky top-0 z-10">
+              <Breadcrumb>
+                <BreadcrumbList>
+                  <BreadcrumbItem>
+                    <BreadcrumbLink onClick={() => setActiveItem('getting-started')} className="cursor-pointer">
+                      Components
+                    </BreadcrumbLink>
+                  </BreadcrumbItem>
+                  <BreadcrumbSeparator />
+                  <BreadcrumbItem>
+                    <BreadcrumbPage>
+                      {navItems.find((i) => i.id === activeItem)?.label || 'Introduction'}
+                    </BreadcrumbPage>
+                  </BreadcrumbItem>
+                </BreadcrumbList>
+              </Breadcrumb>
               <div className="flex items-center gap-2">
                 <ThemeToggle variant="ternary" />
               </div>
