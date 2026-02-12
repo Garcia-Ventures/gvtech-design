@@ -62,7 +62,7 @@ describe('DropdownMenu', () => {
     await user.click(screen.getByText('Open'));
 
     const checkedItem = screen.getByText('Checked Item');
-    const uncheckedItem = screen.getByText('Unchecked Item');
+    // const uncheckedItem = screen.getByText('Unchecked Item');
 
     expect(checkedItem).toBeVisible();
     // Radix UI adds data-state="checked" or similar.

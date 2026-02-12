@@ -27,9 +27,7 @@ describe('Input', () => {
 
   it('forwards ref', () => {
     const ref = React.createRef<HTMLInputElement>();
-    // Need to import React for createRef if not available globally or standard import
-    // But usually implicit in these setups. Let's add import to be safe if needed,
-    // or just rely on the existing import in the file if I were editing.
-    // Since I am creating a new file:
+    render(<Input ref={ref} />);
+    expect(ref.current).toBeInstanceOf(HTMLInputElement);
   });
 });

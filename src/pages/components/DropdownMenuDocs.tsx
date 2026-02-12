@@ -3,11 +3,14 @@ import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import {
   DropdownMenu,
+  DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuLabel,
   DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
   DropdownMenuSeparator,
   DropdownMenuShortcut,
   DropdownMenuSub,
@@ -149,6 +152,74 @@ export function DropdownMenuDocs() {
               <span>Log out</span>
               <DropdownMenuShortcut>⇧⌘Q</DropdownMenuShortcut>
             </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </ComponentShowcase>
+
+      <ComponentShowcase
+        title="Checkboxes and Radios"
+        description="A dropdown menu with checkboxes and radio items."
+        code={`<DropdownMenu>
+  <DropdownMenuTrigger asChild>
+    <Button variant="outline">Open</Button>
+  </DropdownMenuTrigger>
+  <DropdownMenuContent className="w-56">
+    <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuCheckboxItem
+      checked={showStatusBar}
+      onCheckedChange={setShowStatusBar}
+    >
+      Status Bar
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem
+      checked={showActivityBar}
+      onCheckedChange={setShowActivityBar}
+      disabled
+    >
+      Activity Bar
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuCheckboxItem
+      checked={showPanel}
+      onCheckedChange={setShowPanel}
+    >
+      Panel
+    </DropdownMenuCheckboxItem>
+    <DropdownMenuSeparator />
+    <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+    <DropdownMenuSeparator />
+    <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+      <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+      <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+    </DropdownMenuRadioGroup>
+  </DropdownMenuContent>
+</DropdownMenu>`}
+      >
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="outline">Open</Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent className="w-56">
+            <DropdownMenuLabel>Appearance</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuCheckboxItem checked={showStatusBar} onCheckedChange={setShowStatusBar}>
+              Status Bar
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked={showActivityBar} onCheckedChange={setShowActivityBar} disabled>
+              Activity Bar
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuCheckboxItem checked={showPanel} onCheckedChange={setShowPanel}>
+              Panel
+            </DropdownMenuCheckboxItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
+            <DropdownMenuSeparator />
+            <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
+              <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
+              <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
+            </DropdownMenuRadioGroup>
           </DropdownMenuContent>
         </DropdownMenu>
       </ComponentShowcase>

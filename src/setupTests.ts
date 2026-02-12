@@ -7,7 +7,7 @@ expect.extend(matchers);
 // Mock window.matchMedia
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: (query: any) => ({
+  value: (query: string) => ({
     matches: false,
     media: query,
     onchange: null,
@@ -33,6 +33,7 @@ class IntersectionObserver {
   unobserve() {}
   disconnect() {}
 }
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 window.IntersectionObserver = IntersectionObserver as any;
 
 // Mock scrollIntoView
