@@ -1,11 +1,12 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Separator } from '@/components/ui/separator';
 
 export function SeparatorDocs() {
   return (
     <ComponentSection title="Separator" description="Visually or semantically separates content.">
       <ComponentShowcase
-        title="Horizontal"
+        title="Default"
         description="A horizontal separator."
         code={`<div>
   <div className="space-y-1">
@@ -24,7 +25,7 @@ export function SeparatorDocs() {
   </div>
 </div>`}
       >
-        <div className="w-full max-w-md">
+        <div>
           <div className="space-y-1">
             <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
             <p className="text-sm text-muted-foreground">An open-source UI component library.</p>
@@ -39,6 +40,40 @@ export function SeparatorDocs() {
           </div>
         </div>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Separator component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/separator"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Separator
+          </a>
+          .
+        </p>
+
+        <h4 className="text-lg font-medium mt-6">Separator (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'orientation',
+              type: '"horizontal" | "vertical"',
+              defaultValue: '"horizontal"',
+              description: 'The orientation of the separator.',
+            },
+            {
+              name: 'decorative',
+              type: 'boolean',
+              description:
+                'When true, signifies that it is purely visual, covers it from the accessibility tree. When false, signifies that it is a semantic separator.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

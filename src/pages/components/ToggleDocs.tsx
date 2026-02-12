@@ -1,13 +1,14 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Toggle } from '@/components/ui/toggle';
-import { Bold, Italic, Underline } from 'lucide-react';
+import { Bold } from 'lucide-react';
 
 export function ToggleDocs() {
   return (
     <ComponentSection title="Toggle" description="A two-state button that can be either on or off.">
       <ComponentShowcase
         title="Default"
-        description="A basic toggle button."
+        description="A default toggle."
         code={`<Toggle aria-label="Toggle bold">
   <Bold className="h-4 w-4" />
 </Toggle>`}
@@ -17,43 +18,59 @@ export function ToggleDocs() {
         </Toggle>
       </ComponentShowcase>
 
-      <ComponentShowcase
-        title="Variants"
-        description="Toggle with outline variant."
-        code={`<Toggle variant="outline" aria-label="Toggle italic">
-  <Italic className="h-4 w-4" />
-</Toggle>`}
-      >
-        <Toggle variant="outline" aria-label="Toggle italic">
-          <Italic className="h-4 w-4" />
-        </Toggle>
-      </ComponentShowcase>
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Toggle component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/toggle"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Toggle
+          </a>
+          .
+        </p>
 
-      <ComponentShowcase
-        title="With Text"
-        description="Toggle with text content."
-        code={`<Toggle aria-label="Toggle underline">
-  <Underline className="h-4 w-4 mr-2" />
-  Underline
-</Toggle>`}
-      >
-        <Toggle aria-label="Toggle underline">
-          <Underline className="h-4 w-4 mr-2" />
-          Underline
-        </Toggle>
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="Disabled"
-        description="A disabled toggle."
-        code={`<Toggle disabled aria-label="Toggle bold">
-  <Bold className="h-4 w-4" />
-</Toggle>`}
-      >
-        <Toggle disabled aria-label="Toggle bold">
-          <Bold className="h-4 w-4" />
-        </Toggle>
-      </ComponentShowcase>
+        <h4 className="text-lg font-medium mt-6">Toggle</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'defaultPressed',
+              type: 'boolean',
+              description: 'The pressed state of the toggle when it is initially rendered.',
+            },
+            {
+              name: 'pressed',
+              type: 'boolean',
+              description: 'The controlled pressed state of the toggle.',
+            },
+            {
+              name: 'onPressedChange',
+              type: '(pressed: boolean) => void',
+              description: 'Event handler called when the pressed state of the toggle changes.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              description: 'When true, prevents the user from interacting with the toggle.',
+            },
+            {
+              name: 'variant',
+              type: '"default" | "outline"',
+              defaultValue: '"default"',
+              description: 'The visual variant of the toggle.',
+            },
+            {
+              name: 'size',
+              type: '"default" | "sm" | "lg"',
+              defaultValue: '"default"',
+              description: 'The size of the toggle.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

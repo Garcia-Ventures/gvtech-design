@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
 
@@ -9,94 +10,80 @@ export function ToastDocs() {
     <ComponentSection title="Toast" description="A succinct message that is displayed temporarily.">
       <ComponentShowcase
         title="Default"
-        description="A basic toast notification."
-        code={`const { toast } = useToast();
+        description="A default toast."
+        code={`const { toast } = useToast()
 
-<Button onClick={() => toast({ description: "Your message has been sent." })}>
+<Button
+  variant="outline"
+  onClick={() => {
+    toast({
+      description: "Your message has been sent.",
+    })
+  }}
+>
   Show Toast
 </Button>`}
       >
         <Button
-          onClick={() =>
+          variant="outline"
+          onClick={() => {
             toast({
               description: 'Your message has been sent.',
-            })
-          }
+            });
+          }}
         >
           Show Toast
         </Button>
       </ComponentShowcase>
 
-      <ComponentShowcase
-        title="With Title"
-        description="A toast with a title and description."
-        code={`<Button onClick={() => toast({
-  title: "Scheduled: Catch up",
-  description: "Friday, February 10, 2023 at 5:57 PM",
-})}>
-  With Title
-</Button>`}
-      >
-        <Button
-          onClick={() =>
-            toast({
-              title: 'Scheduled: Catch up',
-              description: 'Friday, February 10, 2023 at 5:57 PM',
-            })
-          }
-        >
-          With Title
-        </Button>
-      </ComponentShowcase>
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Toast component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/toast"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Toast
+          </a>
+          .
+        </p>
 
-      <ComponentShowcase
-        title="With Action"
-        description="A toast with an action button."
-        code={`<Button onClick={() => toast({
-  title: "Uh oh! Something went wrong.",
-  description: "There was a problem with your request.",
-  action: <ToastAction altText="Try again">Try again</ToastAction>,
-})}>
-  With Action
-</Button>`}
-      >
-        <Button
-          variant="outline"
-          onClick={() =>
-            toast({
-              title: 'Uh oh! Something went wrong.',
-              description: 'There was a problem with your request.',
-            })
-          }
-        >
-          With Action
-        </Button>
-      </ComponentShowcase>
+        <h4 className="text-lg font-medium mt-6">Toast (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'variant',
+              type: '"default" | "destructive"',
+              defaultValue: '"default"',
+              description: 'The visual variant of the toast.',
+            },
+            {
+              name: 'duration',
+              type: 'number',
+              defaultValue: '5000',
+              description: 'The time in milliseconds that the toast should remain visible for.',
+            },
+          ]}
+        />
 
-      <ComponentShowcase
-        title="Destructive"
-        description="A destructive toast for error messages."
-        code={`<Button variant="destructive" onClick={() => toast({
-  variant: "destructive",
-  title: "Error",
-  description: "Something went wrong.",
-})}>
-  Destructive
-</Button>`}
-      >
-        <Button
-          variant="destructive"
-          onClick={() =>
-            toast({
-              variant: 'destructive',
-              title: 'Error',
-              description: 'Something went wrong.',
-            })
-          }
-        >
-          Destructive
-        </Button>
-      </ComponentShowcase>
+        <h4 className="text-lg font-medium mt-6">Toaster</h4>
+        <p className="text-sm text-muted-foreground">The Toaster component renders all active toasts.</p>
+
+        <h4 className="text-lg font-medium mt-6">useToast</h4>
+        <p className="text-sm text-muted-foreground">The `useToast` hook is used to trigger toasts.</p>
+        <PropsTable
+          props={[
+            {
+              name: 'toast',
+              type: 'function',
+              description: 'Function to trigger a new toast. Returns an object with `id`, `dismiss`, and `update`.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

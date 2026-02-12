@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Pagination,
   PaginationContent,
@@ -14,7 +15,7 @@ export function PaginationDocs() {
     <ComponentSection title="Pagination" description="Pagination with page navigation, next and previous links.">
       <ComponentShowcase
         title="Default"
-        description="Standard pagination component."
+        description="A standard pagination."
         code={`<Pagination>
   <PaginationContent>
     <PaginationItem>
@@ -24,7 +25,9 @@ export function PaginationDocs() {
       <PaginationLink href="#">1</PaginationLink>
     </PaginationItem>
     <PaginationItem>
-      <PaginationLink href="#" isActive>2</PaginationLink>
+      <PaginationLink href="#" isActive>
+        2
+      </PaginationLink>
     </PaginationItem>
     <PaginationItem>
       <PaginationLink href="#">3</PaginationLink>
@@ -63,6 +66,28 @@ export function PaginationDocs() {
           </PaginationContent>
         </Pagination>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">The Pagination component is built using standard HTML elements.</p>
+
+        <h4 className="text-lg font-medium mt-6">PaginationLink</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'isActive',
+              type: 'boolean',
+              description: 'Whether the link is active.',
+            },
+            {
+              name: 'size',
+              type: '"default" | "sm" | "icon"',
+              defaultValue: '"icon"',
+              description: 'The size of the button.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

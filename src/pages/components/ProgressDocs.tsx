@@ -1,34 +1,64 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Progress } from '@/components/ui/progress';
+import { useEffect, useState } from 'react';
 
 export function ProgressDocs() {
+  const [progress, setProgress] = useState(13);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setProgress(66), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <ComponentSection title="Progress" description="Displays an indicator showing the completion progress of a task.">
-      <ComponentShowcase
-        title="Default"
-        description="A basic progress bar."
-        code={`<Progress value={33} className="w-[60%]" />`}
-      >
-        <Progress value={33} className="w-full max-w-md" />
+    <ComponentSection
+      title="Progress"
+      description="Displays an indicator showing the completion progress of a task, typically displayed as a progress bar."
+    >
+      <ComponentShowcase title="Default" description="A default progress bar." code={`<Progress value={33} />`}>
+        <Progress value={progress} className="w-[60%]" />
       </ComponentShowcase>
 
-      <ComponentShowcase
-        title="Various Values"
-        description="Progress bars with different completion values."
-        code={`<Progress value={0} />
-<Progress value={25} />
-<Progress value={50} />
-<Progress value={75} />
-<Progress value={100} />`}
-      >
-        <div className="space-y-4 w-full max-w-md">
-          <Progress value={0} />
-          <Progress value={25} />
-          <Progress value={50} />
-          <Progress value={75} />
-          <Progress value={100} />
-        </div>
-      </ComponentShowcase>
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Progress component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/progress"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Progress
+          </a>
+          .
+        </p>
+
+        <h4 className="text-lg font-medium mt-6">Progress (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'value',
+              type: 'number | null',
+              description: 'The progress value.',
+            },
+            {
+              name: 'max',
+              type: 'number',
+              defaultValue: '100',
+              description: 'The maximum progress value.',
+            },
+            {
+              name: 'getValueLabel',
+              type: '(value: number, max: number) => string',
+              defaultValue: '"${value}%"',
+              description:
+                'A function to get the accessible label text representing the current value in a human-readable format.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
@@ -7,73 +8,27 @@ export function SonnerDocs() {
     <ComponentSection title="Sonner" description="An opinionated toast component for React.">
       <ComponentShowcase
         title="Default"
-        description="A basic toast notification."
-        code={`import { toast } from "sonner";
-
-<Button onClick={() => toast("Event has been created")}>
+        description="A default toast."
+        code={`<Button
+  variant="outline"
+  onClick={() =>
+    toast("Event has been created", {
+      description: "Sunday, December 03, 2023 at 9:00 AM",
+      action: {
+        label: "Undo",
+        onClick: () => console.log("Undo"),
+      },
+    })
+  }
+>
   Show Toast
 </Button>`}
       >
-        <Button onClick={() => toast('Event has been created')}>Show Toast</Button>
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="Success"
-        description="A success toast."
-        code={`<Button onClick={() => toast.success("Successfully saved!")}>
-  Success Toast
-</Button>`}
-      >
-        <Button onClick={() => toast.success('Successfully saved!')}>Success Toast</Button>
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="Error"
-        description="An error toast."
-        code={`<Button variant="destructive" onClick={() => toast.error("Something went wrong")}>
-  Error Toast
-</Button>`}
-      >
-        <Button variant="destructive" onClick={() => toast.error('Something went wrong')}>
-          Error Toast
-        </Button>
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="With Description"
-        description="A toast with a description."
-        code={`<Button onClick={() => toast("Event has been created", {
-  description: "Sunday, December 03, 2023 at 9:00 AM",
-})}>
-  With Description
-</Button>`}
-      >
         <Button
+          variant="outline"
           onClick={() =>
             toast('Event has been created', {
               description: 'Sunday, December 03, 2023 at 9:00 AM',
-            })
-          }
-        >
-          With Description
-        </Button>
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="With Action"
-        description="A toast with an action button."
-        code={`<Button onClick={() => toast("Event has been created", {
-  action: {
-    label: "Undo",
-    onClick: () => console.log("Undo"),
-  },
-})}>
-  With Action
-</Button>`}
-      >
-        <Button
-          onClick={() =>
-            toast('Event has been created', {
               action: {
                 label: 'Undo',
                 onClick: () => console.log('Undo'),
@@ -81,9 +36,62 @@ export function SonnerDocs() {
             })
           }
         >
-          With Action
+          Show Toast
         </Button>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Sonner component is based on{' '}
+          <a href="https://sonner.emilkowal.ski/" className="underline" target="_blank" rel="noreferrer">
+            Sonner
+          </a>
+          .
+        </p>
+
+        <h4 className="text-lg font-medium mt-6">Toaster</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'theme',
+              type: '"light" | "dark" | "system"',
+              description: 'The theme of the toast.',
+            },
+            {
+              name: 'richColors',
+              type: 'boolean',
+              description: 'Makes the toast colorful based on the type.',
+            },
+            {
+              name: 'expand',
+              type: 'boolean',
+              description: 'Expands the toast to show the full content.',
+            },
+            {
+              name: 'duration',
+              type: 'number',
+              description: 'Duration in milliseconds.',
+            },
+            {
+              name: 'visibleToasts',
+              type: 'number',
+              description: 'Number of visible toasts.',
+            },
+            {
+              name: 'closeButton',
+              type: 'boolean',
+              description: 'Shows a close button.',
+            },
+            {
+              name: 'position',
+              type: '"top-left" | "top-right" | "bottom-left" | "bottom-right" | "top-center" | "bottom-center"',
+              defaultValue: '"bottom-right"',
+              description: 'Position of the toast.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

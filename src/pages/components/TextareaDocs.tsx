@@ -1,54 +1,60 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { Button } from '@/components/ui/button';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 
 export function TextareaDocs() {
   return (
-    <ComponentSection title="Textarea" description="Displays a form textarea for multi-line text input.">
+    <ComponentSection
+      title="Textarea"
+      description="Displays a form textarea or a component that looks like a textarea."
+    >
       <ComponentShowcase
         title="Default"
-        description="A basic textarea."
-        code={`<Textarea placeholder="Type your message here." />`}
-      >
-        <Textarea placeholder="Type your message here." className="max-w-md" />
-      </ComponentShowcase>
-
-      <ComponentShowcase
-        title="With Label"
-        description="A textarea with a label."
+        description="A default textarea."
         code={`<div className="grid w-full gap-1.5">
   <Label htmlFor="message">Your message</Label>
   <Textarea placeholder="Type your message here." id="message" />
 </div>`}
       >
-        <div className="grid w-full max-w-md gap-1.5">
+        <div className="grid w-full gap-1.5">
           <Label htmlFor="message">Your message</Label>
           <Textarea placeholder="Type your message here." id="message" />
         </div>
       </ComponentShowcase>
 
-      <ComponentShowcase
-        title="With Button"
-        description="A textarea with a submit button."
-        code={`<div className="grid w-full gap-2">
-  <Textarea placeholder="Type your message here." />
-  <Button>Send message</Button>
-</div>`}
-      >
-        <div className="grid w-full max-w-md gap-2">
-          <Textarea placeholder="Type your message here." />
-          <Button>Send message</Button>
-        </div>
-      </ComponentShowcase>
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Textarea component accepts all standard HTML textarea attributes.
+        </p>
 
-      <ComponentShowcase
-        title="Disabled"
-        description="A disabled textarea."
-        code={`<Textarea placeholder="Type your message here." disabled />`}
-      >
-        <Textarea placeholder="Type your message here." disabled className="max-w-md" />
-      </ComponentShowcase>
+        <h4 className="text-lg font-medium mt-6">Textarea</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'className',
+              type: 'string',
+              description: 'Additional class names to apply.',
+            },
+            {
+              name: 'placeholder',
+              type: 'string',
+              description: 'The placeholder object.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              description: 'Whether the textarea is disabled.',
+            },
+            {
+              name: 'required',
+              type: 'boolean',
+              description: 'Whether the textarea is required.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

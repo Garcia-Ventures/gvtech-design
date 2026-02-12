@@ -1,31 +1,27 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { ScrollArea, ScrollBar } from '@/components/ui/scroll-area';
+import { PropsTable } from '@/components/docs/PropsTable';
+import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 
-const works = [
-  { artist: 'Ornella Binni', art: 'Reflection' },
-  { artist: 'Tom Byrom', art: 'Mountain View' },
-  { artist: 'Vladimir Malyavko', art: 'Harmony' },
-  { artist: 'Magicle', art: 'Dreams' },
-];
-
 export function ScrollAreaDocs() {
   return (
     <ComponentSection
-      title="Scroll Area"
+      title="Scroll-area"
       description="Augments native scroll functionality for custom, cross-browser styling."
     >
       <ComponentShowcase
-        title="Vertical"
-        description="A vertically scrolling area."
+        title="Default"
+        description="A default scroll area."
         code={`<ScrollArea className="h-72 w-48 rounded-md border">
   <div className="p-4">
     <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
     {tags.map((tag) => (
       <>
-        <div key={tag} className="text-sm">{tag}</div>
+        <div key={tag} className="text-sm">
+          {tag}
+        </div>
         <Separator className="my-2" />
       </>
     ))}
@@ -45,45 +41,62 @@ export function ScrollAreaDocs() {
         </ScrollArea>
       </ComponentShowcase>
 
-      <ComponentShowcase
-        title="Horizontal"
-        description="A horizontally scrolling area."
-        code={`<ScrollArea className="w-96 whitespace-nowrap rounded-md border">
-  <div className="flex w-max space-x-4 p-4">
-    {works.map((work) => (
-      <figure key={work.artist} className="shrink-0">
-        <div className="overflow-hidden rounded-md">
-          <div className="h-[150px] w-[150px] bg-muted flex items-center justify-center">
-            {work.art}
-          </div>
-        </div>
-        <figcaption className="pt-2 text-xs text-muted-foreground">
-          Photo by <span className="font-semibold text-foreground">{work.artist}</span>
-        </figcaption>
-      </figure>
-    ))}
-  </div>
-  <ScrollBar orientation="horizontal" />
-</ScrollArea>`}
-      >
-        <ScrollArea className="w-96 whitespace-nowrap rounded-md border">
-          <div className="flex w-max space-x-4 p-4">
-            {works.map((work) => (
-              <figure key={work.artist} className="shrink-0">
-                <div className="overflow-hidden rounded-md">
-                  <div className="h-[150px] w-[150px] bg-muted flex items-center justify-center text-sm">
-                    {work.art}
-                  </div>
-                </div>
-                <figcaption className="pt-2 text-xs text-muted-foreground">
-                  Photo by <span className="font-semibold text-foreground">{work.artist}</span>
-                </figcaption>
-              </figure>
-            ))}
-          </div>
-          <ScrollBar orientation="horizontal" />
-        </ScrollArea>
-      </ComponentShowcase>
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Scroll Area component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/scroll-area"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Scroll Area
+          </a>
+          .
+        </p>
+
+        <h4 className="text-lg font-medium mt-6">ScrollArea (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'type',
+              type: '"auto" | "always" | "scroll" | "hover"',
+              defaultValue: '"hover"',
+              description: 'Describes the nature of scrollbar visibility.',
+            },
+            {
+              name: 'scrollHideDelay',
+              type: 'number',
+              defaultValue: '600',
+              description:
+                'If type is "scroll" or "hover", this property determines how long the scrollbar remains visible before hiding.',
+            },
+            {
+              name: 'dir',
+              type: '"ltr" | "rtl"',
+              description: 'The reading direction of the scroll area.',
+            },
+          ]}
+        />
+
+        <h4 className="text-lg font-medium mt-6">ScrollBar</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'orientation',
+              type: '"horizontal" | "vertical"',
+              defaultValue: '"vertical"',
+              description: 'The orientation of the scrollbar.',
+            },
+            {
+              name: 'forceMount',
+              type: 'boolean',
+              description: 'Used to force mounting when more control is needed.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }
