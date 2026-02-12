@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.0.1...design-system-v2.1.0) (2026-02-12)
+
+
+### Features
+
+* Export and import global CSS styles for the design system. ([e77f343](https://github.com/Garcia-Ventures/gvtech-design/commit/e77f343d09c5bf20cab434196914388443019249))
+
 ## [2.0.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.0.0...design-system-v2.0.1) (2026-02-12)
 
 
