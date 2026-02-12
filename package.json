@@ -9,14 +9,20 @@
     ".": {
       "types": "./dist/index.d.ts",
       "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js"
+      "require": "./dist/index.cjs.js",
+      "default": "./dist/index.es.js"
     },
-    "./style.css": "./dist/design-system.css",
+    "./style.css": {
+      "style": "./dist/design-system.css",
+      "import": "./dist/design-system.css",
+      "default": "./dist/design-system.css"
+    },
     "./package.json": "./package.json"
   },
   "main": "dist/index.cjs.js",
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
+  "style": "dist/design-system.css",
   "scripts": {
     "build": "yarn build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
     "build:registry": "tsx scripts/build-registry.ts",
