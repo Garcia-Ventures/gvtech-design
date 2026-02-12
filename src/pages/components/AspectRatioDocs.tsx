@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 
 export function AspectRatioDocs() {
@@ -59,6 +60,26 @@ export function AspectRatioDocs() {
           </AspectRatio>
         </div>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <PropsTable
+          props={[
+            {
+              name: 'ratio',
+              type: 'number',
+              defaultValue: '1',
+              description: 'The desired aspect ratio.',
+            },
+            {
+              name: 'asChild',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'Change the default rendered element for the one passed as a child.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

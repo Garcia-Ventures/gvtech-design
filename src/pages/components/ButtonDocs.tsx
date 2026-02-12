@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Loader2, Mail } from 'lucide-react';
 
@@ -72,6 +73,48 @@ export function ButtonDocs() {
       >
         <Button disabled>Disabled</Button>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <PropsTable
+          props={[
+            {
+              name: 'variant',
+              type: '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
+              defaultValue: '"default"',
+              description: 'The visual style of the button.',
+            },
+            {
+              name: 'size',
+              type: '"default" | "sm" | "lg" | "icon"',
+              defaultValue: '"default"',
+              description: 'The size of the button.',
+            },
+            {
+              name: 'asChild',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'Whether to render as a child component (delegation).',
+            },
+            {
+              name: 'className',
+              type: 'string',
+              description: 'Additional CSS classes to apply.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'Whether the button is disabled.',
+            },
+            {
+              name: 'onClick',
+              type: 'MouseEventHandler',
+              description: 'Click event handler.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

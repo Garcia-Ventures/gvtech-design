@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -76,6 +77,25 @@ export function CardDocs() {
           </CardFooter>
         </Card>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <h4 className="text-lg font-medium mt-6">Card (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'className',
+              type: 'string',
+              description: 'Additional CSS classes.',
+            },
+          ]}
+        />
+
+        <p className="text-sm text-muted-foreground mt-4">
+          CardHeader, CardTitle, CardDescription, CardContent, and CardFooter also accept <code>className</code> and
+          other standard HTML attributes.
+        </p>
+      </div>
     </ComponentSection>
   );
 }

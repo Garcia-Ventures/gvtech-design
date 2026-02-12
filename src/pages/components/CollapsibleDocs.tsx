@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from '@/components/ui/collapsible';
 import { ChevronsUpDown } from 'lucide-react';
@@ -47,6 +48,56 @@ export function CollapsibleDocs() {
           </CollapsibleContent>
         </Collapsible>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-sm text-muted-foreground">
+          The Collapsible component is built on top of{' '}
+          <a
+            href="https://www.radix-ui.com/primitives/docs/components/collapsible"
+            className="underline"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Radix UI Collapsible
+          </a>
+          .
+        </p>
+        <PropsTable
+          props={[
+            {
+              name: 'open',
+              type: 'boolean',
+              description: 'The controlled open state of the collapsible.',
+            },
+            {
+              name: 'defaultOpen',
+              type: 'boolean',
+              description: 'The default open state when uncontrolled.',
+            },
+            {
+              name: 'onOpenChange',
+              type: '(open: boolean) => void',
+              description: 'Event handler called when the open state changes.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              description: 'When true, prevents the user from interacting with the collapsible.',
+            },
+          ]}
+        />
+        <h4 className="text-lg font-medium mt-6">CollapsibleContent</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'forceMount',
+              type: 'boolean',
+              description: 'Used to force mounting when more control is needed.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

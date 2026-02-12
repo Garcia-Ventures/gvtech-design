@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Card, CardContent } from '@/components/ui/card';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
 
@@ -127,6 +128,36 @@ export function CarouselDocs() {
           <CarouselNext />
         </Carousel>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <h4 className="text-lg font-medium mt-6">Carousel (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'opts',
+              type: 'CarouselOptions',
+              description: 'Options passed to the Embla Carousel instance.',
+            },
+            {
+              name: 'plugins',
+              type: 'CarouselPlugin',
+              description: 'Plugins passed to the Embla Carousel instance.',
+            },
+            {
+              name: 'orientation',
+              type: '"horizontal" | "vertical"',
+              defaultValue: '"horizontal"',
+              description: 'The orientation of the carousel.',
+            },
+            {
+              name: 'setApi',
+              type: '(api: CarouselApi) => void',
+              description: 'Callback to get the Embla Carousel API instance.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

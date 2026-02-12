@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Badge } from '@/components/ui/badge';
 
 export function BadgeDocs() {
@@ -31,6 +32,25 @@ export function BadgeDocs() {
         <Badge variant="destructive">Error</Badge>
         <Badge variant="outline">v1.0.0</Badge>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <PropsTable
+          props={[
+            {
+              name: 'variant',
+              type: '"default" | "secondary" | "destructive" | "outline"',
+              defaultValue: '"default"',
+              description: 'The visual style of the badge.',
+            },
+            {
+              name: 'className',
+              type: 'string',
+              description: 'Additional CSS classes to apply.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }

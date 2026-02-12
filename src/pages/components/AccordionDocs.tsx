@@ -1,4 +1,5 @@
 import { ComponentSection, ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
 export function AccordionDocs() {
@@ -50,6 +51,114 @@ export function AccordionDocs() {
           </AccordionItem>
         </Accordion>
       </ComponentShowcase>
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+
+        <h4 className="text-lg font-medium mt-6">Accordion (Root)</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'type',
+              type: '"single" | "multiple"',
+              description: 'Determines whether one or multiple items can be opened at the same time.',
+              required: true,
+            },
+            {
+              name: 'collapsible',
+              type: 'boolean',
+              defaultValue: 'false check',
+              description: 'When type is "single", allows closing content when clicking trigger for an open item.',
+            },
+            {
+              name: 'value',
+              type: 'string | string[]',
+              description: 'The controlled value of the item(s) to expand.',
+            },
+            {
+              name: 'defaultValue',
+              type: 'string | string[]',
+              description: 'The default value of the item(s) to expand.',
+            },
+            {
+              name: 'onValueChange',
+              type: '(value: string | string[]) => void',
+              description: 'Event handler called when the expanded state of an item changes.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'When true, prevents the user from interacting with the accordion.',
+            },
+            {
+              name: 'dir',
+              type: '"ltr" | "rtl"',
+              defaultValue: '"ltr"',
+              description: 'The reading direction of the accordion.',
+            },
+            {
+              name: 'orientation',
+              type: '"vertical" | "horizontal"',
+              defaultValue: '"vertical"',
+              description: 'The orientation of the accordion.',
+            },
+          ]}
+        />
+
+        <h4 className="text-lg font-medium mt-6">AccordionItem</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'value',
+              type: 'string',
+              description: 'A unique value for the item.',
+              required: true,
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'When true, prevents the user from interacting with the item.',
+            },
+          ]}
+        />
+
+        <h4 className="text-lg font-medium mt-6">AccordionTrigger</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'children',
+              type: 'ReactNode',
+              description: 'The content of the trigger.',
+            },
+            {
+              name: 'asChild',
+              type: 'boolean',
+              defaultValue: 'false',
+              description:
+                'Change the default rendered element for the one passed as a child, merging their props and behavior.',
+            },
+          ]}
+        />
+
+        <h4 className="text-lg font-medium mt-6">AccordionContent</h4>
+        <PropsTable
+          props={[
+            {
+              name: 'children',
+              type: 'ReactNode',
+              description: 'The content of the item.',
+            },
+            {
+              name: 'forceMount',
+              type: 'boolean',
+              description:
+                'Used to force mounting when more control is needed. Useful when controlling animation with React libraries.',
+            },
+          ]}
+        />
+      </div>
     </ComponentSection>
   );
 }
