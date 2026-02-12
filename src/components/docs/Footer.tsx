@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
-import { Github, Linkedin, Twitter } from 'lucide-react';
+import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 
 export function Footer() {
   return (
@@ -65,7 +65,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       aria-label="GitHub"
                     >
-                      <Github className="h-5 w-5" />
+                      <SiGithub className="h-5 w-5" />
                     </a>
                   </Button>
                 </TooltipTrigger>
@@ -75,12 +75,17 @@ export function Footer() {
               <Tooltip>
                 <TooltipTrigger asChild>
                   <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
-                    <a href="https://twitter.com/gvtech" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
-                      <Twitter className="h-5 w-5" />
+                    <a
+                      href="https://twitter.com/gvtech"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="X (formerly Twitter)"
+                    >
+                      <SiX className="h-4 w-4" />
                     </a>
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>Twitter</TooltipContent>
+                <TooltipContent>X (formerly Twitter)</TooltipContent>
               </Tooltip>
 
               <Tooltip>
@@ -92,7 +97,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
                     >
-                      <Linkedin className="h-5 w-5" />
+                      <SiLinkedin className="h-5 w-5" />
                     </a>
                   </Button>
                 </TooltipTrigger>

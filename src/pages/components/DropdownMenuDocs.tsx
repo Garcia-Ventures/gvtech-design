@@ -21,7 +21,6 @@ import {
 import {
   Cloud,
   CreditCard,
-  Github,
   Keyboard,
   LifeBuoy,
   LogOut,
@@ -35,6 +34,7 @@ import {
   Users,
 } from 'lucide-react';
 import * as React from 'react';
+import { SiGithub } from 'react-icons/si';
 
 export function DropdownMenuDocs() {
   const [showStatusBar, setShowStatusBar] = React.useState(true);
@@ -65,6 +65,11 @@ export function DropdownMenuDocs() {
       </DropdownMenuItem>
       ...
     </DropdownMenuGroup>
+    ...
+    <DropdownMenuItem>
+      <SiGithub className="mr-2 h-4 w-4" />
+      <span>GitHub</span>
+    </DropdownMenuItem>
     ...
   </DropdownMenuContent>
 </DropdownMenu>`}
@@ -135,7 +140,7 @@ export function DropdownMenuDocs() {
             </DropdownMenuGroup>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <Github className="mr-2 h-4 w-4" />
+              <SiGithub className="mr-2 h-4 w-4" />
               <span>GitHub</span>
             </DropdownMenuItem>
             <DropdownMenuItem>
