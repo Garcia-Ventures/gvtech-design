@@ -1,5 +1,79 @@
 # Changelog
 
+## [2.0.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v1.2.0...design-system-v2.0.0) (2026-02-12)
+
+
+### ⚠ BREAKING CHANGES
+
+* **design-system:** Legacy components and styling system (styled-components) removed in favor of tailwindcss and shadcn/ui.
+* This is the full update of storybook.
+
+### build
+
+* upgraded base ([#21](https://github.com/Garcia-Ventures/gvtech-design/issues/21)) ([91d5121](https://github.com/Garcia-Ventures/gvtech-design/commit/91d5121f019d3607ac46a8345c6e091a59a61c3e))
+
+
+### Features
+
+* Add .vscode/mcp.json to configure shadcn server command. ([27da4ba](https://github.com/Garcia-Ventures/gvtech-design/commit/27da4ba6ef8576fa5edb34263199b4fd1acde5ee))
+* add `direction` prop to `ResizablePanelGroup` and map it to `orientation` ([c081063](https://github.com/Garcia-Ventures/gvtech-design/commit/c081063ae893b0bd95450b3025b8c81cdcc40b94))
+* Add `validate:fix` script to automatically fix formatting and linting issues, and ignore `CHANGELOG.md` in Prettier. ([a441b17](https://github.com/Garcia-Ventures/gvtech-design/commit/a441b179e4dc8b1c8e5b1517fc6e673e8b0123ea))
+* Add a new documentation page for color tokens and integrate it into the application navigation. ([caf2d7f](https://github.com/Garcia-Ventures/gvtech-design/commit/caf2d7faefeba773f28d3cc0052dd801db4d3416))
+* Add component maintenance skill guidelines for UI components, tests, and documentation. ([c296d6c](https://github.com/Garcia-Ventures/gvtech-design/commit/c296d6c99b79f6840596f96a7c0b57938ecf49bd))
+* add documentation pages for NavigationMenu, Chart, Form, Menubar, Resizable, Carousel, Toast, and Pagination components. ([0fb8327](https://github.com/Garcia-Ventures/gvtech-design/commit/0fb8327d1007305ba438a8d8ebbcbcf4a765d7dd))
+* Add documentation pages for numerous new UI components and implement a footer. ([1a05766](https://github.com/Garcia-Ventures/gvtech-design/commit/1a057664ba0ffb896133876cdec9803a5083b6f8))
+* Add DropdownMenu checkbox and radio item examples and refine various component tests. ([affa392](https://github.com/Garcia-Ventures/gvtech-design/commit/affa3921b8570b3f4deb27da6745f3c51fa8172b))
+* Add Radix Toast and Sonner comparison documentation, destructive toast example, and integrate both toast providers. ([3d86f25](https://github.com/Garcia-Ventures/gvtech-design/commit/3d86f25cebb177e2426f3c605df3c3f462d0c868))
+* add Search component with Cmd+K shortcut, tests, and documentation, and update sidebar navigation to include it. ([e66bb91](https://github.com/Garcia-Ventures/gvtech-design/commit/e66bb917770a7ba00e0392f7723e3297281e8e36))
+* Add Storybook test runner with CI integration and optimize Vite build chunking. ([e3c6818](https://github.com/Garcia-Ventures/gvtech-design/commit/e3c6818957d34bc39c76818238c6645b923aaf68))
+* add ThemeToggle component with binary and ternary modes, its documentation page, and integrate it into the docs site. ([fad082e](https://github.com/Garcia-Ventures/gvtech-design/commit/fad082ef94bca39839500340ffcc35d330cd87cb))
+* Add unit tests for multiple UI components and enhance documentation with prop tables. ([54f5c73](https://github.com/Garcia-Ventures/gvtech-design/commit/54f5c731b41fec0a7649b524f1597939ea860905))
+* Add unit tests for numerous UI components and enhance documentation with prop tables. ([9cfa465](https://github.com/Garcia-Ventures/gvtech-design/commit/9cfa465b2e79ff8ac21e6bd6a023d2a7b24abbe8))
+* Automate npm publishing for the scoped design system package with provenance. ([e3bef59](https://github.com/Garcia-Ventures/gvtech-design/commit/e3bef59f66d02c561a7eef8caab6a80019cb4127))
+* **design-system:** restart and redesign with shadcn/ui ([bea7850](https://github.com/Garcia-Ventures/gvtech-design/commit/bea7850ae8070c9d9e6ccf86ba36c53354eafbd0))
+* display dynamic version from package.json in the sidebar ([7be0b14](https://github.com/Garcia-Ventures/gvtech-design/commit/7be0b14f69da21e4bf9109a1d6ed31551d74d6cb))
+* enhance accessibility checks and improve build process ([482dc51](https://github.com/Garcia-Ventures/gvtech-design/commit/482dc51e36545217d886b13fae55c0e527cbb8a5))
+* Implement a new color palette with design tokens, global styles, and accompanying documentation. ([2d1f6c7](https://github.com/Garcia-Ventures/gvtech-design/commit/2d1f6c7951762012062997f3ca0307f22b5c502f))
+* implement automated shadcn registry and batch import components ([0e9dfde](https://github.com/Garcia-Ventures/gvtech-design/commit/0e9dfde1570e32489a5c9e6cb18e5870b96e1dd2))
+* Implement documentation site structure with dedicated pages for various components and a navigation sidebar. ([857b5aa](https://github.com/Garcia-Ventures/gvtech-design/commit/857b5aa4e5fa9b1c5aa425d09adbf29a75b17859))
+* Introduce `serve.json` for static URL configuration and adjust the `package.json` serve script. ([797a1ab](https://github.com/Garcia-Ventures/gvtech-design/commit/797a1ab58fe208848205b8a36770ba7df0d577a6))
+* Introduce and apply new design tokens for colors, including brand-specific values and a radius variable. ([f0db044](https://github.com/Garcia-Ventures/gvtech-design/commit/f0db04402d505670dfaa2f8a727acdd666298429))
+* license scans and move ci to github actions ([ae828ff](https://github.com/Garcia-Ventures/gvtech-design/commit/ae828ffcc5d135a37dd798d5cfbe34ad65e5661e))
+* migrate storybook config to latest ([9c7bcb5](https://github.com/Garcia-Ventures/gvtech-design/commit/9c7bcb5880664a5182665ec903a516a1e349ab96))
+* migrate to shadcn design system and remove storyboard ([69bb668](https://github.com/Garcia-Ventures/gvtech-design/commit/69bb668bce39743bd0d0081c9a230730eca7e5d1))
+* **publish:** Getting ready for publish ([4e21b94](https://github.com/Garcia-Ventures/gvtech-design/commit/4e21b942672cb00546441c2998745067d2a404d8))
+* **release:** adds release script to ci ([2e4711d](https://github.com/Garcia-Ventures/gvtech-design/commit/2e4711df40d8271671e5079f98e57bed3194efc9))
+* **release:** adds release script to ci ([44786eb](https://github.com/Garcia-Ventures/gvtech-design/commit/44786eb9982e5fd84ecc7afbe9bcc5437aee5583))
+* **release:** update release process ([#47](https://github.com/Garcia-Ventures/gvtech-design/issues/47)) ([d0dc2af](https://github.com/Garcia-Ventures/gvtech-design/commit/d0dc2afab6c992e0f4a2d9b94d4f70ffefebc279))
+* Remove custom build configuration and add explicit environment-specific settings for preview and production environments. ([f5bbfde](https://github.com/Garcia-Ventures/gvtech-design/commit/f5bbfde5389d71fefaf0e8d0e4bbcbdaa7ed1066))
+* rename and modernize the design system ([#45](https://github.com/Garcia-Ventures/gvtech-design/issues/45)) ([5bc936d](https://github.com/Garcia-Ventures/gvtech-design/commit/5bc936dc3a831c431eb80a2679d6c0785e6e622d))
+* Replace the static header title with dynamic breadcrumb navigation and add sticky header styling. ([3dcd96c](https://github.com/Garcia-Ventures/gvtech-design/commit/3dcd96c87ad82338f5ca75b11f4e46160903901b))
+* **spellright:** Adds settings for spellright ([329a125](https://github.com/Garcia-Ventures/gvtech-design/commit/329a1253a15dd443c19bd68e08bad14799bd42a9))
+* Upgrade to Tailwind CSS v4, migrating configuration to CSS and ESM, and updating dependencies. ([41d67f2](https://github.com/Garcia-Ventures/gvtech-design/commit/41d67f23d00a058e55225e30e9d7e8b7a20a0d7a))
+
+
+### Bug Fixes
+
+* correct FUNDING syntax [skip ci] ([779e13a](https://github.com/Garcia-Ventures/gvtech-design/commit/779e13ae9002fcfab8dd0d342a4ce5964f5ae890))
+* correct FUNDING syntax [skip ci] ([679722d](https://github.com/Garcia-Ventures/gvtech-design/commit/679722dca5f74bdf3d3ba27b1a159ce295a234e2))
+* correct validations ([b032a1d](https://github.com/Garcia-Ventures/gvtech-design/commit/b032a1db833976af7e3c14d4d12cf1d19ef8b7a9))
+* **eslint:** downgraded eslint ([6c30120](https://github.com/Garcia-Ventures/gvtech-design/commit/6c3012078c119fb691eca2fd80c57acc44efeb18))
+* **README:** move to root so npm has access ([84f9f2f](https://github.com/Garcia-Ventures/gvtech-design/commit/84f9f2fe14c82d484ad946dc25241e296aef12b7))
+* recreate yarn.lock ([a9281fd](https://github.com/Garcia-Ventures/gvtech-design/commit/a9281fde8ac42aea0a8187b1fd56b4742beed408))
+* remove redundant eslint config ([eb4a21e](https://github.com/Garcia-Ventures/gvtech-design/commit/eb4a21e3481f9f8d6e5b38ba56618252e10b9558))
+* replace missing dependencies ([55ea166](https://github.com/Garcia-Ventures/gvtech-design/commit/55ea1668be6ddf2bf12a30196d433abe25c109ae))
+* **sb:** docs to correct version ([#23](https://github.com/Garcia-Ventures/gvtech-design/issues/23)) ([44d93b6](https://github.com/Garcia-Ventures/gvtech-design/commit/44d93b6d8edc4c3690e581b4f77323ce21af2ac0))
+* update storybook config ([1f70527](https://github.com/Garcia-Ventures/gvtech-design/commit/1f705279766de140759256f8a9f31e6f8d69f3b7))
+* use token in checkout process ([a1901e5](https://github.com/Garcia-Ventures/gvtech-design/commit/a1901e5cca8067985ba8a758160a043dee93cbec))
+
+
+### Documentation
+
+* enhance ThemeToggle documentation with a props table and integration examples, and add `relative` positioning to the toggle button. ([d62f5f5](https://github.com/Garcia-Ventures/gvtech-design/commit/d62f5f5c2bf20c9d15480d89ccde320fdca30ff0))
+* Explicitly assign CODEOWNERS file ownership and standardize default owner's username casing. ([13efba5](https://github.com/Garcia-Ventures/gvtech-design/commit/13efba5fe7ac280fbe9a2c513debc92f0fea0033))
+* update email link ([927503d](https://github.com/Garcia-Ventures/gvtech-design/commit/927503da7f97224ffdfd3e58612a686456170106))
+* Update README to reflect the new GV Tech Design System name, `[@gv-tech](https://github.com/gv-tech)` package scope, repository links, and publishing method. ([2d09386](https://github.com/Garcia-Ventures/gvtech-design/commit/2d0938624b25669ed5a8f4deccacf82e0049dc84))
+
 ## [1.2.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v1.1.0...v1.2.0) (2026-02-12)
 
 
