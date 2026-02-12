@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.0.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.0.0...design-system-v2.0.1) (2026-02-12)
+
+
+### Bug Fixes
+
+* Add `exports` field to `package.json` for conditional package entry points. ([145cb19](https://github.com/Garcia-Ventures/gvtech-design/commit/145cb19adf80bf871bdd00c3634ed5ad4f495f61))
+
 ## [2.0.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v1.2.0...design-system-v2.0.0) (2026-02-12)
 
 
