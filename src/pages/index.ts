@@ -34,6 +34,7 @@ export { ProgressDocs } from './components/ProgressDocs';
 export { RadioGroupDocs } from './components/RadioGroupDocs';
 export { ResizableDocs } from './components/ResizableDocs';
 export { ScrollAreaDocs } from './components/ScrollAreaDocs';
+export { SearchDocs } from './components/SearchDocs';
 export { SelectDocs } from './components/SelectDocs';
 export { SeparatorDocs } from './components/SeparatorDocs';
 export { SheetDocs } from './components/SheetDocs';

@@ -93,6 +93,7 @@ export const navItems: NavItem[] = [
   { id: 'dropdown-menu', label: 'Dropdown Menu', category: 'overlay' },
   { id: 'context-menu', label: 'Context Menu', category: 'overlay' },
   { id: 'command', label: 'Command', category: 'overlay' },
+  { id: 'search', label: 'Search', category: 'overlay' },
   { id: 'sheet', label: 'Sheet', category: 'overlay' },
   { id: 'drawer', label: 'Drawer', category: 'overlay' },
 
@@ -107,6 +108,15 @@ export const navItems: NavItem[] = [
 
 export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
   const categories = Object.keys(categoryConfig) as ComponentCategory[];
+  const [expandedCategories, setExpandedCategories] = React.useState<string[]>(['getting-started', 'forms']);
+
+  // Ensure the category of the active item is expanded
+  React.useEffect(() => {
+    const activeNavItem = navItems.find((item) => item.id === activeItem);
+    if (activeNavItem && !expandedCategories.includes(activeNavItem.category)) {
+      setExpandedCategories((prev) => [...prev, activeNavItem.category]);
+    }
+  }, [activeItem, expandedCategories]);
 
   return (
     <div className="w-64 border-r bg-muted/50 flex flex-col h-full">
@@ -116,7 +126,12 @@ export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
       </div>
       <ScrollArea className="flex-1">
         <nav className="p-2">
-          <Accordion type="multiple" defaultValue={['getting-started', 'forms']} className="w-full space-y-1">
+          <Accordion
+            type="multiple"
+            value={expandedCategories}
+            onValueChange={setExpandedCategories}
+            className="w-full space-y-1"
+          >
             {categories.map((category) => {
               const config = categoryConfig[category];
               const items = navItems.filter((item) => item.category === category);

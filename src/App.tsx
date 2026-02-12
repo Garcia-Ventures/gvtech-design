@@ -11,6 +11,15 @@ import {
   BreadcrumbSeparator,
 } from './components/ui/breadcrumb';
 import { ScrollArea } from './components/ui/scroll-area';
+import {
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  Search,
+  SearchTrigger,
+} from './components/ui/search';
 import { Toaster as SonnerToaster } from './components/ui/sonner';
 import { ThemeToggle } from './components/ui/theme-toggle';
 import { Toaster } from './components/ui/toaster';
@@ -50,6 +59,7 @@ import {
   RadioGroupDocs,
   ResizableDocs,
   ScrollAreaDocs,
+  SearchDocs,
   SelectDocs,
   SeparatorDocs,
   SheetDocs,
@@ -69,6 +79,7 @@ import {
 
 function App() {
   const [activeItem, setActiveItem] = React.useState('getting-started');
+  const [searchOpen, setSearchOpen] = React.useState(false);
 
   const renderContent = () => {
     switch (activeItem) {
@@ -167,6 +178,8 @@ function App() {
         return <ContextMenuDocs />;
       case 'command':
         return <CommandDocs />;
+      case 'search':
+        return <SearchDocs />;
       case 'sheet':
         return <SheetDocs />;
       case 'drawer':
@@ -218,6 +231,26 @@ function App() {
                 </BreadcrumbList>
               </Breadcrumb>
               <div className="flex items-center gap-2">
+                <Search open={searchOpen} onOpenChange={setSearchOpen}>
+                  <CommandInput placeholder="Type a command or search..." />
+                  <CommandList>
+                    <CommandEmpty>No results found.</CommandEmpty>
+                    <CommandGroup heading="Components">
+                      {navItems.map((item) => (
+                        <CommandItem
+                          key={item.id}
+                          onSelect={() => {
+                            setActiveItem(item.id);
+                            setSearchOpen(false);
+                          }}
+                        >
+                          {item.label}
+                        </CommandItem>
+                      ))}
+                    </CommandGroup>
+                  </CommandList>
+                </Search>
+                <SearchTrigger onClick={() => setSearchOpen(true)} />
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
