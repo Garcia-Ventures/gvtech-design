@@ -1,18 +1,8 @@
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { cn } from '@/lib/utils';
-import {
-  ChevronDown,
-  ChevronRight,
-  FormInput,
-  Home,
-  Layers,
-  LayoutGrid,
-  MessageSquare,
-  Navigation,
-  Sparkles,
-  Table2,
-} from 'lucide-react';
+import { FormInput, Home, Layers, LayoutGrid, MessageSquare, Navigation, Sparkles, Table2 } from 'lucide-react';
 import * as React from 'react';
 import { version } from '../../../package.json';
 
@@ -116,22 +106,6 @@ export const navItems: NavItem[] = [
 ];
 
 export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
-  const [expandedCategories, setExpandedCategories] = React.useState<Set<ComponentCategory>>(
-    new Set(['getting-started', 'forms']),
-  );
-
-  const toggleCategory = (category: ComponentCategory) => {
-    setExpandedCategories((prev) => {
-      const next = new Set(prev);
-      if (next.has(category)) {
-        next.delete(category);
-      } else {
-        next.add(category);
-      }
-      return next;
-    });
-  };
-
   const categories = Object.keys(categoryConfig) as ComponentCategory[];
 
   return (
@@ -142,48 +116,43 @@ export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
       </div>
       <ScrollArea className="flex-1">
         <nav className="p-2">
-          {categories.map((category) => {
-            const config = categoryConfig[category];
-            const items = navItems.filter((item) => item.category === category);
-            const isExpanded = expandedCategories.has(category);
+          <Accordion type="multiple" defaultValue={['getting-started', 'forms']} className="w-full space-y-1">
+            {categories.map((category) => {
+              const config = categoryConfig[category];
+              const items = navItems.filter((item) => item.category === category);
 
-            if (items.length === 0) return null;
+              if (items.length === 0) return null;
 
-            return (
-              <div key={category} className="mb-1">
-                <button
-                  onClick={() => toggleCategory(category)}
-                  className="w-full flex items-center gap-2 px-2 py-1.5 text-sm font-medium rounded-md hover:bg-accent/50 transition-colors"
-                >
-                  {config.icon}
-                  <span className="flex-1 text-left">{config.label}</span>
-                  {isExpanded ? (
-                    <ChevronDown className="h-4 w-4 text-muted-foreground" />
-                  ) : (
-                    <ChevronRight className="h-4 w-4 text-muted-foreground" />
-                  )}
-                </button>
-                {isExpanded && (
-                  <div className="ml-4 mt-1 space-y-0.5">
-                    {items.map((item) => (
-                      <Button
-                        key={item.id}
-                        variant="ghost"
-                        size="sm"
-                        onClick={() => onItemSelect(item.id)}
-                        className={cn(
-                          'w-full justify-start h-8 px-2 font-normal',
-                          activeItem === item.id && 'bg-accent text-accent-foreground',
-                        )}
-                      >
-                        {item.label}
-                      </Button>
-                    ))}
-                  </div>
-                )}
-              </div>
-            );
-          })}
+              return (
+                <AccordionItem key={category} value={category} className="border-none">
+                  <AccordionTrigger className="flex items-center gap-2 px-2 py-1.5 text-sm font-medium rounded-md hover:bg-accent/50 transition-colors hover:no-underline [&>svg]:h-4 [&>svg]:w-4">
+                    <div className="flex items-center gap-2 flex-1">
+                      {config.icon}
+                      <span className="text-left">{config.label}</span>
+                    </div>
+                  </AccordionTrigger>
+                  <AccordionContent className="pb-1">
+                    <div className="ml-4 mt-1 space-y-0.5 border-l pl-2">
+                      {items.map((item) => (
+                        <Button
+                          key={item.id}
+                          variant="ghost"
+                          size="sm"
+                          onClick={() => onItemSelect(item.id)}
+                          className={cn(
+                            'w-full justify-start h-8 px-2 font-normal',
+                            activeItem === item.id && 'bg-accent text-accent-foreground',
+                          )}
+                        >
+                          {item.label}
+                        </Button>
+                      ))}
+                    </div>
+                  </AccordionContent>
+                </AccordionItem>
+              );
+            })}
+          </Accordion>
         </nav>
       </ScrollArea>
     </div>

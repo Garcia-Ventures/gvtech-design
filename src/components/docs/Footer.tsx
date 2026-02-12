@@ -1,4 +1,6 @@
+import { Button } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip';
 import { Github, Linkedin, Twitter } from 'lucide-react';
 
 export function Footer() {
@@ -51,37 +53,51 @@ export function Footer() {
             </ul>
           </div>
 
-          {/* Social */}
           <div className="space-y-3">
             <h4 className="font-medium text-sm">Connect</h4>
-            <div className="flex items-center space-x-4">
-              <a
-                href="https://github.com/Garcia-Ventures"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="GitHub"
-              >
-                <Github className="h-5 w-5" />
-              </a>
-              <a
-                href="https://twitter.com/gvtech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="Twitter"
-              >
-                <Twitter className="h-5 w-5" />
-              </a>
-              <a
-                href="https://linkedin.com/company/gvtech"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-muted-foreground hover:text-foreground transition-colors"
-                aria-label="LinkedIn"
-              >
-                <Linkedin className="h-5 w-5" />
-              </a>
+            <div className="flex items-center space-x-2">
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+                    <a
+                      href="https://github.com/Garcia-Ventures"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="GitHub"
+                    >
+                      <Github className="h-5 w-5" />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>GitHub</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+                    <a href="https://twitter.com/gvtech" target="_blank" rel="noopener noreferrer" aria-label="Twitter">
+                      <Twitter className="h-5 w-5" />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>Twitter</TooltipContent>
+              </Tooltip>
+
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Button variant="ghost" size="icon" className="text-muted-foreground hover:text-foreground" asChild>
+                    <a
+                      href="https://linkedin.com/company/gvtech"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="LinkedIn"
+                    >
+                      <Linkedin className="h-5 w-5" />
+                    </a>
+                  </Button>
+                </TooltipTrigger>
+                <TooltipContent>LinkedIn</TooltipContent>
+              </Tooltip>
             </div>
           </div>
         </div>

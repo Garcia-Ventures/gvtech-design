@@ -1,5 +1,6 @@
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { tokens } from '@/lib/tokens';
 
 export function ColorTokensDocs() {
@@ -113,21 +114,21 @@ const brandGreen = tokens.colors.brand.green;`}
           Below is a complete reference of all semantic color tokens available in the design system.
         </p>
         <div className="rounded-md border overflow-hidden">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b bg-muted/50">
-                <th className="px-4 py-3 text-left font-medium">Variable</th>
-                <th className="px-4 py-3 text-left font-medium">Light Mode</th>
-                <th className="px-4 py-3 text-left font-medium">Dark Mode</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/50 hover:bg-muted/50">
+                <TableHead>Variable</TableHead>
+                <TableHead>Light Mode</TableHead>
+                <TableHead>Dark Mode</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {(Object.keys(tokens.colors.light) as Array<keyof typeof tokens.colors.light>).map((key) => (
-                <tr key={key} className="hover:bg-muted/30 transition-colors">
-                  <td className="px-4 py-2 font-mono text-xs">
+                <TableRow key={key}>
+                  <TableCell className="font-mono text-xs">
                     --{key.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`)}
-                  </td>
-                  <td className="px-4 py-2">
+                  </TableCell>
+                  <TableCell>
                     <div className="flex items-center gap-2">
                       <div
                         className="h-4 w-4 rounded-sm border"
@@ -135,44 +136,44 @@ const brandGreen = tokens.colors.brand.green;`}
                       />
                       <span className="text-muted-foreground">{tokens.colors.light[key]}</span>
                     </div>
-                  </td>
-                  <td className="px-4 py-2">
+                  </TableCell>
+                  <TableCell>
                     <div className="flex items-center gap-2">
                       <div className="h-4 w-4 rounded-sm border" style={{ backgroundColor: tokens.colors.dark[key] }} />
                       <span className="text-muted-foreground">{tokens.colors.dark[key]}</span>
                     </div>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Brand Colors</h2>
         <div className="rounded-md border overflow-hidden">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b bg-muted/50">
-                <th className="px-4 py-3 text-left font-medium">Token</th>
-                <th className="px-4 py-3 text-left font-medium">Value</th>
-              </tr>
-            </thead>
-            <tbody className="divide-y">
+          <Table>
+            <TableHeader>
+              <TableRow className="bg-muted/50 hover:bg-muted/50">
+                <TableHead>Token</TableHead>
+                <TableHead>Value</TableHead>
+              </TableRow>
+            </TableHeader>
+            <TableBody>
               {Object.entries(tokens.colors.brand).map(([key, value]) => (
-                <tr key={key} className="hover:bg-muted/30 transition-colors">
-                  <td className="px-4 py-2 font-mono text-xs">tokens.colors.brand.{key}</td>
-                  <td className="px-4 py-2">
+                <TableRow key={key}>
+                  <TableCell className="font-mono text-xs">tokens.colors.brand.{key}</TableCell>
+                  <TableCell>
                     <div className="flex items-center gap-2">
                       <div className="h-4 w-4 rounded-sm border" style={{ backgroundColor: value }} />
                       <span className="text-muted-foreground">{value}</span>
                     </div>
-                  </td>
-                </tr>
+                  </TableCell>
+                </TableRow>
               ))}
-            </tbody>
-          </table>
+            </TableBody>
+          </Table>
         </div>
       </section>
     </div>

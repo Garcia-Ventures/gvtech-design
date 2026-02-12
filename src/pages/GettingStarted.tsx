@@ -1,4 +1,6 @@
 import { CodeBlock } from '@/components/docs/CodeBlock';
+import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 export function GettingStartedPage() {
   return (
@@ -11,29 +13,43 @@ export function GettingStartedPage() {
       </div>
 
       <div className="grid gap-4 md:grid-cols-3">
-        <div className="rounded-lg border p-4 space-y-2">
-          <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
-            <span className="text-2xl">🎨</span>
-          </div>
-          <h3 className="font-semibold">Consistent Design</h3>
-          <p className="text-sm text-muted-foreground">Built on a unified design language with customizable themes.</p>
-        </div>
-        <div className="rounded-lg border p-4 space-y-2">
-          <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
-            <span className="text-2xl">⚡</span>
-          </div>
-          <h3 className="font-semibold">Fully Typed</h3>
-          <p className="text-sm text-muted-foreground">
-            Complete TypeScript support with comprehensive type definitions.
-          </p>
-        </div>
-        <div className="rounded-lg border p-4 space-y-2">
-          <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center">
-            <span className="text-2xl">♿</span>
-          </div>
-          <h3 className="font-semibold">Accessible</h3>
-          <p className="text-sm text-muted-foreground">WAI-ARIA compliant components with keyboard navigation.</p>
-        </div>
+        <Card>
+          <CardHeader className="p-4 pb-2">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+              <span className="text-2xl">🎨</span>
+            </div>
+            <CardTitle className="text-lg">Consistent Design</CardTitle>
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <p className="text-sm text-muted-foreground">
+              Built on a unified design language with customizable themes.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="p-4 pb-2">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+              <span className="text-2xl">⚡</span>
+            </div>
+            <CardTitle className="text-lg">Fully Typed</CardTitle>
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <p className="text-sm text-muted-foreground">
+              Complete TypeScript support with comprehensive type definitions.
+            </p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader className="p-4 pb-2">
+            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+              <span className="text-2xl">♿</span>
+            </div>
+            <CardTitle className="text-lg">Accessible</CardTitle>
+          </CardHeader>
+          <CardContent className="p-4 pt-0">
+            <p className="text-sm text-muted-foreground">WAI-ARIA compliant components with keyboard navigation.</p>
+          </CardContent>
+        </Card>
       </div>
 
       <section className="space-y-4">
@@ -93,18 +109,22 @@ export function InstallationPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Install the package</h2>
         <p className="text-muted-foreground">Install the design system package using your preferred package manager:</p>
-        <div className="space-y-2">
-          <p className="text-sm font-medium">npm</p>
-          <CodeBlock code="npm install @gv-tech/design-system" language="bash" />
-        </div>
-        <div className="space-y-2">
-          <p className="text-sm font-medium">yarn</p>
-          <CodeBlock code="yarn add @gv-tech/design-system" language="bash" />
-        </div>
-        <div className="space-y-2">
-          <p className="text-sm font-medium">pnpm</p>
-          <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
-        </div>
+        <Tabs defaultValue="npm" className="w-full">
+          <TabsList>
+            <TabsTrigger value="npm">npm</TabsTrigger>
+            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+          </TabsList>
+          <TabsContent value="npm" className="mt-4">
+            <CodeBlock code="npm install @gv-tech/design-system" language="bash" />
+          </TabsContent>
+          <TabsContent value="yarn" className="mt-4">
+            <CodeBlock code="yarn add @gv-tech/design-system" language="bash" />
+          </TabsContent>
+          <TabsContent value="pnpm" className="mt-4">
+            <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
+          </TabsContent>
+        </Tabs>
       </section>
 
       <section className="space-y-4">
