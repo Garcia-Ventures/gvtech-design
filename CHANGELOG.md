@@ -1,5 +1,21 @@
 # Changelog
 
+## [1.2.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v1.1.0...v1.2.0) (2026-02-12)
+
+
+### Features
+
+* Add a new documentation page for color tokens and integrate it into the application navigation. ([caf2d7f](https://github.com/Garcia-Ventures/gvtech-design/commit/caf2d7faefeba773f28d3cc0052dd801db4d3416))
+* Add component maintenance skill guidelines for UI components, tests, and documentation. ([c296d6c](https://github.com/Garcia-Ventures/gvtech-design/commit/c296d6c99b79f6840596f96a7c0b57938ecf49bd))
+* Add DropdownMenu checkbox and radio item examples and refine various component tests. ([affa392](https://github.com/Garcia-Ventures/gvtech-design/commit/affa3921b8570b3f4deb27da6745f3c51fa8172b))
+* Add Radix Toast and Sonner comparison documentation, destructive toast example, and integrate both toast providers. ([3d86f25](https://github.com/Garcia-Ventures/gvtech-design/commit/3d86f25cebb177e2426f3c605df3c3f462d0c868))
+* add ThemeToggle component with binary and ternary modes, its documentation page, and integrate it into the docs site. ([fad082e](https://github.com/Garcia-Ventures/gvtech-design/commit/fad082ef94bca39839500340ffcc35d330cd87cb))
+* Add unit tests for multiple UI components and enhance documentation with prop tables. ([54f5c73](https://github.com/Garcia-Ventures/gvtech-design/commit/54f5c731b41fec0a7649b524f1597939ea860905))
+* Add unit tests for numerous UI components and enhance documentation with prop tables. ([9cfa465](https://github.com/Garcia-Ventures/gvtech-design/commit/9cfa465b2e79ff8ac21e6bd6a023d2a7b24abbe8))
+* Implement a new color palette with design tokens, global styles, and accompanying documentation. ([2d1f6c7](https://github.com/Garcia-Ventures/gvtech-design/commit/2d1f6c7951762012062997f3ca0307f22b5c502f))
+* Introduce and apply new design tokens for colors, including brand-specific values and a radius variable. ([f0db044](https://github.com/Garcia-Ventures/gvtech-design/commit/f0db04402d505670dfaa2f8a727acdd666298429))
+* Replace the static header title with dynamic breadcrumb navigation and add sticky header styling. ([3dcd96c](https://github.com/Garcia-Ventures/gvtech-design/commit/3dcd96c87ad82338f5ca75b11f4e46160903901b))
+
 ## [1.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/v1.0.0...v1.1.0) (2026-02-06)
 
 
