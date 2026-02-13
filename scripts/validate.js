@@ -15,6 +15,7 @@ const steps = [
     cmd: fix ? 'yarn lint:fix' : 'yarn lint',
   },
   { name: 'TypeScript type check', cmd: 'npx tsc --noEmit' },
+  { name: 'Test (vitest)', cmd: 'yarn test:ci' },
   { name: 'Build (vite)', cmd: 'yarn build' },
 ];
 
