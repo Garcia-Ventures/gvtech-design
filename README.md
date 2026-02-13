@@ -3,15 +3,14 @@
 <p align="center">
   <img alt="GV Tech Design System" src="https://raw.githubusercontent.com/Garcia-Ventures/gvtech-design/main/assets/logo.png" width="180" />
 
-  <br />
-  <a href="https://app.netlify.com/sites/ge-design/deploys"><img alt="Netlify Status" src="https://api.netlify.com/api/v1/badges/c104d072-a3bb-4f8a-bd93-a7d5652ff75f/deploy-status" /></a>
-  <a href="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml/badge.svg" /></a>
-  <a href="https://www.npmjs.com/package/@gv-tech/design-system"><img alt="npm" src="https://img.shields.io/npm/dt/@gv-tech/design-system" /></a>
+<a href="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml/badge.svg" /></a>
+<a href="https://www.npmjs.com/package/@gv-tech/design-system"><img alt="npm" src="https://img.shields.io/npm/dt/@gv-tech/design-system" /></a>
+
 </p>
 
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design?ref=badge_shield&issueType=license)
 
-A React component design system derived from the [Storybook Design System](https://github.com/storybookjs/design-system). This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects.
+A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Vite** and **TypeScript**.
 
 ---
 
@@ -32,7 +31,7 @@ A React component design system derived from the [Storybook Design System](https
 
 ## Demo
 
-Storybook static docs are available in this repository (`stories` + `src`): run locally with `yarn storybook` or view the compiled output if hosted.
+The design system includes a Vite-based playground site. Run it locally with `yarn dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
 
 ## Install
 
@@ -68,9 +67,9 @@ yarn dev
 
 Available scripts (selected):
 
-- `yarn dev` — start Vite dev server
-- `yarn build` — build the package
-- `yarn storybook` — run Storybook locally
+- `yarn dev` — start Vite dev server (Playground site)
+- `yarn build` — build the library and registry
+- `yarn build:site` — build the playground site
 - `yarn test` — run tests locally
 - `yarn test:ci` — run tests in CI
 - `yarn lint` — run eslint

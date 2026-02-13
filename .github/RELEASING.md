@@ -28,7 +28,7 @@ This document explains how releases and publishing are handled for this reposito
 ## Publishing to npm (current process)
 
 - The CI publish step currently expects `NPM_TOKEN` as a repository secret (Stored in repository secrets as `NPM_TOKEN`).
-- Publishing will continue unchanged for now. In a later phase we will migrate to either OIDC or scoped automation tokens and switch the package name to `@gvtech/*` as part of the migration.
+- Publishing is currently automated via GitHub Actions using the `@gv-tech` scope.
 
 ## Troubleshooting & Tips
 
