@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.1.0...design-system-v2.1.1) (2026-02-13)
+
+
+### Bug Fixes
+
+* Configure package.json style.css export with explicit 'style' and 'default' keys. ([74e451b](https://github.com/Garcia-Ventures/gvtech-design/commit/74e451bc4088a2df274575d3d9147b66a5285f17))
+
 ## [2.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.0.1...design-system-v2.1.0) (2026-02-12)
 
 
