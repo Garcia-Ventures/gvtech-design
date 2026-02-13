@@ -1,7 +1,7 @@
 import './globals.css';
 
-export * from './lib/tokens';
 export * from './lib/utils';
+export * from './theme/tokens';
 
 // UI Components
 export * from './components/ui/accordion';

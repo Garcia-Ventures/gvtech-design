@@ -56,8 +56,9 @@
     --radius: 0.5rem;
 
     /* Brand Tokens */
-    --brand-green: 151 66% 27%;
     --brand-blue: 225 73% 57%;
+    --brand-green: 151 66% 27%;
+    --brand-floral-white: 40 100% 97%;
   }
 
   .dark {

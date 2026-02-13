@@ -1,177 +1,214 @@
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { tokens } from '@/lib/tokens';
+import { tokens } from '@/theme/tokens';
 
 export function ColorTokensDocs() {
   return (
-    <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Color Tokens</h1>
-        <p className="text-lg text-muted-foreground">
-          A comprehensive token library for consistent branding across Garcia Ventures applications.
+    <div className="space-y-12">
+      <div className="space-y-4">
+        <h1 className="text-4xl font-extrabold tracking-tight">Color Tokens</h1>
+        <p className="text-xl text-muted-foreground max-w-2xl">
+          The Garcia Ventures design system is built on a robust token architecture that ensures consistency,
+          accessibility, and easy maintenance across all digital products.
         </p>
       </div>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">The Color Theme</h2>
+      <section className="space-y-6">
+        <h2 className="text-3xl font-bold tracking-tight">Design Philosophy</h2>
+        <div className="grid gap-6 md:grid-cols-3">
+          <Card className="bg-primary/5 border-primary/20">
+            <CardHeader>
+              <CardTitle className="text-lg">Intellect</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Represented by Royal Blue, signaling depth, trust, and professional expertise.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="bg-secondary/5 border-secondary/20">
+            <CardHeader>
+              <CardTitle className="text-lg">Stability</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Rooted in Brand Green, reflecting growth, balance, and environmental consciousness.
+              </p>
+            </CardContent>
+          </Card>
+          <Card className="bg-accent/5 border-accent/20">
+            <CardHeader>
+              <CardTitle className="text-lg">Transparency</CardTitle>
+            </CardHeader>
+            <CardContent>
+              <p className="text-sm text-muted-foreground">
+                Expressed through Floral White, prioritizing clarity and a clean user experience.
+              </p>
+            </CardContent>
+          </Card>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <h2 className="text-3xl font-bold tracking-tight">Adoption Guide</h2>
         <p className="text-muted-foreground">
-          Our theme is designed to signal stability, intellect, and transparency. It follows a consistent hierarchy
-          across light and dark modes to ensure accessibility and professional aesthetics.
+          There are three primary ways to consume these tokens depending on your project's technology stack.
         </p>
 
-        <div className="grid gap-6 md:grid-cols-2">
+        <div className="space-y-8">
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">1. Tailwind CSS (Recommended)</h3>
+            <p className="text-sm text-muted-foreground">
+              Most projects should use standard Tailwind utility classes. These are automatically mapped to our tokens
+              via CSS variables.
+            </p>
+            <CodeBlock
+              language="tsx"
+              code={`// Use standard semantic classes
+<button className="bg-primary text-primary-foreground hover:bg-primary/90">
+  Primary Action
+</button>
+
+<div className="border-border bg-card text-card-foreground">
+  Card Content
+</div>`}
+            />
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">2. TypeScript / React</h3>
+            <p className="text-sm text-muted-foreground">
+              For logic-heavy styling or CSS-in-JS solutions, import the \`tokens\` object directly.
+            </p>
+            <CodeBlock
+              language="tsx"
+              code={`import { tokens } from '@gv-tech/design-system';
+
+const MyComponent = () => {
+  return (
+    <div style={{ color: tokens.palette.brand.blue }}>
+      Using Royal Blue directly
+    </div>
+  );
+};`}
+            />
+          </div>
+
+          <div className="space-y-4">
+            <h3 className="text-xl font-semibold">3. Vanilla CSS</h3>
+            <p className="text-sm text-muted-foreground">
+              Directly access the CSS variables in your style tags or external stylesheets.
+            </p>
+            <CodeBlock
+              language="css"
+              code={`.custom-element {
+  background-color: hsl(var(--primary));
+  color: hsl(var(--primary-foreground));
+  border: 1px solid hsl(var(--border));
+}`}
+            />
+          </div>
+        </div>
+      </section>
+
+      <section className="space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-bold tracking-tight">Core Palette</h2>
+        </div>
+        <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card>
-            <CardHeader>
-              <CardTitle className="text-sm font-medium">Core Palette</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-md border" style={{ backgroundColor: 'hsl(225 73% 57%)' }} />
+            <CardContent className="pt-6 space-y-4">
+              <div
+                className="h-24 w-full rounded-lg border shadow-inner"
+                style={{ backgroundColor: tokens.palette.brand.blue }}
+              />
+              <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-sm font-medium">Primary (Blue)</p>
-                  <p className="text-xs text-muted-foreground">Royal Blue / Cornflower</p>
+                  <h4 className="font-bold">Royal Blue</h4>
+                  <p className="text-xs text-muted-foreground">Intellect & Trust</p>
                 </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-md border" style={{ backgroundColor: 'hsl(93 28% 54%)' }} />
-                <div>
-                  <p className="text-sm font-medium">Secondary (Green)</p>
-                  <p className="text-xs text-muted-foreground">Asparagus / Pistachio</p>
-                </div>
-              </div>
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-md border" style={{ backgroundColor: 'hsl(210 29% 98%)' }} />
-                <div>
-                  <p className="text-sm font-medium">Neutral (Off-White)</p>
-                  <p className="text-xs text-muted-foreground">Light Neutral / Floral White</p>
-                </div>
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.blue}</code>
               </div>
             </CardContent>
           </Card>
-
           <Card>
-            <CardHeader>
-              <CardTitle className="text-sm font-medium">Brand Specifics</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-md border" style={{ backgroundColor: 'hsl(151 66% 27%)' }} />
+            <CardContent className="pt-6 space-y-4">
+              <div
+                className="h-24 w-full rounded-lg border shadow-inner"
+                style={{ backgroundColor: tokens.palette.brand.green }}
+              />
+              <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-sm font-medium">Brand Green</p>
-                  <p className="text-xs text-muted-foreground">#177245 (Stability)</p>
+                  <h4 className="font-bold">Stability Green</h4>
+                  <p className="text-xs text-muted-foreground">Growth & Balance</p>
                 </div>
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.green}</code>
               </div>
-              <div className="flex items-center gap-4">
-                <div className="h-10 w-10 rounded-md border" style={{ backgroundColor: 'hsl(225 73% 57%)' }} />
+            </CardContent>
+          </Card>
+          <Card>
+            <CardContent className="pt-6 space-y-4">
+              <div
+                className="h-24 w-full rounded-lg border shadow-inner"
+                style={{ backgroundColor: tokens.palette.brand.floralWhite }}
+              />
+              <div className="flex justify-between items-start">
                 <div>
-                  <p className="text-sm font-medium">Brand Blue</p>
-                  <p className="text-xs text-muted-foreground">#4169e1 (Intellect)</p>
+                  <h4 className="font-bold">Floral White</h4>
+                  <p className="text-xs text-muted-foreground">Transparency & Clarity</p>
                 </div>
+                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.floralWhite}</code>
               </div>
             </CardContent>
           </Card>
         </div>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Usage: Tailwind CSS</h2>
-        <p className="text-muted-foreground">
-          All color tokens are mapped to standard Tailwind colors via CSS variables in our design system.
-        </p>
-        <CodeBlock
-          language="tsx"
-          code={`<div className="bg-primary text-primary-foreground">
-  Primary Content
-</div>
-<div className="text-secondary">
-  Secondary Accent
-</div>
-<div className="border-border bg-muted/30">
-  Muted Container
-</div>`}
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Usage: TypeScript Tokens</h2>
-        <p className="text-muted-foreground">
-          For programmatic usage or non-Tailwind applications, you can import the raw token values.
-        </p>
-        <CodeBlock
-          language="tsx"
-          code={`import { tokens } from '@gv-tech/design-system';
-
-// Accessing HSL values
-const primary = tokens.colors.light.primary;
-const brandGreen = tokens.colors.brand.green;`}
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">CSS Variables Reference</h2>
-        <p className="text-muted-foreground">
-          Below is a complete reference of all semantic color tokens available in the design system.
-        </p>
-        <div className="rounded-md border overflow-hidden">
+      <section className="space-y-6">
+        <h2 className="text-3xl font-bold tracking-tight">Semantic Tokens Reference</h2>
+        <div className="rounded-xl border shadow-sm overflow-hidden">
           <Table>
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50">
-                <TableHead>Variable</TableHead>
+                <TableHead className="w-[200px]">Token</TableHead>
+                <TableHead>Variable Name</TableHead>
                 <TableHead>Light Mode</TableHead>
                 <TableHead>Dark Mode</TableHead>
               </TableRow>
             </TableHeader>
             <TableBody>
-              {(Object.keys(tokens.colors.light) as Array<keyof typeof tokens.colors.light>).map((key) => (
-                <TableRow key={key}>
-                  <TableCell className="font-mono text-xs">
-                    --{key.replace(/[A-Z]/g, (m) => `-${m.toLowerCase()}`)}
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <div
-                        className="h-4 w-4 rounded-sm border"
-                        style={{ backgroundColor: tokens.colors.light[key] }}
-                      />
-                      <span className="text-muted-foreground">{tokens.colors.light[key]}</span>
-                    </div>
-                  </TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <div className="h-4 w-4 rounded-sm border" style={{ backgroundColor: tokens.colors.dark[key] }} />
-                      <span className="text-muted-foreground">{tokens.colors.dark[key]}</span>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Brand Colors</h2>
-        <div className="rounded-md border overflow-hidden">
-          <Table>
-            <TableHeader>
-              <TableRow className="bg-muted/50 hover:bg-muted/50">
-                <TableHead>Token</TableHead>
-                <TableHead>Value</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {Object.entries(tokens.colors.brand).map(([key, value]) => (
-                <TableRow key={key}>
-                  <TableCell className="font-mono text-xs">tokens.colors.brand.{key}</TableCell>
-                  <TableCell>
-                    <div className="flex items-center gap-2">
-                      <div className="h-4 w-4 rounded-sm border" style={{ backgroundColor: value }} />
-                      <span className="text-muted-foreground">{value}</span>
-                    </div>
-                  </TableCell>
-                </TableRow>
-              ))}
+              {(Object.keys(tokens.theme.light) as Array<keyof typeof tokens.theme.light>).map((key) => {
+                if (key === 'radius') return null;
+                return (
+                  <TableRow key={key} className="group">
+                    <TableCell className="font-medium group-hover:text-primary transition-colors">
+                      {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
+                    </TableCell>
+                    <TableCell className="font-mono text-xs text-muted-foreground">
+                      --{key.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())}
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="h-6 w-6 rounded-md border shadow-sm"
+                          style={{ backgroundColor: tokens.theme.light[key] as string }}
+                        />
+                        <span className="text-xs font-mono">{tokens.theme.light[key]}</span>
+                      </div>
+                    </TableCell>
+                    <TableCell>
+                      <div className="flex items-center gap-3">
+                        <div
+                          className="h-6 w-6 rounded-md border shadow-sm"
+                          style={{ backgroundColor: tokens.theme.dark[key] as string }}
+                        />
+                        <span className="text-xs font-mono">{tokens.theme.dark[key]}</span>
+                      </div>
+                    </TableCell>
+                  </TableRow>
+                );
+              })}
             </TableBody>
           </Table>
         </div>
