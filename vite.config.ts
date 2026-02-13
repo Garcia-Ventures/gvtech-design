@@ -27,13 +27,14 @@ export default defineConfig({
         }
       : undefined,
     rollupOptions: {
-      external: isLibrary ? ['react', 'react-dom', 'prop-types'] : [],
+      external: isLibrary ? ['react', 'react-dom', 'prop-types', 'next-themes'] : [],
       output: {
         globals: isLibrary
           ? {
               react: 'React',
               'react-dom': 'ReactDOM',
               'prop-types': 'PropTypes',
+              'next-themes': 'NextThemes',
             }
           : {},
         manualChunks(id) {

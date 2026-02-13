@@ -731,6 +731,7 @@ __metadata:
     vitest: "npm:^4.0.18"
     zod: "npm:^4.3.6"
   peerDependencies:
+    next-themes: ^0.4.0
     prop-types: ^15.8.0
     react: ^18 || ^19
     react-dom: ^18 || ^19
