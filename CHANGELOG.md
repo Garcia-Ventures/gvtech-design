@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.2.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.1.1...design-system-v2.2.0) (2026-02-13)
+
+
+### Features
+
+* introduce `useTheme` hook with token access and update `ThemeToggle` to utilize it, adding corresponding tests. ([c56ea9e](https://github.com/Garcia-Ventures/gvtech-design/commit/c56ea9e192c1f5f471509d5d2167cbbab1974810))
+
+
+### Documentation
+
+* Clarify ThemeToggle controlled mode documentation and simplify example usage. ([a2715db](https://github.com/Garcia-Ventures/gvtech-design/commit/a2715db5ed4e14c72411a217f86d631d3b9a2af7))
+
 ## [2.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.1.0...design-system-v2.1.1) (2026-02-13)
 
 
