@@ -1,5 +1,17 @@
 # Changelog
 
+## [2.3.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.2.0...design-system-v2.3.0) (2026-02-13)
+
+
+### Features
+
+* Add `ThemeProvider` component, integrate `next-themes`, and update theme documentation and usage examples. ([731a9d1](https://github.com/Garcia-Ventures/gvtech-design/commit/731a9d1af4b143834bcfb5212d2b6e45e3aa25e0))
+
+
+### Bug Fixes
+
+* externalize `next-themes` in library builds and update its dependency type to peer and dev. ([6c9b3e7](https://github.com/Garcia-Ventures/gvtech-design/commit/6c9b3e7db61acafc39aaec9b9aca7fb68cadd734))
+
 ## [2.2.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.1.1...design-system-v2.2.0) (2026-02-13)
 
 
