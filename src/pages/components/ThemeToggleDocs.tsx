@@ -30,19 +30,19 @@ export function ThemeToggleDocs() {
       </ComponentShowcase>
 
       <ComponentShowcase
-        title="Custom State Integration"
-        description="You can control the theme externally by passing customTheme and onThemeChange props."
+        title="Controlled Mode"
+        description="You can control the theme externally by passing customTheme and onThemeChange props. This is useful for testing or when using a different theme provider."
         code={`const [theme, setTheme] = useState('light');
 
 <ThemeToggle
   customTheme={theme}
-  onThemeChange={(newTheme) => setTheme(newTheme)}
+  onThemeChange={setTheme}
 />
 
 <p>Current Theme: {theme}</p>`}
       >
         <div className="flex flex-col items-center gap-4">
-          <ThemeToggle customTheme={customTheme} onThemeChange={(newTheme) => setCustomTheme(newTheme)} />
+          <ThemeToggle customTheme={customTheme} onThemeChange={setCustomTheme} />
           <p className="text-sm font-medium">Current Selection: {customTheme}</p>
         </div>
       </ComponentShowcase>
@@ -129,14 +129,16 @@ export function MyComponent() {
           </div>
 
           <div className="rounded-lg border bg-muted/50 p-6">
-            <h4 className="font-medium text-foreground">Custom Provider</h4>
+            <h4 className="font-medium text-foreground">Controlled / Custom State</h4>
             <p className="mt-1 text-sm text-muted-foreground">
               Pass your own theme state and change handler to integrate with custom logic or external storage.
             </p>
             <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
-              <code>{`<ThemeToggle 
-  customTheme={myTheme} 
-  onThemeChange={(t) => updateMyTheme(t)} 
+              <code>{`const [theme, setTheme] = useState("light")
+
+<ThemeToggle 
+  customTheme={theme} 
+  onThemeChange={setTheme} 
 />`}</code>
             </pre>
           </div>
