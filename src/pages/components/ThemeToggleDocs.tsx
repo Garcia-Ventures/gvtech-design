@@ -47,10 +47,107 @@ export function ThemeToggleDocs() {
         </div>
       </ComponentShowcase>
 
-      <div className="space-y-4">
+      {/* ThemeProvider Section */}
+      <div className="mt-12 space-y-6">
+        <div>
+          <h3 className="text-xl font-semibold">ThemeProvider</h3>
+          <p className="mt-2 text-muted-foreground">
+            The design system exports a pre-configured{' '}
+            <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> that wraps{' '}
+            <code className="text-sm bg-muted px-1.5 py-0.5 rounded">next-themes</code> with sensible defaults. Wrap
+            your application with it to enable theme switching for all design system components.
+          </p>
+        </div>
+
+        <div className="rounded-md border bg-muted p-4">
+          <pre className="text-xs">
+            <code>
+              {`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
+import '@gv-tech/design-system/style.css';
+
+function App() {
+  return (
+    <ThemeProvider>
+      <ThemeToggle variant="ternary" />
+      {/* Your app content */}
+    </ThemeProvider>
+  );
+}`}
+            </code>
+          </pre>
+        </div>
+
+        <div className="space-y-4">
+          <h4 className="font-medium text-foreground">Defaults</h4>
+          <p className="text-sm text-muted-foreground">
+            Out of the box, <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> applies these
+            defaults. You can override any of them by passing the corresponding prop.
+          </p>
+          <div className="rounded-md border">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b bg-muted/50">
+                  <th className="p-3 text-left font-medium">Prop</th>
+                  <th className="p-3 text-left font-medium">Default</th>
+                  <th className="p-3 text-left font-medium">Description</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className="border-b">
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">attribute</code>
+                  </td>
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">"class"</code>
+                  </td>
+                  <td className="p-3 text-muted-foreground">Applies the theme as a CSS class on the HTML element</td>
+                </tr>
+                <tr className="border-b">
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">defaultTheme</code>
+                  </td>
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">"system"</code>
+                  </td>
+                  <td className="p-3 text-muted-foreground">Respects the user's operating system preference</td>
+                </tr>
+                <tr>
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">enableSystem</code>
+                  </td>
+                  <td className="p-3">
+                    <code className="text-xs bg-muted px-1 py-0.5 rounded">true</code>
+                  </td>
+                  <td className="p-3 text-muted-foreground">Enables automatic detection of the OS color scheme</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div className="rounded-md border bg-muted p-4">
+          <p className="text-xs font-medium text-muted-foreground mb-2">Overriding defaults:</p>
+          <pre className="text-xs">
+            <code>
+              {`<ThemeProvider
+  defaultTheme="dark"
+  storageKey="my-app-theme"
+  themes={['light', 'dark', 'ocean']}
+>
+  <App />
+</ThemeProvider>`}
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      {/* useTheme Section */}
+      <div className="mt-12 space-y-4">
         <h3 className="text-xl font-semibold">useTheme Hook</h3>
         <p className="text-sm text-muted-foreground">
-          The `useTheme` hook provides access to the current theme and the active design tokens.
+          The <code className="text-sm bg-muted px-1.5 py-0.5 rounded">useTheme</code> hook provides access to the
+          current theme, theme controls, and the active design tokens. It must be used within a{' '}
+          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>.
         </p>
         <div className="rounded-md border bg-muted p-4">
           <pre className="text-xs">
@@ -58,11 +155,12 @@ export function ThemeToggleDocs() {
               {`import { useTheme } from '@gv-tech/design-system';
 
 export function MyComponent() {
-  const { theme, setTheme, tokens } = useTheme();
+  const { theme, setTheme, resolvedTheme, tokens } = useTheme();
 
   return (
     <div style={{ backgroundColor: tokens.background }}>
       <p>Current theme: {theme}</p>
+      <p>Resolved theme: {resolvedTheme}</p>
       <button onClick={() => setTheme('dark')}>Dark Mode</button>
     </div>
   );
@@ -70,8 +168,40 @@ export function MyComponent() {
             </code>
           </pre>
         </div>
+
+        <PropsTable
+          props={[
+            {
+              name: 'theme',
+              type: 'string',
+              required: false,
+              description: 'The current theme name ("light", "dark", or "system").',
+            },
+            {
+              name: 'setTheme',
+              type: '(theme: string) => void',
+              required: false,
+              description: 'Function to programmatically change the theme.',
+            },
+            {
+              name: 'resolvedTheme',
+              type: 'string',
+              required: false,
+              description:
+                'The resolved theme ("light" or "dark"). Useful when theme is "system" and you need the actual value.',
+            },
+            {
+              name: 'tokens',
+              type: 'ThemeTokens',
+              required: false,
+              description:
+                'The active color tokens for the current resolved theme (light or dark). Contains background, foreground, primary, and other design token values.',
+            },
+          ]}
+        />
       </div>
 
+      {/* ThemeToggle Props Section */}
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">ThemeToggle Props</h3>
         <PropsTable
@@ -106,23 +236,29 @@ export function MyComponent() {
         />
       </div>
 
+      {/* Integration Section */}
       <div className="mt-12 space-y-6">
         <div>
           <h3 className="text-xl font-semibold">Integration</h3>
           <p className="mt-2 text-muted-foreground">
-            The `ThemeToggle` component is built to be flexible and works seamlessly with `next-themes` by default, but
-            it can also be used in a fully controlled manner with any theme provider or custom state.
+            The <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeToggle</code> component works seamlessly
+            with the design system's <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>. It
+            can also be used in a fully controlled manner with any theme provider or custom state.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
           <div className="rounded-lg border bg-muted/50 p-6">
-            <h4 className="font-medium text-foreground">With next-themes</h4>
+            <h4 className="font-medium text-foreground">With ThemeProvider (Recommended)</h4>
             <p className="mt-1 text-sm text-muted-foreground">
-              Simply drop the component anywhere. It will automatically detect the `ThemeProvider` and handle switching.
+              Wrap your app with the design system's{' '}
+              <code className="text-xs bg-muted px-1 py-0.5 rounded">ThemeProvider</code> and drop in the toggle.
+              Everything connects automatically.
             </p>
             <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
-              <code>{`<ThemeProvider attribute="class">
+              <code>{`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
+
+<ThemeProvider>
   <ThemeToggle />
 </ThemeProvider>`}</code>
             </pre>
@@ -142,6 +278,17 @@ export function MyComponent() {
 />`}</code>
             </pre>
           </div>
+        </div>
+
+        <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-6">
+          <h4 className="font-medium text-amber-600 dark:text-amber-400">⚠️ Important: Shared Context</h4>
+          <p className="mt-1 text-sm text-muted-foreground">
+            The design system marks <code className="text-xs bg-muted px-1 py-0.5 rounded">next-themes</code> as a{' '}
+            <strong>peer dependency</strong>, meaning it uses the same instance as your project. This ensures that{' '}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">useTheme</code>,{' '}
+            <code className="text-xs bg-muted px-1 py-0.5 rounded">ThemeToggle</code>, and your own components all share
+            the same theme context — no duplicate providers needed.
+          </p>
         </div>
       </div>
     </ComponentSection>

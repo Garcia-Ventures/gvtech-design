@@ -1,4 +1,3 @@
-import { ThemeProvider } from 'next-themes';
 import * as React from 'react';
 import { Footer, Sidebar } from './components/docs';
 import { navItems } from './components/docs/Sidebar';
@@ -21,6 +20,7 @@ import {
   SearchTrigger,
 } from './components/ui/search';
 import { Toaster as SonnerToaster } from './components/ui/sonner';
+import { ThemeProvider } from './components/ui/theme-provider';
 import { ThemeToggle } from './components/ui/theme-toggle';
 import { Toaster } from './components/ui/toaster';
 import { TooltipProvider } from './components/ui/tooltip';
@@ -205,7 +205,7 @@ function App() {
   };
 
   return (
-    <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+    <ThemeProvider>
       <TooltipProvider>
         <div className="flex h-screen bg-background">
           {/* Sidebar */}

@@ -133,10 +133,34 @@ export function InstallationPage() {
         <CodeBlock
           code={`{
   "react": "^18 || ^19",
-  "react-dom": "^18 || ^19"
+  "react-dom": "^18 || ^19",
+  "next-themes": "^0.4.0"
 }`}
           language="json"
         />
+        <p className="text-sm text-muted-foreground">
+          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">next-themes</code> is required for the design
+          system's <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>,{' '}
+          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeToggle</code>, and{' '}
+          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">useTheme</code> to work. Install it alongside the
+          design system:
+        </p>
+        <Tabs defaultValue="npm" className="w-full">
+          <TabsList>
+            <TabsTrigger value="npm">npm</TabsTrigger>
+            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+          </TabsList>
+          <TabsContent value="npm" className="mt-4">
+            <CodeBlock code="npm install next-themes" language="bash" />
+          </TabsContent>
+          <TabsContent value="yarn" className="mt-4">
+            <CodeBlock code="yarn add next-themes" language="bash" />
+          </TabsContent>
+          <TabsContent value="pnpm" className="mt-4">
+            <CodeBlock code="pnpm add next-themes" language="bash" />
+          </TabsContent>
+        </Tabs>
       </section>
 
       <section className="space-y-4">
@@ -253,15 +277,22 @@ module.exports = {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Start Using Components</h2>
-        <p className="text-muted-foreground">Now you can import and use components from the design system:</p>
+        <p className="text-muted-foreground">
+          Wrap your app with <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> and start
+          importing components:
+        </p>
         <CodeBlock
-          code={`import { Button } from '@gv-tech/design-system';
+          code={`import { ThemeProvider, ThemeToggle, Button } from '@gv-tech/design-system';
+import '@gv-tech/design-system/style.css';
 
 export default function App() {
   return (
-    <Button variant="default">
-      Click me
-    </Button>
+    <ThemeProvider>
+      <div>
+        <ThemeToggle variant="ternary" />
+        <Button variant="default">Click me</Button>
+      </div>
+    </ThemeProvider>
   );
 }`}
         />
