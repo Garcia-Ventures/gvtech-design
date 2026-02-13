@@ -1,6 +1,0 @@
-[build]
-command = "yarn install --immutable && yarn build-storybook"
-publish = "storybook-static"
-
-[build.environment]
-NODE_VERSION = "24"
