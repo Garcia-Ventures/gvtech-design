@@ -1,5 +1,6 @@
 import { ThemeToggle } from '@/components/ui/theme-toggle';
-import { fireEvent, render, screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'next-themes';
 import { describe, expect, it, vi } from 'vitest';
 
@@ -30,6 +31,7 @@ describe('ThemeToggle', () => {
   });
 
   it('renders ternary toggle with dropdown', async () => {
+    const user = userEvent.setup();
     render(
       <ThemeProvider>
         <ThemeToggle variant="ternary" />
@@ -39,7 +41,7 @@ describe('ThemeToggle', () => {
     expect(button).toBeInTheDocument();
 
     // Open dropdown
-    fireEvent.click(button);
+    await user.click(button);
     expect(await screen.findByText('Light')).toBeInTheDocument();
     expect(screen.getByText('Dark')).toBeInTheDocument();
     expect(screen.getByText('System')).toBeInTheDocument();
