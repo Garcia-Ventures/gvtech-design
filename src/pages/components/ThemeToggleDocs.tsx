@@ -48,6 +48,31 @@ export function ThemeToggleDocs() {
       </ComponentShowcase>
 
       <div className="space-y-4">
+        <h3 className="text-xl font-semibold">useTheme Hook</h3>
+        <p className="text-sm text-muted-foreground">
+          The `useTheme` hook provides access to the current theme and the active design tokens.
+        </p>
+        <div className="rounded-md border bg-muted p-4">
+          <pre className="text-xs">
+            <code>
+              {`import { useTheme } from '@gv-tech/design-system';
+
+export function MyComponent() {
+  const { theme, setTheme, tokens } = useTheme();
+
+  return (
+    <div style={{ backgroundColor: tokens.background }}>
+      <p>Current theme: {theme}</p>
+      <button onClick={() => setTheme('dark')}>Dark Mode</button>
+    </div>
+  );
+}`}
+            </code>
+          </pre>
+        </div>
+      </div>
+
+      <div className="space-y-4">
         <h3 className="text-xl font-semibold">ThemeToggle Props</h3>
         <PropsTable
           props={[

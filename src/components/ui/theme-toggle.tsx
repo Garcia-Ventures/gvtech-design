@@ -5,9 +5,9 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useTheme } from '@/hooks/use-theme';
 import { cn } from '@/lib/utils';
 import { Moon, Sun, SunMoon } from 'lucide-react';
-import { useTheme } from 'next-themes';
 
 export interface ThemeToggleProps {
   /**
