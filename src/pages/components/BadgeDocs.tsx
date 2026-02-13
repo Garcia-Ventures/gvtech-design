@@ -2,9 +2,18 @@ import { ComponentSection, ComponentShowcase } from '@/components/docs/Component
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Badge } from '@/components/ui/badge';
 
-export function BadgeDocs() {
+interface BadgeDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function BadgeDocs({ platform = 'web' }: BadgeDocsProps) {
+  const isNative = platform === 'native';
+
   return (
-    <ComponentSection title="Badge" description="Displays a badge or a component that looks like a badge.">
+    <ComponentSection
+      title={`Badge (${platform === 'web' ? 'Web' : 'Native'})`}
+      description="Displays a badge or a component that looks like a badge."
+    >
       <ComponentShowcase
         title="Variants"
         description="Badges come in 4 different variants."
@@ -46,8 +55,17 @@ export function BadgeDocs() {
             {
               name: 'className',
               type: 'string',
-              description: 'Additional CSS classes to apply.',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
+            ...(isNative
+              ? [
+                  {
+                    name: 'textClassName',
+                    type: 'string',
+                    description: 'Classes for the inner Text component (NativeWind).',
+                  },
+                ]
+              : []),
           ]}
         />
       </div>

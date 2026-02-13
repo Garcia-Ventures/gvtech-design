@@ -80,8 +80,15 @@ import {
 function App() {
   const [activeItem, setActiveItem] = React.useState('getting-started');
   const [searchOpen, setSearchOpen] = React.useState(false);
+  const [platform, setPlatform] = React.useState<'web' | 'native'>('web');
 
   const renderContent = () => {
+    // For now, we only have Button, Input, and Label with native support.
+    // We can pass the platform to the doc components.
+
+    // This is a placeholder for how we will handle platform-specific docs
+    // In a real implementation, each doc page would handle its own platform toggle
+    // or we would have separate doc components.
     switch (activeItem) {
       // Getting Started
       case 'getting-started':
@@ -105,13 +112,13 @@ function App() {
 
       // Forms
       case 'button':
-        return <ButtonDocs />;
+        return <ButtonDocs platform={platform} />;
       case 'input':
-        return <InputDocs />;
+        return <InputDocs platform={platform} />;
       case 'textarea':
         return <TextareaDocs />;
       case 'label':
-        return <LabelDocs />;
+        return <LabelDocs platform={platform} />;
       case 'checkbox':
         return <CheckboxDocs />;
       case 'radio-group':
@@ -127,9 +134,9 @@ function App() {
 
       // Data Display
       case 'badge':
-        return <BadgeDocs />;
+        return <BadgeDocs platform={platform} />;
       case 'avatar':
-        return <AvatarDocs />;
+        return <AvatarDocs platform={platform} />;
       case 'table':
         return <TableDocs />;
       case 'progress':
@@ -155,7 +162,7 @@ function App() {
 
       // Feedback
       case 'alert':
-        return <AlertDocs />;
+        return <AlertDocs platform={platform} />;
       case 'alert-dialog':
         return <AlertDialogDocs />;
       case 'dialog':
@@ -187,7 +194,7 @@ function App() {
 
       // Advanced
       case 'accordion':
-        return <AccordionDocs />;
+        return <AccordionDocs platform={platform} />;
       case 'collapsible':
         return <CollapsibleDocs />;
       case 'carousel':
@@ -251,6 +258,16 @@ function App() {
                   </CommandList>
                 </Search>
                 <SearchTrigger onClick={() => setSearchOpen(true)} />
+                <div className="flex items-center gap-2 border-l pl-2 ml-2">
+                  <select
+                    value={platform}
+                    onChange={(e) => setPlatform(e.target.value as 'web' | 'native')}
+                    className="bg-transparent text-sm font-medium focus:outline-none cursor-pointer"
+                  >
+                    <option value="web">Web</option>
+                    <option value="native">Native</option>
+                  </select>
+                </div>
                 <ThemeToggle variant="ternary" />
               </div>
             </header>

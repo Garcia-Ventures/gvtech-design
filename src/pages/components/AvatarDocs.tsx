@@ -2,9 +2,18 @@ import { ComponentSection, ComponentShowcase } from '@/components/docs/Component
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-export function AvatarDocs() {
+interface AvatarDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function AvatarDocs({ platform = 'web' }: AvatarDocsProps) {
+  const isNative = platform === 'native';
+
   return (
-    <ComponentSection title="Avatar" description="An image element with a fallback for representing the user.">
+    <ComponentSection
+      title={`Avatar (${platform === 'web' ? 'Web' : 'Native'})`}
+      description="An image element with a fallback for representing the user."
+    >
       <ComponentShowcase
         title="Default"
         description="An avatar with an image."
@@ -40,7 +49,7 @@ export function AvatarDocs() {
             {
               name: 'className',
               type: 'string',
-              description: 'Additional CSS classes.',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes.',
             },
           ]}
         />
@@ -50,19 +59,23 @@ export function AvatarDocs() {
           props={[
             {
               name: 'src',
-              type: 'string',
-              description: 'The URL of the image.',
+              type: isNative ? 'ImageSourcePropType | string' : 'string',
+              description: 'The image source.',
             },
-            {
-              name: 'alt',
-              type: 'string',
-              description: 'The alternative text for the image.',
-            },
-            {
-              name: 'onLoadingStatusChange',
-              type: '(status: "idle" | "loading" | "loaded" | "error") => void',
-              description: 'Event handler called when the loading status of the image changes.',
-            },
+            ...(!isNative
+              ? [
+                  {
+                    name: 'alt',
+                    type: 'string',
+                    description: 'The alternative text for the image.',
+                  },
+                  {
+                    name: 'onLoadingStatusChange',
+                    type: '(status: "idle" | "loading" | "loaded" | "error") => void',
+                    description: 'Event handler called when the loading status of the image changes.',
+                  },
+                ]
+              : []),
           ]}
         />
 
@@ -70,10 +83,19 @@ export function AvatarDocs() {
         <PropsTable
           props={[
             {
-              name: 'delayMs',
-              type: 'number',
-              description: 'Useful for delaying rendering so it only appears for those with slower connections.',
+              name: 'className',
+              type: 'string',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes.',
             },
+            ...(!isNative
+              ? [
+                  {
+                    name: 'delayMs',
+                    type: 'number',
+                    description: 'Useful for delaying rendering so it only appears for those with slower connections.',
+                  },
+                ]
+              : []),
           ]}
         />
       </div>

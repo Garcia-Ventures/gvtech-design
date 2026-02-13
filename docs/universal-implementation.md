@@ -28,13 +28,15 @@ This document outlines the steps for transitioning existing web-only components 
 
 ## Migration Progress
 
-| Component  | Web | Native | Unified | Status      |
-| :--------- | :-: | :----: | :-----: | :---------- |
-| **Button** | ✅  |   ✅   |   ✅    | Completed   |
-| Accordion  | 🏗️  |   ❌   |   ❌    | Pending     |
-| Alert      | 🏗️  |   ❌   |   ❌    | Pending     |
-| Avatar     | 🏗️  |   ❌   |   ❌    | Pending     |
-| Input      | 🏗️  |   ❌   |   ❌    | In Progress |
+| Component     | Web | Native | Unified | Status    |
+| :------------ | :-: | :----: | :-----: | :-------- |
+| **Button**    | ✅  |   ✅   |   ✅    | Completed |
+| **Input**     | ✅  |   ✅   |   ✅    | Completed |
+| **Label**     | ✅  |   ✅   |   ✅    | Completed |
+| **Badge**     | ✅  |   ✅   |   ✅    | Completed |
+| **Accordion** | ✅  |   ✅   |   ✅    | Completed |
+| **Alert**     | ✅  |   ✅   |   ✅    | Completed |
+| **Avatar**    | ✅  |   ✅   |   ✅    | Completed |
 
 > [!TIP]
 > Use `.web.tsx` and `.native.tsx` extensions. Bundlers like Vite and the React Native packager (Metro) will automatically pick the correct version based on these suffixes.

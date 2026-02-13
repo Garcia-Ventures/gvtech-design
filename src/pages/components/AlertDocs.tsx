@@ -3,9 +3,18 @@ import { PropsTable } from '@/components/docs/PropsTable';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AlertCircle, Terminal } from 'lucide-react';
 
-export function AlertDocs() {
+interface AlertDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function AlertDocs({ platform = 'web' }: AlertDocsProps) {
+  const isNative = platform === 'native';
+
   return (
-    <ComponentSection title="Alert" description="Displays a callout for user attention.">
+    <ComponentSection
+      title={`Alert (${platform === 'web' ? 'Web' : 'Native'})`}
+      description="Displays a callout for user attention."
+    >
       <ComponentShowcase
         title="Default"
         description="The default alert style."
@@ -55,7 +64,7 @@ export function AlertDocs() {
             {
               name: 'className',
               type: 'string',
-              description: 'Additional CSS classes to apply.',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
           ]}
         />

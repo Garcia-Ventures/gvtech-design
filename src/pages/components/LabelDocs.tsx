@@ -3,19 +3,25 @@ import { PropsTable } from '@/components/docs/PropsTable';
 import { Checkbox } from '@/components/ui/checkbox';
 import { Label } from '@/components/ui/label';
 
-export function LabelDocs() {
+interface LabelDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function LabelDocs({ platform = 'web' }: LabelDocsProps) {
+  const isNative = platform === 'native';
+
   return (
-    <ComponentSection title="Label" description="Renders an accessible label associated with controls.">
+    <ComponentSection
+      title={`Label (${platform === 'web' ? 'Web' : 'Native'})`}
+      description="Renders an accessible label associated with a form control."
+    >
       <ComponentShowcase
         title="Default"
         description="A default label."
-        code={`<div className="flex items-center space-x-2">
-  <Checkbox id="terms" />
-  <Label htmlFor="terms">Accept terms and conditions</Label>
-</div>`}
+        code={isNative ? '<Label>Your Name</Label>' : '<Label htmlFor="terms">Accept terms and conditions</Label>'}
       >
         <div className="flex items-center space-x-2">
-          <Checkbox id="terms" />
+          {!isNative && <Checkbox id="terms" />}
           <Label htmlFor="terms">Accept terms and conditions</Label>
         </div>
       </ComponentShowcase>

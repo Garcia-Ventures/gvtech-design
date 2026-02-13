@@ -3,9 +3,18 @@ import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@/components/ui/button';
 import { ChevronRight, Loader2, Mail } from 'lucide-react';
 
-export function ButtonDocs() {
+interface ButtonDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function ButtonDocs({ platform = 'web' }: ButtonDocsProps) {
+  const isNative = platform === 'native';
+
   return (
-    <ComponentSection title="Button" description="Displays a button or a component that looks like a button.">
+    <ComponentSection
+      title={`Button (${platform === 'web' ? 'Web' : 'Native'})`}
+      description="Displays a button or a component that looks like a button."
+    >
       <ComponentShowcase
         title="Variants"
         description="The button comes in 6 different variants."
@@ -90,27 +99,37 @@ export function ButtonDocs() {
               defaultValue: '"default"',
               description: 'The size of the button.',
             },
-            {
-              name: 'asChild',
-              type: 'boolean',
-              defaultValue: 'false',
-              description: 'Whether to render as a child component (delegation).',
-            },
+            ...(isNative
+              ? [
+                  {
+                    name: 'onPress',
+                    type: '() => void',
+                    description: 'Native press event handler.',
+                  },
+                ]
+              : [
+                  {
+                    name: 'asChild',
+                    type: 'boolean',
+                    defaultValue: 'false',
+                    description: 'Whether to render as a child component (delegation).',
+                  },
+                  {
+                    name: 'onClick',
+                    type: 'MouseEventHandler',
+                    description: 'Web click event handler.',
+                  },
+                ]),
             {
               name: 'className',
               type: 'string',
-              description: 'Additional CSS classes to apply.',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
             {
               name: 'disabled',
               type: 'boolean',
               defaultValue: 'false',
               description: 'Whether the button is disabled.',
-            },
-            {
-              name: 'onClick',
-              type: 'MouseEventHandler',
-              description: 'Click event handler.',
             },
           ]}
         />

@@ -2,10 +2,16 @@ import { ComponentSection, ComponentShowcase } from '@/components/docs/Component
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/components/ui/accordion';
 
-export function AccordionDocs() {
+interface AccordionDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function AccordionDocs({ platform = 'web' }: AccordionDocsProps) {
+  const isNative = platform === 'native';
+
   return (
     <ComponentSection
-      title="Accordion"
+      title={`Accordion (${platform === 'web' ? 'Web' : 'Native'})`}
       description="A vertically stacked set of interactive headings that each reveal a section of content."
     >
       <ComponentShowcase
@@ -132,12 +138,21 @@ export function AccordionDocs() {
               type: 'ReactNode',
               description: 'The content of the trigger.',
             },
+            ...(!isNative
+              ? [
+                  {
+                    name: 'asChild',
+                    type: 'boolean',
+                    defaultValue: 'false',
+                    description:
+                      'Change the default rendered element for the one passed as a child, merging their props and behavior.',
+                  },
+                ]
+              : []),
             {
-              name: 'asChild',
-              type: 'boolean',
-              defaultValue: 'false',
-              description:
-                'Change the default rendered element for the one passed as a child, merging their props and behavior.',
+              name: 'className',
+              type: 'string',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
           ]}
         />
@@ -150,12 +165,16 @@ export function AccordionDocs() {
               type: 'ReactNode',
               description: 'The content of the item.',
             },
-            {
-              name: 'forceMount',
-              type: 'boolean',
-              description:
-                'Used to force mounting when more control is needed. Useful when controlling animation with React libraries.',
-            },
+            ...(!isNative
+              ? [
+                  {
+                    name: 'forceMount',
+                    type: 'boolean',
+                    description:
+                      'Used to force mounting when more control is needed. Useful when controlling animation with React libraries.',
+                  },
+                ]
+              : []),
           ]}
         />
       </div>

@@ -4,16 +4,22 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 
-export function InputDocs() {
+interface InputDocsProps {
+  platform?: 'web' | 'native';
+}
+
+export function InputDocs({ platform = 'web' }: InputDocsProps) {
+  const isNative = platform === 'native';
+
   return (
     <ComponentSection
-      title="Input"
+      title={`Input (${platform === 'web' ? 'Web' : 'Native'})`}
       description="Displays a form input field or a component that looks like an input field."
     >
       <ComponentShowcase
         title="Default"
         description="A default input field."
-        code={`<Input type="email" placeholder="Email" />`}
+        code={isNative ? '<Input placeholder="Type here..." />' : '<Input type="email" placeholder="Email" />'}
       >
         <div className="grid w-full max-w-sm items-center gap-1.5">
           <Label htmlFor="email">Email</Label>
@@ -72,14 +78,35 @@ export function InputDocs() {
               description: 'The type of input to render.',
             },
             {
-              name: 'placeholder',
+              name: 'className',
               type: 'string',
-              description: 'The placeholder text for the input.',
+              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
+            ...(isNative
+              ? [
+                  {
+                    name: 'placeholderClassName',
+                    type: 'string',
+                    description: 'Styling for the placeholder text (NativeWind).',
+                  },
+                ]
+              : [
+                  {
+                    name: 'type',
+                    type: 'string',
+                    defaultValue: '"text"',
+                    description: 'The HTML input type.',
+                  },
+                ]),
             {
               name: 'value',
               type: 'string | number | readonly string[]',
               description: 'The value of the input.',
+            },
+            {
+              name: 'placeholder',
+              type: 'string',
+              description: 'The placeholder text for the input.',
             },
             {
               name: 'disabled',
