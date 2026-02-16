@@ -9,6 +9,8 @@ vi.mock('@/components/ui/dialog', () => ({
   DialogContent: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   DialogPortal: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   DialogOverlay: () => null,
+  DialogTitle: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
+  DialogDescription: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
 }));
 
 describe('Search', () => {
