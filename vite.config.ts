@@ -1,8 +1,28 @@
 import react from '@vitejs/plugin-react-swc';
+import fs from 'fs';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
 const isLibrary = process.env.VITE_LIB === 'true';
+
+// Get all UI components for multi-entry build
+const getEntries = () => {
+  const entries: Record<string, string> = {
+    index: resolve(__dirname, 'src/index.ts'),
+  };
+
+  if (isLibrary) {
+    const uiPath = resolve(__dirname, 'src/components/ui');
+    const files = fs.readdirSync(uiPath);
+    files.forEach((file) => {
+      if (file.endsWith('.tsx') && !file.includes('.test.') && !file.includes('.stories.')) {
+        const name = file.replace('.tsx', '');
+        entries[name] = resolve(uiPath, file);
+      }
+    });
+  }
+  return entries;
+};
 
 export default defineConfig({
   plugins: [react()],
@@ -19,10 +39,12 @@ export default defineConfig({
     emptyOutDir: !isLibrary,
     lib: isLibrary
       ? {
-          entry: resolve(__dirname, 'src/index.ts'),
+          entry: getEntries(),
           name: 'GvtechDesign',
-          // Matches the names in package.json
-          fileName: (format) => `index.${format === 'es' ? 'es' : 'cjs'}.js`,
+          fileName: (format, entryName) =>
+            entryName === 'index'
+              ? `index.${format === 'es' ? 'es' : 'cjs'}.js`
+              : `${entryName}.${format === 'es' ? 'es' : 'cjs'}.js`,
           formats: ['es', 'cjs'],
         }
       : undefined,

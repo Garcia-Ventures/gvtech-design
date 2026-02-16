@@ -33,6 +33,7 @@
 }
 
 @layer base {
+  /* @tokens-start */
   :root {
     --background: 0 0% 96%;
     --foreground: 222 47% 11%;
@@ -59,6 +60,25 @@
     --brand-blue: 225 73% 57%;
     --brand-green: 151 66% 27%;
     --brand-floral-white: 40 100% 97%;
+    --neutral-white: 0 0% 100%;
+    --neutral-black: 0 0% 0%;
+    --neutral-gray50: 0 0% 96%;
+    --neutral-gray100: 0 0% 92%;
+    --neutral-gray200: 0 0% 89%;
+    --neutral-gray300: 0 0% 88%;
+    --neutral-gray400: 0 0% 70%;
+    --neutral-gray500: 215 16% 47%;
+    --neutral-gray600: 222 47% 11%;
+    --neutral-gray700: 0 0% 18%;
+    --neutral-gray800: 0 0% 15%;
+    --neutral-gray900: 0 0% 14%;
+    --neutral-gray950: 0 0% 11%;
+    --neutral-gray975: 0 0% 9%;
+    --neutral-gray990: 0 0% 6%;
+    --semantic-success: 93 28% 54%;
+    --semantic-success-dark: 96 44% 61%;
+    --semantic-destructive: 0 84.2% 60.2%;
+    --semantic-destructive-dark: 0 62.8% 30.6%;
   }
 
   .dark {
@@ -81,7 +101,9 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 0 0% 90%;
+    --radius: 0.5rem;
   }
+  /* @tokens-end */
 }
 
 @layer base {

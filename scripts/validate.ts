@@ -1,11 +1,17 @@
-#!/usr/bin/env node
-
-const { spawnSync } = require('child_process');
+import { spawnSync } from 'child_process';
 
 const args = process.argv.slice(2);
 const fix = args.includes('--fix');
 
 const steps = [
+  {
+    name: 'Sync Tokens',
+    cmd: 'yarn tsx scripts/sync-tokens.ts',
+  },
+  {
+    name: 'Sync Exports',
+    cmd: 'yarn tsx scripts/sync-exports.ts',
+  },
   {
     name: fix ? 'Prettier fix' : 'Prettier check',
     cmd: fix ? 'yarn format' : 'yarn format:ci',
@@ -14,15 +20,15 @@ const steps = [
     name: fix ? 'Lint fix (eslint)' : 'Lint (eslint)',
     cmd: fix ? 'yarn lint:fix' : 'yarn lint',
   },
-  { name: 'TypeScript type check', cmd: 'npx tsc --noEmit' },
+  { name: 'TypeScript type check', cmd: 'yarn tsc --noEmit' },
   { name: 'Test (vitest)', cmd: 'yarn test:ci' },
   { name: 'Build (vite)', cmd: 'yarn build' },
 ];
 
 const SEP = '------------------------------------------------------------';
-const green = (s) => `\x1b[32m${s}\x1b[0m`;
-const red = (s) => `\x1b[31m${s}\x1b[0m`;
-const yellow = (s) => `\x1b[33m${s}\x1b[0m`;
+const green = (s: string) => `\x1b[32m${s}\x1b[0m`;
+const red = (s: string) => `\x1b[31m${s}\x1b[0m`;
+const yellow = (s: string) => `\x1b[33m${s}\x1b[0m`;
 
 console.log(SEP);
 console.log('\x1b[1mRunning validate steps (sequential)\x1b[0m');
@@ -36,7 +42,7 @@ for (const step of steps) {
 
   if (result.error) {
     console.error(red(`\nFailed to run: ${step.cmd}`));
-    console.error(red(result.error));
+    console.error(red(result.error.message));
     process.exit(1);
   }
 
