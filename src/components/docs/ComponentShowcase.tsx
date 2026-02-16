@@ -21,7 +21,7 @@ export function ComponentShowcase({ title, description, code, children, classNam
       </CardHeader>
       <CardContent className="p-0">
         <Tabs defaultValue="preview" className="w-full">
-          <div className="border-b px-6">
+          <div className="border-b px-4 md:px-6">
             <TabsList className="h-10 bg-transparent p-0">
               <TabsTrigger
                 value="preview"
@@ -37,8 +37,8 @@ export function ComponentShowcase({ title, description, code, children, classNam
               </TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="preview" className="p-6 mt-0">
-            <div className="flex flex-wrap gap-4 items-center">{children}</div>
+          <TabsContent value="preview" className="p-4 md:p-6 mt-0">
+            <div className="flex flex-wrap gap-4 items-center overflow-x-auto">{children}</div>
           </TabsContent>
           <TabsContent value="code" className="mt-0">
             <CodeBlock code={code} className="rounded-none border-0" />
@@ -59,8 +59,8 @@ export function ComponentSection({ title, description, children }: ComponentSect
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">{title}</h1>
-        {description && <p className="text-lg text-muted-foreground">{description}</p>}
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h1>
+        {description && <p className="text-base md:text-lg text-muted-foreground">{description}</p>}
       </div>
       <div className="space-y-6">{children}</div>
     </div>

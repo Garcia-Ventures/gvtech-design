@@ -25,6 +25,7 @@ export interface NavItem {
 interface SidebarProps {
   activeItem: string;
   onItemSelect: (id: string) => void;
+  className?: string;
 }
 
 const categoryConfig: Record<ComponentCategory, { label: string; icon: React.ReactNode }> = {
@@ -106,7 +107,7 @@ export const navItems: NavItem[] = [
   { id: 'theme-toggle', label: 'Theme Toggle', category: 'advanced' },
 ];
 
-export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
+export function Sidebar({ activeItem, onItemSelect, className }: SidebarProps) {
   const categories = Object.keys(categoryConfig) as ComponentCategory[];
   const [expandedCategories, setExpandedCategories] = React.useState<string[]>(['getting-started', 'forms']);
 
@@ -119,7 +120,7 @@ export function Sidebar({ activeItem, onItemSelect }: SidebarProps) {
   }, [activeItem, expandedCategories]);
 
   return (
-    <div className="w-64 border-r bg-muted/50 flex flex-col h-full">
+    <div className={cn('w-64 border-r bg-muted/50 flex flex-col h-full', className)}>
       <div className="p-4 border-b">
         <h2 className="font-semibold text-lg">GV Design System</h2>
         <p className="text-xs text-muted-foreground">v{version}</p>

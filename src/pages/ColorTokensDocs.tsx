@@ -7,8 +7,8 @@ export function ColorTokensDocs() {
   return (
     <div className="space-y-12">
       <div className="space-y-4">
-        <h1 className="text-4xl font-extrabold tracking-tight">Color Tokens</h1>
-        <p className="text-xl text-muted-foreground max-w-2xl">
+        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Color Tokens</h1>
+        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
           The Garcia Ventures design system is built on a robust token architecture that ensures consistency,
           accessibility, and easy maintenance across all digital products.
         </p>
@@ -167,8 +167,8 @@ const MyComponent = () => {
 
       <section className="space-y-6">
         <h2 className="text-3xl font-bold tracking-tight">Semantic Tokens Reference</h2>
-        <div className="rounded-xl border shadow-sm overflow-hidden">
-          <Table>
+        <div className="rounded-xl border shadow-sm overflow-x-auto">
+          <Table className="min-w-[600px] md:min-w-full">
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50">
                 <TableHead className="w-[200px]">Token</TableHead>

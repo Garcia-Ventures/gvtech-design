@@ -6,8 +6,10 @@ export function GettingStartedPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-4xl font-bold tracking-tight">GV Tech Design System</h1>
-        <p className="text-xl text-muted-foreground">
+        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-center md:text-left">
+          GV Tech Design System
+        </h1>
+        <p className="text-lg md:text-xl text-muted-foreground text-center md:text-left">
           A comprehensive React component library built with shadcn/ui and Tailwind CSS.
         </p>
       </div>
@@ -100,8 +102,8 @@ export function InstallationPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl font-bold tracking-tight">Installation</h1>
-        <p className="text-lg text-muted-foreground">
+        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Installation</h1>
+        <p className="text-base md:text-lg text-muted-foreground">
           Get started with the GV Tech Design System in your React project.
         </p>
       </div>

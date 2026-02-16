@@ -1,3 +1,4 @@
+import { Menu } from 'lucide-react';
 import * as React from 'react';
 import { Footer, Sidebar } from './components/docs';
 import { navItems } from './components/docs/Sidebar';
@@ -9,6 +10,7 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator,
 } from './components/ui/breadcrumb';
+import { Button } from './components/ui/button';
 import { ScrollArea } from './components/ui/scroll-area';
 import {
   CommandEmpty,
@@ -19,6 +21,7 @@ import {
   Search,
   SearchTrigger,
 } from './components/ui/search';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from './components/ui/sheet';
 import { Toaster as SonnerToaster } from './components/ui/sonner';
 import { ThemeProvider } from './components/ui/theme-provider';
 import { ThemeToggle } from './components/ui/theme-toggle';
@@ -77,9 +80,10 @@ import {
   TooltipDocs,
 } from './pages';
 
-function App() {
+export default function App() {
   const [activeItem, setActiveItem] = React.useState('getting-started');
   const [searchOpen, setSearchOpen] = React.useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
 
   const renderContent = () => {
     switch (activeItem) {
@@ -207,29 +211,64 @@ function App() {
   return (
     <ThemeProvider>
       <TooltipProvider>
-        <div className="flex h-screen bg-background">
-          {/* Sidebar */}
-          <Sidebar activeItem={activeItem} onItemSelect={setActiveItem} />
+        <div className="flex h-screen bg-background overflow-hidden">
+          {/* Desktop Sidebar */}
+          <div className="hidden lg:flex h-full shrink-0">
+            <Sidebar activeItem={activeItem} onItemSelect={setActiveItem} />
+          </div>
 
           {/* Main Content */}
-          <div className="flex-1 flex flex-col overflow-hidden">
+          <div className="flex-1 flex flex-col min-w-0 overflow-hidden">
             {/* Header */}
-            <header className="h-14 border-b flex items-center justify-between px-6 shrink-0 bg-background/50 backdrop-blur-sm sticky top-0 z-10">
-              <Breadcrumb>
-                <BreadcrumbList>
-                  <BreadcrumbItem>
-                    <BreadcrumbLink onClick={() => setActiveItem('getting-started')} className="cursor-pointer">
-                      Components
-                    </BreadcrumbLink>
-                  </BreadcrumbItem>
-                  <BreadcrumbSeparator />
-                  <BreadcrumbItem>
-                    <BreadcrumbPage>
-                      {navItems.find((i) => i.id === activeItem)?.label || 'Introduction'}
-                    </BreadcrumbPage>
-                  </BreadcrumbItem>
-                </BreadcrumbList>
-              </Breadcrumb>
+            <header className="h-14 border-b flex items-center justify-between px-4 md:px-6 shrink-0 bg-background/50 backdrop-blur-sm sticky top-0 z-10 gap-4">
+              <div className="flex items-center gap-2 min-w-0">
+                {/* Mobile Menu Toggle */}
+                <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
+                  <SheetTrigger asChild>
+                    <Button variant="ghost" size="icon" className="lg:hidden shrink-0">
+                      <Menu className="h-5 w-5" />
+                      <span className="sr-only">Toggle menu</span>
+                    </Button>
+                  </SheetTrigger>
+                  <SheetContent side="left" className="p-0 w-72">
+                    <SheetHeader className="sr-only">
+                      <SheetTitle>Navigation Menu</SheetTitle>
+                      <SheetDescription>
+                        Explore the components and documentation for GV Tech Design System.
+                      </SheetDescription>
+                    </SheetHeader>
+                    <Sidebar
+                      activeItem={activeItem}
+                      onItemSelect={(id) => {
+                        setActiveItem(id);
+                        setIsSidebarOpen(false);
+                      }}
+                      className="w-full border-none"
+                    />
+                  </SheetContent>
+                </Sheet>
+
+                <Breadcrumb className="hidden md:flex min-w-0">
+                  <BreadcrumbList>
+                    <BreadcrumbItem>
+                      <BreadcrumbLink onClick={() => setActiveItem('getting-started')} className="cursor-pointer">
+                        Components
+                      </BreadcrumbLink>
+                    </BreadcrumbItem>
+                    <BreadcrumbSeparator />
+                    <BreadcrumbItem>
+                      <BreadcrumbPage>
+                        {navItems.find((i) => i.id === activeItem)?.label || 'Introduction'}
+                      </BreadcrumbPage>
+                    </BreadcrumbItem>
+                  </BreadcrumbList>
+                </Breadcrumb>
+
+                {/* Mobile Breadcrumb (simplified) */}
+                <div className="md:hidden font-medium truncate">
+                  {navItems.find((i) => i.id === activeItem)?.label || 'Introduction'}
+                </div>
+              </div>
               <div className="flex items-center gap-2">
                 <Search open={searchOpen} onOpenChange={setSearchOpen}>
                   <CommandInput placeholder="Type a command or search..." />
@@ -250,7 +289,7 @@ function App() {
                     </CommandGroup>
                   </CommandList>
                 </Search>
-                <SearchTrigger onClick={() => setSearchOpen(true)} />
+                <SearchTrigger onClick={() => setSearchOpen(true)} variant="compact" className="md:w-40 lg:w-64" />
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
@@ -258,7 +297,7 @@ function App() {
             {/* Content Area */}
             <ScrollArea className="flex-1 [&>[data-radix-scroll-area-viewport]]:h-full">
               <div className="flex-1 flex flex-col min-h-full">
-                <main className="flex-1 p-8 max-w-4xl">{renderContent()}</main>
+                <main className="flex-1 p-4 md:p-8 w-full max-w-4xl mx-auto">{renderContent()}</main>
                 <Footer />
               </div>
             </ScrollArea>
@@ -270,5 +309,3 @@ function App() {
     </ThemeProvider>
   );
 }
-
-export default App;
