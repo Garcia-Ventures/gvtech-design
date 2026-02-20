@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/playground-web-v0.1.0...playground-web-v0.1.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* force release ([b28668d](https://github.com/Garcia-Ventures/gvtech-design/commit/b28668da1f27650c46983f01cd95794361572960))
+
 ## [0.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/playground-web-v0.0.1...playground-web-v0.1.0) (2026-02-20)
 
 

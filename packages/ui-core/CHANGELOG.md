@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/ui-core-v0.1.0...ui-core-v0.1.1) (2026-02-20)
+
+
+### Bug Fixes
+
+* force release ([b28668d](https://github.com/Garcia-Ventures/gvtech-design/commit/b28668da1f27650c46983f01cd95794361572960))
+* format ([152e9f7](https://github.com/Garcia-Ventures/gvtech-design/commit/152e9f77b236393ce2ac6e33e8c6a61a4af482c2))
+
 ## [0.1.0](https://github.com/Garcia-Ventures/gvtech-design/compare/ui-core-v0.0.1...ui-core-v0.1.0) (2026-02-20)
 
 
