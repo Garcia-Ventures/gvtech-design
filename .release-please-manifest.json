@@ -1,9 +1,9 @@
 {
-  ".": "2.5.1",
+  ".": "2.5.2",
   "packages/ui-web": "0.1.1",
   "packages/ui-native": "0.1.1",
   "packages/ui-core": "0.1.1",
-  "packages/design-tokens": "0.1.1",
+  "packages/design-tokens": "0.1.2",
   "apps/playground-web": "0.1.1",
   "apps/native-playground": "0.1.1"
 }

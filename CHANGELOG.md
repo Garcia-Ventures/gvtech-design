@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.2](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.5.1...design-system-v2.5.2) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** migrate npm publish flags to package.json publishConfig and use yarn npm publish. ([df8f11e](https://github.com/Garcia-Ventures/gvtech-design/commit/df8f11e64eb6fb2b56f5f84b095f0332ee087ab9))
+
 ## [2.5.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.5.0...design-system-v2.5.1) (2026-02-20)
 
 
