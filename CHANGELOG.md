@@ -1,5 +1,13 @@
 # Changelog
 
+## [2.4.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.3.0...design-system-v2.4.0) (2026-02-16)
+
+
+### Features
+
+* Implement mobile sidebar and improve responsive styling and accessibility for documentation and UI components. ([9fafda0](https://github.com/Garcia-Ventures/gvtech-design/commit/9fafda0a890595b7a343aea161325e25bd7d0224))
+* Introduce automated design token synchronization and granular component exports for the design system. ([068f010](https://github.com/Garcia-Ventures/gvtech-design/commit/068f010a43a8ae12edd1e89a693345d1e7679bb5))
+
 ## [2.3.0](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.2.0...design-system-v2.3.0) (2026-02-13)
 
 
