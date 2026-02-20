@@ -28,7 +28,7 @@
     "build": "echo 'No build step — consumed as TS source by sibling packages'",
     "lint": "echo 'Linted from workspace root'",
     "test": "echo 'No tests yet'",
-    "typecheck": "yarn tsc --noEmit"
+    "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
     "class-variance-authority": "^0.7.1"

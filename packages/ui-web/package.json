@@ -30,7 +30,7 @@
     "build": "echo 'No build step — consumed as TS source by sibling packages'",
     "lint": "echo 'Linted from workspace root'",
     "test": "vitest run",
-    "typecheck": "yarn tsc --noEmit"
+    "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
     "@gv-tech/design-tokens": "workspace:*",

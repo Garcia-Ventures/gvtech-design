@@ -6,7 +6,7 @@
     "build": "vite build",
     "dev": "vite",
     "preview": "vite preview",
-    "typecheck": "yarn tsc --noEmit"
+    "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
     "@gv-tech/design-tokens": "workspace:*",
