@@ -1,3 +1,13 @@
+## 2.7.1 (2026-02-20)
+
+### 🩹 Fixes
+
+- **release:** add missing repository field to design-tokens and update root repo URL for provenance ([b76dc7c](https://github.com/Garcia-Ventures/gvtech-design/commit/b76dc7c))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.7.0 (2026-02-20)
 
 ### 🚀 Features
