@@ -2,6 +2,11 @@
   "name": "@gv-tech/design-tokens",
   "version": "2.7.0",
   "description": "Shared design tokens for the GV Tech design system — palette, theme, spacing, typography, shadows",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
+    "directory": "packages/design-tokens"
+  },
   "license": "MIT",
   "exports": {
     ".": {

@@ -2,7 +2,10 @@
   "name": "@gv-tech/design-system",
   "version": "2.7.0",
   "description": "Garcia Ventures react design system",
-  "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Garcia-Ventures/gvtech-design.git"
+  },
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "exports": {
