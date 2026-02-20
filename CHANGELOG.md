@@ -1,5 +1,12 @@
 # Changelog
 
+## [2.5.3](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.5.2...design-system-v2.5.3) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** configure npm authentication for the npm publish step. ([32a0871](https://github.com/Garcia-Ventures/gvtech-design/commit/32a0871a87600e9c423e8d4d3e19f3603fe21176))
+
 ## [2.5.2](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.5.1...design-system-v2.5.2) (2026-02-20)
 
 
