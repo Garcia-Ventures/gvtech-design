@@ -64,7 +64,7 @@
   ],
   "release": {
     "groups": {
-      "default": {
+      "packages": {
         "projects": [
           "@gv-tech/*"
         ],
@@ -72,6 +72,7 @@
           "conventionalCommits": true,
           "fallbackCurrentVersionResolver": "disk"
         },
+        "releaseTagPattern": "v{version}",
         "changelog": {
           "createRelease": "github",
           "entryWhenNoChanges": "No changes for this project",
