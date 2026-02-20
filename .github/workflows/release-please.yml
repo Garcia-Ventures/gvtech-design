@@ -50,8 +50,6 @@ jobs:
 
       - name: Publish to npm
         if: ${{ steps.release.outputs.releases_created }}
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         run: |
           # Iterate over each released package path
           echo '${{ steps.release.outputs.paths_released }}' | jq -r '.[]' | while read -r path; do
