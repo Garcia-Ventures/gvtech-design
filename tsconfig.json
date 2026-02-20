@@ -8,6 +8,8 @@
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
@@ -16,9 +18,13 @@
     "noFallthroughCasesInSwitch": true,
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["./src/*"],
+      "@gv-tech/design-tokens": ["./packages/design-tokens/src"],
+      "@gv-tech/ui-core": ["./packages/ui-core/src"],
+      "@gv-tech/ui-web": ["./packages/ui-web/src"],
+      "@gv-tech/ui-native": ["./packages/ui-native/src"]
     }
   },
-  "include": ["src"],
+  "include": ["src", "packages"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

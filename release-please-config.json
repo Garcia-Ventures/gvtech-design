@@ -23,7 +23,7 @@
         {
           "type": "refactor",
           "section": "Code Refactoring",
-          "hidden": true
+          "hidden": false
         },
         {
           "type": "chore",
@@ -31,6 +31,30 @@
           "hidden": true
         }
       ]
+    },
+    "packages/ui-web": {
+      "release-type": "node",
+      "package-name": "@gv-tech/ui-web"
+    },
+    "packages/ui-native": {
+      "release-type": "node",
+      "package-name": "@gv-tech/ui-native"
+    },
+    "packages/ui-core": {
+      "release-type": "node",
+      "package-name": "@gv-tech/ui-core"
+    },
+    "packages/design-tokens": {
+      "release-type": "node",
+      "package-name": "@gv-tech/design-tokens"
+    },
+    "apps/playground-web": {
+      "release-type": "node",
+      "package-name": "playground-web"
+    },
+    "apps/native-playground": {
+      "release-type": "node",
+      "package-name": "native-playground"
     }
   }
 }

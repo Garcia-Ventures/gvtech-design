@@ -1,43 +1,76 @@
 import fs from 'fs';
 import path from 'path';
 
-const REGISTRY_PATH = path.join(process.cwd(), 'public/registry');
-const COMPONENTS_UI_PATH = path.join(process.cwd(), 'src/components/ui');
+const REGISTRY_PATH = path.join(process.cwd(), 'apps/playground-web/public/registry');
+const COMPONENTS_UI_PATH = path.join(process.cwd(), 'packages/ui-web/src');
 
 if (!fs.existsSync(REGISTRY_PATH)) {
   fs.mkdirSync(REGISTRY_PATH, { recursive: true });
 }
 
 function buildRegistry() {
-  const components = fs
-    .readdirSync(COMPONENTS_UI_PATH)
-    .filter((file) => file.endsWith('.tsx') && !file.includes('.stories.'));
+  const entries = fs.readdirSync(COMPONENTS_UI_PATH, { withFileTypes: true });
 
-  const registryIndex = components.map((file) => {
-    const name = path.basename(file, '.tsx');
-    const content = fs.readFileSync(path.join(COMPONENTS_UI_PATH, file), 'utf8');
+  const registryIndex: { name: string; files: string[]; type: string }[] = [];
 
-    const componentJson = {
-      name,
-      type: 'registry:ui',
-      dependencies: [], // You can manually add dependencies here if needed
-      registryDependencies: [],
-      files: [
-        {
-          path: `ui/${file}`,
+  entries.forEach((entry) => {
+    let name = '';
+    const componentFiles: { path: string; content: string; type: string }[] = [];
+    const filePaths: string[] = [];
+
+    // Ignore index.ts, hooks, lib, and tests
+    if (
+      entry.name === 'index.ts' ||
+      entry.name === 'hooks' ||
+      entry.name === 'lib' ||
+      entry.name.includes('.test.') ||
+      entry.name === 'sonner.tsx' // sonner is often handled uniquely or as a wrapper
+    ) {
+      return;
+    }
+
+    if (entry.isDirectory()) {
+      name = entry.name;
+      const dirPath = path.join(COMPONENTS_UI_PATH, name);
+      const dirFiles = fs.readdirSync(dirPath).filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
+
+      dirFiles.forEach((file) => {
+        const content = fs.readFileSync(path.join(dirPath, file), 'utf8');
+        componentFiles.push({
+          path: `ui/${name}/${file}`,
           content,
           type: 'registry:ui',
-        },
-      ],
-    };
+        });
+        filePaths.push(`ui/${name}/${file}`);
+      });
+    } else if (entry.isFile() && entry.name.endsWith('.tsx')) {
+      name = path.basename(entry.name, '.tsx');
+      const content = fs.readFileSync(path.join(COMPONENTS_UI_PATH, entry.name), 'utf8');
+      componentFiles.push({
+        path: `ui/${entry.name}`,
+        content,
+        type: 'registry:ui',
+      });
+      filePaths.push(`ui/${entry.name}`);
+    }
 
-    fs.writeFileSync(path.join(REGISTRY_PATH, `${name}.json`), JSON.stringify(componentJson, null, 2));
+    if (name) {
+      const componentJson = {
+        name,
+        type: 'registry:ui',
+        dependencies: [],
+        registryDependencies: [],
+        files: componentFiles,
+      };
 
-    return {
-      name,
-      files: [`ui/${file}`],
-      type: 'registry:ui',
-    };
+      fs.writeFileSync(path.join(REGISTRY_PATH, `${name}.json`), JSON.stringify(componentJson, null, 2));
+
+      registryIndex.push({
+        name,
+        files: filePaths,
+        type: 'registry:ui',
+      });
+    }
   });
 
   fs.writeFileSync(path.join(REGISTRY_PATH, 'index.json'), JSON.stringify(registryIndex, null, 2));

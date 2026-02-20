@@ -1,7 +1,7 @@
 name = "gvtech-design"
 compatibility_date = "2024-11-01"
 compatibility_flags = ["nodejs_compat"]
-pages_build_output_dir = "dist-site"
+pages_build_output_dir = "apps/playground-web/dist-site"
 
 [vars]
 NODE_VERSION = "24"

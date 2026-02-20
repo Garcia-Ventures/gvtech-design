@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "jsx": "react-jsx",
+    "outDir": "dist",
+    "rootDir": "../..",
+    "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
+    "paths": {
+      "@gv-tech/design-tokens": ["../design-tokens/src"],
+      "@gv-tech/ui-core": ["../ui-core/src"],
+      "@/*": ["./src/*"]
+    }
+  },
+  "include": ["src"]
+}

@@ -2,9 +2,12 @@ import fs from 'fs';
 import path from 'path';
 // We use a dynamic import or relative require because we are running with tsx
 // and want to avoid complex tsconfig path issues for a simple script.
-import { palette, theme } from '../src/theme/tokens';
+import { palette, theme } from '@gv-tech/design-tokens';
 
-const GLOBALS_CSS_PATH = path.join(process.cwd(), 'src/globals.css');
+const GLOBALS_CSS_PATHS = [
+  path.join(process.cwd(), 'src/globals.css'),
+  path.join(process.cwd(), 'apps/playground-web/src/globals.css'),
+];
 
 /** Strips hsl() wrapper and commas to match Tailwind/shadcn expectation of "H S L" */
 function formatTokenValue(value: string) {
@@ -49,24 +52,34 @@ function generateCssVariables() {
 }
 
 function syncTokens() {
-  try {
-    const globalsContent = fs.readFileSync(GLOBALS_CSS_PATH, 'utf8');
-    const variables = generateCssVariables();
+  const variables = generateCssVariables();
+  const tokenRegex = /\/\* @tokens-start \*\/[\s\S]*\/\* @tokens-end \*\//;
 
-    const tokenRegex = /\/\* @tokens-start \*\/[\s\S]*\/\* @tokens-end \*\//;
+  for (const cssPath of GLOBALS_CSS_PATHS) {
+    try {
+      if (!fs.existsSync(cssPath)) {
+        console.log(`⚠️ Skipping ${cssPath} (not found)`);
+        continue;
+      }
 
-    if (!tokenRegex.test(globalsContent)) {
-      console.error('❌ Error: Could not find @tokens markers in src/globals.css');
-      process.exit(1);
+      const globalsContent = fs.readFileSync(cssPath, 'utf8');
+
+      if (!tokenRegex.test(globalsContent)) {
+        console.warn(`⚠️ Warning: Could not find @tokens markers in ${cssPath}`);
+        continue;
+      }
+
+      const updatedContent = globalsContent.replace(
+        tokenRegex,
+        `/* @tokens-start */\n${variables}\n  /* @tokens-end */`,
+      );
+
+      fs.writeFileSync(cssPath, updatedContent);
+      console.log(`✅ Tokens synchronized successfully for ${path.relative(process.cwd(), cssPath)}`);
+    } catch (error) {
+      console.error(`❌ Error synchronizing tokens for ${cssPath}:`, error);
+      // We don't exit here to allow other files to be synced, but we might want to flag failure.
     }
-
-    const updatedContent = globalsContent.replace(tokenRegex, `/* @tokens-start */\n${variables}\n  /* @tokens-end */`);
-
-    fs.writeFileSync(GLOBALS_CSS_PATH, updatedContent);
-    console.log('✅ Tokens synchronized successfully');
-  } catch (error) {
-    console.error('❌ Error synchronizing tokens:', error);
-    process.exit(1);
   }
 }
 

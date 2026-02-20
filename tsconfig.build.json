@@ -3,10 +3,20 @@
   "compilerOptions": {
     "noEmit": false,
     "declaration": true,
-    "emitDeclarationOnly": true,
+    "emitDeclarationOnly": false,
     "declarationMap": true,
     "outDir": "dist",
-    "rootDir": "src"
+    "rootDir": ".",
+    "allowImportingTsExtensions": false
   },
-  "include": ["src"]
+  "include": ["src", "packages"],
+  "exclude": [
+    "src/**/*.test.tsx",
+    "src/**/*.test.ts",
+    "src/setupTests.ts",
+    "packages/**/*.test.tsx",
+    "packages/**/*.test.ts",
+    "packages/**/vite.config.ts",
+    "packages/**/src/setupTests.ts"
+  ]
 }
