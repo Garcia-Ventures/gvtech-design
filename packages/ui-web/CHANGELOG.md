@@ -1,3 +1,7 @@
+## 1.1.0 (2026-02-20)
+
+No changes for this project
+
 # 1.0.0 (2026-02-20)
 
 No changes for this project

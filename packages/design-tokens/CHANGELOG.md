@@ -1,3 +1,13 @@
+## 1.1.0 (2026-02-20)
+
+### 🩹 Fixes
+
+- **ci:** migrate npm publish flags to package.json publishConfig and use yarn npm publish. ([df8f11e](https://github.com/Garcia-Ventures/gvtech-design/commit/df8f11e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 # 1.0.0 (2026-02-20)
 
 ### 🩹 Fixes
