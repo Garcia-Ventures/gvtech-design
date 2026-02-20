@@ -1,0 +1,31 @@
+{
+  "name": "playground-web",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "vite build",
+    "dev": "vite",
+    "preview": "vite preview",
+    "typecheck": "yarn tsc --noEmit"
+  },
+  "dependencies": {
+    "@gv-tech/design-tokens": "workspace:*",
+    "@gv-tech/ui-core": "workspace:*",
+    "@gv-tech/ui-web": "workspace:*",
+    "lucide-react": "^0.563.0",
+    "next-themes": "^0.4.6",
+    "react": "19.2.4",
+    "react-dom": "19.2.4",
+    "react-router-dom": "^7.13.0",
+    "recharts": "2.15.4",
+    "sonner": "^2.0.7"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react-swc": "^4.2.3",
+    "autoprefixer": "^10.4.18",
+    "postcss": "^8.5.6",
+    "tailwindcss": "4.1.18",
+    "typescript": "^5.9.3",
+    "vite": "7.3.1"
+  }
+}

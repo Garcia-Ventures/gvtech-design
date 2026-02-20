@@ -12,12 +12,25 @@ const getEntries = () => {
   };
 
   if (isLibrary) {
-    const uiPath = resolve(__dirname, 'src/components/ui');
-    const files = fs.readdirSync(uiPath);
-    files.forEach((file) => {
-      if (file.endsWith('.tsx') && !file.includes('.test.') && !file.includes('.stories.')) {
-        const name = file.replace('.tsx', '');
-        entries[name] = resolve(uiPath, file);
+    const uiPath = resolve(__dirname, 'packages/ui-web/src');
+    const items = fs.readdirSync(uiPath, { withFileTypes: true });
+
+    items.forEach((item) => {
+      if (item.isDirectory()) {
+        if (item.name === 'hooks' || item.name === 'lib') return;
+        const entryPath = resolve(uiPath, item.name, 'index.ts');
+        if (fs.existsSync(entryPath)) {
+          entries[item.name] = entryPath;
+        }
+      } else if (
+        item.isFile() &&
+        item.name.endsWith('.tsx') &&
+        !item.name.includes('.test.') &&
+        !item.name.includes('.stories.')
+      ) {
+        // File component (legacy)
+        const name = item.name.replace('.tsx', '');
+        entries[name] = resolve(uiPath, item.name);
       }
     });
   }
@@ -26,9 +39,30 @@ const getEntries = () => {
 
 export default defineConfig({
   plugins: [react()],
+  define: {
+    global: 'window',
+    __DEV__: JSON.stringify(process.env.NODE_ENV !== 'production'),
+    'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
+  },
   resolve: {
-    alias: {
-      '@': resolve(__dirname, './src'),
+    alias: [
+      {
+        find: /^react-native$/,
+        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
+      },
+      {
+        find: /^react-native\/(.*)$/,
+        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
+      },
+      { find: '@', replacement: resolve(__dirname, './src') },
+    ],
+    extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
+  },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
     },
   },
   build: {

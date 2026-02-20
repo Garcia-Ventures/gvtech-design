@@ -1,0 +1,23 @@
+{
+  "name": "native-playground",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/native-playground"
+  },
+  "dependencies": {
+    "@expo/metro-config": "*",
+    "expo": "*",
+    "expo-splash-screen": "*",
+    "expo-status-bar": "*",
+    "expo-system-ui": "*",
+    "metro-config": "*",
+    "metro-resolver": "*",
+    "nativewind": "4.1.23",
+    "react": "*",
+    "react-native": "*",
+    "react-native-svg": "*",
+    "react-native-svg-transformer": "*",
+    "react-native-web": "*"
+  }
+}

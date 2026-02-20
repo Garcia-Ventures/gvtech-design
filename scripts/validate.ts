@@ -2,15 +2,14 @@ import { spawnSync } from 'child_process';
 
 const args = process.argv.slice(2);
 const fix = args.includes('--fix');
+const noCache = args.includes('--no-cache');
+
+const nxFlags = noCache ? ' --skipNxCache' : '';
 
 const steps = [
   {
     name: 'Sync Tokens',
     cmd: 'yarn tsx scripts/sync-tokens.ts',
-  },
-  {
-    name: 'Sync Exports',
-    cmd: 'yarn tsx scripts/sync-exports.ts',
   },
   {
     name: fix ? 'Prettier fix' : 'Prettier check',
@@ -20,9 +19,23 @@ const steps = [
     name: fix ? 'Lint fix (eslint)' : 'Lint (eslint)',
     cmd: fix ? 'yarn lint:fix' : 'yarn lint',
   },
-  { name: 'TypeScript type check', cmd: 'yarn tsc --noEmit' },
-  { name: 'Test (vitest)', cmd: 'yarn test:ci' },
-  { name: 'Build (vite)', cmd: 'yarn build' },
+  {
+    name: 'TypeScript type check',
+    // Using nx run-many for per-project type checking
+    cmd: `nx run-many -t typecheck --parallel${nxFlags}`,
+  },
+  {
+    name: 'Test (vitest)',
+    cmd: `nx run-many -t test --parallel --run --reporter=dot${nxFlags}`,
+  },
+  {
+    name: 'Build Sub-packages & Apps',
+    cmd: `nx run-many -t build --parallel${nxFlags}`,
+  },
+  {
+    name: 'Build Root Package (Library)',
+    cmd: 'yarn build',
+  },
 ];
 
 const SEP = '------------------------------------------------------------';

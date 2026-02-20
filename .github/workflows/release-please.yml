@@ -29,11 +29,11 @@ jobs:
         run: echo "If a release PR is created, review and merge it to create a tag/release."
 
       - name: Checkout Code
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.releases_created }}
         uses: actions/checkout@v6
 
       - name: Use Node.js 24
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.releases_created }}
         uses: actions/setup-node@v6
         with:
           node-version: 24
@@ -41,13 +41,39 @@ jobs:
           cache: "yarn"
 
       - name: Install dependencies
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.releases_created }}
         run: yarn install --immutable
 
       - name: Build
-        if: ${{ steps.release.outputs.release_created }}
+        if: ${{ steps.release.outputs.releases_created }}
         run: yarn build
 
       - name: Publish to npm
-        if: ${{ steps.release.outputs.release_created }}
-        run: npm publish --provenance
+        if: ${{ steps.release.outputs.releases_created }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: |
+          # Iterate over each released package path
+          echo '${{ steps.release.outputs.paths_released }}' | jq -r '.[]' | while read -r path; do
+            echo "--- Publishing package at: $path ---"
+            cd "$path"
+            
+            # Skip if the package is private
+            if jq -e '.private == true' package.json > /dev/null; then
+              echo "Skipping private package: $(jq -r '.name' package.json)"
+              cd - > /dev/null
+              continue
+            fi
+            
+            # Build the package if a build script exists
+            if jq -e '.scripts.build' package.json > /dev/null; then
+              echo "Building $(jq -r '.name' package.json)..."
+              yarn build
+            fi
+            
+            # Publish to npm
+            echo "Publishing $(jq -r '.name' package.json)..."
+            npm publish --provenance --access public
+            
+            cd - > /dev/null
+          done

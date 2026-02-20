@@ -1,0 +1,93 @@
+import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
+import { describe, expect, it, vi } from 'vitest';
+import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from './sheet';
+
+// Mock primitives
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
+vi.mock('@rn-primitives/dialog', () => {
+  const React = require('react');
+  const DialogContext = React.createContext({ open: false, onOpenChange: (_any: any) => {} });
+
+  return {
+    Root: ({ children, open, onOpenChange }: any) =>
+      React.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
+    Trigger: ({ children, ...props }: any) => {
+      const { open, onOpenChange } = React.useContext(DialogContext);
+      return React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
+    },
+    Portal: ({ children }: any) => {
+      const { open } = React.useContext(DialogContext);
+      return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
+    },
+    Overlay: React.forwardRef(({ children, ...props }: any, ref: any) => {
+      const { open } = React.useContext(DialogContext);
+      return open ? React.createElement('div', { ref, ...props }, children) : null;
+    }),
+    Content: React.forwardRef(({ children, ...props }: any, ref: any) => {
+      const { open } = React.useContext(DialogContext);
+      return open ? React.createElement('div', { ref, ...props }, children) : null;
+    }),
+    Title: React.forwardRef(({ children, ...props }: any, ref: any) =>
+      React.createElement('h2', { ref, ...props }, children),
+    ),
+    Description: React.forwardRef(({ children, ...props }: any, ref: any) =>
+      React.createElement('p', { ref, ...props }, children),
+    ),
+    Close: React.forwardRef(({ children, ...props }: any, ref: any) => {
+      const { onOpenChange } = React.useContext(DialogContext);
+      return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
+    }),
+    useRootContext: () => React.useContext(DialogContext),
+  };
+});
+/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
+
+// Mock reanimated
+/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+vi.mock('react-native-reanimated', () => {
+  const React = require('react');
+  return {
+    default: {
+      View: React.forwardRef(({ children, ...props }: any, ref: any) =>
+        React.createElement('div', { ref, ...props }, children),
+      ),
+    },
+    FadeIn: { duration: () => ({}) },
+    FadeOut: { duration: () => ({}) },
+    SlideInRight: {},
+    SlideOutRight: {},
+  };
+});
+/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+
+// Mock lucide
+vi.mock('lucide-react-native', () => ({
+  X: () => null,
+}));
+
+describe('Sheet (Native Implementation)', () => {
+  it('opens and closes correctly', async () => {
+    const TestComponent = () => {
+      const [open, setOpen] = React.useState(false);
+      return (
+        <Sheet open={open} onOpenChange={setOpen}>
+          <SheetTrigger>Open</SheetTrigger>
+          <SheetContent side="right">
+            <SheetTitle>Sheet Title</SheetTitle>
+            <SheetDescription>Sheet Description</SheetDescription>
+          </SheetContent>
+        </Sheet>
+      );
+    };
+
+    render(<TestComponent />);
+
+    expect(screen.queryByText('Sheet Title')).toBeNull();
+
+    fireEvent.click(screen.getByText('Open'));
+
+    expect(await screen.findByText('Sheet Title')).toBeDefined();
+    expect(screen.getByText('Sheet Description')).toBeDefined();
+  });
+});

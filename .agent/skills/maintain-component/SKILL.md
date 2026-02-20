@@ -5,38 +5,73 @@ description: Guidelines for creating or updating UI components, ensuring tests a
 
 # Component Maintenance Skill
 
-Use this skill whenever you are tasked with creating a new UI component or modifying an existing one in the `gvtech-design` library.
+Use this skill whenever you are tasked with creating a new UI component or modifying an existing one in the `gvtech-design` library. All components must follow the monorepo-based architecture to support Web, React Native, and shared contracts.
+
+## Architecture Standards
+
+Components are split across three primary packages:
+
+1. **`@gv-tech/ui-core`**: Shared contracts/interfaces.
+   - Location: `packages/ui-core/src/contracts/[name].ts`
+   - Role: Defines the "Truth" of what a component's API should be.
+2. **`@gv-tech/ui-web`**: Web (DOM/Radix) implementation.
+   - Location: `packages/ui-web/src/[name].tsx`
+   - Tests: `packages/ui-web/src/[name].test.tsx`
+3. **`@gv-tech/ui-native`**: React Native (NativeWind) implementation.
+   - Location: `packages/ui-native/src/[name].tsx`
 
 ## Workflow
 
-### 1. Preparation
+### 1. Contract Definition (Core)
 
-- **Audit**: Identify the component file (`src/components/ui/`), its documentation page (`src/pages/components/`), and its test file (`src/components/ui/*.test.tsx`).
-- **Plan**: Ensure the requested changes will be reflected in all three areas.
+- Always start by defining or updating the base props in `packages/ui-core/src/contracts/[name].ts`.
+- Export these props from `packages/ui-core/src/index.ts`.
+- **CRITICAL**: Use specific types. Avoid `any`. Use `unknown` or specific interfaces for extension.
 
-### 2. Implementation
+### 2. Platform Implementation
 
-- **Component Code**: Apply changes to the component in `src/components/ui/`.
-- **Tests**:
-  - Create or update the test suite in `src/components/ui/[component].test.tsx`.
-  - Use `vitest` and `@testing-library/react`.
-  - Ensure 100% pass rate.
-- **Documentation**:
-  - Update the corresponding page in `src/pages/components/`.
-  - **CRITICAL**: Ensure the `PropsTable` is updated to reflect any changes to the component's API.
-  - Add or update usage examples in `ComponentShowcase`.
+- **Web**:
+  - Build the implementation in `packages/ui-web/src/[name].tsx`.
+  - Import contracts from `@gv-tech/ui-core`.
+  - Import internal utilities (like `cn`) from `./lib/utils` (relative).
+  - Export the component and its types from `packages/ui-web/src/index.ts`.
+- **Native**:
+  - Build the implementation in `packages/ui-native/src/[name].tsx`.
+  - If not yet implemented, provide a "Not implemented" shim.
+  - Import internal utilities from `./lib/utils` (relative).
+  - Export the component from `packages/ui-native/src/index.ts`.
 
-### 3. Verification
+### 3. Documentation & Registry
 
-- **Linting**: Run `yarn lint` to ensure no new lint errors are introduced.
-- **Testing**: Run `yarn test [component].test.tsx` to verify the component's logic.
-- **Type Checking**: Run `npx tsc --noEmit` to catch TypeScript errors.
+- **Documentation Implementation**:
+  - Create/Update web-specific docs in `src/pages/web/[ComponentName]Docs.tsx`.
+  - Create/Update native-specific docs in `src/pages/native/[ComponentName]Docs.tsx`.
+  - **Structure**: Documentation files should **not** use `ComponentSection` (this is now handled by the layout). They should return a React Fragment `<>...</>` containing `ComponentShowcase` and implementations.
+  - **Register in App.tsx**:
+    - Add the new route to `src/App.tsx`.
+    - Use `<CombinedDocsLayout />` and pass the `title`, `description`, `web`, and `native` implementations as props.
+  - **Context**: Ensure `PropsTable` matches the `ui-core` contract and covers both platforms if they differ.
+- **Registry**: Run `yarn build:registry` to update the component JSON files in `public/registry`.
+
+### 4. Verification
+
+- **Full Suite**: Run `yarn validate` from the root. This runs:
+  - `sync-tokens`: Ensures design tokens are updated.
+  - `lint`: Checks project-wide ESLint (no `any`, no unused vars).
+  - `tsc`: Verifies TypeScript types across all workspaces.
+  - `test`: Runs Vitest across all packages.
+  - `build`: Verifies Vite/Nx build status.
 
 ## Checklist
 
-- [ ] Component code updated/created.
-- [ ] Test suite updated/created and passing.
-- [ ] Documentation page updated/created.
-- [ ] `PropsTable` accurately reflects the current API.
-- [ ] `yarn lint` passes.
-- [ ] `npx tsc --noEmit` passes.
+- [ ] Contract updated in `packages/ui-core/src/contracts/`.
+- [ ] Props exported from `packages/ui-core/src/index.ts`.
+- [ ] Web implementation updated in `packages/ui-web/src/`.
+- [ ] Native implementation/shim updated in `packages/ui-native/src/`.
+- [ ] Exported via `index.ts` in respective packages.
+- [ ] Web docs updated in `src/pages/web/` (without `ComponentSection`).
+- [ ] Native docs updated in `src/pages/native/` (without `ComponentSection`).
+- [ ] Route registered in `src/App.tsx` using `CombinedDocsLayout` with `title` and `description`.
+- [ ] `yarn build:registry` run to update public registry.
+- [ ] `yarn validate` passes successfully (Green state).
+- [ ] **Strict**: No `any` types used in new/modified code.

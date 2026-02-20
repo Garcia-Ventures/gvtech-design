@@ -8,6 +8,6 @@ export default [
   ...recommended,
   // Add project-specific overrides here
   {
-    ignores: ['**/eslint.config.mjs', '**/.yarn/**', 'dist-site/**'],
+    ignores: ['**/eslint.config.mjs', '**/.yarn/**', '**/dist-site/**'],
   },
 ];

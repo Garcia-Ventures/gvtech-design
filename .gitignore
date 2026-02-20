@@ -2,6 +2,8 @@
 
 # dependencies
 /node_modules
+/packages/ui-native/node_modules
+/packages/ui-web/node_modules
 /.pnp
 .pnp.js
 
@@ -30,7 +32,7 @@ storybook-static
 #builds
 dist
 dist-site
-public/registry
+apps/playground-web/public/registry
 
 # yarn v2
 .pnp.*
@@ -47,3 +49,24 @@ public/registry
 # codacy
 .github/instructions/codacy.instructions.md
 .codacy/
+
+# nx
+.nx/
+
+# Expo
+node_modules/
+.expo/
+.yarn/
+dist/
+npm-debug.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+*.orig.*
+web-build/
+cache/
+*.tsbuildinfo
+.expo-shared/
+.turbo/
