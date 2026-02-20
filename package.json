@@ -40,10 +40,10 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "rm -f tsconfig.tsbuildinfo && yarn build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
+    "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
     "build:registry": "tsx scripts/build-registry.ts",
-    "build:site": "yarn workspace playground-web build",
-    "dev": "yarn workspace playground-web dev",
+    "build:site": "bun --filter playground-web build",
+    "dev": "bun --filter playground-web dev",
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
     "lint": "eslint . --cache",
@@ -142,6 +142,10 @@
     "nx": "^22.5.1",
     "postcss": "^8.5.6",
     "prettier": "^3.8.1",
+    "prettier-plugin-jsdoc": "^1.8.0",
+    "prettier-plugin-organize-imports": "^4.3.0",
+    "prettier-plugin-packagejson": "^3.0.0",
+    "prettier-plugin-tailwindcss": "^0.7.2",
     "react-icons": "^5.5.0",
     "react-native-reanimated": "~3.16.1",
     "react-native-web": "^0.21.2",
@@ -165,7 +169,7 @@
     "react-native": "^0.77.0",
     "react-native-svg": "^15.11.1"
   },
-  "packageManager": "yarn@4.12.0",
+  "packageManager": "bun@1.2.2",
   "engines": {
     "node": ">=20"
   },

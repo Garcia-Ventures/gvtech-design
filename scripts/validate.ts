@@ -9,15 +9,15 @@ const nxFlags = noCache ? ' --skipNxCache' : '';
 const steps = [
   {
     name: 'Sync Tokens',
-    cmd: 'yarn tsx scripts/sync-tokens.ts',
+    cmd: 'bun run tsx scripts/sync-tokens.ts',
   },
   {
     name: fix ? 'Prettier fix' : 'Prettier check',
-    cmd: fix ? 'yarn format' : 'yarn format:ci',
+    cmd: fix ? 'bun run format' : 'bun run format:ci',
   },
   {
     name: fix ? 'Lint fix (eslint)' : 'Lint (eslint)',
-    cmd: fix ? 'yarn lint:fix' : 'yarn lint',
+    cmd: fix ? 'bun run lint:fix' : 'bun run lint',
   },
   {
     name: 'TypeScript type check',
@@ -34,7 +34,7 @@ const steps = [
   },
   {
     name: 'Build Root Package (Library)',
-    cmd: 'yarn build',
+    cmd: 'bun run build',
   },
 ];
 

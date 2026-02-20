@@ -25,40 +25,40 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: ${{ matrix.node }}
-          cache: "yarn"
 
-      - name: Cache Yarn (optional extra)
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
+      - name: Cache Bun dependencies
         uses: actions/cache@v4
         with:
-          path: |
-            .yarn/cache
-            .yarn/unplugged
-            .yarn/build-state.yml
-            .yarn/install-state.gz
-          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          path: ~/.bun/install/cache
+          key: ${{ runner.os }}-bun-${{ hashFiles('**/bun.lock') }}
           restore-keys: |
-            ${{ runner.os }}-yarn-
+            ${{ runner.os }}-bun-
 
       - name: Install dependencies
-        run: yarn install
+        run: bun install
 
       - name: Restore Nx Cache
         uses: actions/cache@v4
         with:
           path: .nx/cache
-          key: ${{ runner.os }}-nx-${{ matrix.node }}-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
+          key: ${{ runner.os }}-nx-${{ matrix.node }}-${{ hashFiles('bun.lock') }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-nx-${{ matrix.node }}-${{ hashFiles('yarn.lock') }}-
+            ${{ runner.os }}-nx-${{ matrix.node }}-${{ hashFiles('bun.lock') }}-
             ${{ runner.os }}-nx-${{ matrix.node }}-
 
       - name: Format
-        run: yarn format:ci
+        run: bun run format:ci
 
       - name: Lint
-        run: yarn lint
+        run: bun run lint
 
       - name: Run Tests
-        run: yarn test:ci
+        run: bun run test:ci
 
   build:
     runs-on: ubuntu-latest
@@ -70,22 +70,26 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          cache: "yarn"
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
 
       - name: Install dependencies
-        run: yarn install --immutable
+        run: bun install --frozen-lockfile
 
       - name: Restore Nx Cache
         uses: actions/cache@v4
         with:
           path: .nx/cache
-          key: ${{ runner.os }}-nx-24-${{ hashFiles('yarn.lock') }}-${{ github.sha }}
+          key: ${{ runner.os }}-nx-24-${{ hashFiles('bun.lock') }}-${{ github.sha }}
           restore-keys: |
-            ${{ runner.os }}-nx-24-${{ hashFiles('yarn.lock') }}-
+            ${{ runner.os }}-nx-24-${{ hashFiles('bun.lock') }}-
             ${{ runner.os }}-nx-24-
 
       - name: Build Library
-        run: yarn build
+        run: bun run build
 
       - name: Build Site
-        run: yarn build:site
+        run: bun run build:site

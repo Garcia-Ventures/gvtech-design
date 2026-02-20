@@ -55,7 +55,7 @@
           "conventionalCommits": true,
           "fallbackCurrentVersionResolver": "disk"
         },
-        "releaseTagPattern": "v{version}",
+        "releaseTagPattern": "{projectName}@{version}",
         "changelog": {
           "createRelease": "github",
           "entryWhenNoChanges": "No changes for this project",

@@ -195,7 +195,7 @@ export function InstallationPage() {
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
           <TabsList>
             <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="bun">bun</TabsTrigger>
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4">
@@ -203,6 +203,9 @@ export function InstallationPage() {
           </TabsContent>
           <TabsContent value="yarn" className="mt-4">
             <CodeBlock code="yarn add @gv-tech/design-system" language="bash" />
+          </TabsContent>
+          <TabsContent value="bun" className="mt-4">
+            <CodeBlock code="bun add @gv-tech/design-system" language="bash" />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4">
             <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
@@ -231,7 +234,7 @@ export function InstallationPage() {
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
           <TabsList>
             <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="bun">bun</TabsTrigger>
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4">
@@ -239,6 +242,9 @@ export function InstallationPage() {
           </TabsContent>
           <TabsContent value="yarn" className="mt-4">
             <CodeBlock code="yarn add next-themes" language="bash" />
+          </TabsContent>
+          <TabsContent value="bun" className="mt-4">
+            <CodeBlock code="bun add next-themes" language="bash" />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4">
             <CodeBlock code="pnpm add next-themes" language="bash" />
@@ -343,7 +349,7 @@ export function InstallationPage() {
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
           <TabsList>
             <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="yarn">yarn</TabsTrigger>
+            <TabsTrigger value="bun">bun</TabsTrigger>
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4 text-sm">
@@ -351,6 +357,9 @@ export function InstallationPage() {
           </TabsContent>
           <TabsContent value="yarn" className="mt-4 text-sm">
             <CodeBlock code="yarn add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
+          </TabsContent>
+          <TabsContent value="bun" className="mt-4 text-sm">
+            <CodeBlock code="bun add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4 text-sm">
             <CodeBlock code="pnpm add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
