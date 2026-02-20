@@ -1,3 +1,7 @@
+# 1.0.0 (2026-02-20)
+
+No changes for this project
+
 # Changelog
 
 ## [0.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/ui-web-v0.1.0...ui-web-v0.1.1) (2026-02-20)
