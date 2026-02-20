@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-core",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Shared component contracts (props, variants, sizes) for the GV Tech design system",
   "repository": {
     "type": "git",
