@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.2](https://github.com/Garcia-Ventures/gvtech-design/compare/design-tokens-v0.1.1...design-tokens-v0.1.2) (2026-02-20)
+
+
+### Bug Fixes
+
+* **ci:** migrate npm publish flags to package.json publishConfig and use yarn npm publish. ([df8f11e](https://github.com/Garcia-Ventures/gvtech-design/commit/df8f11e64eb6fb2b56f5f84b095f0332ee087ab9))
+
 ## [0.1.1](https://github.com/Garcia-Ventures/gvtech-design/compare/design-tokens-v0.1.0...design-tokens-v0.1.1) (2026-02-20)
 
 
