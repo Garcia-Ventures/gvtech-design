@@ -1,3 +1,13 @@
+## 2.7.0 (2026-02-20)
+
+### 🚀 Features
+
+- add initial READMEs for the design-tokens, ui-core, ui-native, and ui-web packages. ([b63d5e9](https://github.com/Garcia-Ventures/gvtech-design/commit/b63d5e9))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 1.1.0 (2026-02-20)
 
 No changes for this project
