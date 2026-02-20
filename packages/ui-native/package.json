@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-native",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "React Native implementations of the GV Tech design system components",
   "repository": {
     "type": "git",
