@@ -1,5 +1,5 @@
 {
-  ".": "2.5.2",
+  ".": "2.5.3",
   "packages/ui-web": "0.1.1",
   "packages/ui-native": "0.1.1",
   "packages/ui-core": "0.1.1",
