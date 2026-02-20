@@ -71,7 +71,7 @@ jobs:
             
             # Publish to npm
             echo "Publishing $(jq -r '.name' package.json)..."
-            npm publish --provenance --access public
+            yarn npm publish
             
             cd - > /dev/null
           done

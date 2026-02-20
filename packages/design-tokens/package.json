@@ -19,5 +19,9 @@
     "lint": "echo 'Linted from workspace root'",
     "test": "echo 'No tests yet'",
     "typecheck": "npx tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
   }
 }
