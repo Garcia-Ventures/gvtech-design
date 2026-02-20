@@ -2,9 +2,6 @@
   "name": "@gv-tech/ui-core",
   "version": "0.1.0",
   "description": "Shared component contracts (props, variants, sizes) for the GV Tech design system",
-  "files": [
-    "src"
-  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
@@ -24,6 +21,9 @@
   },
   "main": "src/index.ts",
   "types": "src/index.ts",
+  "files": [
+    "src"
+  ],
   "scripts": {
     "build": "echo 'No build step — consumed as TS source by sibling packages'",
     "lint": "echo 'Linted from workspace root'",

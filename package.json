@@ -3,9 +3,6 @@
   "version": "2.5.0",
   "description": "Garcia Ventures react design system",
   "repository": "git@github.com:Garcia-Ventures/gvtech-design.git",
-  "files": [
-    "dist"
-  ],
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "exports": {
@@ -32,6 +29,9 @@
   "module": "dist/index.es.js",
   "types": "dist/index.d.ts",
   "style": "dist/design-system.css",
+  "files": [
+    "dist"
+  ],
   "workspaces": [
     "packages/*",
     "apps/*"
