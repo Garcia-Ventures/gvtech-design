@@ -21,6 +21,7 @@
     "typecheck": "npx tsc --noEmit"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   }
 }
