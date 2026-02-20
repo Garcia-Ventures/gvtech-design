@@ -31,7 +31,7 @@ const TooltipContent = React.forwardRef<
             className,
           )}
         >
-          <Text className={cn('text-sm text-popover-foreground native:text-base', className)}>{props.children}</Text>
+          <Text className="text-sm text-popover-foreground native:text-base">{props.children}</Text>
         </Animated.View>
       </TooltipPrimitive.Overlay>
     </TooltipPrimitive.Portal>
