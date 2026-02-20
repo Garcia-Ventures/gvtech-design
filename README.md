@@ -1,16 +1,19 @@
 # GV Tech Design System
 
 <p align="center">
-  <img alt="GV Tech Design System" src="https://raw.githubusercontent.com/Garcia-Ventures/gvtech-design/main/assets/logo.png" width="180" />
-
-<a href="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml"><img alt="CI" src="https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml/badge.svg" /></a>
-<a href="https://www.npmjs.com/package/@gv-tech/design-system"><img alt="npm" src="https://img.shields.io/npm/dt/@gv-tech/design-system" /></a>
-
+  <img alt="GV Tech Design System" src="apps/playground-web/public/logo512.png" width="180" />
 </p>
 
+[![npm version](https://img.shields.io/npm/v/@gv-tech/design-system?style=flat-square&color=CB3837)](https://www.npmjs.com/package/@gv-tech/design-system)
+[![npm downloads](https://img.shields.io/npm/dt/@gv-tech/design-system?style=flat-square&color=50abff)](https://www.npmjs.com/package/@gv-tech/design-system)
+[![npm downloads monthly](https://img.shields.io/npm/dm/@gv-tech/design-system?style=flat-square&color=50abff)](https://www.npmjs.com/package/@gv-tech/design-system)
+[![CI Status](https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml/badge.svg)](https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/ci.yml)
+[![Release Status](https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/release.yml/badge.svg)](https://github.com/Garcia-Ventures/gvtech-design/actions/workflows/release.yml)
+[![Maintained with Nx](https://img.shields.io/badge/maintained%20with-nx-blue?style=flat-square&logo=nx)](https://nx.dev)
+[![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design?ref=badge_shield&issueType=license)
 
-A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Vite** and **TypeScript**.
+A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Nx**, **Vite**, and **TypeScript**.
 
 ---
 
@@ -85,9 +88,9 @@ Unit tests use Vitest and React Testing Library.
 
 ## Releases & Publishing
 
-We use [`googleapis/release-please-action`](https://github.com/googleapis/release-please-action) to create release PRs and tags. For details on how to set it up and test releases, see [.github/RELEASING.md](.github/RELEASING.md).
+We use **Nx Release** to manage versioning and changelogs. Releases are triggered automatically every Sunday or manually via the **Release** GitHub Action.
 
-Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` publishing.
+Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` packages.
 
 ## Contributing
 
