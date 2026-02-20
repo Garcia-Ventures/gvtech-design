@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/design-tokens",
-  "version": "2.7.1",
+  "version": "2.7.2",
   "description": "Shared design tokens for the GV Tech design system — palette, theme, spacing, typography, shadows",
   "repository": {
     "type": "git",
