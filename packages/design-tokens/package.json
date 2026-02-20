@@ -2,6 +2,9 @@
   "name": "@gv-tech/design-tokens",
   "version": "0.1.0",
   "description": "Shared design tokens for the GV Tech design system — palette, theme, spacing, typography, shadows",
+  "files": [
+    "src"
+  ],
   "license": "MIT",
   "exports": {
     ".": {

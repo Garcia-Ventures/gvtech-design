@@ -2,6 +2,11 @@
   "name": "@gv-tech/ui-web",
   "version": "0.1.0",
   "description": "Web (DOM/Radix) implementations of the GV Tech design system components",
+  "files": [
+    "src",
+    "!src/**/*.test.*",
+    "!src/**/*.spec.*"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Garcia-Ventures/gvtech-design.git",

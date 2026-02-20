@@ -2,6 +2,9 @@
   "name": "@gv-tech/ui-core",
   "version": "0.1.0",
   "description": "Shared component contracts (props, variants, sizes) for the GV Tech design system",
+  "files": [
+    "src"
+  ],
   "repository": {
     "type": "git",
     "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
