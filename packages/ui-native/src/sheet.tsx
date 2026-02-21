@@ -16,7 +16,10 @@ const SheetClose = DialogPrimitive.Close;
 
 const SheetPortal = DialogPrimitive.Portal;
 
-const SheetOverlay = React.forwardRef<
+const SheetOverlay: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay> &
+    React.RefAttributes<React.ElementRef<typeof DialogPrimitive.Overlay>>
+> = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => {

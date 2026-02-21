@@ -3,7 +3,10 @@ import * as React from 'react';
 
 import { cn } from './lib/utils';
 
-const Avatar = React.forwardRef<
+const Avatar: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> &
+    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Root>>
+> = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 >(({ className, ...props }, ref) => (
@@ -15,7 +18,10 @@ const Avatar = React.forwardRef<
 ));
 Avatar.displayName = AvatarPrimitive.Root?.displayName || 'Avatar';
 
-const AvatarImage = React.forwardRef<
+const AvatarImage: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
+    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Image>>
+> = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
 >(({ className, ...props }, ref) => (
@@ -23,7 +29,10 @@ const AvatarImage = React.forwardRef<
 ));
 AvatarImage.displayName = AvatarPrimitive.Image?.displayName || 'AvatarImage';
 
-const AvatarFallback = React.forwardRef<
+const AvatarFallback: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback> &
+    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Fallback>>
+> = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (

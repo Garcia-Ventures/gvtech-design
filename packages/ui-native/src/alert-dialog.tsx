@@ -12,7 +12,10 @@ const AlertDialogTrigger = AlertDialogPrimitive.Trigger;
 
 const AlertDialogPortal = AlertDialogPrimitive.Portal;
 
-const AlertDialogOverlay = React.forwardRef<
+const AlertDialogOverlay: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay> &
+    React.RefAttributes<React.ElementRef<typeof AlertDialogPrimitive.Overlay>>
+> = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Overlay>
 >(({ className, ...props }, ref) => {
@@ -28,7 +31,13 @@ const AlertDialogOverlay = React.forwardRef<
 });
 AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay?.displayName || 'AlertDialogOverlay';
 
-const AlertDialogContent = React.forwardRef<
+const AlertDialogContent: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
+    portalHost?: string;
+    overlayClassName?: string;
+    overlayStyle?: ViewStyle;
+  } & React.RefAttributes<React.ElementRef<typeof AlertDialogPrimitive.Content>>
+> = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AlertDialogPrimitive.Content> & {
     portalHost?: string;

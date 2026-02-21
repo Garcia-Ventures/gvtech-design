@@ -22,8 +22,7 @@
     },
     "./package.json": "./package.json",
     "./*": {
-      "types": "./dist/components/ui/*/index.d.ts",
-      "react-native": "./dist/components/ui/*/index.native.js",
+      "types": "./dist/*.d.ts",
       "import": "./dist/*.es.js",
       "default": "./dist/*.es.js"
     }
@@ -40,7 +39,7 @@
     "apps/*"
   ],
   "scripts": {
-    "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && tsc -p tsconfig.build.json && VITE_LIB=true vite build",
+    "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && VITE_LIB=true vite build",
     "build:registry": "tsx scripts/build-registry.ts",
     "build:site": "bun --filter playground-web build",
     "dev": "bun --filter playground-web dev",
@@ -108,7 +107,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.8.1",
+    "@eng618/prettier-config": "^2.8.2",
     "@expo/cli": "~54.0.16",
     "@gv-tech/eslint-config": "^0.1.8",
     "@nx/expo": "22.5.1",

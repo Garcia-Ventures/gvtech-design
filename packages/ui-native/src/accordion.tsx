@@ -12,7 +12,10 @@ import Animated, {
 
 import { cn } from './lib/utils';
 
-const Accordion = React.forwardRef<
+const Accordion: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
+    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Root>>
+> = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
 >(({ className, ...props }, ref) => {
@@ -20,7 +23,10 @@ const Accordion = React.forwardRef<
 });
 Accordion.displayName = AccordionPrimitive.Root?.displayName || 'Accordion';
 
-const AccordionItem = React.forwardRef<
+const AccordionItem: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> &
+    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Item>>
+> = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
 >(({ className, ...props }, ref) => {
@@ -30,7 +36,10 @@ const AccordionItem = React.forwardRef<
 });
 AccordionItem.displayName = AccordionPrimitive.Item?.displayName || 'AccordionItem';
 
-const AccordionHeader = React.forwardRef<
+const AccordionHeader: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header> &
+    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Header>>
+> = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Header>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header>
 >(({ className, ...props }, ref) => {
@@ -38,7 +47,10 @@ const AccordionHeader = React.forwardRef<
 });
 AccordionHeader.displayName = AccordionPrimitive.Header?.displayName || 'AccordionHeader';
 
-const AccordionTrigger = React.forwardRef<
+const AccordionTrigger: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> &
+    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Trigger>>
+> = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
 >(({ className, children, ...props }, ref) => {
@@ -71,7 +83,10 @@ const AccordionTrigger = React.forwardRef<
 });
 AccordionTrigger.displayName = AccordionPrimitive.Trigger?.displayName || 'AccordionTrigger';
 
-const AccordionContent = React.forwardRef<
+const AccordionContent: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> &
+    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Content>>
+> = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
 >(({ className, children, ...props }, ref) => {

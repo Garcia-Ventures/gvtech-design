@@ -10,7 +10,11 @@ const Tooltip = TooltipPrimitive.Root;
 
 const TooltipTrigger = TooltipPrimitive.Trigger;
 
-const TooltipContent = React.forwardRef<
+const TooltipContent: React.ForwardRefExoticComponent<
+  React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & { portalHost?: string } & React.RefAttributes<
+      React.ElementRef<typeof TooltipPrimitive.Content>
+    >
+> = React.forwardRef<
   React.ElementRef<typeof TooltipPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> & {
     portalHost?: string;
