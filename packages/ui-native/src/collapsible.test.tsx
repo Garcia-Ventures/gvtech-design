@@ -7,21 +7,29 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsib
 /* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/collapsible', () => {
   const React = require('react');
+  const CollapsibleContext = React.createContext({ open: false, onOpenChange: () => {} });
+
   return {
-    Root: ({ children, open, onOpenChange, ...props }: any) =>
-      React.createElement(
-        'div',
-        props,
-        React.Children.map(children, (child: any) => {
-          if (React.isValidElement(child)) {
-            return React.cloneElement(child as any, { open, onOpenChange });
-          }
-          return child;
-        }),
-      ),
-    Trigger: ({ children, open, onOpenChange, ...props }: any) =>
-      React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children),
-    Content: ({ children, open, ...props }: any) => (open ? React.createElement('div', props, children) : null),
+    Root: ({ children, open, onOpenChange, ...props }: any) => {
+      const value = React.useMemo(() => ({ open, onOpenChange }), [open, onOpenChange]);
+      return React.createElement('div', props, React.createElement(CollapsibleContext.Provider, { value }, children));
+    },
+    Trigger: ({ children, ...props }: any) => {
+      const { open, onOpenChange } = React.useContext(CollapsibleContext);
+      return React.createElement(
+        'button',
+        {
+          onClick: () => onOpenChange?.(!open),
+          'aria-expanded': open,
+          ...props,
+        },
+        children,
+      );
+    },
+    Content: ({ children, ...props }: any) => {
+      const { open } = React.useContext(CollapsibleContext);
+      return open ? React.createElement('div', props, children) : null;
+    },
   };
 });
 /* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */

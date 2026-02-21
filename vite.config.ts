@@ -48,7 +48,8 @@ export default defineConfig({
         insertTypesEntry: true,
         include: ['packages/ui-web/src', 'packages/ui-core/src', 'packages/design-tokens/src', 'src'],
         staticImport: true,
-        rollupTypes: false, // Keep individual files for multi-entry support
+        rollupTypes: true, // Bundle types into one file for better performance
+        skipDiagnostics: true, // Speed up build - type checking is handled separately
       }),
   ],
   define: {

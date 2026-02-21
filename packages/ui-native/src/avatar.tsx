@@ -4,8 +4,7 @@ import * as React from 'react';
 import { cn } from './lib/utils';
 
 const Avatar: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root> &
-    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Root>>
+  AvatarProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Root>>
 > = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
@@ -19,8 +18,7 @@ const Avatar: React.ForwardRefExoticComponent<
 Avatar.displayName = AvatarPrimitive.Root?.displayName || 'Avatar';
 
 const AvatarImage: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image> &
-    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Image>>
+  AvatarImageProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Image>>
 > = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
@@ -30,8 +28,7 @@ const AvatarImage: React.ForwardRefExoticComponent<
 AvatarImage.displayName = AvatarPrimitive.Image?.displayName || 'AvatarImage';
 
 const AvatarFallback: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback> &
-    React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Fallback>>
+  AvatarFallbackProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Fallback>>
 > = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
@@ -45,3 +42,7 @@ const AvatarFallback: React.ForwardRefExoticComponent<
 AvatarFallback.displayName = AvatarPrimitive.Fallback?.displayName || 'AvatarFallback';
 
 export { Avatar, AvatarFallback, AvatarImage };
+
+export type AvatarProps = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>;
+export type AvatarImageProps = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>;
+export type AvatarFallbackProps = React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>;

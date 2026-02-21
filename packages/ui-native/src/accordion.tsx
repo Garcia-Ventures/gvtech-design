@@ -13,8 +13,7 @@ import Animated, {
 import { cn } from './lib/utils';
 
 const Accordion: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root> &
-    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Root>>
+  AccordionProps & React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Root>>
 > = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>
@@ -24,8 +23,7 @@ const Accordion: React.ForwardRefExoticComponent<
 Accordion.displayName = AccordionPrimitive.Root?.displayName || 'Accordion';
 
 const AccordionItem: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item> &
-    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Item>>
+  AccordionItemProps & React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Item>>
 > = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Item>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>
@@ -37,8 +35,7 @@ const AccordionItem: React.ForwardRefExoticComponent<
 AccordionItem.displayName = AccordionPrimitive.Item?.displayName || 'AccordionItem';
 
 const AccordionHeader: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header> &
-    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Header>>
+  AccordionHeaderProps & React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Header>>
 > = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Header>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header>
@@ -48,8 +45,7 @@ const AccordionHeader: React.ForwardRefExoticComponent<
 AccordionHeader.displayName = AccordionPrimitive.Header?.displayName || 'AccordionHeader';
 
 const AccordionTrigger: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger> &
-    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Trigger>>
+  AccordionTriggerProps & React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Trigger>>
 > = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Trigger>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>
@@ -84,8 +80,7 @@ const AccordionTrigger: React.ForwardRefExoticComponent<
 AccordionTrigger.displayName = AccordionPrimitive.Trigger?.displayName || 'AccordionTrigger';
 
 const AccordionContent: React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content> &
-    React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Content>>
+  AccordionContentProps & React.RefAttributes<React.ElementRef<typeof AccordionPrimitive.Content>>
 > = React.forwardRef<
   React.ElementRef<typeof AccordionPrimitive.Content>,
   React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>
@@ -106,3 +101,8 @@ const AccordionContent: React.ForwardRefExoticComponent<
 AccordionContent.displayName = AccordionPrimitive.Content?.displayName || 'AccordionContent';
 
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
+export type AccordionProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Root>;
+export type AccordionItemProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Item>;
+export type AccordionHeaderProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Header>;
+export type AccordionTriggerProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Trigger>;
+export type AccordionContentProps = React.ComponentPropsWithoutRef<typeof AccordionPrimitive.Content>;
