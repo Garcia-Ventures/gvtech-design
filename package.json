@@ -108,7 +108,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.7.0",
+    "@eng618/prettier-config": "^2.8.1",
     "@expo/cli": "~54.0.16",
     "@gv-tech/eslint-config": "^0.1.8",
     "@nx/expo": "22.5.1",
@@ -159,6 +159,7 @@
     "tsx": "^4.21.0",
     "typescript": "^5.9.3",
     "vite": "7.3.1",
+    "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.18"
   },
   "peerDependencies": {
