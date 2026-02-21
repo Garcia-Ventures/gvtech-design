@@ -6,9 +6,12 @@ import { Checkbox } from './checkbox';
 /* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/checkbox', () => {
   const React = require('react');
+  const CheckboxContext = React.createContext({ checked: false, onCheckedChange: () => {} });
+
   return {
-    Root: React.forwardRef(({ children, className, checked, onCheckedChange, ...props }: any, ref: any) =>
-      React.createElement(
+    Root: React.forwardRef(({ children, className, checked, onCheckedChange, ...props }: any, ref: any) => {
+      const value = React.useMemo(() => ({ checked, onCheckedChange }), [checked, onCheckedChange]);
+      return React.createElement(
         'div',
         {
           ref,
@@ -18,10 +21,13 @@ vi.mock('@rn-primitives/checkbox', () => {
           onClick: () => onCheckedChange?.(!checked),
           ...props,
         },
-        children,
-      ),
-    ),
-    Indicator: ({ children, className }: any) => React.createElement('div', { className }, children),
+        React.createElement(CheckboxContext.Provider, { value }, children),
+      );
+    }),
+    Indicator: ({ children, className }: any) => {
+      const { checked } = React.useContext(CheckboxContext);
+      return checked ? React.createElement('div', { className }, children) : null;
+    },
   };
 });
 /* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
