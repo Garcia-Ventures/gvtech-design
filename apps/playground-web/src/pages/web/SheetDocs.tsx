@@ -98,7 +98,7 @@ export function SheetDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Sheet component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/dialog"
@@ -111,7 +111,7 @@ export function SheetDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Sheet (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Sheet (Root)</h4>
         <PropsTable
           props={[
             {
@@ -138,7 +138,7 @@ export function SheetDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">SheetContent</h4>
+        <h4 className="mt-6 text-lg font-medium">SheetContent</h4>
         <PropsTable
           props={[
             {

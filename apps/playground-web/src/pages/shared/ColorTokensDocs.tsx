@@ -23,8 +23,8 @@ export function ColorTokensDocs() {
   return (
     <div className="space-y-12">
       <div className="space-y-4">
-        <h1 className="text-3xl md:text-4xl font-extrabold tracking-tight">Color Tokens</h1>
-        <p className="text-lg md:text-xl text-muted-foreground max-w-2xl">
+        <h1 className="text-3xl font-extrabold tracking-tight md:text-4xl">Color Tokens</h1>
+        <p className="text-muted-foreground max-w-2xl text-lg md:text-xl">
           The Garcia Ventures design system is built on a robust token architecture that ensures consistency,
           accessibility, and easy maintenance across all digital products.
         </p>
@@ -38,7 +38,7 @@ export function ColorTokensDocs() {
               <CardTitle className="text-lg">Intellect</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Represented by Royal Blue, signaling depth, trust, and professional expertise.
               </p>
             </CardContent>
@@ -48,7 +48,7 @@ export function ColorTokensDocs() {
               <CardTitle className="text-lg">Stability</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Rooted in Brand Green, reflecting growth, balance, and environmental consciousness.
               </p>
             </CardContent>
@@ -58,7 +58,7 @@ export function ColorTokensDocs() {
               <CardTitle className="text-lg">Transparency</CardTitle>
             </CardHeader>
             <CardContent>
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Expressed through Floral White, prioritizing clarity and a clean user experience.
               </p>
             </CardContent>
@@ -75,7 +75,7 @@ export function ColorTokensDocs() {
         <div className="space-y-8">
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">1. Tailwind CSS (Recommended)</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Most projects should use standard Tailwind utility classes. These are automatically mapped to our tokens
               via CSS variables.
             </p>
@@ -94,7 +94,7 @@ export function ColorTokensDocs() {
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">2. TypeScript / React</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               For logic-heavy styling or CSS-in-JS solutions, import the \`tokens\` object directly.
             </p>
             <CodeBlock
@@ -113,7 +113,7 @@ const MyComponent = () => {
 
           <div className="space-y-4">
             <h3 className="text-xl font-semibold">3. Vanilla CSS</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Directly access the CSS variables in your style tags or external stylesheets.
             </p>
             <CodeBlock
@@ -134,47 +134,47 @@ const MyComponent = () => {
         </div>
         <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           <Card>
-            <CardContent className="pt-6 space-y-4">
+            <CardContent className="space-y-4 pt-6">
               <div
                 className="h-24 w-full rounded-lg border shadow-inner"
                 style={{ backgroundColor: tokens.palette.brand.blue }}
               />
-              <div className="flex justify-between items-start">
+              <div className="flex items-start justify-between">
                 <div>
                   <h4 className="font-bold">Royal Blue</h4>
-                  <p className="text-xs text-muted-foreground">Intellect & Trust</p>
+                  <p className="text-muted-foreground text-xs">Intellect & Trust</p>
                 </div>
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.blue}</code>
+                <code className="bg-muted rounded px-1.5 py-0.5 text-xs">{tokens.palette.brand.blue}</code>
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="pt-6 space-y-4">
+            <CardContent className="space-y-4 pt-6">
               <div
                 className="h-24 w-full rounded-lg border shadow-inner"
                 style={{ backgroundColor: tokens.palette.brand.green }}
               />
-              <div className="flex justify-between items-start">
+              <div className="flex items-start justify-between">
                 <div>
                   <h4 className="font-bold">Stability Green</h4>
-                  <p className="text-xs text-muted-foreground">Growth & Balance</p>
+                  <p className="text-muted-foreground text-xs">Growth & Balance</p>
                 </div>
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.green}</code>
+                <code className="bg-muted rounded px-1.5 py-0.5 text-xs">{tokens.palette.brand.green}</code>
               </div>
             </CardContent>
           </Card>
           <Card>
-            <CardContent className="pt-6 space-y-4">
+            <CardContent className="space-y-4 pt-6">
               <div
                 className="h-24 w-full rounded-lg border shadow-inner"
                 style={{ backgroundColor: tokens.palette.brand.floralWhite }}
               />
-              <div className="flex justify-between items-start">
+              <div className="flex items-start justify-between">
                 <div>
                   <h4 className="font-bold">Floral White</h4>
-                  <p className="text-xs text-muted-foreground">Transparency & Clarity</p>
+                  <p className="text-muted-foreground text-xs">Transparency & Clarity</p>
                 </div>
-                <code className="text-xs bg-muted px-1.5 py-0.5 rounded">{tokens.palette.brand.floralWhite}</code>
+                <code className="bg-muted rounded px-1.5 py-0.5 text-xs">{tokens.palette.brand.floralWhite}</code>
               </div>
             </CardContent>
           </Card>
@@ -183,7 +183,7 @@ const MyComponent = () => {
 
       <section className="space-y-6">
         <h2 className="text-3xl font-bold tracking-tight">Semantic Tokens Reference</h2>
-        <div className="rounded-xl border shadow-sm overflow-x-auto">
+        <div className="overflow-x-auto rounded-xl border shadow-sm">
           <Table className="min-w-[600px] md:min-w-full">
             <TableHeader>
               <TableRow className="bg-muted/50 hover:bg-muted/50">
@@ -195,13 +195,15 @@ const MyComponent = () => {
             </TableHeader>
             <TableBody>
               {(Object.keys(tokens.theme.light) as Array<keyof typeof tokens.theme.light>).map((key) => {
-                if (key === 'radius') return null;
+                if (key === 'radius') {
+                  return null;
+                }
                 return (
                   <TableRow key={key} className="group">
-                    <TableCell className="font-medium group-hover:text-primary transition-colors">
+                    <TableCell className="group-hover:text-primary font-medium transition-colors">
                       {key.charAt(0).toUpperCase() + key.slice(1).replace(/([A-Z])/g, ' $1')}
                     </TableCell>
-                    <TableCell className="font-mono text-xs text-muted-foreground">
+                    <TableCell className="text-muted-foreground font-mono text-xs">
                       --{key.replace(/[A-Z]/g, (m) => '-' + m.toLowerCase())}
                     </TableCell>
                     <TableCell>
@@ -210,7 +212,7 @@ const MyComponent = () => {
                           className="h-6 w-6 rounded-md border shadow-sm"
                           style={{ backgroundColor: tokens.theme.light[key] as string }}
                         />
-                        <span className="text-xs font-mono">{tokens.theme.light[key]}</span>
+                        <span className="font-mono text-xs">{tokens.theme.light[key]}</span>
                       </div>
                     </TableCell>
                     <TableCell>
@@ -219,7 +221,7 @@ const MyComponent = () => {
                           className="h-6 w-6 rounded-md border shadow-sm"
                           style={{ backgroundColor: tokens.theme.dark[key] as string }}
                         />
-                        <span className="text-xs font-mono">{tokens.theme.dark[key]}</span>
+                        <span className="font-mono text-xs">{tokens.theme.dark[key]}</span>
                       </div>
                     </TableCell>
                   </TableRow>

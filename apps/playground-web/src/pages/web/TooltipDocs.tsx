@@ -40,7 +40,7 @@ export function TooltipDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Tooltip component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/tooltip"
@@ -53,7 +53,7 @@ export function TooltipDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">TooltipProvider</h4>
+        <h4 className="mt-6 text-lg font-medium">TooltipProvider</h4>
         <PropsTable
           props={[
             {
@@ -77,7 +77,7 @@ export function TooltipDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">Tooltip (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Tooltip (Root)</h4>
         <PropsTable
           props={[
             {
@@ -110,7 +110,7 @@ export function TooltipDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">TooltipContent</h4>
+        <h4 className="mt-6 text-lg font-medium">TooltipContent</h4>
         <PropsTable
           props={[
             {

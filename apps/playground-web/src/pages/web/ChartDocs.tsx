@@ -73,7 +73,7 @@ export function ChartDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Chart component is a wrapper around{' '}
           <a href="https://recharts.org/" className="underline" target="_blank" rel="noreferrer">
             Recharts
@@ -81,7 +81,7 @@ export function ChartDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">ChartContainer</h4>
+        <h4 className="mt-6 text-lg font-medium">ChartContainer</h4>
         <PropsTable
           props={[
             {
@@ -103,7 +103,7 @@ export function ChartDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ChartTooltip</h4>
+        <h4 className="mt-6 text-lg font-medium">ChartTooltip</h4>
         <PropsTable
           props={[
             {
@@ -114,7 +114,7 @@ export function ChartDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ChartTooltipContent</h4>
+        <h4 className="mt-6 text-lg font-medium">ChartTooltipContent</h4>
         <PropsTable
           props={[
             {

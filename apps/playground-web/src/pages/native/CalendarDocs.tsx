@@ -30,7 +30,7 @@ export function CalendarDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Calendar component is built on top of{' '}
           <a href="https://react-day-picker.js.org/" className="underline" target="_blank" rel="noreferrer">
             React Day Picker

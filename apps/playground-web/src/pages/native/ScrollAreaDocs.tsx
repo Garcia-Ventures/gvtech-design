@@ -33,7 +33,7 @@ export function ScrollAreaDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Scroll Area component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/scroll-area"
@@ -46,7 +46,7 @@ export function ScrollAreaDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">ScrollArea (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">ScrollArea (Root)</h4>
         <PropsTable
           props={[
             {
@@ -70,7 +70,7 @@ export function ScrollAreaDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ScrollBar</h4>
+        <h4 className="mt-6 text-lg font-medium">ScrollBar</h4>
         <PropsTable
           props={[
             {

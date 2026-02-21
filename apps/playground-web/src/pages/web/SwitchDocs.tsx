@@ -30,7 +30,7 @@ export function SwitchDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Switch component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/switch"
@@ -43,7 +43,7 @@ export function SwitchDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Switch (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Switch (Root)</h4>
         <PropsTable
           props={[
             {

@@ -37,7 +37,7 @@ export function SelectDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Select component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/select"
@@ -50,7 +50,7 @@ export function SelectDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Select (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Select (Root)</h4>
         <PropsTable
           props={[
             {
@@ -102,7 +102,7 @@ export function SelectDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">SelectTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">SelectTrigger</h4>
         <PropsTable
           props={[
             {
@@ -113,7 +113,7 @@ export function SelectDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">SelectItem</h4>
+        <h4 className="mt-6 text-lg font-medium">SelectItem</h4>
         <PropsTable
           props={[
             {

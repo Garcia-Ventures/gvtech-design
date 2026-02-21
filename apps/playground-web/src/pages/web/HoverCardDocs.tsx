@@ -67,7 +67,7 @@ export function HoverCardDocs() {
                 <p className="text-sm">The React Framework – created and maintained by @vercel.</p>
                 <div className="flex items-center pt-2">
                   <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{' '}
-                  <span className="text-xs text-muted-foreground">Joined December 2021</span>
+                  <span className="text-muted-foreground text-xs">Joined December 2021</span>
                 </div>
               </div>
             </div>
@@ -77,7 +77,7 @@ export function HoverCardDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Hover Card component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/hover-card"
@@ -90,7 +90,7 @@ export function HoverCardDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">HoverCard (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">HoverCard (Root)</h4>
         <PropsTable
           props={[
             {
@@ -123,7 +123,7 @@ export function HoverCardDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">HoverCardContent</h4>
+        <h4 className="mt-6 text-lg font-medium">HoverCardContent</h4>
         <PropsTable
           props={[
             {

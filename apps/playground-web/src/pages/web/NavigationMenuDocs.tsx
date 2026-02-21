@@ -29,13 +29,13 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
           <a
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none',
               className,
             )}
             {...props}
           >
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+            <div className="text-sm leading-none font-medium">{title}</div>
+            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -128,11 +128,11 @@ export function NavigationMenuDocs() {
                   <li className="row-span-3">
                     <NavigationMenuLink asChild>
                       <a
-                        className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-muted/50 to-muted p-6 no-underline outline-none focus:shadow-md"
+                        className="from-muted/50 to-muted flex h-full w-full flex-col justify-end rounded-md bg-gradient-to-b p-6 no-underline outline-none select-none focus:shadow-md"
                         href="/"
                       >
-                        <div className="mb-2 mt-4 text-lg font-medium">shadcn/ui</div>
-                        <p className="text-sm leading-tight text-muted-foreground">
+                        <div className="mt-4 mb-2 text-lg font-medium">shadcn/ui</div>
+                        <p className="text-muted-foreground text-sm leading-tight">
                           Beautifully designed components built with Radix UI and Tailwind CSS.
                         </p>
                       </a>
@@ -153,7 +153,7 @@ export function NavigationMenuDocs() {
             <NavigationMenuItem>
               <NavigationMenuTrigger>Components</NavigationMenuTrigger>
               <NavigationMenuContent>
-                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px] ">
+                <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
                   <ListItem title="Alert Dialog" href="/docs/primitives/alert-dialog">
                     A modal dialog that interrupts the user with important content.
                   </ListItem>
@@ -186,7 +186,7 @@ export function NavigationMenuDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Navigation Menu component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/navigation-menu"
@@ -199,7 +199,7 @@ export function NavigationMenuDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenu (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenu (Root)</h4>
         <PropsTable
           props={[
             {
@@ -226,7 +226,7 @@ export function NavigationMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenuContent</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenuContent</h4>
         <PropsTable
           props={[
             {
@@ -242,7 +242,7 @@ export function NavigationMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenuLink</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenuLink</h4>
         <PropsTable
           props={[
             {

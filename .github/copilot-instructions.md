@@ -26,7 +26,7 @@ This is a React component library built with **TypeScript**, **Tailwind CSS**, a
 import { cn } from '@/lib/utils';
 
 export function MyComponent({ className, ...props }) {
-  return <div className={cn('bg-background text-foreground p-4', className)} {...props} />;
+  return <div className={cn('bg-background p-4 text-foreground', className)} {...props} />;
 }
 ```
 

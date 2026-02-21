@@ -72,7 +72,7 @@ export function AccordionDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
 
-        <h4 className="text-lg font-medium mt-6">Accordion (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Accordion (Root)</h4>
         <PropsTable
           props={[
             {
@@ -123,7 +123,7 @@ export function AccordionDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AccordionItem</h4>
+        <h4 className="mt-6 text-lg font-medium">AccordionItem</h4>
         <PropsTable
           props={[
             {
@@ -141,7 +141,7 @@ export function AccordionDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AccordionTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">AccordionTrigger</h4>
         <PropsTable
           props={[
             {
@@ -168,7 +168,7 @@ export function AccordionDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AccordionContent</h4>
+        <h4 className="mt-6 text-lg font-medium">AccordionContent</h4>
         <PropsTable
           props={[
             {

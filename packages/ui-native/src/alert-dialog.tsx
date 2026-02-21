@@ -24,7 +24,7 @@ const AlertDialogOverlay: React.ForwardRefExoticComponent<
       <Animated.View
         entering={FadeIn.duration(150)}
         exiting={FadeOut.duration(150)}
-        className={cn('z-50 bg-black/80 flex justify-center items-center p-2', className)}
+        className={cn('z-50 flex items-center justify-center bg-black/80 p-2', className)}
       />
     </AlertDialogPrimitive.Overlay>
   );
@@ -53,7 +53,7 @@ const AlertDialogContent: React.ForwardRefExoticComponent<
           entering={FadeIn.duration(150)}
           exiting={FadeOut.duration(150)}
           className={cn(
-            'z-50 max-w-lg gap-4 border border-border bg-background p-6 shadow-lg sm:rounded-lg w-full rounded-xl',
+            'border-border bg-background z-50 w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
             className,
           )}
         />
@@ -69,7 +69,7 @@ const AlertDialogHeader = ({ className, ...props }: React.ComponentPropsWithoutR
 AlertDialogHeader.displayName = 'AlertDialogHeader';
 
 const AlertDialogFooter = ({ className, ...props }: React.ComponentPropsWithoutRef<typeof View>) => (
-  <View className={cn('flex flex-col-reverse sm:flex-row sm:justify-end gap-2', className)} {...props} />
+  <View className={cn('flex flex-col-reverse gap-2 sm:flex-row sm:justify-end', className)} {...props} />
 );
 AlertDialogFooter.displayName = 'AlertDialogFooter';
 
@@ -79,7 +79,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title
     ref={ref}
-    className={cn('text-lg native:text-xl font-semibold text-foreground', className)}
+    className={cn('native:text-xl text-foreground text-lg font-semibold', className)}
     {...props}
   />
 ));
@@ -91,7 +91,7 @@ const AlertDialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description
     ref={ref}
-    className={cn('text-sm native:text-base text-muted-foreground', className)}
+    className={cn('native:text-base text-muted-foreground text-sm', className)}
     {...props}
   />
 ));

@@ -237,7 +237,7 @@ export function DropdownMenuDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The DropdownMenu component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu"
@@ -250,7 +250,7 @@ export function DropdownMenuDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">DropdownMenu (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">DropdownMenu (Root)</h4>
         <PropsTable
           props={[
             {
@@ -282,7 +282,7 @@ export function DropdownMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DropdownMenuCheckboxItem</h4>
+        <h4 className="mt-6 text-lg font-medium">DropdownMenuCheckboxItem</h4>
         <PropsTable
           props={[
             {
@@ -298,7 +298,7 @@ export function DropdownMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DropdownMenuRadioGroup</h4>
+        <h4 className="mt-6 text-lg font-medium">DropdownMenuRadioGroup</h4>
         <PropsTable
           props={[
             {

@@ -15,20 +15,20 @@ const platform = 'native' as string;
 export function ToastDocs() {
   return (
     <>
-      <div className="bg-muted/50 border rounded-lg p-6 space-y-4 mb-8">
+      <div className="bg-muted/50 mb-8 space-y-4 rounded-lg border p-6">
         <h3 className="text-lg font-semibold">Which to use?</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-2">
-            <h4 className="font-medium text-primary">Toast (Radix UI)</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h4 className="text-primary font-medium">Toast (Radix UI)</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Based on Radix UI. Provides more granular control over individual toast elements. Uses the{' '}
               <code>useToast</code> hook and is best for situations requiring manual state management or complex, custom
               toast behavior.
             </p>
           </div>
           <div className="space-y-2">
-            <h4 className="font-medium text-primary">Sonner</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h4 className="text-primary font-medium">Sonner</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
               An opinionated, modern alternative. Features automatic stacking, swipe-to-dismiss, and a simpler API (
               <code>toast("message")</code>). Best for general feedback and high-quality UX with minimal effort.
             </p>
@@ -73,7 +73,7 @@ export function ToastDocs() {
       />
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Toast component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/toast"
@@ -86,7 +86,7 @@ export function ToastDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Toast (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Toast (Root)</h4>
         <PropsTable
           props={[
             {
@@ -104,11 +104,11 @@ export function ToastDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">Toaster</h4>
-        <p className="text-sm text-muted-foreground">The Toaster component renders all active toasts.</p>
+        <h4 className="mt-6 text-lg font-medium">Toaster</h4>
+        <p className="text-muted-foreground text-sm">The Toaster component renders all active toasts.</p>
 
-        <h4 className="text-lg font-medium mt-6">useToast</h4>
-        <p className="text-sm text-muted-foreground">The `useToast` hook is used to trigger toasts.</p>
+        <h4 className="mt-6 text-lg font-medium">useToast</h4>
+        <p className="text-muted-foreground text-sm">The `useToast` hook is used to trigger toasts.</p>
         <PropsTable
           props={[
             {

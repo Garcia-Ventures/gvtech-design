@@ -89,7 +89,7 @@ import { Alert as RNAlert, ScrollView, View } from 'react-native';
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
   return (
     <View className="mb-4">
-      <Text variant="h2" className="font-bold text-foreground">
+      <Text variant="h2" className="text-foreground font-bold">
         {title}
       </Text>
       {subtitle && (
@@ -114,7 +114,7 @@ function FormsScreen() {
   const [toggleGroup, setToggleGroup] = React.useState<string[]>([]);
 
   return (
-    <ScrollView className="flex-1 bg-background" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
       <SectionHeader title="Forms" subtitle="Input, Checkbox, Switch, RadioGroup, Select, Textarea, Toggle" />
 
       {/* Input */}
@@ -292,7 +292,7 @@ function FormsScreen() {
 // ─── Display Screen ────────────────────────────────────────────────────────────
 function DisplayScreen() {
   return (
-    <ScrollView className="flex-1 bg-background" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
       <SectionHeader title="Data Display" subtitle="Text, Badge, Avatar, Card, Accordion, Table, Skeleton" />
 
       {/* Typography */}
@@ -331,7 +331,7 @@ function DisplayScreen() {
           <CardTitle>Avatar</CardTitle>
         </CardHeader>
         <CardContent>
-          <View className="flex-row gap-3 items-center">
+          <View className="flex-row items-center gap-3">
             <Avatar alt="GV Tech">
               <AvatarImage source={{ uri: 'https://github.com/eng618.png' }} />
               <AvatarFallback>
@@ -345,7 +345,7 @@ function DisplayScreen() {
               </AvatarFallback>
             </Avatar>
             <View className="gap-1">
-              <Text variant="body" className="font-semibold text-foreground">
+              <Text variant="body" className="text-foreground font-semibold">
                 Eric Garcia
               </Text>
               <Text variant="caption" className="text-muted-foreground">
@@ -402,7 +402,7 @@ function DisplayScreen() {
         <CardHeader>
           <CardTitle>Table</CardTitle>
         </CardHeader>
-        <CardContent className="p-0 overflow-hidden">
+        <CardContent className="overflow-hidden p-0">
           <Table>
             <TableCaption>GV Tech Component Status</TableCaption>
             <TableHeader>
@@ -446,7 +446,7 @@ function DisplayScreen() {
         <CardContent className="gap-3">
           <View className="flex-row items-center gap-4">
             <Skeleton className="h-12 w-12 rounded-full" />
-            <View className="gap-2 flex-1">
+            <View className="flex-1 gap-2">
               <Skeleton className="h-4 w-[80%]" />
               <Skeleton className="h-4 w-[60%]" />
             </View>
@@ -462,7 +462,7 @@ function DisplayScreen() {
         </CardHeader>
         <CardContent>
           <Tabs defaultValue="account">
-            <TabsList className="flex-row w-full">
+            <TabsList className="w-full flex-row">
               <TabsTrigger value="account" className="flex-1">
                 <Text>Account</Text>
               </TabsTrigger>
@@ -490,7 +490,7 @@ function DisplayScreen() {
 // ─── Feedback Screen ───────────────────────────────────────────────────────────
 function FeedbackScreen() {
   return (
-    <ScrollView className="flex-1 bg-background" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
       <SectionHeader title="Feedback" subtitle="Alert, AlertDialog, Dialog, Sheet, Tooltip, Toast, Collapsible" />
 
       {/* Alert variants */}
@@ -591,7 +591,7 @@ function FeedbackScreen() {
           <CardTitle>Sheet</CardTitle>
           <CardDescription>Slides in from the side</CardDescription>
         </CardHeader>
-        <CardContent className="flex-row gap-2 flex-wrap">
+        <CardContent className="flex-row flex-wrap gap-2">
           {(['bottom', 'right', 'left'] as const).map((side) => (
             <Sheet key={side}>
               <SheetTrigger asChild>
@@ -624,7 +624,7 @@ function FeedbackScreen() {
           <CardTitle>Tooltip</CardTitle>
           <CardDescription>Long-press to reveal</CardDescription>
         </CardHeader>
-        <CardContent className="flex-row gap-3 flex-wrap">
+        <CardContent className="flex-row flex-wrap gap-3">
           <TooltipProvider>
             <Tooltip>
               <TooltipTrigger asChild>
@@ -669,7 +669,7 @@ function FeedbackScreen() {
 // ─── Layout Screen ─────────────────────────────────────────────────────────────
 function LayoutScreen() {
   return (
-    <ScrollView className="flex-1 bg-background" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
       <SectionHeader title="Layout & Theme" subtitle="Card, Separator, ThemeToggle" />
 
       {/* Theme Toggle */}
@@ -726,19 +726,19 @@ function LayoutScreen() {
       </Card>
 
       {/* Component Count */}
-      <Card className="mb-4 bg-primary/5">
+      <Card className="bg-primary/5 mb-4">
         <CardContent className="pt-6">
           <View className="items-center gap-3">
-            <Text variant="h1" className="text-primary font-bold text-center">
+            <Text variant="h1" className="text-primary text-center font-bold">
               27+
             </Text>
-            <Text variant="body" className="text-center text-foreground font-medium">
+            <Text variant="body" className="text-foreground text-center font-medium">
               Real Native Components
             </Text>
-            <Text variant="caption" className="text-center text-muted-foreground">
+            <Text variant="caption" className="text-muted-foreground text-center">
               All built with NativeWind + RN Primitives + Reanimated, sharing contracts with the web library.
             </Text>
-            <View className="flex-row gap-2 flex-wrap justify-center mt-2">
+            <View className="mt-2 flex-row flex-wrap justify-center gap-2">
               {[
                 'Button',
                 'Card',
@@ -785,12 +785,12 @@ export const App = () => {
   return (
     <ThemeProvider>
       <TooltipProvider>
-        <View className="flex-1 bg-background">
+        <View className="bg-background flex-1">
           {/* Header */}
-          <View className="pt-12 pb-3 px-4 border-b border-border bg-background">
+          <View className="border-border bg-background border-b px-4 pt-12 pb-3">
             <View className="flex-row items-center justify-between">
               <View className="flex-row items-center gap-2">
-                <Text variant="h3" className="font-bold text-foreground">
+                <Text variant="h3" className="text-foreground font-bold">
                   GV Native
                 </Text>
                 <Badge variant="outline">
@@ -806,30 +806,30 @@ export const App = () => {
 
           {/* Main Tabs */}
           <Tabs defaultValue="forms" className="flex-1">
-            <View className="border-b border-border bg-background px-4">
-              <TabsList className="flex-row bg-transparent p-0 h-12">
+            <View className="border-border bg-background border-b px-4">
+              <TabsList className="h-12 flex-row bg-transparent p-0">
                 {(['forms', 'display', 'feedback', 'layout'] as const).map((tab) => (
                   <TabsTrigger
                     key={tab}
                     value={tab}
-                    className="flex-1 capitalize rounded-none border-b-2 border-transparent data-[state=active]:border-primary bg-transparent"
+                    className="data-[state=active]:border-primary flex-1 rounded-none border-b-2 border-transparent bg-transparent capitalize"
                   >
-                    <Text className="capitalize text-sm">{tab}</Text>
+                    <Text className="text-sm capitalize">{tab}</Text>
                   </TabsTrigger>
                 ))}
               </TabsList>
             </View>
 
-            <TabsContent value="forms" className="flex-1 mt-0">
+            <TabsContent value="forms" className="mt-0 flex-1">
               <FormsScreen />
             </TabsContent>
-            <TabsContent value="display" className="flex-1 mt-0">
+            <TabsContent value="display" className="mt-0 flex-1">
               <DisplayScreen />
             </TabsContent>
-            <TabsContent value="feedback" className="flex-1 mt-0">
+            <TabsContent value="feedback" className="mt-0 flex-1">
               <FeedbackScreen />
             </TabsContent>
-            <TabsContent value="layout" className="flex-1 mt-0">
+            <TabsContent value="layout" className="mt-0 flex-1">
               <LayoutScreen />
             </TabsContent>
           </Tabs>

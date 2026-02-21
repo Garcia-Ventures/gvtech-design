@@ -48,7 +48,7 @@ const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.T
     <SelectPrimitive.Trigger
       ref={ref}
       className={cn(
-        'flex flex-row h-10 native:h-12 items-center justify-between rounded-md border border-input bg-background px-3 py-2 text-sm text-muted-foreground web:ring-offset-background web:focus:outline-none web:focus:ring-2 web:focus:ring-ring web:focus:ring-offset-2 [&>span]:line-clamp-1',
+        'native:h-12 border-input bg-background text-muted-foreground web:ring-offset-background web:focus:outline-none web:focus:ring-2 web:focus:ring-ring web:focus:ring-offset-2 flex h-10 flex-row items-center justify-between rounded-md border px-3 py-2 text-sm [&>span]:line-clamp-1',
         props.disabled && 'web:cursor-not-allowed opacity-50',
         className,
       )}
@@ -121,7 +121,7 @@ const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.C
         <SelectPrimitive.Content
           ref={ref}
           className={cn(
-            'relative z-50 max-h-96 min-w-[8rem] rounded-md border border-border bg-popover shadow-md data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2',
+            'border-border bg-popover data-[side=bottom]:slide-in-from-top-2 data-[side=left]:slide-in-from-right-2 data-[side=right]:slide-in-from-left-2 data-[side=top]:slide-in-from-bottom-2 relative z-50 max-h-96 min-w-[8rem] rounded-md border shadow-md',
             position === 'popper' &&
               'data-[side=bottom]:translate-y-1 data-[side=left]:-translate-x-1 data-[side=right]:translate-x-1 data-[side=top]:-translate-y-1',
             open ? 'web:zoom-in-95 web:animate-in web:fade-in-0' : 'web:zoom-out-95 web:animate-out web:fade-out-0',
@@ -155,7 +155,7 @@ const SelectLabel = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Lab
   ({ className, ...props }, ref) => (
     <SelectPrimitive.Label
       ref={ref}
-      className={cn('py-1.5 pl-8 pr-2 text-sm font-semibold text-popover-foreground', className)}
+      className={cn('text-popover-foreground py-1.5 pr-2 pl-8 text-sm font-semibold', className)}
       {...props}
     />
   ),
@@ -177,7 +177,7 @@ const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item
         ref={ref}
         label={itemLabel}
         className={cn(
-          'relative flex w-full cursor-default select-none flex-row items-center rounded-sm py-1.5 pl-8 pr-2 text-sm outline-none web:hover:bg-accent/50 web:focus:bg-accent web:focus:text-accent-foreground web:hover:text-accent-foreground data-[disabled]:opacity-50',
+          'web:hover:bg-accent/50 web:focus:bg-accent web:focus:text-accent-foreground web:hover:text-accent-foreground relative flex w-full cursor-default flex-row items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none select-none data-[disabled]:opacity-50',
           props.disabled && 'web:pointer-events-none',
           className,
         )}
@@ -192,7 +192,7 @@ const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item
           </SelectPrimitive.ItemIndicator>
         </View>
         {/* @ts-expect-error TODO: fix type */}
-        <SelectPrimitive.ItemText className="text-sm text-popover-foreground native:text-base">
+        <SelectPrimitive.ItemText className="text-popover-foreground native:text-base text-sm">
           {children}
         </SelectPrimitive.ItemText>
       </SelectPrimitive.Item>
@@ -208,7 +208,7 @@ const SelectSeparator = React.forwardRef<React.ElementRef<typeof SelectPrimitive
   ({ className, ...props }, ref) => (
     <SelectPrimitive.Separator
       ref={ref}
-      className={cn('-mx-1 my-1 h-px bg-muted', className)}
+      className={cn('bg-muted -mx-1 my-1 h-px', className)}
       {...(props as Record<string, unknown>)}
     />
   ),

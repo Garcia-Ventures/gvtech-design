@@ -23,7 +23,7 @@ export function SliderDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Slider component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/slider"
@@ -36,7 +36,7 @@ export function SliderDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Slider (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Slider (Root)</h4>
         <PropsTable
           props={[
             {

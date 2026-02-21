@@ -40,7 +40,7 @@ export function AlertDialogDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
 
-        <h4 className="text-lg font-medium mt-6">AlertDialog (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">AlertDialog (Root)</h4>
         <PropsTable
           props={[
             {
@@ -61,7 +61,7 @@ export function AlertDialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AlertDialogTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">AlertDialogTrigger</h4>
         <PropsTable
           props={[
             {
@@ -73,7 +73,7 @@ export function AlertDialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AlertDialogContent</h4>
+        <h4 className="mt-6 text-lg font-medium">AlertDialogContent</h4>
         <PropsTable
           props={[
             {
@@ -89,7 +89,7 @@ export function AlertDialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AlertDialogAction</h4>
+        <h4 className="mt-6 text-lg font-medium">AlertDialogAction</h4>
         <PropsTable
           props={[
             {
@@ -106,7 +106,7 @@ export function AlertDialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AlertDialogCancel</h4>
+        <h4 className="mt-6 text-lg font-medium">AlertDialogCancel</h4>
         <PropsTable
           props={[
             {

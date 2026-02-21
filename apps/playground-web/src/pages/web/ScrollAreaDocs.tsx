@@ -35,7 +35,7 @@ export function ScrollAreaDocs() {
       >
         <ScrollArea className="h-72 w-48 rounded-md border">
           <div className="p-4">
-            <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
+            <h4 className="mb-4 text-sm leading-none font-medium">Tags</h4>
             {tags.map((tag) => (
               <div key={tag}>
                 <div className="text-sm">{tag}</div>
@@ -48,7 +48,7 @@ export function ScrollAreaDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Scroll Area component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/scroll-area"
@@ -61,7 +61,7 @@ export function ScrollAreaDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">ScrollArea (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">ScrollArea (Root)</h4>
         <PropsTable
           props={[
             {
@@ -85,7 +85,7 @@ export function ScrollAreaDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ScrollBar</h4>
+        <h4 className="mt-6 text-lg font-medium">ScrollBar</h4>
         <PropsTable
           props={[
             {

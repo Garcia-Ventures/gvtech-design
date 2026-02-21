@@ -25,8 +25,8 @@ export function AlertDocs() {
         <Info className="h-4 w-4 text-amber-600 dark:text-amber-400" />
         <WebAlertTitle>Native Preview</WebAlertTitle>
         <WebAlertDescription>
-          This preview renders the actual <code className="bg-background px-1 rounded">.native.tsx</code> component
-          using <code className="bg-background px-1 rounded">react-native-web</code>.
+          This preview renders the actual <code className="bg-background rounded px-1">.native.tsx</code> component
+          using <code className="bg-background rounded px-1">react-native-web</code>.
         </WebAlertDescription>
       </WebAlert>
 

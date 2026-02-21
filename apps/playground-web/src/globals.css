@@ -1,6 +1,6 @@
 @import 'tailwindcss';
-@source "../../../packages/ui-web/src/**/*.{js,ts,jsx,tsx}";
-@source "../../../packages/ui-core/src/**/*.{js,ts,jsx,tsx}";
+@source '../../../packages/ui-web/src/**/*.{js,ts,jsx,tsx}';
+@source '../../../packages/ui-core/src/**/*.{js,ts,jsx,tsx}';
 
 @theme {
   /* Border radius */

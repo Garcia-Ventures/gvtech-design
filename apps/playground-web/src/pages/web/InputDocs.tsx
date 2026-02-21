@@ -68,7 +68,7 @@ export function InputDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">The Input component extends the standard HTML input element.</p>
+        <p className="text-muted-foreground text-sm">The Input component extends the standard HTML input element.</p>
         <PropsTable
           props={[
             {

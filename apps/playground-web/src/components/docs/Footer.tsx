@@ -3,21 +3,21 @@ import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 
 export function Footer() {
   return (
-    <footer className="border-t bg-muted/30">
-      <div className="p-8 space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <footer className="bg-muted/30 border-t">
+      <div className="space-y-6 p-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand */}
           <div className="space-y-3">
             <h3 className="font-semibold">GV Tech Design System</h3>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               A comprehensive React component library for building modern applications.
             </p>
           </div>
 
           {/* Resources */}
           <div className="space-y-3">
-            <h4 className="font-medium text-sm">Resources</h4>
-            <ul className="space-y-2 text-sm text-muted-foreground">
+            <h4 className="text-sm font-medium">Resources</h4>
+            <ul className="text-muted-foreground space-y-2 text-sm">
               <li>
                 <a
                   href="https://github.com/Garcia-Ventures/gvtech-design"
@@ -62,7 +62,7 @@ export function Footer() {
           </div>
 
           <div className="space-y-3">
-            <h4 className="font-medium text-sm">Connect</h4>
+            <h4 className="text-sm font-medium">Connect</h4>
             <div className="flex items-center space-x-2">
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -117,7 +117,7 @@ export function Footer() {
 
         <Separator />
 
-        <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-muted-foreground">
+        <div className="text-muted-foreground flex flex-col items-center justify-between gap-4 text-sm md:flex-row">
           <p>© GVTech 2026. All rights reserved.</p>
           <p>
             Built with{' '}
@@ -125,7 +125,7 @@ export function Footer() {
               href="https://ui.shadcn.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-foreground"
+              className="hover:text-foreground underline underline-offset-4"
             >
               shadcn/ui
             </a>{' '}
@@ -134,7 +134,7 @@ export function Footer() {
               href="https://tailwindcss.com"
               target="_blank"
               rel="noopener noreferrer"
-              className="underline underline-offset-4 hover:text-foreground"
+              className="hover:text-foreground underline underline-offset-4"
             >
               Tailwind CSS
             </a>

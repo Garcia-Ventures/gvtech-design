@@ -12,7 +12,7 @@ const Input = React.forwardRef<React.ElementRef<typeof TextInput>, InputProps>(
       <TextInput
         ref={ref}
         className={cn(
-          'flex h-10 w-full rounded-md border border-input bg-transparent px-3 py-2 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus:border-ring disabled:opacity-50',
+          'border-input text-foreground placeholder:text-muted-foreground focus:border-ring flex h-10 w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm transition-colors disabled:opacity-50',
           className,
         )}
         placeholderClassName={cn('text-muted-foreground', placeholderClassName)}

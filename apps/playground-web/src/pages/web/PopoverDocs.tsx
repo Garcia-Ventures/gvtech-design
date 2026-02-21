@@ -74,8 +74,8 @@ export function PopoverDocs() {
           <PopoverContent className="w-80">
             <div className="grid gap-4">
               <div className="space-y-2">
-                <h4 className="font-medium leading-none">Dimensions</h4>
-                <p className="text-sm text-muted-foreground">Set the dimensions for the layer.</p>
+                <h4 className="leading-none font-medium">Dimensions</h4>
+                <p className="text-muted-foreground text-sm">Set the dimensions for the layer.</p>
               </div>
               <div className="grid gap-2">
                 <div className="grid grid-cols-3 items-center gap-4">
@@ -102,7 +102,7 @@ export function PopoverDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Popover component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/popover"
@@ -115,7 +115,7 @@ export function PopoverDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Popover (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Popover (Root)</h4>
         <PropsTable
           props={[
             {
@@ -142,7 +142,7 @@ export function PopoverDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">PopoverContent</h4>
+        <h4 className="mt-6 text-lg font-medium">PopoverContent</h4>
         <PropsTable
           props={[
             {

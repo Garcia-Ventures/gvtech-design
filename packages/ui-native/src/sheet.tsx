@@ -33,7 +33,7 @@ const SheetOverlay: React.ForwardRefExoticComponent<
       <Animated.View
         entering={FadeIn.duration(150)}
         exiting={FadeOut.duration(150)}
-        className={cn('absolute inset-0 z-50 bg-black/80  web:cursor-default', className)}
+        className={cn('web:cursor-default absolute inset-0 z-50 bg-black/80', className)}
       />
     </DialogPrimitive.Overlay>
   );
@@ -61,22 +61,22 @@ const SheetContent = React.forwardRef<
           entering={entering}
           exiting={exiting}
           className={cn(
-            'absolute z-50 h-full w-3/4 gap-4 bg-background p-6 shadow-lg web:cursor-default web:duration-200 web:ease-in-out',
+            'bg-background web:cursor-default web:duration-200 web:ease-in-out absolute z-50 h-full w-3/4 gap-4 p-6 shadow-lg',
             side === 'right' &&
-              'right-0 top-0 border-l border-border data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right',
+              'border-border data-[state=closed]:slide-out-to-right data-[state=open]:slide-in-from-right top-0 right-0 border-l',
             side === 'left' &&
-              'left-0 top-0 border-r border-border data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left',
+              'border-border data-[state=closed]:slide-out-to-left data-[state=open]:slide-in-from-left top-0 left-0 border-r',
             side === 'top' &&
-              'top-0 w-full border-b border-border data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top',
+              'border-border data-[state=closed]:slide-out-to-top data-[state=open]:slide-in-from-top top-0 w-full border-b',
             side === 'bottom' &&
-              'bottom-0 w-full border-t border-border data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom',
+              'border-border data-[state=closed]:slide-out-to-bottom data-[state=open]:slide-in-from-bottom bottom-0 w-full border-t',
             className,
           )}
         >
           {children}
           <DialogPrimitive.Close
             className={cn(
-              'absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary',
+              'ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none',
               'web:absolute web:right-4 web:top-4',
             )}
           >
@@ -104,7 +104,7 @@ const SheetTitle = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Title ref={ref} className={cn('text-lg font-semibold text-foreground', className)} {...props} />
+  <DialogPrimitive.Title ref={ref} className={cn('text-foreground text-lg font-semibold', className)} {...props} />
 ));
 SheetTitle.displayName = DialogPrimitive.Title?.displayName || 'SheetTitle';
 
@@ -112,7 +112,7 @@ const SheetDescription = React.forwardRef<
   React.ElementRef<typeof DialogPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>
 >(({ className, ...props }, ref) => (
-  <DialogPrimitive.Description ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
+  <DialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
 ));
 SheetDescription.displayName = DialogPrimitive.Description?.displayName || 'SheetDescription';
 

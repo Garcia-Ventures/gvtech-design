@@ -208,7 +208,7 @@ export function MenubarDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Menubar component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/menubar"
@@ -221,7 +221,7 @@ export function MenubarDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Menubar (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Menubar (Root)</h4>
         <PropsTable
           props={[
             {
@@ -248,7 +248,7 @@ export function MenubarDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">MenubarMenu</h4>
+        <h4 className="mt-6 text-lg font-medium">MenubarMenu</h4>
         <PropsTable
           props={[
             {
@@ -259,7 +259,7 @@ export function MenubarDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">MenubarCheckboxItem</h4>
+        <h4 className="mt-6 text-lg font-medium">MenubarCheckboxItem</h4>
         <PropsTable
           props={[
             {
@@ -275,7 +275,7 @@ export function MenubarDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">MenubarRadioGroup</h4>
+        <h4 className="mt-6 text-lg font-medium">MenubarRadioGroup</h4>
         <PropsTable
           props={[
             {

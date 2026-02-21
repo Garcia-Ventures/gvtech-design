@@ -33,7 +33,7 @@ const AlertTitle = React.forwardRef<React.ElementRef<typeof Text>, React.Compone
   ({ className, ...props }, ref) => (
     <Text
       ref={ref}
-      className={cn('mb-1 font-medium leading-none tracking-tight text-foreground', className)}
+      className={cn('text-foreground mb-1 leading-none font-medium tracking-tight', className)}
       {...props}
     />
   ),
@@ -42,7 +42,7 @@ AlertTitle.displayName = 'AlertTitle';
 
 const AlertDescription = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
-    <Text ref={ref} className={cn('text-sm text-muted-foreground leading-relaxed', className)} {...props} />
+    <Text ref={ref} className={cn('text-muted-foreground text-sm leading-relaxed', className)} {...props} />
   ),
 );
 AlertDescription.displayName = 'AlertDescription';

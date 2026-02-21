@@ -35,7 +35,7 @@ export function AvatarDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
 
-        <h4 className="text-lg font-medium mt-6">Avatar (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Avatar (Root)</h4>
         <PropsTable
           props={[
             {
@@ -46,7 +46,7 @@ export function AvatarDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AvatarImage</h4>
+        <h4 className="mt-6 text-lg font-medium">AvatarImage</h4>
         <PropsTable
           props={[
             {
@@ -69,7 +69,7 @@ export function AvatarDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">AvatarFallback</h4>
+        <h4 className="mt-6 text-lg font-medium">AvatarFallback</h4>
         <PropsTable
           props={[
             {

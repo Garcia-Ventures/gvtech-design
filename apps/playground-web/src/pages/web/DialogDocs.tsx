@@ -93,7 +93,7 @@ export function DialogDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Dialog component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/dialog"
@@ -105,7 +105,7 @@ export function DialogDocs() {
           </a>
           .
         </p>
-        <h4 className="text-lg font-medium mt-6">Dialog (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Dialog (Root)</h4>
         <PropsTable
           props={[
             {
@@ -132,7 +132,7 @@ export function DialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DialogTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">DialogTrigger</h4>
         <PropsTable
           props={[
             {
@@ -143,7 +143,7 @@ export function DialogDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DialogContent</h4>
+        <h4 className="mt-6 text-lg font-medium">DialogContent</h4>
         <PropsTable
           props={[
             {

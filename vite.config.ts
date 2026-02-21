@@ -18,7 +18,9 @@ const getEntries = () => {
 
     items.forEach((item) => {
       if (item.isDirectory()) {
-        if (item.name === 'hooks' || item.name === 'lib') return;
+        if (item.name === 'hooks' || item.name === 'lib') {
+          return;
+        }
         const entryPath = resolve(uiPath, item.name, 'index.ts');
         if (fs.existsSync(entryPath)) {
           entries[item.name] = entryPath;
@@ -107,8 +109,12 @@ export default defineConfig({
           : {},
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('axe-core')) return 'axe';
-            if (id.includes('react-docgen')) return 'docgen';
+            if (id.includes('axe-core')) {
+              return 'axe';
+            }
+            if (id.includes('react-docgen')) {
+              return 'docgen';
+            }
             return 'vendor';
           }
         },

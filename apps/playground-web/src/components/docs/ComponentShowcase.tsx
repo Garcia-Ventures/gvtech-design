@@ -42,19 +42,19 @@ export function ComponentShowcase({ title, description, code, children, classNam
             <TabsList className="h-10 bg-transparent p-0">
               <TabsTrigger
                 value="preview"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent data-[state=active]:bg-transparent"
               >
                 Preview
               </TabsTrigger>
               <TabsTrigger
                 value="code"
-                className="rounded-none border-b-2 border-transparent data-[state=active]:border-primary data-[state=active]:bg-transparent"
+                className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent data-[state=active]:bg-transparent"
               >
                 Code
               </TabsTrigger>
             </TabsList>
           </div>
-          <TabsContent value="preview" className="p-4 md:p-6 mt-0">
+          <TabsContent value="preview" className="mt-0 p-4 md:p-6">
             {isNative && !children ? (
               <Alert variant="info" className="bg-muted/50 border-none shadow-none">
                 <Info className="h-4 w-4" />
@@ -65,7 +65,7 @@ export function ComponentShowcase({ title, description, code, children, classNam
                 </AlertDescription>
               </Alert>
             ) : (
-              <div className="flex flex-wrap gap-4 items-center overflow-x-auto">{children}</div>
+              <div className="flex flex-wrap items-center gap-4 overflow-x-auto">{children}</div>
             )}
           </TabsContent>
           <TabsContent value="code" className="mt-0">
@@ -87,8 +87,8 @@ export function ComponentSection({ title, description, children }: ComponentSect
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h1>
-        {description && <p className="text-base md:text-lg text-muted-foreground">{description}</p>}
+        <h1 className="text-2xl font-bold tracking-tight md:text-3xl">{title}</h1>
+        {description && <p className="text-muted-foreground text-base md:text-lg">{description}</p>}
       </div>
       <div className="space-y-6">{children}</div>
     </div>

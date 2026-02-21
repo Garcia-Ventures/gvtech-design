@@ -33,14 +33,14 @@ export class ErrorBoundary extends Component<Props, State> {
       }
 
       return (
-        <div className="flex flex-col items-center justify-center min-h-[400px] p-6 text-center border-2 border-dashed border-destructive/50 rounded-lg bg-destructive/5">
-          <AlertTriangle className="h-12 w-12 text-destructive mb-4" />
-          <h2 className="text-xl font-semibold mb-2">Something went wrong</h2>
+        <div className="border-destructive/50 bg-destructive/5 flex min-h-[400px] flex-col items-center justify-center rounded-lg border-2 border-dashed p-6 text-center">
+          <AlertTriangle className="text-destructive mb-4 h-12 w-12" />
+          <h2 className="mb-2 text-xl font-semibold">Something went wrong</h2>
           <p className="text-muted-foreground mb-6 max-w-md">
             This documentation page encountered an error during rendering. This usually happens when a native component
             fails to shim correctly on the web.
           </p>
-          <div className="bg-background p-4 rounded border mb-6 text-left overflow-auto max-w-full font-mono text-sm text-destructive">
+          <div className="bg-background text-destructive mb-6 max-w-full overflow-auto rounded border p-4 text-left font-mono text-sm">
             {this.state.error?.message}
           </div>
           <Button variant="outline" onClick={() => this.setState({ hasError: false, error: null })}>

@@ -71,7 +71,7 @@ export function ResizableDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Resizable component is built on top of{' '}
           <a
             href="https://github.com/bvaughn/react-resizable-panels"
@@ -84,7 +84,7 @@ export function ResizableDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">ResizablePanelGroup</h4>
+        <h4 className="mt-6 text-lg font-medium">ResizablePanelGroup</h4>
         <PropsTable
           props={[
             {
@@ -101,7 +101,7 @@ export function ResizableDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ResizablePanel</h4>
+        <h4 className="mt-6 text-lg font-medium">ResizablePanel</h4>
         <PropsTable
           props={[
             {
@@ -127,7 +127,7 @@ export function ResizableDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ResizableHandle</h4>
+        <h4 className="mt-6 text-lg font-medium">ResizableHandle</h4>
         <PropsTable
           props={[
             {

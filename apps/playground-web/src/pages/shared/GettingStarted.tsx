@@ -25,10 +25,10 @@ export function GettingStartedPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-center md:text-left">
+        <h1 className="text-center text-3xl font-bold tracking-tight md:text-left md:text-4xl">
           GV Tech Design System
         </h1>
-        <p className="text-lg md:text-xl text-muted-foreground text-center md:text-left">
+        <p className="text-muted-foreground text-center text-lg md:text-left md:text-xl">
           A comprehensive React component library built with shadcn/ui and Tailwind CSS.
         </p>
       </div>
@@ -36,39 +36,39 @@ export function GettingStartedPage() {
       <div className="grid gap-4 md:grid-cols-3">
         <Card>
           <CardHeader className="p-4 pb-2">
-            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
               <span className="text-2xl">🎨</span>
             </div>
             <CardTitle className="text-lg">Consistent Design</CardTitle>
           </CardHeader>
           <CardContent className="p-4 pt-0">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Built on a unified design language with customizable themes.
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="p-4 pb-2">
-            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
               <span className="text-2xl">⚡</span>
             </div>
             <CardTitle className="text-lg">Fully Typed</CardTitle>
           </CardHeader>
           <CardContent className="p-4 pt-0">
-            <p className="text-sm text-muted-foreground">
+            <p className="text-muted-foreground text-sm">
               Complete TypeScript support with comprehensive type definitions.
             </p>
           </CardContent>
         </Card>
         <Card>
           <CardHeader className="p-4 pb-2">
-            <div className="h-10 w-10 rounded-md bg-primary/10 flex items-center justify-center mb-2">
+            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
               <span className="text-2xl">♿</span>
             </div>
             <CardTitle className="text-lg">Accessible</CardTitle>
           </CardHeader>
           <CardContent className="p-4 pt-0">
-            <p className="text-sm text-muted-foreground">WAI-ARIA compliant components with keyboard navigation.</p>
+            <p className="text-muted-foreground text-sm">WAI-ARIA compliant components with keyboard navigation.</p>
           </CardContent>
         </Card>
       </div>
@@ -101,7 +101,7 @@ function MyComponent() {
               <CardTitle className="text-lg">Web</CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0">
-              <p className="text-sm text-muted-foreground">Optimized for React with Radix UI and Tailwind CSS 4.0.</p>
+              <p className="text-muted-foreground text-sm">Optimized for React with Radix UI and Tailwind CSS 4.0.</p>
             </CardContent>
           </Card>
           <Card>
@@ -109,7 +109,7 @@ function MyComponent() {
               <CardTitle className="text-lg">React Native</CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0">
-              <p className="text-sm text-muted-foreground">
+              <p className="text-muted-foreground text-sm">
                 Built with NativeWind for a consistent styling experience on iOS and Android.
               </p>
             </CardContent>
@@ -132,13 +132,13 @@ function MyComponent() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Universal Components</h2>
-        <div className="flex items-start gap-4 p-4 rounded-lg border bg-muted/30">
+        <div className="bg-muted/30 flex items-start gap-4 rounded-lg border p-4">
           <div className="mt-1 shrink-0">
             <div className="h-3 w-3 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
           </div>
           <div className="space-y-1">
-            <p className="font-medium text-sm">Universal Support Indicator</p>
-            <p className="text-sm text-muted-foreground">
+            <p className="text-sm font-medium">Universal Support Indicator</p>
+            <p className="text-muted-foreground text-sm">
               Components marked with this green dot in the sidebar have both <strong>Web</strong> and{' '}
               <strong>Native</strong> implementations. You can use them seamlessly across platforms with a unified API.
             </p>
@@ -148,7 +148,7 @@ function MyComponent() {
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Features</h2>
-        <ul className="space-y-2 text-muted-foreground">
+        <ul className="text-muted-foreground space-y-2">
           <li className="flex items-center gap-2">
             <span className="text-green-500">✓</span> 46+ ready-to-use components
           </li>
@@ -183,8 +183,8 @@ export function InstallationPage() {
   return (
     <div className="space-y-8">
       <div className="space-y-2">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">Installation</h1>
-        <p className="text-base md:text-lg text-muted-foreground">
+        <h1 className="text-2xl font-bold tracking-tight md:text-3xl">Installation</h1>
+        <p className="text-muted-foreground text-base md:text-lg">
           Get started with the GV Tech Design System in your React project.
         </p>
       </div>
@@ -224,11 +224,11 @@ export function InstallationPage() {
 }`}
           language="json"
         />
-        <p className="text-sm text-muted-foreground">
-          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">next-themes</code> is required for the design
-          system's <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>,{' '}
-          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeToggle</code>, and{' '}
-          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">useTheme</code> to work. Install it alongside the
+        <p className="text-muted-foreground text-sm">
+          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">next-themes</code> is required for the design
+          system's <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>,{' '}
+          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeToggle</code>, and{' '}
+          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">useTheme</code> to work. Install it alongside the
           design system:
         </p>
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
@@ -342,7 +342,7 @@ export function InstallationPage() {
           <AlertCircle className="h-4 w-4" />
           <AlertTitle>Important Native Resolution</AlertTitle>
           <AlertDescription>
-            The design system uses <code className="bg-background px-1 rounded">.native.tsx</code> extensions. Ensure
+            The design system uses <code className="bg-background rounded px-1">.native.tsx</code> extensions. Ensure
             your Metro bundler is configured to prefer these extensions.
           </AlertDescription>
         </Alert>
@@ -370,7 +370,7 @@ export function InstallationPage() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Start Using Components</h2>
         <p className="text-muted-foreground">
-          Wrap your app with the <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> to enable
+          Wrap your app with the <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> to enable
           consistent styling and theme switching.
         </p>
         <Tabs defaultValue="web" className="w-full">

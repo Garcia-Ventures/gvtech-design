@@ -52,9 +52,9 @@ open -a Simulator
 From the **monorepo root**, run:
 
 ```bash
-bun native:android  # for Android
+bun native:android # for Android
 # OR
-bun native          # for choice / iOS
+bun native # for choice / iOS
 ```
 
 This runs `npx nx run native-playground:start --android` (or similar), which:
@@ -90,15 +90,15 @@ If hot reload stops working, run `bun native:clear` to reset the bundler cache.
 **Emulator not detected:**
 
 ```bash
-adb devices   # should list the emulator
-adb kill-server && adb start-server  # restart ADB if needed
+adb devices                         # should list the emulator
+adb kill-server && adb start-server # restart ADB if needed
 ```
 
 **Metro can't resolve monorepo packages:**
 
 ```bash
-bun install  # re-link workspace packages
-bun native:clear  # clear bundler cache
+bun install      # re-link workspace packages
+bun native:clear # clear bundler cache
 ```
 
 **`ANDROID_HOME` not set:**

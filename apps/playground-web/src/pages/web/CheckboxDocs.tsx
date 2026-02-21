@@ -53,7 +53,7 @@ export function CheckboxDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Checkbox component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/checkbox"

@@ -23,7 +23,7 @@ vi.mock('react-native-reanimated', () => {
 
 describe('Skeleton (Native Implementation)', () => {
   it('renders correctly', () => {
-    const { container } = render(<Skeleton className="w-10 h-10" />);
+    const { container } = render(<Skeleton className="h-10 w-10" />);
     expect(container.firstChild).toBeDefined();
   });
 });

@@ -55,7 +55,7 @@ export function ContextMenuDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Context Menu component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/context-menu"
@@ -67,7 +67,7 @@ export function ContextMenuDocs() {
           </a>
           .
         </p>
-        <h4 className="text-lg font-medium mt-6">ContextMenu (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">ContextMenu (Root)</h4>
         <PropsTable
           props={[
             {
@@ -84,7 +84,7 @@ export function ContextMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ContextMenuTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">ContextMenuTrigger</h4>
         <PropsTable
           props={[
             {
@@ -95,7 +95,7 @@ export function ContextMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ContextMenuItem</h4>
+        <h4 className="mt-6 text-lg font-medium">ContextMenuItem</h4>
         <PropsTable
           props={[
             {

@@ -45,7 +45,7 @@ export function HoverCardDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Hover Card component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/hover-card"
@@ -58,7 +58,7 @@ export function HoverCardDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">HoverCard (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">HoverCard (Root)</h4>
         <PropsTable
           props={[
             {
@@ -91,7 +91,7 @@ export function HoverCardDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">HoverCardContent</h4>
+        <h4 className="mt-6 text-lg font-medium">HoverCardContent</h4>
         <PropsTable
           props={[
             {

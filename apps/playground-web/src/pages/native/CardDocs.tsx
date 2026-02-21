@@ -54,7 +54,7 @@ export function CardDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <h4 className="text-lg font-medium mt-6">Card (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Card (Root)</h4>
         <PropsTable
           props={[
             {
@@ -65,7 +65,7 @@ export function CardDocs() {
           ]}
         />
 
-        <p className="text-sm text-muted-foreground mt-4">
+        <p className="text-muted-foreground mt-4 text-sm">
           CardHeader, CardTitle, CardDescription, CardContent, and CardFooter also accept <code>className</code> and
           other standard {'HTML attributes'}.
         </p>

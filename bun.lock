@@ -22,7 +22,7 @@
         "tslib": "^2.3.0",
       },
       "devDependencies": {
-        "@eng618/prettier-config": "^2.8.2",
+        "@eng618/prettier-config": "^2.9.0",
         "@expo/cli": "~54.0.16",
         "@gv-tech/eslint-config": "^0.1.8",
         "@nx/expo": "22.5.1",
@@ -554,7 +554,7 @@
 
     "@emnapi/wasi-threads": ["@emnapi/wasi-threads@1.1.0", "", { "dependencies": { "tslib": "^2.4.0" } }, "sha512-WI0DdZ8xFSbgMjR1sFsKABJ/C5OnRrjT06JXbZKexJGrDuPTzZdDYfFlsgcCXCyf+suG5QU2e/y1Wo2V/OapLQ=="],
 
-    "@eng618/prettier-config": ["@eng618/prettier-config@2.8.2", "", { "dependencies": { "prettier-plugin-curly": "^0.4.1", "prettier-plugin-multiline-arrays": "^4.1.4", "prettier-plugin-organize-imports": "^4.3.0", "prettier-plugin-packagejson": "^3.0.0", "prettier-plugin-prisma": "^5.0.0", "prettier-plugin-sh": "^0.18.0", "prettier-plugin-sql": "^0.19.2", "prettier-plugin-tailwindcss": "^0.7.2" }, "peerDependencies": { "prettier": ">=3.0.0", "typescript": ">=5.0.0" }, "optionalPeers": ["typescript"] }, "sha512-L25VKpHP5RIW3goBPgDcofAEmpuJ5CObMiOVEjclmMvAQFr7dBrWloKfSkc9aJpyU/YMDhP+gshoVFmhH9+fkQ=="],
+    "@eng618/prettier-config": ["@eng618/prettier-config@2.9.0", "", { "dependencies": { "@homer0/prettier-plugin-jsdoc": "^11.0.2", "prettier-plugin-curly": "^0.4.1", "prettier-plugin-multiline-arrays": "^4.1.4", "prettier-plugin-organize-imports": "^4.3.0", "prettier-plugin-packagejson": "^3.0.0", "prettier-plugin-prisma": "^5.0.0", "prettier-plugin-sh": "^0.18.0", "prettier-plugin-sql": "^0.19.2", "prettier-plugin-tailwindcss": "^0.7.2" }, "peerDependencies": { "prettier": ">=3.0.0", "typescript": ">=5.0.0" }, "optionalPeers": ["typescript"] }, "sha512-eagOmLR4hTSgyuS+1g0OEA0REbF/CNSCfTQOSC2g1m3+OwOrf9P7hmxdKBj17/D8jbXO2vcgJjBT9gJ1txtuQw=="],
 
     "@esbuild/aix-ppc64": ["@esbuild/aix-ppc64@0.27.3", "", { "os": "aix", "cpu": "ppc64" }, "sha512-9fJMTNFTWZMh5qwrBItuziu834eOCUcEqymSH7pY+zoMVEZg3gcPuBNxH1EvfVYe9h0x/Ptw8KBzv7qxb7l8dg=="],
 
@@ -695,6 +695,8 @@
     "@gv-tech/ui-native": ["@gv-tech/ui-native@workspace:packages/ui-native"],
 
     "@gv-tech/ui-web": ["@gv-tech/ui-web@workspace:packages/ui-web"],
+
+    "@homer0/prettier-plugin-jsdoc": ["@homer0/prettier-plugin-jsdoc@11.0.2", "", { "dependencies": { "comment-parser": "^1.4.5", "ramda": "0.32.0" }, "peerDependencies": { "prettier": "^3.5.3" } }, "sha512-+BzWB8z61dExvX1Z5EjBHeregU8M51MyTJvxOQdalO0LhGAXoBesSZqU1HWe1DnxAZvY69ItwXfTtCyj2f+4gQ=="],
 
     "@hookform/resolvers": ["@hookform/resolvers@5.2.2", "", { "dependencies": { "@standard-schema/utils": "^0.3.0" }, "peerDependencies": { "react-hook-form": "^7.55.0" } }, "sha512-A/IxlMLShx3KjV/HeTcTfaMxdwy690+L/ZADoeaTltLx+CVuzkeVIPuybK3jrRfw7YZnmdKsVVHAlEPIAEUNlA=="],
 
@@ -3031,6 +3033,8 @@
     "railroad-diagrams": ["railroad-diagrams@1.0.0", "", {}, "sha512-cz93DjNeLY0idrCNOH6PviZGRN9GJhsdm9hpn1YCS879fj4W+x5IFJhhkRZcwVgMmFF7R82UA/7Oh+R8lLZg6A=="],
 
     "rambda": ["rambda@9.4.2", "", {}, "sha512-++euMfxnl7OgaEKwXh9QqThOjMeta2HH001N1v4mYQzBjJBnmXBh2BCK6dZAbICFVXOFUVD3xFG0R3ZPU0mxXw=="],
+
+    "ramda": ["ramda@0.32.0", "", {}, "sha512-GQWAHhxhxWBWA8oIBr1XahFVjQ9Fic6MK9ikijfd4TZHfE2+urfk+irVlR5VOn48uwMgM+loRRBJd6Yjsbc0zQ=="],
 
     "randexp": ["randexp@0.4.6", "", { "dependencies": { "discontinuous-range": "1.0.0", "ret": "~0.1.10" } }, "sha512-80WNmd9DA0tmZrw9qQa62GPPWfuXJknrmVmLcxvq4uZBdYqb1wYoKTmnlGUchvVWe0XiLupYkBoXVOxz3C8DYQ=="],
 

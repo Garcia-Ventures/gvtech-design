@@ -20,13 +20,13 @@ const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWit
           <a
             ref={ref}
             className={cn(
-              'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
+              'hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground block space-y-1 rounded-md p-3 leading-none no-underline transition-colors outline-none select-none',
               className,
             )}
             {...props}
           >
-            <div className="text-sm font-medium leading-none">{title}</div>
-            <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">{children}</p>
+            <div className="text-sm leading-none font-medium">{title}</div>
+            <p className="text-muted-foreground line-clamp-2 text-sm leading-snug">{children}</p>
           </a>
         </NavigationMenuLink>
       </li>
@@ -113,7 +113,7 @@ export function NavigationMenuDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Navigation Menu component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/navigation-menu"
@@ -126,7 +126,7 @@ export function NavigationMenuDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenu (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenu (Root)</h4>
         <PropsTable
           props={[
             {
@@ -153,7 +153,7 @@ export function NavigationMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenuContent</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenuContent</h4>
         <PropsTable
           props={[
             {
@@ -169,7 +169,7 @@ export function NavigationMenuDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">NavigationMenuLink</h4>
+        <h4 className="mt-6 text-lg font-medium">NavigationMenuLink</h4>
         <PropsTable
           props={[
             {

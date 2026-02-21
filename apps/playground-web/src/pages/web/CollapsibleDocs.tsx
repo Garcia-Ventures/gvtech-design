@@ -59,7 +59,7 @@ export function CollapsibleDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Collapsible component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/collapsible"
@@ -95,7 +95,7 @@ export function CollapsibleDocs() {
             },
           ]}
         />
-        <h4 className="text-lg font-medium mt-6">CollapsibleContent</h4>
+        <h4 className="mt-6 text-lg font-medium">CollapsibleContent</h4>
         <PropsTable
           props={[
             {

@@ -12,7 +12,7 @@ const Table = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPro
 Table.displayName = 'Table';
 
 const TableHeader = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
-  ({ className, ...props }, ref) => <View ref={ref} className={cn('border-b border-border', className)} {...props} />,
+  ({ className, ...props }, ref) => <View ref={ref} className={cn('border-border border-b', className)} {...props} />,
 );
 TableHeader.displayName = 'TableHeader';
 
@@ -33,7 +33,7 @@ const TableRow = React.forwardRef<React.ElementRef<typeof View>, React.Component
     <View
       ref={ref}
       className={cn(
-        'flex-row border-b border-border transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted',
+        'border-border hover:bg-muted/50 data-[state=selected]:bg-muted flex-row border-b transition-colors',
         className,
       )}
       {...props}
@@ -47,7 +47,7 @@ const TableHead = React.forwardRef<React.ElementRef<typeof Text>, React.Componen
     <Text
       ref={ref}
       className={cn(
-        'h-12 px-4 text-left align-middle font-medium text-muted-foreground [&:has([role=checkbox])]:pr-0',
+        'text-muted-foreground h-12 px-4 text-left align-middle font-medium [&:has([role=checkbox])]:pr-0',
         className,
       )}
       {...props}
@@ -65,7 +65,7 @@ TableCell.displayName = 'TableCell';
 
 const TableCaption = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
-    <Text ref={ref} className={cn('mt-4 text-sm text-muted-foreground', className)} {...props} />
+    <Text ref={ref} className={cn('text-muted-foreground mt-4 text-sm', className)} {...props} />
   ),
 );
 TableCaption.displayName = 'TableCaption';

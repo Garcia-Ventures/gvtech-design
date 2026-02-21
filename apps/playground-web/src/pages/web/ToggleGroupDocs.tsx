@@ -45,7 +45,7 @@ export function ToggleGroupDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The ToggleGroup component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/toggle-group"
@@ -58,7 +58,7 @@ export function ToggleGroupDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">ToggleGroup (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">ToggleGroup (Root)</h4>
         <PropsTable
           props={[
             {
@@ -118,7 +118,7 @@ export function ToggleGroupDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">ToggleGroupItem</h4>
+        <h4 className="mt-6 text-lg font-medium">ToggleGroupItem</h4>
         <PropsTable
           props={[
             {

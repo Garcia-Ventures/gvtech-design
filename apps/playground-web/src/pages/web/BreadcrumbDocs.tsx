@@ -60,7 +60,7 @@ export function BreadcrumbDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
 
-        <h4 className="text-lg font-medium mt-6">Breadcrumb (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Breadcrumb (Root)</h4>
         <PropsTable
           props={[
             {
@@ -71,7 +71,7 @@ export function BreadcrumbDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">BreadcrumbLink</h4>
+        <h4 className="mt-6 text-lg font-medium">BreadcrumbLink</h4>
         <PropsTable
           props={[
             {

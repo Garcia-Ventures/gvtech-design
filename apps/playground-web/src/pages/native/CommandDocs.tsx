@@ -60,14 +60,14 @@ export function CommandDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Command component is built on top of{' '}
           <a href="https://cmdk.paco.me/" className="underline" target="_blank" rel="noreferrer">
             cmdk
           </a>
           .
         </p>
-        <h4 className="text-lg font-medium mt-6">Command (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Command (Root)</h4>
         <PropsTable
           props={[
             {
@@ -104,7 +104,7 @@ export function CommandDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">CommandInput</h4>
+        <h4 className="mt-6 text-lg font-medium">CommandInput</h4>
         <PropsTable
           props={[
             {
@@ -125,10 +125,10 @@ export function CommandDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">CommandList</h4>
-        <p className="text-sm text-muted-foreground">Contains items and groups.</p>
+        <h4 className="mt-6 text-lg font-medium">CommandList</h4>
+        <p className="text-muted-foreground text-sm">Contains items and groups.</p>
 
-        <h4 className="text-lg font-medium mt-6">CommandItem</h4>
+        <h4 className="mt-6 text-lg font-medium">CommandItem</h4>
         <PropsTable
           props={[
             {
@@ -149,7 +149,7 @@ export function CommandDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">CommandGroup</h4>
+        <h4 className="mt-6 text-lg font-medium">CommandGroup</h4>
         <PropsTable
           props={[
             {

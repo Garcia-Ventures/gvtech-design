@@ -13,7 +13,7 @@ const Textarea = React.forwardRef<React.ElementRef<typeof TextInput>, TextareaPr
         multiline
         numberOfLines={props.numberOfLines || 3}
         className={cn(
-          'flex min-h-[80px] w-full rounded-md border border-input bg-background px-3 py-2 text-base text-foreground shadow-sm transition-colors placeholder:text-muted-foreground focus:border-ring disabled:opacity-50',
+          'border-input bg-background text-foreground placeholder:text-muted-foreground focus:border-ring flex min-h-[80px] w-full rounded-md border px-3 py-2 text-base shadow-sm transition-colors disabled:opacity-50',
           className,
         )}
         placeholderClassName={cn('text-muted-foreground', placeholderClassName)}

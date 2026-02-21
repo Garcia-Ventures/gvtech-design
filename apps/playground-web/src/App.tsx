@@ -37,7 +37,7 @@ const InstallationPage = React.lazy(() => import('./pages').then((m) => ({ defau
 function PageLoader() {
   return (
     <div className="flex h-[400px] w-full items-center justify-center">
-      <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
+      <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
     </div>
   );
 }
@@ -54,7 +54,9 @@ function DocumentationLayout() {
   const currentDoc = React.useMemo(() => {
     for (const category of docConfig) {
       const found = category.items.find((item) => item.href === docSlug);
-      if (found) return found;
+      if (found) {
+        return found;
+      }
     }
     return null;
   }, [docSlug]);
@@ -68,24 +70,24 @@ function DocumentationLayout() {
   return (
     <DocSearchProvider>
       <PackageManagerProvider>
-        <div className="flex h-screen bg-background text-foreground">
+        <div className="bg-background text-foreground flex h-screen">
           {/* Desktop Sidebar */}
-          <div className="hidden lg:flex h-full shrink-0">
+          <div className="hidden h-full shrink-0 lg:flex">
             <Sidebar />
           </div>
 
-          <div className="flex-1 flex flex-col overflow-hidden">
-            <header className="h-14 border-b flex items-center justify-between px-4 md:px-6 shrink-0 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
-              <div className="flex items-center gap-2 min-w-0">
+          <div className="flex flex-1 flex-col overflow-hidden">
+            <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-14 shrink-0 items-center justify-between border-b px-4 backdrop-blur md:px-6">
+              <div className="flex min-w-0 items-center gap-2">
                 {/* Mobile Menu Toggle */}
                 <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
                   <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="lg:hidden shrink-0">
+                    <Button variant="ghost" size="icon" className="shrink-0 lg:hidden">
                       <Menu className="h-5 w-5" />
                       <span className="sr-only">Toggle menu</span>
                     </Button>
                   </SheetTrigger>
-                  <SheetContent side="left" className="p-0 w-72">
+                  <SheetContent side="left" className="w-72 p-0">
                     <SheetHeader className="sr-only">
                       <SheetTitle>Navigation Menu</SheetTitle>
                       <SheetDescription>
@@ -96,7 +98,7 @@ function DocumentationLayout() {
                   </SheetContent>
                 </Sheet>
 
-                <Breadcrumb className="hidden md:flex min-w-0">
+                <Breadcrumb className="hidden min-w-0 md:flex">
                   <BreadcrumbList>
                     <BreadcrumbItem>
                       <BreadcrumbLink asChild>
@@ -111,13 +113,13 @@ function DocumentationLayout() {
                 </Breadcrumb>
               </div>
 
-              <div className="flex items-center gap-2 md:gap-4 shrink-0">
+              <div className="flex shrink-0 items-center gap-2 md:gap-4">
                 <DocSearch variant="compact" />
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
             <ScrollArea className="flex-1">
-              <main className="flex-1 flex flex-col p-4 md:p-8 max-w-4xl mx-auto w-full">
+              <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col p-4 md:p-8">
                 <div className="flex-1">
                   <ErrorBoundary>
                     <React.Suspense fallback={<PageLoader />}>

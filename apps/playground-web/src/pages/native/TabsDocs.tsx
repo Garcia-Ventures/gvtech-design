@@ -72,7 +72,7 @@ export function TabsDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Tabs component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/tabs"
@@ -85,7 +85,7 @@ export function TabsDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Tabs (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Tabs (Root)</h4>
         <PropsTable
           props={[
             {
@@ -124,7 +124,7 @@ export function TabsDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">TabsList</h4>
+        <h4 className="mt-6 text-lg font-medium">TabsList</h4>
         <PropsTable
           props={[
             {
@@ -136,7 +136,7 @@ export function TabsDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">TabsTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">TabsTrigger</h4>
         <PropsTable
           props={[
             {
@@ -153,7 +153,7 @@ export function TabsDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">TabsContent</h4>
+        <h4 className="mt-6 text-lg font-medium">TabsContent</h4>
         <PropsTable
           props={[
             {

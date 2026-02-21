@@ -101,19 +101,19 @@ export function SearchDocs() {
       <div className="mt-12 space-y-6">
         <div>
           <h3 className="text-xl font-semibold">Integrations</h3>
-          <p className="mt-2 text-muted-foreground">
+          <p className="text-muted-foreground mt-2">
             The Search component is designed to be highly composable, making it easy to integrate with external search
             providers like Algolia, ElasticSearch, or custom APIs.
           </p>
         </div>
 
-        <div className="rounded-lg border bg-muted/50 p-6">
+        <div className="bg-muted/50 rounded-lg border p-6">
           <h4 className="font-medium">External Provider Pattern</h4>
-          <p className="mt-1 text-sm text-muted-foreground">
+          <p className="text-muted-foreground mt-1 text-sm">
             You can use the `onValueChange` prop of `CommandInput` to trigger external searches and dynamically render
             `CommandGroup` and `CommandItem` components with the results.
           </p>
-          <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
+          <pre className="bg-background mt-4 overflow-x-auto rounded-md p-4 text-xs">
             <code>{`const [results, setResults] = React.useState([]);
 
 const handleSearch = async (query) => {

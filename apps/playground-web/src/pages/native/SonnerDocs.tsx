@@ -15,19 +15,19 @@ const platform = 'native' as string;
 export function SonnerDocs() {
   return (
     <>
-      <div className="bg-muted/50 border rounded-lg p-6 space-y-4 mb-8">
+      <div className="bg-muted/50 mb-8 space-y-4 rounded-lg border p-6">
         <h3 className="text-lg font-semibold">Which to use?</h3>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           <div className="space-y-2">
-            <h4 className="font-medium text-primary">Sonner</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h4 className="text-primary font-medium">Sonner</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Designed for modern applications. It stacks automatically, looks great by default, and uses a very simple
               function call (<code>toast()</code>) that can be used anywhere—no hooks required.
             </p>
           </div>
           <div className="space-y-2">
-            <h4 className="font-medium text-primary">Toast (Radix UI)</h4>
-            <p className="text-sm text-muted-foreground leading-relaxed">
+            <h4 className="text-primary font-medium">Toast (Radix UI)</h4>
+            <p className="text-muted-foreground text-sm leading-relaxed">
               Traditional Radix UI based toasts. Use this if you need deep programmatic control over the toast lifecycle
               or if you require specific accessibility patterns not covered by Sonner.
             </p>
@@ -56,7 +56,7 @@ export function SonnerDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Sonner component is based on{' '}
           <a href="https://sonner.emilkowal.ski/" className="underline" target="_blank" rel="noreferrer">
             Sonner
@@ -64,7 +64,7 @@ export function SonnerDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Toaster</h4>
+        <h4 className="mt-6 text-lg font-medium">Toaster</h4>
         <PropsTable
           props={[
             {

@@ -33,15 +33,15 @@ export function ThemeToggleDocs() {
       <div className="mt-12 space-y-6">
         <div>
           <h3 className="text-xl font-semibold">ThemeProvider</h3>
-          <p className="mt-2 text-muted-foreground">
+          <p className="text-muted-foreground mt-2">
             The design system exports a pre-configured{' '}
-            <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> that wraps{' '}
-            <code className="text-sm bg-muted px-1.5 py-0.5 rounded">next-themes</code> with sensible defaults. Wrap
+            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> that wraps{' '}
+            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">next-themes</code> with sensible defaults. Wrap
             your application with it to enable theme switching for all design system components.
           </p>
         </div>
 
-        <div className="rounded-md border bg-muted p-4">
+        <div className="bg-muted rounded-md border p-4">
           <pre className="text-xs">
             <code>
               {`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
@@ -60,15 +60,15 @@ function App() {
         </div>
 
         <div className="space-y-4">
-          <h4 className="font-medium text-foreground">Defaults</h4>
-          <p className="text-sm text-muted-foreground">
-            Out of the box, <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code> applies these
+          <h4 className="text-foreground font-medium">Defaults</h4>
+          <p className="text-muted-foreground text-sm">
+            Out of the box, <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> applies these
             defaults. You can override any of them by passing the corresponding prop.
           </p>
           <div className="rounded-md border">
             <table className="w-full text-sm">
               <thead>
-                <tr className="border-b bg-muted/50">
+                <tr className="bg-muted/50 border-b">
                   <th className="p-3 text-left font-medium">Prop</th>
                   <th className="p-3 text-left font-medium">Default</th>
                   <th className="p-3 text-left font-medium">Description</th>
@@ -77,38 +77,38 @@ function App() {
               <tbody>
                 <tr className="border-b">
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">attribute</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">attribute</code>
                   </td>
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">"class"</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">"class"</code>
                   </td>
-                  <td className="p-3 text-muted-foreground">Applies the theme as a CSS class on the HTML element</td>
+                  <td className="text-muted-foreground p-3">Applies the theme as a CSS class on the HTML element</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">defaultTheme</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">defaultTheme</code>
                   </td>
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">"system"</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">"system"</code>
                   </td>
-                  <td className="p-3 text-muted-foreground">Respects the user's operating system preference</td>
+                  <td className="text-muted-foreground p-3">Respects the user's operating system preference</td>
                 </tr>
                 <tr>
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">enableSystem</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">enableSystem</code>
                   </td>
                   <td className="p-3">
-                    <code className="text-xs bg-muted px-1 py-0.5 rounded">true</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">true</code>
                   </td>
-                  <td className="p-3 text-muted-foreground">Enables automatic detection of the OS color scheme</td>
+                  <td className="text-muted-foreground p-3">Enables automatic detection of the OS color scheme</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
 
-        <div className="rounded-md border bg-muted p-4">
-          <p className="text-xs font-medium text-muted-foreground mb-2">Overriding defaults:</p>
+        <div className="bg-muted rounded-md border p-4">
+          <p className="text-muted-foreground mb-2 text-xs font-medium">Overriding defaults:</p>
           <pre className="text-xs">
             <code>
               {`<ThemeProvider
@@ -126,12 +126,12 @@ function App() {
       {/* useTheme Section */}
       <div className="mt-12 space-y-4">
         <h3 className="text-xl font-semibold">useTheme Hook</h3>
-        <p className="text-sm text-muted-foreground">
-          The <code className="text-sm bg-muted px-1.5 py-0.5 rounded">useTheme</code> hook provides access to the
+        <p className="text-muted-foreground text-sm">
+          The <code className="bg-muted rounded px-1.5 py-0.5 text-sm">useTheme</code> hook provides access to the
           current theme, theme controls, and the active design tokens. It must be used within a{' '}
-          <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>.
+          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>.
         </p>
-        <div className="rounded-md border bg-muted p-4">
+        <div className="bg-muted rounded-md border p-4">
           <pre className="text-xs">
             <code>
               {`import { useTheme } from '@gv-tech/design-system';
@@ -222,22 +222,22 @@ export function MyComponent() {
       <div className="mt-12 space-y-6">
         <div>
           <h3 className="text-xl font-semibold">Integration</h3>
-          <p className="mt-2 text-muted-foreground">
-            The <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeToggle</code> component works seamlessly
-            with the design system's <code className="text-sm bg-muted px-1.5 py-0.5 rounded">ThemeProvider</code>. It
+          <p className="text-muted-foreground mt-2">
+            The <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeToggle</code> component works seamlessly
+            with the design system's <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>. It
             can also be used in a fully controlled manner with any theme provider or custom state.
           </p>
         </div>
 
         <div className="grid gap-6 md:grid-cols-2">
-          <div className="rounded-lg border bg-muted/50 p-6">
-            <h4 className="font-medium text-foreground">With ThemeProvider (Recommended)</h4>
-            <p className="mt-1 text-sm text-muted-foreground">
+          <div className="bg-muted/50 rounded-lg border p-6">
+            <h4 className="text-foreground font-medium">With ThemeProvider (Recommended)</h4>
+            <p className="text-muted-foreground mt-1 text-sm">
               Wrap your app with the design system's{' '}
-              <code className="text-xs bg-muted px-1 py-0.5 rounded">ThemeProvider</code> and drop in the toggle.
+              <code className="bg-muted rounded px-1 py-0.5 text-xs">ThemeProvider</code> and drop in the toggle.
               Everything connects automatically.
             </p>
-            <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
+            <pre className="bg-background mt-4 overflow-x-auto rounded-md p-4 text-xs">
               <code>{`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 // @ts-ignore
@@ -256,12 +256,12 @@ const platform = 'native' as string;
             </pre>
           </div>
 
-          <div className="rounded-lg border bg-muted/50 p-6">
-            <h4 className="font-medium text-foreground">Controlled / Custom State</h4>
-            <p className="mt-1 text-sm text-muted-foreground">
+          <div className="bg-muted/50 rounded-lg border p-6">
+            <h4 className="text-foreground font-medium">Controlled / Custom State</h4>
+            <p className="text-muted-foreground mt-1 text-sm">
               Pass your own theme state and change handler to integrate with custom logic or external storage.
             </p>
-            <pre className="mt-4 overflow-x-auto rounded-md bg-background p-4 text-xs">
+            <pre className="bg-background mt-4 overflow-x-auto rounded-md p-4 text-xs">
               <code>{`const [theme, setTheme] = useState("light")
 
 <ThemeToggle 
@@ -274,11 +274,11 @@ const platform = 'native' as string;
 
         <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-6">
           <h4 className="font-medium text-amber-600 dark:text-amber-400">⚠️ Important: Shared Context</h4>
-          <p className="mt-1 text-sm text-muted-foreground">
-            The design system marks <code className="text-xs bg-muted px-1 py-0.5 rounded">next-themes</code> as a{' '}
+          <p className="text-muted-foreground mt-1 text-sm">
+            The design system marks <code className="bg-muted rounded px-1 py-0.5 text-xs">next-themes</code> as a{' '}
             <strong>peer dependency</strong>, meaning it uses the same instance as your project. This ensures that{' '}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">useTheme</code>,{' '}
-            <code className="text-xs bg-muted px-1 py-0.5 rounded">ThemeToggle</code>, and your own components all share
+            <code className="bg-muted rounded px-1 py-0.5 text-xs">useTheme</code>,{' '}
+            <code className="bg-muted rounded px-1 py-0.5 text-xs">ThemeToggle</code>, and your own components all share
             the same theme context — no duplicate providers needed.
           </p>
         </div>

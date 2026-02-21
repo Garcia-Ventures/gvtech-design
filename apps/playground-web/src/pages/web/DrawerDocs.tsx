@@ -169,7 +169,7 @@ export function DrawerDocs() {
                   </Button>
                   <div className="flex-1 text-center">
                     <div className="text-7xl font-bold tracking-tighter">{goal}</div>
-                    <div className="text-[0.70rem] uppercase text-muted-foreground">Calories/day</div>
+                    <div className="text-muted-foreground text-[0.70rem] uppercase">Calories/day</div>
                   </div>
                   <Button
                     variant="outline"
@@ -211,14 +211,14 @@ export function DrawerDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Drawer component is built on top of{' '}
           <a href="https://github.com/emilkowalski/vaul" className="underline" target="_blank" rel="noreferrer">
             Vaul
           </a>
           .
         </p>
-        <h4 className="text-lg font-medium mt-6">Drawer (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Drawer (Root)</h4>
         <PropsTable
           props={[
             {
@@ -245,7 +245,7 @@ export function DrawerDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DrawerTrigger</h4>
+        <h4 className="mt-6 text-lg font-medium">DrawerTrigger</h4>
         <PropsTable
           props={[
             {
@@ -256,7 +256,7 @@ export function DrawerDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">DrawerContent</h4>
+        <h4 className="mt-6 text-lg font-medium">DrawerContent</h4>
         <PropsTable
           props={[
             {

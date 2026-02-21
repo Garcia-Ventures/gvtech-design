@@ -81,7 +81,7 @@ export function CarouselDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <h4 className="text-lg font-medium mt-6">Carousel (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Carousel (Root)</h4>
         <PropsTable
           props={[
             {

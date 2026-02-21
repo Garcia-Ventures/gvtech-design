@@ -64,7 +64,7 @@ export const SearchTrigger = React.forwardRef<HTMLButtonElement, SearchTriggerPr
       <Button
         variant="outline"
         className={cn(
-          'relative h-9 text-sm text-muted-foreground transition-all transition-colors',
+          'text-muted-foreground relative h-9 text-sm transition-all transition-colors',
           variant === 'default'
             ? 'w-full justify-start pr-12'
             : 'w-9 justify-center px-0 md:w-40 md:justify-start md:px-3 md:pr-12 lg:w-64',
@@ -77,7 +77,7 @@ export const SearchTrigger = React.forwardRef<HTMLButtonElement, SearchTriggerPr
           <SearchIcon className="h-4 w-4 shrink-0" />
           <span className={cn('truncate', variant === 'compact' && 'hidden md:inline')}>{placeholder}</span>
         </span>
-        <kbd className="pointer-events-none absolute right-1.5 top-1.5 hidden h-6 select-none items-center gap-1 rounded border bg-muted px-1.5 font-mono text-[10px] font-medium opacity-100 sm:flex">
+        <kbd className="bg-muted pointer-events-none absolute top-1.5 right-1.5 hidden h-6 items-center gap-1 rounded border px-1.5 font-mono text-[10px] font-medium opacity-100 select-none sm:flex">
           <span className="text-xs">⌘</span>K
         </kbd>
       </Button>

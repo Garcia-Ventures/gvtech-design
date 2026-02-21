@@ -48,7 +48,7 @@ export function AspectRatioDocs() {
 </div>`}
       >
         <div className="w-[200px]">
-          <AspectRatio ratio={1 / 1} className="bg-muted rounded-md flex items-center justify-center">
+          <AspectRatio ratio={1 / 1} className="bg-muted flex items-center justify-center rounded-md">
             <span className="text-muted-foreground">1:1</span>
           </AspectRatio>
         </div>
@@ -64,7 +64,7 @@ export function AspectRatioDocs() {
 </div>`}
       >
         <div className="w-[300px]">
-          <AspectRatio ratio={4 / 3} className="bg-muted rounded-md flex items-center justify-center">
+          <AspectRatio ratio={4 / 3} className="bg-muted flex items-center justify-center rounded-md">
             <span className="text-muted-foreground">4:3</span>
           </AspectRatio>
         </div>

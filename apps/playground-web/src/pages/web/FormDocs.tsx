@@ -118,7 +118,7 @@ export function ProfileForm() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Form component is built on top of{' '}
           <a href="https://react-hook-form.com/" className="underline" target="_blank" rel="noreferrer">
             React Hook Form
@@ -126,7 +126,7 @@ export function ProfileForm() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">FormField</h4>
+        <h4 className="mt-6 text-lg font-medium">FormField</h4>
         <PropsTable
           props={[
             {
@@ -147,20 +147,20 @@ export function ProfileForm() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">FormItem</h4>
-        <p className="text-sm text-muted-foreground">Context provider for form fields.</p>
+        <h4 className="mt-6 text-lg font-medium">FormItem</h4>
+        <p className="text-muted-foreground text-sm">Context provider for form fields.</p>
 
-        <h4 className="text-lg font-medium mt-6">FormLabel</h4>
-        <p className="text-sm text-muted-foreground">Wrapper around Label with error state handling.</p>
+        <h4 className="mt-6 text-lg font-medium">FormLabel</h4>
+        <p className="text-muted-foreground text-sm">Wrapper around Label with error state handling.</p>
 
-        <h4 className="text-lg font-medium mt-6">FormControl</h4>
-        <p className="text-sm text-muted-foreground">Wrapper around the input element to handle accessibility.</p>
+        <h4 className="mt-6 text-lg font-medium">FormControl</h4>
+        <p className="text-muted-foreground text-sm">Wrapper around the input element to handle accessibility.</p>
 
-        <h4 className="text-lg font-medium mt-6">FormDescription</h4>
-        <p className="text-sm text-muted-foreground">Helper text for the field.</p>
+        <h4 className="mt-6 text-lg font-medium">FormDescription</h4>
+        <p className="text-muted-foreground text-sm">Helper text for the field.</p>
 
-        <h4 className="text-lg font-medium mt-6">FormMessage</h4>
-        <p className="text-sm text-muted-foreground">Displays error messages.</p>
+        <h4 className="mt-6 text-lg font-medium">FormMessage</h4>
+        <p className="text-muted-foreground text-sm">Displays error messages.</p>
       </div>
     </>
   );

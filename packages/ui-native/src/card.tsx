@@ -8,7 +8,7 @@ import { cn } from './lib/utils';
 export interface CardProps extends React.ComponentPropsWithoutRef<typeof View>, CardBaseProps {}
 
 const Card = React.forwardRef<React.ElementRef<typeof View>, CardProps>(({ className, ...props }, ref) => (
-  <View ref={ref} className={cn('rounded-xl border border-border bg-card shadow-sm', className)} {...props} />
+  <View ref={ref} className={cn('border-border bg-card rounded-xl border shadow-sm', className)} {...props} />
 ));
 Card.displayName = 'Card';
 
@@ -23,7 +23,7 @@ const CardTitle = React.forwardRef<React.ElementRef<typeof Text>, React.Componen
   ({ className, ...props }, ref) => (
     <Text
       ref={ref}
-      className={cn('font-semibold leading-none tracking-tight text-card-foreground text-lg', className)}
+      className={cn('text-card-foreground text-lg leading-none font-semibold tracking-tight', className)}
       {...props}
     />
   ),
@@ -32,7 +32,7 @@ CardTitle.displayName = 'CardTitle';
 
 const CardDescription = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
-    <Text ref={ref} className={cn('text-sm text-muted-foreground', className)} {...props} />
+    <Text ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
   ),
 );
 CardDescription.displayName = 'CardDescription';

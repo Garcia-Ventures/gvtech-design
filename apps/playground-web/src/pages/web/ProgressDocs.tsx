@@ -28,7 +28,7 @@ export function ProgressDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Progress component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/progress"
@@ -41,7 +41,7 @@ export function ProgressDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Progress (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Progress (Root)</h4>
         <PropsTable
           props={[
             {

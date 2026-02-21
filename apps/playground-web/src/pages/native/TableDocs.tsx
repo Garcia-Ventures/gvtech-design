@@ -49,9 +49,9 @@ export function TableDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">The Table component uses standard HTML table elements.</p>
+        <p className="text-muted-foreground text-sm">The Table component uses standard HTML table elements.</p>
 
-        <h4 className="text-lg font-medium mt-6">Table</h4>
+        <h4 className="mt-6 text-lg font-medium">Table</h4>
         <PropsTable
           props={[
             {

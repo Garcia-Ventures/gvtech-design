@@ -29,11 +29,11 @@ export function PropsTable({ props }: PropsTableProps) {
             <TableRow key={prop.name}>
               <TableCell className="font-mono text-sm font-semibold">
                 {prop.name}
-                {prop.required && <span className="ml-1 text-destructive">*</span>}
+                {prop.required && <span className="text-destructive ml-1">*</span>}
               </TableCell>
-              <TableCell className="font-mono text-xs text-muted-foreground">{prop.type}</TableCell>
-              <TableCell className="font-mono text-xs text-muted-foreground">{prop.defaultValue || '-'}</TableCell>
-              <TableCell className="text-sm text-muted-foreground">{prop.description}</TableCell>
+              <TableCell className="text-muted-foreground font-mono text-xs">{prop.type}</TableCell>
+              <TableCell className="text-muted-foreground font-mono text-xs">{prop.defaultValue || '-'}</TableCell>
+              <TableCell className="text-muted-foreground text-sm">{prop.description}</TableCell>
             </TableRow>
           ))}
         </TableBody>

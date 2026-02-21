@@ -30,8 +30,12 @@ export default defineConfig({
       output: {
         manualChunks(id) {
           if (id.includes('node_modules')) {
-            if (id.includes('axe-core')) return 'axe';
-            if (id.includes('react-docgen')) return 'docgen';
+            if (id.includes('axe-core')) {
+              return 'axe';
+            }
+            if (id.includes('react-docgen')) {
+              return 'docgen';
+            }
             return 'vendor';
           }
         },

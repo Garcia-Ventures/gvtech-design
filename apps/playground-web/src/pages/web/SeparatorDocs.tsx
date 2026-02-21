@@ -36,8 +36,8 @@ export function SeparatorDocs() {
       >
         <div>
           <div className="space-y-1">
-            <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
-            <p className="text-sm text-muted-foreground">An open-source UI component library.</p>
+            <h4 className="text-sm leading-none font-medium">Radix Primitives</h4>
+            <p className="text-muted-foreground text-sm">An open-source UI component library.</p>
           </div>
           <Separator className="my-4" />
           <div className="flex h-5 items-center space-x-4 text-sm">
@@ -52,7 +52,7 @@ export function SeparatorDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Separator component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/separator"
@@ -65,7 +65,7 @@ export function SeparatorDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">Separator (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">Separator (Root)</h4>
         <PropsTable
           props={[
             {

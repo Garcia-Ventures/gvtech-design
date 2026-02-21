@@ -107,7 +107,7 @@
     "tslib": "^2.3.0"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.8.2",
+    "@eng618/prettier-config": "^2.9.0",
     "@expo/cli": "~54.0.16",
     "@gv-tech/eslint-config": "^0.1.8",
     "@nx/expo": "22.5.1",

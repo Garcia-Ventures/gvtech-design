@@ -10,16 +10,16 @@ interface SidebarProps {
 
 export function Sidebar({ className, onLinkClick }: SidebarProps) {
   return (
-    <div className={cn('w-64 border-r bg-card flex flex-col h-full', className)}>
-      <div className="p-6 h-14 flex items-center border-b shrink-0">
-        <div className="flex items-center gap-2 font-bold text-xl">
-          <div className="h-6 w-6 rounded bg-primary flex items-center justify-center text-primary-foreground text-xs">
+    <div className={cn('bg-card flex h-full w-64 flex-col border-r', className)}>
+      <div className="flex h-14 shrink-0 items-center border-b p-6">
+        <div className="flex items-center gap-2 text-xl font-bold">
+          <div className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded text-xs">
             GV
           </div>
           GVTech Design
         </div>
         <div className="ml-auto flex flex-col items-end gap-0.5">
-          <span className="text-[10px] text-muted-foreground font-mono">v{version}</span>
+          <span className="text-muted-foreground font-mono text-[10px]">v{version}</span>
         </div>
       </div>
 
@@ -49,7 +49,7 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                             onClick={onLinkClick}
                             className={({ isActive }) =>
                               cn(
-                                'group px-2 py-1.5 text-sm rounded-md transition-colors hover:bg-muted/50 text-muted-foreground flex items-center justify-between',
+                                'group hover:bg-muted/50 text-muted-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors',
                                 isActive && 'bg-accent text-accent-foreground font-medium',
                               )
                             }

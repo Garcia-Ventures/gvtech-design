@@ -30,7 +30,7 @@ export function RadioGroupDocs() {
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-sm text-muted-foreground">
+        <p className="text-muted-foreground text-sm">
           The Radio Group component is built on top of{' '}
           <a
             href="https://www.radix-ui.com/primitives/docs/components/radio-group"
@@ -43,7 +43,7 @@ export function RadioGroupDocs() {
           .
         </p>
 
-        <h4 className="text-lg font-medium mt-6">RadioGroup (Root)</h4>
+        <h4 className="mt-6 text-lg font-medium">RadioGroup (Root)</h4>
         <PropsTable
           props={[
             {
@@ -97,7 +97,7 @@ export function RadioGroupDocs() {
           ]}
         />
 
-        <h4 className="text-lg font-medium mt-6">RadioGroupItem</h4>
+        <h4 className="mt-6 text-lg font-medium">RadioGroupItem</h4>
         <PropsTable
           props={[
             {

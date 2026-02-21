@@ -23,8 +23,12 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
     const saved = typeof window !== 'undefined' ? localStorage.getItem('gv-docs-platform') : null;
     if (saved === 'web' || saved === 'native') {
       // Ensure the saved preference is actually available for this component
-      if (saved === 'web' && web) return 'web';
-      if (saved === 'native' && native) return 'native';
+      if (saved === 'web' && web) {
+        return 'web';
+      }
+      if (saved === 'native' && native) {
+        return 'native';
+      }
     }
     // Default to web if available, otherwise native
     return web ? 'web' : 'native';
@@ -50,8 +54,8 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl md:text-3xl font-bold tracking-tight">{title}</h1>
-        {description && <p className="text-base md:text-lg text-muted-foreground">{description}</p>}
+        <h1 className="text-2xl font-bold tracking-tight md:text-3xl">{title}</h1>
+        {description && <p className="text-muted-foreground text-base md:text-lg">{description}</p>}
       </div>
 
       <Tabs value={activeTab} onValueChange={onTabChange} className="w-full">
@@ -59,7 +63,7 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
           {web && (
             <TabsTrigger
               value="web"
-              className="relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+              className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
             >
               Web
             </TabsTrigger>
@@ -67,23 +71,23 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
           {native && (
             <TabsTrigger
               value="native"
-              className="relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pb-3 pt-2 font-semibold text-muted-foreground shadow-none transition-none data-[state=active]:border-primary data-[state=active]:text-foreground data-[state=active]:shadow-none"
+              className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
             >
               Native
             </TabsTrigger>
           )}
         </TabsList>
         {web && (
-          <TabsContent value="web" className="mt-8 md:mt-10 border-none p-0 outline-none">
+          <TabsContent value="web" className="mt-8 border-none p-0 outline-none md:mt-10">
             <PlatformContext.Provider value="web">
               <div className="space-y-10 md:space-y-12">{web}</div>
             </PlatformContext.Provider>
           </TabsContent>
         )}
         {native && (
-          <TabsContent value="native" className="mt-8 md:mt-10 border-none p-0 outline-none">
+          <TabsContent value="native" className="mt-8 border-none p-0 outline-none md:mt-10">
             <PlatformContext.Provider value="native">
-              <div className="rounded-lg bg-blue-500/10 border border-blue-500/20 p-4 mb-6 flex gap-3 text-blue-500">
+              <div className="mb-6 flex gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 text-blue-500">
                 <Info className="h-5 w-5 shrink-0" />
                 <div className="text-sm">
                   <p className="font-semibold">Native Implementation</p>

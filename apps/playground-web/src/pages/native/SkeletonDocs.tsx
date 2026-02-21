@@ -28,7 +28,7 @@ export function SkeletonDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
 
-        <h4 className="text-lg font-medium mt-6">Skeleton</h4>
+        <h4 className="mt-6 text-lg font-medium">Skeleton</h4>
         <PropsTable
           props={[
             {
