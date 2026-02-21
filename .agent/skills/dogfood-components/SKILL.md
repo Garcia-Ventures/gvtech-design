@@ -11,7 +11,7 @@ Use this skill whenever you are modifying the documentation site structure, head
 
 ### 1. Analysis
 
-- **Identify Ad-hoc UI**: Look for custom HTML or static elements in the docs site (`src/App.tsx`, `src/components/docs/CombinedDocsLayout.tsx`, `src/pages/`) that replicate component functionality.
+- **Identify Ad-hoc UI**: Look for custom HTML or static elements in the docs site (`apps/playground-web/src/App.tsx`, `apps/playground-web/src/components/docs/CombinedDocsLayout.tsx`, `apps/playground-web/src/pages/`) that replicate component functionality.
 - **Check Library availability**: Verify if a corresponding component exists in `@gv-tech/ui-web` (e.g., Breadcrumbs, Tabs, Alerts, Badges).
 
 ### 2. Implementation
@@ -31,4 +31,4 @@ Use this skill whenever you are modifying the documentation site structure, head
 - [ ] Used components from `@gv-tech/ui-web` instead of ad-hoc HTML/CSS.
 - [ ] Component is correctly wired to relevant documentation state.
 - [ ] Verified that navigation and interaction remains functional.
-- [ ] `yarn validate` passes successfully.
+- [ ] `bun validate` passes successfully.

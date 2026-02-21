@@ -1,6 +1,5 @@
 ---
-name: maintain-component
-description: Guidelines for creating or updating UI components, ensuring tests and documentation stay in sync.
+trigger: always_on
 ---
 
 # Component Maintenance Skill

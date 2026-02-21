@@ -54,6 +54,7 @@
     "native:clear": "npx nx run native-playground:start --android --clear",
     "prepare": "husky",
     "start": "vite",
+    "sync-tokens": "tsx scripts/sync-tokens.ts",
     "test": "vitest",
     "test:ci": "CI=true vitest --run --reporter=dot",
     "test:watch": "vitest --watch",
