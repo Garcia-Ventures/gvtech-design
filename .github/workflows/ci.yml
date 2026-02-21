@@ -2,9 +2,14 @@ name: CI
 
 on: [push, pull_request]
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   fossa-scan:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     steps:
       - name: "Checkout Code"
         uses: actions/checkout@v6
@@ -16,6 +21,7 @@ jobs:
 
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     strategy:
       matrix:
         node: ["22", "24"]
@@ -62,6 +68,7 @@ jobs:
 
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     needs: [test]
     steps:
       - uses: actions/checkout@v6

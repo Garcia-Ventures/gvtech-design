@@ -4,6 +4,10 @@ on:
     - cron: "0 0 * * 0" # Every Sunday at midnight
   workflow_dispatch:
 
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: write
   id-token: write # For OIDC trusted publishing
@@ -11,6 +15,7 @@ permissions:
 jobs:
   release:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - name: Checkout
         uses: actions/checkout@v6
