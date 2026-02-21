@@ -1,3 +1,14 @@
+## 2.8.0 (2026-02-21)
+
+### 🚀 Features
+
+- Add form management dependencies and refactor checkbox test mock to use context for state propagation. ([83d5b5b](https://github.com/Garcia-Ventures/gvtech-design/commit/83d5b5b))
+- Integrate `vite-plugin-dts` for improved type generation and add explicit `forwardRef` types to native UI components. ([56f6df1](https://github.com/Garcia-Ventures/gvtech-design/commit/56f6df1))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.7.2 (2026-02-20)
 
 No changes for this project
