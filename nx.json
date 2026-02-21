@@ -27,6 +27,19 @@
     "lint": {
       "inputs": ["default"],
       "cache": true
+    },
+    "typecheck": {
+      "inputs": ["default", "^production"],
+      "cache": true
+    }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "runner": "nx/tasks-runners/default",
+      "options": {
+        "cacheableOperations": ["build", "test", "lint", "typecheck"],
+        "cacheDirectory": ".nx/cache"
+      }
     }
   },
   "plugins": [

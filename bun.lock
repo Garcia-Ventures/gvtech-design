@@ -7,6 +7,8 @@
       "dependencies": {
         "@expo/metro-config": "~54.0.9",
         "@expo/metro-runtime": "~6.1.2",
+        "@rn-primitives/types": "^1.2.0",
+        "class-variance-authority": "^0.7.1",
         "expo": "~54.0.0",
         "expo-splash-screen": "~31.0.11",
         "expo-status-bar": "~3.0.8",
@@ -130,11 +132,11 @@
     },
     "packages/design-tokens": {
       "name": "@gv-tech/design-tokens",
-      "version": "2.7.0",
+      "version": "2.7.1",
     },
     "packages/ui-core": {
       "name": "@gv-tech/ui-core",
-      "version": "2.7.0",
+      "version": "2.7.1",
       "dependencies": {
         "class-variance-authority": "^0.7.1",
       },
@@ -144,7 +146,7 @@
     },
     "packages/ui-native": {
       "name": "@gv-tech/ui-native",
-      "version": "2.7.0",
+      "version": "2.7.1",
       "dependencies": {
         "@gv-tech/design-tokens": "workspace:*",
         "@gv-tech/ui-core": "workspace:*",
@@ -190,7 +192,7 @@
     },
     "packages/ui-web": {
       "name": "@gv-tech/ui-web",
-      "version": "2.7.0",
+      "version": "2.7.1",
       "dependencies": {
         "@gv-tech/design-tokens": "workspace:*",
         "@gv-tech/ui-core": "workspace:*",
