@@ -42,16 +42,16 @@ jobs:
           # Install just enough to run Nx
           bun install --frozen-lockfile
 
-          # Try a dry-run; if nothing to release, Nx exits 0 but makes no changes.
-          # We detect "no changes" by checking git diff afterwards.
-          npx nx release version --git-tag=false --git-commit=false --dry-run
+          # Capture output of dry-run; Nx --dry-run doesn't modify local files
+          npx nx release version --git-tag=false --git-commit=false --dry-run > nx_release_output.txt 2>&1
+          cat nx_release_output.txt
 
-          if git diff --quiet; then
-            echo "needs-release=false" >> "$GITHUB_OUTPUT"
-          else
+          # Look for indicators that a version bump would occur
+          if grep -E "Resolved the specifier as \"(major|minor|patch)\"" nx_release_output.txt || \
+             grep -E "Applied version .+ directly" nx_release_output.txt; then
             echo "needs-release=true" >> "$GITHUB_OUTPUT"
-            # Revert dry-run file changes to keep working tree clean
-            git restore .
+          else
+            echo "needs-release=false" >> "$GITHUB_OUTPUT"
           fi
 
       - name: Exit early if no release needed
