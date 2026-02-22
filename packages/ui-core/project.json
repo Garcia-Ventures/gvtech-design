@@ -1,14 +1,8 @@
 {
-  "name": "@gv-tech/design-system",
-  "root": ".",
+  "name": "@gv-tech/ui-core",
+  "root": "packages/ui-core",
   "projectType": "library",
   "targets": {
-    "build": {
-      "executor": "nx:run-script",
-      "options": {
-        "script": "build"
-      }
-    },
     "nx-release-publish": {
       "executor": "@nx/js:release-publish",
       "options": {
