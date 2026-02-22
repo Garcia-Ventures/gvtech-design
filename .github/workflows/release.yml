@@ -1,7 +1,7 @@
 name: Release
 on:
   schedule:
-    - cron: "0 0 * * 0" # Every Sunday at midnight
+    - cron: '0 0 * * 0' # Every Sunday at midnight
   workflow_dispatch:
 
 concurrency:
@@ -24,11 +24,22 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
+      - name: Use Node.js 24
+        uses: actions/setup-node@v6
+        with:
+          node-version: 24
+          registry-url: 'https://registry.npmjs.org'
+
+      - name: Install Bun
+        uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: latest
+
       # Use Nx as the pre-check (fast, and matches your nx.json config)
       - name: Check if release is needed (dry-run)
         id: need_release
         run: |
-          # Install just enough to run Nx (optional, you can also run npx with bundled deps)
+          # Install just enough to run Nx
           bun install --frozen-lockfile
 
           # Try a dry-run; if nothing to release, Nx exits 0 but makes no changes.
@@ -49,19 +60,6 @@ jobs:
           echo "Nx release dry-run produced no changes. Skipping."
           exit 0
 
-      - name: Use Node.js 24
-        if: steps.need_release.outputs.needs-release == 'true'
-        uses: actions/setup-node@v6
-        with:
-          node-version: 24
-          registry-url: "https://registry.npmjs.org"
-
-      - name: Install Bun
-        if: steps.need_release.outputs.needs-release == 'true'
-        uses: oven-sh/setup-bun@v2
-        with:
-          bun-version: latest
-
       - name: Install dependencies
         if: steps.need_release.outputs.needs-release == 'true'
         run: bun install --frozen-lockfile
@@ -80,8 +78,8 @@ jobs:
         if: steps.need_release.outputs.needs-release == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          NPM_CONFIG_PROVENANCE: "true"
-          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
+          NPM_CONFIG_PROVENANCE: 'true'
+          NPM_CONFIG_REGISTRY: 'https://registry.npmjs.org'
         run: |
           npx nx release version --git-tag=false --git-commit=false
           npx nx release publish --yes --verbose
