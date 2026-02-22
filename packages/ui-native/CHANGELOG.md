@@ -1,3 +1,17 @@
+## 2.15.0 (2026-02-22)
+
+### 🚀 Features
+
+- Configure Vite aliases for monorepo package resolution and React Native shimming in playground-web, update its module type, adjust ui-native package paths, and increase a test timeout. ([c30cd9a](https://github.com/Garcia-Ventures/gvtech-design/commit/c30cd9a))
+
+### 🩹 Fixes
+
+- update `ui-native` package's main and module entry points to `.mjs` and declare build outputs in `project.json`. ([69a536f](https://github.com/Garcia-Ventures/gvtech-design/commit/69a536f))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.14.0 (2026-02-22)
 
 No changes for this project
