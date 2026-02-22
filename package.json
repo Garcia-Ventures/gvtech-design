@@ -11,9 +11,9 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.es.js",
-      "require": "./dist/index.cjs.js",
-      "default": "./dist/index.es.js"
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
     },
     "./style.css": {
       "style": "./dist/design-system.css",
@@ -23,13 +23,13 @@
     "./package.json": "./package.json",
     "./*": {
       "types": "./dist/*.d.ts",
-      "import": "./dist/*.es.js",
-      "require": "./dist/*.cjs.js",
-      "default": "./dist/*.es.js"
+      "import": "./dist/*.mjs",
+      "require": "./dist/*.cjs",
+      "default": "./dist/*.mjs"
     }
   },
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.es.js",
+  "main": "dist/index.cjs",
+  "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
   "style": "dist/design-system.css",
   "files": [

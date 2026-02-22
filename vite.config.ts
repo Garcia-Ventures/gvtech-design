@@ -92,8 +92,8 @@ export default defineConfig({
           name: 'GvtechDesign',
           fileName: (format, entryName) =>
             entryName === 'index'
-              ? `index.${format === 'es' ? 'es' : 'cjs'}.js`
-              : `${entryName}.${format === 'es' ? 'es' : 'cjs'}.js`,
+              ? `index.${format === 'es' ? 'mjs' : 'cjs'}`
+              : `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
           formats: ['es', 'cjs'],
         }
       : undefined,

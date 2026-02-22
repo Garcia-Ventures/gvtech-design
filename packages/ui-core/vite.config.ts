@@ -13,7 +13,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'GvTechUiCore',
-      fileName: (format) => `index.${format === 'es' ? 'es' : 'cjs'}.js`,
+      fileName: (format) => `index.${format === 'es' ? 'mjs' : 'cjs'}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

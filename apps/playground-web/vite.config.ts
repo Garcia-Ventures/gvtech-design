@@ -10,17 +10,7 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   },
   resolve: {
-    alias: [
-      {
-        find: /^react-native$/,
-        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
-      },
-      {
-        find: /^react-native\/(.*)$/,
-        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
-      },
-      { find: '@', replacement: resolve(__dirname, './src') },
-    ],
+    alias: [{ find: '@', replacement: resolve(__dirname, './src') }],
     extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
   },
   build: {
