@@ -12,6 +12,7 @@
 [![Maintained with Nx](https://img.shields.io/badge/maintained%20with-nx-blue?style=flat-square&logo=nx)](https://nx.dev)
 [![License](https://img.shields.io/badge/license-MIT-green?style=flat-square)](LICENSE)
 [![FOSSA Status](https://app.fossa.com/api/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design.svg?type=shield&issueType=license)](https://app.fossa.com/projects/custom%2B20755%2Fgithub.com%2FGarcia-Ventures%2Fgvtech-design?ref=badge_shield&issueType=license)
+[![Buy Me A Coffee](https://img.shields.io/badge/Buy%20Me%20A%20Coffee-Donate-orange.svg?style=flat-square&logo=buy-me-a-coffee)](https://www.buymeacoffee.com/eng618)
 
 A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Nx**, **Vite**, and **TypeScript**.
 
@@ -28,6 +29,7 @@ A React component design system. This repository provides a lightweight, opinion
   - [Releases \& Publishing](#releases--publishing)
   - [Contributing](#contributing)
   - [Roadmap](#roadmap)
+  - [Support](#support)
   - [License](#license)
 
 ---
@@ -102,6 +104,12 @@ Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) be
 ## Roadmap
 
 See issues and milestones for planned work.
+
+## Support
+
+If you find this project useful, consider supporting its development:
+
+[![Buy Me A Coffee](https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png)](https://www.buymeacoffee.com/eng618)
 
 ## License
 
