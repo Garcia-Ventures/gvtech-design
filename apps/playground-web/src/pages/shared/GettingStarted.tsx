@@ -94,23 +94,50 @@ function MyComponent() {
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Platform Support</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Platform Support & Distribution</h2>
+        <p className="text-muted-foreground">
+          GV Tech Design System is distributed as a set of scoped packages, allowing you to install only what you need
+          for your specific platform.
+        </p>
         <div className="grid gap-4 md:grid-cols-2">
           <Card>
             <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">Web</CardTitle>
+              <CardTitle className="text-lg">@gv-tech/ui-web</CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0">
-              <p className="text-muted-foreground text-sm">Optimized for React with Radix UI and Tailwind CSS 4.0.</p>
+              <p className="text-muted-foreground text-sm">
+                Optimized for React Web with Radix UI and Tailwind CSS 4.0. Contains all DOM-based implementations.
+              </p>
             </CardContent>
           </Card>
           <Card>
             <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">React Native</CardTitle>
+              <CardTitle className="text-lg">@gv-tech/ui-native</CardTitle>
             </CardHeader>
             <CardContent className="p-4 pt-0">
               <p className="text-muted-foreground text-sm">
-                Built with NativeWind for a consistent styling experience on iOS and Android.
+                Built with NativeWind for iOS and Android. Includes custom React Native implementations of core
+                contracts.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="p-4 pb-2">
+              <CardTitle className="text-lg">@gv-tech/design-tokens</CardTitle>
+            </CardHeader>
+            <CardContent className="p-4 pt-0">
+              <p className="text-muted-foreground text-sm">
+                The foundation: HSL colors, spacing scales, and typography tokens. Zero-dependency package.
+              </p>
+            </CardContent>
+          </Card>
+          <Card>
+            <CardHeader className="p-4 pb-2">
+              <CardTitle className="text-lg">@gv-tech/design-system</CardTitle>
+            </CardHeader>
+            <CardContent className="p-4 pt-0">
+              <p className="text-muted-foreground text-sm">
+                The aggregate meta-package. Install this if you want everything in a single import.
               </p>
             </CardContent>
           </Card>
@@ -190,25 +217,92 @@ export function InstallationPage() {
       </div>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Install the package</h2>
-        <p className="text-muted-foreground">Install the design system package using your preferred package manager:</p>
-        <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
+        <h2 className="text-2xl font-semibold tracking-tight">Choose your package</h2>
+        <p className="text-muted-foreground">
+          We recommend installing the platform-specific package for the best performance and smallest bundle size:
+        </p>
+        <Tabs defaultValue="web" className="w-full">
           <TabsList>
-            <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="bun">bun</TabsTrigger>
-            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+            <TabsTrigger value="web">Web App</TabsTrigger>
+            <TabsTrigger value="native">React Native App</TabsTrigger>
+            <TabsTrigger value="tokens">Tokens Only</TabsTrigger>
+            <TabsTrigger value="all">All-in-One</TabsTrigger>
           </TabsList>
-          <TabsContent value="npm" className="mt-4">
-            <CodeBlock code="npm install @gv-tech/design-system" language="bash" />
+          <TabsContent value="web" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">Best for web-only projects using React and Tailwind.</p>
+            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
+              <TabsList variant="outline">
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+              </TabsList>
+              <TabsContent value="npm" className="mt-2">
+                <CodeBlock code="npm install @gv-tech/ui-web" language="bash" />
+              </TabsContent>
+              <TabsContent value="bun" className="mt-2">
+                <CodeBlock code="bun add @gv-tech/ui-web" language="bash" />
+              </TabsContent>
+              <TabsContent value="pnpm" className="mt-2">
+                <CodeBlock code="pnpm add @gv-tech/ui-web" language="bash" />
+              </TabsContent>
+            </Tabs>
           </TabsContent>
-          <TabsContent value="yarn" className="mt-4">
-            <CodeBlock code="yarn add @gv-tech/design-system" language="bash" />
+          <TabsContent value="native" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">Best for mobile apps using Expo or React Native.</p>
+            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
+              <TabsList variant="outline">
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+              </TabsList>
+              <TabsContent value="npm" className="mt-2">
+                <CodeBlock code="npm install @gv-tech/ui-native" language="bash" />
+              </TabsContent>
+              <TabsContent value="bun" className="mt-2">
+                <CodeBlock code="bun add @gv-tech/ui-native" language="bash" />
+              </TabsContent>
+              <TabsContent value="pnpm" className="mt-2">
+                <CodeBlock code="pnpm add @gv-tech/ui-native" language="bash" />
+              </TabsContent>
+            </Tabs>
           </TabsContent>
-          <TabsContent value="bun" className="mt-4">
-            <CodeBlock code="bun add @gv-tech/design-system" language="bash" />
+          <TabsContent value="tokens" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">Lightweight HSL color tokens and spacing variables.</p>
+            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
+              <TabsList variant="outline">
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+              </TabsList>
+              <TabsContent value="npm" className="mt-2">
+                <CodeBlock code="npm install @gv-tech/design-tokens" language="bash" />
+              </TabsContent>
+              <TabsContent value="bun" className="mt-2">
+                <CodeBlock code="bun add @gv-tech/design-tokens" language="bash" />
+              </TabsContent>
+              <TabsContent value="pnpm" className="mt-2">
+                <CodeBlock code="pnpm add @gv-tech/design-tokens" language="bash" />
+              </TabsContent>
+            </Tabs>
           </TabsContent>
-          <TabsContent value="pnpm" className="mt-4">
-            <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
+          <TabsContent value="all" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">The full system, including core, web, and native packages.</p>
+            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
+              <TabsList variant="outline">
+                <TabsTrigger value="npm">npm</TabsTrigger>
+                <TabsTrigger value="bun">bun</TabsTrigger>
+                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+              </TabsList>
+              <TabsContent value="npm" className="mt-2">
+                <CodeBlock code="npm install @gv-tech/design-system" language="bash" />
+              </TabsContent>
+              <TabsContent value="bun" className="mt-2">
+                <CodeBlock code="bun add @gv-tech/design-system" language="bash" />
+              </TabsContent>
+              <TabsContent value="pnpm" className="mt-2">
+                <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
+              </TabsContent>
+            </Tabs>
           </TabsContent>
         </Tabs>
       </section>
@@ -353,16 +447,16 @@ export function InstallationPage() {
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4 text-sm">
-            <CodeBlock code="npm install @gv-tech/design-system lucide-react-native nativewind" language="bash" />
+            <CodeBlock code="npm install @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
           </TabsContent>
           <TabsContent value="yarn" className="mt-4 text-sm">
-            <CodeBlock code="yarn add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
+            <CodeBlock code="yarn add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
           </TabsContent>
           <TabsContent value="bun" className="mt-4 text-sm">
-            <CodeBlock code="bun add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
+            <CodeBlock code="bun add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4 text-sm">
-            <CodeBlock code="pnpm add @gv-tech/design-system lucide-react-native nativewind" language="bash" />
+            <CodeBlock code="pnpm add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
           </TabsContent>
         </Tabs>
       </section>
@@ -380,8 +474,8 @@ export function InstallationPage() {
           </TabsList>
           <TabsContent value="web" className="mt-4">
             <CodeBlock
-              code={`import { ThemeProvider, ThemeToggle, Button } from '@gv-tech/design-system';
-import '@gv-tech/design-system/style.css';
+              code={`import { ThemeProvider, ThemeToggle, Button } from '@gv-tech/ui-web';
+import '@gv-tech/ui-web/style.css'; // or @gv-tech/design-system/style.css
 
 export default function App() {
   return (
@@ -397,7 +491,7 @@ export default function App() {
           </TabsContent>
           <TabsContent value="native" className="mt-4">
             <CodeBlock
-              code={`import { ThemeProvider, Button, Input, Label, Text } from '@gv-tech/design-system';
+              code={`import { ThemeProvider, Button, Input, Label, Text } from '@gv-tech/ui-native';
 import { View } from 'react-native';
 
 export default function MyScreen() {
