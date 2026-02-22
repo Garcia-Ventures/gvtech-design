@@ -1,10 +1,10 @@
 import { RadioGroup, RadioGroupItem } from '@gv-tech/ui-web';
-import { render, screen } from '@testing-library/react';
+import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 describe('RadioGroup', () => {
-  it('renders correctly', () => {
+  it('renders correctly', async () => {
     render(
       <RadioGroup defaultValue="option-one">
         <RadioGroupItem value="option-one" id="option-one" aria-label="Option One" />
@@ -12,10 +12,9 @@ describe('RadioGroup', () => {
       </RadioGroup>,
     );
 
-    expect(screen.getByRole('radio', { name: /Option One/i })).toBeInTheDocument();
-    // Radix RadioGroup renders standard inputs visually hidden.
-    // Testing library query by role 'radio' should find them.
-    // However, since we didn't provide labels, we might need to rely on 'checked' state or IDs.
+    await waitFor(() => {
+      expect(screen.getByRole('radio', { name: /Option One/i })).toBeInTheDocument();
+    });
 
     const radio1 = screen.getByRole('radio', { checked: true });
     expect(radio1).toBeInTheDocument();
