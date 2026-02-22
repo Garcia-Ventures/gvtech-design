@@ -111,48 +111,13 @@ gvtech-design/                       (Nx workspace root)
 
 ---
 
-## Open Decisions (Team Input Required)
+## Resolved Decisions
 
-### 1. Token Source Format
-
-| Option                           | Pros                                            | Cons                                          |
-| :------------------------------- | :---------------------------------------------- | :-------------------------------------------- |
-| **TS-first** (current approach)  | Type safety, IDE completion, direct import      | Requires build step for non-TS consumers      |
-| **JSON-first**                   | Universal (Style Dictionary compatible)         | Loses TS types, needs codegen for type safety |
-| **TS-first + JSON build output** | Best of both — TS as source, JSON/CSS generated | Slightly more build config                    |
-
-> **Recommendation:** TS-first with generated JSON/CSS outputs. This preserves the current workflow while enabling future integrations (Figma plugins, Style Dictionary).
-
-### 2. React Native Styling Approach
-
-| Option                         | Pros                                                       | Cons                                         |
-| :----------------------------- | :--------------------------------------------------------- | :------------------------------------------- |
-| **NativeWind** (current)       | Tailwind class syntax consistency with web, already in use | Tied to Tailwind version, some edge cases    |
-| **StyleSheet + token imports** | Pure RN, no extra deps                                     | Class name parity lost, more boilerplate     |
-| **Tamagui / Unistyles**        | Cross-platform styling                                     | Additional abstraction layer, learning curve |
-
-> **Recommendation:** Stay with NativeWind — it's already in use, provides className parity with web, and maps directly to shared tokens.
-
-### 3. Expo vs Bare React Native
-
-This affects Nx executor configuration, dev loop, and native module linking. **Team should specify.**
-
-### 4. Phase 1 Component List
-
-Proposed first set (7 components):
-
-| Component            | Web Status  | Native Status  | Priority Rationale                                            |
-| :------------------- | :---------- | :------------- | :------------------------------------------------------------ |
-| **Button**           | ✅ Complete | ✅ Complete    | Core interaction — already done                               |
-| **Text**             | ✅ Complete | 🆕 New         | Foundation for typography                                     |
-| **Input**            | ✅ Complete | ✅ Complete    | Core form element — already done                              |
-| **Checkbox / Radio** | ✅ Complete | ❌ Placeholder | Core form elements                                            |
-| **Card**             | ✅ Complete | ✅ Complete\*  | Layout primitive — native exists but needs contract alignment |
-| **Dialog / Sheet**   | ✅ Complete | ❌ Placeholder | Critical overlay pattern (maps to BottomSheet on native)      |
-| **Toast**            | ✅ Complete | ❌ Placeholder | Feedback pattern                                              |
-
-> [!NOTE]
-> Button, Input, and Card already have native implementations. They will be migrated to use `ui-core` contracts rather than rewritten.
+1. **Token Source Format**: **TS-first + JSON/CSS build outputs**. Preserves type safety while enabling universal consumption.
+2. **React Native Styling**: **NativeWind**. Successfully implemented across all 27+ native components, providing excellent class-name parity with web.
+3. **Expo vs Bare RN**: **Expo (SDK 54 + CNG)**. Adopted for superior DX and simplified native module management.
+4. **Phase 1 Component List**: **Exceeded**. Targeted 7 core components; delivered 27+ real native implementations with full contract parity.
+5. **Release Orchestration**: **Nx Release**. Adopted over `release-please` to support lock-step versioning and automatic internal dependency synchronization across the monorepo.
 
 ---
 

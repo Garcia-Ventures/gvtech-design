@@ -1,42 +1,39 @@
 # ADR: Release Orchestration — Release-Please vs. Nx Release
 
-**Date:** 2026-02-19  
-**Status:** Evaluation (Deferred to Post-Phase 1)  
+**Date:** 2026-02-22  
+**Status:** Adopted  
 **Author(s):** Garcia Ventures Engineering
 
 ## Context
 
 As the GV Tech Design System transitions to a monorepo architecture with multiple packages (`@gv-tech/ui-web`, `@gv-tech/ui-native`, `@gv-tech/ui-core`, `@gv-tech/design-tokens`), we must choose an orchestration tool to handle versioning, changelog generation, and npm publishing.
 
-Currently, the project uses **release-please**, which was inherited from the single-package architecture.
+Previously, the project used **release-please**, but we have now fully migrated to **Nx Release**.
 
 ## Options
 
-### 1. Release-Please (Status Quo)
+### 1. Release-Please (Legacy)
 
 A "Pull Request-first" tool by Google that parses Conventional Commits to maintain an automated release PR.
 
 - **Pros:**
-  - **Low Friction:** Already integrated and working.
+  - **Low Friction:** Worked well for single-package builds.
   - **Visible Workflow:** Releases are "staged" in a visible GitHub PR.
-  - **Independent Versions:** Natively supports different versions for different packages.
 - **Cons:**
-  - **Workspace Unaware:** Does not understand internal package dependencies. Bumping `ui-core` does not automatically update the version of `ui-core` listed in `ui-native/package.json`.
-  - **GitHub Locked:** Deeply tied to GitHub Actions and PR events.
-  - **Complex Manifests:** Multi-package configuration in `release-please-config.json` can become verbose.
+  - **Workspace Unaware:** Could not automatically sync internal `workspace:*` dependencies.
+  - **Config Overhead:** Manually maintaining manifests for 4+ packages became error-prone.
 
-### 2. Nx Release (Proposed)
+### 2. Nx Release (Selected)
 
 A "Task-first" tool built into the Nx ecosystem that uses the project graph to orchestrate releases.
 
 - **Pros:**
   - **Dependency Sync:** Automatically updates internal package versions when their dependencies change.
-  - **Lock-step Support:** Simplifies keeping all design system packages on the same version (e.g., all 3.2.0), which is often preferred for design systems.
+  - **Lock-step Support:** We use lock-step versioning to keep all design system packages on the same version, ensuring consistency for consumers.
   - **Local Dry-Runs:** Command-line testing (`nx release --dry-run`) allows verification without pushing to Git.
   - **Task Graph Integration:** Leverages the Nx cache and task graph for builds during the release process.
 - **Cons:**
-  - **Active vs. Passive:** Requires triggering a command (e.g., via `workflow_dispatch` or on merge) rather than automatically maintaining a PR.
-  - **Learning Curve:** New configuration format (`nx.json` additions) compared to the familiar `release-please` config.
+  - **Active vs. Passive:** Requires triggering a command (via `workflow_dispatch` in our Release CI) rather than purely automated PR creation.
 
 ## Comparison Table
 
@@ -50,15 +47,15 @@ A "Task-first" tool built into the Nx ecosystem that uses the project graph to o
 
 ## Decision
 
-**We will continue to use Release-Please through the completion of Phase 1.**
+**Adopt Nx Release as the primary orchestration tool for the library.**
 
-The transition to a multi-package monorepo is already a significant architectural shift. Introducing a new release orchestrator simultaneously increases the risk of delivery delays. Once Phase 1 is stable and the sub-packages are successfully publishing, we will evaluate a migration to **Nx Release** to benefit from **Lock-step versioning** and **automatic dependency synchronization**.
+We have completed the migration from `release-please` to `nx release`. This choice solves the critical issue of synchronizing internal package versions (e.g., ensuring `ui-web` always references the correct version of `ui-core`) and allows us to maintain a "Lock-step" versioning strategy for the entire design system suite.
 
 ## Consequences
 
-- **Short-term:** We have moved from `workspace:*` to explicit versioning (e.g., `^2.12.0`) for internal dependencies in published packages. This prevents "Workspace not found" errors for external consumers (Yarn/npm) while still allowing Bun to link local packages during development.
-- **Long-term:** Migration to **Nx Release** will automate these version bumps across the internal dependency graph, eliminating the need for manual updates.
-- **Maintenance:** The `release-please-config.json` and `.release-please-manifest.json` files must be kept in sync as new packages are added.
+- **Short-term:** Developers now use `nx release` (via the "Release" GitHub Action) to publish new versions.
+- **Long-term:** Internal dependency management is fully automated. Version bumps in `ui-core` automatically propagate through the project graph.
+- **Maintenance:** Release logic is centralized in `nx.json` and `project.json` files, reducing the need for sidecar configuration files like `.release-please-manifest.json`.
 
 ## References
 

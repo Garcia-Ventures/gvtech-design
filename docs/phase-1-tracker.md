@@ -1,8 +1,8 @@
 # Phase 1 Tracker — Cross-Platform Design System
 
 **Started:** 2026-02-17  
-**Updated:** 2026-02-19
-**Status:** 🟢 Phase 1 Complete — Tests Passing, Docs & Playground Polish In Progress
+**Updated:** 2026-02-22
+**Status:** 🟢 Phase 1 Complete — Full Migration to Nx Workspace & Release Tooling
 
 > See [update-plan.md](./update-plan.md) for the actionable Phase 0 PR checklist and Phase 1 migration steps.
 
@@ -23,8 +23,9 @@
 | Create `apps/native-playground` | ✅ Done |       | Expo app scaffolded with core component showcase             |
 | Configure Nx caching            | ✅ Done |       | `nx.json` + CI cache restore steps                           |
 | CI/CD pipeline updates          | ✅ Done |       | Nx cache steps in test + build jobs                          |
+| **Migrate to Nx Release**       | ✅ Done |       | Full migration from release-please; lock-step versioning     |
 
-> **Release tooling:** release-please remains the orchestrator through Phase 0/1. Nx Release is a future option to evaluate after Phase 1. See [update-plan.md](./update-plan.md) and [release-tooling-evaluation.md](./release-tooling-evaluation.md).
+> **Release tooling:** We have successfully migrated to **Nx Release**. See [release-tooling-evaluation.md](./release-tooling-evaluation.md).
 
 ### Component Parity
 
@@ -32,7 +33,7 @@
 
 | Component           | Contract | Web (`ui-web`) | Native (`ui-native`) | Tests (web) | Tests (native) | Notes                                         |
 | :------------------ | :------- | :------------- | :------------------- | :---------- | :------------- | :-------------------------------------------- |
-| **Accordion**       | ✅       | ✅             | ✅                   | ✅          | ⬜             | Reanimated animated trigger                   |
+| **Accordion**       | ✅       | ✅             | ✅                   | ✅          | ✅             | Reanimated animated trigger                   |
 | **Alert**           | ✅       | ✅             | ✅                   | ✅          | ⬜             | Variants: default, destructive, warning, info |
 | **Alert Dialog**    | ✅       | ✅             | ✅                   | ✅          | ⬜             | Uses Dialog primitives + Reanimated           |
 | **Aspect Ratio**    | ✅       | ✅             | 🚫                   | ✅          | —              | Web-only concept                              |
@@ -100,25 +101,25 @@
 - [x] Tokens imported from `design-tokens` by both `ui-web` and `ui-native` (no duplication)
 - [x] 27+ core components have real native implementations with contracts matching `ui-core`
 - [x] All `ui-web` tests passing (46 components)
-- [x] All `ui-native` tests passing (12 components with test files)
+- [x] All `ui-native` tests passing (27+ components)
 - [x] Playground shows native tab only for components with real implementations
+- [x] Sub-package publishing configured in Nx Release
 - [ ] Native playground demonstrates all 27 real native components
 - [ ] Platform divergence registry complete (diff notes per component)
-- [ ] Sub-package publishing configured in release-please
 
 ---
 
 ## Key Decisions
 
-| Decision               | Selected Approach                     | Status      |
-| :--------------------- | :------------------------------------ | :---------- |
-| Token source format    | TS-first + JSON outputs               | ✅ Accepted |
-| RN styling approach    | NativeWind (already in use)           | ✅ Accepted |
-| Expo vs Bare RN        | **Expo (SDK + CNG)**                  | ✅ Accepted |
-| Phase 1 component set  | Exceeded: 27+ real (vs 7 planned)     | ✅ Complete |
-| Release tooling        | release-please (stays as-is)          | ✅ Accepted |
-| Nx release migration   | Deferred — evaluate post Phase 1      | 🟡 Pending  |
-| Sub-package publishing | Root `@gv-tech/design-system` for now | 🟡 Pending  |
+| Decision               | Selected Approach                            | Status      |
+| :--------------------- | :------------------------------------------- | :---------- |
+| Token source format    | TS-first + JSON outputs                      | ✅ Accepted |
+| RN styling approach    | NativeWind (already in use)                  | ✅ Accepted |
+| Expo vs Bare RN        | **Expo (SDK + CNG)**                         | ✅ Accepted |
+| Phase 1 component set  | Exceeded: 27+ real (vs 7 planned)            | ✅ Complete |
+| Release tooling        | **Nx Release**                               | ✅ Accepted |
+| Nx release migration   | Complete — Lock-step enabled                 | ✅ Accepted |
+| Sub-package publishing | All sub-packages (web, native, core, tokens) | ✅ Accepted |
 
 > See [native-setup-decision.md](./native-setup-decision.md) for the Expo decision rationale.
 
@@ -129,16 +130,15 @@
 1. **Expand `native-playground`** — Add Accordion, Alert Dialog, Alert, Avatar, Badge, Dialog, Sheet, Skeleton, Switch, Table, Tabs, Toast, Toggle, Tooltip, etc.
 2. **Complete platform divergence registry** — Document intentional differences per component in `universal-implementation.md`
 3. **Native test coverage** — Add test files for the 15+ native components that don't have tests yet
-4. **Sub-package publishing** — Add `@gv-tech/ui-web`, `@gv-tech/ui-native`, `@gv-tech/ui-core`, `@gv-tech/design-tokens` to release-please manifests
-5. **`private: true` at root** — Once sub-packages are the primary publish targets (Decision C from update-plan.md)
-6. **Nx Release evaluation** — Assess whether Nx Release adds value over release-please for the monorepo
+4. **`private: true` at root** — Once sub-packages are the primary publish targets (Decision C from update-plan.md)
 
 ---
 
 ## Weekly Status
 
-| Week       | Focus                                | Completed                                                                  | Blockers |
-| :--------- | :----------------------------------- | :------------------------------------------------------------------------- | :------- |
-| 2026-02-17 | Documentation, ADR, initial planning | Architecture docs created                                                  | —        |
-| 2026-02-17 | Phase 0 — Nx + Workspaces setup      | Yarn workspaces, Nx 22.5.1, nx.json, CI cache, all checks passing          | —        |
-| 2026-02-19 | Phase 1 complete — Tests green       | All 46 web + 12 native tests passing; playground live; docs/routes aligned | —        |
+| Week       | Focus                                | Completed                                                                    | Blockers |
+| :--------- | :----------------------------------- | :--------------------------------------------------------------------------- | :------- |
+| 2026-02-17 | Documentation, ADR, initial planning | Architecture docs created                                                    | —        |
+| 2026-02-17 | Phase 0 — Nx + Workspaces setup      | Yarn workspaces, Nx 22.5.1, nx.json, CI cache, all checks passing            | —        |
+| 2026-02-19 | Phase 1 complete — Tests green       | All 46 web + 12 native tests passing; playground live; docs/routes aligned   | —        |
+| 2026-02-22 | Phase 1 Polish & Nx Release          | Full migration to Nx Release; fixed package.json versions; all tests passing | —        |
