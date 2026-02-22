@@ -24,29 +24,29 @@ jobs:
           fetch-depth: 0
           token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
-      # QUICK PRECHECK: decide if there's anything to release
-      - name: Check if release is needed
+      # Use Nx as the pre-check (fast, and matches your nx.json config)
+      - name: Check if release is needed (dry-run)
         id: need_release
         run: |
-          # Find last tag (adjust if you tag per package)
-          LAST_TAG=$(git describe --tags --abbrev=0 2>/dev/null || echo "")
-          if [ -z "$LAST_TAG" ]; then
-            echo "no-tag-found=true" >> "$GITHUB_OUTPUT"
-            echo "needs-release=true" >> "$GITHUB_OUTPUT"
-            exit 0
-          fi
+          # Install just enough to run Nx (optional, you can also run npx with bundled deps)
+          bun install --frozen-lockfile
 
-          # Look for conventional commits since last tag
-          if git log "$LAST_TAG"..HEAD --pretty=format:%s | grep -E '^(feat|fix|perf|refactor|chore|build|docs|style|test)(\(.+\))?:' > /dev/null; then
-            echo "needs-release=true" >> "$GITHUB_OUTPUT"
-          else
+          # Try a dry-run; if nothing to release, Nx exits 0 but makes no changes.
+          # We detect "no changes" by checking git diff afterwards.
+          npx nx release version --git-tag=false --git-commit=false --dry-run
+
+          if git diff --quiet; then
             echo "needs-release=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs-release=true" >> "$GITHUB_OUTPUT"
+            # Revert dry-run file changes to keep working tree clean
+            git restore .
           fi
 
       - name: Exit early if no release needed
         if: steps.need_release.outputs.needs-release == 'false'
         run: |
-          echo "No conventional-commit changes since last release. Skipping."
+          echo "Nx release dry-run produced no changes. Skipping."
           exit 0
 
       - name: Use Node.js 24
