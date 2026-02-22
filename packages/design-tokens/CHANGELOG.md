@@ -1,3 +1,13 @@
+## 2.14.0 (2026-02-22)
+
+### 🚀 Features
+
+- Standardize module output filenames and package exports to use .es.js and .cjs.js extensions. ([8dde670](https://github.com/Garcia-Ventures/gvtech-design/commit/8dde670))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.13.0 (2026-02-22)
 
 ### 🩹 Fixes
