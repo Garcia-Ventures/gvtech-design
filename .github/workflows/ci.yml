@@ -100,3 +100,6 @@ jobs:
 
       - name: Build Site
         run: bun run build:site
+
+      - run: npx nx fix-ci
+      if: always()
