@@ -1,17 +1,34 @@
-import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'path';
-import { defineConfig } from 'vitest/config';
+import { defineConfig } from 'vite';
+import dts from 'vite-plugin-dts';
 
+// React Native implementation package.
+// We skip the bundle step for the JS itself because RN environments (Metro)
+// prefer consuming the source directly with their own transformer.
+// We still run Vite to generate the .d.ts files for consuming packages.
 export default defineConfig({
-  plugins: [react()],
-  test: {
-    globals: true,
-    environment: 'jsdom',
-    setupFiles: [resolve(__dirname, '../../src/setupTests.ts')],
-  },
+  plugins: [
+    dts({
+      insertTypesEntry: true,
+      rollupTypes: true,
+      include: ['src'],
+    }),
+  ],
   resolve: {
     alias: {
-      'react-native': resolve(__dirname, '../../apps/playground-web/src/lib/react-native-shim.js'),
+      '@': resolve(__dirname, 'src'),
+    },
+  },
+  build: {
+    // Empty the bundle since we only want types for now
+    lib: {
+      entry: resolve(__dirname, 'src/index.ts'),
+      name: 'GvTechUiNative',
+      formats: ['es'],
+    },
+    rollupOptions: {
+      // Externalize all dependencies to avoid bundling issues with JSX
+      external: (id) => !id.startsWith('.') && !id.startsWith('/') && !id.includes('src/'),
     },
   },
 });

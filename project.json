@@ -4,15 +4,17 @@
   "projectType": "library",
   "targets": {
     "build": {
-      "executor": "nx:run-script",
+      "executor": "nx:run-commands",
       "options": {
-        "script": "build"
+        "command": "vite build",
+        "cwd": "."
       }
     },
     "nx-release-publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npm publish --provenance --access public"
+        "command": "npm publish --provenance --access public",
+        "cwd": "."
       }
     }
   }

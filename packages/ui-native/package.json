@@ -19,15 +19,17 @@
       "default": "./src/*/index.ts"
     }
   },
-  "main": "src/index.ts",
-  "types": "src/index.ts",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.d.ts",
   "files": [
+    "dist",
     "src",
     "!src/**/*.test.*",
     "!src/**/*.spec.*"
   ],
   "scripts": {
-    "build": "echo 'No build step — consumed as TS source by sibling packages'",
+    "build": "vite build",
     "lint": "echo 'Linted from workspace root'",
     "test": "vitest run",
     "typecheck": "npx tsc --noEmit"

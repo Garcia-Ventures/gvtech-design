@@ -3,10 +3,18 @@
   "root": "packages/design-tokens",
   "projectType": "library",
   "targets": {
+    "build": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vite build",
+        "cwd": "packages/design-tokens"
+      }
+    },
     "nx-release-publish": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "npm publish --provenance --access public"
+        "command": "npm publish --provenance --access public",
+        "cwd": "packages/design-tokens"
       }
     }
   }
