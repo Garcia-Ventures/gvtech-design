@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-web",
-  "version": "2.11.1",
+  "version": "2.11.2",
   "description": "Web (DOM/Radix) implementations of the GV Tech design system components",
   "repository": {
     "type": "git",
