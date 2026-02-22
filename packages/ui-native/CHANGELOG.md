@@ -1,3 +1,13 @@
+## 2.12.0 (2026-02-22)
+
+### 🚀 Features
+
+- Add `asChild` and `forceMount` props to test components and update `Overlay` and `Content` rendering logic to respect `forceMount`. ([2e4587d](https://github.com/Garcia-Ventures/gvtech-design/commit/2e4587d))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.11.2 (2026-02-22)
 
 No changes for this project
