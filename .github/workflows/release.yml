@@ -88,4 +88,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
-        run: bunx nx release ${{ github.event.inputs.specifier }} --yes --verbose
+          RELEASE_SPECIFIER: ${{ github.event.inputs.specifier }}
+        run: bunx nx release "$RELEASE_SPECIFIER" --yes --verbose
+
+      - run: bunx nx fix-ci
+        if: always()
