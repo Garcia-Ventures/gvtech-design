@@ -1,7 +1,7 @@
 name: Release
 on:
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at midnight
+    - cron: "0 0 * * 0" # Every Sunday at midnight
   workflow_dispatch:
 
 concurrency:
@@ -28,7 +28,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Bun
         uses: oven-sh/setup-bun@v2
@@ -78,8 +78,8 @@ jobs:
         if: steps.need_release.outputs.needs-release == 'true'
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          NPM_CONFIG_PROVENANCE: 'true'
-          NPM_CONFIG_REGISTRY: 'https://registry.npmjs.org'
+          NPM_CONFIG_PROVENANCE: "true"
+          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
         run: |
           npx nx release version --git-tag=false --git-commit=false
           npx nx release publish --yes --verbose
