@@ -55,12 +55,6 @@
     "default": {
       "runner": "nx/tasks-runners/default",
       "options": {
-        "cacheableOperations": [
-          "build",
-          "test",
-          "lint",
-          "typecheck"
-        ],
         "cacheDirectory": ".nx/cache"
       }
     }
