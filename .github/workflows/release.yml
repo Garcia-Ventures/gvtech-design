@@ -3,6 +3,11 @@ on:
   schedule:
     - cron: "0 0 * * 0" # Every Sunday at midnight
   workflow_dispatch:
+    inputs:
+      specifier:
+        description: "Semver specifier (patch, minor, major) or exact version"
+        default: ""
+        type: string
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -43,7 +48,7 @@ jobs:
           bun install --frozen-lockfile
 
           # Capture output of dry-run; Nx --dry-run doesn't modify local files
-          npx nx release version --git-tag=false --git-commit=false --dry-run > nx_release_output.txt 2>&1
+          bunx nx release version --git-tag=false --git-commit=false --dry-run > nx_release_output.txt 2>&1
           cat nx_release_output.txt
 
           # Look for indicators that a version bump would occur
@@ -80,7 +85,4 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
           NPM_CONFIG_PROVENANCE: "true"
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
-        run: |
-          npx nx release version --git-tag=false --git-commit=false
-          npx nx release publish --yes --verbose
-          npx nx release changelog --git-commit=true --git-tag=true --git-push=true
+        run: bunx nx release ${{ github.event.inputs.specifier }} --yes --verbose

@@ -1,3 +1,33 @@
+## 2.9.1 (2026-02-22)
+
+### 🚀 Features
+
+- Streamline the release workflow by adding a build dependency for publish targets, enabling manual version specifier input, and consolidating release commands. ([41700af](https://github.com/Garcia-Ventures/gvtech-design/commit/41700af))
+- bump all package versions to 2.10.0 ([a37e4d4](https://github.com/Garcia-Ventures/gvtech-design/commit/a37e4d4))
+
+### 🩹 Fixes
+
+- finalize release group synchronization ([9616d71](https://github.com/Garcia-Ventures/gvtech-design/commit/9616d71))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.10.0 (2026-02-22)
+
+### 🚀 Features
+
+- Streamline the release workflow by adding a build dependency for publish targets, enabling manual version specifier input, and consolidating release commands. ([41700af](https://github.com/Garcia-Ventures/gvtech-design/commit/41700af))
+- bump all package versions to 2.10.0 ([a37e4d4](https://github.com/Garcia-Ventures/gvtech-design/commit/a37e4d4))
+
+### 🩹 Fixes
+
+- finalize release group synchronization ([9616d71](https://github.com/Garcia-Ventures/gvtech-design/commit/9616d71))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.8.0 (2026-02-21)
 
 No changes for this project
