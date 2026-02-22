@@ -1,3 +1,4 @@
+'use client';
 // @gv-tech/ui-web
 //
 // Web (DOM/Radix) implementations of the GV Tech design system components.

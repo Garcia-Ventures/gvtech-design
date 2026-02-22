@@ -108,6 +108,17 @@ export default defineConfig({
               'next-themes': 'NextThemes',
             }
           : {},
+        banner: (chunk) => {
+          // Add 'use client' to all ui-web component entries
+          if (isLibrary && chunk.isEntry && chunk.name !== 'index') {
+            return "'use client';";
+          }
+          // Also add it to the main index if it re-exports client components
+          if (isLibrary && chunk.name === 'index') {
+            return "'use client';";
+          }
+          return '';
+        },
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('axe-core')) {

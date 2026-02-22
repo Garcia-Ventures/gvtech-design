@@ -1,3 +1,4 @@
+'use client';
 import { Button } from '@gv-tech/ui-web';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

@@ -1,3 +1,4 @@
+'use client';
 import { Button, Input } from '@gv-tech/ui-web';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { render, screen, waitFor } from '@testing-library/react';

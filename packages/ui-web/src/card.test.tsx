@@ -1,3 +1,4 @@
+'use client';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@gv-tech/ui-web';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';

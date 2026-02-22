@@ -1,3 +1,4 @@
+'use client';
 import { SkeletonBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { cn } from './lib/utils';

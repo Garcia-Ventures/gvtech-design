@@ -1,3 +1,4 @@
+'use client';
 import { RadioGroup, RadioGroupItem } from '@gv-tech/ui-web';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';

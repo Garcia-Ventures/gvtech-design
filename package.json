@@ -24,6 +24,7 @@
     "./*": {
       "types": "./dist/*.d.ts",
       "import": "./dist/*.es.js",
+      "require": "./dist/*.cjs.js",
       "default": "./dist/*.es.js"
     }
   },

@@ -1,3 +1,4 @@
+'use client';
 import { render, screen } from '@testing-library/react';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 import { describe, expect, it, vi } from 'vitest';
