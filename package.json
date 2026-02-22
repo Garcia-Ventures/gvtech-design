@@ -110,7 +110,7 @@
     "@eng618/prettier-config": "^2.9.0",
     "@expo/cli": "~54.0.16",
     "@gv-tech/eslint-config": "^0.1.8",
-    "@nx/expo": "22.5.1",
+    "@nx/expo": "22.5.2",
     "@nx/jest": "22.5.1",
     "@nx/js": "^22.5.1",
     "@rn-primitives/slot": "^1.2.0",
