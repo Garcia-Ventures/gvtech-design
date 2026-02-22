@@ -6,7 +6,7 @@
     "build": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "vite build",
+        "command": "bun run build",
         "cwd": "packages/ui-native"
       }
     },
