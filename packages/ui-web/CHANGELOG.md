@@ -1,3 +1,17 @@
+## 2.13.0 (2026-02-22)
+
+### 🚀 Features
+
+- Add 'use client' directive to UI components, automate its injection during build, and include CJS exports in package.json. ([549ee56](https://github.com/Garcia-Ventures/gvtech-design/commit/549ee56))
+
+### 🩹 Fixes
+
+- export types from dist ([9b1527f](https://github.com/Garcia-Ventures/gvtech-design/commit/9b1527f))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.12.1 (2026-02-22)
 
 ### 🩹 Fixes
