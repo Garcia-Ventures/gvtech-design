@@ -66,7 +66,7 @@
         "projects": ["@gv-tech/*"],
         "version": {
           "specifierSource": "conventional-commits",
-          "currentVersionResolver": "registry"
+          "currentVersionResolver": "git-tag"
         },
         "releaseTagPattern": "v{version}",
         "changelog": {
