@@ -1,9 +1,7 @@
 name: Release
 on:
-  push:
-    branches: [main]
   schedule:
-    - cron: '0 0 * * 0' # Every Sunday at midnight
+    - cron: "0 0 * * 0" # Every Sunday at midnight
   workflow_dispatch:
 
 concurrency:
@@ -18,18 +16,18 @@ jobs:
   release:
     runs-on: ubuntu-latest
     timeout-minutes: 20
+
     steps:
       - name: Checkout
         uses: actions/checkout@v6
         with:
           fetch-depth: 0
-          token: ${{ secrets.RELEASE_PLEASE_TOKEN }}
 
       - name: Use Node.js 24
         uses: actions/setup-node@v6
         with:
           node-version: 24
-          registry-url: 'https://registry.npmjs.org'
+          registry-url: "https://registry.npmjs.org"
 
       - name: Install Bun
         uses: oven-sh/setup-bun@v2
@@ -48,13 +46,12 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
       - name: Release Packages
-        run: |
-          npx nx release version --git-tag=false --git-commit=false
-          echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > .npmrc
-          npx nx release publish --yes --verbose
-          rm .npmrc
-          npx nx release changelog --git-commit=true --git-tag=true --git-push=true
         env:
           GITHUB_TOKEN: ${{ secrets.RELEASE_PLEASE_TOKEN }}
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          BUN_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          # Enable provenance; npm will use OIDC automatically
+          NPM_CONFIG_PROVENANCE: "true"
+          NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
+        run: |
+          npx nx release version --git-tag=false --git-commit=false
+          npx nx release publish --yes --verbose
+          npx nx release changelog --git-commit=true --git-tag=true --git-push=true
