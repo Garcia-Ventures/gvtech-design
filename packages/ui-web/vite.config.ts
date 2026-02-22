@@ -74,6 +74,12 @@ export default defineConfig({
           react: 'React',
           'react-dom': 'ReactDOM',
         },
+        banner: (chunk) => {
+          if (chunk.isEntry) {
+            return "'use client';";
+          }
+          return '';
+        },
       },
     },
   },
