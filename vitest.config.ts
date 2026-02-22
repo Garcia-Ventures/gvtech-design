@@ -19,5 +19,6 @@ export default defineConfig({
       'react-native': resolve(__dirname, 'apps/playground-web/src/lib/react-native-shim.js'),
     },
     exclude: ['**/node_modules/**', '**/dist/**', '**/cypress/**', '**/.{idea,git,cache,output,temp}/**'],
+    testTimeout: 10000,
   },
 });
