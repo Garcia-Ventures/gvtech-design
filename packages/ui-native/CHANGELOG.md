@@ -1,3 +1,13 @@
+## 2.12.1 (2026-02-22)
+
+### 🩹 Fixes
+
+- Update internal `@gv-tech` dependencies from `workspace:*` to explicit `^2.12.0` to prevent "Workspace not found" errors for external consumers and document this change. ([667ae27](https://github.com/Garcia-Ventures/gvtech-design/commit/667ae27))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.12.0 (2026-02-22)
 
 ### 🚀 Features
