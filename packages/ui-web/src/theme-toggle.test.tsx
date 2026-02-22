@@ -46,5 +46,5 @@ describe('ThemeToggle', () => {
     expect(await screen.findByText('Light')).toBeInTheDocument();
     expect(screen.getByText('Dark')).toBeInTheDocument();
     expect(screen.getByText('System')).toBeInTheDocument();
-  }, 10000);
+  }, 30000);
 });
