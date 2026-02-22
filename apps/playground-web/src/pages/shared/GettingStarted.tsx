@@ -1,21 +1,7 @@
-import { CodeBlock } from '@/components/docs/CodeBlock';
-import {
-  Alert,
-  AlertDescription,
-  AlertTitle,
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-  Tabs,
-  TabsContent,
-  TabsList,
-  TabsTrigger,
-} from '@gv-tech/ui-web';
-import { AlertCircle, Info } from 'lucide-react';
+import { Alert, AlertDescription, AlertTitle, Card, CardContent, CardHeader, CardTitle } from '@gv-tech/ui-web';
+import { Info } from 'lucide-react';
 
 import { useDocMetadata } from '@/hooks/useDocMetadata';
-import { usePackageManager, type PackageManager } from '@/hooks/usePackageManager';
 
 export function GettingStartedPage() {
   useDocMetadata({
@@ -23,493 +9,157 @@ export function GettingStartedPage() {
     description: 'Learn how to get started with the GV Tech Design System.',
   });
   return (
-    <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-center text-3xl font-bold tracking-tight md:text-left md:text-4xl">
+    <div className="space-y-12">
+      <div className="space-y-4">
+        <h1 className="text-center text-3xl font-bold tracking-tight md:text-left md:text-5xl">
           GV Tech Design System
         </h1>
-        <p className="text-muted-foreground text-center text-lg md:text-left md:text-xl">
-          A comprehensive React component library built with shadcn/ui and Tailwind CSS.
+        <p className="text-muted-foreground max-w-[800px] text-center text-lg md:text-left md:text-xl">
+          A modern, universal component library built for speed, accessibility, and developer experience. Engineered for
+          seamless use across Web (React) and Mobile (React Native).
         </p>
       </div>
 
-      <div className="grid gap-4 md:grid-cols-3">
-        <Card>
-          <CardHeader className="p-4 pb-2">
-            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
-              <span className="text-2xl">🎨</span>
+      <div className="grid gap-6 md:grid-cols-3">
+        <Card className="bg-muted/30">
+          <CardHeader className="pb-2">
+            <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+              <span className="text-3xl">🚀</span>
             </div>
-            <CardTitle className="text-lg">Consistent Design</CardTitle>
+            <CardTitle>Universal Core</CardTitle>
           </CardHeader>
-          <CardContent className="p-4 pt-0">
-            <p className="text-muted-foreground text-sm">
-              Built on a unified design language with customizable themes.
+          <CardContent>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Define your UI once with platform-agnostic contracts and implement specifically for Web or Native.
             </p>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader className="p-4 pb-2">
-            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
-              <span className="text-2xl">⚡</span>
+        <Card className="bg-muted/30">
+          <CardHeader className="pb-2">
+            <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+              <span className="text-3xl">🧩</span>
             </div>
-            <CardTitle className="text-lg">Fully Typed</CardTitle>
+            <CardTitle>Modular Design</CardTitle>
           </CardHeader>
-          <CardContent className="p-4 pt-0">
-            <p className="text-muted-foreground text-sm">
-              Complete TypeScript support with comprehensive type definitions.
+          <CardContent>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Install only what you need. Small bundle sizes, tree-shakeable, and zero bloat.
             </p>
           </CardContent>
         </Card>
-        <Card>
-          <CardHeader className="p-4 pb-2">
-            <div className="bg-primary/10 mb-2 flex h-10 w-10 items-center justify-center rounded-md">
-              <span className="text-2xl">♿</span>
+        <Card className="bg-muted/30">
+          <CardHeader className="pb-2">
+            <div className="bg-primary/10 mb-4 flex h-12 w-12 items-center justify-center rounded-xl">
+              <span className="text-3xl">🎨</span>
             </div>
-            <CardTitle className="text-lg">Accessible</CardTitle>
+            <CardTitle>Token-Driven</CardTitle>
           </CardHeader>
-          <CardContent className="p-4 pt-0">
-            <p className="text-muted-foreground text-sm">WAI-ARIA compliant components with keyboard navigation.</p>
+          <CardContent>
+            <p className="text-muted-foreground text-sm leading-relaxed">
+              Built on a robust HSL token system, making theming and dark mode integration effortless.
+            </p>
           </CardContent>
         </Card>
       </div>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Quick Example</h2>
-        <CodeBlock
-          code={`import { Button, Card, CardContent, CardHeader, CardTitle } from '@gv-tech/design-system';
-
-function MyComponent() {
-  return (
-    <Card>
-      <CardHeader>
-        <CardTitle>Welcome</CardTitle>
-      </CardHeader>
-      <CardContent>
-        <Button>Get Started</Button>
-      </CardContent>
-    </Card>
-  );
-}`}
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Platform Support & Distribution</h2>
-        <p className="text-muted-foreground">
-          GV Tech Design System is distributed as a set of scoped packages, allowing you to install only what you need
-          for your specific platform.
+      <section className="space-y-6">
+        <h2 className="text-3xl font-bold tracking-tight">The Ecosystem</h2>
+        <p className="text-muted-foreground text-lg">
+          The system is distributed as a suite of scoped packages tailored for different needs.
         </p>
-        <div className="grid gap-4 md:grid-cols-2">
-          <Card>
-            <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">@gv-tech/ui-web</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-muted-foreground text-sm">
-                Optimized for React Web with Radix UI and Tailwind CSS 4.0. Contains all DOM-based implementations.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">@gv-tech/ui-native</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-muted-foreground text-sm">
-                Built with NativeWind for iOS and Android. Includes custom React Native implementations of core
-                contracts.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">@gv-tech/design-tokens</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-muted-foreground text-sm">
-                The foundation: HSL colors, spacing scales, and typography tokens. Zero-dependency package.
-              </p>
-            </CardContent>
-          </Card>
-          <Card>
-            <CardHeader className="p-4 pb-2">
-              <CardTitle className="text-lg">@gv-tech/design-system</CardTitle>
-            </CardHeader>
-            <CardContent className="p-4 pt-0">
-              <p className="text-muted-foreground text-sm">
-                The aggregate meta-package. Install this if you want everything in a single import.
-              </p>
-            </CardContent>
-          </Card>
-        </div>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Documentation Note</h2>
-        <Alert variant="info">
-          <Info className="h-4 w-4" />
-          <AlertTitle>Native Previews</AlertTitle>
-          <AlertDescription>
-            On this documentation site, <strong>React Native</strong> components are shown as code snippets only. Live
-            rendering of native components on the web is disabled to ensure stability. To view native components in
-            action, run the project on an iOS or Android simulator.
-          </AlertDescription>
-        </Alert>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Universal Components</h2>
-        <div className="bg-muted/30 flex items-start gap-4 rounded-lg border p-4">
-          <div className="mt-1 shrink-0">
-            <div className="h-3 w-3 rounded-full bg-green-500 shadow-[0_0_8px_rgba(34,197,94,0.6)]" />
+        <div className="grid gap-6 md:grid-cols-2">
+          <div className="hover:bg-muted/20 space-y-4 rounded-xl border p-6 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-blue-500" />
+              <h3 className="text-xl font-bold">@gv-tech/ui-web</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The primary package for web applications. Built with <strong>Tailwind CSS 4.0</strong> and
+              <strong>Radix UI</strong> primitives for ultimate accessibility.
+            </p>
           </div>
-          <div className="space-y-1">
-            <p className="text-sm font-medium">Universal Support Indicator</p>
-            <p className="text-muted-foreground text-sm">
-              Components marked with this green dot in the sidebar have both <strong>Web</strong> and{' '}
-              <strong>Native</strong> implementations. You can use them seamlessly across platforms with a unified API.
+          <div className="hover:bg-muted/20 space-y-4 rounded-xl border p-6 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-purple-500" />
+              <h3 className="text-xl font-bold">@gv-tech/ui-native</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The platform implementation for <strong>React Native</strong>. Powered by <strong>NativeWind</strong>
+              to provide a CSS-like experience on mobile.
+            </p>
+          </div>
+          <div className="hover:bg-muted/20 space-y-4 rounded-xl border p-6 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-green-500" />
+              <h3 className="text-xl font-bold">@gv-tech/ui-core</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              The "Source of Truth". Contains shared Typescript interfaces and contracts that both Web and Native
+              packages implement.
+            </p>
+          </div>
+          <div className="hover:bg-muted/20 space-y-4 rounded-xl border p-6 transition-colors">
+            <div className="flex items-center gap-3">
+              <div className="h-2 w-2 rounded-full bg-orange-500" />
+              <h3 className="text-xl font-bold">@gv-tech/design-tokens</h3>
+            </div>
+            <p className="text-muted-foreground leading-relaxed">
+              Pure design data. JSON/JS exports for colors, spacing, and typography. Zero dependencies.
             </p>
           </div>
         </div>
       </section>
 
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Features</h2>
-        <ul className="text-muted-foreground space-y-2">
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> 46+ ready-to-use components
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> Universal support (Web + React Native) for core components
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> Dark and light mode support
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> Fully customizable with CSS variables (Web) and Tailwind (Native)
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> Tree-shakeable for optimal bundle size
-          </li>
-          <li className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> React 18/19 compatible
-          </li>
-        </ul>
-      </section>
-    </div>
-  );
-}
-
-export function InstallationPage() {
-  useDocMetadata({
-    title: 'Installation',
-    description: 'Install the GV Tech Design System in your project.',
-  });
-  const { packageManager, setPackageManager } = usePackageManager();
-
-  return (
-    <div className="space-y-8">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight md:text-3xl">Installation</h1>
-        <p className="text-muted-foreground text-base md:text-lg">
-          Get started with the GV Tech Design System in your React project.
+      <section className="space-y-6">
+        <div className="flex items-center justify-between">
+          <h2 className="text-3xl font-bold tracking-tight">The Vision</h2>
+          <div className="bg-primary/5 text-primary rounded-full px-4 py-1 text-xs font-semibold tracking-wider uppercase">
+            Universal Design
+          </div>
+        </div>
+        <p className="text-muted-foreground text-lg leading-relaxed">
+          GV Tech is designed to solve the friction between designers and developers. By sharing a common core and
+          tokens, we ensure that a <code className="bg-muted rounded px-1.5 py-0.5 text-base">Button</code> on the web
+          feels exactly like a <code className="bg-muted rounded px-1.5 py-0.5 text-base">Button</code> on mobile, while
+          still respecting each platform's unique interaction patterns.
         </p>
-      </div>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Choose your package</h2>
-        <p className="text-muted-foreground">
-          We recommend installing the platform-specific package for the best performance and smallest bundle size:
-        </p>
-        <Tabs defaultValue="web" className="w-full">
-          <TabsList>
-            <TabsTrigger value="web">Web App</TabsTrigger>
-            <TabsTrigger value="native">React Native App</TabsTrigger>
-            <TabsTrigger value="tokens">Tokens Only</TabsTrigger>
-            <TabsTrigger value="all">All-in-One</TabsTrigger>
-          </TabsList>
-          <TabsContent value="web" className="mt-4 space-y-4">
-            <p className="text-muted-foreground text-sm">Best for web-only projects using React and Tailwind.</p>
-            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
-              <TabsList variant="outline">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="bun">bun</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-              </TabsList>
-              <TabsContent value="npm" className="mt-2">
-                <CodeBlock code="npm install @gv-tech/ui-web" language="bash" />
-              </TabsContent>
-              <TabsContent value="bun" className="mt-2">
-                <CodeBlock code="bun add @gv-tech/ui-web" language="bash" />
-              </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
-                <CodeBlock code="pnpm add @gv-tech/ui-web" language="bash" />
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
-          <TabsContent value="native" className="mt-4 space-y-4">
-            <p className="text-muted-foreground text-sm">Best for mobile apps using Expo or React Native.</p>
-            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
-              <TabsList variant="outline">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="bun">bun</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-              </TabsList>
-              <TabsContent value="npm" className="mt-2">
-                <CodeBlock code="npm install @gv-tech/ui-native" language="bash" />
-              </TabsContent>
-              <TabsContent value="bun" className="mt-2">
-                <CodeBlock code="bun add @gv-tech/ui-native" language="bash" />
-              </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
-                <CodeBlock code="pnpm add @gv-tech/ui-native" language="bash" />
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
-          <TabsContent value="tokens" className="mt-4 space-y-4">
-            <p className="text-muted-foreground text-sm">Lightweight HSL color tokens and spacing variables.</p>
-            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
-              <TabsList variant="outline">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="bun">bun</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-              </TabsList>
-              <TabsContent value="npm" className="mt-2">
-                <CodeBlock code="npm install @gv-tech/design-tokens" language="bash" />
-              </TabsContent>
-              <TabsContent value="bun" className="mt-2">
-                <CodeBlock code="bun add @gv-tech/design-tokens" language="bash" />
-              </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
-                <CodeBlock code="pnpm add @gv-tech/design-tokens" language="bash" />
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
-          <TabsContent value="all" className="mt-4 space-y-4">
-            <p className="text-muted-foreground text-sm">The full system, including core, web, and native packages.</p>
-            <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
-              <TabsList variant="outline">
-                <TabsTrigger value="npm">npm</TabsTrigger>
-                <TabsTrigger value="bun">bun</TabsTrigger>
-                <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-              </TabsList>
-              <TabsContent value="npm" className="mt-2">
-                <CodeBlock code="npm install @gv-tech/design-system" language="bash" />
-              </TabsContent>
-              <TabsContent value="bun" className="mt-2">
-                <CodeBlock code="bun add @gv-tech/design-system" language="bash" />
-              </TabsContent>
-              <TabsContent value="pnpm" className="mt-2">
-                <CodeBlock code="pnpm add @gv-tech/design-system" language="bash" />
-              </TabsContent>
-            </Tabs>
-          </TabsContent>
-        </Tabs>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Peer Dependencies</h2>
-        <p className="text-muted-foreground">Make sure you have the required peer dependencies installed:</p>
-        <CodeBlock
-          code={`{
-  "react": "^18 || ^19",
-  "react-dom": "^18 || ^19",
-  "next-themes": "^0.4.0"
-}`}
-          language="json"
-        />
-        <p className="text-muted-foreground text-sm">
-          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">next-themes</code> is required for the design
-          system's <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>,{' '}
-          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeToggle</code>, and{' '}
-          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">useTheme</code> to work. Install it alongside the
-          design system:
-        </p>
-        <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
-          <TabsList>
-            <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="bun">bun</TabsTrigger>
-            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-          </TabsList>
-          <TabsContent value="npm" className="mt-4">
-            <CodeBlock code="npm install next-themes" language="bash" />
-          </TabsContent>
-          <TabsContent value="yarn" className="mt-4">
-            <CodeBlock code="yarn add next-themes" language="bash" />
-          </TabsContent>
-          <TabsContent value="bun" className="mt-4">
-            <CodeBlock code="bun add next-themes" language="bash" />
-          </TabsContent>
-          <TabsContent value="pnpm" className="mt-4">
-            <CodeBlock code="pnpm add next-themes" language="bash" />
-          </TabsContent>
-        </Tabs>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Configure Tailwind CSS (v4.0)</h2>
-        <p className="text-muted-foreground">
-          The design system is optimized for Tailwind CSS 4.0. In your global CSS file, import Tailwind and add the
-          theme variables:
-        </p>
-        <CodeBlock
-          language="css"
-          code={`@import "tailwindcss";
-
-@theme {
-  --radius-lg: var(--radius);
-  --radius-md: calc(var(--radius) - 2px);
-  --radius-sm: calc(var(--radius) - 4px);
-
-  /* Map design system tokens to Tailwind colors */
-  --color-background: hsl(var(--background));
-  --color-foreground: hsl(var(--foreground));
-  --color-primary: hsl(var(--primary));
-  --color-primary-foreground: hsl(var(--primary-foreground));
-  --color-accent: hsl(var(--accent));
-  --color-accent-foreground: hsl(var(--accent-foreground));
-  --color-border: hsl(var(--border));
-}`}
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Add CSS Variables</h2>
-        <p className="text-muted-foreground">Add the following CSS variables to your global stylesheet:</p>
-        <CodeBlock
-          code={`@layer base {
-  :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --popover: 222.2 84% 4.9%;
-    --popover-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
-    --accent: 217.2 32.6% 17.5%;
-    --accent-foreground: 210 40% 98%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
-  }
-}`}
-          language="css"
-        />
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">React Native Setup</h2>
-        <p className="text-muted-foreground">
-          For React Native projects, you'll need to configure NativeWind and ensure correct platform resolution.
-        </p>
-        <Alert variant="warning">
-          <AlertCircle className="h-4 w-4" />
-          <AlertTitle>Important Native Resolution</AlertTitle>
-          <AlertDescription>
-            The design system uses <code className="bg-background rounded px-1">.native.tsx</code> extensions. Ensure
-            your Metro bundler is configured to prefer these extensions.
+        <Alert variant="info" className="border-primary/20 bg-primary/5">
+          <Info className="h-5 w-5" />
+          <AlertTitle className="text-lg font-bold">Ready to build?</AlertTitle>
+          <AlertDescription className="mt-2 text-base">
+            Head over to the <strong>Installation</strong> page to choose your platform and get started in minutes.
           </AlertDescription>
         </Alert>
-        <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)} className="w-full">
-          <TabsList>
-            <TabsTrigger value="npm">npm</TabsTrigger>
-            <TabsTrigger value="bun">bun</TabsTrigger>
-            <TabsTrigger value="pnpm">pnpm</TabsTrigger>
-          </TabsList>
-          <TabsContent value="npm" className="mt-4 text-sm">
-            <CodeBlock code="npm install @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
-          </TabsContent>
-          <TabsContent value="yarn" className="mt-4 text-sm">
-            <CodeBlock code="yarn add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
-          </TabsContent>
-          <TabsContent value="bun" className="mt-4 text-sm">
-            <CodeBlock code="bun add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
-          </TabsContent>
-          <TabsContent value="pnpm" className="mt-4 text-sm">
-            <CodeBlock code="pnpm add @gv-tech/ui-native lucide-react-native nativewind" language="bash" />
-          </TabsContent>
-        </Tabs>
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Start Using Components</h2>
-        <p className="text-muted-foreground">
-          Wrap your app with the <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> to enable
-          consistent styling and theme switching.
-        </p>
-        <Tabs defaultValue="web" className="w-full">
-          <TabsList>
-            <TabsTrigger value="web">Web</TabsTrigger>
-            <TabsTrigger value="native">React Native</TabsTrigger>
-          </TabsList>
-          <TabsContent value="web" className="mt-4">
-            <CodeBlock
-              code={`import { ThemeProvider, ThemeToggle, Button } from '@gv-tech/ui-web';
-import '@gv-tech/ui-web/style.css'; // or @gv-tech/design-system/style.css
-
-export default function App() {
-  return (
-    <ThemeProvider>
-      <div className="p-8">
-        <ThemeToggle />
-        <Button className="mt-4">Welcome to GV Tech</Button>
-      </div>
-    </ThemeProvider>
-  );
-}`}
-            />
-          </TabsContent>
-          <TabsContent value="native" className="mt-4">
-            <CodeBlock
-              code={`import { ThemeProvider, Button, Input, Label, Text } from '@gv-tech/ui-native';
-import { View } from 'react-native';
-
-export default function MyScreen() {
-  return (
-    <ThemeProvider>
-      <View className="flex-1 items-center justify-center p-6 bg-background">
-        <Label className="mb-2">Your Name</Label>
-        <Input placeholder="Enter your name" className="mb-4" />
-        <Button onPress={() => alert('Hello!')}>
-          <Text>Submit</Text>
-        </Button>
-      </View>
-    </ThemeProvider>
-  );
-}`}
-            />
-          </TabsContent>
-        </Tabs>
+        <h2 className="text-2xl font-bold tracking-tight">Features</h2>
+        <div className="text-muted-foreground grid gap-2 md:grid-cols-2">
+          <div className="bg-muted/20 flex items-center gap-3 rounded-lg p-3">
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
+              <span className="text-xs text-green-600">✓</span>
+            </div>
+            <span>46+ production-ready components</span>
+          </div>
+          <div className="bg-muted/20 flex items-center gap-3 rounded-lg p-3">
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
+              <span className="text-xs text-green-600">✓</span>
+            </div>
+            <span>Tailwind CSS 4.0 Support</span>
+          </div>
+          <div className="bg-muted/20 flex items-center gap-3 rounded-lg p-3">
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
+              <span className="text-xs text-green-600">✓</span>
+            </div>
+            <span>Dark and light mode optimized</span>
+          </div>
+          <div className="bg-muted/20 flex items-center gap-3 rounded-lg p-3">
+            <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
+              <span className="text-xs text-green-600">✓</span>
+            </div>
+            <span>Zero-runtime CSS variants</span>
+          </div>
+        </div>
       </section>
     </div>
   );
