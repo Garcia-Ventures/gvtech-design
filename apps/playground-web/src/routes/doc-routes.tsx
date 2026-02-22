@@ -15,8 +15,29 @@ const native = (name: string) =>
   React.lazy(() =>
     import('@/pages/native').then((m) => ({ default: (m as Record<string, React.ComponentType>)[name] })),
   );
+const shared = (name: string) =>
+  React.lazy(() =>
+    import('@/pages/shared/GettingStarted').then((m) => ({
+      default: (m as Record<string, React.ComponentType>)[name],
+    })),
+  );
 
 export const docRoutes: DocRoute[] = [
+  // Intro
+  {
+    path: 'getting-started',
+    title: 'Getting Started',
+    description: 'Learn how to get started with the GV Tech Design System.',
+    web: shared('GettingStartedPage'),
+  },
+  {
+    path: 'installation',
+    title: 'Installation',
+    description: 'Install the GV Tech Design System in your project.',
+    web: web('WebInstallationDocs'),
+    native: native('NativeInstallationDocs'),
+  },
+
   // Layout
   {
     path: 'aspect-ratio',
