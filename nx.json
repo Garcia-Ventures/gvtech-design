@@ -65,7 +65,7 @@
       "packages": {
         "projects": ["@gv-tech/*"],
         "version": {
-          "conventionalCommits": true,
+          "specifierSource": "conventional-commits",
           "currentVersionResolver": "registry"
         },
         "releaseTagPattern": "v{version}",

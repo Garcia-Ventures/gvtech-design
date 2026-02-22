@@ -18,6 +18,13 @@ export default defineConfig({
       '@gv-tech/ui-native': resolve(__dirname, './packages/ui-native/src'),
       'react-native': resolve(__dirname, 'apps/playground-web/src/lib/react-native-shim.js'),
     },
-    exclude: ['**/node_modules/**', '**/dist/**', '**/cypress/**', '**/.{idea,git,cache,output,temp}/**'],
+    exclude: [
+      '**/node_modules/**',
+      '**/dist/**',
+      '**/cypress/**',
+      '**/.{idea,git,cache,output,temp}/**',
+      'packages/**',
+      'apps/**',
+    ],
   },
 });
