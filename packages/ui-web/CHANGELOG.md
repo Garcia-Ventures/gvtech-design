@@ -1,3 +1,13 @@
+## 2.11.1 (2026-02-22)
+
+### 🩹 Fixes
+
+- correct build issue ([0be60ee](https://github.com/Garcia-Ventures/gvtech-design/commit/0be60ee))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.11.0 (2026-02-22)
 
 No changes for this project
