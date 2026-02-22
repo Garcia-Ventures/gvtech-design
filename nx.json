@@ -88,6 +88,9 @@
           "currentVersionResolver": "git-tag"
         },
         "releaseTagPattern": "v{version}",
+        "publish": {
+          "targetName": "nx-release-publish"
+        },
         "changelog": {
           "createRelease": false,
           "entryWhenNoChanges": "No changes for this project",
