@@ -56,8 +56,8 @@ The transition to a multi-package monorepo is already a significant architectura
 
 ## Consequences
 
-- **Short-term:** Developers must manually ensure that internal `workspace:*` dependencies are correctly handled (or use Yarn's workspace protocol which handles this during local development).
-- **Long-term:** If we choose to move to Lock-step versioning (standardizing all packages on one version), Nx Release will significantly reduce the maintenance overhead.
+- **Short-term:** We have moved from `workspace:*` to explicit versioning (e.g., `^2.12.0`) for internal dependencies in published packages. This prevents "Workspace not found" errors for external consumers (Yarn/npm) while still allowing Bun to link local packages during development.
+- **Long-term:** Migration to **Nx Release** will automate these version bumps across the internal dependency graph, eliminating the need for manual updates.
 - **Maintenance:** The `release-please-config.json` and `.release-please-manifest.json` files must be kept in sync as new packages are added.
 
 ## References

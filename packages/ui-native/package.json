@@ -35,8 +35,8 @@
     "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
-    "@gv-tech/design-tokens": "workspace:*",
-    "@gv-tech/ui-core": "workspace:*",
+    "@gv-tech/design-tokens": "^2.12.0",
+    "@gv-tech/ui-core": "^2.12.0",
     "@rn-primitives/accordion": "^1.2.0",
     "@rn-primitives/alert-dialog": "^1.2.0",
     "@rn-primitives/aspect-ratio": "^1.2.0",
