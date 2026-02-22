@@ -472,3 +472,4 @@ export type { ThemeToggleProps } from './theme-toggle';
 export type { ToasterBaseProps as ToasterProps } from '@gv-tech/ui-core';
 export { toast, useToast } from './hooks/use-toast';
 export { Toaster } from './toaster';
+// sync
