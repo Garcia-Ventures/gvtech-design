@@ -64,10 +64,16 @@ export default defineConfig({
         'react-dom',
         '@gv-tech/design-tokens',
         '@gv-tech/ui-core',
+        'next-themes',
         'lucide-react',
         'class-variance-authority',
         'clsx',
         'tailwind-merge',
+        'react-hook-form',
+        'zod',
+        'recharts',
+        'sonner',
+        'vaul',
       ],
       output: {
         globals: {

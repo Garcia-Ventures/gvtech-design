@@ -469,6 +469,9 @@ export type { ThemeProviderProps } from './theme-provider';
 export { ThemeToggle } from './theme-toggle';
 export type { ThemeToggleProps } from './theme-toggle';
 
+// Theme Hook
+export { useTheme } from './hooks/use-theme';
+
 // Toaster (Radix)
 export type { ToasterBaseProps as ToasterProps } from '@gv-tech/ui-core';
 export { toast, useToast } from './hooks/use-toast';
