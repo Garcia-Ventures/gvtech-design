@@ -56,20 +56,24 @@ interface DocSearchProps {
   variant?: 'default' | 'compact';
   className?: string;
   placeholder?: string;
+  responsive?: boolean;
 }
 
-export function DocSearch({ variant = 'default', className, placeholder = 'Search documentation...' }: DocSearchProps) {
+export function DocSearch({ variant = 'default', className, placeholder, responsive }: DocSearchProps) {
   const context = React.useContext(SearchContext);
   if (!context) {
     throw new Error('DocSearch must be used within a DocSearchProvider');
   }
+
+  const defaultPlaceholder = variant === 'compact' ? 'Search...' : 'Search documentation...';
 
   return (
     <SearchTrigger
       onClick={() => context.setOpen(true)}
       variant={variant}
       className={className}
-      placeholder={placeholder}
+      placeholder={placeholder || defaultPlaceholder}
+      responsive={responsive}
     />
   );
 }

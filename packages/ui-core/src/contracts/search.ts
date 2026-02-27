@@ -10,4 +10,5 @@ export interface SearchTriggerBaseProps {
   className?: string;
   placeholder?: string;
   variant?: 'default' | 'compact';
+  responsive?: boolean;
 }

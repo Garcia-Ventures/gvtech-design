@@ -112,7 +112,7 @@ function DocumentationLayout() {
               </div>
 
               <div className="flex shrink-0 items-center gap-2 md:gap-4">
-                <DocSearch variant="compact" />
+                <DocSearch variant="compact" responsive />
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
