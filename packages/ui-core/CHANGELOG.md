@@ -1,3 +1,13 @@
+## 2.15.2 (2026-02-27)
+
+### 🚀 Features
+
+- Introduce a `responsive` prop to the `SearchTrigger` component, allowing its compact variant to expand on larger screens. ([ba0c22b](https://github.com/Garcia-Ventures/gvtech-design/commit/ba0c22b))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.15.1 (2026-02-27)
 
 No changes for this project
