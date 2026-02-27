@@ -41,6 +41,7 @@ export { SwitchDocs as NativeSwitchDocs } from './SwitchDocs';
 export { TableDocs as NativeTableDocs } from './TableDocs';
 export { TabsDocs as NativeTabsDocs } from './TabsDocs';
 export { TextareaDocs as NativeTextareaDocs } from './TextareaDocs';
+export { TextDocs as NativeTextDocs } from './TextDocs';
 export { ThemeToggleDocs as NativeThemeToggleDocs } from './ThemeToggleDocs';
 export { ToastDocs as NativeToastDocs } from './ToastDocs';
 export { ToggleDocs as NativeToggleDocs } from './ToggleDocs';

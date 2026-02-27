@@ -332,6 +332,13 @@ export const docRoutes: DocRoute[] = [
     native: native('NativeTextDocs'),
   },
   {
+    path: 'text',
+    title: 'Text',
+    description: 'Typography component for various text styles.',
+    web: web('WebTextDocs'),
+    native: native('NativeTextDocs'),
+  },
+  {
     path: 'textarea',
     title: 'Textarea',
     description: 'Displays a form textarea or a component that looks like a textarea.',

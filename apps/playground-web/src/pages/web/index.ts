@@ -40,6 +40,7 @@ export { SwitchDocs as WebSwitchDocs } from './SwitchDocs';
 export { TableDocs as WebTableDocs } from './TableDocs';
 export { TabsDocs as WebTabsDocs } from './TabsDocs';
 export { TextareaDocs as WebTextareaDocs } from './TextareaDocs';
+export { TextDocs as WebTextDocs } from './TextDocs';
 export { ThemeToggleDocs as WebThemeToggleDocs } from './ThemeToggleDocs';
 export { ToastDocs as WebToastDocs } from './ToastDocs';
 export { ToggleDocs as WebToggleDocs } from './ToggleDocs';

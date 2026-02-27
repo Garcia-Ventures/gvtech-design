@@ -183,6 +183,11 @@ export const docConfig: DocCategory[] = [
         href: 'table',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Text',
+        href: 'text',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
@@ -249,6 +254,11 @@ export const docConfig: DocCategory[] = [
         platforms: ['web'],
       },
       {
+        title: 'Search',
+        href: 'search',
+        platforms: ['web', 'native'],
+      },
+      {
         title: 'Context Menu',
         href: 'context-menu',
         platforms: ['web'],
@@ -286,6 +296,16 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Tabs',
         href: 'tabs',
+        platforms: ['web', 'native'],
+      },
+    ],
+  },
+  {
+    title: 'Utilities',
+    items: [
+      {
+        title: 'Theme Toggle',
+        href: 'theme-toggle',
         platforms: ['web', 'native'],
       },
     ],
