@@ -1,4 +1,4 @@
-import react from '@vitejs/plugin-react-swc';
+import react from '@vitejs/plugin-react';
 import fs from 'fs';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
@@ -54,8 +54,8 @@ export default defineConfig({
       name: 'GvTechUiWeb',
       fileName: (format, entryName) =>
         entryName === 'index'
-          ? `index.${format === 'es' ? 'es' : 'cjs'}.js`
-          : `${entryName}.${format === 'es' ? 'es' : 'cjs'}.js`,
+          ? `index.${format === 'es' ? 'mjs' : 'cjs'}`
+          : `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
@@ -64,15 +64,27 @@ export default defineConfig({
         'react-dom',
         '@gv-tech/design-tokens',
         '@gv-tech/ui-core',
+        'next-themes',
         'lucide-react',
         'class-variance-authority',
         'clsx',
         'tailwind-merge',
+        'react-hook-form',
+        'zod',
+        'recharts',
+        'sonner',
+        'vaul',
       ],
       output: {
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+        },
+        banner: (chunk) => {
+          if (chunk.isEntry) {
+            return "'use client';";
+          }
+          return '';
         },
       },
     },

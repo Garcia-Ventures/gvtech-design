@@ -1,3 +1,4 @@
+'use client';
 import { AspectRatioBaseProps } from '@gv-tech/ui-core';
 import * as AspectRatioPrimitive from '@radix-ui/react-aspect-ratio';
 

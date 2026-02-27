@@ -31,8 +31,6 @@ import { docRoutes } from './routes/doc-routes';
 import { PackageManagerProvider } from './hooks/usePackageManager';
 
 const ColorTokensDocs = React.lazy(() => import('./pages').then((m) => ({ default: m.ColorTokensDocs })));
-const GettingStartedPage = React.lazy(() => import('./pages').then((m) => ({ default: m.GettingStartedPage })));
-const InstallationPage = React.lazy(() => import('./pages').then((m) => ({ default: m.InstallationPage })));
 
 function PageLoader() {
   return (
@@ -124,9 +122,6 @@ function DocumentationLayout() {
                   <ErrorBoundary>
                     <React.Suspense fallback={<PageLoader />}>
                       <Routes>
-                        {/* Getting Started */}
-                        <Route path="getting-started" element={<GettingStartedPage />} />
-                        <Route path="installation" element={<InstallationPage />} />
                         <Route path="theming" element={<ColorTokensDocs />} />
                         <Route path="color-tokens" element={<Navigate to="/docs/theming" replace />} />
 

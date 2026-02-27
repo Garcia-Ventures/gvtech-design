@@ -1,3 +1,19 @@
+## 2.10.0 (2026-02-22)
+
+### 🚀 Features
+
+- Add Dependabot configuration and expand funding options to include Buy Me A Coffee. ([9460dfb](https://github.com/Garcia-Ventures/gvtech-design/commit/9460dfb))
+- bump all package versions to 2.10.0 ([a37e4d4](https://github.com/Garcia-Ventures/gvtech-design/commit/a37e4d4))
+- Streamline the release workflow by adding a build dependency for publish targets, enabling manual version specifier input, and consolidating release commands. ([41700af](https://github.com/Garcia-Ventures/gvtech-design/commit/41700af))
+
+### 🩹 Fixes
+
+- finalize release group synchronization ([9616d71](https://github.com/Garcia-Ventures/gvtech-design/commit/9616d71))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 # Changelog
 
 ## [2.5.3](https://github.com/Garcia-Ventures/gvtech-design/compare/design-system-v2.5.2...design-system-v2.5.3) (2026-02-20)

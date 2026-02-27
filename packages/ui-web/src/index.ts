@@ -1,3 +1,4 @@
+'use client';
 // @gv-tech/ui-web
 //
 // Web (DOM/Radix) implementations of the GV Tech design system components.
@@ -467,6 +468,9 @@ export type { ThemeProviderProps } from './theme-provider';
 // Theme Toggle
 export { ThemeToggle } from './theme-toggle';
 export type { ThemeToggleProps } from './theme-toggle';
+
+// Theme Hook
+export { useTheme } from './hooks/use-theme';
 
 // Toaster (Radix)
 export type { ToasterBaseProps as ToasterProps } from '@gv-tech/ui-core';

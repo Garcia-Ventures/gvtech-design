@@ -22,6 +22,7 @@ export { HoverCardDocs as NativeHoverCardDocs } from './HoverCardDocs';
 export { InputDocs as NativeInputDocs } from './InputDocs';
 export { LabelDocs as NativeLabelDocs } from './LabelDocs';
 export { MenubarDocs as NativeMenubarDocs } from './MenubarDocs';
+export { NativeInstallationDocs } from './NativeInstallationDocs';
 export { NavigationMenuDocs as NativeNavigationMenuDocs } from './NavigationMenuDocs';
 export { PaginationDocs as NativePaginationDocs } from './PaginationDocs';
 export { PopoverDocs as NativePopoverDocs } from './PopoverDocs';

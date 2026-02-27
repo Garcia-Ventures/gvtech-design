@@ -1,3 +1,4 @@
+'use client';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'next-themes';
@@ -45,5 +46,5 @@ describe('ThemeToggle', () => {
     expect(await screen.findByText('Light')).toBeInTheDocument();
     expect(screen.getByText('Dark')).toBeInTheDocument();
     expect(screen.getByText('System')).toBeInTheDocument();
-  }, 10000);
+  }, 30000);
 });

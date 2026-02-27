@@ -1,3 +1,73 @@
+## 2.15.1 (2026-02-27)
+
+No changes for this project
+
+## 2.15.0 (2026-02-22)
+
+No changes for this project
+
+## 2.14.0 (2026-02-22)
+
+### 🚀 Features
+
+- Standardize module output filenames and package exports to use .es.js and .cjs.js extensions. ([8dde670](https://github.com/Garcia-Ventures/gvtech-design/commit/8dde670))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.13.0 (2026-02-22)
+
+### 🩹 Fixes
+
+- export types from dist ([9b1527f](https://github.com/Garcia-Ventures/gvtech-design/commit/9b1527f))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.12.1 (2026-02-22)
+
+No changes for this project
+
+## 2.12.0 (2026-02-22)
+
+No changes for this project
+
+## 2.11.2 (2026-02-22)
+
+No changes for this project
+
+## 2.11.1 (2026-02-22)
+
+No changes for this project
+
+## 2.11.0 (2026-02-22)
+
+No changes for this project
+
+## 2.9.1 (2026-02-22)
+
+### 🚀 Features
+
+- Streamline the release workflow by adding a build dependency for publish targets, enabling manual version specifier input, and consolidating release commands. ([41700af](https://github.com/Garcia-Ventures/gvtech-design/commit/41700af))
+- bump all package versions to 2.10.0 ([a37e4d4](https://github.com/Garcia-Ventures/gvtech-design/commit/a37e4d4))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.10.0 (2026-02-22)
+
+### 🚀 Features
+
+- Streamline the release workflow by adding a build dependency for publish targets, enabling manual version specifier input, and consolidating release commands. ([41700af](https://github.com/Garcia-Ventures/gvtech-design/commit/41700af))
+- bump all package versions to 2.10.0 ([a37e4d4](https://github.com/Garcia-Ventures/gvtech-design/commit/a37e4d4))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.8.0 (2026-02-21)
 
 No changes for this project

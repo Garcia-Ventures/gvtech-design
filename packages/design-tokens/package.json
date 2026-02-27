@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/design-tokens",
-  "version": "2.10.0",
+  "version": "2.15.1",
   "description": "Shared design tokens for the GV Tech design system — palette, theme, spacing, typography, shadows",
   "repository": {
     "type": "git",
@@ -10,12 +10,14 @@
   "license": "MIT",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.mjs",
+      "require": "./dist/index.cjs",
+      "default": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",

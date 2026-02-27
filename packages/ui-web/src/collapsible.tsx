@@ -1,3 +1,4 @@
+'use client';
 import { CollapsibleBaseProps, CollapsibleContentBaseProps, CollapsibleTriggerBaseProps } from '@gv-tech/ui-core';
 import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 

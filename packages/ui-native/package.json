@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-native",
-  "version": "2.10.0",
+  "version": "2.15.1",
   "description": "React Native implementations of the GV Tech design system components",
   "repository": {
     "type": "git",
@@ -19,8 +19,8 @@
       "default": "./src/*/index.ts"
     }
   },
-  "main": "./dist/index.cjs.js",
-  "module": "./dist/index.es.js",
+  "main": "./dist/ui-native.mjs",
+  "module": "./dist/ui-native.mjs",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
@@ -35,8 +35,8 @@
     "typecheck": "npx tsc --noEmit"
   },
   "dependencies": {
-    "@gv-tech/design-tokens": "workspace:*",
-    "@gv-tech/ui-core": "workspace:*",
+    "@gv-tech/design-tokens": "^2.12.0",
+    "@gv-tech/ui-core": "^2.12.0",
     "@rn-primitives/accordion": "^1.2.0",
     "@rn-primitives/alert-dialog": "^1.2.0",
     "@rn-primitives/aspect-ratio": "^1.2.0",

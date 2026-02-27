@@ -92,8 +92,8 @@ export default defineConfig({
           name: 'GvtechDesign',
           fileName: (format, entryName) =>
             entryName === 'index'
-              ? `index.${format === 'es' ? 'es' : 'cjs'}.js`
-              : `${entryName}.${format === 'es' ? 'es' : 'cjs'}.js`,
+              ? `index.${format === 'es' ? 'mjs' : 'cjs'}`
+              : `${entryName}.${format === 'es' ? 'mjs' : 'cjs'}`,
           formats: ['es', 'cjs'],
         }
       : undefined,
@@ -108,6 +108,17 @@ export default defineConfig({
               'next-themes': 'NextThemes',
             }
           : {},
+        banner: (chunk) => {
+          // Add 'use client' to all ui-web component entries
+          if (isLibrary && chunk.isEntry && chunk.name !== 'index') {
+            return "'use client';";
+          }
+          // Also add it to the main index if it re-exports client components
+          if (isLibrary && chunk.name === 'index') {
+            return "'use client';";
+          }
+          return '';
+        },
         manualChunks(id) {
           if (id.includes('node_modules')) {
             if (id.includes('axe-core')) {

@@ -1,3 +1,4 @@
+'use client';
 import { Text } from '@gv-tech/ui-web';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';

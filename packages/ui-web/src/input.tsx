@@ -1,3 +1,4 @@
+'use client';
 import * as React from 'react';
 
 import type { InputBaseProps } from '@gv-tech/ui-core';

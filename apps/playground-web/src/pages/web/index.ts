@@ -45,3 +45,4 @@ export { ToastDocs as WebToastDocs } from './ToastDocs';
 export { ToggleDocs as WebToggleDocs } from './ToggleDocs';
 export { ToggleGroupDocs as WebToggleGroupDocs } from './ToggleGroupDocs';
 export { TooltipDocs as WebTooltipDocs } from './TooltipDocs';
+export { WebInstallationDocs } from './WebInstallationDocs';
