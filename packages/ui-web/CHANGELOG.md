@@ -1,3 +1,13 @@
+## 2.15.1 (2026-02-27)
+
+### 🚀 Features
+
+- Export `useTheme` hook, add `next-themes` as a peer dependency, and update internal package versions. ([b150fb9](https://github.com/Garcia-Ventures/gvtech-design/commit/b150fb9))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.15.0 (2026-02-22)
 
 ### 🚀 Features
