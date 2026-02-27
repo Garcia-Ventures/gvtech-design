@@ -20,6 +20,8 @@ export function NativeInstallationDocs() {
             <TabsTrigger value="npm">npm</TabsTrigger>
             <TabsTrigger value="bun">bun</TabsTrigger>
             <TabsTrigger value="pnpm">pnpm</TabsTrigger>
+            <TabsTrigger value="yarn">Yarn</TabsTrigger>
+            <TabsTrigger value="yarn-classic">Yarn Classic</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4">
             <CodeBlock
@@ -36,6 +38,18 @@ export function NativeInstallationDocs() {
           <TabsContent value="pnpm" className="mt-4">
             <CodeBlock
               code="pnpm add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              language="bash"
+            />
+          </TabsContent>
+          <TabsContent value="yarn" className="mt-4">
+            <CodeBlock
+              code="yarn add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              language="bash"
+            />
+          </TabsContent>
+          <TabsContent value="yarn-classic" className="mt-4">
+            <CodeBlock
+              code="yarn add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>

@@ -24,19 +24,22 @@ export const docConfig: DocCategory[] = [
     title: 'Getting Started',
     items: [
       {
-        title: 'Introduction',
+        title: 'Getting Started',
         href: 'getting-started',
         platforms: ['web', 'native'],
+        description: 'Introduction to the GV Tech Design System.',
       },
       {
         title: 'Installation',
         href: 'installation',
         platforms: ['web', 'native'],
+        description: 'How to install and configure for Web and Mobile.',
       },
       {
         title: 'Theming',
         href: 'theming',
         platforms: ['web', 'native'],
+        description: 'Customizing colors and design tokens.',
       },
     ],
   },

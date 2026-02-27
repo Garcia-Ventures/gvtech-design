@@ -1,6 +1,6 @@
 import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 
-export const PACKAGEMANAGERS = ['npm', 'bun', 'pnpm', 'yarn'] as const;
+export const PACKAGEMANAGERS = ['npm', 'bun', 'pnpm', 'yarn', 'yarn-classic'] as const;
 export type PackageManager = (typeof PACKAGEMANAGERS)[number];
 
 interface PackageManagerContextType {
@@ -14,8 +14,8 @@ export function PackageManagerProvider({ children }: { children: ReactNode }): R
   const [packageManager, setPackageManagerState] = useState<PackageManager>(() => {
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('gv-docs-package-manager');
-      if (saved === 'npm' || saved === 'bun' || saved === 'pnpm' || saved === 'yarn') {
-        return saved;
+      if (saved && (PACKAGEMANAGERS as readonly string[]).includes(saved)) {
+        return saved as PackageManager;
       }
     }
     return 'bun';
