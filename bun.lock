@@ -138,11 +138,11 @@
     },
     "packages/design-tokens": {
       "name": "@gv-tech/design-tokens",
-      "version": "2.15.0",
+      "version": "2.15.1",
     },
     "packages/ui-core": {
       "name": "@gv-tech/ui-core",
-      "version": "2.15.0",
+      "version": "2.15.1",
       "dependencies": {
         "class-variance-authority": "^0.7.1",
       },
@@ -152,7 +152,7 @@
     },
     "packages/ui-native": {
       "name": "@gv-tech/ui-native",
-      "version": "2.15.0",
+      "version": "2.15.1",
       "dependencies": {
         "@gv-tech/design-tokens": "^2.12.0",
         "@gv-tech/ui-core": "^2.12.0",
@@ -198,7 +198,7 @@
     },
     "packages/ui-web": {
       "name": "@gv-tech/ui-web",
-      "version": "2.15.0",
+      "version": "2.15.1",
       "dependencies": {
         "@gv-tech/design-tokens": "^2.12.0",
         "@gv-tech/ui-core": "^2.12.0",
@@ -3665,6 +3665,8 @@
     "@expo/metro-config/postcss": ["postcss@8.4.49", "", { "dependencies": { "nanoid": "^3.3.7", "picocolors": "^1.1.1", "source-map-js": "^1.2.1" } }, "sha512-OCVPnIObs4N29kxTjzLfUryOkvZEq+pf8jTF0lg8E7uETuWHA+v7j3c/xJmiqpX450191LlmZfUKkXxkTry7nA=="],
 
     "@expo/prebuild-config/@react-native/normalize-colors": ["@react-native/normalize-colors@0.81.5", "", {}, "sha512-0HuJ8YtqlTVRXGZuGeBejLE04wSQsibpTI+RGOyVqxZvgtlLLC/Ssw0UmbHhT4lYMp2fhdtvKZSs5emWB1zR/g=="],
+
+    "@gv-tech/ui-native/tailwindcss": ["tailwindcss@4.2.1", "", {}, "sha512-/tBrSQ36vCleJkAOsy9kbNTgaxvGbyOamC30PRePTQe/o1MFwEKHQk4Cn7BNGaPtjp+PuUrByJehM1hgxfq4sw=="],
 
     "@isaacs/cliui/string-width": ["string-width@5.1.2", "", { "dependencies": { "eastasianwidth": "^0.2.0", "emoji-regex": "^9.2.2", "strip-ansi": "^7.0.1" } }, "sha512-HnLOCR3vjcY8beoNLtcjZ5/nxn2afmME6lhrDrebokqMap+XbeW8n9TXpPDOqdGK5qcI3oT0GKTW6wC7EMiVqA=="],
 
