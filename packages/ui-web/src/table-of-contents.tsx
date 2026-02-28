@@ -43,7 +43,7 @@ function TableOfContents({
   className,
   activeId: activeIdOverride,
   minLevel = 1,
-  maxLevel = 3,
+  maxLevel = 4,
   selector = 'h1, h2, h3, h4, h5, h6',
 }: TableOfContentsProps) {
   const [headings, setHeadings] = React.useState<HeadingItem[]>([]);
@@ -210,7 +210,7 @@ function TableOfContentsContent({ children, className }: TableOfContentsContentB
       const elements = Array.from(root.querySelectorAll(config.selector || 'h1, h2, h3, h4, h5, h6')).filter(
         (element) => {
           const level = parseInt(element.tagName.charAt(1), 10);
-          return level >= (config.minLevel || 1) && level <= (config.maxLevel || 3);
+          return level >= (config.minLevel ?? 1) && level <= (config.maxLevel ?? 4);
         },
       );
 

@@ -54,78 +54,78 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
   const showTabs = !!(web && native);
 
   return (
-    <TableOfContents>
+    <TableOfContents minLevel={1} maxLevel={4}>
       <div className="flex flex-col xl:flex-row xl:gap-10">
         <div className="max-w-4xl min-w-0 flex-1 space-y-6">
           {/* Mobile Table of Contents */}
           <TableOfContents.List className="-mx-4 -mt-4 mb-6 border-t-0 xl:hidden" />
 
-          <div className="space-y-2 px-4 md:px-0">
-            <h1 id="overview" className="text-2xl font-bold tracking-tight md:text-3xl">
+          <TableOfContents.Content className="space-y-6">
+            <h1 id="overview" className="px-4 text-2xl font-bold tracking-tight md:px-0 md:text-3xl">
               {title}
             </h1>
-            {description && <p className="text-muted-foreground text-base md:text-lg">{description}</p>}
-          </div>
+            {description && <p className="text-muted-foreground px-4 text-base md:px-0 md:text-lg">{description}</p>}
 
-          {showTabs ? (
-            <Tabs value={activeTab} onValueChange={onTabChange} className="w-full">
-              <TabsList className="w-full justify-start rounded-none border-b bg-transparent px-4 md:px-0">
+            {showTabs ? (
+              <Tabs value={activeTab} onValueChange={onTabChange} className="w-full">
+                <TabsList className="w-full justify-start rounded-none border-b bg-transparent px-4 md:px-0">
+                  {web && (
+                    <TabsTrigger
+                      value="web"
+                      className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+                    >
+                      Web
+                    </TabsTrigger>
+                  )}
+                  {native && (
+                    <TabsTrigger
+                      value="native"
+                      className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
+                    >
+                      Native
+                    </TabsTrigger>
+                  )}
+                </TabsList>
                 {web && (
-                  <TabsTrigger
-                    value="web"
-                    className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
-                  >
-                    Web
-                  </TabsTrigger>
+                  <TabsContent value="web" className="mt-8 border-none p-0 outline-none md:mt-10">
+                    <PlatformContext.Provider value="web">
+                      <div className="space-y-10 md:space-y-12">{web}</div>
+                    </PlatformContext.Provider>
+                  </TabsContent>
                 )}
                 {native && (
-                  <TabsTrigger
-                    value="native"
-                    className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
-                  >
-                    Native
-                  </TabsTrigger>
-                )}
-              </TabsList>
-              {web && (
-                <TabsContent value="web" className="mt-8 border-none p-0 outline-none md:mt-10">
-                  <PlatformContext.Provider value="web">
-                    <TableOfContents.Content className="space-y-10 md:space-y-12">{web}</TableOfContents.Content>
-                  </PlatformContext.Provider>
-                </TabsContent>
-              )}
-              {native && (
-                <TabsContent value="native" className="mt-8 border-none p-0 outline-none md:mt-10">
-                  <PlatformContext.Provider value="native">
-                    <div className="mx-4 mb-6 flex gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 text-blue-500 md:mx-0">
-                      <Info className="h-5 w-5 shrink-0" />
-                      <div className="text-sm">
-                        <p className="font-semibold">Native Implementation</p>
-                        <p className="opacity-90">
-                          These components are built for React Native environments. Previews below show implementation
-                          details and code samples.
-                        </p>
+                  <TabsContent value="native" className="mt-8 border-none p-0 outline-none md:mt-10">
+                    <PlatformContext.Provider value="native">
+                      <div className="mx-4 mb-6 flex gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 text-blue-500 md:mx-0">
+                        <Info className="h-5 w-5 shrink-0" />
+                        <div className="text-sm">
+                          <p className="font-semibold">Native Implementation</p>
+                          <p className="opacity-90">
+                            These components are built for React Native environments. Previews below show implementation
+                            details and code samples.
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                    <TableOfContents.Content className="space-y-10 md:space-y-12">{native}</TableOfContents.Content>
+                      <div className="space-y-10 md:space-y-12">{native}</div>
+                    </PlatformContext.Provider>
+                  </TabsContent>
+                )}
+              </Tabs>
+            ) : (
+              <div className="mt-8 px-4 md:mt-10 md:px-0">
+                {web && (
+                  <PlatformContext.Provider value="web">
+                    <div className="space-y-10 md:space-y-12">{web}</div>
                   </PlatformContext.Provider>
-                </TabsContent>
-              )}
-            </Tabs>
-          ) : (
-            <TableOfContents.Content className="mt-8 px-4 md:mt-10 md:px-0">
-              {web && (
-                <PlatformContext.Provider value="web">
-                  <div className="space-y-10 md:space-y-12">{web}</div>
-                </PlatformContext.Provider>
-              )}
-              {native && (
-                <PlatformContext.Provider value="native">
-                  <div className="space-y-10 md:space-y-12">{native}</div>
-                </PlatformContext.Provider>
-              )}
-            </TableOfContents.Content>
-          )}
+                )}
+                {native && (
+                  <PlatformContext.Provider value="native">
+                    <div className="space-y-10 md:space-y-12">{native}</div>
+                  </PlatformContext.Provider>
+                )}
+              </div>
+            )}
+          </TableOfContents.Content>
         </div>
 
         {/* Right Sidebar for TOC (Desktop Only) */}
