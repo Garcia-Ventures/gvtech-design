@@ -30,8 +30,6 @@ import { docRoutes } from './routes/doc-routes';
 // Lazy load docs pages
 import { PackageManagerProvider } from './hooks/usePackageManager';
 
-const ColorTokensDocs = React.lazy(() => import('./pages').then((m) => ({ default: m.ColorTokensDocs })));
-
 function PageLoader() {
   return (
     <div className="flex h-[400px] w-full items-center justify-center">
@@ -41,15 +39,13 @@ function PageLoader() {
 }
 
 function DocumentationLayout() {
-  const navigate = useNavigate();
-  const location = useLocation();
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
-  // Find current doc based on URL path
-  const pathParts = location.pathname.split('/');
-  const docSlug = pathParts[2] || 'getting-started';
+  const docSlug = location.pathname.split('/').pop() || 'getting-started';
 
-  const currentDoc = React.useMemo(() => {
+  const activeRoute = React.useMemo(() => {
     for (const category of docConfig) {
       const found = category.items.find((item) => item.href === docSlug);
       if (found) {
@@ -60,7 +56,13 @@ function DocumentationLayout() {
   }, [docSlug]);
 
   React.useEffect(() => {
-    if (!location.pathname.startsWith('/docs')) {
+    if (activeRoute?.title) {
+      document.title = `${activeRoute.title} | GV Tech Design`;
+    }
+  }, [activeRoute]);
+
+  React.useEffect(() => {
+    if (location.pathname === '/docs' || location.pathname === '/docs/') {
       navigate('/docs/getting-started', { replace: true });
     }
   }, [location.pathname, navigate]);
@@ -105,7 +107,7 @@ function DocumentationLayout() {
                     </BreadcrumbItem>
                     <BreadcrumbSeparator />
                     <BreadcrumbItem>
-                      <BreadcrumbPage>{currentDoc?.title || 'Documentation'}</BreadcrumbPage>
+                      <BreadcrumbPage>{activeRoute?.title || 'Documentation'}</BreadcrumbPage>
                     </BreadcrumbItem>
                   </BreadcrumbList>
                 </Breadcrumb>
@@ -123,7 +125,6 @@ function DocumentationLayout() {
                     <ErrorBoundary>
                       <React.Suspense fallback={<PageLoader />}>
                         <Routes>
-                          <Route path="theming" element={<ColorTokensDocs />} />
                           <Route path="color-tokens" element={<Navigate to="/docs/theming" replace />} />
 
                           {/* Dynamic Component Routes */}
@@ -147,8 +148,8 @@ function DocumentationLayout() {
                       </React.Suspense>
                     </ErrorBoundary>
                   </div>
+                  <Footer />
                 </main>
-                <Footer />
               </div>
             </ScrollArea>
           </div>

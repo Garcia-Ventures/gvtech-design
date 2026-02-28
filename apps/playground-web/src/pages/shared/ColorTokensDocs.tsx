@@ -28,15 +28,7 @@ export function ColorTokensDocs() {
   });
 
   return (
-    <div className="space-y-12">
-      <div className="space-y-4">
-        <h1 className="text-3xl font-extrabold tracking-tight md:text-5xl">Theming</h1>
-        <p className="text-muted-foreground max-w-2xl text-lg md:text-xl">
-          GV Tech is built for complete visual flexibility. Our system uses a multi-layered approach to theming,
-          starting from raw tokens and ending with component-level overrides.
-        </p>
-      </div>
-
+    <div className="space-y-12 pb-10">
       <section className="space-y-8">
         <div className="grid gap-6 md:grid-cols-3">
           <div className="space-y-2">

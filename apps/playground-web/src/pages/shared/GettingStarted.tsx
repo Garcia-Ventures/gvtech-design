@@ -9,17 +9,7 @@ export function GettingStartedPage() {
     description: 'Learn how to get started with the GV Tech Design System.',
   });
   return (
-    <div className="space-y-12">
-      <div className="space-y-4">
-        <h1 className="text-center text-3xl font-bold tracking-tight md:text-left md:text-5xl">
-          GV Tech Design System
-        </h1>
-        <p className="text-muted-foreground max-w-[800px] text-center text-lg md:text-left md:text-xl">
-          A modern, universal component library built for speed, accessibility, and developer experience. Engineered for
-          seamless use across Web (React) and Mobile (React Native).
-        </p>
-      </div>
-
+    <div className="space-y-12 pb-10">
       <div className="grid gap-6 md:grid-cols-3">
         <Card className="bg-muted/30">
           <CardHeader className="pb-2">

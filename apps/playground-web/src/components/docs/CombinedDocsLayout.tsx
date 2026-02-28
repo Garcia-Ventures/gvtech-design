@@ -57,7 +57,10 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
     <TableOfContents>
       <div className="flex flex-col xl:flex-row xl:gap-10">
         <div className="max-w-4xl min-w-0 flex-1 space-y-6">
-          <div className="space-y-2">
+          {/* Mobile Table of Contents */}
+          <TableOfContents.List className="-mx-4 -mt-4 mb-6 border-t-0 xl:hidden" />
+
+          <div className="space-y-2 px-4 md:px-0">
             <h1 id="overview" className="text-2xl font-bold tracking-tight md:text-3xl">
               {title}
             </h1>
@@ -66,7 +69,7 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
           {showTabs ? (
             <Tabs value={activeTab} onValueChange={onTabChange} className="w-full">
-              <TabsList className="w-full justify-start rounded-none border-b bg-transparent p-0">
+              <TabsList className="w-full justify-start rounded-none border-b bg-transparent px-4 md:px-0">
                 {web && (
                   <TabsTrigger
                     value="web"
@@ -94,7 +97,7 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
               {native && (
                 <TabsContent value="native" className="mt-8 border-none p-0 outline-none md:mt-10">
                   <PlatformContext.Provider value="native">
-                    <div className="mb-6 flex gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 text-blue-500">
+                    <div className="mx-4 mb-6 flex gap-3 rounded-lg border border-blue-500/20 bg-blue-500/10 p-4 text-blue-500 md:mx-0">
                       <Info className="h-5 w-5 shrink-0" />
                       <div className="text-sm">
                         <p className="font-semibold">Native Implementation</p>
@@ -110,7 +113,7 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
               )}
             </Tabs>
           ) : (
-            <TableOfContents.Content className="mt-8 md:mt-10">
+            <TableOfContents.Content className="mt-8 px-4 md:mt-10 md:px-0">
               {web && (
                 <PlatformContext.Provider value="web">
                   <div className="space-y-10 md:space-y-12">{web}</div>
@@ -125,11 +128,11 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
           )}
         </div>
 
-        {/* Right Sidebar for TOC */}
+        {/* Right Sidebar for TOC (Desktop Only) */}
         <div className="hidden w-64 shrink-0 xl:block">
-          <div className="sticky top-20 pt-4">
+          <div className="sticky top-0 pt-4">
             <p className="mb-4 text-sm font-medium">On This Page</p>
-            <TableOfContents.List className="max-h-[calc(100vh-8rem)] overflow-auto" />
+            <TableOfContents.List />
           </div>
         </div>
       </div>

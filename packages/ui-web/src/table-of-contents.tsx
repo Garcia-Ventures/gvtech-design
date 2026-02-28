@@ -14,6 +14,7 @@ import { cn, slugify } from './lib/utils';
 interface TOCContextValue {
   headings: HeadingItem[];
   activeId: string | null;
+  activeHeadingText: string | null;
   registerHeadings: (headings: HeadingItem[]) => void;
   setActiveId: (id: string | null) => void;
   config: TableOfContentsBaseProps;
@@ -48,6 +49,10 @@ function TableOfContents({
   const [headings, setHeadings] = React.useState<HeadingItem[]>([]);
   const [activeId, setActiveId] = React.useState<string | null>(null);
 
+  const activeHeadingText = React.useMemo(() => {
+    return headings.find((h) => h.id === activeId)?.text || null;
+  }, [headings, activeId]);
+
   const registerHeadings = React.useCallback((newHeadings: HeadingItem[]) => {
     setHeadings((prev) => {
       if (JSON.stringify(prev) === JSON.stringify(newHeadings)) {
@@ -61,11 +66,22 @@ function TableOfContents({
     () => ({
       headings,
       activeId: activeIdOverride || activeId,
+      activeHeadingText,
       registerHeadings,
       setActiveId,
       config: { minLevel, maxLevel, selector, className },
     }),
-    [headings, activeId, activeIdOverride, registerHeadings, minLevel, maxLevel, selector, className],
+    [
+      headings,
+      activeId,
+      activeIdOverride,
+      activeHeadingText,
+      registerHeadings,
+      minLevel,
+      maxLevel,
+      selector,
+      className,
+    ],
   );
 
   return (
@@ -86,39 +102,94 @@ function TableOfContents({
  * Renders the actual list of links.
  */
 function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
-  const { headings, activeId } = useTOC();
+  const { headings, activeId, activeHeadingText } = useTOC();
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  // Auto-collapse on scroll
+  React.useEffect(() => {
+    if (!isOpen) {
+      return;
+    }
+
+    const handleScroll = () => {
+      setIsOpen(false);
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [isOpen]);
 
   if (headings.length === 0) {
     return null;
   }
 
-  // Find the minimum level in the current headings to determine basic indentation mapping
   const currentMinLevel = Math.min(...headings.map((h) => h.level));
 
-  return (
-    <nav className={cn('space-y-2', className)} aria-label="Table of contents">
-      <ul className="m-0 list-none text-sm">
-        {headings.map((heading) => {
-          const isActive = activeId === heading.id;
-          const paddingLeft = `${(heading.level - currentMinLevel) * 1}rem`;
+  const listContent = (
+    <ul className="m-0 list-none text-sm">
+      {headings.map((heading) => {
+        const isActive = activeId === heading.id;
+        const paddingLeft = `${(heading.level - currentMinLevel) * 1}rem`;
 
-          return (
-            <li key={heading.id} className="mt-0 pt-2">
-              <a
-                href={`#${heading.id}`}
-                className={cn(
-                  'hover:text-foreground inline-block no-underline transition-colors',
-                  isActive ? 'text-primary font-medium' : 'text-muted-foreground',
-                )}
-                style={{ paddingLeft }}
-              >
-                {heading.text}
-              </a>
-            </li>
-          );
-        })}
-      </ul>
-    </nav>
+        return (
+          <li key={heading.id} className="mt-0 pt-2">
+            <a
+              href={`#${heading.id}`}
+              onClick={() => setIsOpen(false)}
+              className={cn(
+                'hover:text-foreground inline-block no-underline transition-colors',
+                isActive ? 'text-primary font-medium' : 'text-muted-foreground',
+              )}
+              style={{ paddingLeft }}
+            >
+              {heading.text}
+            </a>
+          </li>
+        );
+      })}
+    </ul>
+  );
+
+  return (
+    <>
+      {/* Mobile Sticky Header */}
+      <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur xl:hidden', className)}>
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="flex w-full items-center justify-between px-4 py-3 text-left"
+        >
+          <div className="flex items-center gap-2 overflow-hidden">
+            <span className="text-muted-foreground text-xs font-semibold tracking-wider uppercase">On this page:</span>
+            <span className="truncate text-sm font-medium">{activeHeadingText || 'Overview'}</span>
+          </div>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className={cn('shrink-0 transition-transform duration-200', isOpen && 'rotate-180')}
+          >
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </button>
+
+        {isOpen && (
+          <div className="bg-background border-t px-4 pt-2 pb-6">
+            <nav aria-label="Table of contents mobile">{listContent}</nav>
+          </div>
+        )}
+      </div>
+
+      {/* Desktop Hidden List */}
+      <nav className={cn('hidden xl:block', className)} aria-label="Table of contents">
+        {listContent}
+      </nav>
+    </>
   );
 }
 

@@ -41,12 +41,12 @@ describe('TableOfContents', () => {
       </TableOfContents>,
     );
 
-    expect(screen.getByRole('link', { name: 'Section 1' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Section 1.1' })).toBeInTheDocument();
-    expect(screen.getByRole('link', { name: 'Section 2' })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: 'Section 1' })[0]).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: 'Section 1.1' })[0]).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: 'Section 2' })[0]).toBeInTheDocument();
 
     // Check hrefs
-    expect(screen.getByRole('link', { name: 'Section 1' })).toHaveAttribute('href', '#section-1');
+    expect(screen.getAllByRole('link', { name: 'Section 1' })[0]).toHaveAttribute('href', '#section-1');
   });
 
   it('respects minLevel and maxLevel props from root', () => {
@@ -60,7 +60,7 @@ describe('TableOfContents', () => {
       </TableOfContents>,
     );
 
-    expect(screen.getByRole('link', { name: 'Section 1' })).toBeInTheDocument();
+    expect(screen.getAllByRole('link', { name: 'Section 1' })[0]).toBeInTheDocument();
     // h3 should be filtered out
     expect(screen.queryByRole('link', { name: 'Section 1.1' })).not.toBeInTheDocument();
   });
@@ -75,7 +75,7 @@ describe('TableOfContents', () => {
       </TableOfContents>,
     );
 
-    const link = screen.getByRole('link', { name: 'No ID Heading' });
+    const link = screen.getAllByRole('link', { name: 'No ID Heading' })[0];
     expect(link).toBeInTheDocument();
     expect(link).toHaveAttribute('href', '#no-id-heading');
 
@@ -106,10 +106,10 @@ describe('TableOfContents', () => {
       </TableOfContents>,
     );
 
-    const activeLink = screen.getByRole('link', { name: 'Section 2' });
+    const activeLink = screen.getAllByRole('link', { name: 'Section 2' })[0];
     expect(activeLink).toHaveClass('font-medium', 'text-primary');
 
-    const inactiveLink = screen.getByRole('link', { name: 'Section 1' });
+    const inactiveLink = screen.getAllByRole('link', { name: 'Section 1' })[0];
     expect(inactiveLink).toHaveClass('text-muted-foreground');
   });
 });
