@@ -1,3 +1,13 @@
+## 2.16.0 (2026-02-28)
+
+### 🚀 Features
+
+- Add TableOfContents component and improve displayName assignments for UI components. ([3d4c813](https://github.com/Garcia-Ventures/gvtech-design/commit/3d4c813))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.15.2 (2026-02-27)
 
 ### 🚀 Features

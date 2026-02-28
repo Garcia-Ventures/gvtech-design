@@ -1,3 +1,15 @@
+## 2.16.0 (2026-02-28)
+
+### 🚀 Features
+
+- Extend TableOfContents to include h4 headings and refine its content integration within the docs layout. ([f81b7f8](https://github.com/Garcia-Ventures/gvtech-design/commit/f81b7f8))
+- Implement responsive and collapsible Table of Contents with active heading display for improved mobile navigation. ([487ff91](https://github.com/Garcia-Ventures/gvtech-design/commit/487ff91))
+- Add TableOfContents component and improve displayName assignments for UI components. ([3d4c813](https://github.com/Garcia-Ventures/gvtech-design/commit/3d4c813))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.15.2 (2026-02-27)
 
 ### 🚀 Features

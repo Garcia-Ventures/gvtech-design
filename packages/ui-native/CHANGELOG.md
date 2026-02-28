@@ -1,3 +1,14 @@
+## 2.16.0 (2026-02-28)
+
+### 🚀 Features
+
+- Implement native TableOfContents component with heading registration, active state, and scroll functionality, including a new `slugify` utility and dedicated tests. ([91bc7a1](https://github.com/Garcia-Ventures/gvtech-design/commit/91bc7a1))
+- Add TableOfContents component and improve displayName assignments for UI components. ([3d4c813](https://github.com/Garcia-Ventures/gvtech-design/commit/3d4c813))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.15.2 (2026-02-27)
 
 No changes for this project
