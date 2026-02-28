@@ -209,4 +209,9 @@ export { ThemeToggle } from './theme-toggle';
 export { Toaster } from './toaster';
 
 // Table Of Contents
-export { TableOfContents } from './table-of-contents';
+export {
+  TableOfContents,
+  TableOfContentsContent,
+  TableOfContentsHeading,
+  TableOfContentsList,
+} from './table-of-contents';
