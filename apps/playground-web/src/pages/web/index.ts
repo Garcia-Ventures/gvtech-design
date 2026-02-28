@@ -38,6 +38,7 @@ export { SliderDocs as WebSliderDocs } from './SliderDocs';
 export { SonnerDocs as WebSonnerDocs } from './SonnerDocs';
 export { SwitchDocs as WebSwitchDocs } from './SwitchDocs';
 export { TableDocs as WebTableDocs } from './TableDocs';
+export { TableOfContentsDocs as WebTableOfContentsDocs } from './TableOfContentsDocs';
 export { TabsDocs as WebTabsDocs } from './TabsDocs';
 export { TextareaDocs as WebTextareaDocs } from './TextareaDocs';
 export { TextDocs as WebTextDocs } from './TextDocs';

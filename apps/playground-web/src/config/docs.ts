@@ -311,6 +311,11 @@ export const docConfig: DocCategory[] = [
         href: 'theme-toggle',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Table Of Contents',
+        href: 'table-of-contents',
+        platforms: ['web', 'native'],
+      },
     ],
   },
 ];

@@ -207,3 +207,6 @@ export { ThemeToggle } from './theme-toggle';
 
 // Toaster
 export { Toaster } from './toaster';
+
+// Table Of Contents
+export { TableOfContents } from './table-of-contents';

@@ -27,6 +27,18 @@ export default defineConfig({
     ],
     extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
   },
+  optimizeDeps: {
+    esbuildOptions: {
+      loader: {
+        '.js': 'jsx',
+      },
+    },
+  },
+  esbuild: {
+    loader: 'tsx',
+    include: /src\/.*\.[jt]sx?$/,
+    exclude: [],
+  },
   build: {
     outDir: 'dist-site',
     emptyOutDir: true,

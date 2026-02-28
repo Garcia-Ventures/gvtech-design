@@ -18,6 +18,16 @@ import * as React from 'react';
 import { CodeBlock } from './CodeBlock';
 import { PlatformContext } from './CombinedDocsLayout';
 
+function slugify(text: string) {
+  return text
+    .toString()
+    .toLowerCase()
+    .trim()
+    .replace(/\s+/g, '-') // Replace spaces with -
+    .replace(/[^\w-]+/g, '') // Remove all non-word chars
+    .replace(/--+/g, '-'); // Replace multiple - with single -
+}
+
 interface ComponentShowcaseProps {
   title: string;
   description?: string;
@@ -33,7 +43,9 @@ export function ComponentShowcase({ title, description, code, children, classNam
   return (
     <Card className={cn('overflow-hidden', className)}>
       <CardHeader>
-        <CardTitle className="text-lg">{title}</CardTitle>
+        <CardTitle id={slugify(title)} className="text-lg">
+          {title}
+        </CardTitle>
         {description && <CardDescription>{description}</CardDescription>}
       </CardHeader>
       <CardContent className="p-0">
@@ -87,7 +99,9 @@ export function ComponentSection({ title, description, children }: ComponentSect
   return (
     <div className="space-y-6">
       <div className="space-y-2">
-        <h1 className="text-2xl font-bold tracking-tight md:text-3xl">{title}</h1>
+        <h1 id={slugify(title)} className="text-2xl font-bold tracking-tight md:text-3xl">
+          {title}
+        </h1>
         {description && <p className="text-muted-foreground text-base md:text-lg">{description}</p>}
       </div>
       <div className="space-y-6">{children}</div>

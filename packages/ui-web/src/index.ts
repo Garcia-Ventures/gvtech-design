@@ -476,4 +476,7 @@ export { useTheme } from './hooks/use-theme';
 export type { ToasterBaseProps as ToasterProps } from '@gv-tech/ui-core';
 export { toast, useToast } from './hooks/use-toast';
 export { Toaster } from './toaster';
-// sync
+
+// Table Of Contents
+export { TableOfContents } from './table-of-contents';
+export type { TableOfContentsProps } from './table-of-contents';

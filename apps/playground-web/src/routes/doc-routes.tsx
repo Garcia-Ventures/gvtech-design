@@ -388,4 +388,11 @@ export const docRoutes: DocRoute[] = [
     web: web('WebTooltipDocs'),
     native: native('NativeTooltipDocs'),
   },
+  {
+    path: 'table-of-contents',
+    title: 'TableOfContents',
+    description: 'A component used to extract headings from a page and render a clickable, nested Table of Contents.',
+    web: web('WebTableOfContentsDocs'),
+    native: native('NativeTableOfContentsDocs'),
+  },
 ];

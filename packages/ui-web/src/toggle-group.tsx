@@ -23,7 +23,7 @@ const ToggleGroup = React.forwardRef<React.ElementRef<typeof ToggleGroupPrimitiv
   ),
 );
 
-ToggleGroup.displayName = ToggleGroupPrimitive.Root.displayName;
+ToggleGroup.displayName = ToggleGroupPrimitive.Root?.displayName || 'ToggleGroup';
 
 export type ToggleGroupItemProps = React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item> &
   VariantProps<typeof toggleVariants>;
@@ -50,6 +50,6 @@ const ToggleGroupItem = React.forwardRef<React.ElementRef<typeof ToggleGroupPrim
   },
 );
 
-ToggleGroupItem.displayName = ToggleGroupPrimitive.Item.displayName;
+ToggleGroupItem.displayName = ToggleGroupPrimitive.Item?.displayName || 'ToggleGroupItem';
 
 export { ToggleGroup, ToggleGroupItem };

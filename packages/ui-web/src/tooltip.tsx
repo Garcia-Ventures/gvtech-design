@@ -28,7 +28,7 @@ export type TooltipTriggerProps = React.ComponentPropsWithoutRef<typeof TooltipP
 const TooltipTrigger = React.forwardRef<React.ElementRef<typeof TooltipPrimitive.Trigger>, TooltipTriggerProps>(
   ({ className, ...props }, ref) => <TooltipPrimitive.Trigger ref={ref} className={className} {...props} />,
 );
-TooltipTrigger.displayName = TooltipPrimitive.Trigger.displayName;
+TooltipTrigger.displayName = TooltipPrimitive.Trigger?.displayName || 'TooltipTrigger';
 
 export type TooltipContentProps = React.ComponentPropsWithoutRef<typeof TooltipPrimitive.Content> &
   TooltipContentBaseProps;
@@ -46,6 +46,6 @@ const TooltipContent = React.forwardRef<React.ElementRef<typeof TooltipPrimitive
     />
   ),
 );
-TooltipContent.displayName = TooltipPrimitive.Content.displayName;
+TooltipContent.displayName = TooltipPrimitive.Content?.displayName || 'TooltipContent';
 
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

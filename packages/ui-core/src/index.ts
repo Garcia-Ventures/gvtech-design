@@ -325,3 +325,12 @@ export type { ThemeToggleBaseProps } from './contracts/theme-toggle';
 
 // Toaster
 export type { ToasterBaseProps } from './contracts/toaster';
+
+// TableOfContents
+export type {
+  HeadingItem,
+  TableOfContentsBaseProps,
+  TableOfContentsContentBaseProps,
+  TableOfContentsListBaseProps,
+  TableOfContentsRootBaseProps,
+} from './contracts/table-of-contents';

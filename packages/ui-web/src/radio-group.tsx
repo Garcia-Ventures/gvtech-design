@@ -14,7 +14,7 @@ const RadioGroup = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.
     return <RadioGroupPrimitive.Root className={cn('grid gap-2', className)} {...props} ref={ref} />;
   },
 );
-RadioGroup.displayName = RadioGroupPrimitive.Root.displayName;
+RadioGroup.displayName = RadioGroupPrimitive.Root?.displayName || 'RadioGroup';
 
 export interface RadioGroupItemProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>, RadioGroupItemBaseProps {}
@@ -37,6 +37,6 @@ const RadioGroupItem = React.forwardRef<React.ElementRef<typeof RadioGroupPrimit
     );
   },
 );
-RadioGroupItem.displayName = RadioGroupPrimitive.Item.displayName;
+RadioGroupItem.displayName = RadioGroupPrimitive.Item?.displayName || 'RadioGroupItem';
 
 export { RadioGroup, RadioGroupItem };

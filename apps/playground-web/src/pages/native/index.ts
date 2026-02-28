@@ -39,6 +39,7 @@ export { SliderDocs as NativeSliderDocs } from './SliderDocs';
 export { SonnerDocs as NativeSonnerDocs } from './SonnerDocs';
 export { SwitchDocs as NativeSwitchDocs } from './SwitchDocs';
 export { TableDocs as NativeTableDocs } from './TableDocs';
+export { TableOfContentsDocs as NativeTableOfContentsDocs } from './TableOfContentsDocs';
 export { TabsDocs as NativeTabsDocs } from './TabsDocs';
 export { TextareaDocs as NativeTextareaDocs } from './TextareaDocs';
 export { TextDocs as NativeTextDocs } from './TextDocs';

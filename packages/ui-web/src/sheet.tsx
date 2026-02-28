@@ -40,7 +40,7 @@ const SheetOverlay = React.forwardRef<
     ref={ref}
   />
 ));
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
+SheetOverlay.displayName = SheetPrimitive.Overlay?.displayName || 'SheetOverlay';
 
 const sheetVariants = cva(
   'fixed z-50 gap-4 bg-background p-6 shadow-lg transition ease-in-out data-[state=closed]:duration-300 data-[state=open]:duration-500 data-[state=open]:animate-in data-[state=closed]:animate-out',
@@ -81,7 +81,7 @@ const SheetContent = React.forwardRef<React.ElementRef<typeof SheetPrimitive.Con
     </SheetPortal>
   ),
 );
-SheetContent.displayName = SheetPrimitive.Content.displayName;
+SheetContent.displayName = SheetPrimitive.Content?.displayName || 'SheetContent';
 
 const SheetHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement> & SheetHeaderBaseProps) => (
   <div className={cn('flex flex-col space-y-2 text-center sm:text-left', className)} {...props} />
@@ -99,7 +99,7 @@ const SheetTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Title ref={ref} className={cn('text-foreground text-lg font-semibold', className)} {...props} />
 ));
-SheetTitle.displayName = SheetPrimitive.Title.displayName;
+SheetTitle.displayName = SheetPrimitive.Title?.displayName || 'SheetTitle';
 
 const SheetDescription = React.forwardRef<
   React.ElementRef<typeof SheetPrimitive.Description>,
@@ -107,7 +107,7 @@ const SheetDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <SheetPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
 ));
-SheetDescription.displayName = SheetPrimitive.Description.displayName;
+SheetDescription.displayName = SheetPrimitive.Description?.displayName || 'SheetDescription';
 
 export {
   Sheet,

@@ -32,7 +32,7 @@ const DrawerOverlay = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Overlay ref={ref} className={cn('fixed inset-0 z-50 bg-black/80', className)} {...props} />
 ));
-DrawerOverlay.displayName = DrawerPrimitive.Overlay.displayName;
+DrawerOverlay.displayName = DrawerPrimitive.Overlay?.displayName || 'DrawerOverlay';
 
 const DrawerContent = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Content>,
@@ -75,7 +75,7 @@ const DrawerTitle = React.forwardRef<
     {...props}
   />
 ));
-DrawerTitle.displayName = DrawerPrimitive.Title.displayName;
+DrawerTitle.displayName = DrawerPrimitive.Title?.displayName || 'DrawerTitle';
 
 const DrawerDescription = React.forwardRef<
   React.ElementRef<typeof DrawerPrimitive.Description>,
@@ -83,7 +83,7 @@ const DrawerDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <DrawerPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
 ));
-DrawerDescription.displayName = DrawerPrimitive.Description.displayName;
+DrawerDescription.displayName = DrawerPrimitive.Description?.displayName || 'DrawerDescription';
 
 export {
   Drawer,

@@ -30,7 +30,7 @@ const Toast = React.forwardRef<
     </ToastPrimitive.Root>
   );
 });
-Toast.displayName = ToastPrimitive.Root.displayName;
+Toast.displayName = ToastPrimitive.Root?.displayName || 'Toast';
 
 const ToastTitle = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Title>,
@@ -38,7 +38,7 @@ const ToastTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Title ref={ref} className={cn('text-foreground text-sm font-semibold', className)} {...props} />
 ));
-ToastTitle.displayName = ToastPrimitive.Title.displayName;
+ToastTitle.displayName = ToastPrimitive.Title?.displayName || 'ToastTitle';
 
 const ToastDescription = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Description>,
@@ -50,7 +50,7 @@ const ToastDescription = React.forwardRef<
     {...props}
   />
 ));
-ToastDescription.displayName = ToastPrimitive.Description.displayName;
+ToastDescription.displayName = ToastPrimitive.Description?.displayName || 'ToastDescription';
 
 const ToastClose = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Close>,
@@ -67,7 +67,7 @@ const ToastClose = React.forwardRef<
     <X size={16} className="text-muted-foreground" />
   </ToastPrimitive.Close>
 ));
-ToastClose.displayName = ToastPrimitive.Close.displayName;
+ToastClose.displayName = ToastPrimitive.Close?.displayName || 'ToastClose';
 
 const ToastAction = React.forwardRef<
   React.ElementRef<typeof ToastPrimitive.Action>,
@@ -82,7 +82,7 @@ const ToastAction = React.forwardRef<
     {...props}
   />
 ));
-ToastAction.displayName = ToastPrimitive.Action.displayName;
+ToastAction.displayName = ToastPrimitive.Action?.displayName || 'ToastAction';
 
 export type ToastProps = React.ComponentPropsWithoutRef<typeof Toast>;
 export { Toast, ToastAction, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport };

@@ -34,7 +34,7 @@ const AlertDialogOverlay = React.forwardRef<
     ref={ref}
   />
 ));
-AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay.displayName;
+AlertDialogOverlay.displayName = AlertDialogPrimitive.Overlay?.displayName || 'AlertDialogOverlay';
 
 const AlertDialogContent = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Content>,
@@ -52,7 +52,7 @@ const AlertDialogContent = React.forwardRef<
     />
   </AlertDialogPortal>
 ));
-AlertDialogContent.displayName = AlertDialogPrimitive.Content.displayName;
+AlertDialogContent.displayName = AlertDialogPrimitive.Content?.displayName || 'AlertDialogContent';
 
 const AlertDialogHeader = ({
   className,
@@ -76,7 +76,7 @@ const AlertDialogTitle = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Title ref={ref} className={cn('text-lg font-semibold', className)} {...props} />
 ));
-AlertDialogTitle.displayName = AlertDialogPrimitive.Title.displayName;
+AlertDialogTitle.displayName = AlertDialogPrimitive.Title?.displayName || 'AlertDialogTitle';
 
 const AlertDialogDescription = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Description>,
@@ -84,7 +84,7 @@ const AlertDialogDescription = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props} />
 ));
-AlertDialogDescription.displayName = AlertDialogPrimitive.Description.displayName;
+AlertDialogDescription.displayName = AlertDialogPrimitive.Description?.displayName || 'AlertDialogDescription';
 
 const AlertDialogAction = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Action>,
@@ -92,7 +92,7 @@ const AlertDialogAction = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AlertDialogPrimitive.Action ref={ref} className={cn(buttonVariants(), className)} {...props} />
 ));
-AlertDialogAction.displayName = AlertDialogPrimitive.Action.displayName;
+AlertDialogAction.displayName = AlertDialogPrimitive.Action?.displayName || 'AlertDialogAction';
 
 const AlertDialogCancel = React.forwardRef<
   React.ElementRef<typeof AlertDialogPrimitive.Cancel>,
@@ -104,7 +104,7 @@ const AlertDialogCancel = React.forwardRef<
     {...props}
   />
 ));
-AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel.displayName;
+AlertDialogCancel.displayName = AlertDialogPrimitive.Cancel?.displayName || 'AlertDialogCancel';
 
 export {
   AlertDialog,

@@ -15,7 +15,7 @@ const Avatar = React.forwardRef<
     {...props}
   />
 ));
-Avatar.displayName = AvatarPrimitive.Root.displayName;
+Avatar.displayName = AvatarPrimitive.Root?.displayName || 'Avatar';
 
 const AvatarImage = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Image>,
@@ -23,7 +23,7 @@ const AvatarImage = React.forwardRef<
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image ref={ref} className={cn('aspect-square h-full w-full', className)} {...props} />
 ));
-AvatarImage.displayName = AvatarPrimitive.Image.displayName;
+AvatarImage.displayName = AvatarPrimitive.Image?.displayName || 'AvatarImage';
 
 const AvatarFallback = React.forwardRef<
   React.ElementRef<typeof AvatarPrimitive.Fallback>,
@@ -35,7 +35,7 @@ const AvatarFallback = React.forwardRef<
     {...props}
   />
 ));
-AvatarFallback.displayName = AvatarPrimitive.Fallback.displayName;
+AvatarFallback.displayName = AvatarPrimitive.Fallback?.displayName || 'AvatarFallback';
 
 export { Avatar, AvatarFallback, AvatarImage };
 export type { AvatarBaseProps as AvatarProps };
