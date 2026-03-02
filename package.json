@@ -96,7 +96,7 @@
     "@expo/metro-runtime": "~6.1.2",
     "@rn-primitives/types": "^1.2.0",
     "class-variance-authority": "^0.7.1",
-    "expo": "~54.0.33",
+    "expo": "~55.0.4",
     "expo-splash-screen": "~31.0.13",
     "expo-status-bar": "~3.0.9",
     "expo-system-ui": "~6.0.9",
