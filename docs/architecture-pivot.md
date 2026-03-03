@@ -19,7 +19,7 @@ The GV Tech Design System (`@gv-tech/design-system`) currently ships as a **sing
 
 ## Decision
 
-**Adopt Option 1 — One cross-platform design system with platform-specific implementations** — structured as an **Nx + Yarn workspaces monorepo**.
+**Adopt Option 1 — One cross-platform design system with platform-specific implementations** — structured as an **Nx + Bun workspaces monorepo**.
 
 ### Architecture
 
@@ -65,7 +65,7 @@ gvtech-design/                       (Nx workspace root)
 │   └── ui-playground/               Extended playground (web + native parity views)
 │
 ├── nx.json                          (task runner + caching)
-├── package.json                     (Yarn workspaces root)
+├── package.json                     (Bun workspaces root)
 ```
 
 ### Key Principles
@@ -126,5 +126,5 @@ gvtech-design/                       (Nx workspace root)
 - [Nx Workspace Docs](https://nx.dev/docs/reference/create-nx-workspace)
 - [Nx Dependency Graph](https://nx.dev/docs/features/explore-graph)
 - [React Native Reusables](https://rnr-docs.vercel.app/)
-- [Yarn Workspaces Monorepo Guide](https://www.premieroctet.com/blog/en/yarn-monorepo)
+- [Bun Workspaces Docs](https://bun.sh/docs/install/workspaces)
 - Prior art: `docs/universal-implementation.md`

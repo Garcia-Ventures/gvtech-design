@@ -14,7 +14,7 @@
 
 | Task                            | Status  | Owner | Notes                                                        |
 | :------------------------------ | :------ | :---- | :----------------------------------------------------------- |
-| Initialize Nx workspace         | ✅ Done |       | Nx 22.5.1 + Yarn workspaces enabled                          |
+| Initialize Nx workspace         | ✅ Done |       | Nx 22.5.1 + Bun workspaces enabled                           |
 | Create `packages/design-tokens` | ✅ Done |       | palette, theme, spacing, typography, shadows, radii all live |
 | Create `packages/ui-core`       | ✅ Done |       | 51 contract source files covering all Phase 1 components     |
 | Create `packages/ui-web`        | ✅ Done |       | 46 components with tests — all tests passing                 |
@@ -139,6 +139,6 @@
 | Week       | Focus                                | Completed                                                                    | Blockers |
 | :--------- | :----------------------------------- | :--------------------------------------------------------------------------- | :------- |
 | 2026-02-17 | Documentation, ADR, initial planning | Architecture docs created                                                    | —        |
-| 2026-02-17 | Phase 0 — Nx + Workspaces setup      | Yarn workspaces, Nx 22.5.1, nx.json, CI cache, all checks passing            | —        |
+| 2026-02-17 | Phase 0 — Nx + Workspaces setup      | Bun workspaces, Nx 22.5.1, nx.json, CI cache, all checks passing             | —        |
 | 2026-02-19 | Phase 1 complete — Tests green       | All 46 web + 12 native tests passing; playground live; docs/routes aligned   | —        |
 | 2026-02-22 | Phase 1 Polish & Nx Release          | Full migration to Nx Release; fixed package.json versions; all tests passing | —        |

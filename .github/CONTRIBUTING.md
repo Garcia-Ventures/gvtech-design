@@ -6,7 +6,7 @@ This project uses **Vite** for development, builds, and as a component playgroun
 
 In the project directory, you can run:
 
-### `yarn dev`
+### `bun run dev`
 
 Runs the Vite development server for local development.
 
@@ -16,17 +16,17 @@ Live: [https://gvtech-design.pages.dev/](https://gvtech-design.pages.dev/)
 
 The page will reload if you make edits, and HMR will update components instantly. You will also see any lint errors in the console.
 
-### `yarn test`
+### `bun run test`
 
-Runs the test suite using **Vitest** (configured in `vitest.config.ts`). For interactive watch mode run `yarn test` locally; for CI the project uses `yarn test:ci`.
+Runs the test suite using **Vitest** (configured in `vitest.config.ts`). For interactive watch mode run `bun run test` locally; for CI the project uses `bun run test:ci`.
 
 See the Vitest docs for more information: <https://vitest.dev/guide/>.
 
-### `yarn build`
+### `bun run build`
 
 Builds the library and the component registry using Vite.
 
-### `yarn build:site`
+### `bun run build:site`
 
 Builds the playground site as a production-ready application.
 

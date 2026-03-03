@@ -15,8 +15,8 @@ This is a React component library built with **TypeScript**, **Tailwind CSS**, a
 
 - Vite library build outputs ES modules and CommonJS.
 - Externalizes **React** and **React DOM**.
-- Use `yarn build` to build both the library and the component registry.
-- Use `yarn build:site` to build the playground/documentation site.
+- Use `bun run build` to build both the library and the component registry.
+- Use `bun run build:site` to build the playground/documentation site.
 
 ## Component Patterns
 
@@ -38,18 +38,18 @@ export function MyComponent({ className, ...props }) {
 
 ## Development Workflow
 
-- **Local dev:** `yarn dev` (runs the Vite playground site)
-- **Build lib:** `yarn build` (outputs to `dist/` and `public/registry/`)
-- **Build site:** `yarn build:site` (outputs to `dist-site/`)
-- **Test:** `yarn test` (Vitest with jsdom)
-- **Lint:** `yarn lint` (ESLint)
-- **Format:** `yarn format` (Prettier)
+- **Local dev:** `bun run dev` (runs the Vite playground site)
+- **Build lib:** `bun run build` (outputs to `dist/` and `public/registry/`)
+- **Build site:** `bun run build:site` (outputs to `dist-site/`)
+- **Test:** `bun run test` (Vitest with jsdom)
+- **Lint:** `bun run lint` (ESLint)
+- **Format:** `bun run format` (Prettier)
 
 **Testing Setup:**
 
 - Uses `@testing-library/react` and `@testing-library/jest-dom`.
 - Tests are co-located with components: `{component}.test.tsx`.
-- Run `yarn test:ci` for CI environments.
+- Run `bun run test:ci` for CI environments.
 
 ## Integration Points
 

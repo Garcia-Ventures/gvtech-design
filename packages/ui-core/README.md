@@ -5,7 +5,7 @@ Shared component contracts, property types, and variants for the GV Tech design 
 ## Installation
 
 ```bash
-yarn add @gv-tech/ui-core
+bun add @gv-tech/ui-core
 ```
 
 ## Usage

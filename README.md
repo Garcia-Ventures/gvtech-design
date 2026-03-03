@@ -36,7 +36,7 @@ A React component design system. This repository provides a lightweight, opinion
 
 ## Demo
 
-The design system includes a Vite-based playground site. Run it locally with `yarn dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
+The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
 
 ## Install
 
@@ -46,8 +46,8 @@ The public package is published as `@gv-tech/design-system`:
 # npm
 npm install @gv-tech/design-system
 
-# yarn
-yarn add @gv-tech/design-system
+# bun
+bun add @gv-tech/design-system
 ```
 
 ## Usage
@@ -67,17 +67,17 @@ function App() {
 Start a local dev server:
 
 ```bash
-yarn dev
+bun run dev
 ```
 
 Available scripts (selected):
 
-- `yarn dev` — start Vite dev server (Playground site)
-- `yarn build` — build the library and registry
-- `yarn build:site` — build the playground site
-- `yarn test` — run tests locally
-- `yarn test:ci` — run tests in CI
-- `yarn lint` — run eslint
+- `bun run dev` — start Vite dev server (Playground site)
+- `bun run build` — build the library and registry
+- `bun run build:site` — build the playground site
+- `bun run test` — run tests locally
+- `bun run test:ci` — run tests in CI
+- `bun run lint` — run eslint
 
 For full commands and details see `package.json`.
 
@@ -85,8 +85,8 @@ For full commands and details see `package.json`.
 
 Unit tests use Vitest and React Testing Library.
 
-- Run tests locally: `yarn test`
-- CI runs: `yarn test:ci`
+- Run tests locally: `bun run test`
+- CI runs: `bun run test:ci`
 
 ## Releases & Publishing
 
@@ -99,7 +99,7 @@ Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` packages.
 Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) before contributing. Key points:
 
 - Follow **Conventional Commits** to ensure release tooling produces accurate changelogs.
-- Run `yarn lint` and `yarn test` before opening PRs.
+- Run `bun run lint` and `bun run test` before opening PRs.
 
 ## Roadmap
 

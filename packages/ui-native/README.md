@@ -5,7 +5,7 @@ React Native implementations of the GV Tech design system components, optimized 
 ## Installation
 
 ```bash
-yarn add @gv-tech/ui-native
+bun add @gv-tech/ui-native
 ```
 
 ## Features

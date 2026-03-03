@@ -5,7 +5,7 @@ Shared design tokens for the GV Tech design system, including palette, theme, sp
 ## Installation
 
 ```bash
-yarn add @gv-tech/design-tokens
+bun add @gv-tech/design-tokens
 ```
 
 ## Features

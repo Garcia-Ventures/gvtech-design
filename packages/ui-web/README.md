@@ -5,7 +5,7 @@ Web-based implementations of the GV Tech design system components, built on top 
 ## Installation
 
 ```bash
-yarn add @gv-tech/ui-web
+bun add @gv-tech/ui-web
 ```
 
 ## Features
