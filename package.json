@@ -2,48 +2,43 @@
   "name": "@gv-tech/design-system",
   "version": "2.16.0",
   "description": "Garcia Ventures react design system",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/Garcia-Ventures/gvtech-design.git"
-  },
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
-      "default": "./dist/index.mjs"
+      "types": "./dist/index.d.ts"
     },
-    "./style.css": {
-      "style": "./dist/design-system.css",
-      "import": "./dist/design-system.css",
-      "default": "./dist/design-system.css"
-    },
-    "./package.json": "./package.json",
     "./*": {
-      "types": "./dist/*.d.ts",
+      "default": "./dist/*.mjs",
       "import": "./dist/*.mjs",
       "require": "./dist/*.cjs",
-      "default": "./dist/*.mjs"
+      "types": "./dist/*.d.ts"
+    },
+    "./package.json": "./package.json",
+    "./style.css": {
+      "default": "./dist/design-system.css",
+      "import": "./dist/design-system.css",
+      "style": "./dist/design-system.css"
     }
   },
   "main": "dist/index.cjs",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
-  "style": "dist/design-system.css",
   "files": [
     "dist"
   ],
-  "workspaces": [
-    "packages/*",
-    "apps/*"
-  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Garcia-Ventures/gvtech-design.git"
+  },
   "scripts": {
-    "clean": "rm -rf .nx .next .expo .turbo dist dist-site *.tsbuildinfo .eslintcache",
     "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && VITE_LIB=true vite build",
     "build:registry": "tsx scripts/build-registry.ts",
     "build:site": "bun --filter playground-web build",
+    "clean": "rm -rf .nx .next .expo .turbo dist dist-site *.tsbuildinfo .eslintcache",
     "dev": "bun --filter playground-web dev",
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
@@ -63,34 +58,6 @@
     "validate:fix": "tsx ./scripts/validate.ts --fix",
     "validate:no-cache": "tsx ./scripts/validate.ts --no-cache"
   },
-  "lint-staged": {
-    "*.(js|ts|mjs|cjs)?(x)": [
-      "prettier --write",
-      "eslint --cache --fix"
-    ],
-    "*.(md)?(x)": [
-      "prettier --write"
-    ]
-  },
-  "browserslist": {
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ],
-    "production": [
-      ">0.2%",
-      "not dead"
-    ]
-  },
-  "prettier": "@eng618/prettier-config",
-  "resolutions": {
-    "@types/react": "^19.2.14",
-    "@types/react-dom": "^19.2.3",
-    "eslint": "^10.0.0",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4"
-  },
   "dependencies": {
     "@expo/metro-config": "~54.0.14",
     "@expo/metro-runtime": "~6.1.2",
@@ -109,9 +76,9 @@
     "tslib": "^2.8.1"
   },
   "devDependencies": {
-    "@eng618/prettier-config": "^2.9.1",
+    "@eng618/prettier-config": "^2.10.0",
     "@expo/cli": "~54.0.23",
-    "@gv-tech/eslint-config": "^0.1.12",
+    "@gv-tech/eslint-config": "^0.1.13",
     "@nx/expo": "22.5.4",
     "@nx/jest": "22.5.4",
     "@nx/js": "^22.5.4",
@@ -160,7 +127,7 @@
     "sonner": "^2.0.7",
     "tailwindcss": "4.2.1",
     "tsx": "^4.21.0",
-    "typescript": "~5.9.3",
+    "typescript": "^5.9.3",
     "vite": "7.3.1",
     "vite-plugin-dts": "^4.5.4",
     "vitest": "^4.0.18"
@@ -176,12 +143,45 @@
     "react-native": "^0.77.0",
     "react-native-svg": "^15.11.1"
   },
-  "packageManager": "bun@1.2.2",
+  "resolutions": {
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "eslint": "^10.0.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
   "engines": {
     "node": ">=20"
   },
+  "packageManager": "bun@1.2.2",
   "publishConfig": {
     "access": "public",
     "provenance": true
-  }
+  },
+  "lint-staged": {
+    "*.(js|ts|mjs|cjs)?(x)": [
+      "prettier --write",
+      "eslint --cache --fix"
+    ],
+    "*.(md)?(x)": [
+      "prettier --write"
+    ]
+  },
+  "prettier": "@eng618/prettier-config",
+  "browserslist": {
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ],
+    "production": [
+      ">0.2%",
+      "not dead"
+    ]
+  },
+  "style": "dist/design-system.css",
+  "workspaces": [
+    "packages/*",
+    "apps/*"
+  ]
 }

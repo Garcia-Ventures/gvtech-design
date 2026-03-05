@@ -1,13 +1,18 @@
 import { recommended } from '@gv-tech/eslint-config';
 
 /**
- * ESLint configuration for TypeScript projects. Uses @gv-tech/eslint-config for sensible defaults. For more information
- * on configuration options, see: https://github.com/Garcia-Ventures/eslint-config
+ * Monorepo ESLint config: applies recommended to all, allows per-app overrides.
+ * - Vite/React apps: use recommended
+ * - Next.js apps: use nextjs (see template below)
  */
 export default [
+  // Example: If you add a Next.js app, enable this block and set the correct path
+  // {
+  //   files: ['apps/next-app/**', 'apps/next-app/**/*'],
+  //   ...nextjs,
+  // },
   ...recommended,
-  // Add project-specific overrides here
   {
-    ignores: ['**/eslint.config.mjs', '**/.yarn/**', '**/dist-site/**', '**/.nx/**', 'bun.lock'],
+    ignores: ['eslint.config.mjs'],
   },
 ];
