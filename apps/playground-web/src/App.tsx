@@ -128,33 +128,35 @@ function DocumentationLayout() {
             </header>
             <ScrollArea ref={docsScrollAreaRef} className="flex-1">
               <div className="flex min-h-full flex-col">
-                <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col p-4 md:p-8">
-                  <div className="flex-1">
-                    <ErrorBoundary>
-                      <React.Suspense fallback={<PageLoader />}>
-                        <Routes>
-                          <Route path="color-tokens" element={<Navigate to="/docs/theming" replace />} />
+                <main className="flex w-full flex-1 flex-col p-4 md:p-8">
+                  <div className="mx-auto w-full max-w-[1400px]">
+                    <div className="flex-1">
+                      <ErrorBoundary>
+                        <React.Suspense fallback={<PageLoader />}>
+                          <Routes>
+                            <Route path="color-tokens" element={<Navigate to="/docs/theming" replace />} />
 
-                          {/* Dynamic Component Routes */}
-                          {docRoutes.map((route) => (
-                            <Route
-                              key={route.path}
-                              path={route.path}
-                              element={
-                                <CombinedDocsLayout
-                                  title={route.title}
-                                  description={route.description}
-                                  web={route.web ? <route.web /> : undefined}
-                                  native={route.native ? <route.native /> : undefined}
-                                />
-                              }
-                            />
-                          ))}
+                            {/* Dynamic Component Routes */}
+                            {docRoutes.map((route) => (
+                              <Route
+                                key={route.path}
+                                path={route.path}
+                                element={
+                                  <CombinedDocsLayout
+                                    title={route.title}
+                                    description={route.description}
+                                    web={route.web ? <route.web /> : undefined}
+                                    native={route.native ? <route.native /> : undefined}
+                                  />
+                                }
+                              />
+                            ))}
 
-                          <Route path="*" element={<Navigate to="/docs/getting-started" replace />} />
-                        </Routes>
-                      </React.Suspense>
-                    </ErrorBoundary>
+                            <Route path="*" element={<Navigate to="/docs/getting-started" replace />} />
+                          </Routes>
+                        </React.Suspense>
+                      </ErrorBoundary>
+                    </div>
                   </div>
                   <Footer />
                 </main>

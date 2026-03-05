@@ -55,8 +55,8 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
   return (
     <TableOfContents minLevel={1} maxLevel={4}>
-      <div className="flex flex-col xl:flex-row xl:gap-10">
-        <div className="max-w-4xl min-w-0 flex-1 space-y-6">
+      <div className="flex flex-col xl:flex-row xl:gap-14">
+        <div className="min-w-0 flex-1 space-y-6">
           {/* Mobile Table of Contents */}
           <TableOfContents.List className="-mx-4 -mt-4 mb-6 border-t-0 xl:hidden" />
 
@@ -130,9 +130,9 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
         {/* Right Sidebar for TOC (Desktop Only) */}
         <div className="hidden w-64 shrink-0 xl:block">
-          <div className="sticky top-0 pt-4">
-            <p className="mb-4 text-sm font-medium">On This Page</p>
-            <TableOfContents.List />
+          <div className="sticky top-20">
+            <p className="mb-4 text-sm font-semibold tracking-tight uppercase">On This Page</p>
+            <TableOfContents.List className="border-none bg-transparent p-0 text-sm" />
           </div>
         </div>
       </div>

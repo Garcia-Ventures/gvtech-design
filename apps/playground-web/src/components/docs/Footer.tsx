@@ -4,7 +4,7 @@ import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
 export function Footer() {
   return (
     <footer className="bg-muted/40 border-border/50 border-t">
-      <div className="mx-auto w-full max-w-[1400px] px-6 py-12 md:px-12 lg:px-16">
+      <div className="w-full px-6 py-12 md:px-12 lg:px-16">
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Brand */}
           <div className="space-y-4">
