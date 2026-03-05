@@ -48,17 +48,12 @@ export function Footer() {
                     className="text-muted-foreground hover:text-foreground h-9 w-9"
                     asChild
                   >
-                    <a
-                      href="https://twitter.com/garciaericn"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="X (formerly Twitter)"
-                    >
+                    <a href="https://x.com/garciaericn" target="_blank" rel="noopener noreferrer" aria-label="X">
                       <SiX className="h-4 w-4" />
                     </a>
                   </Button>
                 </TooltipTrigger>
-                <TooltipContent>X (formerly Twitter)</TooltipContent>
+                <TooltipContent>X</TooltipContent>
               </Tooltip>
 
               <Tooltip>
