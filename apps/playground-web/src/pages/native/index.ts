@@ -38,6 +38,7 @@ export { SheetDocs as NativeSheetDocs } from './SheetDocs';
 export { SkeletonDocs as NativeSkeletonDocs } from './SkeletonDocs';
 export { SliderDocs as NativeSliderDocs } from './SliderDocs';
 export { SonnerDocs as NativeSonnerDocs } from './SonnerDocs';
+export { SupportFabDocs as NativeSupportFabDocs } from './SupportFabDocs';
 export { SwitchDocs as NativeSwitchDocs } from './SwitchDocs';
 export { TableDocs as NativeTableDocs } from './TableDocs';
 export { TableOfContentsDocs as NativeTableOfContentsDocs } from './TableOfContentsDocs';

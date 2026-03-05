@@ -148,6 +148,10 @@ export {
 export { ScrollToTop } from './scroll-to-top';
 export type { ScrollToTopHandle, ScrollToTopProps } from './scroll-to-top';
 
+// Support FAB
+export { SupportFab } from './support-fab';
+export type { SupportFabProps } from './support-fab';
+
 // Separator
 export { Separator } from './separator';
 

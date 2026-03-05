@@ -312,6 +312,11 @@ export const docConfig: DocCategory[] = [
     title: 'Utilities',
     items: [
       {
+        title: 'Support FAB',
+        href: 'support-fab',
+        platforms: ['web', 'native'],
+      },
+      {
         title: 'Theme Toggle',
         href: 'theme-toggle',
         platforms: ['web', 'native'],

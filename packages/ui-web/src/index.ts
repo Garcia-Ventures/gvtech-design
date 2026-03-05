@@ -339,6 +339,10 @@ export type { ScrollAreaProps, ScrollBarProps } from './scroll-area';
 export { ScrollToTop } from './scroll-to-top';
 export type { ScrollToTopProps } from './scroll-to-top';
 
+// Support FAB
+export { SupportFab } from './support-fab';
+export type { SupportFabProps } from './support-fab';
+
 // Search
 export { Search, SearchTrigger } from './search';
 export type { SearchProps, SearchTriggerProps } from './search';

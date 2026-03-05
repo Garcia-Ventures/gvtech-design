@@ -366,6 +366,13 @@ export const docRoutes: DocRoute[] = [
     native: native('NativeThemeToggleDocs'),
   },
   {
+    path: 'support-fab',
+    title: 'Support FAB',
+    description: 'A floating action button that opens an embedded support panel for donations and contributions.',
+    web: web('WebSupportFabDocs'),
+    native: native('NativeSupportFabDocs'),
+  },
+  {
     path: 'search',
     title: 'Search',
     description: 'A searchable command palette for navigation and actions.',

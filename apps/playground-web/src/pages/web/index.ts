@@ -37,6 +37,7 @@ export { SheetDocs as WebSheetDocs } from './SheetDocs';
 export { SkeletonDocs as WebSkeletonDocs } from './SkeletonDocs';
 export { SliderDocs as WebSliderDocs } from './SliderDocs';
 export { SonnerDocs as WebSonnerDocs } from './SonnerDocs';
+export { SupportFabDocs as WebSupportFabDocs } from './SupportFabDocs';
 export { SwitchDocs as WebSwitchDocs } from './SwitchDocs';
 export { TableDocs as WebTableDocs } from './TableDocs';
 export { TableOfContentsDocs as WebTableOfContentsDocs } from './TableOfContentsDocs';

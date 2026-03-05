@@ -15,6 +15,7 @@ import {
   SheetTitle,
   SheetTrigger,
   SonnerToaster,
+  SupportFab,
   ThemeProvider,
   ThemeToggle,
   Toaster,
@@ -163,7 +164,8 @@ function DocumentationLayout() {
               </div>
             </ScrollArea>
 
-            <ScrollToTop scrollTarget={docsScrollViewport} threshold={180} />
+            <SupportFab supportUrl="https://www.buymeacoffee.com" creatorId="eng618" />
+            <ScrollToTop scrollTarget={docsScrollViewport} threshold={180} className="right-6 bottom-24" />
           </div>
         </div>
       </PackageManagerProvider>
