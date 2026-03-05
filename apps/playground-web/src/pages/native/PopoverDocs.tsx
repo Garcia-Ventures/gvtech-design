@@ -1,95 +1,54 @@
-import { PropsTable } from '@/components/docs/PropsTable';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-
-// @ts-ignore
-
-const isNative = true as boolean;
-
-// @ts-ignore
-
-const platform = 'native' as string;
+import { PropsTable } from '@/components/docs/PropsTable';
+import { Button, Input, Label, Popover, PopoverContent, PopoverTrigger } from '@gv-tech/ui-native';
 
 export function PopoverDocs() {
   return (
     <>
       <ComponentShowcase
-        title="Default"
-        description="A default popover."
+        title="Default (Native)"
+        description="A popover implemented using a React Native Modal. Centers content and overlays the screen."
         code={`<Popover>
-  <PopoverTrigger asChild>
+  <PopoverTrigger>
     <Button variant="outline">Open popover</Button>
   </PopoverTrigger>
   <PopoverContent className="w-80">
-    <div className="grid gap-4">
-      <div className="space-y-2">
-        <h4 className="font-medium leading-none">Dimensions</h4>
-        <p className="text-sm text-muted-foreground">
-          Set the dimensions for the layer.
-        </p>
-      </div>
-      <div className="grid gap-2">
-        <div className="grid grid-cols-3 items-center gap-4">
-          <Label htmlFor="width">Width</Label>
-          <Input
-            id="width"
-            defaultValue="100%"
-            className="col-span-2 h-8"
-          />
-        </div>
-        <div className="grid grid-cols-3 items-center gap-4">
-          <Label htmlFor="maxWidth">Max. width</Label>
-          <Input
-            id="maxWidth"
-            defaultValue="300px"
-            className="col-span-2 h-8"
-          />
-        </div>
-        <div className="grid grid-cols-3 items-center gap-4">
-          <Label htmlFor="height">Height</Label>
-          <Input
-            id="height"
-            defaultValue="25px"
-            className="col-span-2 h-8"
-          />
-        </div>
-        <div className="grid grid-cols-3 items-center gap-4">
-          <Label htmlFor="maxHeight">Max. height</Label>
-          <Input
-            id="maxHeight"
-            defaultValue="none"
-            className="col-span-2 h-8"
-          />
-        </div>
-      </div>
-    </div>
+    <Label>Popover content</Label>
+    <Input placeholder="Type here..."/>
   </PopoverContent>
 </Popover>`}
-      />
+      >
+        <Popover>
+          <PopoverTrigger>
+            <Button variant="outline">Open popover</Button>
+          </PopoverTrigger>
+          <PopoverContent className="w-80">
+            <Label>Popover content</Label>
+            <Input placeholder="Type here..." />
+          </PopoverContent>
+        </Popover>
+      </ComponentShowcase>
 
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Props</h3>
+        <h3 className="text-xl font-semibold">Native Implementation Notes</h3>
         <p className="text-muted-foreground text-sm">
-          The Popover component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/popover"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Popover
-          </a>
-          .
+          The Popover component for React Native is implemented using a <b>Modal</b> and centers its content with a
+          dimmed background overlay. It does not use Radix UI. Dismiss by tapping outside the content.
         </p>
+        <ul className="text-muted-foreground ml-6 list-disc text-sm">
+          <li>Content is always centered and overlays the entire screen.</li>
+          <li>
+            Props like <code>onOpenChange</code> and <code>open</code> are supported for controlled/uncontrolled usage.
+          </li>
+          <li>There is no floating positioning or anchor support (content is always centered).</li>
+          <li>
+            Use <code>PopoverTrigger</code> to open, and <code>PopoverContent</code> for the modal content.
+          </li>
+        </ul>
 
         <h4 className="mt-6 text-lg font-medium">Popover (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The open state of the popover when it is initially rendered.',
-            },
             {
               name: 'open',
               type: 'boolean',
@@ -100,12 +59,6 @@ export function PopoverDocs() {
               type: '(open: boolean) => void',
               description: 'Event handler called when the open state changes.',
             },
-            {
-              name: 'modal',
-              type: 'boolean',
-              defaultValue: 'false',
-              description: 'The modality of the popover.',
-            },
           ]}
         />
 
@@ -113,40 +66,14 @@ export function PopoverDocs() {
         <PropsTable
           props={[
             {
-              name: 'onOpenAutoFocus',
-              type: '(event: Event) => void',
-              description: 'Event handler called when focus moves into the component after opening.',
+              name: 'className',
+              type: 'string',
+              description: 'Tailwind/NativeWind classes for styling the content container.',
             },
             {
-              name: 'onCloseAutoFocus',
-              type: '(event: Event) => void',
-              description: 'Event handler called when focus moves to the trigger after closing.',
-            },
-            {
-              name: 'onEscapeKeyDown',
-              type: '(event: KeyboardEvent) => void',
-              description: 'Event handler called when the escape key is down.',
-            },
-            {
-              name: 'onPointerDownOutside',
-              type: '(event: PointerDownOutsideEvent) => void',
-              description: 'Event handler called when a pointer event occurs outside the bounds of the component.',
-            },
-            {
-              name: 'onFocusOutside',
-              type: '(event: FocusOutsideEvent) => void',
-              description: 'Event handler called when focus moves outside the bounds of the component.',
-            },
-            {
-              name: 'onInteractOutside',
-              type: '(event: PointerDownOutsideEvent | FocusOutsideEvent) => void',
-              description:
-                'Event handler called when an interaction (pointer or focus) happens outside the bounds of the component.',
-            },
-            {
-              name: 'forceMount',
-              type: 'boolean',
-              description: 'Used to force mounting when more control is needed.',
+              name: 'children',
+              type: 'React.ReactNode',
+              description: 'Content to render inside the popover.',
             },
           ]}
         />

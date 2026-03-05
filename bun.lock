@@ -24,7 +24,7 @@
       "devDependencies": {
         "@eng618/prettier-config": "^2.10.0",
         "@expo/cli": "~54.0.23",
-        "@gv-tech/eslint-config": "^0.1.13",
+        "@gv-tech/eslint-config": "^0.1.14",
         "@nx/expo": "22.5.4",
         "@nx/jest": "22.5.4",
         "@nx/js": "^22.5.4",
@@ -704,7 +704,7 @@
 
     "@gv-tech/design-tokens": ["@gv-tech/design-tokens@workspace:packages/design-tokens"],
 
-    "@gv-tech/eslint-config": ["@gv-tech/eslint-config@0.1.13", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint-config-prettier": "^10.1.8", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-unused-imports": "^4.4.1", "globals": "^17.3.0", "typescript-eslint": "^8.54.0" }, "peerDependencies": { "@eng618/prettier-config": "^2.0.0", "@next/eslint-plugin-next": "^15.0.0 || ^16.0.0", "eslint": "^9.0.0", "prettier": "^3.0.0", "typescript": ">=5.0.0" }, "optionalPeers": ["@eng618/prettier-config", "@next/eslint-plugin-next", "prettier", "typescript"] }, "sha512-cm1k+TSBD9YxP17Iqt03lD2UB3Oo/kzZjb9ary7XhrnVK2w1OPzTXis7uYyS/UwIilXTiRQllOCp5kQ8/+Dxeg=="],
+    "@gv-tech/eslint-config": ["@gv-tech/eslint-config@0.1.14", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint-config-prettier": "^10.1.8", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-unused-imports": "^4.4.1", "globals": "^17.3.0", "typescript-eslint": "^8.54.0" }, "peerDependencies": { "@eng618/prettier-config": "^2.0.0", "@next/eslint-plugin-next": "^15.0.0 || ^16.0.0", "eslint": "^9.0.0", "prettier": "^3.0.0", "typescript": ">=5.0.0" }, "optionalPeers": ["@eng618/prettier-config", "@next/eslint-plugin-next", "prettier", "typescript"] }, "sha512-IjGKfn9lh7fWFToqsSAZP9wTz0Y3fYvNwH88+T73Pq5gg+01Ffnbeb7J+dawWy/aJm5seH1sEqdUSBHvvq5qrQ=="],
 
     "@gv-tech/ui-core": ["@gv-tech/ui-core@workspace:packages/ui-core"],
 
