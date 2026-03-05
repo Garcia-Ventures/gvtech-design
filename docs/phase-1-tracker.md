@@ -34,11 +34,11 @@
 | Component           | Contract | Web (`ui-web`) | Native (`ui-native`) | Tests (web) | Tests (native) | Notes                                         |
 | :------------------ | :------- | :------------- | :------------------- | :---------- | :------------- | :-------------------------------------------- |
 | **Accordion**       | ✅       | ✅             | ✅                   | ✅          | ✅             | Reanimated animated trigger                   |
-| **Alert**           | ✅       | ✅             | ✅                   | ✅          | ⬜             | Variants: default, destructive, warning, info |
+| **Alert**           | ✅       | ✅             | ✅                   | ✅          | ✅             | Variants: default, destructive, warning, info |
 | **Alert Dialog**    | ✅       | ✅             | ✅                   | ✅          | ⬜             | Uses Dialog primitives + Reanimated           |
 | **Aspect Ratio**    | ✅       | ✅             | 🚫                   | ✅          | —              | Web-only concept                              |
-| **Avatar**          | ✅       | ✅             | ✅                   | ✅          | ⬜             | `@rn-primitives/avatar`                       |
-| **Badge**           | ✅       | ✅             | ✅                   | ✅          | ⬜             | Variants aligned with web                     |
+| **Avatar**          | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/avatar`                       |
+| **Badge**           | ✅       | ✅             | ✅                   | ✅          | ✅             | Variants aligned with web                     |
 | **Breadcrumb**      | —        | ✅             | 🚫                   | ✅          | —              | Navigation-heavy, web-first                   |
 | **Button**          | ✅       | ✅             | ✅                   | ✅          | ✅             | All variants + sizes; Pressable               |
 | **Calendar**        | —        | ✅             | 🚫                   | ✅          | —              | Complex date picker; no RN primitive          |
@@ -55,44 +55,43 @@
 | **Form**            | —        | ✅             | 🚫                   | ✅          | —              | react-hook-form; web-first                    |
 | **Hover Card**      | —        | ✅             | 🚫                   | ✅          | —              | Hover interaction; not applicable native      |
 | **Input**           | ✅       | ✅             | ✅                   | ✅          | ✅             | TextInput with contract alignment             |
-| **Label**           | ✅       | ✅             | ✅                   | ✅          | ⬜             | nativeID + onPress pattern                    |
+| **Label**           | ✅       | ✅             | ✅                   | ✅          | ✅             | nativeID + onPress pattern                    |
 | **Menubar**         | —        | ✅             | 🚫                   | ✅          | —              | Desktop navigation pattern                    |
 | **Navigation Menu** | —        | ✅             | 🚫                   | ✅          | —              | Web navigation pattern                        |
 | **Pagination**      | —        | ✅             | 🚫                   | ✅          | —              | Cursor-based; alternative on native           |
-| **Popover**         | —        | ✅             | 🚫                   | ✅          | —              | No RN primitive yet                           |
-| **Progress**        | —        | ✅             | 🚫                   | ✅          | —              | No RN primitive yet                           |
+| **Popover**         | —        | ✅             | ✅                   | ✅          | ✅             | Modal-based implementation                    |
+| **Progress**        | —        | ✅             | ✅                   | ✅          | ✅             | Custom implementation                         |
 | **Radio Group**     | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/radio-group`                  |
 | **Resizable**       | —        | ✅             | 🚫                   | ✅          | —              | Drag-based; not native pattern                |
 | **Scroll Area**     | —        | ✅             | 🚫                   | ✅          | —              | Native scroll is built-in                     |
-| **Search**          | —        | ✅             | ✅                   | ✅          | ⬜             | Command palette pattern                       |
-| **Select**          | ✅       | ✅             | ✅                   | ✅          | ⬜             | Fully typed complex native impl               |
-| **Separator**       | ✅       | ✅             | ✅                   | ✅          | ⬜             | `@rn-primitives/separator`                    |
+| **Search**          | —        | ✅             | ✅                   | ✅          | ✅             | Command palette pattern                       |
+| **Select**          | ✅       | ✅             | ✅                   | ✅          | ✅             | Fully typed complex native impl               |
+| **Separator**       | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/separator`                    |
 | **Sheet**           | ✅       | ✅             | ✅                   | ✅          | ✅             | SlideInRight animation                        |
 | **Skeleton**        | ✅       | ✅             | ✅                   | ✅          | ✅             | Reanimated pulsing opacity                    |
 | **Slider**          | —        | ✅             | 🚫                   | ✅          | —              | No Expo-compatible RN primitive yet           |
 | **Sonner**          | —        | ✅             | 🚫                   | ✅          | —              | Web toast library; use Toast on native        |
-| **Switch**          | ✅       | ✅             | ✅                   | ✅          | ⬜             | `@rn-primitives/switch`                       |
-| **Table**           | ✅       | ✅             | ✅                   | ✅          | ⬜             | View/Text-based layout                        |
-| **Tabs**            | ✅       | ✅             | ✅                   | ✅          | ⬜             | `@rn-primitives/tabs` + TextClassContext      |
+| **Switch**          | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/switch`                       |
+| **Table**           | ✅       | ✅             | ✅                   | ✅          | ✅             | View/Text-based layout                        |
+| **Tabs**            | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/tabs` + TextClassContext      |
 | **Text**            | ✅       | ✅             | ✅                   | ✅          | ✅             | Typography scale with variants                |
 | **Textarea**        | ✅       | ✅             | ✅                   | ✅          | ✅             | TextInput with multiline + autoGrow           |
-| **Theme Toggle**    | —        | ✅             | ✅                   | ✅          | ⬜             | Dark/light/system                             |
+| **Theme Toggle**    | —        | ✅             | ✅                   | ✅          | ✅             | Dark/light/system                             |
 | **Toast**           | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/toast` + Reanimated           |
-| **Toggle**          | ✅       | ✅             | ✅                   | ✅          | ⬜             | Pressable toggle state                        |
-| **Toggle Group**    | ✅       | ✅             | ✅                   | ✅          | ⬜             | Multi/single selection                        |
-| **Tooltip**         | ✅       | ✅             | ✅                   | ✅          | ⬜             | `@rn-primitives/tooltip` + Reanimated         |
+| **Toggle**          | ✅       | ✅             | ✅                   | ✅          | ✅             | Pressable toggle state                        |
+| **Toggle Group**    | ✅       | ✅             | ✅                   | ✅          | ✅             | Multi/single selection                        |
+| **Tooltip**         | ✅       | ✅             | ✅                   | ✅          | ✅             | `@rn-primitives/tooltip` + Reanimated         |
 
 ### Playground
 
-| Task                                                | Status       | Notes                                                           |
-| :-------------------------------------------------- | :----------- | :-------------------------------------------------------------- |
-| `playground-web` documentation site                 | ✅ Complete  | Full doc site with Web + Native tabs, sidebar, search           |
-| Green dot indicator for native-available components | ✅ Complete  | Validated — only real implementations show the dot              |
-| Native tab only shown for real implementations      | ✅ Complete  | `doc-routes.tsx` + `docs.ts` aligned with actual code           |
-| `native-playground` Expo app scaffolded             | ✅ Complete  | Basic showcase: Button, Card, Input, Checkbox, RadioGroup, Text |
-| Expand `native-playground` with all real components | ⬜ Next Step | Add Accordion, Alert, Dialog, Sheet, Toast, etc.                |
-| "Diff notes" section per component                  | ⬜ Next Step | Document intentional platform differences per component         |
-| Side-by-side parity note in web doc pages           | ⬜ Next Step | Link from web → native tab where native exists                  |
+| Task                                                | Status       | Notes                                                                                          |
+| :-------------------------------------------------- | :----------- | :--------------------------------------------------------------------------------------------- |
+| `playground-web` documentation site                 | ✅ Complete  | Full doc site with Web + Native tabs, sidebar, search                                          |
+| Green dot indicator for native-available components | ✅ Complete  | Validated — only real implementations show the dot                                             |
+| Native tab only shown for real implementations      | ✅ Complete  | `doc-routes.tsx` + `docs.ts` aligned with actual code                                          |
+| `native-playground` Expo app scaffolded             | ✅ Complete  | Comprehensive showcase with all real components (Accordion, Alert, Dialog, Sheet, Toast, etc.) |
+| "Diff notes" section per component                  | ⬜ Next Step | Document intentional platform differences per component                                        |
+| Side-by-side parity note in web doc pages           | ⬜ Next Step | Link from web → native tab where native exists                                                 |
 
 ---
 

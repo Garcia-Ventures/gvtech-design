@@ -31,7 +31,7 @@ Key rules:
 
 ## Component Parity Matrix (Current State)
 
-> **Last updated:** 2026-02-19 | ✅ Real | 🚫 Stub (not yet implemented)
+> **Last updated:** 2026-03-05 | ✅ Real | 🚫 Stub (not yet implemented)
 
 ### Forms
 
