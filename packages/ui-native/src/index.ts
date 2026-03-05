@@ -144,6 +144,10 @@ export {
   SelectValue,
 } from './select';
 
+// Scroll To Top
+export { ScrollToTop } from './scroll-to-top';
+export type { ScrollToTopHandle, ScrollToTopProps } from './scroll-to-top';
+
 // Separator
 export { Separator } from './separator';
 

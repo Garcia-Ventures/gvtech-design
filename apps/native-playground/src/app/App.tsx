@@ -43,6 +43,8 @@ import {
   Label,
   RadioGroup,
   RadioGroupItem,
+  ScrollToTop,
+  type ScrollToTopHandle,
   Select,
   SelectContent,
   SelectItem,
@@ -104,6 +106,8 @@ function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }
 
 // ─── Forms Screen ─────────────────────────────────────────────────────────────
 function FormsScreen() {
+  const scrollRef = React.useRef<ScrollView>(null);
+  const scrollToTopRef = React.useRef<ScrollToTopHandle>(null);
   const [name, setName] = React.useState('');
   const [bio, setBio] = React.useState('');
   const [checked, setChecked] = React.useState(false);
@@ -114,178 +118,203 @@ function FormsScreen() {
   const [toggleGroup, setToggleGroup] = React.useState<string[]>([]);
 
   return (
-    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
-      <SectionHeader title="Forms" subtitle="Input, Checkbox, Switch, RadioGroup, Select, Textarea, Toggle" />
+    <View className="bg-background flex-1">
+      <ScrollView
+        ref={scrollRef}
+        className="flex-1"
+        contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
+        scrollEventThrottle={16}
+        onScroll={(e) => scrollToTopRef.current?.handleScroll(e)}
+      >
+        <SectionHeader title="Forms" subtitle="Input, Checkbox, Switch, RadioGroup, Select, Textarea, Toggle" />
 
-      {/* Input */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Input</CardTitle>
-          <CardDescription>Text input with label</CardDescription>
-        </CardHeader>
-        <CardContent className="gap-3">
-          <View className="gap-2">
-            <Label nativeID="name-input">Full Name</Label>
-            <Input placeholder="Enter your name" value={name} onChangeText={setName} aria-labelledby="name-input" />
-          </View>
-          {name.length > 0 && (
-            <Text variant="caption" className="text-muted-foreground">
-              Hello, {name}!
-            </Text>
-          )}
-        </CardContent>
-      </Card>
-
-      {/* Textarea */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Textarea</CardTitle>
-          <CardDescription>Multi-line text input</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <Textarea
-            placeholder="Tell us about yourself..."
-            value={bio}
-            onChangeText={setBio}
-            numberOfLines={4}
-            className="min-h-[100px]"
-          />
-          <Text variant="caption" className="text-muted-foreground mt-2">
-            {bio.length} characters
-          </Text>
-        </CardContent>
-      </Card>
-
-      {/* Checkbox & Switch */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Checkbox & Switch</CardTitle>
-        </CardHeader>
-        <CardContent className="gap-4">
-          <View className="flex-row items-center gap-3">
-            <Checkbox checked={checked} onCheckedChange={setChecked} id="terms" />
-            <Label onPress={() => setChecked(!checked)}>Accept terms and conditions</Label>
-          </View>
-          <View className="flex-row items-center justify-between">
-            <Label>Email notifications</Label>
-            <Switch checked={switchOn} onCheckedChange={setSwitchOn} />
-          </View>
-        </CardContent>
-      </Card>
-
-      {/* RadioGroup */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Radio Group</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <RadioGroup value={radioValue} onValueChange={setRadioValue} className="gap-3">
-            {[
-              { value: 'option-one', label: 'Option One' },
-              { value: 'option-two', label: 'Option Two' },
-              { value: 'option-three', label: 'Option Three' },
-            ].map((opt) => (
-              <View key={opt.value} className="flex-row items-center gap-3">
-                <RadioGroupItem value={opt.value} id={opt.value} />
-                <Label onPress={() => setRadioValue(opt.value)}>{opt.label}</Label>
+        {/* Long content to enable scrolling */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Scrollable Demo</CardTitle>
+            <CardDescription>Scroll down the page to see the Animated Scroll To Top button appear.</CardDescription>
+          </CardHeader>
+          <CardContent className="gap-6">
+            {Array.from({ length: 15 }).map((_, i) => (
+              <View key={i} className="bg-muted h-20 items-center justify-center rounded-lg border-2 border-dashed">
+                <Text className="text-muted-foreground">Placeholder Content Block {i + 1}</Text>
               </View>
             ))}
-          </RadioGroup>
-          <Text variant="caption" className="text-muted-foreground mt-3">
-            Selected: {radioValue}
-          </Text>
-        </CardContent>
-      </Card>
+          </CardContent>
+        </Card>
 
-      {/* Select */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Select</CardTitle>
-        </CardHeader>
-        <CardContent>
-          <Select
-            value={selectValue ? { value: selectValue, label: selectValue } : undefined}
-            onValueChange={(opt) => setSelectValue(opt?.value ?? '')}
-          >
-            <SelectTrigger>
-              <SelectValue placeholder="Choose a framework…" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="react-native" label="React Native" />
-              <SelectItem value="expo" label="Expo" />
-              <SelectItem value="flutter" label="Flutter" />
-              <SelectItem value="swiftui" label="SwiftUI" />
-            </SelectContent>
-          </Select>
-        </CardContent>
-      </Card>
+        {/* Input */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Input</CardTitle>
+            <CardDescription>Text input with label</CardDescription>
+          </CardHeader>
+          <CardContent className="gap-3">
+            <View className="gap-2">
+              <Label nativeID="name-input">Full Name</Label>
+              <Input placeholder="Enter your name" value={name} onChangeText={setName} aria-labelledby="name-input" />
+            </View>
+            {name.length > 0 && (
+              <Text variant="caption" className="text-muted-foreground">
+                Hello, {name}!
+              </Text>
+            )}
+          </CardContent>
+        </Card>
 
-      {/* Toggle */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Toggle & Toggle Group</CardTitle>
-        </CardHeader>
-        <CardContent className="gap-4">
-          <View className="flex-row items-center gap-3">
-            <Toggle pressed={toggleActive} onPressedChange={setToggleActive}>
-              <Bell size={16} className="text-foreground" />
-            </Toggle>
-            <Text variant="body" className="text-muted-foreground">
-              {toggleActive ? 'Notifications on' : 'Notifications off'}
+        {/* Textarea */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Textarea</CardTitle>
+            <CardDescription>Multi-line text input</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <Textarea
+              placeholder="Tell us about yourself..."
+              value={bio}
+              onChangeText={setBio}
+              numberOfLines={4}
+              className="min-h-[100px]"
+            />
+            <Text variant="caption" className="text-muted-foreground mt-2">
+              {bio.length} characters
             </Text>
-          </View>
-          <View>
-            <Text variant="caption" className="text-muted-foreground mb-2">
-              Text formatting
+          </CardContent>
+        </Card>
+
+        {/* Checkbox & Switch */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Checkbox & Switch</CardTitle>
+          </CardHeader>
+          <CardContent className="gap-4">
+            <View className="flex-row items-center gap-3">
+              <Checkbox checked={checked} onCheckedChange={setChecked} id="terms" />
+              <Label onPress={() => setChecked(!checked)}>Accept terms and conditions</Label>
+            </View>
+            <View className="flex-row items-center justify-between">
+              <Label>Email notifications</Label>
+              <Switch checked={switchOn} onCheckedChange={setSwitchOn} />
+            </View>
+          </CardContent>
+        </Card>
+
+        {/* RadioGroup */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Radio Group</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <RadioGroup value={radioValue} onValueChange={setRadioValue} className="gap-3">
+              {[
+                { value: 'option-one', label: 'Option One' },
+                { value: 'option-two', label: 'Option Two' },
+                { value: 'option-three', label: 'Option Three' },
+              ].map((opt) => (
+                <View key={opt.value} className="flex-row items-center gap-3">
+                  <RadioGroupItem value={opt.value} id={opt.value} />
+                  <Label onPress={() => setRadioValue(opt.value)}>{opt.label}</Label>
+                </View>
+              ))}
+            </RadioGroup>
+            <Text variant="caption" className="text-muted-foreground mt-3">
+              Selected: {radioValue}
             </Text>
-            <ToggleGroup
-              type="multiple"
-              value={toggleGroup}
-              onValueChange={setToggleGroup}
-              className="justify-start gap-1"
+          </CardContent>
+        </Card>
+
+        {/* Select */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Select</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <Select
+              value={selectValue ? { value: selectValue, label: selectValue } : undefined}
+              onValueChange={(opt) => setSelectValue(opt?.value ?? '')}
             >
-              <ToggleGroupItem value="bold">
-                <Bold size={16} className="text-foreground" />
-              </ToggleGroupItem>
-              <ToggleGroupItem value="italic">
-                <Italic size={16} className="text-foreground" />
-              </ToggleGroupItem>
-              <ToggleGroupItem value="underline">
-                <Underline size={16} className="text-foreground" />
-              </ToggleGroupItem>
-            </ToggleGroup>
-          </View>
-        </CardContent>
-      </Card>
+              <SelectTrigger>
+                <SelectValue placeholder="Choose a framework…" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="react-native" label="React Native" />
+                <SelectItem value="expo" label="Expo" />
+                <SelectItem value="flutter" label="Flutter" />
+                <SelectItem value="swiftui" label="SwiftUI" />
+              </SelectContent>
+            </Select>
+          </CardContent>
+        </Card>
 
-      {/* Button variants */}
-      <Card className="mb-4">
-        <CardHeader>
-          <CardTitle>Button</CardTitle>
-          <CardDescription>All variants and sizes</CardDescription>
-        </CardHeader>
-        <CardContent className="gap-3">
-          <View className="flex-row flex-wrap gap-2">
-            {(['default', 'secondary', 'destructive', 'outline', 'ghost'] as const).map((variant) => (
-              <Button key={variant} variant={variant} onPress={() => RNAlert.alert('Button', `Pressed: ${variant}`)}>
-                <Text>{variant.charAt(0).toUpperCase() + variant.slice(1)}</Text>
+        {/* Toggle */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Toggle & Toggle Group</CardTitle>
+          </CardHeader>
+          <CardContent className="gap-4">
+            <View className="flex-row items-center gap-3">
+              <Toggle pressed={toggleActive} onPressedChange={setToggleActive}>
+                <Bell size={16} className="text-foreground" />
+              </Toggle>
+              <Text variant="body" className="text-muted-foreground">
+                {toggleActive ? 'Notifications on' : 'Notifications off'}
+              </Text>
+            </View>
+            <View>
+              <Text variant="caption" className="text-muted-foreground mb-2">
+                Text formatting
+              </Text>
+              <ToggleGroup
+                type="multiple"
+                value={toggleGroup}
+                onValueChange={setToggleGroup}
+                className="justify-start gap-1"
+              >
+                <ToggleGroupItem value="bold">
+                  <Bold size={16} className="text-foreground" />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="italic">
+                  <Italic size={16} className="text-foreground" />
+                </ToggleGroupItem>
+                <ToggleGroupItem value="underline">
+                  <Underline size={16} className="text-foreground" />
+                </ToggleGroupItem>
+              </ToggleGroup>
+            </View>
+          </CardContent>
+        </Card>
+
+        {/* Button variants */}
+        <Card className="mb-4">
+          <CardHeader>
+            <CardTitle>Button</CardTitle>
+            <CardDescription>All variants and sizes</CardDescription>
+          </CardHeader>
+          <CardContent className="gap-3">
+            <View className="flex-row flex-wrap gap-2">
+              {(['default', 'secondary', 'destructive', 'outline', 'ghost'] as const).map((variant) => (
+                <Button key={variant} variant={variant} onPress={() => RNAlert.alert('Button', `Pressed: ${variant}`)}>
+                  <Text>{variant.charAt(0).toUpperCase() + variant.slice(1)}</Text>
+                </Button>
+              ))}
+            </View>
+            <View className="flex-row gap-2">
+              <Button size="sm" className="flex-1">
+                <Text>Small</Text>
               </Button>
-            ))}
-          </View>
-          <View className="flex-row gap-2">
-            <Button size="sm" className="flex-1">
-              <Text>Small</Text>
-            </Button>
-            <Button size="default" className="flex-1">
-              <Text>Default</Text>
-            </Button>
-            <Button size="lg" className="flex-1">
-              <Text>Large</Text>
-            </Button>
-          </View>
-        </CardContent>
-      </Card>
-    </ScrollView>
+              <Button size="default" className="flex-1">
+                <Text>Default</Text>
+              </Button>
+              <Button size="lg" className="flex-1">
+                <Text>Large</Text>
+              </Button>
+            </View>
+          </CardContent>
+        </Card>
+
+        <ScrollToTop ref={scrollToTopRef} scrollRef={scrollRef} threshold={100} />
+      </ScrollView>
+    </View>
   );
 }
 

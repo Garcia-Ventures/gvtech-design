@@ -30,6 +30,7 @@ export { ProgressDocs as NativeProgressDocs } from './ProgressDocs';
 export { RadioGroupDocs as NativeRadioGroupDocs } from './RadioGroupDocs';
 export { ResizableDocs as NativeResizableDocs } from './ResizableDocs';
 export { ScrollAreaDocs as NativeScrollAreaDocs } from './ScrollAreaDocs';
+export { ScrollToTopDocs as NativeScrollToTopDocs } from './ScrollToTopDocs';
 export { SearchDocs as NativeSearchDocs } from './SearchDocs';
 export { SelectDocs as NativeSelectDocs } from './SelectDocs';
 export { SeparatorDocs as NativeSeparatorDocs } from './SeparatorDocs';

@@ -71,7 +71,7 @@ export const docRoutes: DocRoute[] = [
     title: 'Scroll To Top',
     description: 'A floating, animated action button that appears on scroll and returns the page to the top.',
     web: web('WebScrollToTopDocs'),
-    // Native: not yet implemented
+    native: native('NativeScrollToTopDocs'),
   },
 
   // Components
