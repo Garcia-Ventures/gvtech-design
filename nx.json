@@ -35,7 +35,8 @@
         "default",
         "^production"
       ],
-      "cache": true
+      "cache": true,
+      "outputs": []
     },
     "lint": {
       "inputs": [
