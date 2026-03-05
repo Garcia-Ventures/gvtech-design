@@ -125,11 +125,12 @@ export const ScrollToTop = React.forwardRef<ScrollToTopHandle, ScrollToTopProps>
       // Delay the actual scroll to let exit animation start
       setTimeout(() => {
         if (scrollRef?.current) {
-          // Detect if it's a FlatList or ScrollView
-          if (typeof scrollRef.current.scrollToOffset === 'function') {
-            scrollRef.current.scrollToOffset({ offset: 0, animated: behavior !== 'auto' });
-          } else if (typeof scrollRef.current.scrollTo === 'function') {
-            scrollRef.current.scrollTo({ y: 0, animated: behavior !== 'auto' });
+          // Detect if it's a FlatList or ScrollView and handle types safely
+          const current = scrollRef.current;
+          if ('scrollToOffset' in current && typeof current.scrollToOffset === 'function') {
+            current.scrollToOffset({ offset: 0, animated: behavior !== 'auto' });
+          } else if ('scrollTo' in current && typeof current.scrollTo === 'function') {
+            current.scrollTo({ y: 0, animated: behavior !== 'auto' });
           }
         }
 
