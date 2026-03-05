@@ -335,6 +335,10 @@ export type { ResizableHandleProps, ResizablePanelGroupProps, ResizablePanelProp
 export { ScrollArea, ScrollBar } from './scroll-area';
 export type { ScrollAreaProps, ScrollBarProps } from './scroll-area';
 
+// Scroll To Top
+export { ScrollToTop } from './scroll-to-top';
+export type { ScrollToTopProps } from './scroll-to-top';
+
 // Search
 export { Search, SearchTrigger } from './search';
 export type { SearchProps, SearchTriggerProps } from './search';

@@ -29,6 +29,7 @@ export { ProgressDocs as WebProgressDocs } from './ProgressDocs';
 export { RadioGroupDocs as WebRadioGroupDocs } from './RadioGroupDocs';
 export { ResizableDocs as WebResizableDocs } from './ResizableDocs';
 export { ScrollAreaDocs as WebScrollAreaDocs } from './ScrollAreaDocs';
+export { ScrollToTopDocs as WebScrollToTopDocs } from './ScrollToTopDocs';
 export { SearchDocs as WebSearchDocs } from './SearchDocs';
 export { SelectDocs as WebSelectDocs } from './SelectDocs';
 export { SeparatorDocs as WebSeparatorDocs } from './SeparatorDocs';

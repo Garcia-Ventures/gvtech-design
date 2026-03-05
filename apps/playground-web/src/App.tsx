@@ -7,6 +7,7 @@ import {
   BreadcrumbSeparator,
   Button,
   ScrollArea,
+  ScrollToTop,
   Sheet,
   SheetContent,
   SheetDescription,
@@ -40,6 +41,8 @@ function PageLoader() {
 
 function DocumentationLayout() {
   const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
+  const [docsScrollViewport, setDocsScrollViewport] = React.useState<HTMLElement | null>(null);
+  const docsScrollAreaRef = React.useRef<HTMLDivElement>(null);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -66,6 +69,11 @@ function DocumentationLayout() {
       navigate('/docs/getting-started', { replace: true });
     }
   }, [location.pathname, navigate]);
+
+  React.useEffect(() => {
+    const viewport = docsScrollAreaRef.current?.querySelector<HTMLElement>('[data-radix-scroll-area-viewport]') ?? null;
+    setDocsScrollViewport(viewport);
+  }, [location.pathname]);
 
   return (
     <DocSearchProvider>
@@ -118,7 +126,7 @@ function DocumentationLayout() {
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
-            <ScrollArea className="flex-1">
+            <ScrollArea ref={docsScrollAreaRef} className="flex-1">
               <div className="flex min-h-full flex-col">
                 <main className="mx-auto flex w-full max-w-4xl flex-1 flex-col p-4 md:p-8">
                   <div className="flex-1">
@@ -152,6 +160,8 @@ function DocumentationLayout() {
                 </main>
               </div>
             </ScrollArea>
+
+            <ScrollToTop scrollTarget={docsScrollViewport} threshold={180} />
           </div>
         </div>
       </PackageManagerProvider>

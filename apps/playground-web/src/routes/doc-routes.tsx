@@ -66,6 +66,13 @@ export const docRoutes: DocRoute[] = [
     web: web('WebScrollAreaDocs'),
     // Native: not yet implemented
   },
+  {
+    path: 'scroll-to-top',
+    title: 'Scroll To Top',
+    description: 'A floating, animated action button that appears on scroll and returns the page to the top.',
+    web: web('WebScrollToTopDocs'),
+    // Native: not yet implemented
+  },
 
   // Components
   {

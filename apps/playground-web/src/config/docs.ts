@@ -62,6 +62,11 @@ export const docConfig: DocCategory[] = [
         platforms: ['web'],
       },
       {
+        title: 'Scroll To Top',
+        href: 'scroll-to-top',
+        platforms: ['web'],
+      },
+      {
         title: 'Separator',
         href: 'separator',
         platforms: ['web', 'native'],

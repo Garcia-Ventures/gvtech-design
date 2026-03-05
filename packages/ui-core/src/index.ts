@@ -230,6 +230,9 @@ export type {
 // Scroll Area
 export type { ScrollAreaBaseProps, ScrollBarBaseProps } from './contracts/scroll-area';
 
+// Scroll To Top
+export type { ScrollToTopBaseProps } from './contracts/scroll-to-top';
+
 // Search
 export type { SearchBaseProps, SearchTriggerBaseProps } from './contracts/search';
 
