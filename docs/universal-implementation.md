@@ -74,7 +74,7 @@ Key rules:
 | **Alert Dialog** | ✅  |   ✅   | `@rn-primitives/alert-dialog` + Reanimated overlay |
 | **Dialog**       | ✅  |   ✅   | `@rn-primitives/dialog` + Reanimated fade          |
 | **Hover Card**   | ✅  |   🚫   | Hover interaction; not applicable on touch         |
-| **Popover**      | ✅  |   🚫   | No `@rn-primitives/popover` yet                    |
+| **Popover**      | ✅  |   ✅   | Modal-based implementation                         |
 | **Progress**     | ✅  |   🚫   | No `@rn-primitives/progress` yet                   |
 | **Sheet**        | ✅  |   ✅   | SlideInRight/Left Reanimated; side prop supported  |
 | **Skeleton**     | ✅  |   ✅   | See Data Display above                             |
@@ -136,7 +136,7 @@ Document intentional platform differences here. Each entry explains the _semanti
 | **Drawer (web)** | vaul bottom sheet                 | Use `Sheet` on native                  | "Modal panel from screen edge" — Sheet semantically equivalent  |
 | **Scroll Area**  | Custom scrollbar overlay          | Use RN `ScrollView` directly           | "Scrollable content region" — native ScrollView is built-in     |
 | **Sonner**       | Web-only animated toast library   | Use `Toast` on native                  | "Notification toasts" — Toast package covers native             |
-| **Popover**      | Radix floating portal             | _Not yet implemented_                  | "Floating contextual content"                                   |
+| **Popover**      | Radix floating portal             | Modal with centered overlay            | "Floating contextual content"                                   |
 | **Progress**     | CSS progress bar                  | _Not yet implemented_                  | "Task completion indicator"                                     |
 
 ---
