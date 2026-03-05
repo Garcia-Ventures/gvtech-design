@@ -1,5 +1,6 @@
 import { Button, Separator, Tooltip, TooltipContent, TooltipTrigger } from '@gv-tech/ui-web';
-import { SiGithub, SiLinkedin, SiX } from 'react-icons/si';
+import { FaLinkedin } from 'react-icons/fa6';
+import { SiGithub, SiX } from 'react-icons/si';
 
 export function Footer() {
   return (
@@ -70,7 +71,7 @@ export function Footer() {
                       rel="noopener noreferrer"
                       aria-label="LinkedIn"
                     >
-                      <SiLinkedin className="h-5 w-5" />
+                      <FaLinkedin className="h-5 w-5" />
                     </a>
                   </Button>
                 </TooltipTrigger>
