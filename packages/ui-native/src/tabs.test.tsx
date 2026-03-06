@@ -6,18 +6,34 @@ import { Text } from './text';
 
 // Mock primitives
 vi.mock('@rn-primitives/tabs', () => {
-  const TabsContext = React.createContext({ value: '', onValueChange: () => {} });
+  const TabsContext = React.createContext({ value: '', onValueChange: (_value: string) => {} });
 
   return {
     Root: ({
       children,
       value,
+      defaultValue,
       onValueChange,
     }: {
       children: React.ReactNode;
-      value: string;
-      onValueChange: (value: string) => void;
-    }) => React.createElement(TabsContext.Provider, { value: { value, onValueChange } }, children),
+      value?: string;
+      defaultValue?: string;
+      onValueChange?: (value: string) => void;
+    }) => {
+      const [internalValue, setInternalValue] = React.useState(defaultValue || '');
+      const currentValue = value !== undefined ? value : internalValue;
+      const handleChange = (v: string) => {
+        if (value === undefined) {
+          setInternalValue(v);
+        }
+        onValueChange?.(v);
+      };
+      return React.createElement(
+        TabsContext.Provider,
+        { value: { value: currentValue, onValueChange: handleChange } },
+        children,
+      );
+    },
     List: ({ children, className }: { children: React.ReactNode; className?: string }) =>
       React.createElement('div', { className }, children),
     Trigger: ({ children, value, className }: { children: React.ReactNode; value: string; className?: string }) => {
@@ -35,7 +51,7 @@ vi.mock('@rn-primitives/tabs', () => {
 describe('Tabs (Native Implementation)', () => {
   it('renders correctly', () => {
     render(
-      <Tabs defaultValue="tab1">
+      <Tabs value="tab1" onValueChange={vi.fn()}>
         <TabsList>
           <TabsTrigger value="tab1">
             <Text>Tab 1</Text>

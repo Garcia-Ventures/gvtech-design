@@ -42,14 +42,16 @@
       "inputs": [
         "default"
       ],
-      "cache": true
+      "cache": true,
+      "outputs": []
     },
     "typecheck": {
       "inputs": [
         "default",
         "^production"
       ],
-      "cache": true
+      "cache": true,
+      "outputs": []
     }
   },
   "tasksRunnerOptions": {

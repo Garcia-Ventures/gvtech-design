@@ -7,17 +7,7 @@ import { ToggleGroup, ToggleGroupItem } from './toggle-group';
 // Mock primitives
 vi.mock('@rn-primitives/toggle-group', () => {
   return {
-    Root: ({
-      children,
-      value,
-      onValueChange,
-      type,
-    }: {
-      children: React.ReactNode;
-      value?: string[];
-      onValueChange?: (value: string[]) => void;
-      type?: 'single' | 'multiple';
-    }) =>
+    Root: ({ children, value, type }: { children: React.ReactNode; value?: string[]; type?: 'single' | 'multiple' }) =>
       React.createElement(
         'div',
         {

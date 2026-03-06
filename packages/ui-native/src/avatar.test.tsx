@@ -19,7 +19,7 @@ vi.mock('@rn-primitives/avatar', () => {
 describe('Avatar (Native Implementation)', () => {
   it('renders correctly', () => {
     render(
-      <Avatar>
+      <Avatar alt="JD">
         <AvatarImage source={{ uri: 'https://example.com/avatar.jpg' }} />
         <AvatarFallback>
           <Text>JD</Text>

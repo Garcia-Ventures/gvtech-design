@@ -15,7 +15,7 @@ vi.mock('@rn-primitives/dialog', () => {
       const { open, onOpenChange } = React.useContext(DialogContext);
       return React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
     },
-    Portal: ({ children, hostName }: any) => {
+    Portal: ({ children }: any) => {
       const { open } = React.useContext(DialogContext);
       return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
     },

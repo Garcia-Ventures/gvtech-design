@@ -5,10 +5,13 @@ import * as React from 'react';
 import { cn } from './lib/utils';
 import { TextClassContext } from './text';
 
-const Tabs = TabsPrimitive.Root;
+const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsProps>((props, ref) => (
+  <TabsPrimitive.Root ref={ref} {...props} />
+));
+Tabs.displayName = 'Tabs';
 
-export interface TabsProps
-  extends Omit<React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>, 'onValueChange' | 'value'>, TabsBaseProps {}
+export type TabsProps = Omit<React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>, 'onValueChange' | 'value'> &
+  Omit<TabsBaseProps, 'value'> & { value: string; onValueChange: (value: string) => void };
 export interface TabsListProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>, TabsListBaseProps {}
 export interface TabsTriggerProps
   extends

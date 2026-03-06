@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import { ThemeToggle } from './theme-toggle';
 
 describe('ThemeToggle (Native Implementation)', () => {
@@ -9,7 +9,6 @@ describe('ThemeToggle (Native Implementation)', () => {
   });
 
   it('handles press', () => {
-    const mockOnPress = vi.fn();
     // Since the component doesn't expose onPress, we'll just test rendering
     render(<ThemeToggle />);
     // Note: This component needs proper implementation for theme toggling
