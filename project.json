@@ -11,6 +11,34 @@
         "cwd": "."
       }
     },
+    "format": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun run format:ci",
+        "cwd": "."
+      }
+    },
+    "format:fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun run format",
+        "cwd": "."
+      }
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun run lint",
+        "cwd": "."
+      }
+    },
+    "lint:fix": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "bun run lint:fix",
+        "cwd": "."
+      }
+    },
     "nx-release-publish": {
       "dependsOn": [
         "build"

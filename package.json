@@ -6,22 +6,22 @@
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "exports": {
     ".": {
-      "default": "./dist/index.mjs",
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
-      "types": "./dist/index.d.ts"
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.mjs"
     },
     "./*": {
-      "default": "./dist/*.mjs",
       "import": "./dist/*.mjs",
       "require": "./dist/*.cjs",
-      "types": "./dist/*.d.ts"
+      "types": "./dist/*.d.ts",
+      "default": "./dist/*.mjs"
     },
     "./package.json": "./package.json",
     "./style.css": {
-      "default": "./dist/design-system.css",
       "import": "./dist/design-system.css",
-      "style": "./dist/design-system.css"
+      "style": "./dist/design-system.css",
+      "default": "./dist/design-system.css"
     }
   },
   "main": "dist/index.cjs",

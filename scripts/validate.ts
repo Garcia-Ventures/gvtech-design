@@ -13,15 +13,14 @@ const steps = [
   },
   {
     name: fix ? 'Prettier fix' : 'Prettier check',
-    cmd: fix ? 'bun run format' : 'bun run format:ci',
+    cmd: fix ? `nx run-many -t format:fix --parallel${nxFlags}` : `nx run-many -t format --parallel${nxFlags}`,
   },
   {
     name: fix ? 'Lint fix (eslint)' : 'Lint (eslint)',
-    cmd: fix ? 'bun run lint:fix' : 'bun run lint',
+    cmd: fix ? `nx run-many -t lint:fix --parallel${nxFlags}` : `nx run-many -t lint --parallel${nxFlags}`,
   },
   {
     name: 'TypeScript type check',
-    // Using nx run-many for per-project type checking
     cmd: `nx run-many -t typecheck --parallel${nxFlags}`,
   },
   {
