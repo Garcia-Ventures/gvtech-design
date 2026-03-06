@@ -19,6 +19,9 @@ vi.mock('@rn-primitives/toggle-group', () => {
       ),
     Item: ({ children, value, className }: { children: React.ReactNode; value: string; className?: string }) =>
       React.createElement('button', { className, 'data-value': value }, children),
+    // Add a mock for @rn-primitives/toggle to prevent module not found error
+    __esModule: true,
+    default: {},
   };
 });
 

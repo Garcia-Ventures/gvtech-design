@@ -17,6 +17,8 @@ vi.mock('@rn-primitives/select', () => {
       React.createElement('div', { 'data-value': value }, children),
     ItemText: ({ children }: { children: React.ReactNode }) => React.createElement('span', {}, children),
     // Add other exports as needed
+    __esModule: true,
+    default: {},
   };
 });
 
