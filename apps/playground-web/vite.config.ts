@@ -33,10 +33,11 @@ export default defineConfig({
         '.js': 'jsx',
       },
     },
+    include: ['@rn-primitives/**/*'],
   },
   esbuild: {
     loader: 'tsx',
-    include: /src\/.*\.[jt]sx?$/,
+    include: [/src\/.*\.[jt]sx?$/, /node_modules\/@rn-primitives\/.*\.js$/],
     exclude: [],
   },
   build: {
