@@ -19,8 +19,8 @@ export function MyScreen() {
     <View style={{ flex: 1 }}>
       <ScrollView
         ref={scrollRef}
-        scrollEventThrottle={16}
         onScroll={(e) => scrollToTopRef.current?.handleScroll(e)}
+        {...(Platform.OS !== 'web' && { scrollEventThrottle: 16 })}
       >
         {/* Long Content */}
         <View style={{ height: 2000 }} />

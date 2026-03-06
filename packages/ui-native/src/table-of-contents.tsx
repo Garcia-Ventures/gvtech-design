@@ -3,6 +3,7 @@ import {
   LayoutChangeEvent,
   NativeScrollEvent,
   NativeSyntheticEvent,
+  Platform,
   Text as RNText,
   ScrollView,
   TouchableOpacity,
@@ -221,9 +222,11 @@ export function TableOfContentsContent({ children, className }: TableOfContentsC
     <ScrollView
       ref={scrollViewRef}
       onScroll={onScroll}
-      scrollEventThrottle={16}
       className={cn('flex-1', className)}
-      contentContainerStyle={{ padding: 16 }}
+      {...(Platform.OS !== 'web' && {
+        scrollEventThrottle: 16,
+        contentContainerStyle: { padding: 16 },
+      })}
     >
       {children}
     </ScrollView>

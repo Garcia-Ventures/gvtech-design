@@ -85,7 +85,7 @@ import {
 } from '@gv-tech/ui-native';
 import { Bell, Bold, Italic, Underline } from 'lucide-react-native';
 import * as React from 'react';
-import { Alert as RNAlert, ScrollView, View } from 'react-native';
+import { Platform, Alert as RNAlert, ScrollView, View } from 'react-native';
 
 // ─── Section Header ──────────────────────────────────────────────────────────
 function SectionHeader({ title, subtitle }: { title: string; subtitle?: string }) {
@@ -122,9 +122,11 @@ function FormsScreen() {
       <ScrollView
         ref={scrollRef}
         className="flex-1"
-        contentContainerStyle={{ padding: 16, paddingBottom: 100 }}
-        scrollEventThrottle={16}
         onScroll={(e) => scrollToTopRef.current?.handleScroll(e)}
+        {...(Platform.OS !== 'web' && {
+          contentContainerStyle: { padding: 16, paddingBottom: 100 },
+          scrollEventThrottle: 16,
+        })}
       >
         <SectionHeader title="Forms" subtitle="Input, Checkbox, Switch, RadioGroup, Select, Textarea, Toggle" />
 
@@ -321,7 +323,12 @@ function FormsScreen() {
 // ─── Display Screen ────────────────────────────────────────────────────────────
 function DisplayScreen() {
   return (
-    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView
+      className="bg-background flex-1"
+      {...(Platform.OS !== 'web' && {
+        contentContainerStyle: { padding: 16, paddingBottom: 40 },
+      })}
+    >
       <SectionHeader title="Data Display" subtitle="Text, Badge, Avatar, Card, Accordion, Table, Skeleton" />
 
       {/* Typography */}
@@ -519,7 +526,12 @@ function DisplayScreen() {
 // ─── Feedback Screen ───────────────────────────────────────────────────────────
 function FeedbackScreen() {
   return (
-    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView
+      className="bg-background flex-1"
+      {...(Platform.OS !== 'web' && {
+        contentContainerStyle: { padding: 16, paddingBottom: 40 },
+      })}
+    >
       <SectionHeader title="Feedback" subtitle="Alert, AlertDialog, Dialog, Sheet, Tooltip, Toast, Collapsible" />
 
       {/* Alert variants */}
@@ -698,7 +710,12 @@ function FeedbackScreen() {
 // ─── Layout Screen ─────────────────────────────────────────────────────────────
 function LayoutScreen() {
   return (
-    <ScrollView className="bg-background flex-1" contentContainerStyle={{ padding: 16, paddingBottom: 40 }}>
+    <ScrollView
+      className="bg-background flex-1"
+      {...(Platform.OS !== 'web' && {
+        contentContainerStyle: { padding: 16, paddingBottom: 40 },
+      })}
+    >
       <SectionHeader title="Layout & Theme" subtitle="Card, Separator, ThemeToggle" />
 
       {/* Theme Toggle */}
