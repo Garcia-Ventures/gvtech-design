@@ -112,7 +112,7 @@ export { NavigationMenu } from './navigation-menu';
 export { Pagination } from './pagination';
 
 // Popover
-export { Popover } from './popover';
+export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from './popover';
 
 // Progress
 export { Progress } from './progress';
