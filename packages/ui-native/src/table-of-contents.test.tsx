@@ -12,6 +12,7 @@ import {
 vi.mock('react-native', () => {
   const ReactMock = require('react');
   return {
+    Platform: { OS: 'web' },
     View: ReactMock.forwardRef(({ children, onLayout, className, ...props }: any, ref: any) => {
       // Use onLayout if needed
       return ReactMock.createElement(

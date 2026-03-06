@@ -2,6 +2,15 @@ import '@testing-library/jest-dom';
 import * as matchers from '@testing-library/jest-dom/matchers';
 import { expect } from 'vitest';
 
+// React Native libraries (for example reanimated) read this global in test environments.
+if (!('__DEV__' in globalThis)) {
+  Object.defineProperty(globalThis, '__DEV__', {
+    value: false,
+    writable: true,
+    configurable: true,
+  });
+}
+
 expect.extend(matchers);
 
 // Mock window.matchMedia

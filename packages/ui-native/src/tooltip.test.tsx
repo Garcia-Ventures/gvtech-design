@@ -1,5 +1,3 @@
-// Fix for __DEV__ global required by react-native-reanimated
-globalThis.__DEV__ = false;
 import { render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
