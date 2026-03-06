@@ -1,7 +1,7 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { toast } from 'sonner';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
+/*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   CommandEmpty,
   CommandGroup,
@@ -13,11 +13,7 @@ import {
 } from '@gv-tech/ui-web';
 import * as React from 'react';
 
-// @ts-ignore
-
 const isNative = false as boolean;
-
-// @ts-ignore
 
 const platform = 'web' as string;
 

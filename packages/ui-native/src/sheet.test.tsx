@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from './sheet';
 
 // Mock primitives
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/dialog', () => {
   const React = require('react');
   const DialogContext = React.createContext({ open: false, onOpenChange: (_any: any) => {} });
@@ -47,10 +47,9 @@ vi.mock('@rn-primitives/dialog', () => {
     useRootContext: () => React.useContext(DialogContext),
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 
 // Mock reanimated
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
@@ -65,7 +64,6 @@ vi.mock('react-native-reanimated', () => {
     SlideOutRight: {},
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 // Mock lucide
 vi.mock('lucide-react-native', () => ({

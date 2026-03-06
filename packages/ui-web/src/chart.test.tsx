@@ -8,7 +8,7 @@ import { ChartContainer, ChartTooltip, ChartTooltipContent } from '.';
 vi.mock('recharts', async (importOriginal) => {
   const original = await importOriginal();
   return {
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    //  -next-line @typescript-eslint/no-explicit-any
     ...(original as any),
     ResponsiveContainer: ({ children }: { children: React.ReactNode }) => (
       <div style={{ width: 500, height: 300 }}>{children}</div>

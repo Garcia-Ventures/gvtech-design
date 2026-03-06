@@ -1,14 +1,6 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-/* eslint-disable @typescript-eslint/ban-ts-comment */
-// @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-// @ts-ignore
 
 const isNative = true as boolean;
-
-// @ts-ignore
-
 const platform = 'native' as string;
 
 export function AspectRatioDocs() {

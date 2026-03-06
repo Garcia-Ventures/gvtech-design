@@ -33,7 +33,7 @@ class IntersectionObserver {
   unobserve() {}
   disconnect() {}
 }
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
+//  -next-line @typescript-eslint/no-explicit-any
 window.IntersectionObserver = IntersectionObserver as any;
 
 // Mock scrollIntoView

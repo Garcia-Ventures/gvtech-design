@@ -1,18 +1,21 @@
 import { render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from './select';
 import { Text } from './text';
 
 // Mock primitives
 vi.mock('@rn-primitives/select', () => {
-  const React = require('react');
   return {
-    Root: ({ children }: any) => React.createElement(React.Fragment, {}, children),
-    Trigger: ({ children, className }: any) => React.createElement('button', { className }, children),
-    Value: ({ placeholder, className }: any) => React.createElement('span', { className }, placeholder),
-    Content: ({ children }: any) => React.createElement('div', {}, children),
-    Item: ({ children, value }: any) => React.createElement('div', { 'data-value': value }, children),
-    ItemText: ({ children }: any) => React.createElement('span', {}, children),
+    Root: ({ children }: { children: React.ReactNode }) => React.createElement(React.Fragment, {}, children),
+    Trigger: ({ children, className }: { children: React.ReactNode; className?: string }) =>
+      React.createElement('button', { className }, children),
+    Value: ({ placeholder, className }: { placeholder?: string; className?: string }) =>
+      React.createElement('span', { className }, placeholder),
+    Content: ({ children }: { children: React.ReactNode }) => React.createElement('div', {}, children),
+    Item: ({ children, value }: { children: React.ReactNode; value: string }) =>
+      React.createElement('div', { 'data-value': value }, children),
+    ItemText: ({ children }: { children: React.ReactNode }) => React.createElement('span', {}, children),
     // Add other exports as needed
   };
 });

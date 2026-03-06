@@ -254,14 +254,8 @@ export function MyComponent() {
             </p>
             <pre className="bg-background mt-4 overflow-x-auto rounded-md p-4 text-xs">
               <code>{`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const isNative = false as boolean;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const platform = 'web' as string;
 
 

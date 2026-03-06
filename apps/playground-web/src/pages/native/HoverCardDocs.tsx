@@ -1,13 +1,7 @@
-import { PropsTable } from '@/components/docs/PropsTable';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-
-// @ts-ignore
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = true as boolean;
-
-// @ts-ignore
-
 const platform = 'native' as string;
 
 export function HoverCardDocs() {

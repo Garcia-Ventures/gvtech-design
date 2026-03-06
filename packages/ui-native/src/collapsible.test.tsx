@@ -4,7 +4,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsible';
 
 // Mock the primitive
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/collapsible', () => {
   const React = require('react');
   const CollapsibleContext = React.createContext({ open: false, onOpenChange: () => {} });
@@ -32,7 +32,6 @@ vi.mock('@rn-primitives/collapsible', () => {
     },
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 describe('Collapsible (Native Implementation)', () => {
   it('renders correctly and toggles content', async () => {

@@ -1,7 +1,5 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Calculator, CreditCard, Settings, Smile, User } from 'lucide-react';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   Calendar,
   Command,
@@ -13,13 +11,9 @@ import {
   CommandSeparator,
   CommandShortcut,
 } from '@gv-tech/ui-web';
-
-// @ts-ignore
+import { Calculator, CreditCard, Settings, Smile, User } from 'lucide-react';
 
 const isNative = false as boolean;
-
-// @ts-ignore
-
 const platform = 'web' as string;
 
 export function CommandDocs() {

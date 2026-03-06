@@ -1,12 +1,22 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Switch } from './switch';
 
 // Mock primitives
 vi.mock('@rn-primitives/switch', () => {
-  const React = require('react');
   return {
-    Root: ({ children, checked, onCheckedChange, className }: any) =>
+    Root: ({
+      children,
+      checked,
+      onCheckedChange,
+      className,
+    }: {
+      children: React.ReactNode;
+      checked?: boolean;
+      onCheckedChange?: (checked: boolean) => void;
+      className?: string;
+    }) =>
       React.createElement(
         'button',
         {
@@ -17,7 +27,7 @@ vi.mock('@rn-primitives/switch', () => {
         },
         children,
       ),
-    Thumb: ({ className }: any) => React.createElement('div', { className }),
+    Thumb: ({ className }: { className?: string }) => React.createElement('div', { className }),
   };
 });
 

@@ -1,14 +1,15 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Label } from './label';
 
 // Mock primitives
 vi.mock('@rn-primitives/label', () => {
-  const React = require('react');
   return {
-    Root: ({ children, onPress, className }: any) =>
+    Root: ({ children, onPress, className }: { children: React.ReactNode; onPress?: () => void; className?: string }) =>
       React.createElement('div', { onClick: onPress, className }, children),
-    Text: ({ children, className }: any) => React.createElement('span', { className }, children),
+    Text: ({ children, className }: { children: React.ReactNode; className?: string }) =>
+      React.createElement('span', { className }, children),
   };
 });
 

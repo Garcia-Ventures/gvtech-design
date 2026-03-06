@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Checkbox } from './checkbox';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/checkbox', () => {
   const React = require('react');
   const CheckboxContext = React.createContext({ checked: false, onCheckedChange: () => {} });
@@ -30,7 +30,6 @@ vi.mock('@rn-primitives/checkbox', () => {
     },
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 vi.mock('lucide-react-native', () => ({
   Check: () => null,

@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Toast, ToastDescription, ToastTitle } from './toast';
 
 // Mock primitives
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/toast', () => {
   const React = require('react');
   return {
@@ -14,10 +14,9 @@ vi.mock('@rn-primitives/toast', () => {
     Action: ({ children, className }: any) => React.createElement('button', { className }, children),
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 // Mock reanimated
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
@@ -29,7 +28,6 @@ vi.mock('react-native-reanimated', () => {
     Layout: {},
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 // Mock lucide
 vi.mock('lucide-react-native', () => ({

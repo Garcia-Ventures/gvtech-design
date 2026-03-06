@@ -1,15 +1,9 @@
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { NavigationMenuLink, cn } from '@gv-tech/ui-web';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import React from 'react';
 
-// @ts-ignore
-
 const isNative = true as boolean;
-
-// @ts-ignore
-
 const platform = 'native' as string;
 
 const ListItem = React.forwardRef<React.ElementRef<'a'>, React.ComponentPropsWithoutRef<'a'>>(

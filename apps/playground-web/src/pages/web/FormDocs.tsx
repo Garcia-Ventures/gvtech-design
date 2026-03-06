@@ -1,9 +1,5 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { useForm } from 'react-hook-form';
-import { z } from 'zod';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   Button,
   Form,
@@ -15,6 +11,9 @@ import {
   FormMessage,
   Input,
 } from '@gv-tech/ui-web';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
 
 const formSchema = z.object({
   username: z.string().min(2, {
@@ -165,11 +164,7 @@ export function ProfileForm() {
     </>
   );
 
-  // @ts-ignore
-
   const isNative = false as boolean;
-
-  // @ts-ignore
 
   const platform = 'web' as string;
 }

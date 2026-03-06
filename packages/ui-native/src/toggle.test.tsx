@@ -1,13 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Text } from './text';
 import { Toggle } from './toggle';
 
 // Mock primitives
 vi.mock('@rn-primitives/toggle', () => {
-  const React = require('react');
   return {
-    Root: ({ children, pressed, onPressedChange, className }: any) =>
+    Root: ({
+      children,
+      pressed,
+      onPressedChange,
+      className,
+    }: {
+      children: React.ReactNode;
+      pressed?: boolean;
+      onPressedChange?: (pressed: boolean) => void;
+      className?: string;
+    }) =>
       React.createElement(
         'button',
         {

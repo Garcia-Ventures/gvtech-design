@@ -8,7 +8,7 @@ import {
 } from './table-of-contents';
 
 // Mock react-native
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('react-native', () => {
   const ReactMock = require('react');
   return {
@@ -61,7 +61,6 @@ vi.mock('react-native', () => {
       ),
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 describe('TableOfContents (Native Implementation)', () => {
   it('renders correctly without crashing', () => {

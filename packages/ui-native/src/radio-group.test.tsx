@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { RadioGroup, RadioGroupItem } from './radio-group';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/radio-group', () => {
   const React = require('react');
   return {
@@ -40,7 +40,6 @@ vi.mock('@rn-primitives/radio-group', () => {
     useRootContext: () => ({ value: 'option-one' }), // Basic mock
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 vi.mock('lucide-react-native', () => ({
   Circle: () => null,

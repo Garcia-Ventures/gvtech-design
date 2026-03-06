@@ -1,15 +1,10 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-// @ts-ignore
-
+// @ts-expect-error: Type assertion for native platform flag
 const isNative = true as boolean;
 
-// @ts-ignore
-
+// @ts-expect-error: Type assertion for platform string
 const platform = 'native' as string;
 
 export function AlertDialogDocs() {

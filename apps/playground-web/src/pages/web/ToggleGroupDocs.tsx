@@ -2,14 +2,8 @@ import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { ToggleGroup, ToggleGroupItem } from '@gv-tech/ui-web';
 import { Bold, Italic, Underline } from 'lucide-react';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-
-// @ts-ignore
 
 const isNative = false as boolean;
-
-// @ts-ignore
-
 const platform = 'web' as string;
 
 export function ToggleGroupDocs() {

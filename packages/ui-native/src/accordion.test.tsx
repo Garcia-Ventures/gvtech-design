@@ -3,7 +3,7 @@ import { describe, expect, it, vi } from 'vitest';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion';
 
 // Mock primitives
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
+/*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/accordion', () => {
   const React = require('react');
   const AccordionContext = React.createContext({ isExpanded: false });
@@ -38,7 +38,6 @@ vi.mock('react-native-reanimated', () => {
     Extrapolation: { CLAMP: 'clamp' },
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 // Mock lucide
 vi.mock('lucide-react-native', () => ({

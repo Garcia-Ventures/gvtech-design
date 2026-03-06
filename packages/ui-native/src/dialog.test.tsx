@@ -4,7 +4,6 @@ import { describe, expect, it, vi } from 'vitest';
 import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } from './dialog';
 
 // Mock primitives
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 vi.mock('@rn-primitives/dialog', () => {
   const React = require('react');
   const DialogContext = React.createContext({ open: false, onOpenChange: (_any: any) => {} });
@@ -47,10 +46,8 @@ vi.mock('@rn-primitives/dialog', () => {
     useRootContext: () => React.useContext(DialogContext),
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 
 // Mock reanimated
-/* eslint-disable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
@@ -63,7 +60,6 @@ vi.mock('react-native-reanimated', () => {
     FadeOut: { duration: () => ({}) },
   };
 });
-/* eslint-enable @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 
 // Mock lucide
 vi.mock('lucide-react-native', () => ({

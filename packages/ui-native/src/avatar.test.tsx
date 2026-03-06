@@ -4,12 +4,15 @@ import { Avatar, AvatarFallback, AvatarImage } from './avatar';
 import { Text } from './text';
 
 // Mock primitives
+import React from 'react';
 vi.mock('@rn-primitives/avatar', () => {
-  const React = require('react');
   return {
-    Root: ({ children, className }: any) => React.createElement('div', { className }, children),
-    Image: ({ className, source }: any) => React.createElement('img', { className, src: source?.uri }),
-    Fallback: ({ children, className }: any) => React.createElement('div', { className }, children),
+    Root: ({ children, className }: { children: React.ReactNode; className?: string }) =>
+      React.createElement('div', { className }, children),
+    Image: ({ className, source }: { className?: string; source?: { uri: string } }) =>
+      React.createElement('img', { className, src: source?.uri }),
+    Fallback: ({ children, className }: { children: React.ReactNode; className?: string }) =>
+      React.createElement('div', { className }, children),
   };
 });
 

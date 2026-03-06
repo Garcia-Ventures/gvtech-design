@@ -43,18 +43,8 @@ export function ButtonDocs() {
         description="Use the disabled attribute with a spinner for loading states."
         code={`import { Button } from "@gv-tech/design-system";
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const isNative = true as boolean;
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-// @ts-ignore
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const platform = 'native' as string;
 
 <Button disabled>

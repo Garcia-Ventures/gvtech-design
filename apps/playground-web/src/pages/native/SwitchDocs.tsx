@@ -1,14 +1,8 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-// @ts-ignore
 
 const isNative = true as boolean;
-
-// @ts-ignore
 
 const platform = 'native' as string;
 

@@ -1,6 +1,5 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -10,12 +9,7 @@ import {
   BreadcrumbSeparator,
 } from '@gv-tech/ui-web';
 
-// @ts-ignore
-
 const isNative = false as boolean;
-
-// @ts-ignore
-
 const platform = 'web' as string;
 
 export function BreadcrumbDocs() {

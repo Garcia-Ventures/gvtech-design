@@ -1,13 +1,23 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Text } from './text';
 import { ToggleGroup, ToggleGroupItem } from './toggle-group';
 
 // Mock primitives
 vi.mock('@rn-primitives/toggle-group', () => {
-  const React = require('react');
   return {
-    Root: ({ children, value, onValueChange, type }: any) =>
+    Root: ({
+      children,
+      value,
+      onValueChange,
+      type,
+    }: {
+      children: React.ReactNode;
+      value?: string[];
+      onValueChange?: (value: string[]) => void;
+      type?: 'single' | 'multiple';
+    }) =>
       React.createElement(
         'div',
         {
@@ -17,7 +27,7 @@ vi.mock('@rn-primitives/toggle-group', () => {
         },
         children,
       ),
-    Item: ({ children, value, className }: any) =>
+    Item: ({ children, value, className }: { children: React.ReactNode; value: string; className?: string }) =>
       React.createElement('button', { className, 'data-value': value }, children),
   };
 });

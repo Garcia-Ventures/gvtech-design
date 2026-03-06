@@ -1,22 +1,30 @@
 import { fireEvent, render, screen } from '@testing-library/react';
+import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 import { Text } from './text';
 
 // Mock primitives
 vi.mock('@rn-primitives/tabs', () => {
-  const React = require('react');
   const TabsContext = React.createContext({ value: '', onValueChange: () => {} });
 
   return {
-    Root: ({ children, value, onValueChange }: any) =>
-      React.createElement(TabsContext.Provider, { value: { value, onValueChange } }, children),
-    List: ({ children, className }: any) => React.createElement('div', { className }, children),
-    Trigger: ({ children, value, className }: any) => {
+    Root: ({
+      children,
+      value,
+      onValueChange,
+    }: {
+      children: React.ReactNode;
+      value: string;
+      onValueChange: (value: string) => void;
+    }) => React.createElement(TabsContext.Provider, { value: { value, onValueChange } }, children),
+    List: ({ children, className }: { children: React.ReactNode; className?: string }) =>
+      React.createElement('div', { className }, children),
+    Trigger: ({ children, value, className }: { children: React.ReactNode; value: string; className?: string }) => {
       const { onValueChange } = React.useContext(TabsContext);
       return React.createElement('button', { className, onClick: () => onValueChange?.(value) }, children);
     },
-    Content: ({ children, value, className }: any) => {
+    Content: ({ children, value, className }: { children: React.ReactNode; value: string; className?: string }) => {
       const { value: currentValue } = React.useContext(TabsContext);
       return currentValue === value ? React.createElement('div', { className }, children) : null;
     },

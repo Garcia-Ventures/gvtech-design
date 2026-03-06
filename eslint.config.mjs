@@ -13,6 +13,13 @@ export default [
   // },
   ...recommended,
   {
+    files: ['**/tests/**', '**/*.test.{ts,tsx}', '**/setupTests.{ts,tsx}'],
+    rules: {
+      '@typescript-eslint/no-explicit-any': 'off', // Tests may use 'any' for flexibility
+      '@typescript-eslint/no-require-imports': 'off', // Tests may use require() for dynamic imports or mocks
+    },
+  },
+  {
     ignores: ['eslint.config.mjs'],
   },
 ];

@@ -1,13 +1,9 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Separator } from '@gv-tech/ui-web';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-
-// @ts-ignore
+/*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 
 const isNative = false as boolean;
-
-// @ts-ignore
 
 const platform = 'web' as string;
 

@@ -1,20 +1,14 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Info } from 'lucide-react';
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 // @ts-nocheck
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import {
   Alert as WebAlert,
   AlertDescription as WebAlertDescription,
   AlertTitle as WebAlertTitle,
 } from '@gv-tech/ui-web';
 
-// @ts-ignore
-
 const isNative = true as boolean;
-
-// @ts-ignore
 
 const platform = 'native' as string;
 

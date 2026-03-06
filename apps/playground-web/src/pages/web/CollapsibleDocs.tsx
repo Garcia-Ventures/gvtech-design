@@ -2,15 +2,9 @@ import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 import { Button, Collapsible, CollapsibleContent, CollapsibleTrigger } from '@gv-tech/ui-web';
 import { ChevronsUpDown } from 'lucide-react';
-/* eslint-disable @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import * as React from 'react';
 
-// @ts-ignore
-
 const isNative = false as boolean;
-
-// @ts-ignore
-
 const platform = 'web' as string;
 
 export function CollapsibleDocs() {
