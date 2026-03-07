@@ -9,8 +9,9 @@ export const TurboModuleRegistry = {
 };
 
 // Some versions/exports of react-native-web might not include these
-export const UnimplementedView = ReactNativeWeb.UnimplementedView || (() => null);
-export const ViewPropTypes = ReactNativeWeb.ViewPropTypes || {};
+// Use bracket access to avoid static named-export analysis warnings in bundlers.
+export const UnimplementedView = ReactNativeWeb['UnimplementedView'] || (() => null);
+export const ViewPropTypes = ReactNativeWeb['ViewPropTypes'] || {};
 
 // Default export
 // Create a default export that functions as both the module object and a callable function

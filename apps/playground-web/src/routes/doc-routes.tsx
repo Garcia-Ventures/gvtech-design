@@ -17,7 +17,7 @@ const native = (name: string) =>
   );
 const shared = (name: string) =>
   React.lazy(() =>
-    import('@/pages').then((m) => ({
+    import('@/pages/shared').then((m) => ({
       default: (m as Record<string, React.ComponentType>)[name],
     })),
   );
