@@ -1,6 +1,5 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Button, Input, Label, Popover, PopoverContent, PopoverTrigger } from '@gv-tech/ui-native';
 
 export function PopoverDocs() {
   return (
@@ -17,17 +16,7 @@ export function PopoverDocs() {
     <Input placeholder="Type here..."/>
   </PopoverContent>
 </Popover>`}
-      >
-        <Popover>
-          <PopoverTrigger>
-            <Button variant="outline">Open popover</Button>
-          </PopoverTrigger>
-          <PopoverContent className="w-80">
-            <Label>Popover content</Label>
-            <Input placeholder="Type here..." />
-          </PopoverContent>
-        </Popover>
-      </ComponentShowcase>
+      />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Native Implementation Notes</h3>
