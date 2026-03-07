@@ -19,6 +19,10 @@ export default defineConfig({
         find: /^react-native\/(.*)$/,
         replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
       },
+      {
+        find: /^lucide-react-native$/,
+        replacement: resolve(__dirname, 'src/lib/lucide-react-native-shim.ts'),
+      },
       { find: '@', replacement: resolve(__dirname, './src') },
       { find: '@gv-tech/design-tokens', replacement: resolve(__dirname, '../../packages/design-tokens/src') },
       { find: '@gv-tech/ui-core', replacement: resolve(__dirname, '../../packages/ui-core/src') },
@@ -33,7 +37,7 @@ export default defineConfig({
         '.js': 'jsx',
       },
     },
-    include: ['@rn-primitives/**/*'],
+    include: ['react-native-web', 'react-native-reanimated', 'react-native-svg', 'lucide-react', '@rn-primitives/**/*'],
   },
   esbuild: {
     loader: 'tsx',
