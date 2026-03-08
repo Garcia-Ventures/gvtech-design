@@ -1,3 +1,14 @@
+## 2.17.0 (2026-03-08)
+
+### 🚀 Features
+
+- Add ScrollToTop component with visibility control and scroll behavior, including documentation and tests ([565c7b6](https://github.com/Garcia-Ventures/gvtech-design/commit/565c7b6))
+- Migrate project scripts from Yarn to Bun, update documentation, and add sitemap generation script ([0588697](https://github.com/Garcia-Ventures/gvtech-design/commit/0588697))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.16.0 (2026-02-28)
 
 ### 🚀 Features

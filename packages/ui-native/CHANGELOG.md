@@ -1,3 +1,23 @@
+## 2.17.0 (2026-03-08)
+
+### 🚀 Features
+
+- expand Popover exports to include PopoverAnchor, PopoverContent, and PopoverTrigger ([b62b3d3](https://github.com/Garcia-Ventures/gvtech-design/commit/b62b3d3))
+- enhance test mocks for Select, TableOfContents, ToggleGroup, and Tooltip components ([cc1cdf6](https://github.com/Garcia-Ventures/gvtech-design/commit/cc1cdf6))
+- enhance accessibility for Progress component and update test mocks for ToggleGroup and Tooltip components ([5273722](https://github.com/Garcia-Ventures/gvtech-design/commit/5273722))
+- enhance ScrollView components with platform-specific properties for improved performance ([dace66e](https://github.com/Garcia-Ventures/gvtech-design/commit/dace66e))
+- enhance test components with improved props handling and mock implementations ([8d98778](https://github.com/Garcia-Ventures/gvtech-design/commit/8d98778))
+- implement Popover and Progress components with tests and context management ([6f13b46](https://github.com/Garcia-Ventures/gvtech-design/commit/6f13b46))
+- update phase 1 tracker with completed tests for Alert, Avatar, Badge, Label, Search, Select, Separator, Switch, Table, Tabs, Theme Toggle, Toggle, Toggle Group, Tooltip components in ui-native ([3cede23](https://github.com/Garcia-Ventures/gvtech-design/commit/3cede23))
+- add Support FAB component with documentation and routing updates ([2156f84](https://github.com/Garcia-Ventures/gvtech-design/commit/2156f84))
+- Enhance scroll handling in ScrollToTop component for type safety ([bbe3c2c](https://github.com/Garcia-Ventures/gvtech-design/commit/bbe3c2c))
+- Implement ScrollToTop component for native with animated visibility, update documentation, and integrate into existing screens ([1757106](https://github.com/Garcia-Ventures/gvtech-design/commit/1757106))
+- Migrate project scripts from Yarn to Bun, update documentation, and add sitemap generation script ([0588697](https://github.com/Garcia-Ventures/gvtech-design/commit/0588697))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.16.0 (2026-02-28)
 
 ### 🚀 Features

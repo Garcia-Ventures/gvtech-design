@@ -1,3 +1,13 @@
+## 2.17.0 (2026-03-08)
+
+### 🚀 Features
+
+- Migrate project scripts from Yarn to Bun, update documentation, and add sitemap generation script ([0588697](https://github.com/Garcia-Ventures/gvtech-design/commit/0588697))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.16.0 (2026-02-28)
 
 No changes for this project
