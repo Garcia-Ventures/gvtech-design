@@ -1,6 +1,6 @@
 import { docConfig } from '@/config/docs';
-import { trackEvent } from '@/lib/analytics';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, ScrollArea, cn } from '@gv-tech/ui-web';
+import { track } from '@plausible-analytics/tracker';
 import { NavLink, useLocation } from 'react-router-dom';
 import { version } from '../../../../../package.json';
 
@@ -51,13 +51,15 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                             to={`/docs/${item.href}`}
                             onClick={() => {
                               onLinkClick?.();
-                              trackEvent('docs_nav_click', {
-                                source: 'sidebar',
-                                from_path: location.pathname,
-                                target_path: `/docs/${item.href}`,
-                                target_slug: item.href,
-                                target_title: item.title,
-                                target_category: category.title,
+                              track('docs_nav_click', {
+                                props: {
+                                  source: 'sidebar',
+                                  from_path: location.pathname,
+                                  target_path: `/docs/${item.href}`,
+                                  target_slug: item.href,
+                                  target_title: item.title,
+                                  target_category: category.title,
+                                },
                               });
                             }}
                             className={({ isActive }) =>

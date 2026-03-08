@@ -20,14 +20,14 @@ import {
   ThemeToggle,
   Toaster,
   TooltipProvider,
-  useTheme,
 } from '@gv-tech/ui-web';
+import { track } from '@plausible-analytics/tracker';
 import { Loader2, Menu } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { CombinedDocsLayout, DocSearch, DocSearchProvider, ErrorBoundary, Footer, Sidebar } from './components/docs';
 import { docConfig } from './config/docs';
-import { initAnalytics, trackEvent, trackPageView } from './lib/analytics';
+import { PlausibleProvider } from './lib/PlausibleProvider';
 
 import { docRoutes } from './routes/doc-routes';
 
@@ -40,63 +40,6 @@ function PageLoader() {
       <Loader2 className="text-muted-foreground h-8 w-8 animate-spin" />
     </div>
   );
-}
-
-function getDocItem(slug: string) {
-  for (const category of docConfig) {
-    const found = category.items.find((item) => item.href === slug);
-    if (found) {
-      return {
-        category: category.title,
-        item: found,
-      };
-    }
-  }
-  return null;
-}
-
-function AnalyticsBridge() {
-  const location = useLocation();
-  const { resolvedTheme } = useTheme();
-  const hasTrackedInitialTheme = React.useRef(false);
-
-  React.useEffect(() => {
-    initAnalytics();
-  }, []);
-
-  React.useEffect(() => {
-    if (!location.pathname.startsWith('/docs')) {
-      return;
-    }
-
-    const slug = location.pathname.split('/').filter(Boolean).pop() || 'getting-started';
-    const doc = getDocItem(slug);
-
-    trackPageView({
-      path: location.pathname,
-      doc_slug: slug,
-      doc_title: doc?.item.title || slug,
-      doc_category: doc?.category || 'Unknown',
-      page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
-    });
-  }, [location.pathname]);
-
-  React.useEffect(() => {
-    if (!resolvedTheme) {
-      return;
-    }
-    if (!hasTrackedInitialTheme.current) {
-      hasTrackedInitialTheme.current = true;
-      return;
-    }
-
-    trackEvent('docs_theme_change', {
-      theme: resolvedTheme,
-      path: location.pathname,
-    });
-  }, [resolvedTheme, location.pathname]);
-
-  return null;
 }
 
 function DocumentationLayout() {
@@ -173,11 +116,13 @@ function DocumentationLayout() {
                         <Link
                           to="/docs/getting-started"
                           onClick={() =>
-                            trackEvent('docs_nav_click', {
-                              source: 'breadcrumb',
-                              target_path: '/docs/getting-started',
-                              target_slug: 'getting-started',
-                              target_title: 'Getting Started',
+                            track('docs_nav_click', {
+                              props: {
+                                source: 'breadcrumb',
+                                target_path: '/docs/getting-started',
+                                target_slug: 'getting-started',
+                                target_title: 'Getting Started',
+                              },
                             })
                           }
                         >
@@ -249,11 +194,12 @@ function App() {
     <ThemeProvider>
       <TooltipProvider>
         <BrowserRouter>
-          <AnalyticsBridge />
-          <Routes>
-            <Route path="/" element={<Navigate to="/docs/getting-started" replace />} />
-            <Route path="/docs/*" element={<DocumentationLayout />} />
-          </Routes>
+          <PlausibleProvider>
+            <Routes>
+              <Route path="/" element={<Navigate to="/docs/getting-started" replace />} />
+              <Route path="/docs/*" element={<DocumentationLayout />} />
+            </Routes>
+          </PlausibleProvider>
         </BrowserRouter>
         <Toaster />
         <SonnerToaster />

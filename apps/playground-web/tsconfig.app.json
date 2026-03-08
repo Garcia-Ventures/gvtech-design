@@ -16,5 +16,5 @@
       "@gv-tech/ui-native": ["../../packages/ui-native/src"]
     }
   },
-  "include": ["src"]
+  "include": ["src", "../../packages/ui-web/src"]
 }

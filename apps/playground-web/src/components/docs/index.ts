@@ -6,4 +6,3 @@ export { Footer } from './Footer';
 export { PropsTable, type PropDefinition } from './PropsTable';
 export { DocSearch, DocSearchProvider } from './Search';
 export { Sidebar } from './Sidebar';
-export { ThemeToggle } from './ThemeToggle';
