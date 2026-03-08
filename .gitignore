@@ -33,6 +33,7 @@ storybook-static
 dist
 dist-site
 apps/playground-web/public/registry
+apps/playground-web/public/sitemap.xml
 
 # yarn v2
 .pnp.*
