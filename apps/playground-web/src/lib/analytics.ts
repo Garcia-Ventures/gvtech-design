@@ -1,4 +1,4 @@
-import type { CustomProperties, PlausibleConfig, PlausibleEventOptions } from '@plausible-analytics/tracker/plausible';
+import type { CustomProperties, PlausibleConfig, PlausibleEventOptions } from '@plausible-analytics/tracker';
 
 type TrackFn = (eventName: string, options: PlausibleEventOptions) => void;
 type InitFn = (config: PlausibleConfig) => void;
@@ -61,7 +61,7 @@ export function initAnalytics(): void {
 
   initAttempted = true;
 
-  void import('@plausible-analytics/tracker/plausible')
+  void import('@plausible-analytics/tracker')
     .then((mod) => {
       tracker = {
         init: mod.init,
