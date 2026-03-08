@@ -1,4 +1,5 @@
 import { useDocMetadata } from '@/hooks/useDocMetadata';
+import { trackEvent } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { Info } from 'lucide-react';
 import React from 'react';
@@ -47,6 +48,16 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
   const onTabChange = (value: string) => {
     const newTab = value as 'web' | 'native';
+    if (newTab === activeTab) {
+      return;
+    }
+
+    trackEvent('docs_platform_switch', {
+      doc_title: title || 'Documentation',
+      from_platform: activeTab,
+      to_platform: newTab,
+    });
+
     setActiveTab(newTab);
     localStorage.setItem('gv-docs-platform', newTab);
   };

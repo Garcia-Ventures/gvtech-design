@@ -1,6 +1,7 @@
 import { docConfig } from '@/config/docs';
+import { trackEvent } from '@/lib/analytics';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, ScrollArea, cn } from '@gv-tech/ui-web';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import { version } from '../../../../../package.json';
 
 interface SidebarProps {
@@ -9,6 +10,8 @@ interface SidebarProps {
 }
 
 export function Sidebar({ className, onLinkClick }: SidebarProps) {
+  const location = useLocation();
+
   return (
     <div className={cn('bg-card flex h-full w-64 flex-col border-r', className)}>
       <div className="flex h-14 shrink-0 items-center border-b p-6">
@@ -46,7 +49,17 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                           <NavLink
                             key={item.href}
                             to={`/docs/${item.href}`}
-                            onClick={onLinkClick}
+                            onClick={() => {
+                              onLinkClick?.();
+                              trackEvent('docs_nav_click', {
+                                source: 'sidebar',
+                                from_path: location.pathname,
+                                target_path: `/docs/${item.href}`,
+                                target_slug: item.href,
+                                target_title: item.title,
+                                target_category: category.title,
+                              });
+                            }}
                             className={({ isActive }) =>
                               cn(
                                 'group hover:bg-muted/50 text-muted-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors',

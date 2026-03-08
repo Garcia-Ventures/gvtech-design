@@ -1,3 +1,4 @@
+import { trackEvent } from '@/lib/analytics';
 import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 
 export const PACKAGEMANAGERS = ['npm', 'bun', 'pnpm', 'yarn', 'yarn-classic'] as const;
@@ -21,10 +22,20 @@ export function PackageManagerProvider({ children }: { children: ReactNode }): R
     return 'bun';
   });
 
-  const setPackageManager = useCallback((pm: PackageManager) => {
-    setPackageManagerState(pm);
-    localStorage.setItem('gv-docs-package-manager', pm);
-  }, []);
+  const setPackageManager = useCallback(
+    (pm: PackageManager) => {
+      if (pm === packageManager) {
+        return;
+      }
+
+      setPackageManagerState(pm);
+      localStorage.setItem('gv-docs-package-manager', pm);
+      trackEvent('docs_package_manager_change', {
+        package_manager: pm,
+      });
+    },
+    [packageManager],
+  );
 
   return (
     <PackageManagerContext.Provider value={{ packageManager, setPackageManager }}>

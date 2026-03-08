@@ -1,4 +1,5 @@
 import { docConfig } from '@/config/docs';
+import { trackEvent } from '@/lib/analytics';
 import {
   CommandEmpty,
   CommandGroup,
@@ -23,8 +24,13 @@ export function DocSearchProvider({ children }: { children: React.ReactNode }) {
   const navigate = useNavigate();
 
   const onSelect = React.useCallback(
-    (href: string) => {
+    (href: string, title: string, category: string) => {
       setOpen(false);
+      trackEvent('docs_search_select', {
+        result_slug: href,
+        result_title: title,
+        result_category: category,
+      });
       navigate(`/docs/${href}`);
     },
     [navigate],
@@ -40,7 +46,11 @@ export function DocSearchProvider({ children }: { children: React.ReactNode }) {
           {docConfig.map((category) => (
             <CommandGroup key={category.title} heading={category.title}>
               {category.items.map((item) => (
-                <CommandItem key={item.href} value={item.title} onSelect={() => onSelect(item.href)}>
+                <CommandItem
+                  key={item.href}
+                  value={item.title}
+                  onSelect={() => onSelect(item.href, item.title, category.title)}
+                >
                   {item.title}
                 </CommandItem>
               ))}
@@ -69,7 +79,12 @@ export function DocSearch({ variant = 'default', className, placeholder, respons
 
   return (
     <SearchTrigger
-      onClick={() => context.setOpen(true)}
+      onClick={() => {
+        trackEvent('docs_search_open', {
+          source: variant,
+        });
+        context.setOpen(true);
+      }}
       variant={variant}
       className={className}
       placeholder={placeholder || defaultPlaceholder}
