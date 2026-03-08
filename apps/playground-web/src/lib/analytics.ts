@@ -11,6 +11,22 @@ let tracker: { init: InitFn; track: TrackFn } | null = null;
 let initAttempted = false;
 let pendingEvents: Array<{ eventName: string; props?: CustomProperties }> = [];
 
+function isDebug(): boolean {
+  return import.meta.env.VITE_ANALYTICS_DEBUG === 'true';
+}
+
+function log(...args: unknown[]): void {
+  if (isDebug()) {
+    console.log('[Analytics]', ...args);
+  }
+}
+
+function warn(...args: unknown[]): void {
+  if (isDebug()) {
+    console.warn('[Analytics]', ...args);
+  }
+}
+
 function isBrowser(): boolean {
   return typeof window !== 'undefined';
 }
@@ -55,11 +71,31 @@ function readPageTitle(): string {
 }
 
 export function initAnalytics(): void {
-  if (!isBrowser() || initAttempted || !isEnabled() || isOptedOut() || isLocalhost()) {
+  if (!isBrowser()) {
+    warn('Skipping init: not a browser environment.');
+    return;
+  }
+  if (initAttempted) {
+    log('Skipping init: already attempted.');
+    return;
+  }
+  if (!isEnabled()) {
+    warn('Skipping init: VITE_ANALYTICS_ENABLED is false.');
+    return;
+  }
+  if (isOptedOut()) {
+    warn('Skipping init: user opted out (localStorage.plausible_ignore = true).');
+    return;
+  }
+  if (isLocalhost()) {
+    warn('Skipping init: running on localhost.');
     return;
   }
 
   initAttempted = true;
+  const domain = getDomain();
+  const endpoint = getEndpoint();
+  log('Initializing with', { domain, endpoint });
 
   void import('@plausible-analytics/tracker')
     .then((mod) => {
@@ -69,8 +105,8 @@ export function initAnalytics(): void {
       };
 
       tracker.init({
-        domain: getDomain(),
-        endpoint: getEndpoint(),
+        domain,
+        endpoint,
         autoCapturePageviews: true,
         formSubmissions: true,
         outboundLinks: true,
@@ -80,15 +116,16 @@ export function initAnalytics(): void {
         }),
       });
 
+      log('Tracker ready. Flushing', pendingEvents.length, 'queued event(s).');
       for (const event of pendingEvents) {
-        tracker.track(event.eventName, {
-          props: event.props,
-        });
+        log('Flushing queued event:', event.eventName, event.props);
+        tracker.track(event.eventName, { props: event.props });
       }
       pendingEvents = [];
     })
-    .catch(() => {
+    .catch((err) => {
       tracker = null;
+      warn('Failed to load tracker:', err);
     });
 }
 
@@ -98,13 +135,13 @@ export function trackEvent(eventName: string, props?: CustomProperties): void {
   }
 
   if (!tracker) {
+    log('Queuing event (tracker not ready):', eventName, props);
     pendingEvents.push({ eventName, props });
     return;
   }
 
-  tracker.track(eventName, {
-    props,
-  });
+  log('Tracking event:', eventName, props);
+  tracker.track(eventName, { props });
 }
 
 export function trackPageView(props?: CustomProperties): void {
