@@ -180,7 +180,30 @@ function DocumentationLayout() {
               </div>
             </ScrollArea>
 
-            <SupportFab supportUrl="https://www.buymeacoffee.com" creatorId="eng618" />
+            <SupportFab
+              supportUrl="https://www.buymeacoffee.com"
+              creatorId="eng618"
+              onClick={() => {
+                track('docs_support_fab_click', {
+                  props: {
+                    path: location.pathname,
+                    creator_id: 'eng618',
+                    support_url: 'https://www.buymeacoffee.com',
+                  },
+                });
+              }}
+              onOpenChange={(open) => {
+                if (!open) {
+                  return;
+                }
+                track('docs_support_fab_open', {
+                  props: {
+                    path: location.pathname,
+                    creator_id: 'eng618',
+                  },
+                });
+              }}
+            />
             <ScrollToTop scrollTarget={docsScrollViewport} threshold={180} className="right-6 bottom-24" />
           </div>
         </div>
