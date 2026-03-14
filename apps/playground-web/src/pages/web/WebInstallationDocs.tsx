@@ -42,9 +42,13 @@ export function WebInstallationDocs() {
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Peer Dependencies</h2>
         <p className="text-muted-foreground">
-          The GV Tech Design System leverages standard web primitives. Ensure these packages are installed in your host
-          application:
+          The GV Tech Design System leverages standard web primitives.{' '}
+          <b>Install these packages in your host application:</b>
         </p>
+        <CodeBlock
+          code={`npm install react@^18.0.0 react-dom@^18.0.0 lucide-react@^0.475.0 clsx@^2.1.1 tailwind-merge@^3.0.1 next-themes@^0.4.0`}
+          language="bash"
+        />
         <CodeBlock
           code={`{
   "react": "^18.0.0 || ^19.0.0",
@@ -74,6 +78,57 @@ export function WebInstallationDocs() {
             </AlertDescription>
           </Alert>
         </div>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold tracking-tight">Project Structure & Required Files</h2>
+        <ul className="text-muted-foreground list-disc pl-6">
+          <li>
+            <b>globals.css</b> — Your main CSS entry point. Must include Tailwind and design system token imports.
+          </li>
+          <li>
+            <b>tailwind.config.js</b> — Required for custom theme extension and purge setup.
+          </li>
+          <li>
+            <b>postcss.config.js</b> — Required for Tailwind/PostCSS integration.
+          </li>
+          <li>
+            <b>Minimum React version:</b> 18.0.0
+          </li>
+          <li>
+            <b>Supported frameworks:</b> Vite, Next.js, CRA (with PostCSS/Tailwind enabled)
+          </li>
+        </ul>
+      </section>
+
+      <section className="space-y-4">
+        <h2 className="text-2xl font-semibold tracking-tight">Troubleshooting Styles</h2>
+        <ul className="text-muted-foreground list-disc pl-6">
+          <li>
+            <b>Styles not showing?</b> Ensure <code>globals.css</code> is imported in your app root (e.g.,{' '}
+            <code>main.tsx</code> or <code>_app.tsx</code>).
+          </li>
+          <li>
+            <b>Tailwind config missing?</b> Confirm <code>tailwind.config.js</code> exists and includes{' '}
+            <code>content</code> paths for your components and pages.
+          </li>
+          <li>
+            <b>PostCSS not configured?</b> Make sure <code>postcss.config.js</code> includes <code>tailwindcss</code>{' '}
+            and <code>autoprefixer</code>.
+          </li>
+          <li>
+            <b>Theme tokens not loading?</b> Check that global HSL variables are set in <code>@layer base</code> in{' '}
+            <code>globals.css</code>.
+          </li>
+          <li>
+            <b>Dark mode not working?</b> Wrap your app in <code>ThemeProvider</code> and use <code>next-themes</code>{' '}
+            for theme persistence.
+          </li>
+          <li>
+            <b>Vite/Next.js issues?</b> Ensure CSS imports are ordered correctly and that{' '}
+            <code>@gv-tech/ui-web/style.css</code> is imported if not using Tailwind.
+          </li>
+        </ul>
       </section>
 
       <section className="space-y-4">
