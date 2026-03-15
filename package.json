@@ -72,7 +72,7 @@
   "devDependencies": {
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@eng618/prettier-config": "^2.10.0",
-    "@expo/cli": "~54.0.23",
+    "@expo/cli": "~55.0.15",
     "@gv-tech/eslint-config": "^0.1.14",
     "@nx/expo": "22.5.4",
     "@nx/jest": "22.5.4",
