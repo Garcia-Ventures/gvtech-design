@@ -1,7 +1,7 @@
 import { docConfig } from '@/config/docs';
-import { track } from '@plausible-analytics/tracker';
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
+import { safeTrack } from './analytics';
 
 const DEFAULT_DOMAIN = 'garciaericn.com';
 const DEFAULT_ENDPOINT = 'https://stats.garciaericn.com/api/event';
@@ -95,7 +95,7 @@ export function PlausibleProvider({ children }: { children: React.ReactNode }): 
     const slug = location.pathname.split('/').filter(Boolean).pop() || 'getting-started';
     const doc = getDocItem(slug);
 
-    track('docs_pageview', {
+    safeTrack('docs_pageview', {
       props: {
         path: location.pathname,
         doc_slug: slug,

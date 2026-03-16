@@ -1,6 +1,6 @@
 import { docConfig } from '@/config/docs';
+import { safeTrack } from '@/lib/analytics';
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, ScrollArea, cn } from '@gv-tech/ui-web';
-import { track } from '@plausible-analytics/tracker';
 import { NavLink, useLocation } from 'react-router-dom';
 import { version } from '../../../../../package.json';
 
@@ -51,7 +51,7 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                             to={`/docs/${item.href}`}
                             onClick={() => {
                               onLinkClick?.();
-                              track('docs_nav_click', {
+                              safeTrack('docs_nav_click', {
                                 props: {
                                   source: 'sidebar',
                                   from_path: location.pathname,

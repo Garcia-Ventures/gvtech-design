@@ -1,6 +1,6 @@
 import { useDocMetadata } from '@/hooks/useDocMetadata';
+import { safeTrack } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
-import { track } from '@plausible-analytics/tracker';
 import { Info } from 'lucide-react';
 import React from 'react';
 
@@ -52,7 +52,7 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
       return;
     }
 
-    track('docs_platform_switch', {
+    safeTrack('docs_platform_switch', {
       props: {
         doc_title: title || 'Documentation',
         from_platform: activeTab,

@@ -21,13 +21,13 @@ import {
   Toaster,
   TooltipProvider,
 } from '@gv-tech/ui-web';
-import { track } from '@plausible-analytics/tracker';
 import { Loader2, Menu } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { CombinedDocsLayout, DocSearch, DocSearchProvider, ErrorBoundary, Footer, Sidebar } from './components/docs';
 import { docConfig } from './config/docs';
 import { PlausibleProvider } from './lib/PlausibleProvider';
+import { safeTrack } from './lib/analytics';
 
 import { docRoutes } from './routes/doc-routes';
 
@@ -116,7 +116,7 @@ function DocumentationLayout() {
                         <Link
                           to="/docs/getting-started"
                           onClick={() =>
-                            track('docs_nav_click', {
+                            safeTrack('docs_nav_click', {
                               props: {
                                 source: 'breadcrumb',
                                 target_path: '/docs/getting-started',
@@ -184,7 +184,7 @@ function DocumentationLayout() {
               supportUrl="https://www.buymeacoffee.com"
               creatorId="eng618"
               onClick={() => {
-                track('docs_support_fab_click', {
+                safeTrack('docs_support_fab_click', {
                   props: {
                     path: location.pathname,
                     creator_id: 'eng618',
@@ -196,7 +196,7 @@ function DocumentationLayout() {
                 if (!open) {
                   return;
                 }
-                track('docs_support_fab_open', {
+                safeTrack('docs_support_fab_open', {
                   props: {
                     path: location.pathname,
                     creator_id: 'eng618',

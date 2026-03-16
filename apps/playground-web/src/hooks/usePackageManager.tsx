@@ -1,4 +1,4 @@
-import { track } from '@plausible-analytics/tracker';
+import { safeTrack } from '@/lib/analytics';
 import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
 
 export const PACKAGEMANAGERS = ['npm', 'bun', 'pnpm', 'yarn', 'yarn-classic'] as const;
@@ -30,7 +30,7 @@ export function PackageManagerProvider({ children }: { children: ReactNode }): R
 
       setPackageManagerState(pm);
       localStorage.setItem('gv-docs-package-manager', pm);
-      track('docs_package_manager_change', {
+      safeTrack('docs_package_manager_change', {
         props: {
           package_manager: pm,
         },

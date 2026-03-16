@@ -1,4 +1,5 @@
 import { docConfig } from '@/config/docs';
+import { safeTrack } from '@/lib/analytics';
 import {
   CommandEmpty,
   CommandGroup,
@@ -8,7 +9,6 @@ import {
   Search,
   SearchTrigger,
 } from '@gv-tech/ui-web';
-import { track } from '@plausible-analytics/tracker';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ export function DocSearchProvider({ children }: { children: React.ReactNode }) {
   const onSelect = React.useCallback(
     (href: string, title: string, category: string) => {
       setOpen(false);
-      track('docs_search_select', {
+      safeTrack('docs_search_select', {
         props: {
           result_slug: href,
           result_title: title,
@@ -82,7 +82,7 @@ export function DocSearch({ variant = 'default', className, placeholder, respons
   return (
     <SearchTrigger
       onClick={() => {
-        track('docs_search_open', {
+        safeTrack('docs_search_open', {
           props: {
             source: variant,
           },
