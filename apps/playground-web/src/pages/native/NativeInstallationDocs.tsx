@@ -54,6 +54,16 @@ export function NativeInstallationDocs() {
             />
           </TabsContent>
         </Tabs>
+        <Alert variant="info">
+          <AlertCircle className="h-4 w-4" />
+          <AlertTitle>Required peer dependency</AlertTitle>
+          <AlertDescription>
+            <code className="bg-muted rounded px-1">react-native-reanimated</code> is a required peer dependency of{' '}
+            <code className="bg-muted rounded px-1">@gv-tech/ui-native</code>. In Expo apps, prefer installing it with{' '}
+            <code className="bg-muted rounded px-1">expo install react-native-reanimated</code> to keep versions
+            compatible with your Expo SDK.
+          </AlertDescription>
+        </Alert>
       </section>
 
       <section className="space-y-4">
@@ -116,7 +126,8 @@ module.exports = config;`}
         <CodeBlock
           code={`{
   "react": ">=18",
-  "react-native": ">=0.77.0",
+  "react-native": ">=0.72",
+  "react-native-reanimated": "^3.0.0 || ^4.0.0",
   "lucide-react-native": "^0.475.0",
   "nativewind": "^4.1.23",
   "react-native-svg": "^15.11.1"

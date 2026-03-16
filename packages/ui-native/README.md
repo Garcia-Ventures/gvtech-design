@@ -8,6 +8,14 @@ React Native implementations of the GV Tech design system components, optimized 
 bun add @gv-tech/ui-native
 ```
 
+Install required peer dependencies in your app:
+
+```bash
+expo install react-native-reanimated
+```
+
+If you are not using Expo, install with your package manager and follow the React Native Reanimated setup docs for Babel and platform-specific configuration.
+
 ## Features
 
 - **Mobile First**: Components tailored for touch interactions and native mobile patterns.
