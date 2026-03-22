@@ -1,3 +1,13 @@
+## 2.19.0 (2026-03-22)
+
+### 🚀 Features
+
+- update README and package.json to include react-native-reanimated as a peer dependency ([e80994d](https://github.com/Garcia-Ventures/gvtech-design/commit/e80994d))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.18.0 (2026-03-15)
 
 No changes for this project

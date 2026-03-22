@@ -1,3 +1,7 @@
+## 2.19.0 (2026-03-22)
+
+No changes for this project
+
 ## 2.18.0 (2026-03-15)
 
 No changes for this project
