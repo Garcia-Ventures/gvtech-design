@@ -1,3 +1,13 @@
+## 2.20.0 (2026-03-24)
+
+### 🚀 Features
+
+- update react-native-reanimated and react-native-worklets dependencies to latest versions ([d47c362](https://github.com/Garcia-Ventures/gvtech-design/commit/d47c362))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.19.0 (2026-03-22)
 
 ### 🚀 Features
