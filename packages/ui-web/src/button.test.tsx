@@ -13,8 +13,9 @@ describe('Button', () => {
   it('handles click events', async () => {
     const handleClick = vi.fn();
     render(<Button onClick={handleClick}>Click me</Button>);
+    const user = userEvent.setup();
 
-    await userEvent.click(screen.getByRole('button', { name: /click me/i }));
+    await user.click(screen.getByRole('button', { name: /click me/i }));
     expect(handleClick).toHaveBeenCalledTimes(1);
   });
 
