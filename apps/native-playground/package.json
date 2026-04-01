@@ -12,7 +12,7 @@
     "expo-status-bar": "~3.0.9",
     "expo-system-ui": "~6.0.9",
     "metro-config": "~0.83.5",
-    "metro-resolver": "~0.83.5",
+    "metro-resolver": "~0.84.2",
     "nativewind": "4.1.23",
     "react": "^19.2.4",
     "react-native": "0.83.2",
