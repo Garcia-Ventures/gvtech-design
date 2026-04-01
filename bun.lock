@@ -144,11 +144,11 @@
     },
     "packages/design-tokens": {
       "name": "@gv-tech/design-tokens",
-      "version": "2.19.0",
+      "version": "2.20.0",
     },
     "packages/ui-core": {
       "name": "@gv-tech/ui-core",
-      "version": "2.19.0",
+      "version": "2.20.0",
       "dependencies": {
         "class-variance-authority": "^0.7.1",
       },
@@ -158,7 +158,7 @@
     },
     "packages/ui-native": {
       "name": "@gv-tech/ui-native",
-      "version": "2.19.0",
+      "version": "2.20.0",
       "dependencies": {
         "@gv-tech/design-tokens": "^2.12.0",
         "@gv-tech/ui-core": "^2.12.0",
@@ -207,7 +207,7 @@
     },
     "packages/ui-web": {
       "name": "@gv-tech/ui-web",
-      "version": "2.19.0",
+      "version": "2.20.0",
       "dependencies": {
         "@gv-tech/design-tokens": "^2.12.0",
         "@gv-tech/ui-core": "^2.12.0",
