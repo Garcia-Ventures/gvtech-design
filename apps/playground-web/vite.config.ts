@@ -32,15 +32,14 @@ export default defineConfig({
     extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
   },
   optimizeDeps: {
-    esbuildOptions: {
-      loader: {
+    rolldownOptions: {
+      moduleTypes: {
         '.js': 'jsx',
       },
     },
     include: ['react-native-web', 'react-native-reanimated', 'react-native-svg', 'lucide-react', '@rn-primitives/**/*'],
   },
-  esbuild: {
-    loader: 'tsx',
+  oxc: {
     include: [/src\/.*\.[jt]sx?$/, /node_modules\/@rn-primitives\/.*\.js$/],
     exclude: [],
   },

@@ -76,8 +76,8 @@ export default defineConfig({
     extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
   },
   optimizeDeps: {
-    esbuildOptions: {
-      loader: {
+    rolldownOptions: {
+      moduleTypes: {
         '.js': 'jsx',
       },
     },

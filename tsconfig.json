@@ -23,7 +23,8 @@
       "@gv-tech/ui-core": ["./packages/ui-core/src"],
       "@gv-tech/ui-web": ["./packages/ui-web/src"],
       "@gv-tech/ui-native": ["./packages/ui-native/src"]
-    }
+    },
+    "ignoreDeprecations": "6.0"
   },
   "include": ["src", "packages"],
   "references": [{ "path": "./tsconfig.node.json" }]

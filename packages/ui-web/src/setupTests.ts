@@ -13,6 +13,7 @@ global.ResizeObserver = class ResizeObserver {
 global.IntersectionObserver = class IntersectionObserver {
   readonly root: Element | Document | null = null;
   readonly rootMargin: string = '';
+  readonly scrollMargin: string = '';
   readonly thresholds: ReadonlyArray<number> = [];
 
   constructor(_callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
