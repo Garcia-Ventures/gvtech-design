@@ -12,6 +12,7 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "outDir": "dist",
+    "rootDir": "../..",
     "paths": {
       "@gv-tech/design-tokens": ["../design-tokens/src"],
       "@gv-tech/ui-core": ["../ui-core/src"],
