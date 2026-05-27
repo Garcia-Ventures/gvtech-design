@@ -140,6 +140,7 @@ export function WebInstallationDocs() {
         <CodeBlock
           language="css"
           code={`@import "tailwindcss";
+@source "node_modules/@gv-tech/ui-web/dist/**/*.mjs";
 
 @theme {
   /* Define design system radius tokens */

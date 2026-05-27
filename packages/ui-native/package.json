@@ -11,15 +11,13 @@
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "exports": {
     ".": {
-      "types": "./src/index.ts",
-      "default": "./src/index.ts"
-    },
-    "./*": {
-      "types": "./src/*/index.ts",
-      "default": "./src/*/index.ts"
+      "types": "./dist/index.d.ts",
+      "import": "./dist/ui-native.mjs",
+      "require": "./dist/ui-native.cjs",
+      "default": "./dist/ui-native.mjs"
     }
   },
-  "main": "./dist/ui-native.mjs",
+  "main": "./dist/ui-native.cjs",
   "module": "./dist/ui-native.mjs",
   "types": "./dist/index.d.ts",
   "files": [

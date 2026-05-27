@@ -110,7 +110,7 @@ module.exports = config;`}
   content: [
     "./App.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
-    "./node_modules/@gv-tech/ui-native/dist/**/*.js",
+    "./node_modules/@gv-tech/ui-native/dist/**/*.mjs",
   ],
   presets: [require("nativewind/preset")],
   theme: {
