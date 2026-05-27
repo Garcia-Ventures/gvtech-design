@@ -1,78 +1,220 @@
 import type {
-  DropdownMenuBaseProps,
   DropdownMenuCheckboxItemBaseProps,
   DropdownMenuContentBaseProps,
-  DropdownMenuGroupBaseProps,
   DropdownMenuItemBaseProps,
   DropdownMenuLabelBaseProps,
-  DropdownMenuRadioGroupBaseProps,
   DropdownMenuRadioItemBaseProps,
   DropdownMenuSeparatorBaseProps,
   DropdownMenuShortcutBaseProps,
-  DropdownMenuSubBaseProps,
   DropdownMenuSubContentBaseProps,
   DropdownMenuSubTriggerBaseProps,
-  DropdownMenuTriggerBaseProps,
 } from '@gv-tech/ui-core';
+import * as DropdownMenuPrimitive from '@rn-primitives/dropdown-menu';
+import { Check, ChevronRight, Circle } from 'lucide-react-native';
 import * as React from 'react';
-import { View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
+import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { cn } from './lib/utils';
+import { Text } from './text';
 
-export const DropdownMenu: React.FC<DropdownMenuBaseProps> = ({ children }) => {
-  return <>{children}</>;
-};
+export const DropdownMenu = DropdownMenuPrimitive.Root;
 
-export const DropdownMenuTrigger: React.FC<DropdownMenuTriggerBaseProps> = ({ children }) => {
-  return <>{children}</>;
-};
+export const DropdownMenuTrigger = DropdownMenuPrimitive.Trigger;
 
-export const DropdownMenuContent: React.FC<DropdownMenuContentBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuPortal = DropdownMenuPrimitive.Portal;
 
-export const DropdownMenuItem: React.FC<DropdownMenuItemBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuGroup = DropdownMenuPrimitive.Group;
 
-export const DropdownMenuCheckboxItem: React.FC<DropdownMenuCheckboxItemBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 
-export const DropdownMenuRadioItem: React.FC<DropdownMenuRadioItemBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
-export const DropdownMenuLabel: React.FC<DropdownMenuLabelBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+const DropdownMenuOverlay = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Overlay>,
+  React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Overlay>
+>(({ className, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.Overlay
+      style={Platform.OS !== 'web' ? StyleSheet.absoluteFill : undefined}
+      ref={ref}
+      {...props}
+    >
+      <Animated.View
+        entering={FadeIn.duration(100)}
+        exiting={FadeOut.duration(100)}
+        className={cn('absolute inset-0 z-50 bg-black/30', className)}
+      />
+    </DropdownMenuPrimitive.Overlay>
+  );
+});
+DropdownMenuOverlay.displayName = 'DropdownMenuOverlay';
 
-export const DropdownMenuSeparator: React.FC<DropdownMenuSeparatorBaseProps> = ({ className }) => {
-  return <View className={className} />;
-};
+export const DropdownMenuContent = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+  DropdownMenuContentBaseProps
+>(({ className, children, side, ...props }, ref) => {
+  const nativeSide = side === 'left' || side === 'right' ? 'bottom' : side;
+  return (
+    <DropdownMenuPortal>
+      <DropdownMenuOverlay />
+      <DropdownMenuPrimitive.Content
+        ref={ref}
+        side={nativeSide}
+        className={cn(
+          'bg-popover border-border z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-md',
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </DropdownMenuPrimitive.Content>
+    </DropdownMenuPortal>
+  );
+});
+DropdownMenuContent.displayName = 'DropdownMenuContent';
 
-export const DropdownMenuShortcut: React.FC<DropdownMenuShortcutBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+  DropdownMenuItemBaseProps
+>(({ className, children, inset, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.Item
+      ref={ref}
+      className={cn(
+        'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground relative flex flex-row items-center rounded-sm px-2 py-1.5 text-sm outline-none',
+        inset && 'pl-8',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </DropdownMenuPrimitive.Item>
+  );
+});
+DropdownMenuItem.displayName = 'DropdownMenuItem';
 
-export const DropdownMenuSub: React.FC<DropdownMenuSubBaseProps> = ({ children }) => {
-  return <>{children}</>;
-};
+export const DropdownMenuCheckboxItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
+  DropdownMenuCheckboxItemBaseProps
+>(({ className, children, checked, onCheckedChange, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.CheckboxItem
+      ref={ref}
+      checked={!!checked}
+      onCheckedChange={onCheckedChange || (() => {})}
+      className={cn(
+        'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground relative flex flex-row items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none',
+        className,
+      )}
+      {...props}
+    >
+      <View className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+        <DropdownMenuPrimitive.ItemIndicator>
+          <Check size={14} className="text-foreground" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </View>
+      {children}
+    </DropdownMenuPrimitive.CheckboxItem>
+  );
+});
+DropdownMenuCheckboxItem.displayName = 'DropdownMenuCheckboxItem';
 
-export const DropdownMenuSubTrigger: React.FC<DropdownMenuSubTriggerBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuRadioItem = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
+  DropdownMenuRadioItemBaseProps
+>(({ className, children, value, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.RadioItem
+      ref={ref}
+      value={value}
+      className={cn(
+        'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground relative flex flex-row items-center rounded-sm py-1.5 pr-2 pl-8 text-sm outline-none',
+        className,
+      )}
+      {...props}
+    >
+      <View className="absolute left-2 flex h-3.5 w-3.5 items-center justify-center">
+        <DropdownMenuPrimitive.ItemIndicator>
+          <Circle size={8} className="text-foreground fill-current" />
+        </DropdownMenuPrimitive.ItemIndicator>
+      </View>
+      {children}
+    </DropdownMenuPrimitive.RadioItem>
+  );
+});
+DropdownMenuRadioItem.displayName = 'DropdownMenuRadioItem';
 
-export const DropdownMenuSubContent: React.FC<DropdownMenuSubContentBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
-};
+export const DropdownMenuLabel = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
+  DropdownMenuLabelBaseProps
+>(({ className, children, inset, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.Label
+      ref={ref}
+      className={cn('text-foreground px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', className)}
+      {...props}
+    >
+      {children}
+    </DropdownMenuPrimitive.Label>
+  );
+});
+DropdownMenuLabel.displayName = 'DropdownMenuLabel';
 
-export const DropdownMenuGroup: React.FC<DropdownMenuGroupBaseProps> = ({ children }) => {
-  return <>{children}</>;
-};
+export const DropdownMenuSeparator = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
+  DropdownMenuSeparatorBaseProps
+>(({ className, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.Separator ref={ref} className={cn('bg-border -mx-1 my-1 h-px', className)} {...props} />
+  );
+});
+DropdownMenuSeparator.displayName = 'DropdownMenuSeparator';
 
-export const DropdownMenuRadioGroup: React.FC<DropdownMenuRadioGroupBaseProps> = ({ children }) => {
-  return <>{children}</>;
+export const DropdownMenuShortcut = ({ className, children, ...props }: DropdownMenuShortcutBaseProps) => {
+  return (
+    <Text className={cn('text-muted-foreground ml-auto text-xs tracking-widest', className)} {...props}>
+      {children}
+    </Text>
+  );
 };
+DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 
-export const DropdownMenuPortal: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>;
-};
+export const DropdownMenuSubTrigger = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
+  DropdownMenuSubTriggerBaseProps
+>(({ className, children, inset, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.SubTrigger
+      ref={ref}
+      className={cn(
+        'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground flex flex-row items-center rounded-sm px-2 py-1.5 text-sm outline-none',
+        inset && 'pl-8',
+        className,
+      )}
+      {...props}
+    >
+      <>{children}</>
+      <ChevronRight size={14} className="text-foreground ml-auto" />
+    </DropdownMenuPrimitive.SubTrigger>
+  );
+});
+DropdownMenuSubTrigger.displayName = 'DropdownMenuSubTrigger';
+
+export const DropdownMenuSubContent = React.forwardRef<
+  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
+  DropdownMenuSubContentBaseProps
+>(({ className, children, ...props }, ref) => {
+  return (
+    <DropdownMenuPrimitive.SubContent
+      ref={ref}
+      className={cn(
+        'bg-popover border-border z-50 min-w-[8rem] overflow-hidden rounded-md border p-1 shadow-md',
+        className,
+      )}
+      {...props}
+    >
+      {children}
+    </DropdownMenuPrimitive.SubContent>
+  );
+});
+DropdownMenuSubContent.displayName = 'DropdownMenuSubContent';
