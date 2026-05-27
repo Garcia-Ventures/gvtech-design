@@ -306,6 +306,7 @@ export { ToggleGroup, ToggleGroupItem } from './toggle-group';
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from './tooltip';
 
 // Toast
+export { toast, useToast } from './hooks/use-toast';
 export { Toast } from './toast';
 export type { ToastProps } from './toast';
 
