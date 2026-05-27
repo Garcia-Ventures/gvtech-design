@@ -1,9 +1,8 @@
-import { Text, View } from 'react-native';
+import type { ToasterBaseProps } from '@gv-tech/ui-core';
+import * as React from 'react';
+import { View } from 'react-native';
 
-export function Toaster() {
-  return (
-    <View>
-      <Text>Toaster is not yet implemented for React Native</Text>
-    </View>
-  );
-}
+export const Toaster: React.FC<ToasterBaseProps> = () => {
+  return <View />;
+};
+export default Toaster;

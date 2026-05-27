@@ -1,9 +1,7 @@
-import { Text, View } from 'react-native';
+import type { AspectRatioBaseProps } from '@gv-tech/ui-core';
+import * as React from 'react';
+import { View } from 'react-native';
 
-export const AspectRatio = () => {
-  return (
-    <View>
-      <Text>aspect-ratio is not yet implemented for React Native</Text>
-    </View>
-  );
+export const AspectRatio: React.FC<AspectRatioBaseProps> = ({ children, className }) => {
+  return <View className={className}>{children}</View>;
 };

@@ -38,7 +38,15 @@ export { Avatar, AvatarFallback, AvatarImage } from './avatar';
 export { Badge, badgeVariants } from './badge';
 
 // Breadcrumb
-export { Breadcrumb } from './breadcrumb';
+export {
+  Breadcrumb,
+  BreadcrumbEllipsis,
+  BreadcrumbItem,
+  BreadcrumbLink,
+  BreadcrumbList,
+  BreadcrumbPage,
+  BreadcrumbSeparator,
+} from './breadcrumb';
 
 // Button
 export { Button, buttonVariants } from './button';
@@ -52,10 +60,17 @@ export { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 export type { CardProps } from './card';
 
 // Carousel
-export { Carousel } from './carousel';
+export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './carousel';
 
 // Chart
-export { Chart } from './chart';
+export {
+  ChartContainer,
+  ChartLegend,
+  ChartLegendContent,
+  ChartStyle,
+  ChartTooltip,
+  ChartTooltipContent,
+} from './chart';
 
 // Checkbox
 export { Checkbox } from './checkbox';
@@ -65,10 +80,36 @@ export type { CheckboxProps } from './checkbox';
 export { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsible';
 
 // Command
-export { Command } from './command';
+export {
+  Command,
+  CommandDialog,
+  CommandEmpty,
+  CommandGroup,
+  CommandInput,
+  CommandItem,
+  CommandList,
+  CommandSeparator,
+  CommandShortcut,
+} from './command';
 
 // Context Menu
-export { ContextMenu } from './context-menu';
+export {
+  ContextMenu,
+  ContextMenuCheckboxItem,
+  ContextMenuContent,
+  ContextMenuGroup,
+  ContextMenuItem,
+  ContextMenuLabel,
+  ContextMenuPortal,
+  ContextMenuRadioGroup,
+  ContextMenuRadioItem,
+  ContextMenuSeparator,
+  ContextMenuShortcut,
+  ContextMenuSub,
+  ContextMenuSubContent,
+  ContextMenuSubTrigger,
+  ContextMenuTrigger,
+} from './context-menu';
 
 // Dialog
 export {
@@ -84,16 +125,43 @@ export {
 export type { DialogProps } from './dialog';
 
 // Drawer
-export { Drawer } from './drawer';
+export {
+  Drawer,
+  DrawerClose,
+  DrawerContent,
+  DrawerDescription,
+  DrawerFooter,
+  DrawerHeader,
+  DrawerOverlay,
+  DrawerPortal,
+  DrawerTitle,
+  DrawerTrigger,
+} from './drawer';
 
 // Dropdown Menu
-export { DropdownMenu } from './dropdown-menu';
+export {
+  DropdownMenu,
+  DropdownMenuCheckboxItem,
+  DropdownMenuContent,
+  DropdownMenuGroup,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuPortal,
+  DropdownMenuRadioGroup,
+  DropdownMenuRadioItem,
+  DropdownMenuSeparator,
+  DropdownMenuShortcut,
+  DropdownMenuSub,
+  DropdownMenuSubContent,
+  DropdownMenuSubTrigger,
+  DropdownMenuTrigger,
+} from './dropdown-menu';
 
 // Form
 export { Form } from './form';
 
 // Hover Card
-export { HoverCard } from './hover-card';
+export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card';
 
 // Input
 export { Input } from './input';
@@ -103,13 +171,47 @@ export type { InputProps } from './input';
 export { Label } from './label';
 
 // Menubar
-export { Menubar } from './menubar';
+export {
+  Menubar,
+  MenubarCheckboxItem,
+  MenubarContent,
+  MenubarGroup,
+  MenubarItem,
+  MenubarLabel,
+  MenubarMenu,
+  MenubarPortal,
+  MenubarRadioGroup,
+  MenubarRadioItem,
+  MenubarSeparator,
+  MenubarShortcut,
+  MenubarSub,
+  MenubarSubContent,
+  MenubarSubTrigger,
+  MenubarTrigger,
+} from './menubar';
 
 // Navigation Menu
-export { NavigationMenu } from './navigation-menu';
+export {
+  NavigationMenu,
+  NavigationMenuContent,
+  NavigationMenuIndicator,
+  NavigationMenuItem,
+  NavigationMenuLink,
+  NavigationMenuList,
+  NavigationMenuTrigger,
+  NavigationMenuViewport,
+} from './navigation-menu';
 
 // Pagination
-export { Pagination } from './pagination';
+export {
+  Pagination,
+  PaginationContent,
+  PaginationEllipsis,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+} from './pagination';
 
 // Popover
 export { Popover, PopoverAnchor, PopoverContent, PopoverTrigger } from './popover';

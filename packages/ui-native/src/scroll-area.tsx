@@ -1,9 +1,11 @@
-import { Text, View } from 'react-native';
+import type { ScrollAreaBaseProps, ScrollBarBaseProps } from '@gv-tech/ui-core';
+import * as React from 'react';
+import { View } from 'react-native';
 
-export const ScrollArea = () => {
-  return (
-    <View>
-      <Text>scroll-area is not yet implemented for React Native</Text>
-    </View>
-  );
+export const ScrollArea: React.FC<ScrollAreaBaseProps> = ({ children, className }) => {
+  return <View className={className}>{children}</View>;
+};
+
+export const ScrollBar: React.FC<ScrollBarBaseProps> = ({ className }) => {
+  return <View className={className} />;
 };
