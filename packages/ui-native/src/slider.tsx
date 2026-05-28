@@ -6,7 +6,8 @@ import { cn } from './lib/utils';
 export const Slider: React.FC<SliderBaseProps> = ({
   className,
   value,
-  onValueChange,
+  onValueChange: onValueChangeProp,
+  defaultValue,
   min = 0,
   max = 100,
   step = 1,
@@ -18,7 +19,12 @@ export const Slider: React.FC<SliderBaseProps> = ({
   return (
     <SliderPrimitive.Root
       value={numericValue}
-      onValueChange={onValueChange}
+      onValueChange={(val: number[]) => {
+        if (onValueChangeProp) {
+          const arrayVal = Array.isArray(val) ? val : [val];
+          onValueChangeProp(arrayVal);
+        }
+      }}
       min={min}
       max={max}
       step={step}

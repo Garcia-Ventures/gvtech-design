@@ -14,6 +14,7 @@ import { Check, ChevronRight, Circle } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 import { Text } from './text';
 
@@ -87,7 +88,7 @@ export const DropdownMenuItem = React.forwardRef<
       )}
       {...props}
     >
-      {children}
+      {wrapTextChildren(children, Text)}
     </DropdownMenuPrimitive.Item>
   );
 });
@@ -113,7 +114,7 @@ export const DropdownMenuCheckboxItem = React.forwardRef<
           <Check size={14} className="text-foreground" />
         </DropdownMenuPrimitive.ItemIndicator>
       </View>
-      {children}
+      {wrapTextChildren(children, Text)}
     </DropdownMenuPrimitive.CheckboxItem>
   );
 });
@@ -138,7 +139,7 @@ export const DropdownMenuRadioItem = React.forwardRef<
           <Circle size={8} className="text-foreground fill-current" />
         </DropdownMenuPrimitive.ItemIndicator>
       </View>
-      {children}
+      {wrapTextChildren(children, Text)}
     </DropdownMenuPrimitive.RadioItem>
   );
 });
@@ -154,7 +155,7 @@ export const DropdownMenuLabel = React.forwardRef<
       className={cn('text-foreground px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', className)}
       {...props}
     >
-      {children}
+      {wrapTextChildren(children, Text)}
     </DropdownMenuPrimitive.Label>
   );
 });
@@ -193,7 +194,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <>{children}</>
+      <View className="flex flex-row items-center gap-1.5">{wrapTextChildren(children, Text)}</View>
       <ChevronRight size={14} className="text-foreground ml-auto" />
     </DropdownMenuPrimitive.SubTrigger>
   );

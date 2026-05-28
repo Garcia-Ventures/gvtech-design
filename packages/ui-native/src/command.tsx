@@ -10,9 +10,10 @@ import type {
 } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { View } from 'react-native';
+import { wrapTextChildren } from './lib/render-native';
 
 export const Command: React.FC<CommandBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };
 
 export const CommandDialog: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
@@ -24,19 +25,19 @@ export const CommandInput: React.FC<CommandInputBaseProps> = ({ className }) => 
 };
 
 export const CommandList: React.FC<CommandListBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };
 
 export const CommandEmpty: React.FC<CommandEmptyBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };
 
 export const CommandGroup: React.FC<CommandGroupBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };
 
 export const CommandItem: React.FC<CommandItemBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };
 
 export const CommandSeparator: React.FC<CommandSeparatorBaseProps> = ({ className }) => {
@@ -44,5 +45,5 @@ export const CommandSeparator: React.FC<CommandSeparatorBaseProps> = ({ classNam
 };
 
 export const CommandShortcut: React.FC<CommandShortcutBaseProps> = ({ children, className }) => {
-  return <View className={className}>{children}</View>;
+  return <View className={className}>{wrapTextChildren(children)}</View>;
 };

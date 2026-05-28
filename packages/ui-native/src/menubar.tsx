@@ -16,6 +16,7 @@ import { Check, ChevronRight, Circle } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 import { Text } from './text';
 
@@ -85,7 +86,7 @@ export const MenubarTrigger = React.forwardRef<
       )}
       {...props}
     >
-      {children}
+      {wrapTextChildren(children, Text)}
     </MenubarPrimitive.Trigger>
   );
 });
@@ -125,7 +126,7 @@ export const MenubarItem = React.forwardRef<React.ElementRef<typeof MenubarPrimi
         )}
         {...props}
       >
-        {children}
+        {wrapTextChildren(children, Text)}
       </MenubarPrimitive.Item>
     );
   },
@@ -152,7 +153,7 @@ export const MenubarCheckboxItem = React.forwardRef<
           <Check size={14} className="text-foreground" />
         </MenubarPrimitive.ItemIndicator>
       </View>
-      {children}
+      {wrapTextChildren(children, Text)}
     </MenubarPrimitive.CheckboxItem>
   );
 });
@@ -177,7 +178,7 @@ export const MenubarRadioItem = React.forwardRef<
           <Circle size={8} className="text-foreground fill-current" />
         </MenubarPrimitive.ItemIndicator>
       </View>
-      {children}
+      {wrapTextChildren(children, Text)}
     </MenubarPrimitive.RadioItem>
   );
 });
@@ -191,7 +192,7 @@ export const MenubarLabel = React.forwardRef<React.ElementRef<typeof MenubarPrim
         className={cn('text-foreground px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', className)}
         {...props}
       >
-        {children}
+        {wrapTextChildren(children, Text)}
       </MenubarPrimitive.Label>
     );
   },
@@ -229,7 +230,7 @@ export const MenubarSubTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <>{children}</>
+      <View className="flex flex-row items-center gap-1.5">{wrapTextChildren(children, Text)}</View>
       <ChevronRight size={14} className="text-foreground ml-auto" />
     </MenubarPrimitive.SubTrigger>
   );
