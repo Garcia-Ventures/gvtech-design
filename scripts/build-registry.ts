@@ -1,37 +1,56 @@
 import fs from 'fs';
 import path from 'path';
 
-const REGISTRY_PATH = path.join(process.cwd(), 'apps/playground-web/public/registry');
-const COMPONENTS_UI_PATH = path.join(process.cwd(), 'packages/ui-web/src');
+const PLAYGROUND_PUBLIC_PATH = path.join(process.cwd(), 'apps/playground-web/public');
+const WEB_REGISTRY_PATH = path.join(PLAYGROUND_PUBLIC_PATH, 'registry');
+const NATIVE_REGISTRY_PATH = path.join(PLAYGROUND_PUBLIC_PATH, 'registry/native');
 
-if (!fs.existsSync(REGISTRY_PATH)) {
-  fs.mkdirSync(REGISTRY_PATH, { recursive: true });
+const WEB_COMPONENTS_PATH = path.join(process.cwd(), 'packages/ui-web/src');
+const NATIVE_COMPONENTS_PATH = path.join(process.cwd(), 'packages/ui-native/src');
+
+// Ensure directories exist
+if (!fs.existsSync(WEB_REGISTRY_PATH)) {
+  fs.mkdirSync(WEB_REGISTRY_PATH, { recursive: true });
+}
+if (!fs.existsSync(NATIVE_REGISTRY_PATH)) {
+  fs.mkdirSync(NATIVE_REGISTRY_PATH, { recursive: true });
 }
 
-function buildRegistry() {
-  const entries = fs.readdirSync(COMPONENTS_UI_PATH, { withFileTypes: true });
+interface ComponentJson {
+  name: string;
+  type: string;
+  dependencies: string[];
+  registryDependencies: string[];
+  files: { path: string; content: string; type: string }[];
+}
 
-  const registryIndex: { name: string; files: string[]; type: string }[] = [];
+interface IndexJson {
+  name: string;
+  files: string[];
+  type: string;
+}
+
+function scanAndBuild(componentsPath: string, outputPath: string, ignoreList: string[]): IndexJson[] {
+  const entries = fs.readdirSync(componentsPath, { withFileTypes: true });
+  const registryIndex: IndexJson[] = [];
 
   entries.forEach((entry) => {
     let name = '';
     const componentFiles: { path: string; content: string; type: string }[] = [];
     const filePaths: string[] = [];
 
-    // Ignore index.ts, hooks, lib, and tests
+    // Ignore items in the ignore list, test files, and non-component TS/TSX entrypoints
     if (
-      entry.name === 'index.ts' ||
-      entry.name === 'hooks' ||
-      entry.name === 'lib' ||
+      ignoreList.includes(entry.name) ||
       entry.name.includes('.test.') ||
-      entry.name === 'sonner.tsx' // sonner is often handled uniquely or as a wrapper
+      (!entry.isDirectory() && !entry.name.endsWith('.tsx') && !entry.name.endsWith('.ts'))
     ) {
       return;
     }
 
     if (entry.isDirectory()) {
       name = entry.name;
-      const dirPath = path.join(COMPONENTS_UI_PATH, name);
+      const dirPath = path.join(componentsPath, name);
       const dirFiles = fs.readdirSync(dirPath).filter((f) => f.endsWith('.ts') || f.endsWith('.tsx'));
 
       dirFiles.forEach((file) => {
@@ -43,9 +62,10 @@ function buildRegistry() {
         });
         filePaths.push(`ui/${name}/${file}`);
       });
-    } else if (entry.isFile() && entry.name.endsWith('.tsx')) {
-      name = path.basename(entry.name, '.tsx');
-      const content = fs.readFileSync(path.join(COMPONENTS_UI_PATH, entry.name), 'utf8');
+    } else if (entry.isFile() && (entry.name.endsWith('.tsx') || entry.name.endsWith('.ts'))) {
+      const ext = path.extname(entry.name);
+      name = path.basename(entry.name, ext);
+      const content = fs.readFileSync(path.join(componentsPath, entry.name), 'utf8');
       componentFiles.push({
         path: `ui/${entry.name}`,
         content,
@@ -55,7 +75,7 @@ function buildRegistry() {
     }
 
     if (name) {
-      const componentJson = {
+      const componentJson: ComponentJson = {
         name,
         type: 'registry:ui',
         dependencies: [],
@@ -63,7 +83,7 @@ function buildRegistry() {
         files: componentFiles,
       };
 
-      fs.writeFileSync(path.join(REGISTRY_PATH, `${name}.json`), JSON.stringify(componentJson, null, 2));
+      fs.writeFileSync(path.join(outputPath, `${name}.json`), JSON.stringify(componentJson, null, 2));
 
       registryIndex.push({
         name,
@@ -73,8 +93,28 @@ function buildRegistry() {
     }
   });
 
-  fs.writeFileSync(path.join(REGISTRY_PATH, 'index.json'), JSON.stringify(registryIndex, null, 2));
-  console.log('✅ Registry built successfully in public/registry');
+  fs.writeFileSync(path.join(outputPath, 'index.json'), JSON.stringify(registryIndex, null, 2));
+  return registryIndex;
+}
+
+function buildRegistry() {
+  // Web Registry build
+  const webIgnores = ['index.ts', 'hooks', 'lib', 'sonner.tsx'];
+  scanAndBuild(WEB_COMPONENTS_PATH, WEB_REGISTRY_PATH, webIgnores);
+  console.log('✅ Web Registry built successfully in public/registry');
+
+  // Native Registry build
+  const nativeIgnores = [
+    'index.ts',
+    'hooks',
+    'lib',
+    'sonner.tsx',
+    'nativewind-env.d.ts',
+    'theme-provider.tsx',
+    'theme-toggle.tsx',
+  ];
+  scanAndBuild(NATIVE_COMPONENTS_PATH, NATIVE_REGISTRY_PATH, nativeIgnores);
+  console.log('✅ Native Registry built successfully in public/registry/native');
 }
 
 buildRegistry();
