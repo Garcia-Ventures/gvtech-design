@@ -12,7 +12,7 @@ export function NativeInstallationDocs() {
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold tracking-tight">Installation</h2>
           <p className="text-muted-foreground">
-            Install the React Native package along with required mobile dependencies.
+            Install the React Native package along with design tokens and required mobile dependencies.
           </p>
         </div>
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
@@ -25,31 +25,31 @@ export function NativeInstallationDocs() {
           </TabsList>
           <TabsContent value="npm" className="mt-4">
             <CodeBlock
-              code="npm install @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              code="npm install @gv-tech/ui-native @gv-tech/design-tokens lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="bun" className="mt-4">
             <CodeBlock
-              code="bun add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              code="bun add @gv-tech/ui-native @gv-tech/design-tokens lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4">
             <CodeBlock
-              code="pnpm add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              code="pnpm add @gv-tech/ui-native @gv-tech/design-tokens lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="yarn" className="mt-4">
             <CodeBlock
-              code="yarn add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="yarn-classic" className="mt-4">
             <CodeBlock
-              code="yarn add @gv-tech/ui-native lucide-react-native nativewind react-native-reanimated react-native-svg"
+              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens lucide-react-native nativewind react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
@@ -99,20 +99,26 @@ module.exports = config;`}
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">NativeWind Setup</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">NativeWind & Theme Preset Setup</h2>
         <p className="text-muted-foreground">
-          Ensure NativeWind is correctly initialized in your{' '}
+          To automatically share tokens (colors, border-radius, shadows, animations) between your mobile views and
+          component bundles, simply load the design system preset in your{' '}
           <code className="bg-muted rounded px-1">tailwind.config.js</code>:
         </p>
         <CodeBlock
           language="javascript"
-          code={`module.exports = {
+          code={`const { preset } = require("@gv-tech/design-tokens");
+
+module.exports = {
   content: [
     "./App.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@gv-tech/ui-native/dist/**/*.mjs",
   ],
-  presets: [require("nativewind/preset")],
+  presets: [
+    require("nativewind/preset"),
+    preset,
+  ],
   theme: {
     extend: {},
   },
@@ -122,7 +128,7 @@ module.exports = config;`}
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Peer Dependencies</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Required Peer Dependencies</h2>
         <CodeBlock
           code={`{
   "react": ">=18",
@@ -138,6 +144,10 @@ module.exports = config;`}
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Basic Usage</h2>
+        <p className="text-muted-foreground">
+          Import base interactive components directly into your screens. Make sure to wrap your app in{' '}
+          <code className="bg-muted rounded px-1">ThemeProvider</code>.
+        </p>
         <CodeBlock
           code={`import { ThemeProvider, Button, Text } from '@gv-tech/ui-native';
 import { View } from 'react-native';

@@ -28,16 +28,11 @@ export function ScrollAreaDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Scroll Area component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/scroll-area"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Scroll Area
-          </a>
-          .
+          The ScrollArea component is built on top of the native{' '}
+          <a href="https://reactnative.dev/docs/scrollview" className="underline" target="_blank" rel="noreferrer">
+            React Native ScrollView
+          </a>{' '}
+          primitive with styling enhancements and hidden default indicators.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">ScrollArea (Root)</h4>
