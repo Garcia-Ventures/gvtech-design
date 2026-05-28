@@ -1,3 +1,19 @@
+## 2.21.0 (2026-05-28)
+
+### 🚀 Features
+
+- DS enhancements ([#91](https://github.com/Garcia-Ventures/gvtech-design/pull/91))
+
+### 🩹 Fixes
+
+- **ui-native:** add rootDir to tsconfig for TS6 compat ([3a883d7](https://github.com/Garcia-Ventures/gvtech-design/commit/3a883d7))
+
+### ❤️ Thank You
+
+- Copilot @Copilot
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.20.0 (2026-03-24)
 
 ### 🚀 Features

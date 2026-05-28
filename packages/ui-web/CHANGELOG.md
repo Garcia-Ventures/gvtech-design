@@ -1,3 +1,21 @@
+## 2.21.0 (2026-05-28)
+
+### 🚀 Features
+
+- DS enhancements ([#91](https://github.com/Garcia-Ventures/gvtech-design/pull/91))
+- add path mapping for @gv-tech/ui-web in tsconfig.json ([c7c6b92](https://github.com/Garcia-Ventures/gvtech-design/commit/c7c6b92))
+
+### 🩹 Fixes
+
+- **ui-web:** update chart test for recharts 3 measurement span ([14de0fc](https://github.com/Garcia-Ventures/gvtech-design/commit/14de0fc))
+- update click event handling in Button tests to use userEvent setup ([4843047](https://github.com/Garcia-Ventures/gvtech-design/commit/4843047))
+
+### ❤️ Thank You
+
+- Copilot @Copilot
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.20.0 (2026-03-24)
 
 No changes for this project
