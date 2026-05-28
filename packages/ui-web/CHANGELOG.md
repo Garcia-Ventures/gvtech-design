@@ -1,3 +1,13 @@
+## 2.21.1 (2026-05-28)
+
+### 🩹 Fixes
+
+- add react jsx runtimes to external dependencies in vite config ([f226be8](https://github.com/Garcia-Ventures/gvtech-design/commit/f226be8))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.21.0 (2026-05-28)
 
 ### 🚀 Features
