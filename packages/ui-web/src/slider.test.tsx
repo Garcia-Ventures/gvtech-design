@@ -6,7 +6,7 @@ import { Slider } from '.';
 describe('Slider', () => {
   it('renders correctly', () => {
     // Radix Slider uses ResizeObserver
-    global.ResizeObserver = class ResizeObserver {
+    globalThis.ResizeObserver = class ResizeObserver {
       observe() {}
       unobserve() {}
       disconnect() {}

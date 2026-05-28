@@ -1,9 +1,7 @@
-import { Text, View } from 'react-native';
+import type { SonnerBaseProps } from '@gv-tech/ui-core';
+import * as React from 'react';
+import { View } from 'react-native';
 
-export const Toaster = () => {
-  return (
-    <View>
-      <Text>Toaster (Sonner) is not yet implemented for React Native</Text>
-    </View>
-  );
+export const Toaster: React.FC<SonnerBaseProps> = ({ className }) => {
+  return <View className={className} />;
 };
