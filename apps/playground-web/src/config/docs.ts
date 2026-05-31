@@ -330,9 +330,12 @@ export const docConfig: DocCategory[] = [
   },
 ];
 
-export const docItemsMap = new Map<string, { category: string; item: DocItem }>();
-for (const category of docConfig) {
-  for (const item of category.items) {
-    docItemsMap.set(item.href, { category: category.title, item });
+export const docItemsMap: ReadonlyMap<string, { category: string; item: DocItem }> = (() => {
+  const map = new Map<string, { category: string; item: DocItem }>();
+  for (const category of docConfig) {
+    for (const item of category.items) {
+      map.set(item.href, { category: category.title, item });
+    }
   }
-}
+  return map;
+})();
