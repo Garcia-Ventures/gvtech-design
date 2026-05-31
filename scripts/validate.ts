@@ -82,7 +82,21 @@ for (const step of steps) {
   console.log(yellow(`\n> ${step.name}`));
   console.log(yellow(`> ${step.cmd}\n`));
 
-  const result = spawnSync(step.cmd, { stdio: 'inherit', shell: true });
+  const [command, ...args] = step.cmd.split(' ').filter(Boolean);
+
+  // Convert nx -> npx nx so Windows/UNIX consistently finds the bin
+  // without relying on shell:true or cross-spawn
+  let actualCmd = command;
+  let actualArgs = args;
+  if (command === 'nx') {
+    actualCmd = 'npx';
+    actualArgs = ['nx', ...args];
+  } else if (command === 'bun') {
+    // Bun binary should already be on path or local, but we pass it explicitly
+    // just using actualCmd = 'bun' is fine
+  }
+
+  const result = spawnSync(actualCmd, actualArgs, { stdio: 'inherit', shell: false });
 
   if (result.error) {
     console.error(red(`\nFailed to run: ${step.cmd}`));
