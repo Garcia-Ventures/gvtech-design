@@ -7,6 +7,21 @@ const DEFAULT_DOMAIN = 'garciaericn.com';
 const DEFAULT_ENDPOINT = 'https://stats.garciaericn.com/api/event';
 const OPTOUT_KEY = 'plausible_ignore';
 
+let cachedPathname = '';
+let cachedTitle: string | null = null;
+
+function getPageTitle() {
+  if (typeof window === 'undefined') {
+    return '';
+  }
+  if (window.location.pathname === cachedPathname && cachedTitle !== null) {
+    return cachedTitle;
+  }
+  cachedPathname = window.location.pathname;
+  cachedTitle = document.querySelector('h1')?.textContent?.trim() || document.title;
+  return cachedTitle;
+}
+
 function getDocItem(slug: string) {
   for (const category of docConfig) {
     const found = category.items.find((item) => item.href === slug);
@@ -69,7 +84,7 @@ export function PlausibleProvider({ children }: { children: React.ReactNode }): 
           outboundLinks: true,
           fileDownloads: true,
           customProperties: () => ({
-            page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
+            page_title: getPageTitle(),
           }),
         });
 
@@ -101,7 +116,7 @@ export function PlausibleProvider({ children }: { children: React.ReactNode }): 
         doc_slug: slug,
         doc_title: doc?.item.title || slug,
         doc_category: doc?.category || 'Unknown',
-        page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
+        page_title: getPageTitle(),
       },
     });
   }, [isReady, location.pathname]);
