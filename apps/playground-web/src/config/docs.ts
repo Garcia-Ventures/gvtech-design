@@ -329,3 +329,10 @@ export const docConfig: DocCategory[] = [
     ],
   },
 ];
+
+export const docItemsMap = new Map<string, { category: string; item: DocItem }>();
+for (const category of docConfig) {
+  for (const item of category.items) {
+    docItemsMap.set(item.href, { category: category.title, item });
+  }
+}
