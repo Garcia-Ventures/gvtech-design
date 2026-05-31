@@ -97,4 +97,24 @@ describe('SupportFab', () => {
     expect(fallbackLink).toHaveAttribute('target', '_blank');
     expect(fallbackLink).toHaveAttribute('rel', 'noopener noreferrer');
   });
+
+  it('rejects invalid domains and protocols and falls back to default', () => {
+    setMobile(false);
+    render(<SupportFab supportUrl="javascript:alert(1)" creatorId="eng618" defaultOpen />);
+
+    expect(screen.getByTitle(/buy me a coffee support form/i)).toHaveAttribute(
+      'src',
+      'https://www.buymeacoffee.com/widget/page/eng618',
+    );
+  });
+
+  it('rejects unallowed domains and falls back to default', () => {
+    setMobile(false);
+    render(<SupportFab supportUrl="https://evil.com" creatorId="eng618" defaultOpen />);
+
+    expect(screen.getByTitle(/buy me a coffee support form/i)).toHaveAttribute(
+      'src',
+      'https://www.buymeacoffee.com/widget/page/eng618',
+    );
+  });
 });
