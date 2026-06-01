@@ -91,9 +91,6 @@ for (const step of steps) {
   if (command === 'nx') {
     actualCmd = 'npx';
     actualArgs = ['nx', ...args];
-  } else if (command === 'bun') {
-    // Bun binary should already be on path or local, but we pass it explicitly
-    // just using actualCmd = 'bun' is fine
   }
 
   const result = spawnSync(actualCmd, actualArgs, { stdio: 'inherit', shell: false });
