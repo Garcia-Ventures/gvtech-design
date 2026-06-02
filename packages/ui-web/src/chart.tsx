@@ -13,6 +13,9 @@ import { cn } from './lib/utils';
 // Format: { THEME_NAME: CSS_SELECTOR }
 const THEMES = { light: '', dark: '.dark' } as const;
 
+/** Safe own-property check — prevents prototype-chain traversal via dynamic keys. */
+const hasOwnProp = (obj: object, key: string): boolean => Object.prototype.hasOwnProperty.call(obj, key);
+
 type ChartContextProps = {
   config: ChartConfig;
 };
@@ -104,7 +107,9 @@ const ChartStyle = ({ id, config }: { id: string; config: ChartConfig }) => {
 ${prefix} [data-chart=${id}] {
 ${colorConfig
   .map(([key, itemConfig]) => {
-    const color = itemConfig.theme?.[theme as keyof typeof THEMES] || itemConfig.color;
+    const color =
+      (theme in THEMES && hasOwnProp(THEMES, theme) ? itemConfig.theme?.[theme as keyof typeof THEMES] : undefined) ||
+      itemConfig.color;
     return color ? `  --color-${key}: ${color};` : null;
   })
   .join('\n')}
@@ -152,7 +157,7 @@ const ChartTooltipContent = React.forwardRef<
       const itemConfig = getPayloadConfigFromPayload(config, item, key);
       const value =
         !labelKey && typeof label === 'string'
-          ? config[label as keyof typeof config]?.label || label
+          ? ((hasOwnProp(config, label) ? config[label as keyof typeof config]?.label : undefined) ?? label)
           : itemConfig?.label;
 
       if (labelFormatter) {
@@ -313,13 +318,17 @@ function getPayloadConfigFromPayload(config: ChartConfig, payload: unknown, key:
 
   let configLabelKey: string = key;
 
-  if (key in payload && typeof (payload as Record<string, unknown>)[key] === 'string') {
+  if (hasOwnProp(payload as object, key) && typeof (payload as Record<string, unknown>)[key] === 'string') {
     configLabelKey = (payload as Record<string, unknown>)[key] as string;
-  } else if (payloadPayload && key in payloadPayload && typeof payloadPayload[key] === 'string') {
+  } else if (payloadPayload && hasOwnProp(payloadPayload, key) && typeof payloadPayload[key] === 'string') {
     configLabelKey = payloadPayload[key] as string;
   }
 
-  return configLabelKey in config ? config[configLabelKey] : config[key as keyof typeof config];
+  return hasOwnProp(config, configLabelKey)
+    ? config[configLabelKey as keyof typeof config]
+    : hasOwnProp(config, key)
+      ? config[key as keyof typeof config]
+      : undefined;
 }
 
 export { ChartContainer, ChartLegend, ChartLegendContent, ChartStyle, ChartTooltip, ChartTooltipContent };
