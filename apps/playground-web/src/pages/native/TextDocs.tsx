@@ -6,12 +6,27 @@ export function TextDocs() {
   return (
     <>
       <ComponentShowcase
-        title="Typography (Native)"
-        description="The Text component in React Native provides styled text using NativeWind."
+        title="Headings (Native)"
+        description="React Native text headings compiled for high contrast."
         code={`<Text variant="h1">Native Heading 1</Text>
 <Text variant="h2">Native Heading 2</Text>
-<Text variant="body">Native body text.</Text>
-<Text variant="caption">Native caption text.</Text>`}
+<Text variant="h3">Native Heading 3</Text>
+<Text variant="h4">Native Heading 4</Text>`}
+      />
+
+      <ComponentShowcase
+        title="Body & Small Text (Native)"
+        description="Native paragraphs styled for perfect text contrast."
+        code={`<Text variant="body">Native body text.</Text>
+<Text variant="bodySmall">Native smaller body text for descriptions.</Text>`}
+      />
+
+      <ComponentShowcase
+        title="Utility Text (Native)"
+        description="Helper typographic components for metadata and parameters."
+        code={`<Text variant="caption">Native caption text.</Text>
+<Text variant="label">NATIVE LABEL</Text>
+<Text variant="overline">NATIVE OVERLINE</Text>`}
       />
 
       <div className="space-y-4">

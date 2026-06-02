@@ -25,7 +25,7 @@ import { Loader2, Menu } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
 import { CombinedDocsLayout, DocSearch, DocSearchProvider, ErrorBoundary, Footer, Sidebar } from './components/docs';
-import { docConfig } from './config/docs';
+import { docItemsMap } from './config/docs';
 import { PlausibleProvider } from './lib/PlausibleProvider';
 import { safeTrack } from './lib/analytics';
 
@@ -52,13 +52,7 @@ function DocumentationLayout() {
   const docSlug = location.pathname.split('/').pop() || 'getting-started';
 
   const activeRoute = React.useMemo(() => {
-    for (const category of docConfig) {
-      const found = category.items.find((item) => item.href === docSlug);
-      if (found) {
-        return found;
-      }
-    }
-    return null;
+    return docItemsMap.get(docSlug)?.item || null;
   }, [docSlug]);
 
   React.useEffect(() => {
