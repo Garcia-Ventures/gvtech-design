@@ -61,15 +61,15 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuItem onPress={() => handleThemeChange('light')}>
+          <DropdownMenuItem onSelect={() => handleThemeChange('light')}>
             <Sun size={14} className="text-foreground mr-2" />
             <Text>Light</Text>
           </DropdownMenuItem>
-          <DropdownMenuItem onPress={() => handleThemeChange('dark')}>
+          <DropdownMenuItem onSelect={() => handleThemeChange('dark')}>
             <Moon size={14} className="text-foreground mr-2" />
             <Text>Dark</Text>
           </DropdownMenuItem>
-          <DropdownMenuItem onPress={() => handleThemeChange('system')}>
+          <DropdownMenuItem onSelect={() => handleThemeChange('system')}>
             <SunMoon size={14} className="text-foreground mr-2" />
             <Text>System</Text>
           </DropdownMenuItem>
