@@ -58,9 +58,7 @@ function DocumentationLayout() {
 
   const docSlug = location.pathname.split('/').pop() || 'getting-started';
 
-  const activeRoute = React.useMemo(() => {
-    return docItemsMap.get(docSlug) || null;
-  }, [docSlug]);
+  const activeRoute = docItemsMap.get(docSlug) || null;
 
   React.useEffect(() => {
     if (activeRoute?.title) {
