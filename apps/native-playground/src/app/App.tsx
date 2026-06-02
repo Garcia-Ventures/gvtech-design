@@ -724,9 +724,16 @@ function LayoutScreen() {
           <CardTitle>Theme Toggle</CardTitle>
           <CardDescription>Switch between light, dark, and system</CardDescription>
         </CardHeader>
-        <CardContent className="flex-row items-center justify-between">
-          <Text className="text-foreground">Current theme</Text>
-          <ThemeToggle />
+        <CardContent className="gap-4">
+          <View className="flex-row items-center justify-between">
+            <Text className="text-foreground font-medium">Binary (Toggle)</Text>
+            <ThemeToggle variant="binary" />
+          </View>
+          <Separator />
+          <View className="flex-row items-center justify-between">
+            <Text className="text-foreground font-medium">Ternary (Dropdown)</Text>
+            <ThemeToggle variant="ternary" />
+          </View>
         </CardContent>
       </Card>
 
