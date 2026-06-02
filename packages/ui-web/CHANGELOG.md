@@ -1,3 +1,15 @@
+## 2.22.0 (2026-06-02)
+
+### 🩹 Fixes
+
+- **ui-native:** standardize type exports and native installation paths ([b495a7b](https://github.com/Garcia-Ventures/gvtech-design/commit/b495a7b))
+- fix xss vulnerability in chart.tsx by removing dangerouslySetInnerHTML ([#94](https://github.com/Garcia-Ventures/gvtech-design/pull/94))
+
+### ❤️ Thank You
+
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.21.1 (2026-05-28)
 
 ### 🩹 Fixes
