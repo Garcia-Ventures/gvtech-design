@@ -19,6 +19,7 @@
   },
   "main": "./dist/ui-native.cjs",
   "module": "./dist/ui-native.mjs",
+  "react-native": "./src/index.ts",
   "types": "./dist/index.d.ts",
   "files": [
     "dist",
