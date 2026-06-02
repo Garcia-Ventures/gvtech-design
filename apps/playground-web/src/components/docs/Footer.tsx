@@ -177,7 +177,7 @@ export function Footer() {
               <p>
                 Crafted by{' '}
                 <a
-                  href="https://github.com/garciaericn"
+                  href="http://github.com/Garcia-Ventures"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground underline underline-offset-4"

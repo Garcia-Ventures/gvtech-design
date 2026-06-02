@@ -114,6 +114,7 @@ module.exports = {
     "./App.{js,jsx,ts,tsx}",
     "./src/**/*.{js,jsx,ts,tsx}",
     "./node_modules/@gv-tech/ui-native/dist/**/*.mjs",
+    "./node_modules/@gv-tech/ui-native/src/**/*.{ts,tsx}",
   ],
   presets: [
     require("nativewind/preset"),
