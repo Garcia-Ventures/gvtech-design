@@ -77,10 +77,11 @@ DropdownMenuContent.displayName = 'DropdownMenuContent';
 export const DropdownMenuItem = React.forwardRef<
   React.ElementRef<typeof DropdownMenuPrimitive.Item>,
   DropdownMenuItemBaseProps
->(({ className, children, inset, ...props }, ref) => {
+>(({ className, children, inset, onSelect, ...props }, ref) => {
   return (
     <DropdownMenuPrimitive.Item
       ref={ref}
+      onPress={() => onSelect?.(new Event('select'))}
       className={cn(
         'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground relative flex flex-row items-center rounded-sm px-2 py-1.5 text-sm outline-none',
         inset && 'pl-8',

@@ -314,6 +314,7 @@ export type { ToastProps } from './toast';
 export { ThemeProvider } from './theme-provider';
 
 // Theme Toggle
+export { useTheme } from './hooks/use-theme';
 export { ThemeToggle } from './theme-toggle';
 
 // Toaster
