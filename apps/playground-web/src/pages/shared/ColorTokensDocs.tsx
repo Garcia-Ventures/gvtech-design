@@ -180,38 +180,196 @@ const { tokens: activeTokens } = useTheme();
       </section>
 
       <section className="space-y-8">
-        <h2 className="text-3xl font-bold tracking-tight">3. Customizing the Theme</h2>
-        <p className="text-muted-foreground">
-          You can overwrite the default design system with your own brand identity by redefining the core CSS variables.
-        </p>
+        <div className="space-y-2">
+          <h2 className="text-3xl font-bold tracking-tight">3. Downstream Theming Implementation</h2>
+          <p className="text-muted-foreground">
+            There are several approaches to implementing custom brand identities depending on your application's
+            architecture and needs.
+          </p>
+        </div>
 
-        <Card className="border-orange-500/20 bg-orange-500/5">
-          <CardHeader>
-            <CardTitle className="flex items-center gap-2">
-              <Info className="h-5 w-5 text-orange-500" />
-              Overwriting Default Colors
-            </CardTitle>
-            <CardDescription>
-              To change your primary brand color, redefine the{' '}
-              <code className="bg-muted rounded px-1 py-0.5">--primary</code> variable in your root CSS.
-            </CardDescription>
-          </CardHeader>
-          <CardContent>
-            <CodeBlock
-              language="css"
-              code={`@layer base {
+        <Tabs defaultValue="global" className="w-full">
+          <TabsList className="h-auto w-full flex-wrap justify-start rounded-none border-b bg-transparent p-0">
+            <TabsTrigger
+              value="global"
+              className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:bg-transparent"
+            >
+              Global CSS
+            </TabsTrigger>
+            <TabsTrigger
+              value="scoped"
+              className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:bg-transparent"
+            >
+              Scoped/Multi-Tenant
+            </TabsTrigger>
+            <TabsTrigger
+              value="tailwind"
+              className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:bg-transparent"
+            >
+              Tailwind Overrides
+            </TabsTrigger>
+            <TabsTrigger
+              value="runtime"
+              className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent px-4 py-2 data-[state=active]:bg-transparent"
+            >
+              Runtime & Native
+            </TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="global" className="space-y-4 pt-6">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">Global Variable Override (Recommended)</h3>
+              <p className="text-muted-foreground text-sm">
+                Redefine HSL values in your main <code className="bg-muted rounded px-1.5 py-0.5">globals.css</code>.
+                This approach is highly dynamic and automatically inherited by both web and React Native components via
+                NativeWind.
+              </p>
+            </div>
+            <Card className="border-orange-500/20 bg-orange-500/5">
+              <CardHeader className="pb-2">
+                <CardTitle className="flex items-center gap-2 text-base">
+                  <Info className="h-4 w-4 text-orange-500" />
+                  Space-Separated HSL
+                </CardTitle>
+                <CardDescription>
+                  Define variables without the `hsl()` wrapper or commas to allow Tailwind opacity modifiers to work
+                  correctly.
+                </CardDescription>
+              </CardHeader>
+              <CardContent>
+                <CodeBlock
+                  language="css"
+                  code={`@import '@gv-tech/design-tokens/theme.css';
+@import 'tailwindcss';
+
+@layer base {
   :root {
-    /* Change primary to a vibrant orange HSL */
-    --primary: 24 95% 53%;
+    /* Main brand colors */
+    --primary: 210 100% 50%;
     --primary-foreground: 0 0% 100%;
-    
-    /* Soften rounding across the whole system */
-    --radius: 1rem;
+    --accent: 320 80% 60%;
+    --accent-foreground: 0 0% 100%;
+    --radius: 0.75rem;
+  }
+  
+  .dark {
+    --primary: 210 100% 70%;
+    --primary-foreground: 222 47% 11%;
   }
 }`}
+                />
+              </CardContent>
+            </Card>
+          </TabsContent>
+
+          <TabsContent value="scoped" className="space-y-4 pt-6">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">Nested Scopes (Multi-Tenant)</h3>
+              <p className="text-muted-foreground text-sm">
+                For platforms requiring multiple distinct brand identities (e.g. dashboards with different tenant
+                themes), apply variable overrides to specific CSS classes instead of{' '}
+                <code className="bg-muted rounded px-1.5 py-0.5">:root</code>.
+              </p>
+            </div>
+            <CodeBlock
+              language="css"
+              code={`/* Define a custom brand scope in globals.css */
+.theme-brand-gold {
+  --primary: 43 96% 50%;
+  --primary-foreground: 0 0% 0%;
+}`}
             />
-          </CardContent>
-        </Card>
+            <p className="text-muted-foreground pt-2 text-sm">
+              Then wrap any React subtree with this class to instantly theme all components inside it:
+            </p>
+            <CodeBlock
+              language="tsx"
+              code={`export function TenantDashboard() {
+  return (
+    <div className="theme-brand-gold">
+      <Button>I am Gold!</Button>
+      <Card>
+        <CardHeader>My background and accents follow the Gold theme</CardHeader>
+      </Card>
+    </div>
+  );
+}`}
+            />
+          </TabsContent>
+
+          <TabsContent value="tailwind" className="space-y-4 pt-6">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">Tailwind Mappings</h3>
+              <p className="text-muted-foreground text-sm">
+                If you prefer hardcoding hex values over runtime CSS variables, you can override the design system
+                mapping entirely in your Tailwind setup.
+              </p>
+            </div>
+            <div className="grid gap-6 md:grid-cols-2">
+              <div className="space-y-2">
+                <p className="text-sm font-medium">Tailwind v4 (CSS-First)</p>
+                <CodeBlock
+                  language="css"
+                  code={`@theme {
+  --color-primary: #ff0055;
+  --color-primary-foreground: #ffffff;
+}`}
+                />
+              </div>
+              <div className="space-y-2">
+                <p className="text-sm font-medium">Tailwind v3 (JS Config)</p>
+                <CodeBlock
+                  language="javascript"
+                  code={`const { preset } = require("@gv-tech/design-tokens");
+
+module.exports = {
+  presets: [preset],
+  theme: {
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: '#ff0055',
+          foreground: '#ffffff',
+        }
+      }
+    }
+  }
+};`}
+                />
+              </div>
+            </div>
+          </TabsContent>
+
+          <TabsContent value="runtime" className="space-y-4 pt-6">
+            <div className="space-y-2">
+              <h3 className="text-xl font-semibold">Runtime Configuration</h3>
+              <p className="text-muted-foreground text-sm">
+                If you need to access the active theme's colors programmatically (e.g., drawing on canvas, passing color
+                props to un-themed native components, or charting), utilize the provided{' '}
+                <code className="bg-muted rounded px-1.5 py-0.5">useTheme</code> hook.
+              </p>
+            </div>
+            <CodeBlock
+              language="tsx"
+              code={`// Web
+import { useTheme } from '@gv-tech/ui-web';
+// React Native
+// import { useTheme } from '@gv-tech/ui-native';
+
+export function ChartComponent() {
+  const { tokens, resolvedTheme } = useTheme();
+
+  return (
+    <LineChart 
+      lineColor={tokens.primary} 
+      gridColor={tokens.border}
+      isDark={resolvedTheme === 'dark'}
+    />
+  );
+}`}
+            />
+          </TabsContent>
+        </Tabs>
       </section>
 
       <section className="space-y-6">
