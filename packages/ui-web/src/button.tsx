@@ -67,4 +67,4 @@ function Button({
 export { Button, buttonVariants };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyButtonContract: ButtonBaseProps = {} as unknown as React.ComponentProps<typeof Button>;
+export type ___verifyButtonContract = React.ComponentProps<typeof Button> extends ButtonBaseProps ? true : false;

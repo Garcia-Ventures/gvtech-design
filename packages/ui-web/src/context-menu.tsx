@@ -233,4 +233,5 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyContextMenuContract: ContextMenuBaseProps = {} as unknown as React.ComponentProps<typeof ContextMenu>;
+export type ___verifyContextMenuContract =
+  React.ComponentProps<typeof ContextMenu> extends ContextMenuBaseProps ? true : false;

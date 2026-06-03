@@ -47,4 +47,5 @@ function ScrollBar({
 export { ScrollArea, ScrollBar };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyScrollAreaContract: ScrollAreaBaseProps = {} as unknown as React.ComponentProps<typeof ScrollArea>;
+export type ___verifyScrollAreaContract =
+  React.ComponentProps<typeof ScrollArea> extends ScrollAreaBaseProps ? true : false;

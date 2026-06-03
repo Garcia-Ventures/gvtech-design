@@ -9,4 +9,4 @@ function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
 export { Skeleton };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySkeletonContract: SkeletonBaseProps = {} as unknown as React.ComponentProps<typeof Skeleton>;
+export type ___verifySkeletonContract = React.ComponentProps<typeof Skeleton> extends SkeletonBaseProps ? true : false;

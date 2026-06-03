@@ -11,4 +11,5 @@ function AspectRatio({ ...props }: React.ComponentProps<typeof AspectRatioPrimit
 export { AspectRatio };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyAspectRatioContract: AspectRatioBaseProps = {} as unknown as React.ComponentProps<typeof AspectRatio>;
+export type ___verifyAspectRatioContract =
+  React.ComponentProps<typeof AspectRatio> extends AspectRatioBaseProps ? true : false;

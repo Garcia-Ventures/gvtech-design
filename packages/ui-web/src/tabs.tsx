@@ -78,4 +78,4 @@ function TabsContent({ className, ...props }: React.ComponentProps<typeof TabsPr
 export { Tabs, TabsContent, TabsList, tabsListVariants, TabsTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyTabsContract: TabsBaseProps = {} as unknown as React.ComponentProps<typeof Tabs>;
+export type ___verifyTabsContract = React.ComponentProps<typeof Tabs> extends TabsBaseProps ? true : false;

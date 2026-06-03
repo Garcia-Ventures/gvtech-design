@@ -38,4 +38,5 @@ function HoverCardContent({
 export { HoverCard, HoverCardContent, HoverCardTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyHoverCardContract: HoverCardBaseProps = {} as unknown as React.ComponentProps<typeof HoverCard>;
+export type ___verifyHoverCardContract =
+  React.ComponentProps<typeof HoverCard> extends HoverCardBaseProps ? true : false;

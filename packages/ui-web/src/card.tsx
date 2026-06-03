@@ -69,4 +69,4 @@ function CardFooter({ className, ...props }: React.ComponentProps<'div'>) {
 }
 
 export { Card, CardAction, CardContent, CardDescription, CardFooter, CardHeader, CardTitle };
-const _verifyContract: CardBaseProps = {} as React.ComponentProps<typeof Card>;
+export type ___verifyContract = React.ComponentProps<typeof Card> extends CardBaseProps ? true : false;

@@ -19,4 +19,5 @@ function CollapsibleContent({ ...props }: React.ComponentProps<typeof Collapsibl
 export { Collapsible, CollapsibleContent, CollapsibleTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyCollapsibleContract: CollapsibleBaseProps = {} as unknown as React.ComponentProps<typeof Collapsible>;
+export type ___verifyCollapsibleContract =
+  React.ComponentProps<typeof Collapsible> extends CollapsibleBaseProps ? true : false;

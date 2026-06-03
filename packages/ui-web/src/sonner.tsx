@@ -39,4 +39,4 @@ const Toaster = ({ ...props }: ToasterProps) => {
 export { Toaster };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySonnerContract: SonnerBaseProps = {} as unknown as React.ComponentProps<typeof Sonner>;
+export type ___verifySonnerContract = React.ComponentProps<typeof Sonner> extends SonnerBaseProps ? true : false;

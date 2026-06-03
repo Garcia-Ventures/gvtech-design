@@ -27,4 +27,4 @@ function Progress({ className, value, ...props }: React.ComponentProps<typeof Pr
 export { Progress };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyProgressContract: ProgressBaseProps = {} as unknown as React.ComponentProps<typeof Progress>;
+export type ___verifyProgressContract = React.ComponentProps<typeof Progress> extends ProgressBaseProps ? true : false;

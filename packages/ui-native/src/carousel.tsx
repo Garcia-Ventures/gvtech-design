@@ -76,7 +76,7 @@ export const Carousel = React.forwardRef<View, CarouselProps>(
       }
     }, [setApi, scrollNext, scrollPrev, canScrollNext, canScrollPrev]);
 
-    const handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
+    const _handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       const offsetX = event.nativeEvent.contentOffset.x;
       const contentWidth = event.nativeEvent.contentSize.width;
       const layoutWidth = event.nativeEvent.layoutMeasurement.width;
@@ -110,7 +110,7 @@ export const Carousel = React.forwardRef<View, CarouselProps>(
 Carousel.displayName = 'Carousel';
 
 export const CarouselContent = React.forwardRef<ScrollView, CarouselContentBaseProps>(
-  ({ children, className, ...props }, ref) => {
+  ({ children, className, ...props }, _ref) => {
     const { scrollRef, orientation } = useCarousel();
 
     return (

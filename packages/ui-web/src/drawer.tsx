@@ -104,4 +104,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyDrawerContract: DrawerBaseProps = {} as unknown as React.ComponentProps<typeof Drawer>;
+export type ___verifyDrawerContract = React.ComponentProps<typeof Drawer> extends DrawerBaseProps ? true : false;

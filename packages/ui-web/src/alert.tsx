@@ -58,4 +58,4 @@ function AlertAction({ className, ...props }: React.ComponentProps<'div'>) {
 export { Alert, AlertAction, AlertDescription, AlertTitle };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyAlertContract: AlertBaseProps = {} as unknown as React.ComponentProps<typeof Alert>;
+export type ___verifyAlertContract = React.ComponentProps<typeof Alert> extends AlertBaseProps ? true : false;

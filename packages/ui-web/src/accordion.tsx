@@ -63,4 +63,5 @@ function AccordionContent({ className, children, ...props }: React.ComponentProp
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyAccordionContract: AccordionBaseProps = {} as unknown as React.ComponentProps<typeof Accordion>;
+export type ___verifyAccordionContract =
+  React.ComponentProps<typeof Accordion> extends AccordionBaseProps ? true : false;

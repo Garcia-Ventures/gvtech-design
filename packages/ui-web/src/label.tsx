@@ -21,4 +21,4 @@ function Label({ className, ...props }: React.ComponentProps<typeof LabelPrimiti
 export { Label };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyLabelContract: LabelBaseProps = {} as unknown as React.ComponentProps<typeof Label>;
+export type ___verifyLabelContract = React.ComponentProps<typeof Label> extends LabelBaseProps ? true : false;

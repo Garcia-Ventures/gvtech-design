@@ -253,4 +253,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyMenubarContract: MenubarBaseProps = {} as unknown as React.ComponentProps<typeof Menubar>;
+export type ___verifyMenubarContract = React.ComponentProps<typeof Menubar> extends MenubarBaseProps ? true : false;

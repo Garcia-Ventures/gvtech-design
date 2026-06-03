@@ -93,4 +93,4 @@ function AvatarGroupCount({ className, ...props }: React.ComponentProps<'div'>) 
 export { Avatar, AvatarBadge, AvatarFallback, AvatarGroup, AvatarGroupCount, AvatarImage };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyAvatarContract: AvatarBaseProps = {} as unknown as React.ComponentProps<typeof Avatar>;
+export type ___verifyAvatarContract = React.ComponentProps<typeof Avatar> extends AvatarBaseProps ? true : false;

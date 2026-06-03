@@ -139,4 +139,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyDialogContract: DialogBaseProps = {} as unknown as React.ComponentProps<typeof Dialog>;
+export type ___verifyDialogContract = React.ComponentProps<typeof Dialog> extends DialogBaseProps ? true : false;

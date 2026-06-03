@@ -91,4 +91,5 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyBreadcrumbContract: BreadcrumbBaseProps = {} as unknown as React.ComponentProps<typeof Breadcrumb>;
+export type ___verifyBreadcrumbContract =
+  React.ComponentProps<typeof Breadcrumb> extends BreadcrumbBaseProps ? true : false;

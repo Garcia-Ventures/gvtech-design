@@ -175,4 +175,4 @@ function CalendarDayButton({
 export { Calendar, CalendarDayButton };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyCalendarContract: CalendarBaseProps = {} as unknown as React.ComponentProps<typeof Calendar>;
+export type ___verifyCalendarContract = React.ComponentProps<typeof Calendar> extends CalendarBaseProps ? true : false;

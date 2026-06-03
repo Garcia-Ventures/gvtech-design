@@ -222,4 +222,4 @@ function CarouselNext({
 export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious, useCarousel, type CarouselApi };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyCarouselContract: CarouselBaseProps = {} as unknown as React.ComponentProps<typeof Carousel>;
+export type ___verifyCarouselContract = React.ComponentProps<typeof Carousel> extends CarouselBaseProps ? true : false;

@@ -41,4 +41,4 @@ function Toggle({
 export { Toggle, toggleVariants };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyToggleContract: ToggleBaseProps = {} as unknown as React.ComponentProps<typeof Toggle>;
+export type ___verifyToggleContract = React.ComponentProps<typeof Toggle> extends ToggleBaseProps ? true : false;

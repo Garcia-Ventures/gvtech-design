@@ -36,7 +36,6 @@
   "dependencies": {
     "@gv-tech/design-tokens": "^2.12.0",
     "@gv-tech/ui-core": "^2.12.0",
-    "react-hook-form": "^7.71.1",
     "@rn-primitives/accordion": "^1.2.0",
     "@rn-primitives/alert-dialog": "^1.2.0",
     "@rn-primitives/aspect-ratio": "^1.2.0",
@@ -65,7 +64,9 @@
     "@rn-primitives/toggle-group": "^1.2.0",
     "@rn-primitives/tooltip": "^1.2.0",
     "clsx": "^2.1.1",
-    "nativewind": "^4.2.1",
+    "nativewind": "^5.0.0-preview.4",
+    "react-hook-form": "^7.71.1",
+    "react-native-css-interop": "^0.2.4",
     "tailwind-merge": "^3.4.1",
     "tailwindcss": "^4.1.18"
   },

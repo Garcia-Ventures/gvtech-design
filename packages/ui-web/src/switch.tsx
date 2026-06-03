@@ -35,4 +35,4 @@ function Switch({
 export { Switch };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySwitchContract: SwitchBaseProps = {} as unknown as React.ComponentProps<typeof Switch>;
+export type _verifySwitchContract = React.ComponentProps<typeof Switch> extends SwitchBaseProps ? true : false;

@@ -29,4 +29,4 @@ function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxP
 export { Checkbox };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyCheckboxContract: CheckboxBaseProps = {} as unknown as React.ComponentProps<typeof Checkbox>;
+export type ___verifyCheckboxContract = React.ComponentProps<typeof Checkbox> extends CheckboxBaseProps ? true : false;

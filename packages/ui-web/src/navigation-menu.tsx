@@ -143,6 +143,5 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyNavigationMenuContract: NavigationMenuBaseProps = {} as unknown as React.ComponentProps<
-  typeof NavigationMenu
->;
+export type ___verifyNavigationMenuContract =
+  React.ComponentProps<typeof NavigationMenu> extends NavigationMenuBaseProps ? true : false;

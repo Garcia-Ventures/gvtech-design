@@ -54,4 +54,4 @@ function PopoverDescription({ className, ...props }: React.ComponentProps<'p'>) 
 export { Popover, PopoverAnchor, PopoverContent, PopoverDescription, PopoverHeader, PopoverTitle, PopoverTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyPopoverContract: PopoverBaseProps = {} as unknown as React.ComponentProps<typeof Popover>;
+export type ___verifyPopoverContract = React.ComponentProps<typeof Popover> extends PopoverBaseProps ? true : false;

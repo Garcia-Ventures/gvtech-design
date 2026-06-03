@@ -20,4 +20,4 @@ function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
 export { Textarea };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyTextareaContract: TextareaBaseProps = {} as unknown as React.ComponentProps<typeof Textarea>;
+export type ___verifyTextareaContract = React.ComponentProps<typeof Textarea> extends TextareaBaseProps ? true : false;

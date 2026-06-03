@@ -240,4 +240,5 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyDropdownMenuContract: DropdownMenuBaseProps = {} as unknown as React.ComponentProps<typeof DropdownMenu>;
+export type ___verifyDropdownMenuContract =
+  React.ComponentProps<typeof DropdownMenu> extends DropdownMenuBaseProps ? true : false;

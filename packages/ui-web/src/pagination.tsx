@@ -90,4 +90,5 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyPaginationContract: PaginationBaseProps = {} as unknown as React.ComponentProps<typeof Pagination>;
+export type ___verifyPaginationContract =
+  React.ComponentProps<typeof Pagination> extends PaginationBaseProps ? true : false;

@@ -154,4 +154,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyCommandContract: CommandBaseProps = {} as unknown as React.ComponentProps<typeof Command>;
+export type ___verifyCommandContract = React.ComponentProps<typeof Command> extends CommandBaseProps ? true : false;

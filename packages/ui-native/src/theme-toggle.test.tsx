@@ -47,12 +47,15 @@ vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
     default: {
-      View: ({ children, style }: any) => React.createElement('div', { style }, children),
+      // @ts-expect-error TS7031
+      View: ({ children, style }) => React.createElement('div', { style }, children),
     },
     useAnimatedStyle: () => ({}),
-    useDerivedValue: (val: any) => ({ value: typeof val === 'function' ? val() : val }),
+    // @ts-expect-error TS7006
+    useDerivedValue: (val) => ({ value: val instanceof Function ? val() : val }),
     interpolate: () => 0,
-    withTiming: (val: any) => val,
+    // @ts-expect-error TS7006
+    withTiming: (val) => val,
     FadeIn: { duration: () => ({}) },
     FadeOut: { duration: () => ({}) },
     Extrapolation: { CLAMP: 'clamp' },

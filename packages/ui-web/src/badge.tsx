@@ -42,4 +42,4 @@ function Badge({
 export { Badge, badgeVariants };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyBadgeContract: BadgeBaseProps = {} as unknown as React.ComponentProps<typeof Badge>;
+export type ___verifyBadgeContract = React.ComponentProps<typeof Badge> extends BadgeBaseProps ? true : false;

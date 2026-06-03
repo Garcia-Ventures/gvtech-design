@@ -28,7 +28,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
     if (onThemeChange) {
       onThemeChange(newTheme);
     } else {
-      setTheme(newTheme);
+      setTheme(newTheme as 'light' | 'dark');
     }
   };
 

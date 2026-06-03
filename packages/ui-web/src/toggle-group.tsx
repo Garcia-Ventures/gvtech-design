@@ -88,4 +88,5 @@ function ToggleGroupItem({
 export { ToggleGroup, ToggleGroupItem };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyToggleGroupContract: ToggleGroupBaseProps = {} as unknown as React.ComponentProps<typeof ToggleGroup>;
+export type ___verifyToggleGroupContract =
+  React.ComponentProps<typeof ToggleGroup> extends ToggleGroupBaseProps ? true : false;

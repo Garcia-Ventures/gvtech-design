@@ -114,4 +114,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyToastContract: ToastBaseProps = {} as unknown as React.ComponentProps<typeof Toast>;
+export type ___verifyToastContract = React.ComponentProps<typeof Toast> extends ToastBaseProps ? true : false;

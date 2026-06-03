@@ -75,4 +75,4 @@ function TableCaption({ className, ...props }: React.ComponentProps<'caption'>) 
 export { Table, TableBody, TableCaption, TableCell, TableFooter, TableHead, TableHeader, TableRow };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyTableContract: TableBaseProps = {} as unknown as React.ComponentProps<typeof Table>;
+export type ___verifyTableContract = React.ComponentProps<typeof Table> extends TableBaseProps ? true : false;

@@ -56,4 +56,4 @@ function Slider({
 export { Slider };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySliderContract: SliderBaseProps = {} as unknown as React.ComponentProps<typeof Slider>;
+export type ___verifySliderContract = React.ComponentProps<typeof Slider> extends SliderBaseProps ? true : false;

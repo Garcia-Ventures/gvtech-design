@@ -1,6 +1,6 @@
 import { render } from '@testing-library/react';
 import { useForm } from 'react-hook-form';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from './form';
 
 vi.mock('@rn-primitives/label', () => ({
@@ -23,7 +23,7 @@ const TestFormWrapper = () => {
       <FormField
         control={form.control}
         name="testField"
-        render={({ field }) => (
+        render={() => (
           <FormItem>
             <FormLabel>Test Label</FormLabel>
             <FormControl>

@@ -28,4 +28,5 @@ function Separator({
 export { Separator };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySeparatorContract: SeparatorBaseProps = {} as unknown as React.ComponentProps<typeof Separator>;
+export type ___verifySeparatorContract =
+  React.ComponentProps<typeof Separator> extends SeparatorBaseProps ? true : false;

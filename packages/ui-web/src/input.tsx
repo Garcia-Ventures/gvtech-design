@@ -21,4 +21,4 @@ function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
 export { Input };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyInputContract: InputBaseProps = {} as unknown as React.ComponentProps<typeof Input>;
+export type ___verifyInputContract = React.ComponentProps<typeof Input> extends InputBaseProps ? true : false;

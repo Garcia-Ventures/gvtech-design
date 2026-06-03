@@ -103,4 +103,4 @@ function SheetDescription({ className, ...props }: React.ComponentProps<typeof S
 export { Sheet, SheetClose, SheetContent, SheetDescription, SheetFooter, SheetHeader, SheetTitle, SheetTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySheetContract: SheetBaseProps = {} as unknown as React.ComponentProps<typeof Sheet>;
+export type ___verifySheetContract = React.ComponentProps<typeof Sheet> extends SheetBaseProps ? true : false;

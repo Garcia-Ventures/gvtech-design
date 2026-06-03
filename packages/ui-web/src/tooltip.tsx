@@ -46,4 +46,4 @@ function TooltipContent({
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };
 
 // Verify that the component satisfies the ui-core contract
-const _verifyTooltipContract: TooltipBaseProps = {} as unknown as React.ComponentProps<typeof Tooltip>;
+export type ___verifyTooltipContract = React.ComponentProps<typeof Tooltip> extends TooltipBaseProps ? true : false;

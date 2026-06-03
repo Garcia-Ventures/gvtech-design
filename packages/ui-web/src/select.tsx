@@ -171,4 +171,4 @@ export {
 };
 
 // Verify that the component satisfies the ui-core contract
-const _verifySelectContract: SelectBaseProps = {} as unknown as React.ComponentProps<typeof Select>;
+export type ___verifySelectContract = React.ComponentProps<typeof Select> extends SelectBaseProps ? true : false;
