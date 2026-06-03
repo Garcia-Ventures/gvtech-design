@@ -4,8 +4,13 @@ import { View } from 'react-native';
 import { Button } from './button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
 import { useTheme } from './hooks/use-theme';
+import { iconWithClassName } from './lib/iconWithClassName';
 import { cn } from './lib/utils';
 import { Text } from './text';
+
+iconWithClassName(Sun);
+iconWithClassName(Moon);
+iconWithClassName(SunMoon);
 
 export type ThemeToggleProps = ThemeToggleBaseProps;
 
