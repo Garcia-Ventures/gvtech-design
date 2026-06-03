@@ -62,5 +62,6 @@ export { InputGroupDocs as NativeInputGroupDocs } from './InputGroupDocs';
 export { InputOTPDocs as NativeInputOTPDocs } from './InputOTPDocs';
 export { ItemDocs as NativeItemDocs } from './ItemDocs';
 export { KbdDocs as NativeKbdDocs } from './KbdDocs';
+export * from './NativeFormDocs';
 export { NativeSelectDocs as NativeNativeSelectDocs } from './NativeSelectDocs';
 export { SidebarDocs as NativeSidebarDocs } from './SidebarDocs';

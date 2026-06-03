@@ -50,21 +50,21 @@ export const docRoutes: DocRoute[] = [
     title: 'Aspect Ratio',
     description: 'Displays content within a desired ratio.',
     web: web('WebAspectRatioDocs'),
-    // Native: not yet implemented
+    native: native('NativeAspectRatioDocs'),
   },
   {
     path: 'resizable',
     title: 'Resizable',
     description: 'Accessible resizable panel groups and layouts with keyboard support.',
     web: web('WebResizableDocs'),
-    // Native: not yet implemented
+    native: native('NativeResizableDocs'),
   },
   {
     path: 'scroll-area',
     title: 'Scroll-area',
     description: 'Augments native scroll functionality for custom, cross-browser styling.',
     web: web('WebScrollAreaDocs'),
-    // Native: not yet implemented
+    native: native('NativeScrollAreaDocs'),
   },
   {
     path: 'scroll-to-top',
@@ -115,7 +115,7 @@ export const docRoutes: DocRoute[] = [
     title: 'Breadcrumb',
     description: 'Displays the path to the current resource using a hierarchy of links.',
     web: web('WebBreadcrumbDocs'),
-    // Native: not yet implemented
+    native: native('NativeBreadcrumbDocs'),
   },
   {
     path: 'button',
@@ -129,7 +129,7 @@ export const docRoutes: DocRoute[] = [
     title: 'Calendar',
     description: 'A date field component that allows users to enter and edit dates.',
     web: web('WebCalendarDocs'),
-    // Native: not yet implemented
+    native: native('NativeCalendarDocs'),
   },
   {
     path: 'card',
@@ -143,14 +143,14 @@ export const docRoutes: DocRoute[] = [
     title: 'Carousel',
     description: 'A carousel with next and previous buttons.',
     web: web('WebCarouselDocs'),
-    // Native: not yet implemented
+    native: native('NativeCarouselDocs'),
   },
   {
     path: 'chart',
     title: 'Chart',
     description: 'A chart component with various types of charts.',
     web: web('WebChartDocs'),
-    // Native: not yet implemented
+    native: native('NativeChartDocs'),
   },
   {
     path: 'checkbox',
@@ -171,14 +171,14 @@ export const docRoutes: DocRoute[] = [
     title: 'Command',
     description: 'A command menu for running tasks and navigating.',
     web: web('WebCommandDocs'),
-    // Native: not yet implemented
+    native: native('NativeCommandDocs'),
   },
   {
     path: 'context-menu',
     title: 'Context Menu',
     description: 'Displays a menu located at the pointer, triggered by a right-click or a long-press.',
     web: web('WebContextMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeContextMenuDocs'),
   },
   {
     path: 'dialog',
@@ -193,27 +193,28 @@ export const docRoutes: DocRoute[] = [
     title: 'Drawer',
     description: 'A responsive drawer component.',
     web: web('WebDrawerDocs'),
-    // Native: not yet implemented
+    native: native('NativeDrawerDocs'),
   },
   {
     path: 'dropdown-menu',
     title: 'Dropdown Menu',
     description: 'Displays a menu to the user — such as a set of actions or functions — triggered by a button.',
     web: web('WebDropdownMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeDropdownMenuDocs'),
   },
   {
     path: 'form',
     title: 'Form',
     description: 'Building forms with React Hook Form and Zod.',
     web: web('WebFormDocs'),
+    native: native('NativeFormDocs'),
   },
   {
     path: 'hover-card',
     title: 'Hover Card',
     description: 'For sighted users to preview content available behind a link.',
     web: web('WebHoverCardDocs'),
-    // Native: not yet implemented
+    native: native('NativeHoverCardDocs'),
   },
   {
     path: 'input',
@@ -235,28 +236,28 @@ export const docRoutes: DocRoute[] = [
     description:
       'A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.',
     web: web('WebMenubarDocs'),
-    // Native: not yet implemented
+    native: native('NativeMenubarDocs'),
   },
   {
     path: 'navigation-menu',
     title: 'Navigation Menu',
     description: 'A collection of links for navigating websites.',
     web: web('WebNavigationMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeNavigationMenuDocs'),
   },
   {
     path: 'pagination',
     title: 'Pagination',
     description: 'Pagination with next and previous buttons.',
     web: web('WebPaginationDocs'),
-    // Native: not yet implemented
+    native: native('NativePaginationDocs'),
   },
   {
     path: 'popover',
     title: 'Popover',
     description: 'Displays rich content in a portal, triggered by a button.',
     web: web('WebPopoverDocs'),
-    // Native: not yet implemented
+    native: native('NativePopoverDocs'),
   },
   {
     path: 'progress',
@@ -264,7 +265,7 @@ export const docRoutes: DocRoute[] = [
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
     web: web('WebProgressDocs'),
-    // Native: not yet implemented
+    native: native('NativeProgressDocs'),
   },
   {
     path: 'radio-group',
@@ -307,14 +308,14 @@ export const docRoutes: DocRoute[] = [
     title: 'Slider',
     description: 'An input where the user selects a value from within a given range.',
     web: web('WebSliderDocs'),
-    // Native: not yet implemented
+    native: native('NativeSliderDocs'),
   },
   {
     path: 'sonner',
     title: 'Sonner',
     description: 'An opinionated toast component for React.',
     web: web('WebSonnerDocs'),
-    // Native: not yet implemented (use Toast for native)
+    native: native('NativeSonnerDocs'), // (use Toast for native)
   },
   {
     path: 'switch',

@@ -77,6 +77,11 @@ export const docConfig: DocCategory[] = [
         href: 'separator',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Direction',
+        href: 'direction',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
@@ -143,6 +148,36 @@ export const docConfig: DocCategory[] = [
         href: 'toggle-group',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Button Group',
+        href: 'button-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Field',
+        href: 'field',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input Group',
+        href: 'input-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Native Select',
+        href: 'native-select',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Combobox',
+        href: 'combobox',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input OTP',
+        href: 'input-otp',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
@@ -204,6 +239,21 @@ export const docConfig: DocCategory[] = [
         href: 'text',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Empty State',
+        href: 'empty',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Kbd',
+        href: 'kbd',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Item',
+        href: 'item',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
@@ -253,6 +303,11 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Tooltip',
         href: 'tooltip',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Spinner',
+        href: 'spinner',
         platforms: ['web', 'native'],
       },
     ],
