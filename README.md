@@ -34,6 +34,10 @@ A React component design system. This repository provides a lightweight, opinion
 
 ---
 
+## Implementation Status
+
+To see a full list of all available components and their implementation and testing status across Web and Native platforms, please refer to the [Component Registry](docs/component-registry.md).
+
 ## Demo
 
 The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
