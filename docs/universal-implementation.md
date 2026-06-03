@@ -158,38 +158,3 @@ Document intentional platform differences here. Each entry explains the _semanti
 3. If yes, build from RN primitives (`View`, `Text`, `Pressable`, `TextInput`)
 4. Wire Reanimated for any animations
 5. Add to `ui-native/src/index.ts` and `docs.ts` platforms
-
----
-
-## Outstanding Issues & Next Steps
-
-### 1. Native Test Coverage
-
-12 of 27+ native components have test files. Remaining components that need tests:
-
-- Accordion, Alert, Alert Dialog, Avatar, Badge, Label, Search, Select, Separator, Switch, Table, Tabs, Theme Toggle, Toggle, Toggle Group, Tooltip
-
-### 2. Native Playground Expansion
-
-`apps/native-playground/src/app/App.tsx` currently demos: Button, Card, Input, Checkbox, RadioGroup, Text, Badge. Add:
-
-- Accordion, Alert, AlertDialog, Avatar, Badge, Collapsible, Dialog, Select, Separator, Sheet, Skeleton, Switch, Table, Tabs, Toast, Toggle, Tooltip
-
-### 3. Token Expansion (Design Tokens)
-
-`packages/design-tokens` exports palette, theme, spacing, typography, shadows, and radii. Next:
-
-- Add a tokens reference page to the playground (showing all raw values)
-- Ensure `ui-native` consumes `design-tokens` directly (no duplication)
-
-### 4. Sub-Package Publishing
-
-Currently only `@gv-tech/design-system` (root) is published. Phase 2 should add:
-
-- `@gv-tech/ui-web`
-- `@gv-tech/ui-native`
-- `@gv-tech/ui-core`
-- `@gv-tech/design-tokens`
-
-> [!TIP]
-> During the transition period, the existing root package continues to work. The monorepo migration is additive — existing imports won't break until explicitly migrated.
