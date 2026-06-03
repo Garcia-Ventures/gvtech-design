@@ -24,6 +24,7 @@ import {
   useSidebar,
 } from '@gv-tech/ui-web';
 import { ChevronRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { version } from '../../../../../package.json';
 
@@ -34,6 +35,28 @@ interface DocsSidebarProps {
 export function DocsSidebar({ className }: DocsSidebarProps) {
   const location = useLocation();
   const { setOpenMobile, state } = useSidebar();
+
+  const [openCategories, setOpenCategories] = useState<string[]>(() => {
+    return docConfig
+      .filter(
+        (cat) =>
+          cat.title === 'Getting Started' || cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
+      )
+      .map((cat) => cat.title);
+  });
+
+  useEffect(() => {
+    const activeCategory = docConfig.find((cat) =>
+      cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
+    );
+    if (activeCategory && !openCategories.includes(activeCategory.title)) {
+      setOpenCategories((prev) => [...prev, activeCategory.title]);
+    }
+  }, [location.pathname]);
+
+  const toggleCategory = (title: string, open: boolean) => {
+    setOpenCategories((prev) => (open ? [...prev, title] : prev.filter((t) => t !== title)));
+  };
 
   return (
     <Sidebar className={className} collapsible="icon">
@@ -61,8 +84,6 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
               const filteredItems = items; // Show all items regardless of platform
               const Icon = category.icon;
 
-              const isCategoryActive = filteredItems.some((item) => location.pathname.includes(`/docs/${item.href}`));
-
               const MenuButton = (
                 <SidebarMenuButton tooltip={category.title}>
                   {Icon && <Icon />}
@@ -74,7 +95,8 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
               return (
                 <Collapsible
                   key={category.title}
-                  defaultOpen={isCategoryActive || category.title === 'Getting Started'}
+                  open={openCategories.includes(category.title)}
+                  onOpenChange={(open) => toggleCategory(category.title, open)}
                   className="group/collapsible"
                 >
                   <SidebarMenuItem>
