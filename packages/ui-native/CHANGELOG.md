@@ -1,3 +1,14 @@
+## 2.22.1 (2026-06-03)
+
+### 🚀 Features
+
+- add useTheme hook for cross-platform design token management and update ThemeToggle ([39b9b5f](https://github.com/Garcia-Ventures/gvtech-design/commit/39b9b5f))
+- add onSelect prop to DropdownMenuItem and update theme toggle usage ([fc1d570](https://github.com/Garcia-Ventures/gvtech-design/commit/fc1d570))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.22.0 (2026-06-02)
 
 ### 🚀 Features
