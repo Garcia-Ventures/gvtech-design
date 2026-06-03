@@ -1,7 +1,9 @@
 import * as React from 'react';
 
+export const alertVariantValues = ['default', 'destructive'] as const;
+export type AlertVariant = (typeof alertVariantValues)[number] | null;
 export interface AlertBaseProps {
-  variant?: 'default' | 'destructive' | 'warning' | 'info';
+  variant?: AlertVariant;
   className?: string;
   children?: React.ReactNode;
 }

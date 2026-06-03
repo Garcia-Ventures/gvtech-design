@@ -35,17 +35,20 @@ export default defineConfig({
     rolldownOptions: {
       moduleTypes: {
         '.js': 'jsx',
+        '.mjs': 'jsx',
       },
     },
     include: ['react-native-web', 'react-native-reanimated', 'react-native-svg', 'lucide-react', '@rn-primitives/**/*'],
   },
-  oxc: {
-    include: [/src\/.*\.[jt]sx?$/, /node_modules\/@rn-primitives\/.*\.js$/],
-    exclude: [],
-  },
   build: {
     outDir: 'dist-site',
     emptyOutDir: true,
+    rolldownOptions: {
+      moduleTypes: {
+        '.js': 'jsx',
+        '.mjs': 'jsx',
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

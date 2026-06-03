@@ -81,20 +81,14 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
             {showTabs ? (
               <Tabs value={activeTab} onValueChange={onTabChange} className="w-full">
-                <TabsList className="w-full justify-start rounded-none border-b bg-transparent px-4 md:px-0">
+                <TabsList variant="line" className="h-10 w-full justify-start border-b px-4 py-0 md:px-0">
                   {web && (
-                    <TabsTrigger
-                      value="web"
-                      className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
-                    >
+                    <TabsTrigger value="web" className="data-[state=active]:after:bg-primary px-2 font-semibold">
                       Web
                     </TabsTrigger>
                   )}
                   {native && (
-                    <TabsTrigger
-                      value="native"
-                      className="text-muted-foreground data-[state=active]:border-primary data-[state=active]:text-foreground relative h-9 rounded-none border-b-2 border-transparent bg-transparent px-4 pt-2 pb-3 font-semibold shadow-none transition-none data-[state=active]:shadow-none"
-                    >
+                    <TabsTrigger value="native" className="data-[state=active]:after:bg-primary px-2 font-semibold">
                       Native
                     </TabsTrigger>
                   )}

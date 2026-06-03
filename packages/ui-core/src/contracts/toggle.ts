@@ -34,8 +34,8 @@ export const toggleVariantValues = {
   },
 } as const;
 
-export type ToggleVariant = keyof typeof toggleVariantValues.variant;
-export type ToggleSize = keyof typeof toggleVariantValues.size;
+export type ToggleVariant = keyof typeof toggleVariantValues.variant | null;
+export type ToggleSize = keyof typeof toggleVariantValues.size | null;
 
 export interface ToggleBaseProps {
   children?: React.ReactNode;

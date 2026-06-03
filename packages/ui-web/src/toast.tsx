@@ -6,6 +6,8 @@ import * as React from 'react';
 
 import { cn } from './lib/utils';
 
+import type { ToastBaseProps } from '@gv-tech/ui-core';
+
 const ToastProvider = ToastPrimitives.Provider;
 
 const ToastViewport = React.forwardRef<
@@ -110,3 +112,6 @@ export {
   type ToastActionElement,
   type ToastProps,
 };
+
+// Verify that the component satisfies the ui-core contract
+const _verifyToastContract: ToastBaseProps = {} as unknown as React.ComponentProps<typeof Toast>;

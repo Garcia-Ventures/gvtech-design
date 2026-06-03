@@ -6,6 +6,6 @@ export interface SwitchBaseProps {
   onCheckedChange?: (checked: boolean) => void;
   disabled?: boolean;
   name?: string;
-  value?: string;
+  value?: string | number | readonly string[];
   id?: string;
 }

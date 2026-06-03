@@ -3,7 +3,7 @@ import * as React from 'react';
 export interface ResizablePanelGroupBaseProps {
   children?: React.ReactNode;
   className?: string;
-  direction: 'horizontal' | 'vertical';
+  orientation?: 'horizontal' | 'vertical';
   autoSaveId?: string;
   storage?: unknown;
 }

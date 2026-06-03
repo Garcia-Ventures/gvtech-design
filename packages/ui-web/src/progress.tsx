@@ -1,28 +1,30 @@
 'use client';
 
-import * as ProgressPrimitive from '@radix-ui/react-progress';
+import { Progress as ProgressPrimitive } from 'radix-ui';
 import * as React from 'react';
 
-import { ProgressBaseProps } from '@gv-tech/ui-core';
 import { cn } from './lib/utils';
 
-const Progress = React.forwardRef<
-  React.ElementRef<typeof ProgressPrimitive.Root>,
-  React.ComponentPropsWithoutRef<typeof ProgressPrimitive.Root> & ProgressBaseProps
->(({ className, value, ...props }, ref) => (
-  <ProgressPrimitive.Root
-    ref={ref}
-    className={cn('bg-primary/20 relative h-2 w-full overflow-hidden rounded-full', className)}
-    value={value}
-    {...props}
-  >
-    <ProgressPrimitive.Indicator
-      className="bg-primary h-full w-full flex-1 transition-all"
-      style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
-    />
-  </ProgressPrimitive.Root>
-));
-Progress.displayName = ProgressPrimitive.Root?.displayName || 'Progress';
+import type { ProgressBaseProps } from '@gv-tech/ui-core';
+
+function Progress({ className, value, ...props }: React.ComponentProps<typeof ProgressPrimitive.Root>) {
+  return (
+    <ProgressPrimitive.Root
+      data-slot="progress"
+      value={value}
+      className={cn('bg-muted relative flex h-1 w-full items-center overflow-x-hidden rounded-full', className)}
+      {...props}
+    >
+      <ProgressPrimitive.Indicator
+        data-slot="progress-indicator"
+        className="bg-primary size-full flex-1 transition-all"
+        style={{ transform: `translateX(-${100 - (value || 0)}%)` }}
+      />
+    </ProgressPrimitive.Root>
+  );
+}
 
 export { Progress };
-export type { ProgressBaseProps as ProgressProps };
+
+// Verify that the component satisfies the ui-core contract
+const _verifyProgressContract: ProgressBaseProps = {} as unknown as React.ComponentProps<typeof Progress>;

@@ -50,22 +50,14 @@ export function ComponentShowcase({ title, description, code, children, classNam
       </CardHeader>
       <CardContent className="p-0">
         <Tabs defaultValue={isNative && !children ? 'code' : 'preview'} className="w-full">
-          <div className="border-b px-4 md:px-6">
-            <TabsList className="h-10 bg-transparent p-0">
-              <TabsTrigger
-                value="preview"
-                className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent data-[state=active]:bg-transparent"
-              >
-                Preview
-              </TabsTrigger>
-              <TabsTrigger
-                value="code"
-                className="data-[state=active]:border-primary rounded-none border-b-2 border-transparent data-[state=active]:bg-transparent"
-              >
-                Code
-              </TabsTrigger>
-            </TabsList>
-          </div>
+          <TabsList variant="line" className="h-10 w-full justify-start border-b px-4 md:px-6">
+            <TabsTrigger value="preview" className="data-[state=active]:after:bg-primary px-2 font-semibold">
+              Preview
+            </TabsTrigger>
+            <TabsTrigger value="code" className="data-[state=active]:after:bg-primary px-2 font-semibold">
+              Code
+            </TabsTrigger>
+          </TabsList>
           <TabsContent value="preview" className="mt-0 p-4 md:p-6">
             {isNative && !children ? (
               <Alert variant="info" className="bg-muted/50 border-none shadow-none">

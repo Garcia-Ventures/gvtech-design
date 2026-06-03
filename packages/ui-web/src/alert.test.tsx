@@ -28,21 +28,6 @@ describe('Alert', () => {
 
     const alert = screen.getByRole('alert');
     expect(alert).toBeInTheDocument();
-    expect(alert).toHaveClass('border-destructive/50');
     expect(alert).toHaveClass('text-destructive');
-  });
-
-  it('renders info variant', () => {
-    render(
-      <Alert variant="info">
-        <AlertTitle>Info</AlertTitle>
-        <AlertDescription>This is an informational message.</AlertDescription>
-      </Alert>,
-    );
-
-    const alert = screen.getByRole('alert');
-    expect(alert).toBeInTheDocument();
-    expect(alert).toHaveClass('border-blue-500/50');
-    expect(alert).toHaveClass('text-blue-600');
   });
 });

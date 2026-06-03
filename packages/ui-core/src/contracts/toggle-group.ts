@@ -9,7 +9,7 @@ export interface ToggleGroupBaseProps {
   type?: 'single' | 'multiple';
   defaultValue?: string | string[];
   value?: string | string[];
-  onValueChange?: (value: string | string[]) => void;
+  onValueChange?: (value: any) => void;
   disabled?: boolean;
 }
 

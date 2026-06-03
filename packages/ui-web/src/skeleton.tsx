@@ -1,11 +1,12 @@
-'use client';
-import { SkeletonBaseProps } from '@gv-tech/ui-core';
-import * as React from 'react';
 import { cn } from './lib/utils';
 
-function Skeleton({ className, ...props }: React.HTMLAttributes<HTMLDivElement> & SkeletonBaseProps) {
-  return <div className={cn('bg-primary/10 animate-pulse rounded-md', className)} {...props} />;
+import type { SkeletonBaseProps } from '@gv-tech/ui-core';
+
+function Skeleton({ className, ...props }: React.ComponentProps<'div'>) {
+  return <div data-slot="skeleton" className={cn('bg-muted animate-pulse rounded-md', className)} {...props} />;
 }
 
 export { Skeleton };
-export type { SkeletonBaseProps as SkeletonProps };
+
+// Verify that the component satisfies the ui-core contract
+const _verifySkeletonContract: SkeletonBaseProps = {} as unknown as React.ComponentProps<typeof Skeleton>;

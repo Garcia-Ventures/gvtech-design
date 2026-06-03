@@ -137,7 +137,7 @@ function DocumentationLayout() {
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
-            <ScrollArea ref={docsScrollAreaRef} className="flex-1">
+            <ScrollArea ref={docsScrollAreaRef} className="min-h-0 flex-1">
               <div className="flex min-h-full flex-col">
                 <main className="flex w-full flex-1 flex-col p-4 md:p-8">
                   <div className="mx-auto w-full max-w-[1400px]">

@@ -1,16 +1,22 @@
 'use client';
-import { CollapsibleBaseProps, CollapsibleContentBaseProps, CollapsibleTriggerBaseProps } from '@gv-tech/ui-core';
-import * as CollapsiblePrimitive from '@radix-ui/react-collapsible';
 
-const Collapsible = CollapsiblePrimitive.Root;
+import { Collapsible as CollapsiblePrimitive } from 'radix-ui';
 
-const CollapsibleTrigger = CollapsiblePrimitive.CollapsibleTrigger;
+import type { CollapsibleBaseProps } from '@gv-tech/ui-core';
 
-const CollapsibleContent = CollapsiblePrimitive.CollapsibleContent;
+function Collapsible({ ...props }: React.ComponentProps<typeof CollapsiblePrimitive.Root>) {
+  return <CollapsiblePrimitive.Root data-slot="collapsible" {...props} />;
+}
+
+function CollapsibleTrigger({ ...props }: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleTrigger>) {
+  return <CollapsiblePrimitive.CollapsibleTrigger data-slot="collapsible-trigger" {...props} />;
+}
+
+function CollapsibleContent({ ...props }: React.ComponentProps<typeof CollapsiblePrimitive.CollapsibleContent>) {
+  return <CollapsiblePrimitive.CollapsibleContent data-slot="collapsible-content" {...props} />;
+}
 
 export { Collapsible, CollapsibleContent, CollapsibleTrigger };
-export type {
-  CollapsibleContentBaseProps as CollapsibleContentProps,
-  CollapsibleBaseProps as CollapsibleProps,
-  CollapsibleTriggerBaseProps as CollapsibleTriggerProps,
-};
+
+// Verify that the component satisfies the ui-core contract
+const _verifyCollapsibleContract: CollapsibleBaseProps = {} as unknown as React.ComponentProps<typeof Collapsible>;

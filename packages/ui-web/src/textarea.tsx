@@ -1,25 +1,23 @@
-'use client';
-
 import * as React from 'react';
 
-import { TextareaBaseProps } from '@gv-tech/ui-core';
 import { cn } from './lib/utils';
 
-export interface TextareaProps
-  extends Omit<React.TextareaHTMLAttributes<HTMLTextAreaElement>, keyof TextareaBaseProps>, TextareaBaseProps {}
+import type { TextareaBaseProps } from '@gv-tech/ui-core';
 
-const Textarea = React.forwardRef<HTMLTextAreaElement, TextareaProps>(({ className, ...props }, ref) => {
+function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
   return (
     <textarea
+      data-slot="textarea"
       className={cn(
-        'border-input placeholder:text-muted-foreground focus-visible:ring-ring flex min-h-[60px] w-full rounded-md border bg-transparent px-3 py-2 text-base shadow-sm focus-visible:ring-1 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-50 md:text-sm',
+        'border-input placeholder:text-muted-foreground focus-visible:border-ring focus-visible:ring-ring/50 disabled:bg-input/50 aria-invalid:border-destructive aria-invalid:ring-destructive/20 dark:bg-input/30 dark:disabled:bg-input/80 dark:aria-invalid:border-destructive/50 dark:aria-invalid:ring-destructive/40 flex field-sizing-content min-h-16 w-full rounded-lg border bg-transparent px-2.5 py-2 text-base transition-colors outline-none focus-visible:ring-3 disabled:cursor-not-allowed disabled:opacity-50 aria-invalid:ring-3 md:text-sm',
         className,
       )}
-      ref={ref}
       {...props}
     />
   );
-});
-Textarea.displayName = 'Textarea';
+}
 
 export { Textarea };
+
+// Verify that the component satisfies the ui-core contract
+const _verifyTextareaContract: TextareaBaseProps = {} as unknown as React.ComponentProps<typeof Textarea>;

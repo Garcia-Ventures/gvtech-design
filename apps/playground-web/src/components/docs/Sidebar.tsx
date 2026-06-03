@@ -26,7 +26,7 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
         </div>
       </div>
 
-      <ScrollArea className="flex-1">
+      <ScrollArea className="min-h-0 flex-1">
         <div className="p-4">
           <Accordion type="multiple" defaultValue={docConfig.map((c) => c.title)} className="w-full">
             {docConfig.map((category) => {
@@ -64,7 +64,7 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                             }}
                             className={({ isActive }) =>
                               cn(
-                                'group hover:bg-muted/50 text-muted-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm transition-colors',
+                                'group hover:bg-muted/50 text-muted-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm no-underline! transition-colors',
                                 isActive && 'bg-accent text-accent-foreground font-medium',
                               )
                             }
