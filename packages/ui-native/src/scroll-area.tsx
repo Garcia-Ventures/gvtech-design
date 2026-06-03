@@ -9,8 +9,8 @@ export const ScrollArea = React.forwardRef<ScrollView, ScrollAreaBaseProps>(
       <ScrollView
         ref={ref}
         className={cn('flex-1', className)}
-        showsVerticalScrollIndicator={false}
-        showsHorizontalScrollIndicator={false}
+        showsVerticalScrollIndicator={true}
+        showsHorizontalScrollIndicator={true}
         {...props}
       >
         <View>{children}</View>
@@ -21,6 +21,8 @@ export const ScrollArea = React.forwardRef<ScrollView, ScrollAreaBaseProps>(
 ScrollArea.displayName = 'ScrollArea';
 
 export const ScrollBar: React.FC<ScrollBarBaseProps> = () => {
+  // Natively, we rely on the ScrollView's built-in indicators.
+  // This component is a no-op shim for contract compatibility.
   return null;
 };
 ScrollBar.displayName = 'ScrollBar';
