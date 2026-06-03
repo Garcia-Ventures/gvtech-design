@@ -1,0 +1,1052 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "gvtech-design-web",
+  "homepage": "https://github.com/Garcia-Ventures/gvtech-design",
+  "items": [
+    {
+      "name": "accordion",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/accordion.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert-dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/alert-dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "alert",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/alert.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "aspect-ratio",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/aspect-ratio.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "avatar",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/avatar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "badge",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/badge.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "breadcrumb",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/button-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "button",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/button.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "calendar",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-day-picker",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/calendar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "card",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "carousel",
+      "type": "registry:ui",
+      "dependencies": [
+        "embla-carousel-react",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/carousel.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "chart",
+      "type": "registry:ui",
+      "dependencies": [
+        "recharts"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/chart.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "checkbox",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/checkbox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "collapsible",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/collapsible.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "combobox",
+      "type": "registry:ui",
+      "dependencies": [
+        "@base-ui/react",
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "src/combobox.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "command",
+      "type": "registry:ui",
+      "dependencies": [
+        "cmdk",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "dialog",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "src/command.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "context-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/context-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dialog",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/dialog.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "direction",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/direction.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "drawer",
+      "type": "registry:ui",
+      "dependencies": [
+        "vaul",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/drawer.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "dropdown-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/dropdown-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "empty",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/empty.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "field",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "label",
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/field.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "form",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-label",
+        "@radix-ui/react-slot",
+        "react-hook-form",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "label"
+      ],
+      "files": [
+        {
+          "path": "src/form.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "hover-card",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/hover-card.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "textarea"
+      ],
+      "files": [
+        {
+          "path": "src/input-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input-otp",
+      "type": "registry:ui",
+      "dependencies": [
+        "input-otp",
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/input-otp.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "input",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/input.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "item",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "separator"
+      ],
+      "files": [
+        {
+          "path": "src/item.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "kbd",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/kbd.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "label",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/label.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "menubar",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "native-select",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/native-select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "navigation-menu",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/navigation-menu.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "pagination",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/pagination.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "popover",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/popover.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "progress",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "radio-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/radio-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "resizable",
+      "type": "registry:ui",
+      "dependencies": [
+        "react-resizable-panels"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/resizable.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-area",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/scroll-area.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "scroll-to-top",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/scroll-to-top.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "search",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "command"
+      ],
+      "files": [
+        {
+          "path": "src/search.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "select",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/select.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "separator",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/separator.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "setupTests",
+      "type": "registry:ui",
+      "dependencies": [
+        "vitest"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/setupTests.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sheet",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "src/sheet.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "sidebar",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "input",
+        "separator",
+        "sheet",
+        "skeleton",
+        "tooltip"
+      ],
+      "files": [
+        {
+          "path": "src/sidebar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "skeleton",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/skeleton.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "slider",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/slider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "spinner",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/spinner.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "support-fab",
+      "type": "registry:ui",
+      "dependencies": [
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "drawer"
+      ],
+      "files": [
+        {
+          "path": "src/support-fab.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "switch",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/switch.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table-of-contents",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/table-of-contents.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "table",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/table.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tabs",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/tabs.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "text",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/text.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "textarea",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/textarea.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-provider",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core",
+        "next-themes"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/theme-provider.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "theme-toggle",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core",
+        "lucide-react"
+      ],
+      "registryDependencies": [
+        "button",
+        "dropdown-menu"
+      ],
+      "files": [
+        {
+          "path": "src/theme-toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toast",
+      "type": "registry:ui",
+      "dependencies": [
+        "@radix-ui/react-toast",
+        "class-variance-authority",
+        "lucide-react",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/toast.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toaster",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "toast"
+      ],
+      "files": [
+        {
+          "path": "src/toaster.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle-group",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [
+        "toggle"
+      ],
+      "files": [
+        {
+          "path": "src/toggle-group.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "toggle",
+      "type": "registry:ui",
+      "dependencies": [
+        "class-variance-authority",
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/toggle.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "tooltip",
+      "type": "registry:ui",
+      "dependencies": [
+        "radix-ui",
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/tooltip.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    }
+  ]
+}
