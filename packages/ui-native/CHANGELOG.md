@@ -1,3 +1,13 @@
+## 2.22.2 (2026-06-03)
+
+### 🚀 Features
+
+- implement native Search and Form components, update Carousel, and add documentation for complex components. ([db72bf5](https://github.com/Garcia-Ventures/gvtech-design/commit/db72bf5))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.22.1 (2026-06-03)
 
 ### 🚀 Features
