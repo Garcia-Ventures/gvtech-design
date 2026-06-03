@@ -3,16 +3,17 @@ import '@testing-library/jest-dom';
 import { vi } from 'vitest';
 
 // ResizeObserver polyfill
-global.ResizeObserver = class ResizeObserver {
+globalThis.ResizeObserver = class ResizeObserver {
   observe() {}
   unobserve() {}
   disconnect() {}
 };
 
 // IntersectionObserver polyfill
-global.IntersectionObserver = class IntersectionObserver {
+globalThis.IntersectionObserver = class IntersectionObserver {
   readonly root: Element | Document | null = null;
   readonly rootMargin: string = '';
+  readonly scrollMargin: string = '';
   readonly thresholds: ReadonlyArray<number> = [];
 
   constructor(_callback: IntersectionObserverCallback, options?: IntersectionObserverInit) {
@@ -49,7 +50,7 @@ Object.defineProperty(window, 'matchMedia', {
 });
 
 // PointerEvent polyfill (simplified)
-if (!global.PointerEvent) {
+if (!globalThis.PointerEvent) {
   class PointerEvent extends MouseEvent {
     public height: number;
     public isPrimary: boolean;
@@ -76,7 +77,7 @@ if (!global.PointerEvent) {
       this.isPrimary = params.isPrimary || false;
     }
   }
-  global.PointerEvent = PointerEvent as any;
+  globalThis.PointerEvent = PointerEvent as any;
   window.PointerEvent = PointerEvent as any;
 }
 

@@ -17,13 +17,8 @@ export function SliderDocs() {
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
           The Slider component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/slider"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Slider
+          <a href="https://reactnativereusables.com/docs/slider" className="underline" target="_blank" rel="noreferrer">
+            React Native Reusables Slider (@rn-primitives/slider)
           </a>
           .
         </p>

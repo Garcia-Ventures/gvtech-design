@@ -57,7 +57,9 @@ describe('Chart', () => {
     // Let's check for the chart container.
     // The ChartContainer adds data-chart attribute.
     // But we can check for text.
-    expect(screen.getByText('Jan')).toBeInTheDocument();
-    expect(screen.getByText('Feb')).toBeInTheDocument();
+    // Recharts 3 renders a hidden aria-hidden measurement span with the same
+    // text, so use a selector scoped to the SVG axis tick labels.
+    expect(screen.getByText('Jan', { selector: 'tspan' })).toBeInTheDocument();
+    expect(screen.getByText('Feb', { selector: 'tspan' })).toBeInTheDocument();
   });
 });

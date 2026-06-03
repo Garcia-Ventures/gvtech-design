@@ -1,3 +1,48 @@
+## 2.22.1 (2026-06-03)
+
+### 🚀 Features
+
+- add useTheme hook for cross-platform design token management and update ThemeToggle ([39b9b5f](https://github.com/Garcia-Ventures/gvtech-design/commit/39b9b5f))
+- add onSelect prop to DropdownMenuItem and update theme toggle usage ([fc1d570](https://github.com/Garcia-Ventures/gvtech-design/commit/fc1d570))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.0 (2026-06-02)
+
+### 🚀 Features
+
+- **ThemeToggle:** migrate ui-native theme provider to use NativeWind color scheme management ([c0c6b68](https://github.com/Garcia-Ventures/gvtech-design/commit/c0c6b68))
+
+### 🩹 Fixes
+
+- **ui-native:** standardize type exports and native installation paths ([b495a7b](https://github.com/Garcia-Ventures/gvtech-design/commit/b495a7b))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.21.1 (2026-05-28)
+
+No changes for this project
+
+## 2.21.0 (2026-05-28)
+
+### 🚀 Features
+
+- DS enhancements ([#91](https://github.com/Garcia-Ventures/gvtech-design/pull/91))
+
+### 🩹 Fixes
+
+- **ui-native:** add rootDir to tsconfig for TS6 compat ([3a883d7](https://github.com/Garcia-Ventures/gvtech-design/commit/3a883d7))
+
+### ❤️ Thank You
+
+- Copilot @Copilot
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.20.0 (2026-03-24)
 
 ### 🚀 Features

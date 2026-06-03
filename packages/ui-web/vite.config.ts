@@ -61,6 +61,8 @@ export default defineConfig({
     rollupOptions: {
       external: [
         'react',
+        'react/jsx-runtime',
+        'react/jsx-dev-runtime',
         'react-dom',
         '@gv-tech/design-tokens',
         '@gv-tech/ui-core',

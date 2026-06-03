@@ -48,7 +48,11 @@ export default defineConfig({
         insertTypesEntry: true,
         include: ['packages/ui-web/src', 'packages/ui-core/src', 'packages/design-tokens/src', 'src'],
         staticImport: true,
-        rollupTypes: true, // Bundle types into one file for better performance
+        // rollupTypes disabled: @microsoft/api-extractor can't follow Radix UI's
+        // Portal symbol when bundling cross-package types (known upstream bug).
+        // Individual .d.ts files per module are emitted instead — fully functional
+        // and better for type tree-shaking.
+        rollupTypes: false,
         skipDiagnostics: true, // Speed up build - type checking is handled separately
       }),
   ],
@@ -76,8 +80,8 @@ export default defineConfig({
     extensions: ['.web.tsx', '.tsx', '.ts', '.js'],
   },
   optimizeDeps: {
-    esbuildOptions: {
-      loader: {
+    rolldownOptions: {
+      moduleTypes: {
         '.js': 'jsx',
       },
     },

@@ -33,3 +33,5 @@ export const tokens = {
   palette,
   theme,
 } as const;
+
+export { preset } from './preset';

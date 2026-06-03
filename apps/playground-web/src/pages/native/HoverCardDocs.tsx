@@ -40,16 +40,16 @@ export function HoverCardDocs() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Hover Card component is built on top of{' '}
+          The HoverCard component is built on top of{' '}
           <a
-            href="https://www.radix-ui.com/primitives/docs/components/hover-card"
+            href="https://reactnativereusables.com/docs/hover-card"
             className="underline"
             target="_blank"
             rel="noreferrer"
           >
-            Radix UI Hover Card
+            React Native Reusables HoverCard (@rn-primitives/hover-card)
           </a>
-          .
+          . Note that on mobile viewports, hover acts as a quick tap to toggle the card portal.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">HoverCard (Root)</h4>

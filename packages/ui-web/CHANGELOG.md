@@ -1,3 +1,47 @@
+## 2.22.1 (2026-06-03)
+
+No changes for this project
+
+## 2.22.0 (2026-06-02)
+
+### 🩹 Fixes
+
+- **ui-native:** standardize type exports and native installation paths ([b495a7b](https://github.com/Garcia-Ventures/gvtech-design/commit/b495a7b))
+- fix xss vulnerability in chart.tsx by removing dangerouslySetInnerHTML ([#94](https://github.com/Garcia-Ventures/gvtech-design/pull/94))
+
+### ❤️ Thank You
+
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
+## 2.21.1 (2026-05-28)
+
+### 🩹 Fixes
+
+- add react jsx runtimes to external dependencies in vite config ([f226be8](https://github.com/Garcia-Ventures/gvtech-design/commit/f226be8))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.21.0 (2026-05-28)
+
+### 🚀 Features
+
+- DS enhancements ([#91](https://github.com/Garcia-Ventures/gvtech-design/pull/91))
+- add path mapping for @gv-tech/ui-web in tsconfig.json ([c7c6b92](https://github.com/Garcia-Ventures/gvtech-design/commit/c7c6b92))
+
+### 🩹 Fixes
+
+- **ui-web:** update chart test for recharts 3 measurement span ([14de0fc](https://github.com/Garcia-Ventures/gvtech-design/commit/14de0fc))
+- update click event handling in Button tests to use userEvent setup ([4843047](https://github.com/Garcia-Ventures/gvtech-design/commit/4843047))
+
+### ❤️ Thank You
+
+- Copilot @Copilot
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.20.0 (2026-03-24)
 
 No changes for this project

@@ -6,13 +6,13 @@ export function ThemeToggleDocs() {
     <>
       <ComponentShowcase
         title="Binary Mode"
-        description="The default mode allows toggling between light and dark themes. (Controlled example shown to prevent site theme changes)"
+        description="The default mode allows toggling between light and dark themes."
         code={`<ThemeToggle variant="binary" />`}
       />
 
       <ComponentShowcase
         title="Ternary Mode"
-        description="Ternary mode allows choosing between light, dark, and system themes using a dropdown menu. (Controlled example shown to prevent site theme changes)"
+        description="Ternary mode allows choosing between light, dark, and system themes using a dropdown menu."
         code={`<ThemeToggle variant="ternary" />`}
       />
 
@@ -35,17 +35,16 @@ export function ThemeToggleDocs() {
           <h3 className="text-xl font-semibold">ThemeProvider</h3>
           <p className="text-muted-foreground mt-2">
             The design system exports a pre-configured{' '}
-            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> that wraps{' '}
-            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">next-themes</code> with sensible defaults. Wrap
-            your application with it to enable theme switching for all design system components.
+            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> that leverages{' '}
+            <code className="bg-muted rounded px-1.5 py-0.5 text-sm">nativewind</code>'s color scheme management. It
+            automatically applies the required CSS classes to the component tree to enable Tailwind's dark mode.
           </p>
         </div>
 
         <div className="bg-muted rounded-md border p-4">
           <pre className="text-xs">
             <code>
-              {`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
-import '@gv-tech/design-system/style.css';
+              {`import { ThemeProvider, ThemeToggle } from '@gv-tech/ui-native';
 
 function App() {
   return (
@@ -60,131 +59,56 @@ function App() {
         </div>
 
         <div className="space-y-4">
-          <h4 className="text-foreground font-medium">Defaults</h4>
+          <h4 className="text-foreground font-medium">Behaviors</h4>
           <p className="text-muted-foreground text-sm">
-            Out of the box, <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> applies these
-            defaults. You can override any of them by passing the corresponding prop.
+            The <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code> in React Native performs
+            these key functions:
           </p>
           <div className="rounded-md border">
             <table className="w-full text-sm">
               <thead>
                 <tr className="bg-muted/50 border-b">
-                  <th className="p-3 text-left font-medium">Prop</th>
-                  <th className="p-3 text-left font-medium">Default</th>
-                  <th className="p-3 text-left font-medium">Description</th>
+                  <th className="p-3 text-left font-medium">Feature</th>
+                  <th className="p-3 text-left font-medium">Implementation</th>
+                  <th className="p-3 text-left font-medium">Benefit</th>
                 </tr>
               </thead>
               <tbody>
                 <tr className="border-b">
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">attribute</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">Color Scheme</code>
                   </td>
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">"class"</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">useColorScheme()</code>
                   </td>
-                  <td className="text-muted-foreground p-3">Applies the theme as a CSS class on the HTML element</td>
+                  <td className="text-muted-foreground p-3">Reactive access to NativeWind's global theme state</td>
                 </tr>
                 <tr className="border-b">
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">defaultTheme</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">Dark Class</code>
                   </td>
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">"system"</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">className="dark"</code>
                   </td>
-                  <td className="text-muted-foreground p-3">Respects the user's operating system preference</td>
+                  <td className="text-muted-foreground p-3">Enables Tailwind's "dark:" variants for all children</td>
                 </tr>
                 <tr>
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">enableSystem</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">Flex Container</code>
                   </td>
                   <td className="p-3">
-                    <code className="bg-muted rounded px-1 py-0.5 text-xs">true</code>
+                    <code className="bg-muted rounded px-1 py-0.5 text-xs">flex: 1</code>
                   </td>
-                  <td className="text-muted-foreground p-3">Enables automatic detection of the OS color scheme</td>
+                  <td className="text-muted-foreground p-3">Ensures the provider fills the screen by default</td>
                 </tr>
               </tbody>
             </table>
           </div>
         </div>
-
-        <div className="bg-muted rounded-md border p-4">
-          <p className="text-muted-foreground mb-2 text-xs font-medium">Overriding defaults:</p>
-          <pre className="text-xs">
-            <code>
-              {`<ThemeProvider
-  defaultTheme="dark"
-  storageKey="my-app-theme"
-  themes={['light', 'dark', 'ocean']}
->
-  <App />
-</ThemeProvider>`}
-            </code>
-          </pre>
-        </div>
-      </div>
-
-      {/* useTheme Section */}
-      <div className="mt-12 space-y-4">
-        <h3 className="text-xl font-semibold">useTheme Hook</h3>
-        <p className="text-muted-foreground text-sm">
-          The <code className="bg-muted rounded px-1.5 py-0.5 text-sm">useTheme</code> hook provides access to the
-          current theme, theme controls, and the active design tokens. It must be used within a{' '}
-          <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>.
-        </p>
-        <div className="bg-muted rounded-md border p-4">
-          <pre className="text-xs">
-            <code>
-              {`import { useTheme } from '@gv-tech/design-system';
-
-export function MyComponent() {
-  const { theme, setTheme, resolvedTheme, tokens } = useTheme();
-
-  return (
-    <div style={{ backgroundColor: tokens.background }}>
-      <p>Current theme: {theme}</p>
-      <p>Resolved theme: {resolvedTheme}</p>
-      <button onClick={() => setTheme('dark')}>Dark Mode</button>
-    </div>
-  );
-}`}
-            </code>
-          </pre>
-        </div>
-
-        <PropsTable
-          props={[
-            {
-              name: 'theme',
-              type: 'string',
-              required: false,
-              description: 'The current theme name ("light", "dark", or "system").',
-            },
-            {
-              name: 'setTheme',
-              type: '(theme: string) => void',
-              required: false,
-              description: 'Function to programmatically change the theme.',
-            },
-            {
-              name: 'resolvedTheme',
-              type: 'string',
-              required: false,
-              description:
-                'The resolved theme ("light" or "dark"). Useful when theme is "system" and you need the actual value.',
-            },
-            {
-              name: 'tokens',
-              type: 'ThemeTokens',
-              required: false,
-              description:
-                'The active color tokens for the current resolved theme (light or dark). Contains background, foreground, primary, and other design token values.',
-            },
-          ]}
-        />
       </div>
 
       {/* ThemeToggle Props Section */}
-      <div className="space-y-4">
+      <div className="mt-12 space-y-4">
         <h3 className="text-xl font-semibold">ThemeToggle Props</h3>
         <PropsTable
           props={[
@@ -212,7 +136,7 @@ export function MyComponent() {
               name: 'className',
               type: 'string',
               required: false,
-              description: 'Additional CSS classes for the toggle button.',
+              description: 'Additional Tailwind classes for the toggle button.',
             },
           ]}
         />
@@ -225,7 +149,7 @@ export function MyComponent() {
           <p className="text-muted-foreground mt-2">
             The <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeToggle</code> component works seamlessly
             with the design system's <code className="bg-muted rounded px-1.5 py-0.5 text-sm">ThemeProvider</code>. It
-            can also be used in a fully controlled manner with any theme provider or custom state.
+            uses NativeWind's shared state to ensure theme changes are reflected instantly.
           </p>
         </div>
 
@@ -235,17 +159,12 @@ export function MyComponent() {
             <p className="text-muted-foreground mt-1 text-sm">
               Wrap your app with the design system's{' '}
               <code className="bg-muted rounded px-1 py-0.5 text-xs">ThemeProvider</code> and drop in the toggle.
-              Everything connects automatically.
             </p>
             <pre className="bg-background mt-4 overflow-x-auto rounded-md p-4 text-xs">
-              <code>{`import { ThemeProvider, ThemeToggle } from '@gv-tech/design-system';
-const isNative = true as boolean;
-
-const platform = 'native' as string;
-
+              <code>{`import { ThemeProvider, ThemeToggle } from '@gv-tech/ui-native';
 
 <ThemeProvider>
-  <ThemeToggle />
+  <ThemeToggle variant="ternary" />
 </ThemeProvider>`}</code>
             </pre>
           </div>
@@ -266,14 +185,14 @@ const platform = 'native' as string;
           </div>
         </div>
 
-        <div className="rounded-lg border border-amber-500/30 bg-amber-500/5 p-6">
-          <h4 className="font-medium text-amber-600 dark:text-amber-400">⚠️ Important: Shared Context</h4>
+        <div className="rounded-lg border border-blue-500/30 bg-blue-500/5 p-6">
+          <h4 className="font-medium text-blue-600 dark:text-blue-400">💡 NativeWind Synergies</h4>
           <p className="text-muted-foreground mt-1 text-sm">
-            The design system marks <code className="bg-muted rounded px-1 py-0.5 text-xs">next-themes</code> as a{' '}
-            <strong>peer dependency</strong>, meaning it uses the same instance as your project. This ensures that{' '}
-            <code className="bg-muted rounded px-1 py-0.5 text-xs">useTheme</code>,{' '}
-            <code className="bg-muted rounded px-1 py-0.5 text-xs">ThemeToggle</code>, and your own components all share
-            the same theme context — no duplicate providers needed.
+            The design system's <code className="bg-muted rounded px-1 py-0.5 text-xs">ThemeToggle</code> directly
+            interacts with NativeWind's <code className="bg-muted rounded px-1 py-0.5 text-xs">setColorScheme</code>.
+            This ensures that your own custom components using{' '}
+            <code className="bg-muted rounded px-1 py-0.5 text-xs">dark:</code> classes will respond immediately to the
+            toggle.
           </p>
         </div>
       </div>

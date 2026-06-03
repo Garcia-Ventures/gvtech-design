@@ -20,11 +20,11 @@ export default defineConfig({
     },
   },
   build: {
-    // Empty the bundle since we only want types for now
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'GvTechUiNative',
-      formats: ['es'],
+      fileName: (format) => `ui-native.${format === 'es' ? 'mjs' : 'cjs'}`,
+      formats: ['es', 'cjs'],
     },
     rollupOptions: {
       // Externalize all dependencies to avoid bundling issues with JSX

@@ -1,7 +1,6 @@
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { usePackageManager, type PackageManager } from '@/hooks/usePackageManager';
-import { Alert, AlertDescription, AlertTitle, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
-import { Info } from 'lucide-react';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 
 export function WebInstallationDocs() {
   const { packageManager, setPackageManager } = usePackageManager();
@@ -11,7 +10,9 @@ export function WebInstallationDocs() {
       <section className="space-y-4">
         <div className="space-y-2">
           <h2 className="text-2xl font-semibold tracking-tight">Installation</h2>
-          <p className="text-muted-foreground">Install the web-optimized package for React and Tailwind CSS.</p>
+          <p className="text-muted-foreground">
+            Install the web-optimized package and design tokens for React and Tailwind CSS.
+          </p>
         </div>
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
           <TabsList>
@@ -22,19 +23,19 @@ export function WebInstallationDocs() {
             <TabsTrigger value="yarn-classic">Yarn Classic</TabsTrigger>
           </TabsList>
           <TabsContent value="npm" className="mt-4">
-            <CodeBlock code="npm install @gv-tech/ui-web" language="bash" />
+            <CodeBlock code="npm install @gv-tech/ui-web @gv-tech/design-tokens" language="bash" />
           </TabsContent>
           <TabsContent value="bun" className="mt-4">
-            <CodeBlock code="bun add @gv-tech/ui-web" language="bash" />
+            <CodeBlock code="bun add @gv-tech/ui-web @gv-tech/design-tokens" language="bash" />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4">
-            <CodeBlock code="pnpm add @gv-tech/ui-web" language="bash" />
+            <CodeBlock code="pnpm add @gv-tech/ui-web @gv-tech/design-tokens" language="bash" />
           </TabsContent>
           <TabsContent value="yarn" className="mt-4">
-            <CodeBlock code="yarn add @gv-tech/ui-web" language="bash" />
+            <CodeBlock code="yarn add @gv-tech/ui-web @gv-tech/design-tokens" language="bash" />
           </TabsContent>
           <TabsContent value="yarn-classic" className="mt-4">
-            <CodeBlock code="yarn add @gv-tech/ui-web" language="bash" />
+            <CodeBlock code="yarn add @gv-tech/ui-web @gv-tech/design-tokens" language="bash" />
           </TabsContent>
         </Tabs>
       </section>
@@ -49,97 +50,33 @@ export function WebInstallationDocs() {
           code={`npm install react@^18.0.0 react-dom@^18.0.0 lucide-react@^0.475.0 clsx@^2.1.1 tailwind-merge@^3.0.1 next-themes@^0.4.0`}
           language="bash"
         />
-        <CodeBlock
-          code={`{
-  "react": "^18.0.0 || ^19.0.0",
-  "react-dom": "^18.0.0 || ^19.0.0",
-  "lucide-react": "^0.475.0",
-  "clsx": "^2.1.1",
-  "tailwind-merge": "^3.0.1",
-  "next-themes": "^0.4.0"
-}`}
-          language="json"
-        />
-        <div className="grid gap-4 md:grid-cols-2">
-          <Alert variant="info" className="border-blue-500/20 bg-blue-500/5">
-            <Info className="h-4 w-4 text-blue-500" />
-            <AlertTitle className="text-blue-500">Theming Engine</AlertTitle>
-            <AlertDescription className="text-xs">
-              <code className="bg-muted rounded px-1 py-0.5">next-themes</code> is required for robust dark mode
-              detection and theme persistence across sessions.
-            </AlertDescription>
-          </Alert>
-          <Alert variant="info" className="border-purple-500/20 bg-purple-500/5">
-            <Info className="h-4 w-4 text-purple-500" />
-            <AlertTitle className="text-purple-500">Utility Classes</AlertTitle>
-            <AlertDescription className="text-xs">
-              We use <code className="bg-muted rounded px-1 py-0.5">tailwind-merge</code> and{' '}
-              <code className="bg-muted rounded px-1 py-0.5">clsx</code> internally for dynamic class composition.
-            </AlertDescription>
-          </Alert>
-        </div>
       </section>
 
       <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Project Structure & Required Files</h2>
-        <ul className="text-muted-foreground list-disc pl-6">
-          <li>
-            <b>globals.css</b> — Your main CSS entry point. Must include Tailwind and design system token imports.
-          </li>
-          <li>
-            <b>tailwind.config.js</b> — Required for custom theme extension and purge setup.
-          </li>
-          <li>
-            <b>postcss.config.js</b> — Required for Tailwind/PostCSS integration.
-          </li>
-          <li>
-            <b>Minimum React version:</b> 18.0.0
-          </li>
-          <li>
-            <b>Supported frameworks:</b> Vite, Next.js, CRA (with PostCSS/Tailwind enabled)
-          </li>
-        </ul>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Troubleshooting Styles</h2>
-        <ul className="text-muted-foreground list-disc pl-6">
-          <li>
-            <b>Styles not showing?</b> Ensure <code>globals.css</code> is imported in your app root (e.g.,{' '}
-            <code>main.tsx</code> or <code>_app.tsx</code>).
-          </li>
-          <li>
-            <b>Tailwind config missing?</b> Confirm <code>tailwind.config.js</code> exists and includes{' '}
-            <code>content</code> paths for your components and pages.
-          </li>
-          <li>
-            <b>PostCSS not configured?</b> Make sure <code>postcss.config.js</code> includes <code>tailwindcss</code>{' '}
-            and <code>autoprefixer</code>.
-          </li>
-          <li>
-            <b>Theme tokens not loading?</b> Check that global HSL variables are set in <code>@layer base</code> in{' '}
-            <code>globals.css</code>.
-          </li>
-          <li>
-            <b>Dark mode not working?</b> Wrap your app in <code>ThemeProvider</code> and use <code>next-themes</code>{' '}
-            for theme persistence.
-          </li>
-          <li>
-            <b>Vite/Next.js issues?</b> Ensure CSS imports are ordered correctly and that{' '}
-            <code>@gv-tech/ui-web/style.css</code> is imported if not using Tailwind.
-          </li>
-        </ul>
-      </section>
-
-      <section className="space-y-4">
-        <h2 className="text-2xl font-semibold tracking-tight">Configure Tailwind CSS 4.0</h2>
+        <h2 className="text-2xl font-semibold tracking-tight">Configure Tailwind CSS</h2>
         <p className="text-muted-foreground">
-          Tailwind CSS 4.0 simplifies configuration by moving it directly into your CSS files. Add the following to your
-          primary entry point (e.g., <code className="bg-muted rounded px-1 py-0.5">globals.css</code>):
+          The easiest way to integrate theme tokens (colors, border-radius, shadows, animations) is by using the
+          single-source-of-truth configuration preset shipped in{' '}
+          <code className="bg-muted rounded px-1 py-0.5">@gv-tech/design-tokens</code>.
         </p>
-        <CodeBlock
-          language="css"
-          code={`@import "tailwindcss";
+
+        <Tabs defaultValue="v4">
+          <TabsList>
+            <TabsTrigger value="v4">Tailwind v4.0 (CSS-first)</TabsTrigger>
+            <TabsTrigger value="v3">Tailwind v3.0 (JS Config)</TabsTrigger>
+          </TabsList>
+
+          <TabsContent value="v4" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">
+              In Tailwind 4.0, configure sources and themes natively inside your main stylesheet (e.g.,{' '}
+              <code className="bg-muted rounded px-1">globals.css</code>):
+            </p>
+            <CodeBlock
+              language="css"
+              code={`@import "tailwindcss";
+
+/* Scan design system component files for styles */
+@source "node_modules/@gv-tech/ui-web/dist/**/*.mjs";
 
 @theme {
   /* Define design system radius tokens */
@@ -167,40 +104,88 @@ export function WebInstallationDocs() {
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
 }`}
-        />
+            />
+          </TabsContent>
+
+          <TabsContent value="v3" className="mt-4 space-y-4">
+            <p className="text-muted-foreground text-sm">
+              For Tailwind v3, import the configuration preset directly into your{' '}
+              <code className="bg-muted rounded px-1">tailwind.config.js</code>:
+            </p>
+            <CodeBlock
+              language="javascript"
+              code={`const { preset } = require("@gv-tech/design-tokens");
+
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  presets: [preset],
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/@gv-tech/ui-web/dist/**/*.mjs",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+};`}
+            />
+          </TabsContent>
+        </Tabs>
       </section>
 
       <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Global Token Setup</h2>
         <p className="text-muted-foreground">
-          Include the base HSL variables to initialize the design system's theme. These variables drive the automatic
-          theming of all GV Tech components.
+          Include the base HSL variables to initialize the design system's theme in your primary entry point (e.g.,{' '}
+          <code className="bg-muted rounded px-1">globals.css</code>).
         </p>
         <CodeBlock
           code={`@layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --background: 0 0% 96%;
+    --foreground: 222 47% 11%;
+    --card: 0 0% 100%;
+    --card-foreground: 222 47% 11%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+    --primary: 225 73% 57%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 93 28% 54%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 0 0% 92%;
+    --muted-foreground: 215 16% 47%;
+    --accent: 0 0% 88%;
+    --accent-foreground: 222 47% 11%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 222 47% 11%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
-    --ring: 212.7 26.8% 83.9%;
+    --background: 0 0% 9%;
+    --foreground: 0 0% 100%;
+    --card: 0 0% 14%;
+    --card-foreground: 0 0% 100%;
+    --popover: 0 0% 11%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 227 96% 71%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 96 44% 61%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 6%;
+    --muted-foreground: 0 0% 70%;
+    --accent: 0 0% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 18%;
+    --input: 0 0% 18%;
+    --ring: 0 0% 90%;
+    --radius: 0.5rem;
   }
 }`}
           language="css"
@@ -214,10 +199,7 @@ export function WebInstallationDocs() {
           automatic color mode detection and component theming.
         </p>
         <CodeBlock
-          code={`import { ThemeProvider, Button } from '@gv-tech/ui-web';
-
-// Optional: Import direct styles if not using standard Tailwind integration
-// import '@gv-tech/ui-web/style.css';
+          code={`import { ThemeProvider } from '@gv-tech/ui-web';
 
 export default function Layout({ children }) {
   return (

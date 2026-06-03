@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-web",
-  "version": "2.20.0",
+  "version": "2.22.1",
   "description": "Web (DOM/Radix) implementations of the GV Tech design system components",
   "repository": {
     "type": "git",
@@ -78,7 +78,7 @@
     "react-day-picker": "^9.13.2",
     "react-hook-form": "^7.71.1",
     "react-resizable-panels": "^4.6.4",
-    "recharts": "2.15.4",
+    "recharts": "3.8.1",
     "sonner": "^2.0.7",
     "tailwind-merge": "^3.4.1",
     "vaul": "^1.1.2",

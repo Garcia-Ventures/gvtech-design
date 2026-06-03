@@ -1,4 +1,4 @@
-import { docConfig } from '@/config/docs';
+import { docItemsMap } from '@/config/docs';
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
 import { safeTrack } from './analytics';
@@ -8,16 +8,7 @@ const DEFAULT_ENDPOINT = 'https://stats.garciaericn.com/api/event';
 const OPTOUT_KEY = 'plausible_ignore';
 
 function getDocItem(slug: string) {
-  for (const category of docConfig) {
-    const found = category.items.find((item) => item.href === slug);
-    if (found) {
-      return {
-        category: category.title,
-        item: found,
-      };
-    }
-  }
-  return null;
+  return docItemsMap.get(slug) || null;
 }
 
 export function PlausibleProvider({ children }: { children: React.ReactNode }): React.ReactElement {

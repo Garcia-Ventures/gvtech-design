@@ -1,9 +1,7 @@
-import { Text, View } from 'react-native';
+import type { CalendarBaseProps } from '@gv-tech/ui-core';
+import * as React from 'react';
+import { View } from 'react-native';
 
-export const Calendar = () => {
-  return (
-    <View>
-      <Text>calendar is not yet implemented for React Native</Text>
-    </View>
-  );
+export const Calendar: React.FC<CalendarBaseProps> = ({ className }) => {
+  return <View className={className} />;
 };
