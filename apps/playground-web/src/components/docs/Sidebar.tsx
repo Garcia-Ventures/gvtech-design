@@ -62,15 +62,15 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
     <Sidebar className={className} collapsible="icon">
       <SidebarHeader className="flex h-14 shrink-0 flex-row items-center border-b p-6 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
         <div className="flex items-center gap-2 text-xl font-bold group-data-[collapsible=icon]:hidden">
-          <div className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded text-xs">
-            GV
-          </div>
+          <img src="/logo192.png" alt="GV Tech Logo" className="h-6 w-6 rounded" />
           GVTech Design
         </div>
         {/* Render only the logo when collapsed */}
-        <div className="bg-primary text-primary-foreground hidden h-6 w-6 items-center justify-center rounded text-xs group-data-[collapsible=icon]:flex">
-          GV
-        </div>
+        <img
+          src="/logo192.png"
+          alt="GV Tech Logo"
+          className="hidden h-6 w-6 rounded group-data-[collapsible=icon]:flex"
+        />
         <div className="ml-auto flex flex-col items-end gap-0.5 group-data-[collapsible=icon]:hidden">
           <span className="text-muted-foreground font-mono text-[10px]">v{version}</span>
         </div>
