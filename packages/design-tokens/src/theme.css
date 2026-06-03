@@ -20,6 +20,14 @@
     --border: 0 0% 89%;
     --input: 0 0% 89%;
     --ring: 222 47% 11%;
+    --sidebar: 0 0% 96%;
+    --sidebar-foreground: 222 47% 11%;
+    --sidebar-primary: 225 73% 57%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 92%;
+    --sidebar-accent-foreground: 0 0% 14%;
+    --sidebar-border: 0 0% 89%;
+    --sidebar-ring: 225 73% 57%;
     --radius: 0.5rem;
 
     /* Brand Tokens */
@@ -67,6 +75,14 @@
     --border: 0 0% 18%;
     --input: 0 0% 18%;
     --ring: 0 0% 90%;
+    --sidebar: 0 0% 11%;
+    --sidebar-foreground: 0 0% 70%;
+    --sidebar-primary: 227 96% 71%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 0 0% 15%;
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 0 0% 18%;
+    --sidebar-ring: 227 96% 71%;
     --radius: 0.5rem;
   }
 }
@@ -92,4 +108,12 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
 }

@@ -1,3 +1,6 @@
+import type { LucideIcon } from 'lucide-react';
+import { Compass, Database, FormInput, LayoutTemplate, MessageSquare, Rocket, Wrench } from 'lucide-react';
+
 export type DocPlatform = 'web' | 'native';
 
 export interface DocItem {
@@ -10,6 +13,7 @@ export interface DocItem {
 
 export interface DocCategory {
   title: string;
+  icon: LucideIcon;
   items: DocItem[];
 }
 
@@ -22,6 +26,7 @@ export interface DocCategory {
 export const docConfig: DocCategory[] = [
   {
     title: 'Getting Started',
+    icon: Rocket,
     items: [
       {
         title: 'Getting Started',
@@ -45,6 +50,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Layout',
+    icon: LayoutTemplate,
     items: [
       {
         title: 'Aspect Ratio',
@@ -75,6 +81,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Forms',
+    icon: FormInput,
     items: [
       {
         title: 'Button',
@@ -140,6 +147,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Data Display',
+    icon: Database,
     items: [
       {
         title: 'Accordion',
@@ -200,6 +208,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Feedback',
+    icon: MessageSquare,
     items: [
       {
         title: 'Alert Dialog',
@@ -250,6 +259,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Navigation',
+    icon: Compass,
     items: [
       {
         title: 'Breadcrumb',
@@ -315,6 +325,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Utilities',
+    icon: Wrench,
     items: [
       {
         title: 'Support FAB',
