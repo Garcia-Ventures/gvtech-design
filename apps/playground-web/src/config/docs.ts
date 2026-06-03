@@ -302,6 +302,11 @@ export const docConfig: DocCategory[] = [
         platforms: ['web', 'native'],
       },
       {
+        title: 'Sidebar',
+        href: 'sidebar',
+        platforms: ['web', 'native'],
+      },
+      {
         title: 'Tabs',
         href: 'tabs',
         platforms: ['web', 'native'],

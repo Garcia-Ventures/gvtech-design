@@ -26,8 +26,8 @@ export function SearchDocs() {
 
       <ComponentShowcase
         title="Compact Variant"
-        description="A smaller version of the trigger, ideal for dense headers or mobile-first layouts."
-        code={`<SearchTrigger variant="compact" />`}
+        description="A strictly small version of the trigger, ideal for headers where horizontal space is at a premium. Disable responsive mode to prevent expansion."
+        code={`<SearchTrigger variant="compact" responsive={false} />`}
       />
 
       <div className="space-y-4">
@@ -51,6 +51,12 @@ export function SearchDocs() {
               type: 'ReactNode',
               required: false,
               description: 'The search content (CommandInput, CommandList, etc.).',
+            },
+            {
+              name: 'disableShortcut',
+              type: 'boolean',
+              required: false,
+              description: 'Whether to disable the Cmd+K global keyboard shortcut listener.',
             },
           ]}
         />
@@ -85,6 +91,13 @@ export function SearchDocs() {
               defaultValue: '"default"',
               required: false,
               description: 'The visual style of the trigger.',
+            },
+            {
+              name: 'responsive',
+              type: 'boolean',
+              defaultValue: 'true',
+              required: false,
+              description: 'Whether the compact variant should expand on large (md+) screens.',
             },
           ]}
         />

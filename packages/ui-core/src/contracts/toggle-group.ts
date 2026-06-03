@@ -9,6 +9,7 @@ export interface ToggleGroupBaseProps {
   type?: 'single' | 'multiple';
   defaultValue?: string | string[];
   value?: string | string[];
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   onValueChange?: (value: any) => void;
   disabled?: boolean;
 }

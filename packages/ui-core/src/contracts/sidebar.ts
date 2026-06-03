@@ -90,7 +90,7 @@ export interface SidebarMenuButtonBaseProps {
   isActive?: boolean;
   variant?: 'default' | 'outline' | null;
   size?: 'default' | 'sm' | 'lg' | null;
-  tooltip?: string | any;
+  tooltip?: string | Record<string, unknown>;
   children?: React.ReactNode;
 }
 

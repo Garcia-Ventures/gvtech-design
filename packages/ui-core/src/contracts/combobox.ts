@@ -26,7 +26,7 @@ export interface ComboboxContentBaseProps {
   sideOffset?: number;
   align?: 'start' | 'center' | 'end';
   alignOffset?: number;
-  anchor?: any;
+  anchor?: unknown;
 }
 
 export interface ComboboxListBaseProps {

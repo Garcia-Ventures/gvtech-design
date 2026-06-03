@@ -26,7 +26,14 @@ function InputGroupButton({
   size,
   ...props
 }: React.ComponentProps<typeof Button> & InputGroupButtonBaseProps) {
-  return <Button variant={variant as any} size={size as any} className={className} {...(props as any)} />;
+  return (
+    <Button
+      variant={variant as React.ComponentProps<typeof Button>['variant']}
+      size={size as React.ComponentProps<typeof Button>['size']}
+      className={className}
+      {...(props as Record<string, unknown>)}
+    />
+  );
 }
 
 function InputGroupText({ className, ...props }: React.ComponentProps<typeof Text> & InputGroupTextBaseProps) {

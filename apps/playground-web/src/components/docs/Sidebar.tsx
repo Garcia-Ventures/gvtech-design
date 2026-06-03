@@ -1,20 +1,32 @@
 import { docConfig } from '@/config/docs';
 import { safeTrack } from '@/lib/analytics';
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger, ScrollArea, cn } from '@gv-tech/ui-web';
+import {
+  cn,
+  Sidebar,
+  SidebarContent,
+  SidebarGroup,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  useSidebar,
+} from '@gv-tech/ui-web';
 import { NavLink, useLocation } from 'react-router-dom';
 import { version } from '../../../../../package.json';
 
-interface SidebarProps {
+interface DocsSidebarProps {
   className?: string;
-  onLinkClick?: () => void;
 }
 
-export function Sidebar({ className, onLinkClick }: SidebarProps) {
+export function DocsSidebar({ className }: DocsSidebarProps) {
   const location = useLocation();
+  const { setOpenMobile } = useSidebar();
 
   return (
-    <div className={cn('bg-card flex h-full w-64 flex-col border-r', className)}>
-      <div className="flex h-14 shrink-0 items-center border-b p-6">
+    <Sidebar className={className}>
+      <SidebarHeader className="flex h-14 shrink-0 flex-row items-center border-b p-6">
         <div className="flex items-center gap-2 text-xl font-bold">
           <div className="bg-primary text-primary-foreground flex h-6 w-6 items-center justify-center rounded text-xs">
             GV
@@ -24,33 +36,35 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
         <div className="ml-auto flex flex-col items-end gap-0.5">
           <span className="text-muted-foreground font-mono text-[10px]">v{version}</span>
         </div>
-      </div>
+      </SidebarHeader>
 
-      <ScrollArea className="min-h-0 flex-1">
-        <div className="p-4">
-          <Accordion type="multiple" defaultValue={docConfig.map((c) => c.title)} className="w-full">
-            {docConfig.map((category) => {
-              const items = category.items;
-              const filteredItems = items; // Show all items regardless of platform
+      <SidebarContent className="p-4">
+        {docConfig.map((category) => {
+          const items = category.items;
+          const filteredItems = items; // Show all items regardless of platform
 
-              return (
-                <AccordionItem value={category.title} key={category.title} className="border-none">
-                  <AccordionTrigger className="py-2 text-sm font-semibold hover:no-underline">
-                    {category.title}
-                  </AccordionTrigger>
-                  <AccordionContent className="pb-2">
-                    <div className="flex flex-col space-y-1">
-                      {filteredItems.map((item) => {
-                        const isUniversal =
-                          category.title !== 'Getting Started' &&
-                          item.platforms.includes('web') &&
-                          item.platforms.includes('native');
-                        return (
+          return (
+            <SidebarGroup key={category.title} className="px-0 py-2">
+              <SidebarGroupLabel className="text-foreground px-2 text-sm font-semibold">
+                {category.title}
+              </SidebarGroupLabel>
+              <SidebarGroupContent>
+                <SidebarMenu>
+                  {filteredItems.map((item) => {
+                    const isUniversal =
+                      category.title !== 'Getting Started' &&
+                      item.platforms.includes('web') &&
+                      item.platforms.includes('native');
+
+                    const isActive = location.pathname.includes(`/docs/${item.href}`);
+
+                    return (
+                      <SidebarMenuItem key={item.href}>
+                        <SidebarMenuButton asChild isActive={isActive} className="w-full justify-between">
                           <NavLink
-                            key={item.href}
                             to={`/docs/${item.href}`}
                             onClick={() => {
-                              onLinkClick?.();
+                              setOpenMobile(false);
                               safeTrack('docs_nav_click', {
                                 props: {
                                   source: 'sidebar',
@@ -62,12 +76,7 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                                 },
                               });
                             }}
-                            className={({ isActive }) =>
-                              cn(
-                                'group hover:bg-muted/50 text-muted-foreground flex items-center justify-between rounded-md px-2 py-1.5 text-sm no-underline! transition-colors',
-                                isActive && 'bg-accent text-accent-foreground font-medium',
-                              )
-                            }
+                            className={cn(isActive && 'font-medium')}
                           >
                             <span>{item.title}</span>
                             {isUniversal && (
@@ -77,16 +86,16 @@ export function Sidebar({ className, onLinkClick }: SidebarProps) {
                               />
                             )}
                           </NavLink>
-                        );
-                      })}
-                    </div>
-                  </AccordionContent>
-                </AccordionItem>
-              );
-            })}
-          </Accordion>
-        </div>
-      </ScrollArea>
-    </div>
+                        </SidebarMenuButton>
+                      </SidebarMenuItem>
+                    );
+                  })}
+                </SidebarMenu>
+              </SidebarGroupContent>
+            </SidebarGroup>
+          );
+        })}
+      </SidebarContent>
+    </Sidebar>
   );
 }
