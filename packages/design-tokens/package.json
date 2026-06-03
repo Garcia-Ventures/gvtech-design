@@ -14,7 +14,8 @@
       "import": "./dist/index.mjs",
       "require": "./dist/index.cjs",
       "default": "./dist/index.mjs"
-    }
+    },
+    "./theme.css": "./src/theme.css"
   },
   "main": "./dist/index.cjs",
   "module": "./dist/index.mjs",
