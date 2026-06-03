@@ -50,6 +50,22 @@ npm install @gv-tech/design-system
 bun add @gv-tech/design-system
 ```
 
+## Adding Components via Shadcn CLI
+
+If you don't want to install the entire library and prefer to own the source code, you can use the `shadcn` CLI to pull individual components directly from our GitHub registry.
+
+For **Web** components:
+
+```bash
+npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-web"
+```
+
+For **React Native** components:
+
+```bash
+npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-native"
+```
+
 ## Usage
 
 Example import:

@@ -41,6 +41,20 @@ export function WebInstallationDocs() {
       </section>
 
       <section className="space-y-4">
+        <div className="space-y-2">
+          <h2 className="text-2xl font-semibold tracking-tight">Adding Components via Shadcn CLI</h2>
+          <p className="text-muted-foreground">
+            If you don't want to install the entire library and prefer to own the source code, you can use the shadcn
+            CLI to pull individual components directly from our GitHub registry.
+          </p>
+        </div>
+        <CodeBlock
+          code='npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-web"'
+          language="bash"
+        />
+      </section>
+
+      <section className="space-y-4">
         <h2 className="text-2xl font-semibold tracking-tight">Peer Dependencies</h2>
         <p className="text-muted-foreground">
           The GV Tech Design System leverages standard web primitives.{' '}
