@@ -1,3 +1,14 @@
+## 2.23.0 (2026-06-03)
+
+### 🚀 Features
+
+- update Search component with disableShortcut and responsive toggle, rename Sidebar components, and refine ui-core contracts. ([0623a42](https://github.com/Garcia-Ventures/gvtech-design/commit/0623a42))
+- implement new UI components and core contracts across web and native platforms with corresponding playground documentation ([daa7a49](https://github.com/Garcia-Ventures/gvtech-design/commit/daa7a49))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.22.2 (2026-06-03)
 
 No changes for this project
