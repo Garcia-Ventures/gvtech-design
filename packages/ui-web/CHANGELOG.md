@@ -1,3 +1,13 @@
+## 2.23.1 (2026-06-03)
+
+### 🩹 Fixes
+
+- wrap hex color codes in single quotes within tailwind class selectors ([c5b09f6](https://github.com/Garcia-Ventures/gvtech-design/commit/c5b09f6))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.23.0 (2026-06-03)
 
 ### 🚀 Features
