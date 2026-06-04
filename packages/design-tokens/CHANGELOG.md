@@ -1,3 +1,13 @@
+## 2.23.2 (2026-06-04)
+
+### 🚀 Features
+
+- upgrade to NativeWind v5 and update component contract verification types ([d1df2be](https://github.com/Garcia-Ventures/gvtech-design/commit/d1df2be))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.23.1 (2026-06-03)
 
 No changes for this project
