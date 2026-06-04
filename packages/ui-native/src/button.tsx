@@ -1,4 +1,4 @@
-import { cva, type VariantProps } from 'class-variance-authority';
+import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
@@ -48,7 +48,9 @@ const buttonTextVariants = cva('text-sm font-medium', {
   },
 });
 
-export interface ButtonProps extends VariantProps<typeof buttonVariants>, ButtonBaseProps {
+export interface ButtonProps extends ButtonBaseProps {
+  variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | null;
+  size?: 'default' | 'sm' | 'lg' | 'icon' | null;
   onPress?: () => void;
 }
 

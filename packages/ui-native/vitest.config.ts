@@ -9,6 +9,17 @@ export default mergeConfig(
       environment: 'jsdom',
       globals: true,
       setupFiles: [resolve(__dirname, '../../src/setupTests.ts')],
+      server: {
+        deps: {
+          inline: [
+            /@rn-primitives\/.*/,
+            'lucide-react-native',
+            'nativewind',
+            'react-native-reanimated',
+            'react-native-css-interop',
+          ],
+        },
+      },
     },
   }),
 );
