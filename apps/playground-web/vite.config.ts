@@ -10,6 +10,7 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   },
   resolve: {
+    dedupe: ['react', 'react-dom'],
     alias: [
       {
         find: /^react-native$/,
