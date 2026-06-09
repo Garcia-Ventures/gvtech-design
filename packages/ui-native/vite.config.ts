@@ -22,7 +22,7 @@ export default defineConfig({
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'GvTechUiNative',
-      fileName: (format) => `ui-native.${format === 'es' ? 'mjs' : 'cjs'}`,
+      fileName: (format) => `ui-native.${format === 'es' ? 'esm.js' : 'cjs'}`,
       formats: ['es', 'cjs'],
     },
     rollupOptions: {

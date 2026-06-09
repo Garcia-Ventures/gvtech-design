@@ -12,13 +12,13 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/ui-native.mjs",
+      "import": "./dist/ui-native.esm.js",
       "require": "./dist/ui-native.cjs",
-      "default": "./dist/ui-native.mjs"
+      "default": "./dist/ui-native.esm.js"
     }
   },
   "main": "./dist/ui-native.cjs",
-  "module": "./dist/ui-native.mjs",
+  "module": "./dist/ui-native.esm.js",
   "react-native": "./src/index.ts",
   "types": "./dist/index.d.ts",
   "files": [

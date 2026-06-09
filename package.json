@@ -38,6 +38,7 @@
     "shadcn:info": "cd packages/ui-web && bunx shadcn@latest info",
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
+    "generate:component": "tsx scripts/generate-component.ts",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "lint:report": "eslint . --cache -o ./eslintReport.html -f html",
