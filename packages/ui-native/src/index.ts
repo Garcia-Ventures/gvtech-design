@@ -158,7 +158,8 @@ export {
 } from './dropdown-menu';
 
 // Form
-export { Form } from './form';
+export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, useFormField } from './form';
+export type { FormControlProps, FormDescriptionProps, FormItemProps, FormLabelProps, FormMessageProps } from './form';
 
 // Hover Card
 export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card';

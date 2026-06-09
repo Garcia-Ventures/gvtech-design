@@ -9,41 +9,41 @@ This document serves as the single source of truth for the implementation status
 | **Accordion**         |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Alert**             |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Alert Dialog**      |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Aspect Ratio**      |         ✅         |          ⏳           |    🟢     |      —       |
+| **Aspect Ratio**      |         ✅         |          ✅           |    🟢     |      —       |
 | **Avatar**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Badge**             |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Breadcrumb**        |         ✅         |          ⏳           |    🟢     |      —       |
+| **Breadcrumb**        |         ✅         |          ✅           |    🟢     |      —       |
 | **Button**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Button Group**      |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Calendar**          |         ✅         |          ⏳           |    🟢     |      —       |
 | **Card**              |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Carousel**          |         ✅         |          ⏳           |    🟢     |      —       |
+| **Carousel**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Chart**             |         ✅         |          ⏳           |    🟢     |      —       |
 | **Checkbox**          |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Collapsible**       |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Combobox**          |         ✅         |          ✅           |    🟢     |      🟢      |
+| **Combobox**          |         ✅         |          ⏳           |    🟢     |      🟢      |
 | **Command**           |         ✅         |          ⏳           |    🟢     |      —       |
-| **Context Menu**      |         ✅         |          ⏳           |    🟢     |      —       |
+| **Context Menu**      |         ✅         |          ✅           |    🟢     |      —       |
 | **Dialog**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Direction**         |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Drawer**            |         ✅         |          ⏳           |    🟢     |      —       |
-| **Dropdown Menu**     |         ✅         |          ⏳           |    🟢     |      —       |
+| **Drawer**            |         ✅         |          ✅           |    🟢     |      —       |
+| **Dropdown Menu**     |         ✅         |          ✅           |    🟢     |      —       |
 | **Empty State**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Field**             |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Form**              |         ✅         |          ⏳           |    🟢     |      —       |
-| **Hover Card**        |         ✅         |          ⏳           |    🟢     |      —       |
+| **Form**              |         ✅         |          ✅           |    🟢     |      —       |
+| **Hover Card**        |         ✅         |          ✅           |    🟢     |      —       |
 | **Input**             |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Input Group**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Input OTP**         |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Item**              |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Kbd**               |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Label**             |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Menubar**           |         ✅         |          ⏳           |    🟢     |      —       |
+| **Menubar**           |         ✅         |          ✅           |    🟢     |      —       |
 | **Native Select**     |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Navigation Menu**   |         ✅         |          ⏳           |    🟢     |      —       |
-| **Pagination**        |         ✅         |          ⏳           |    🟢     |      —       |
-| **Popover**           |         ✅         |          ⏳           |    🟢     |      —       |
-| **Progress**          |         ✅         |          ⏳           |    🟢     |      —       |
+| **Navigation Menu**   |         ✅         |          ✅           |    🟢     |      —       |
+| **Pagination**        |         ✅         |          ✅           |    🟢     |      —       |
+| **Popover**           |         ✅         |          ✅           |    🟢     |      —       |
+| **Progress**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Radio Group**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Resizable**         |         ✅         |          ⏳           |    🟢     |      —       |
 | **Scroll Area**       |         ✅         |          ⏳           |    🟢     |      —       |
@@ -54,7 +54,7 @@ This document serves as the single source of truth for the implementation status
 | **Sheet**             |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Sidebar**           |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Skeleton**          |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Slider**            |         ✅         |          ⏳           |    🟢     |      —       |
+| **Slider**            |         ✅         |          ✅           |    🟢     |      —       |
 | **Sonner**            |         ✅         |          ⏳           |    🟢     |      —       |
 | **Spinner**           |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Support FAB**       |         ✅         |          ✅           |    🟢     |      🟢      |

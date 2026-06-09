@@ -20,9 +20,9 @@ _Goal: Eliminate boilerplate and human error in the development lifecycle._
 
 _Goal: 100% implementation coverage for React Native._
 
-- [ ] **Form & Validation**: Implement a robust Native `Form` component integrated with `react-hook-form`.
-- [ ] **Complex Navigation**: Implement `Breadcrumb`, `Pagination`, and `NavigationMenu` for Native.
-- [ ] **Advanced Data Inputs**: Implement `Calendar`, `Slider`, and `Combobox` for Native.
+- [x] **Form & Validation**: Implement a robust Native `Form` component integrated with `react-hook-form`.
+- [x] **Complex Navigation**: Implement `Breadcrumb`, `Pagination`, and `NavigationMenu` for Native.
+- [ ] **Advanced Data Inputs**: Implement `Calendar`, and `Combobox` for Native (Slider is complete).
 - [ ] **Charts**: Evaluate and implement a universal charting solution (e.g., `victory-native` or `recharts` shims).
 
 ## 3. Contract & Quality Assurance
@@ -40,6 +40,13 @@ _Goal: Make the design system easy to learn and explore._
 - [ ] **Search Improvements**: Enhance the playground search to include props and variant names.
 - [ ] **Dark Mode Previews**: Ensure all component previews in the playground correctly toggle between light and dark modes.
 - [ ] **Native Interaction Previews**: (Speculative) Integrate an Expo Snack or Appetize.io embed for real-time native interaction in the browser.
+
+## 5. Documentation Parity
+
+_Goal: Ensure all implemented components have matching documentation and examples._
+
+- [ ] **Update Native Doc Pages**: Update all `Native*Docs.tsx` pages that are currently shims but have implementations in `ui-native`.
+- [ ] **Verify Component Registry**: Continuously audit the codebase against the `component-registry.md`.
 
 ---
 
