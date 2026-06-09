@@ -1,3 +1,13 @@
+## 2.23.3 (2026-06-09)
+
+### 🚀 Features
+
+- add component generation script, update build registry validation, and rename ui-native bundle to .esm.js ([c7215c4](https://github.com/Garcia-Ventures/gvtech-design/commit/c7215c4))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.23.2 (2026-06-04)
 
 ### 🚀 Features
