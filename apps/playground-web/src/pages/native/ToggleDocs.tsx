@@ -1,43 +1,33 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function ToggleDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default toggle."
-        code={`<Toggle aria-label="Toggle bold">
-  <Bold className="h-4 w-4" />
-</Toggle>`}
+        description="A default toggle for Native."
+        code={`import { Toggle } from "@gv-tech/design-system";
+import { Bold } from "lucide-react-native";
+
+export function ToggleExample() {
+  return (
+    <Toggle aria-label="Toggle bold">
+      <Bold size={16} className="text-foreground" />
+    </Toggle>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Toggle component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/toggle"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Toggle
-          </a>
-          .
+          The Toggle component for Native is built on top of <code>@rn-primitives/toggle</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Toggle</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultPressed',
-              type: 'boolean',
-              description: 'The pressed state of the toggle when it is initially rendered.',
-            },
             {
               name: 'pressed',
               type: 'boolean',
@@ -46,12 +36,12 @@ export function ToggleDocs() {
             {
               name: 'onPressedChange',
               type: '(pressed: boolean) => void',
-              description: 'Event handler called when the pressed state of the toggle changes.',
+              description: 'Event handler called when the pressed state changes.',
             },
             {
               name: 'disabled',
               type: 'boolean',
-              description: 'When true, prevents the user from interacting with the toggle.',
+              description: 'When true, prevents interaction.',
             },
             {
               name: 'variant',

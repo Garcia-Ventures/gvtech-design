@@ -1,28 +1,24 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function BadgeDocs() {
   return (
     <>
       <ComponentShowcase
         title="Variants"
-        description="Badges come in 4 different variants."
-        code={`<Badge>Default</Badge>
-<Badge variant="secondary">Secondary</Badge>
-<Badge variant="destructive">Destructive</Badge>
-<Badge variant="outline">Outline</Badge>`}
-      />
+        description="Badges come in 4 different variants on Native."
+        code={`import { Badge, Text } from "@gv-tech/design-system";
 
-      <ComponentShowcase
-        title="Use Cases"
-        description="Common use cases for badges."
-        code={`<Badge>New</Badge>
-<Badge variant="secondary">Beta</Badge>
-<Badge variant="destructive">Error</Badge>
-<Badge variant="outline">v1.0.0</Badge>`}
+export function BadgeVariants() {
+  return (
+    <>
+      <Badge><Text>Default</Text></Badge>
+      <Badge variant="secondary"><Text>Secondary</Text></Badge>
+      <Badge variant="destructive"><Text>Destructive</Text></Badge>
+      <Badge variant="outline"><Text>Outline</Text></Badge>
+    </>
+  );
+}`}
       />
 
       <div className="space-y-4">
@@ -38,15 +34,13 @@ export function BadgeDocs() {
             {
               name: 'className',
               type: 'string',
-              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
+              description: 'NativeWind classes for the container.',
             },
-            ...[
-              {
-                name: 'textClassName',
-                type: 'string',
-                description: 'Classes for the inner Text component (NativeWind).',
-              },
-            ],
+            {
+              name: 'textClassName',
+              type: 'string',
+              description: 'NativeWind classes for the inner Text component.',
+            },
           ]}
         />
       </div>

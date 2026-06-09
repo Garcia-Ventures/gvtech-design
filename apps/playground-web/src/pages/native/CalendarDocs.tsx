@@ -1,65 +1,24 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
-
-const isNative = true as boolean;
-const platform = 'native' as string;
 
 export function CalendarDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A basic calendar for date selection."
-        code={`
+        description="The Calendar component is currently a stub for Native."
+        code={`import { Calendar } from "@gv-tech/design-system";
 
-<Calendar
-  mode="single"
-  selected={date}
-  onSelect={setDate}
-  className="rounded-md border"
-/>`}
+export function CalendarExample() {
+  return <Calendar />;
+}`}
       />
 
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Props</h3>
+        <h3 className="text-xl font-semibold">Status</h3>
         <p className="text-muted-foreground text-sm">
-          The Calendar component is built on top of{' '}
-          <a href="https://react-day-picker.js.org/" className="underline" target="_blank" rel="noreferrer">
-            React Day Picker
-          </a>
-          .
+          The Calendar component is currently not implemented for Native. Date picking is complex on mobile and usually
+          requires a bottom sheet or modal pattern which is currently in development.
         </p>
-        <PropsTable
-          props={[
-            {
-              name: 'mode',
-              type: '"single" | "multiple" | "range" | "default"',
-              defaultValue: '"default"',
-              description: 'The selection mode of the calendar.',
-            },
-            {
-              name: 'selected',
-              type: 'Date | Date[] | DateRange | undefined',
-              description: 'The selected date(s).',
-            },
-            {
-              name: 'onSelect',
-              type: '(date: any) => void',
-              description: 'Event handler called when a date is selected.',
-            },
-            {
-              name: 'showOutsideDays',
-              type: 'boolean',
-              defaultValue: 'true',
-              description: 'Whether to show days from the previous and next months.',
-            },
-            {
-              name: 'className',
-              type: 'string',
-              description: 'Additional CSS classes to apply.',
-            },
-          ]}
-        />
       </div>
     </>
   );

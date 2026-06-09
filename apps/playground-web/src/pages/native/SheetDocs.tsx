@@ -1,62 +1,67 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function SheetDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default sheet."
-        code={`<Sheet>
-  <SheetTrigger asChild>
-    <Button variant="outline">Open</Button>
-  </SheetTrigger>
-  <SheetContent>
-    <SheetHeader>
-      <SheetTitle>Edit profile</SheetTitle>
-      <SheetDescription>
-        Make changes to your profile here. Click save when you're done.
-      </SheetDescription>
-    </SheetHeader>
-    <div className="grid gap-4 py-4">
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="name" className="text-right">
-          Name
-        </Label>
-        <Input id="name" value="Pedro Duarte" className="col-span-3" />
-      </div>
-      <div className="grid grid-cols-4 items-center gap-4">
-        <Label htmlFor="username" className="text-right">
-          Username
-        </Label>
-        <Input id="username" value="@peduarte" className="col-span-3" />
-      </div>
-    </div>
-    <SheetFooter>
-      <SheetClose asChild>
-        <Button type="submit">Save changes</Button>
-      </SheetClose>
-    </SheetFooter>
-  </SheetContent>
-</Sheet>`}
+        description="A default sheet for Native."
+        code={`import { 
+  Sheet, 
+  SheetTrigger, 
+  SheetContent, 
+  SheetHeader, 
+  SheetTitle, 
+  SheetDescription, 
+  SheetFooter,
+  SheetClose,
+  Button,
+  Text,
+  Input,
+  Label
+} from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function SheetExample() {
+  return (
+    <Sheet>
+      <SheetTrigger asChild>
+        <Button variant="outline">
+          <Text>Open Sheet</Text>
+        </Button>
+      </SheetTrigger>
+      <SheetContent>
+        <SheetHeader>
+          <SheetTitle>Edit profile</SheetTitle>
+          <SheetDescription>
+            Make changes to your profile here. Click save when you're done.
+          </SheetDescription>
+        </SheetHeader>
+        <View className="space-y-4 py-4">
+          <View className="flex flex-row items-center space-x-4">
+            <Label nativeID="name" className="text-right w-20">Name</Label>
+            <Input nativeID="name" defaultValue="Pedro Duarte" className="flex-1" />
+          </View>
+        </View>
+        <SheetFooter>
+          <SheetClose asChild>
+            <Button>
+              <Text className="text-white">Save changes</Text>
+            </Button>
+          </SheetClose>
+        </SheetFooter>
+      </SheetContent>
+    </Sheet>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Sheet component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/dialog"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Dialog
-          </a>
-          .
+          The Sheet component for Native is built on top of <code>@rn-primitives/dialog</code> and supports multiple
+          sides.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Sheet (Root)</h4>
@@ -72,17 +77,6 @@ export function SheetDocs() {
               type: '(open: boolean) => void',
               description: 'Event handler called when the open state changes.',
             },
-            {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The open state of the sheet when it is initially rendered.',
-            },
-            {
-              name: 'modal',
-              type: 'boolean',
-              defaultValue: 'true',
-              description: 'The modality of the sheet.',
-            },
           ]}
         />
 
@@ -96,35 +90,9 @@ export function SheetDocs() {
               description: 'The side of the screen where the sheet appears.',
             },
             {
-              name: 'onOpenAutoFocus',
-              type: '(event: Event) => void',
-              description: 'Event handler called when focus moves into the component after opening.',
-            },
-            {
-              name: 'onCloseAutoFocus',
-              type: '(event: Event) => void',
-              description: 'Event handler called when focus moves to the trigger after closing.',
-            },
-            {
-              name: 'onEscapeKeyDown',
-              type: '(event: KeyboardEvent) => void',
-              description: 'Event handler called when the escape key is down.',
-            },
-            {
-              name: 'onPointerDownOutside',
-              type: '(event: PointerDownOutsideEvent) => void',
-              description: 'Event handler called when a pointer event occurs outside the bounds of the component.',
-            },
-            {
-              name: 'onInteractOutside',
-              type: '(event: PointerDownOutsideEvent | FocusOutsideEvent) => void',
-              description:
-                'Event handler called when an interaction (pointer or focus) happens outside the bounds of the component.',
-            },
-            {
-              name: 'forceMount',
-              type: 'boolean',
-              description: 'Used to force mounting when more control is needed.',
+              name: 'portalHost',
+              type: 'string',
+              description: 'Optional portal host to render into.',
             },
           ]}
         />

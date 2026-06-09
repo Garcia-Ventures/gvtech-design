@@ -1,46 +1,34 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-// @ts-nocheck
-
-const isNative = true as boolean;
-
-const platform = 'native' as string;
 
 export function SwitchDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default switch."
-        code={`<div className="flex items-center space-x-2">
-  <Switch id="airplane-mode" />
-  <Label htmlFor="airplane-mode">Airplane Mode</Label>
-</div>`}
+        description="A default switch for Native."
+        code={`import { Switch, Label } from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function SwitchExample() {
+  return (
+    <View className="flex flex-row items-center space-x-2">
+      <Switch nativeID="airplane-mode" />
+      <Label nativeID="airplane-mode">Airplane Mode</Label>
+    </View>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Switch component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/switch"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Switch
-          </a>
-          .
+          The Switch component for Native is built on top of <code>@rn-primitives/switch</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Switch (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultChecked',
-              type: 'boolean',
-              description: 'The value of the switch when initially rendered.',
-            },
             {
               name: 'checked',
               type: 'boolean',
@@ -54,24 +42,12 @@ export function SwitchDocs() {
             {
               name: 'disabled',
               type: 'boolean',
-              description: 'When true, prevents the user from interacting with the switch.',
+              description: 'When true, prevents interaction.',
             },
             {
-              name: 'required',
-              type: 'boolean',
-              description:
-                'When true, indicates that the user must toggle the switch before the owning form can be submitted.',
-            },
-            {
-              name: 'name',
+              name: 'nativeID',
               type: 'string',
-              description: 'The name of the switch. Submitted with its owning form as part of a name/value pair.',
-            },
-            {
-              name: 'value',
-              type: 'string',
-              defaultValue: '"on"',
-              description: 'The value given as data when submitted with a name.',
+              description: 'Used to link the switch with a Label.',
             },
           ]}
         />

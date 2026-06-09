@@ -45,14 +45,16 @@ _Goal: Make the design system easy to learn and explore._
 
 _Goal: Ensure all implemented components have matching documentation and examples._
 
-- [ ] **Update Native Doc Pages**: Update all `Native*Docs.tsx` pages that are currently shims but have implementations in `ui-native`.
-- [ ] **Verify Component Registry**: Continuously audit the codebase against the `component-registry.md`.
+- [x] **Update Native Doc Pages**: Update all `Native*Docs.tsx` pages that are currently shims but have implementations in `ui-native`.
+- [x] **Verify Component Registry**: Continuously audit the codebase against the `component-registry.md`.
 
 ---
 
 ## Status Log
 
-| Date       | Milestone                 | Status         |
-| :--------- | :------------------------ | :------------- |
-| 2026-06-08 | Initial Roadmap Defined   | 🟢 Started     |
-| 2026-06-08 | Component Scaffolding CLI | ⏳ In Progress |
+| Date       | Milestone                 | Status       |
+| :--------- | :------------------------ | :----------- |
+| 2026-06-08 | Initial Roadmap Defined   | 🟢 Started   |
+| 2026-06-08 | Component Scaffolding CLI | ✅ Completed |
+| 2026-06-08 | Native Parity Audit       | ✅ Completed |
+| 2026-06-08 | Documentation Parity      | ✅ Completed |

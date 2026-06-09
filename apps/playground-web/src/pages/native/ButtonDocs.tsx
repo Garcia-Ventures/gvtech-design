@@ -1,56 +1,44 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-// @ts-nocheck
 
 export function ButtonDocs() {
   return (
     <>
       <ComponentShowcase
         title="Variants"
-        description="The button comes in 6 different variants."
-        code={`<Button variant="default">Default</Button>
-<Button variant="secondary">Secondary</Button>
-<Button variant="destructive">Destructive</Button>
-<Button variant="outline">Outline</Button>
-<Button variant="ghost">Ghost</Button>
-<Button variant="link">Link</Button>`}
+        description="Buttons come in 6 different variants on Native."
+        code={`import { Button, Text } from "@gv-tech/design-system";
+
+export function ButtonVariants() {
+  return (
+    <>
+      <Button variant="default"><Text className="text-white">Default</Text></Button>
+      <Button variant="secondary"><Text>Secondary</Text></Button>
+      <Button variant="destructive"><Text className="text-white">Destructive</Text></Button>
+      <Button variant="outline"><Text>Outline</Text></Button>
+      <Button variant="ghost"><Text>Ghost</Text></Button>
+      <Button variant="link"><Text>Link</Text></Button>
+    </>
+  );
+}`}
       />
 
       <ComponentShowcase
         title="Sizes"
         description="Buttons come in default, small, large, and icon sizes."
-        code={`import { Button } from "@gv-tech/design-system";
+        code={`import { Button, Text } from "@gv-tech/design-system";
+import { ChevronRight } from "lucide-react-native";
 
-<Button size="default">Default</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-<Button size="icon"><ChevronRight size={18} /></Button>`}
-      />
-
-      <ComponentShowcase
-        title="With Icon"
-        description="You can add icons to buttons for additional context."
-        code={`import { Button } from "@gv-tech/design-system";
-
-<Button onPress={() => console.log("Pressed")}>
-  <Mail size={18} color="white" />
-  <Text className="text-white ml-2">Login with Email</Text>
-</Button>`}
-      />
-
-      <ComponentShowcase
-        title="Loading State"
-        description="Use the disabled attribute with a spinner for loading states."
-        code={`import { Button } from "@gv-tech/design-system";
-
-const isNative = true as boolean;
-
-const platform = 'native' as string;
-
-<Button disabled>
-  <Loader2 size={18} className="animate-spin text-white" />
-  <Text className="text-white ml-2">Please wait</Text>
-</Button>`}
+export function ButtonSizes() {
+  return (
+    <>
+      <Button size="sm"><Text className="text-white">Small</Text></Button>
+      <Button size="default"><Text className="text-white">Default</Text></Button>
+      <Button size="lg"><Text className="text-white">Large</Text></Button>
+      <Button size="icon"><ChevronRight size={18} className="text-white" /></Button>
+    </>
+  );
+}`}
       />
 
       <div className="space-y-4">
@@ -75,15 +63,15 @@ const platform = 'native' as string;
               description: 'Native press event handler.',
             },
             {
-              name: 'className',
-              type: 'string',
-              description: 'Tailwind (NativeWind) classes.',
-            },
-            {
               name: 'disabled',
               type: 'boolean',
               defaultValue: 'false',
               description: 'Whether the button is disabled.',
+            },
+            {
+              name: 'className',
+              type: 'string',
+              description: 'NativeWind classes for the container.',
             },
           ]}
         />
