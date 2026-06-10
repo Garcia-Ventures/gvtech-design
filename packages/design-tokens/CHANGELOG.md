@@ -1,3 +1,13 @@
+## 2.24.0 (2026-06-10)
+
+### 🩹 Fixes
+
+- implement CSS theme block and normalize design token variable naming conventions ([1b0446e](https://github.com/Garcia-Ventures/gvtech-design/commit/1b0446e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.23.3 (2026-06-09)
 
 No changes for this project

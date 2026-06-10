@@ -1,3 +1,7 @@
+## 2.24.0 (2026-06-10)
+
+No changes for this project
+
 ## 2.23.3 (2026-06-09)
 
 ### 🚀 Features
