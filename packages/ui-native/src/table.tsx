@@ -4,31 +4,31 @@ import { View } from 'react-native';
 import { cn } from './lib/utils';
 import { Text } from './text';
 
-const Table = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
+const Table = React.forwardRef<React.ComponentRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => (
     <View ref={ref} className={cn('w-full caption-bottom text-sm', className)} {...props} />
   ),
 );
 Table.displayName = 'Table';
 
-const TableHeader = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
+const TableHeader = React.forwardRef<React.ComponentRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => <View ref={ref} className={cn('border-border border-b', className)} {...props} />,
 );
 TableHeader.displayName = 'TableHeader';
 
-const TableBody = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
+const TableBody = React.forwardRef<React.ComponentRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => <View ref={ref} className={cn('flex-1', className)} {...props} />,
 );
 TableBody.displayName = 'TableBody';
 
-const TableFooter = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
+const TableFooter = React.forwardRef<React.ComponentRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => (
     <View ref={ref} className={cn('bg-muted/50 font-medium [&>tr]:last:border-b-0', className)} {...props} />
   ),
 );
 TableFooter.displayName = 'TableFooter';
 
-const TableRow = React.forwardRef<React.ElementRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
+const TableRow = React.forwardRef<React.ComponentRef<typeof View>, React.ComponentPropsWithoutRef<typeof View>>(
   ({ className, ...props }, ref) => (
     <View
       ref={ref}
@@ -42,7 +42,7 @@ const TableRow = React.forwardRef<React.ElementRef<typeof View>, React.Component
 );
 TableRow.displayName = 'TableRow';
 
-const TableHead = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
+const TableHead = React.forwardRef<React.ComponentRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
     <Text
       ref={ref}
@@ -56,14 +56,14 @@ const TableHead = React.forwardRef<React.ElementRef<typeof Text>, React.Componen
 );
 TableHead.displayName = 'TableHead';
 
-const TableCell = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
+const TableCell = React.forwardRef<React.ComponentRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
     <Text ref={ref} className={cn('p-4 align-middle [&:has([role=checkbox])]:pr-0', className)} {...props} />
   ),
 );
 TableCell.displayName = 'TableCell';
 
-const TableCaption = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
+const TableCaption = React.forwardRef<React.ComponentRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
     <Text ref={ref} className={cn('text-muted-foreground mt-4 text-sm', className)} {...props} />
   ),

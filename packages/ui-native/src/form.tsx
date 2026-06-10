@@ -79,7 +79,7 @@ type FormItemContextValue = {
 const FormItemContext = React.createContext<FormItemContextValue | null>(null);
 
 const FormItem = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & FormItemBaseProps
 >(({ className, ...props }, ref) => {
   const id = React.useId();
@@ -93,7 +93,7 @@ const FormItem = React.forwardRef<
 FormItem.displayName = 'FormItem';
 
 const FormLabel = React.forwardRef<
-  React.ElementRef<typeof Label>,
+  React.ComponentRef<typeof Label>,
   React.ComponentPropsWithoutRef<typeof Label> & FormLabelBaseProps
 >(({ className, ...props }, ref) => {
   const { error, formItemId } = useFormField();
@@ -103,8 +103,8 @@ const FormLabel = React.forwardRef<
 FormLabel.displayName = 'FormLabel';
 
 const FormControl = React.forwardRef<
-  React.ElementRef<typeof Slot.Slot>,
-  React.ComponentPropsWithoutRef<typeof Slot.Slot>
+  React.ComponentRef<typeof Slot.Slot>,
+  React.ComponentPropsWithoutRef<typeof Slot.Slot> & FormControlBaseProps & { children?: React.ReactNode }
 >(({ ...props }, ref) => {
   const { error, formItemId, formDescriptionId, formMessageId } = useFormField();
 
@@ -121,7 +121,7 @@ const FormControl = React.forwardRef<
 FormControl.displayName = 'FormControl';
 
 const FormDescription = React.forwardRef<
-  React.ElementRef<typeof Text>,
+  React.ComponentRef<typeof Text>,
   React.ComponentPropsWithoutRef<typeof Text> & FormDescriptionBaseProps
 >(({ className, ...props }, ref) => {
   const { formDescriptionId } = useFormField();
@@ -138,7 +138,7 @@ const FormDescription = React.forwardRef<
 FormDescription.displayName = 'FormDescription';
 
 const FormMessage = React.forwardRef<
-  React.ElementRef<typeof Text>,
+  React.ComponentRef<typeof Text>,
   React.ComponentPropsWithoutRef<typeof Text> & FormMessageBaseProps
 >(({ className, children, ...props }, ref) => {
   const { error, formMessageId } = useFormField();

@@ -21,12 +21,12 @@ export const Drawer: React.FC<DrawerBaseProps> = ({ children }) => {
 Drawer.displayName = 'Drawer';
 
 export const DrawerTrigger = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Trigger>,
+  React.ComponentRef<typeof DialogPrimitive.Trigger>,
   DrawerTriggerBaseProps & { className?: string }
 >(({ children, className, ...props }, ref) => {
   return (
     <DialogPrimitive.Trigger ref={ref} className={className} {...props}>
-      {wrapTextChildren(children)}
+      {wrapTextChildren(children as React.ReactNode)}
     </DialogPrimitive.Trigger>
   );
 });
@@ -35,7 +35,7 @@ DrawerTrigger.displayName = 'DrawerTrigger';
 export const DrawerPortal = DialogPrimitive.Portal;
 
 export type DrawerOverlayProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>;
-export type DrawerOverlayRef = React.ElementRef<typeof DialogPrimitive.Overlay>;
+export type DrawerOverlayRef = React.ComponentRef<typeof DialogPrimitive.Overlay>;
 
 export const DrawerOverlay: React.ForwardRefExoticComponent<
   DrawerOverlayProps & React.RefAttributes<DrawerOverlayRef>
@@ -53,7 +53,7 @@ export const DrawerOverlay: React.ForwardRefExoticComponent<
 DrawerOverlay.displayName = 'DrawerOverlay';
 
 export const DrawerContent = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Content>,
+  React.ComponentRef<typeof DialogPrimitive.Content>,
   DrawerContentBaseProps & {
     portalHost?: string;
     overlayClassName?: string;
@@ -83,31 +83,31 @@ DrawerContent.displayName = 'DrawerContent';
 
 export const DrawerHeader = ({ className, children, ...props }: DrawerHeaderBaseProps) => (
   <View className={cn('flex flex-col gap-1.5 text-center sm:text-left', className)} {...props}>
-    {wrapTextChildren(children)}
+    {wrapTextChildren(children as React.ReactNode)}
   </View>
 );
 DrawerHeader.displayName = 'DrawerHeader';
 
 export const DrawerFooter = ({ className, children, ...props }: DrawerFooterBaseProps) => (
   <View className={cn('mt-auto flex flex-col gap-2', className)} {...props}>
-    {wrapTextChildren(children)}
+    {wrapTextChildren(children as React.ReactNode)}
   </View>
 );
 DrawerFooter.displayName = 'DrawerFooter';
 
 export const DrawerClose = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Close>,
+  React.ComponentRef<typeof DialogPrimitive.Close>,
   DrawerCloseBaseProps & { className?: string }
 >(({ children, className, ...props }, ref) => {
   return (
     <DialogPrimitive.Close ref={ref} className={className} {...props}>
-      {wrapTextChildren(children)}
+      {wrapTextChildren(children as React.ReactNode)}
     </DialogPrimitive.Close>
   );
 });
 DrawerClose.displayName = 'DrawerClose';
 
-export const DrawerTitle = React.forwardRef<React.ElementRef<typeof DialogPrimitive.Title>, DrawerTitleBaseProps>(
+export const DrawerTitle = React.forwardRef<React.ComponentRef<typeof DialogPrimitive.Title>, DrawerTitleBaseProps>(
   ({ className, children, ...props }, ref) => {
     return (
       <DialogPrimitive.Title
@@ -115,7 +115,7 @@ export const DrawerTitle = React.forwardRef<React.ElementRef<typeof DialogPrimit
         className={cn('text-foreground text-lg leading-none font-semibold tracking-tight', className)}
         {...props}
       >
-        {wrapTextChildren(children)}
+        {wrapTextChildren(children as React.ReactNode)}
       </DialogPrimitive.Title>
     );
   },
@@ -123,12 +123,12 @@ export const DrawerTitle = React.forwardRef<React.ElementRef<typeof DialogPrimit
 DrawerTitle.displayName = 'DrawerTitle';
 
 export const DrawerDescription = React.forwardRef<
-  React.ElementRef<typeof DialogPrimitive.Description>,
+  React.ComponentRef<typeof DialogPrimitive.Description>,
   DrawerDescriptionBaseProps
 >(({ className, children, ...props }, ref) => {
   return (
     <DialogPrimitive.Description ref={ref} className={cn('text-muted-foreground text-sm', className)} {...props}>
-      {wrapTextChildren(children)}
+      {wrapTextChildren(children as React.ReactNode)}
     </DialogPrimitive.Description>
   );
 });

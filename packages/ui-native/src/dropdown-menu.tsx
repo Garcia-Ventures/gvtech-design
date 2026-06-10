@@ -31,7 +31,7 @@ export const DropdownMenuRadioGroup = DropdownMenuPrimitive.RadioGroup;
 export const DropdownMenuSub = DropdownMenuPrimitive.Sub;
 
 const DropdownMenuOverlay = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Overlay>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.Overlay>,
   React.ComponentPropsWithoutRef<typeof DropdownMenuPrimitive.Overlay>
 >(({ className, ...props }, ref) => {
   return (
@@ -51,7 +51,7 @@ const DropdownMenuOverlay = React.forwardRef<
 DropdownMenuOverlay.displayName = 'DropdownMenuOverlay';
 
 export const DropdownMenuContent = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Content>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.Content>,
   DropdownMenuContentBaseProps
 >(({ className, children, side, ...props }, ref) => {
   const nativeSide = side === 'left' || side === 'right' ? 'bottom' : side;
@@ -75,7 +75,7 @@ export const DropdownMenuContent = React.forwardRef<
 DropdownMenuContent.displayName = 'DropdownMenuContent';
 
 export const DropdownMenuItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Item>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.Item>,
   DropdownMenuItemBaseProps
 >(({ className, children, inset, onSelect, ...props }, ref) => {
   return (
@@ -96,7 +96,7 @@ export const DropdownMenuItem = React.forwardRef<
 DropdownMenuItem.displayName = 'DropdownMenuItem';
 
 export const DropdownMenuCheckboxItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.CheckboxItem>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.CheckboxItem>,
   DropdownMenuCheckboxItemBaseProps
 >(({ className, children, checked, onCheckedChange, ...props }, ref) => {
   return (
@@ -122,7 +122,7 @@ export const DropdownMenuCheckboxItem = React.forwardRef<
 DropdownMenuCheckboxItem.displayName = 'DropdownMenuCheckboxItem';
 
 export const DropdownMenuRadioItem = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.RadioItem>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.RadioItem>,
   DropdownMenuRadioItemBaseProps
 >(({ className, children, value, ...props }, ref) => {
   return (
@@ -147,7 +147,7 @@ export const DropdownMenuRadioItem = React.forwardRef<
 DropdownMenuRadioItem.displayName = 'DropdownMenuRadioItem';
 
 export const DropdownMenuLabel = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Label>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.Label>,
   DropdownMenuLabelBaseProps
 >(({ className, children, inset, ...props }, ref) => {
   return (
@@ -156,14 +156,14 @@ export const DropdownMenuLabel = React.forwardRef<
       className={cn('text-foreground px-2 py-1.5 text-sm font-semibold', inset && 'pl-8', className)}
       {...props}
     >
-      {wrapTextChildren(children, Text)}
+      {wrapTextChildren(children as React.ReactNode, Text)}
     </DropdownMenuPrimitive.Label>
   );
 });
 DropdownMenuLabel.displayName = 'DropdownMenuLabel';
 
 export const DropdownMenuSeparator = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.Separator>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.Separator>,
   DropdownMenuSeparatorBaseProps
 >(({ className, ...props }, ref) => {
   return (
@@ -182,7 +182,7 @@ export const DropdownMenuShortcut = ({ className, children, ...props }: Dropdown
 DropdownMenuShortcut.displayName = 'DropdownMenuShortcut';
 
 export const DropdownMenuSubTrigger = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.SubTrigger>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.SubTrigger>,
   DropdownMenuSubTriggerBaseProps
 >(({ className, children, inset, ...props }, ref) => {
   return (
@@ -195,7 +195,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <View className="flex flex-row items-center gap-1.5">{wrapTextChildren(children, Text)}</View>
+      <View className="flex flex-row items-center gap-1.5">{wrapTextChildren(children as React.ReactNode, Text)}</View>
       <ChevronRight size={14} className="text-foreground ml-auto" />
     </DropdownMenuPrimitive.SubTrigger>
   );
@@ -203,7 +203,7 @@ export const DropdownMenuSubTrigger = React.forwardRef<
 DropdownMenuSubTrigger.displayName = 'DropdownMenuSubTrigger';
 
 export const DropdownMenuSubContent = React.forwardRef<
-  React.ElementRef<typeof DropdownMenuPrimitive.SubContent>,
+  React.ComponentRef<typeof DropdownMenuPrimitive.SubContent>,
   DropdownMenuSubContentBaseProps
 >(({ className, children, ...props }, ref) => {
   return (

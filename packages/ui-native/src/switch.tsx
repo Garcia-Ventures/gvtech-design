@@ -9,7 +9,7 @@ export interface SwitchProps
     Omit<React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>, 'checked' | 'onCheckedChange'>,
     SwitchBaseProps {}
 
-const Switch = React.forwardRef<React.ElementRef<typeof SwitchPrimitive.Root>, SwitchProps>(
+const Switch = React.forwardRef<React.ComponentRef<typeof SwitchPrimitive.Root>, SwitchProps>(
   ({ className, checked, onCheckedChange, ...props }, ref) => (
     <SwitchPrimitive.Root
       className={cn(

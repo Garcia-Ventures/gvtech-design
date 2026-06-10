@@ -29,7 +29,7 @@ const textVariants = cva('text-foreground', {
 export interface TextProps
   extends React.ComponentPropsWithoutRef<typeof RNText>, VariantProps<typeof textVariants>, TextBaseProps {}
 
-const Text = React.forwardRef<React.ElementRef<typeof RNText>, TextProps>(
+const Text = React.forwardRef<React.ComponentRef<typeof RNText>, TextProps>(
   ({ className, variant = 'body', children, ...props }, ref) => {
     return (
       <RNText ref={ref} className={cn(textVariants({ variant, className }))} {...props}>

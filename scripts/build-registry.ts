@@ -212,6 +212,17 @@ function buildRegistry() {
   ];
   scanAndBuild(NATIVE_COMPONENTS_PATH, NATIVE_REGISTRY_PATH, nativeIgnores, 'gvtech-design-native', NATIVE_PKG_PATH);
   console.log('✅ Native Registry built successfully in public/registry/native and packages/ui-native/registry.json');
+
+  // Format the generated files
+  try {
+    const { execSync } = require('node:child_process');
+    execSync(`bunx prettier --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
+      stdio: 'ignore',
+    });
+    console.log('✅ Formatted registry files.');
+  } catch (e) {
+    // Ignore errors if prettier fails
+  }
 }
 
 buildRegistry();

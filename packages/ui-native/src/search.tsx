@@ -34,7 +34,7 @@ export function Search({ children, open: customOpen, onOpenChange }: SearchProps
 export interface SearchTriggerProps
   extends Omit<React.ComponentPropsWithoutRef<typeof Button>, 'variant'>, SearchTriggerBaseProps {}
 
-export const SearchTrigger = React.forwardRef<React.ElementRef<typeof Button>, SearchTriggerProps>(
+export const SearchTrigger = React.forwardRef<React.ComponentRef<typeof Button>, SearchTriggerProps>(
   ({ className, placeholder, variant = 'default', responsive = false, ...props }, ref) => {
     const defaultPlaceholder = variant === 'compact' ? 'Search...' : 'Search docs...';
     const activePlaceholder = placeholder || defaultPlaceholder;

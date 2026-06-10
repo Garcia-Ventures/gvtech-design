@@ -6,7 +6,7 @@ import { cn } from './lib/utils';
 
 export interface InputProps extends React.ComponentPropsWithoutRef<typeof TextInput>, InputBaseProps {}
 
-const Input = React.forwardRef<React.ElementRef<typeof TextInput>, InputProps>(
+const Input = React.forwardRef<React.ComponentRef<typeof TextInput>, InputProps>(
   ({ className, placeholderClassName, ...props }, ref) => {
     return (
       <TextInput

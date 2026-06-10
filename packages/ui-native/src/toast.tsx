@@ -11,7 +11,7 @@ const ToastProvider = ({ children }: { children: React.ReactNode }) => <>{childr
 const ToastViewport = () => null;
 
 const Toast = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitive.Root>,
+  React.ComponentRef<typeof ToastPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Root> & { variant?: 'default' | 'destructive' }
 >(({ className, variant = 'default', ...props }, ref) => {
   return (
@@ -33,7 +33,7 @@ const Toast = React.forwardRef<
 Toast.displayName = ToastPrimitive.Root?.displayName || 'Toast';
 
 const ToastTitle = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitive.Title>,
+  React.ComponentRef<typeof ToastPrimitive.Title>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Title>
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Title ref={ref} className={cn('text-foreground text-sm font-semibold', className)} {...props} />
@@ -41,7 +41,7 @@ const ToastTitle = React.forwardRef<
 ToastTitle.displayName = ToastPrimitive.Title?.displayName || 'ToastTitle';
 
 const ToastDescription = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitive.Description>,
+  React.ComponentRef<typeof ToastPrimitive.Description>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Description>
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Description
@@ -53,7 +53,7 @@ const ToastDescription = React.forwardRef<
 ToastDescription.displayName = ToastPrimitive.Description?.displayName || 'ToastDescription';
 
 const ToastClose = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitive.Close>,
+  React.ComponentRef<typeof ToastPrimitive.Close>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Close>
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Close
@@ -70,7 +70,7 @@ const ToastClose = React.forwardRef<
 ToastClose.displayName = ToastPrimitive.Close?.displayName || 'ToastClose';
 
 const ToastAction = React.forwardRef<
-  React.ElementRef<typeof ToastPrimitive.Action>,
+  React.ComponentRef<typeof ToastPrimitive.Action>,
   React.ComponentPropsWithoutRef<typeof ToastPrimitive.Action>
 >(({ className, ...props }, ref) => (
   <ToastPrimitive.Action

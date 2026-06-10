@@ -8,7 +8,7 @@ export const HoverCard = HoverCardPrimitive.Root;
 export const HoverCardTrigger = HoverCardPrimitive.Trigger;
 
 export const HoverCardContent = React.forwardRef<
-  React.ElementRef<typeof HoverCardPrimitive.Content>,
+  React.ComponentRef<typeof HoverCardPrimitive.Content>,
   HoverCardContentBaseProps
 >(({ className, children, ...props }, ref) => {
   return (

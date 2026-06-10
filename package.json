@@ -39,6 +39,7 @@
     "format": "prettier --write .",
     "format:ci": "prettier --check .",
     "generate:component": "tsx scripts/generate-component.ts",
+    "generate:contract-tests": "tsx scripts/generate-contract-tests.ts",
     "lint": "eslint . --cache",
     "lint:fix": "eslint . --cache --fix",
     "lint:report": "eslint . --cache -o ./eslintReport.html -f html",

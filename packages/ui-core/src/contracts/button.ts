@@ -4,7 +4,7 @@
 export const buttonVariantValues = ['default', 'destructive', 'outline', 'secondary', 'ghost', 'link'] as const;
 export type ButtonVariant = (typeof buttonVariantValues)[number];
 
-export const buttonSizeValues = ['default', 'sm', 'lg', 'icon'] as const;
+export const buttonSizeValues = ['default', 'xs', 'sm', 'lg', 'icon', 'icon-xs', 'icon-sm', 'icon-lg'] as const;
 export type ButtonSize = (typeof buttonSizeValues)[number];
 
 // Platform-agnostic props shared by every Button implementation.

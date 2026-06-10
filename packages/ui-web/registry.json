@@ -4,6 +4,20 @@
   "homepage": "https://github.com/Garcia-Ventures/gvtech-design",
   "items": [
     {
+      "name": "__contracts",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/__contracts.ts",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "accordion",
       "type": "registry:ui",
       "dependencies": [

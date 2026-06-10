@@ -151,7 +151,7 @@ export const CarouselItem = React.forwardRef<View, CarouselItemBaseProps>(({ chi
 });
 CarouselItem.displayName = 'CarouselItem';
 
-export const CarouselPrevious = React.forwardRef<React.ElementRef<typeof Button>, CarouselPreviousBaseProps>(
+export const CarouselPrevious = React.forwardRef<React.ComponentRef<typeof Button>, CarouselPreviousBaseProps>(
   ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
     const { orientation, scrollPrev, canScrollPrev } = useCarousel();
 
@@ -178,7 +178,7 @@ export const CarouselPrevious = React.forwardRef<React.ElementRef<typeof Button>
 );
 CarouselPrevious.displayName = 'CarouselPrevious';
 
-export const CarouselNext = React.forwardRef<React.ElementRef<typeof Button>, CarouselNextBaseProps>(
+export const CarouselNext = React.forwardRef<React.ComponentRef<typeof Button>, CarouselNextBaseProps>(
   ({ className, variant = 'outline', size = 'icon', ...props }, ref) => {
     const { orientation, scrollNext, canScrollNext } = useCarousel();
 

@@ -11,11 +11,11 @@ export interface ResizablePanelGroupBaseProps {
 export interface ResizablePanelBaseProps {
   children?: React.ReactNode;
   className?: string;
-  defaultSize?: number;
-  minSize?: number;
-  maxSize?: number;
+  defaultSize?: number | string;
+  minSize?: number | string;
+  maxSize?: number | string;
   collapsible?: boolean;
-  collapsedSize?: number;
+  collapsedSize?: number | string;
   minPixelSize?: number;
   maxPixelSize?: number;
   order?: number;
@@ -23,7 +23,8 @@ export interface ResizablePanelBaseProps {
   id?: string;
   onCollapse?: () => void;
   onExpand?: () => void;
-  onResize?: (size: number, prevSize: number | undefined) => void;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  onResize?: (size: any, id: string | number | undefined, prevSize: any) => void;
 }
 
 export interface ResizableHandleBaseProps {

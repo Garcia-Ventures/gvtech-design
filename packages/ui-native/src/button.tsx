@@ -20,9 +20,13 @@ const buttonVariants = cva(
       },
       size: {
         default: 'h-10 px-4 py-2',
+        xs: 'h-7 px-2',
         sm: 'h-9 px-3',
         lg: 'h-12 px-8',
         icon: 'h-10 w-10',
+        'icon-xs': 'h-7 w-7',
+        'icon-sm': 'h-9 w-9',
+        'icon-lg': 'h-12 w-12',
       },
     },
     defaultVariants: {
@@ -50,7 +54,7 @@ const buttonTextVariants = cva('text-sm font-medium', {
 
 export interface ButtonProps extends ButtonBaseProps {
   variant?: 'default' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link' | null;
-  size?: 'default' | 'sm' | 'lg' | 'icon' | null;
+  size?: 'default' | 'xs' | 'sm' | 'lg' | 'icon' | 'icon-xs' | 'icon-sm' | 'icon-lg' | null;
   onPress?: () => void;
 }
 

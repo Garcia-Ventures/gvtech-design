@@ -4,9 +4,9 @@ import * as React from 'react';
 import { cn } from './lib/utils';
 
 const Avatar: React.ForwardRefExoticComponent<
-  AvatarProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Root>>
+  AvatarProps & React.RefAttributes<React.ComponentRef<typeof AvatarPrimitive.Root>>
 > = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Root>,
+  React.ComponentRef<typeof AvatarPrimitive.Root>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Root>
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Root
@@ -18,9 +18,9 @@ const Avatar: React.ForwardRefExoticComponent<
 Avatar.displayName = AvatarPrimitive.Root?.displayName || 'Avatar';
 
 const AvatarImage: React.ForwardRefExoticComponent<
-  AvatarImageProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Image>>
+  AvatarImageProps & React.RefAttributes<React.ComponentRef<typeof AvatarPrimitive.Image>>
 > = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Image>,
+  React.ComponentRef<typeof AvatarPrimitive.Image>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Image>
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Image ref={ref} className={cn('aspect-square h-full w-full', className)} {...props} />
@@ -28,9 +28,9 @@ const AvatarImage: React.ForwardRefExoticComponent<
 AvatarImage.displayName = AvatarPrimitive.Image?.displayName || 'AvatarImage';
 
 const AvatarFallback: React.ForwardRefExoticComponent<
-  AvatarFallbackProps & React.RefAttributes<React.ElementRef<typeof AvatarPrimitive.Fallback>>
+  AvatarFallbackProps & React.RefAttributes<React.ComponentRef<typeof AvatarPrimitive.Fallback>>
 > = React.forwardRef<
-  React.ElementRef<typeof AvatarPrimitive.Fallback>,
+  React.ComponentRef<typeof AvatarPrimitive.Fallback>,
   React.ComponentPropsWithoutRef<typeof AvatarPrimitive.Fallback>
 >(({ className, ...props }, ref) => (
   <AvatarPrimitive.Fallback

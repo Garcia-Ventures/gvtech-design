@@ -25,7 +25,7 @@ const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
 
 export type DialogOverlayProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>;
-export type DialogOverlayRef = React.ElementRef<typeof DialogPrimitive.Overlay>;
+export type DialogOverlayRef = React.ComponentRef<typeof DialogPrimitive.Overlay>;
 
 const DialogOverlay: React.ForwardRefExoticComponent<DialogOverlayProps & React.RefAttributes<DialogOverlayRef>> =
   React.forwardRef<DialogOverlayRef, DialogOverlayProps>(({ className, ...props }, ref) => {
@@ -41,7 +41,7 @@ const DialogOverlay: React.ForwardRefExoticComponent<DialogOverlayProps & React.
   });
 DialogOverlay.displayName = DialogPrimitive.Overlay?.displayName || 'DialogOverlay';
 
-export type DialogContentRef = React.ElementRef<typeof DialogPrimitive.Content>;
+export type DialogContentRef = React.ComponentRef<typeof DialogPrimitive.Content>;
 const DialogContent: React.ForwardRefExoticComponent<DialogContentProps & React.RefAttributes<DialogContentRef>> =
   React.forwardRef<DialogContentRef, DialogContentProps>(
     ({ className, children, portalHost, overlayClassName, overlayStyle, ...props }, ref) => {
@@ -86,7 +86,7 @@ const DialogFooter = ({ className, ...props }: React.ComponentPropsWithoutRef<ty
 );
 DialogFooter.displayName = 'DialogFooter';
 
-export type DialogTitleRef = React.ElementRef<typeof DialogPrimitive.Title>;
+export type DialogTitleRef = React.ComponentRef<typeof DialogPrimitive.Title>;
 export type DialogTitleProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>;
 const DialogTitle: React.ForwardRefExoticComponent<DialogTitleProps & React.RefAttributes<DialogTitleRef>> =
   React.forwardRef<DialogTitleRef, DialogTitleProps>(({ className, ...props }, ref) => (
@@ -98,7 +98,7 @@ const DialogTitle: React.ForwardRefExoticComponent<DialogTitleProps & React.RefA
   ));
 DialogTitle.displayName = DialogPrimitive.Title?.displayName || 'DialogTitle';
 
-export type DialogDescriptionRef = React.ElementRef<typeof DialogPrimitive.Description>;
+export type DialogDescriptionRef = React.ComponentRef<typeof DialogPrimitive.Description>;
 export type DialogDescriptionProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>;
 const DialogDescription: React.ForwardRefExoticComponent<
   DialogDescriptionProps & React.RefAttributes<DialogDescriptionRef>

@@ -20,7 +20,7 @@ export interface PaginationLinkBaseProps {
   children?: React.ReactNode;
   className?: string;
   isActive?: boolean;
-  size?: ButtonSize;
+  size?: ButtonSize | null;
 }
 
 export interface PaginationEllipsisBaseProps {

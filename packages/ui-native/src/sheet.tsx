@@ -16,7 +16,7 @@ const SheetClose = DialogPrimitive.Close;
 
 const SheetPortal = DialogPrimitive.Portal;
 
-export type SheetOverlayRef = React.ElementRef<typeof DialogPrimitive.Overlay>;
+export type SheetOverlayRef = React.ComponentRef<typeof DialogPrimitive.Overlay>;
 export type SheetOverlayProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>;
 const SheetOverlay: React.ForwardRefExoticComponent<SheetOverlayProps & React.RefAttributes<SheetOverlayRef>> =
   React.forwardRef<SheetOverlayRef, SheetOverlayProps>(({ className, ...props }, ref) => {
@@ -37,7 +37,7 @@ const SheetOverlay: React.ForwardRefExoticComponent<SheetOverlayProps & React.Re
   });
 SheetOverlay.displayName = DialogPrimitive.Overlay?.displayName || 'SheetOverlay';
 
-export type SheetContentRef = React.ElementRef<typeof DialogPrimitive.Content>;
+export type SheetContentRef = React.ComponentRef<typeof DialogPrimitive.Content>;
 export type SheetContentProps = DialogContentProps & {
   side?: 'top' | 'right' | 'bottom' | 'left';
   overlayClassName?: string;
@@ -99,7 +99,7 @@ const SheetFooter = ({ className, ...props }: React.ComponentPropsWithoutRef<typ
 );
 SheetFooter.displayName = 'SheetFooter';
 
-export type SheetTitleRef = React.ElementRef<typeof DialogPrimitive.Title>;
+export type SheetTitleRef = React.ComponentRef<typeof DialogPrimitive.Title>;
 export type SheetTitleProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>;
 const SheetTitle: React.ForwardRefExoticComponent<SheetTitleProps & React.RefAttributes<SheetTitleRef>> =
   React.forwardRef<SheetTitleRef, SheetTitleProps>(({ className, ...props }, ref) => (
@@ -107,7 +107,7 @@ const SheetTitle: React.ForwardRefExoticComponent<SheetTitleProps & React.RefAtt
   ));
 SheetTitle.displayName = DialogPrimitive.Title?.displayName || 'SheetTitle';
 
-export type SheetDescriptionRef = React.ElementRef<typeof DialogPrimitive.Description>;
+export type SheetDescriptionRef = React.ComponentRef<typeof DialogPrimitive.Description>;
 export type SheetDescriptionProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>;
 const SheetDescription: React.ForwardRefExoticComponent<
   SheetDescriptionProps & React.RefAttributes<SheetDescriptionRef>
