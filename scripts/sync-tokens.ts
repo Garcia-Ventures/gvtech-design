@@ -9,8 +9,29 @@ const OUTPUT_CSS_PATH = path.join(process.cwd(), 'packages/design-tokens/src/the
 
 /** Strips hsl() wrapper and commas to match Tailwind/shadcn expectation of "H S L" */
 function formatTokenValue(value: string) {
+  if (typeof value !== 'string') {
+    return value;
+  }
   if (value.includes('hsl')) {
     return value.replace(/hsl\((.*)\)/, '$1').replace(/,/g, '');
+  }
+  return value;
+}
+
+/** Wraps value in hsl() if it's a raw H S L string */
+function toColorValue(value: string) {
+  if (typeof value !== 'string') {
+    return value;
+  }
+  if (value.includes('hsl')) {
+    return value;
+  }
+  if (value.includes('rem') || value.includes('px')) {
+    return value;
+  }
+  // If it looks like "H S L", wrap it
+  if (/^\d+/.test(value)) {
+    return `hsl(${value})`;
   }
   return value;
 }
@@ -25,13 +46,13 @@ function generateCss() {
   css += '@layer base {\n';
   css += '  :root {\n';
 
-  // Light theme variables (Legacy mapping + Tailwind v4 --color-* format)
+  // Light theme variables
   for (const [key, value] of Object.entries(theme.light)) {
     const kebabKey = toKebabCase(key);
-    const val = formatTokenValue(value as string);
-    css += `    --${kebabKey}: ${val};\n`;
+    const rawVal = formatTokenValue(value as string);
+    css += `    --${kebabKey}: ${rawVal};\n`;
     if (kebabKey !== 'radius') {
-      css += `    --color-${kebabKey}: hsl(var(--${kebabKey}));\n`;
+      css += `    --color-${kebabKey}: ${toColorValue(rawVal)};\n`;
     }
   }
 
@@ -40,9 +61,9 @@ function generateCss() {
     for (const [key, value] of Object.entries(tokens)) {
       const kebabCat = toKebabCase(category);
       const kebabKey = toKebabCase(key);
-      const val = formatTokenValue(value as string);
-      css += `    --${kebabCat}-${kebabKey}: ${val};\n`;
-      css += `    --color-${kebabCat}-${kebabKey}: hsl(var(--${kebabCat}-${kebabKey}));\n`;
+      const rawVal = formatTokenValue(value as string);
+      css += `    --${kebabCat}-${kebabKey}: ${rawVal};\n`;
+      css += `    --color-${kebabCat}-${kebabKey}: ${toColorValue(rawVal)};\n`;
     }
   }
 
@@ -51,10 +72,10 @@ function generateCss() {
   // Dark theme variables
   for (const [key, value] of Object.entries(theme.dark)) {
     const kebabKey = toKebabCase(key);
-    const val = formatTokenValue(value as string);
-    css += `    --${kebabKey}: ${val};\n`;
+    const rawVal = formatTokenValue(value as string);
+    css += `    --${kebabKey}: ${rawVal};\n`;
     if (kebabKey !== 'radius') {
-      css += `    --color-${kebabKey}: hsl(var(--${kebabKey}));\n`;
+      css += `    --color-${kebabKey}: ${toColorValue(rawVal)};\n`;
     }
   }
 
