@@ -15,13 +15,13 @@ This document serves as the single source of truth for the implementation status
 | **Breadcrumb**        |         ✅         |          ✅           |    🟢     |      —       |
 | **Button**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Button Group**      |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Calendar**          |         ✅         |          ⏳           |    🟢     |      —       |
+| **Calendar**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Card**              |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Carousel**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Chart**             |         ✅         |          ⏳           |    🟢     |      —       |
 | **Checkbox**          |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Collapsible**       |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Combobox**          |         ✅         |          ⏳           |    🟢     |      🟢      |
+| **Combobox**          |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Command**           |         ✅         |          ⏳           |    🟢     |      —       |
 | **Context Menu**      |         ✅         |          ✅           |    🟢     |      —       |
 | **Dialog**            |         ✅         |          ✅           |    🟢     |      🟢      |

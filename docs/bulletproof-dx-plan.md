@@ -22,7 +22,7 @@ _Goal: 100% implementation coverage for React Native._
 
 - [x] **Form & Validation**: Implement a robust Native `Form` component integrated with `react-hook-form`.
 - [x] **Complex Navigation**: Implement `Breadcrumb`, `Pagination`, and `NavigationMenu` for Native.
-- [ ] **Advanced Data Inputs**: Implement `Calendar`, and `Combobox` for Native (Slider is complete).
+- [x] **Advanced Data Inputs**: Implement `Calendar`, and `Combobox` for Native (Slider is complete).
 - [ ] **Charts**: Evaluate and implement a universal charting solution (e.g., `victory-native` or `recharts` shims).
 
 ## 3. Contract & Quality Assurance

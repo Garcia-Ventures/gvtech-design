@@ -158,7 +158,8 @@
       "name": "calendar",
       "type": "registry:ui",
       "dependencies": [
-        "@gv-tech/ui-core"
+        "@gv-tech/ui-core",
+        "@react-native-community/datetimepicker"
       ],
       "registryDependencies": [],
       "files": [
@@ -247,9 +248,13 @@
       "name": "combobox",
       "type": "registry:ui",
       "dependencies": [
-        "@gv-tech/ui-core"
+        "@gv-tech/ui-core",
+        "lucide-react-native"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "dialog",
+        "text"
+      ],
       "files": [
         {
           "path": "src/combobox.tsx",

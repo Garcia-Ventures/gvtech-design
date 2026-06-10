@@ -24,6 +24,10 @@ export default defineConfig({
         find: /^lucide-react-native$/,
         replacement: resolve(__dirname, 'src/lib/lucide-react-native-shim.ts'),
       },
+      {
+        find: /^@react-native-community\/datetimepicker$/,
+        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
+      },
       { find: '@', replacement: resolve(__dirname, './src') },
       { find: '@gv-tech/design-tokens', replacement: resolve(__dirname, '../../packages/design-tokens/src') },
       { find: '@gv-tech/ui-core', replacement: resolve(__dirname, '../../packages/ui-core/src') },

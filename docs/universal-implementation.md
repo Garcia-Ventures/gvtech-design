@@ -39,6 +39,7 @@ Key rules:
 | :--------------- | :-: | :----: | :-------------------------------------------------------- |
 | **Button**       | ✅  |   ✅   | Pressable + all variants; `onPress` replaces `onClick`    |
 | **Checkbox**     | ✅  |   ✅   | `@rn-primitives/checkbox`; size/stroke differ by platform |
+| **Combobox**     | ✅  |   ✅   | Modal with embedded search input and FlatList patterns    |
 | **Form**         | ✅  |   ✅   | react-hook-form; web-first pattern                        |
 | **Input**        | ✅  |   ✅   | RN `TextInput`; no `onChange`, uses `onChangeText`        |
 | **Label**        | ✅  |   ✅   | Uses `nativeID` + `onPress` instead of `htmlFor`          |
@@ -58,7 +59,7 @@ Key rules:
 | **Alert**       | ✅  |   ✅   | Variants: default, destructive, warning, info          |
 | **Avatar**      | ✅  |   ✅   | `@rn-primitives/avatar`                                |
 | **Badge**       | ✅  |   ✅   | Text wrapped in View; NativeWind variant classes       |
-| **Calendar**    | ✅  |   🚫   | Complex date picker; no RN primitive                   |
+| **Calendar**    | ✅  |   ✅   | `@react-native-community/datetimepicker` wrapped       |
 | **Card**        | ✅  |   ✅   | View/Text-based; full sub-components                   |
 | **Carousel**    | ✅  |   ✅   | Basic paging implementation via `ScrollView`           |
 | **Chart**       | ✅  |   🚫   | recharts (web-only SVG); consider victory-native later |
