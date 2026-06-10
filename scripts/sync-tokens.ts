@@ -25,17 +25,24 @@ function generateCss() {
   css += '@layer base {\n';
   css += '  :root {\n';
 
-  // Light theme variables
+  // Light theme variables (Legacy mapping + Tailwind v4 --color-* format)
   for (const [key, value] of Object.entries(theme.light)) {
-    const cssVarName = `--${toKebabCase(key)}`;
-    css += `    ${cssVarName}: ${formatTokenValue(value as string)};\n`;
+    const kebabKey = toKebabCase(key);
+    const val = formatTokenValue(value as string);
+    css += `    --${kebabKey}: ${val};\n`;
+    if (kebabKey !== 'radius') {
+      css += `    --color-${kebabKey}: hsl(var(--${kebabKey}));\n`;
+    }
   }
 
   css += '\n    /* Brand Tokens */\n';
   for (const [category, tokens] of Object.entries(palette)) {
     for (const [key, value] of Object.entries(tokens)) {
-      const cssVarName = `--${toKebabCase(category)}-${toKebabCase(key)}`;
-      css += `    ${cssVarName}: ${formatTokenValue(value as string)};\n`;
+      const kebabCat = toKebabCase(category);
+      const kebabKey = toKebabCase(key);
+      const val = formatTokenValue(value as string);
+      css += `    --${kebabCat}-${kebabKey}: ${val};\n`;
+      css += `    --color-${kebabCat}-${kebabKey}: hsl(var(--${kebabCat}-${kebabKey}));\n`;
     }
   }
 
@@ -43,26 +50,15 @@ function generateCss() {
 
   // Dark theme variables
   for (const [key, value] of Object.entries(theme.dark)) {
-    const cssVarName = `--${toKebabCase(key)}`;
-    css += `    ${cssVarName}: ${formatTokenValue(value as string)};\n`;
+    const kebabKey = toKebabCase(key);
+    const val = formatTokenValue(value as string);
+    css += `    --${kebabKey}: ${val};\n`;
+    if (kebabKey !== 'radius') {
+      css += `    --color-${kebabKey}: hsl(var(--${kebabKey}));\n`;
+    }
   }
 
-  css += '  }\n}\n\n';
-
-  // Tailwind v4 Theme mappings
-  css += '/* Tailwind v4 color utilities - map CSS vars to theme */\n';
-  css += '@theme {\n';
-
-  // Base colors
-  for (const key of Object.keys(theme.light)) {
-    if (key === 'radius') {
-      continue;
-    } // Handled elsewhere or wait, radius is special
-    const cssVarName = `--${toKebabCase(key)}`;
-    css += `  --color-${toKebabCase(key)}: hsl(var(${cssVarName}));\n`;
-  }
-
-  css += '}\n';
+  css += '  }\n}\n';
 
   return css;
 }
