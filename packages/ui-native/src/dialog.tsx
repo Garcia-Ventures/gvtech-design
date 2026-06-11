@@ -2,7 +2,7 @@ import { DialogBaseProps, DialogContentBaseProps } from '@gv-tech/ui-core';
 import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
-import { Platform, View, type ViewStyle } from 'react-native';
+import { Platform, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import { cn } from './lib/utils';
@@ -40,7 +40,7 @@ const DialogOverlay: React.ForwardRefExoticComponent<DialogOverlayProps & React.
             left: 0,
             zIndex: 50,
           } as unknown as ViewStyle,
-          style,
+          style as StyleProp<ViewStyle>,
         ]}
         asChild
         ref={ref}

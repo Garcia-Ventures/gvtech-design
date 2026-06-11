@@ -4,7 +4,10 @@ import * as React from 'react';
 import { View } from 'react-native';
 import { cn } from './lib/utils';
 
-export type CalendarProps = Omit<React.ComponentProps<typeof DateTimePicker>, 'value' | 'className'> &
+export type CalendarProps = Omit<
+  React.ComponentProps<typeof DateTimePicker>,
+  'value' | 'className' | 'display' | 'minuteInterval'
+> &
   CalendarBaseProps & {
     value?: Date;
     onChange?: (event: unknown, date?: Date) => void;
@@ -32,14 +35,7 @@ export const Calendar = React.forwardRef<View, CalendarProps>(
 
     return (
       <View ref={ref} className={cn('bg-background overflow-hidden rounded-md', className)}>
-        <DateTimePicker
-          value={date}
-          mode="date"
-          // @ts-expect-error - 'inline' is supported on iOS but might not be in the type definition
-          display="inline"
-          onChange={handleChange}
-          {...props}
-        />
+        <DateTimePicker value={date} mode="date" display="inline" onChange={handleChange} {...props} />
       </View>
     );
   },
