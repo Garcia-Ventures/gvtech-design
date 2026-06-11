@@ -1,3 +1,13 @@
+## 2.25.2 (2026-06-11)
+
+### 🩹 Fixes
+
+- migrate theme management from nativewind to react-native Appearance API and remove setTheme hook ([4bee783](https://github.com/Garcia-Ventures/gvtech-design/commit/4bee783))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.25.1 (2026-06-11)
 
 ### 🩹 Fixes
