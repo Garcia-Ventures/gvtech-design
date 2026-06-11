@@ -1,3 +1,13 @@
+## 2.25.1 (2026-06-11)
+
+### 🩹 Fixes
+
+- remove redundant scale classes in theme toggle and ignore additional build directories in prettier ([d42563d](https://github.com/Garcia-Ventures/gvtech-design/commit/d42563d))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.25.0 (2026-06-11)
 
 ### 🚀 Features
