@@ -25,17 +25,29 @@ export const Calendar = React.forwardRef<View, CalendarProps>(
       }
     }, [value]);
 
-    const handleChange = (event: unknown, selectedDate?: Date) => {
-      const currentDate = selectedDate || date;
-      setDate(currentDate);
+    const handleValueChange = (event: unknown, selectedDate: Date) => {
+      setDate(selectedDate);
       if (onChange) {
-        onChange(event, currentDate);
+        onChange(event, selectedDate);
+      }
+    };
+
+    const handleDismiss = () => {
+      if (onChange) {
+        onChange({ type: 'dismissed' }, date);
       }
     };
 
     return (
       <View ref={ref} className={cn('bg-background overflow-hidden rounded-md', className)}>
-        <DateTimePicker value={date} mode="date" display="inline" onChange={handleChange} {...props} />
+        <DateTimePicker
+          value={date}
+          mode="date"
+          display="inline"
+          onValueChange={handleValueChange}
+          onDismiss={handleDismiss}
+          {...props}
+        />
       </View>
     );
   },
