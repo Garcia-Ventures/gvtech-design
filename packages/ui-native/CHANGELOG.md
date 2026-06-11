@@ -1,3 +1,18 @@
+## 2.25.0 (2026-06-11)
+
+### 🚀 Features
+
+- update Calendar to use specific event handlers and improve React Native mock styling in tests ([18a957e](https://github.com/Garcia-Ventures/gvtech-design/commit/18a957e))
+- **ui-native:** implement Calendar and Combobox components ([ee0f4db](https://github.com/Garcia-Ventures/gvtech-design/commit/ee0f4db))
+
+### 🩹 Fixes
+
+- update Calendar component props and resolve TypeScript type errors in Dialog and tsconfig ([afd5655](https://github.com/Garcia-Ventures/gvtech-design/commit/afd5655))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.24.0 (2026-06-10)
 
 No changes for this project

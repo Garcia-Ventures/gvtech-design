@@ -1,3 +1,13 @@
+## 2.25.0 (2026-06-11)
+
+### 🚀 Features
+
+- update sync script to export design tokens within CSS theme block ([177d880](https://github.com/Garcia-Ventures/gvtech-design/commit/177d880))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.24.0 (2026-06-10)
 
 ### 🩹 Fixes
