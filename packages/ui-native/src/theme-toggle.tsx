@@ -33,28 +33,31 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
   };
 
   const IconToggle = () => (
-    <View className="flex items-center justify-center">
-      <Sun
-        size={18}
+    <View className="flex h-6 w-6 items-center justify-center">
+      <View
         className={cn(
-          'text-foreground transition-all',
+          'items-center justify-center transition-all',
           !isSystem && !isDark ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 -rotate-90 opacity-0',
         )}
-      />
-      <Moon
-        size={18}
+      >
+        <Sun size={18} className="text-foreground" />
+      </View>
+      <View
         className={cn(
-          'text-foreground transition-all',
+          'items-center justify-center transition-all',
           !isSystem && isDark ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 rotate-90 opacity-0',
         )}
-      />
-      <SunMoon
-        size={18}
+      >
+        <Moon size={18} className="text-foreground" />
+      </View>
+      <View
         className={cn(
-          'text-foreground transition-all',
+          'items-center justify-center transition-all',
           isSystem ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 rotate-90 opacity-0',
         )}
-      />
+      >
+        <SunMoon size={18} className="text-foreground" />
+      </View>
     </View>
   );
 
