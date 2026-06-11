@@ -37,7 +37,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       <View
         className={cn(
           'items-center justify-center transition-all',
-          !isSystem && !isDark ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 -rotate-90 opacity-0',
+          !isSystem && !isDark ? 'rotate-0 opacity-100' : 'absolute -rotate-90 opacity-0',
         )}
       >
         <Sun size={18} className="text-foreground" />
@@ -45,7 +45,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       <View
         className={cn(
           'items-center justify-center transition-all',
-          !isSystem && isDark ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 rotate-90 opacity-0',
+          !isSystem && isDark ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
         )}
       >
         <Moon size={18} className="text-foreground" />
@@ -53,7 +53,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       <View
         className={cn(
           'items-center justify-center transition-all',
-          isSystem ? 'scale-100 rotate-0 opacity-100' : 'absolute scale-0 rotate-90 opacity-0',
+          isSystem ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
         )}
       >
         <SunMoon size={18} className="text-foreground" />
