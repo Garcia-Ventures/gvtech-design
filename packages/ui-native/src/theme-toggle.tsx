@@ -1,6 +1,6 @@
 import { ThemeToggleBaseProps } from '@gv-tech/ui-core';
 import { Moon, Sun, SunMoon } from 'lucide-react-native';
-import { View } from 'react-native';
+import { Appearance, View } from 'react-native';
 import { Button } from './button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
 import { useTheme } from './hooks/use-theme';
@@ -15,12 +15,12 @@ iconWithClassName(SunMoon);
 export type ThemeToggleProps = ThemeToggleBaseProps;
 
 export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, className }: ThemeToggleProps) {
-  const { theme, setTheme, resolvedTheme } = useTheme();
+  const { theme, resolvedTheme } = useTheme();
 
   const currentTheme = (customTheme ?? theme) as 'light' | 'dark' | 'system';
 
   // Determine the effective theme for icon rendering
-  const effectiveTheme = customTheme ? customTheme : resolvedTheme;
+  const effectiveTheme = customTheme === 'system' || !customTheme ? resolvedTheme : customTheme;
   const isDark = effectiveTheme === 'dark';
   const isSystem = currentTheme === 'system';
 
@@ -28,7 +28,12 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
     if (onThemeChange) {
       onThemeChange(newTheme);
     } else {
-      setTheme(newTheme as 'light' | 'dark');
+      if (newTheme === 'system') {
+        // @ts-expect-error React Native Appearance.setColorScheme accepts null to reset to system theme
+        Appearance.setColorScheme(null);
+      } else {
+        Appearance.setColorScheme(newTheme);
+      }
     }
   };
 

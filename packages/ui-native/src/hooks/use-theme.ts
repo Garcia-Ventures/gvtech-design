@@ -1,8 +1,8 @@
 import { theme as designTokens } from '@gv-tech/design-tokens';
-import { useColorScheme } from 'nativewind';
+import { useColorScheme } from 'react-native';
 
 export function useTheme() {
-  const { colorScheme, setColorScheme } = useColorScheme();
+  const colorScheme = useColorScheme();
 
   const resolvedTheme = colorScheme as 'light' | 'dark';
 
@@ -11,7 +11,6 @@ export function useTheme() {
 
   return {
     theme: colorScheme,
-    setTheme: setColorScheme,
     resolvedTheme,
     tokens: activeTokens,
   };
