@@ -69,10 +69,13 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
   if (variant === 'ternary') {
     return (
       <DropdownMenu>
-        <DropdownMenuTrigger asChild>
-          <Button variant="ghost" size="icon" className={cn('relative h-9 w-9', className)}>
-            <IconToggle />
-          </Button>
+        <DropdownMenuTrigger
+          className={cn(
+            'relative h-9 w-9 flex-row items-center justify-center rounded-md bg-transparent transition-colors active:opacity-80',
+            className,
+          )}
+        >
+          <IconToggle />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onSelect={() => handleThemeChange('light')}>

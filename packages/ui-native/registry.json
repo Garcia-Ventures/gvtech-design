@@ -347,6 +347,7 @@
       "type": "registry:ui",
       "dependencies": [
         "@gv-tech/ui-core",
+        "@radix-ui/react-dropdown-menu",
         "@rn-primitives/dropdown-menu",
         "lucide-react-native",
         "react-native-reanimated"

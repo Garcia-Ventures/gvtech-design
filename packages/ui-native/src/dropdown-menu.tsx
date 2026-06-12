@@ -9,6 +9,7 @@ import type {
   DropdownMenuSubContentBaseProps,
   DropdownMenuSubTriggerBaseProps,
 } from '@gv-tech/ui-core';
+import * as RadixDropdownMenu from '@radix-ui/react-dropdown-menu';
 import * as DropdownMenuPrimitive from '@rn-primitives/dropdown-menu';
 import { Check, ChevronRight, Circle } from 'lucide-react-native';
 import * as React from 'react';
@@ -78,6 +79,23 @@ export const DropdownMenuItem = React.forwardRef<
   React.ComponentRef<typeof DropdownMenuPrimitive.Item>,
   DropdownMenuItemBaseProps
 >(({ className, children, inset, onSelect, ...props }, ref) => {
+  if (Platform.OS === 'web') {
+    return (
+      <RadixDropdownMenu.Item
+        ref={ref as React.Ref<HTMLDivElement>}
+        onSelect={onSelect}
+        className={cn(
+          'focus:bg-accent focus:text-accent-foreground active:bg-accent active:text-accent-foreground relative flex cursor-default flex-row items-center rounded-sm px-2 py-1.5 text-sm outline-none select-none',
+          inset && 'pl-8',
+          className,
+        )}
+        {...props}
+      >
+        {children}
+      </RadixDropdownMenu.Item>
+    );
+  }
+
   return (
     <DropdownMenuPrimitive.Item
       ref={ref}

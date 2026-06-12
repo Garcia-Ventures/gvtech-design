@@ -143,11 +143,11 @@
     },
     "packages/design-tokens": {
       "name": "@gv-tech/design-tokens",
-      "version": "2.24.0",
+      "version": "2.25.2",
     },
     "packages/ui-core": {
       "name": "@gv-tech/ui-core",
-      "version": "2.24.0",
+      "version": "2.25.2",
       "dependencies": {
         "class-variance-authority": "^0.7.1",
       },
@@ -157,10 +157,11 @@
     },
     "packages/ui-native": {
       "name": "@gv-tech/ui-native",
-      "version": "2.24.0",
+      "version": "2.25.2",
       "dependencies": {
         "@gv-tech/design-tokens": "^2.12.0",
         "@gv-tech/ui-core": "^2.12.0",
+        "@radix-ui/react-dropdown-menu": "^2.1.16",
         "@react-native-community/datetimepicker": "^9.1.0",
         "@rn-primitives/accordion": "^1.2.0",
         "@rn-primitives/alert-dialog": "^1.2.0",
@@ -207,7 +208,7 @@
     },
     "packages/ui-web": {
       "name": "@gv-tech/ui-web",
-      "version": "2.24.0",
+      "version": "2.25.2",
       "dependencies": {
         "@base-ui/react": "^1.5.0",
         "@gv-tech/design-tokens": "^2.12.0",
