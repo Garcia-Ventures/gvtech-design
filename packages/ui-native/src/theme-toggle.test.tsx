@@ -46,6 +46,14 @@ vi.mock('@rn-primitives/dropdown-menu', () => {
   };
 });
 
+vi.mock('@radix-ui/react-dropdown-menu', () => {
+  const React = require('react');
+  const Mock = ({ children }: { children?: React.ReactNode }) => React.createElement('div', {}, children);
+  return {
+    Item: Mock,
+  };
+});
+
 // Mock reanimated
 vi.mock('react-native-reanimated', () => {
   const React = require('react');
