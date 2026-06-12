@@ -15,7 +15,7 @@ iconWithClassName(SunMoon);
 export type ThemeToggleProps = ThemeToggleBaseProps;
 
 export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, className }: ThemeToggleProps) {
-  const { theme, resolvedTheme } = useTheme();
+  const { theme, resolvedTheme, tokens } = useTheme();
 
   const currentTheme = (customTheme ?? theme) as 'light' | 'dark' | 'system';
 
@@ -45,7 +45,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
           !isSystem && !isDark ? 'rotate-0 opacity-100' : 'absolute -rotate-90 opacity-0',
         )}
       >
-        <Sun size={18} className="text-foreground" />
+        <Sun size={18} color={tokens.foreground} />
       </View>
       <View
         className={cn(
@@ -53,7 +53,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
           !isSystem && isDark ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
         )}
       >
-        <Moon size={18} className="text-foreground" />
+        <Moon size={18} color={tokens.foreground} />
       </View>
       <View
         className={cn(
@@ -61,7 +61,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
           isSystem ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
         )}
       >
-        <SunMoon size={18} className="text-foreground" />
+        <SunMoon size={18} color={tokens.foreground} />
       </View>
     </View>
   );
@@ -79,15 +79,15 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onSelect={() => handleThemeChange('light')}>
-            <Sun size={14} className="text-foreground mr-2" />
+            <Sun size={14} color={tokens.foreground} className="mr-2" />
             <Text>Light</Text>
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => handleThemeChange('dark')}>
-            <Moon size={14} className="text-foreground mr-2" />
+            <Moon size={14} color={tokens.foreground} className="mr-2" />
             <Text>Dark</Text>
           </DropdownMenuItem>
           <DropdownMenuItem onSelect={() => handleThemeChange('system')}>
-            <SunMoon size={14} className="text-foreground mr-2" />
+            <SunMoon size={14} color={tokens.foreground} className="mr-2" />
             <Text>System</Text>
           </DropdownMenuItem>
         </DropdownMenuContent>
