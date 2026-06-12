@@ -1,3 +1,14 @@
+## 2.25.3 (2026-06-12)
+
+### 🚀 Features
+
+- implement ThemeContext in ThemeProvider to support manual theme overrides and provide a synchronized theme state via useTheme hook ([e69950e](https://github.com/Garcia-Ventures/gvtech-design/commit/e69950e))
+- add web support for dropdown-menu ([b4ce1e1](https://github.com/Garcia-Ventures/gvtech-design/commit/b4ce1e1))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.25.2 (2026-06-11)
 
 ### 🩹 Fixes
