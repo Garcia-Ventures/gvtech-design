@@ -1,6 +1,6 @@
 import * as AlertDialogPrimitive from '@rn-primitives/alert-dialog';
 import * as React from 'react';
-import { StyleSheet, View, type ViewStyle } from 'react-native';
+import { Platform, StyleSheet, View, type ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import { buttonVariants } from './button';
@@ -43,16 +43,23 @@ const AlertDialogContent: React.ForwardRefExoticComponent<
   return (
     <AlertDialogPortal hostName={portalHost}>
       <AlertDialogOverlay className={overlayClassName} style={overlayStyle} />
-      <AlertDialogPrimitive.Content ref={ref} asChild {...props}>
-        <Animated.View
-          entering={FadeIn.duration(150)}
-          exiting={FadeOut.duration(150)}
-          className={cn(
-            'border-border bg-background z-50 w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
-            className,
-          )}
-        />
-      </AlertDialogPrimitive.Content>
+      <View
+        pointerEvents="box-none"
+        className={cn('absolute inset-0 z-50 flex items-center justify-center p-4', Platform.OS === 'web' && 'fixed')}
+      >
+        <AlertDialogPrimitive.Content ref={ref} asChild {...props}>
+          <Animated.View
+            entering={FadeIn.duration(150)}
+            exiting={FadeOut.duration(150)}
+            className={cn(
+              'border-border bg-background w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
+              className,
+            )}
+          >
+            {props.children}
+          </Animated.View>
+        </AlertDialogPrimitive.Content>
+      </View>
     </AlertDialogPortal>
   );
 });

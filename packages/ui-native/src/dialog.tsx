@@ -60,63 +60,40 @@ export type DialogContentRef = React.ComponentRef<typeof DialogPrimitive.Content
 const DialogContent: React.ForwardRefExoticComponent<DialogContentProps & React.RefAttributes<DialogContentRef>> =
   React.forwardRef<DialogContentRef, DialogContentProps>(
     ({ className, children, portalHost, overlayClassName, overlayStyle, ...props }, ref) => {
-      const PlatformWrapper = React.useCallback(({ children }: { children: React.ReactNode }) => {
-        if (Platform.OS === 'web') {
-          return <>{children}</>;
-        }
-        return (
-          <View
-            pointerEvents="box-none"
-            style={{
-              position: 'absolute',
-              top: 0,
-              right: 0,
-              bottom: 0,
-              left: 0,
-              zIndex: 50,
-              alignItems: 'center',
-              justifyContent: 'center',
-              padding: 16,
-            }}
-          >
-            {children}
-          </View>
-        );
-      }, []);
-
       return (
         <DialogPortal hostName={portalHost}>
           <DialogOverlay className={overlayClassName} style={overlayStyle} />
-          <PlatformWrapper>
-            <DialogPrimitive.Content ref={ref} {...props}>
-              <View
-                pointerEvents="box-none"
-                className="absolute inset-0 z-50 flex items-center justify-center"
-                style={Platform.OS === 'web' ? ({ position: 'fixed' } as unknown as ViewStyle) : undefined}
+          {/* Centering wrapper that is full screen */}
+          <View
+            pointerEvents="box-none"
+            className={cn(
+              'absolute inset-0 z-50 flex items-center justify-center p-4',
+              Platform.OS === 'web' && 'fixed',
+            )}
+          >
+            <DialogPrimitive.Content ref={ref} asChild {...props}>
+              <Animated.View
+                entering={FadeIn.duration(150)}
+                exiting={FadeOut.duration(150)}
+                className={cn(
+                  'border-border bg-background w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
+                  className,
+                )}
               >
-                <Animated.View
-                  entering={FadeIn.duration(150)}
-                  exiting={FadeOut.duration(150)}
-                  className={cn(
-                    'border-border bg-background w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
-                    className,
-                  )}
+                {children}
+                <DialogPrimitive.Close
+                  className={
+                    'ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'
+                  }
                 >
-                  {children}
-                  <DialogPrimitive.Close
-                    className={
-                      'ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'
-                    }
-                  >
-                    <X size={18} className="text-muted-foreground" />
-                    <View className="sr-only">
-                      <DialogPrimitive.Title>Close</DialogPrimitive.Title>
-                    </View>
-                  </DialogPrimitive.Close>
-                </Animated.View>
-              </View>
+                  <X size={18} className="text-muted-foreground" />
+                  <View className="sr-only">
+                    <DialogPrimitive.Title>Close</DialogPrimitive.Title>
+                  </View>
+                </DialogPrimitive.Close>
+              </Animated.View>
             </DialogPrimitive.Content>
-          </PlatformWrapper>
+          </View>
         </DialogPortal>
       );
     },
