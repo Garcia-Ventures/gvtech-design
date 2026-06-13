@@ -1,3 +1,7 @@
+## 2.25.4 (2026-06-13)
+
+No changes for this project
+
 ## 2.25.3 (2026-06-12)
 
 No changes for this project

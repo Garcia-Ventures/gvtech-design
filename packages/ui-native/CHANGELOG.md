@@ -1,3 +1,13 @@
+## 2.25.4 (2026-06-13)
+
+### 🩹 Fixes
+
+- unify dialog and alert dialog layout with standardized centering wrapper component ([e6720ab](https://github.com/Garcia-Ventures/gvtech-design/commit/e6720ab))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.25.3 (2026-06-12)
 
 ### 🚀 Features
