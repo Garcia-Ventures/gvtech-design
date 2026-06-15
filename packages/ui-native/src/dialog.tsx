@@ -49,7 +49,7 @@ const DialogOverlay: React.ForwardRefExoticComponent<DialogOverlayProps & React.
         <Animated.View
           entering={FadeIn.duration(150)}
           exiting={FadeOut.duration(150)}
-          className={cn('flex items-center justify-center bg-black/80 p-2', className)}
+          className={cn('flex items-center justify-center bg-black/60 p-2 backdrop-blur-md', className)}
         />
       </DialogPrimitive.Overlay>
     );

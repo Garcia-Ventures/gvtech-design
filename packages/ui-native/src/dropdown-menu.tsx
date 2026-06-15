@@ -44,7 +44,7 @@ const DropdownMenuOverlay = React.forwardRef<
       <Animated.View
         entering={FadeIn.duration(100)}
         exiting={FadeOut.duration(100)}
-        className={cn('absolute inset-0 z-50 bg-black/30', className)}
+        className={cn('absolute inset-0 z-50 bg-black/30 backdrop-blur-md', className)}
       />
     </DropdownMenuPrimitive.Overlay>
   );

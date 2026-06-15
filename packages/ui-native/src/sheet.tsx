@@ -30,7 +30,7 @@ const SheetOverlay: React.ForwardRefExoticComponent<SheetOverlayProps & React.Re
         <Animated.View
           entering={FadeIn.duration(150)}
           exiting={FadeOut.duration(150)}
-          className={cn('web:cursor-default absolute inset-0 z-50 bg-black/80', className)}
+          className={cn('web:cursor-default absolute inset-0 z-50 bg-black/60 backdrop-blur-md', className)}
         />
       </DialogPrimitive.Overlay>
     );

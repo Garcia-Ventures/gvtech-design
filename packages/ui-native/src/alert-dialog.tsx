@@ -23,7 +23,7 @@ const AlertDialogOverlay: React.ForwardRefExoticComponent<
       <Animated.View
         entering={FadeIn.duration(150)}
         exiting={FadeOut.duration(150)}
-        className={cn('z-50 flex items-center justify-center bg-black/80 p-2', className)}
+        className={cn('z-50 flex items-center justify-center bg-black/60 p-2 backdrop-blur-md', className)}
       />
     </AlertDialogPrimitive.Overlay>
   );
