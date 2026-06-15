@@ -1,5 +1,5 @@
-@import '@gv-tech/design-tokens/theme.css';
 @import 'tailwindcss';
+@import '@gv-tech/design-tokens/theme.css';
 @source '../../../packages/ui-web/src/**/*.{js,ts,jsx,tsx}';
 @source '../../../packages/ui-core/src/**/*.{js,ts,jsx,tsx}';
 
