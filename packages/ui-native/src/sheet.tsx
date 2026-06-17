@@ -2,7 +2,18 @@ import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View, type ViewStyle } from 'react-native';
-import Animated, { FadeIn, FadeOut, SlideInRight, SlideOutRight } from 'react-native-reanimated';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  SlideInDown,
+  SlideInLeft,
+  SlideInRight,
+  SlideInUp,
+  SlideOutDown,
+  SlideOutLeft,
+  SlideOutRight,
+  SlideOutUp,
+} from 'react-native-reanimated';
 
 import { type DialogContentProps } from './dialog';
 import { cn } from './lib/utils';
@@ -48,8 +59,26 @@ const SheetContent: React.ForwardRefExoticComponent<SheetContentProps & React.Re
     ({ className, children, side = 'right', overlayClassName, overlayStyle, ...props }, ref) => {
       const isWeb = Platform.OS === 'web';
       // TODO: Add support for other sides
-      const entering = isWeb ? undefined : SlideInRight;
-      const exiting = isWeb ? undefined : SlideOutRight;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let entering: any = undefined;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let exiting: any = undefined;
+
+      if (!isWeb) {
+        if (side === 'bottom') {
+          entering = SlideInDown;
+          exiting = SlideOutDown;
+        } else if (side === 'top') {
+          entering = SlideInUp;
+          exiting = SlideOutUp;
+        } else if (side === 'left') {
+          entering = SlideInLeft;
+          exiting = SlideOutLeft;
+        } else {
+          entering = SlideInRight;
+          exiting = SlideOutRight;
+        }
+      }
 
       return (
         <SheetPortal>

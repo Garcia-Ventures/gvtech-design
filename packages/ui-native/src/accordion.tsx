@@ -55,7 +55,7 @@ const AccordionTrigger: React.ForwardRefExoticComponent<
     isExpanded ? withTiming(1, { duration: 250 }) : withTiming(0, { duration: 200 }),
   );
   const chevronStyle = useAnimatedStyle(() => ({
-    transform: [{ rotate: `${progress.value * 180}deg` }],
+    transform: [{ rotate: `${progress.value * -180}deg` }],
     opacity: interpolate(progress.value, [0, 1], [1, 0.8], Extrapolation.CLAMP),
   }));
 
