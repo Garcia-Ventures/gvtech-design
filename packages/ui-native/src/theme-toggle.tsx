@@ -29,8 +29,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       onThemeChange(newTheme);
     } else {
       if (newTheme === 'system') {
-        // @ts-expect-error React Native Appearance.setColorScheme accepts null to reset to system theme
-        Appearance.setColorScheme(null);
+        Appearance.setColorScheme('unspecified');
       } else {
         Appearance.setColorScheme(newTheme);
       }
