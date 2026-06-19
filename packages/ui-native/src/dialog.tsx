@@ -6,6 +6,7 @@ import { Platform, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import { cn } from './lib/utils';
+import { Text } from './text';
 
 const Dialog = DialogPrimitive.Root;
 
@@ -87,9 +88,7 @@ const DialogContent: React.ForwardRefExoticComponent<DialogContentProps & React.
                   }
                 >
                   <X size={18} className="text-muted-foreground" />
-                  <View className="sr-only">
-                    <DialogPrimitive.Title>Close</DialogPrimitive.Title>
-                  </View>
+                  <Text className="sr-only">Close</Text>
                 </DialogPrimitive.Close>
               </Animated.View>
             </DialogPrimitive.Content>
