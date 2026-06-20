@@ -475,7 +475,9 @@
       "dependencies": [
         "@gv-tech/ui-core"
       ],
-      "registryDependencies": [],
+      "registryDependencies": [
+        "text"
+      ],
       "files": [
         {
           "path": "src/item.tsx",

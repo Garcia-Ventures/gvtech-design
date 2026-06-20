@@ -10,9 +10,9 @@ import type {
   ItemSeparatorBaseProps,
   ItemTitleBaseProps,
 } from '@gv-tech/ui-core';
-import * as React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { cn } from './lib/utils';
+import { Text } from './text';
 
 function Item({ className, variant, size, ...props }: React.ComponentProps<typeof View> & ItemBaseProps) {
   return (
@@ -29,7 +29,7 @@ function ItemContent({ className, ...props }: React.ComponentProps<typeof View> 
 }
 
 function ItemDescription({ className, ...props }: React.ComponentProps<typeof Text> & ItemDescriptionBaseProps) {
-  return <Text className={cn('text-muted-foreground text-sm', className)} {...props} />;
+  return <Text variant="bodySmall" className={cn('text-muted-foreground', className)} {...props} />;
 }
 
 function ItemFooter({ className, ...props }: React.ComponentProps<typeof View> & ItemFooterBaseProps) {
@@ -57,7 +57,7 @@ function ItemSeparator({
 }
 
 function ItemTitle({ className, ...props }: React.ComponentProps<typeof Text> & ItemTitleBaseProps) {
-  return <Text className={cn('text-sm font-medium', className)} {...props} />;
+  return <Text variant="bodySmall" className={cn('font-medium', className)} {...props} />;
 }
 
 export {

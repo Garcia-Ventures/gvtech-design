@@ -36,7 +36,17 @@ const SelectGroup = SelectPrimitive.Group;
 export interface SelectValueProps
   extends Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Value>, 'placeholder'>, SelectValueBaseProps {}
 
-const SelectValue = SelectPrimitive.Value;
+const SelectValue = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Value>, SelectValueProps>(
+  ({ className, placeholder, ...props }, ref) => (
+    <SelectPrimitive.Value
+      ref={ref}
+      className={cn('text-foreground native:text-base text-sm', className)}
+      placeholder={typeof placeholder === 'string' ? placeholder : ''}
+      {...props}
+    />
+  ),
+);
+SelectValue.displayName = SelectPrimitive.Value?.displayName || 'SelectValue';
 
 export interface SelectTriggerProps
   extends
@@ -155,7 +165,7 @@ const SelectLabel = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.L
   ({ className, ...props }, ref) => (
     <SelectPrimitive.Label
       ref={ref}
-      className={cn('text-popover-foreground py-1.5 pr-2 pl-8 text-sm font-semibold', className)}
+      className={cn('text-foreground py-1.5 pr-2 pl-8 text-sm font-semibold', className)}
       {...props}
     />
   ),
@@ -188,11 +198,11 @@ const SelectItem = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.It
           {...({} as Record<string, unknown>)}
         >
           <SelectPrimitive.ItemIndicator>
-            <Check size={14} strokeWidth={3} className="text-popover-foreground" {...({} as Record<string, unknown>)} />
+            <Check size={14} strokeWidth={3} className="text-foreground" {...({} as Record<string, unknown>)} />
           </SelectPrimitive.ItemIndicator>
         </View>
         {/* @ts-expect-error TODO: fix type */}
-        <SelectPrimitive.ItemText className="text-popover-foreground native:text-base text-sm">
+        <SelectPrimitive.ItemText className="text-foreground native:text-base text-sm">
           {children}
         </SelectPrimitive.ItemText>
       </SelectPrimitive.Item>
