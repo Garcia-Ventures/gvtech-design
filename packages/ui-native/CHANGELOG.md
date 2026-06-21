@@ -1,3 +1,18 @@
+## 2.26.0 (2026-06-21)
+
+### 🚀 Features
+
+- add GitNexus documentation skills and update registry dependencies for dialog component ([d8a5bad](https://github.com/Garcia-Ventures/gvtech-design/commit/d8a5bad))
+- add directional animation support to Sheet component and invert Accordion chevron rotation ([a914d1c](https://github.com/Garcia-Ventures/gvtech-design/commit/a914d1c))
+
+### 🩹 Fixes
+
+- update system theme reset to use unspecified instead of null for Appearance.setColorScheme ([b16e189](https://github.com/Garcia-Ventures/gvtech-design/commit/b16e189))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.25.4 (2026-06-13)
 
 ### 🩹 Fixes
