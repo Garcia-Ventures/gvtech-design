@@ -1,3 +1,13 @@
+## 2.26.1 (2026-06-21)
+
+### 🩹 Fixes
+
+- update Item component to use custom Text, add SelectValue forwarding ref, and standardize colors across Select components ([21efe56](https://github.com/Garcia-Ventures/gvtech-design/commit/21efe56))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.26.0 (2026-06-21)
 
 ### 🚀 Features
