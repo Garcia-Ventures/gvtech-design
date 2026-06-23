@@ -12,6 +12,7 @@
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
+      "react-native": "./src/index.ts",
       "import": "./dist/ui-native.esm.js",
       "require": "./dist/ui-native.cjs",
       "default": "./dist/ui-native.esm.js"
