@@ -18,7 +18,7 @@ jobs:
     timeout-minutes: 10
     steps:
       - name: "Checkout Code"
-        uses: actions/checkout@v6
+        uses: actions/checkout@v7
 
       - name: "Run FOSSA Scan"
         uses: fossas/fossa-action@main # Use a specific version if locking is preferred
@@ -32,7 +32,7 @@ jobs:
       matrix:
         node: ["22", "24"]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node }}
         uses: actions/setup-node@v6
         with:
@@ -77,7 +77,7 @@ jobs:
     timeout-minutes: 20
     needs: [test]
     steps:
-      - uses: actions/checkout@v6
+      - uses: actions/checkout@v7
 
       - name: Use Node.js 24
         uses: actions/setup-node@v6
