@@ -80,7 +80,7 @@
     "@expo/cli": "~55.0.24",
     "@gv-tech/eslint-config": "^0.1.14",
     "@nx/expo": "22.7.5",
-    "@nx/jest": "22.7.5",
+    "@nx/jest": "23.0.1",
     "@nx/js": "^22.6.5",
     "@rn-primitives/slot": "^1.2.0",
     "@swc-node/register": "~1.11.1",
