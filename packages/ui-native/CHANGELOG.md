@@ -1,3 +1,7 @@
+## 2.26.2 (2026-07-11)
+
+No changes for this project
+
 ## 2.26.1 (2026-06-21)
 
 ### 🩹 Fixes
