@@ -48,14 +48,14 @@ function generateCss() {
   for (const [key] of Object.entries(theme.light)) {
     const kebabKey = toKebabCase(key);
     if (kebabKey !== 'radius') {
-      css += `  --color-${kebabKey}: var(--color-${kebabKey});\n`;
+      css += `  --color-${kebabKey}: hsl(var(--${kebabKey}));\n`;
     }
   }
   for (const [category, tokens] of Object.entries(palette)) {
     for (const [key] of Object.entries(tokens)) {
       const kebabCat = toKebabCase(category);
       const kebabKey = toKebabCase(key);
-      css += `  --color-${kebabCat}-${kebabKey}: var(--color-${kebabCat}-${kebabKey});\n`;
+      css += `  --color-${kebabCat}-${kebabKey}: hsl(var(--${kebabCat}-${kebabKey}));\n`;
     }
   }
   css += '}\n\n';
