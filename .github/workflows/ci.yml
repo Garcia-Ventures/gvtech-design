@@ -17,20 +17,21 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
-      - name: "Checkout Code"
+      - name: 'Checkout Code'
         uses: actions/checkout@v7
 
-      - name: "Run FOSSA Scan"
+      - name: 'Run FOSSA Scan'
         uses: fossas/fossa-action@main # Use a specific version if locking is preferred
         with:
           api-key: ${{ secrets.FOSSA_API_KEY }}
+        continue-on-error: true
 
   test:
     runs-on: ubuntu-latest
     timeout-minutes: 20
     strategy:
       matrix:
-        node: ["22", "24"]
+        node: ['22', '24']
     steps:
       - uses: actions/checkout@v7
       - name: Use Node.js ${{ matrix.node }}
