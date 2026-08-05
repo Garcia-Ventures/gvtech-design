@@ -1,6 +1,6 @@
+import { docItemsMap } from '@/config/docs';
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { docItemsMap } from '../config/docs';
 import { safeTrack } from './analytics';
 
 const DEFAULT_DOMAIN = 'garciaericn.com';
@@ -9,21 +9,6 @@ const OPTOUT_KEY = 'plausible_ignore';
 
 function getDocItem(slug: string) {
   return docItemsMap.get(slug) || null;
-}
-
-/**
- * Resolves the page title efficiently, prioritizing route metadata over DOM traversal.
- * Extends fallback support to DOM query selector and document title for non-matching paths.
- */
-function getPageTitle(pathname: string): string {
-  if (pathname.startsWith('/docs')) {
-    const slug = pathname.split('/').filter(Boolean).pop() || 'getting-started';
-    const doc = getDocItem(slug);
-    if (doc?.item.title) {
-      return doc.item.title;
-    }
-  }
-  return document.querySelector('h1')?.textContent?.trim() || document.title;
 }
 
 export function PlausibleProvider({ children }: { children: React.ReactNode }): React.ReactElement {
@@ -75,7 +60,7 @@ export function PlausibleProvider({ children }: { children: React.ReactNode }): 
           outboundLinks: true,
           fileDownloads: true,
           customProperties: () => ({
-            page_title: getPageTitle(window.location.pathname),
+            page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
           }),
         });
 
@@ -107,7 +92,7 @@ export function PlausibleProvider({ children }: { children: React.ReactNode }): 
         doc_slug: slug,
         doc_title: doc?.item.title || slug,
         doc_category: doc?.category || 'Unknown',
-        page_title: getPageTitle(location.pathname),
+        page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
       },
     });
   }, [isReady, location.pathname]);

@@ -51,7 +51,7 @@ function generateTestFile(platform: 'web' | 'native', platformExports: string[])
 
       // Pure TS assignment check
       tests.push(
-        `const _test_${componentName}: ${basePropName} = {} as React.ComponentProps<typeof ${componentName}>;`,
+        `export const _test_${componentName}: ${basePropName} = {} as React.ComponentProps<typeof ${componentName}>;`,
       );
     }
   });
@@ -96,8 +96,8 @@ console.log(`✅ Generated ${path.relative(rootDir, nativeTestPath)}`);
 
 // Format the generated files
 try {
-  const { execFileSync } = require('node:child_process');
-  execFileSync('bun', ['x', 'prettier', '--write', webTestPath, nativeTestPath], { stdio: 'ignore' });
+  const { execSync } = require('node:child_process');
+  execSync(`bun run prettier --write ${webTestPath} ${nativeTestPath}`, { stdio: 'ignore' });
   console.log('✅ Formatted contract test files.');
 } catch (e) {
   // Ignore errors if prettier fails
