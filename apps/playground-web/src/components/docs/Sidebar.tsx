@@ -1,4 +1,4 @@
-import { docConfig } from '@/config/docs';
+import { docConfig, docItemsMap } from '@/config/docs';
 import { safeTrack } from '@/lib/analytics';
 import {
   cn,
@@ -37,20 +37,20 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
   const { setOpenMobile, state } = useSidebar();
 
   const [openCategories, setOpenCategories] = useState<string[]>(() => {
-    return docConfig
-      .filter(
-        (cat) =>
-          cat.title === 'Getting Started' || cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
-      )
-      .map((cat) => cat.title);
+    const slug = location.pathname.split('/').filter(Boolean).pop() || '';
+    const activeCategoryTitle = docItemsMap.get(slug)?.category;
+    const initial = ['Getting Started'];
+    if (activeCategoryTitle && !initial.includes(activeCategoryTitle)) {
+      initial.push(activeCategoryTitle);
+    }
+    return initial;
   });
 
   useEffect(() => {
-    const activeCategory = docConfig.find((cat) =>
-      cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
-    );
-    if (activeCategory && !openCategories.includes(activeCategory.title)) {
-      setOpenCategories((prev) => [...prev, activeCategory.title]);
+    const slug = location.pathname.split('/').filter(Boolean).pop() || '';
+    const activeCategoryTitle = docItemsMap.get(slug)?.category;
+    if (activeCategoryTitle) {
+      setOpenCategories((prev) => (prev.includes(activeCategoryTitle) ? prev : [...prev, activeCategoryTitle]));
     }
   }, [location.pathname]);
 
