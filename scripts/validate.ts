@@ -40,6 +40,14 @@ const steps = [
     cmd: 'bun run tsx scripts/sync-tokens.ts',
   },
   {
+    name: 'Build Registry',
+    cmd: 'bun run build:registry',
+  },
+  {
+    name: 'Generate Contract Tests',
+    cmd: 'bun run generate:contract-tests',
+  },
+  {
     name: fix ? 'Prettier fix' : 'Prettier check',
     cmd: fix
       ? `nx run-many -t format:fix ${nxParallelFlag}${nxFlagsCombined}`

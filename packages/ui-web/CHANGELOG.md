@@ -1,3 +1,81 @@
+## 2.26.2 (2026-07-11)
+
+No changes for this project
+
+## 2.26.1 (2026-06-21)
+
+No changes for this project
+
+## 2.26.0 (2026-06-21)
+
+No changes for this project
+
+## 2.25.4 (2026-06-13)
+
+No changes for this project
+
+## 2.25.3 (2026-06-12)
+
+No changes for this project
+
+## 2.25.2 (2026-06-11)
+
+No changes for this project
+
+## 2.25.1 (2026-06-11)
+
+No changes for this project
+
+## 2.25.0 (2026-06-11)
+
+No changes for this project
+
+## 2.24.0 (2026-06-10)
+
+No changes for this project
+
+## 2.23.3 (2026-06-09)
+
+No changes for this project
+
+## 2.23.2 (2026-06-04)
+
+### 🚀 Features
+
+- upgrade to NativeWind v5 and update component contract verification types ([d1df2be](https://github.com/Garcia-Ventures/gvtech-design/commit/d1df2be))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.1 (2026-06-03)
+
+### 🩹 Fixes
+
+- wrap hex color codes in single quotes within tailwind class selectors ([c5b09f6](https://github.com/Garcia-Ventures/gvtech-design/commit/c5b09f6))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.0 (2026-06-03)
+
+### 🚀 Features
+
+- add state-controlled sidebar category expansion and update active state selectors ([831e650](https://github.com/Garcia-Ventures/gvtech-design/commit/831e650))
+- document and enable shadcn CLI installation for web and native components ([50c2d9d](https://github.com/Garcia-Ventures/gvtech-design/commit/50c2d9d))
+- initialize registry.json configurations for web and native UI packages ([214f73d](https://github.com/Garcia-Ventures/gvtech-design/commit/214f73d))
+- update Search component with disableShortcut and responsive toggle, rename Sidebar components, and refine ui-core contracts. ([0623a42](https://github.com/Garcia-Ventures/gvtech-design/commit/0623a42))
+- implement new UI components and core contracts across web and native platforms with corresponding playground documentation ([daa7a49](https://github.com/Garcia-Ventures/gvtech-design/commit/daa7a49))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.2 (2026-06-03)
+
+No changes for this project
+
 ## 2.22.1 (2026-06-03)
 
 No changes for this project

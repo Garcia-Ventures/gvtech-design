@@ -1,101 +1,64 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function ToastDocs() {
   return (
     <>
-      <div className="bg-muted/50 mb-8 space-y-4 rounded-lg border p-6">
-        <h3 className="text-lg font-semibold">Which to use?</h3>
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
-          <div className="space-y-2">
-            <h4 className="text-primary font-medium">Toast (Mobile Primitives)</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              Based on React Native Reusables. Provides more granular control over individual toast elements. Uses the{' '}
-              <code>useToast</code> hook and is best for situations requiring manual state management or complex, custom
-              toast behavior.
-            </p>
-          </div>
-          <div className="space-y-2">
-            <h4 className="text-primary font-medium">Sonner</h4>
-            <p className="text-muted-foreground text-sm leading-relaxed">
-              An opinionated, modern alternative. Features automatic stacking, swipe-to-dismiss, and a simpler API (
-              <code>toast("message")</code>). Best for general feedback and high-quality UX with minimal effort.
-            </p>
-          </div>
-        </div>
-      </div>
-
       <ComponentShowcase
         title="Default"
-        description="A default toast."
-        code={`const { toast } = useToast()
+        description="A default toast for Native."
+        code={`import { useToast, Button, Text } from "@gv-tech/design-system";
 
-<Button
-  variant="outline"
-  onClick={() => {
-    toast({
-      description: "Your message has been sent.",
-    })
-  }}
->
-  Show Toast
-</Button>`}
+export function ToastExample() {
+  const { toast } = useToast();
+
+  return (
+    <Button
+      variant="outline"
+      onPress={() => {
+        toast({
+          description: "Your message has been sent.",
+        })
+      }}
+    >
+      <Text>Show Toast</Text>
+    </Button>
+  );
+}`}
       />
 
       <ComponentShowcase
         title="Destructive"
-        description="A destructive toast."
-        code={`const { toast } = useToast()
- 
- <Button
-   variant="outline"
-   onClick={() => {
-     toast({
-       variant: "destructive",
-       title: "Uh oh! Something went wrong.",
-       description: "There was a problem with your request.",
-     })
-   }}
- >
-   Show Toast
- </Button>`}
+        description="A destructive toast for Native."
+        code={`import { useToast, Button, Text } from "@gv-tech/design-system";
+
+export function ToastDestructive() {
+  const { toast } = useToast();
+
+  return (
+    <Button
+      variant="outline"
+      onPress={() => {
+        toast({
+          variant: "destructive",
+          title: "Uh oh! Something went wrong.",
+          description: "There was a problem with your request.",
+        })
+      }}
+    >
+      <Text>Show Toast</Text>
+    </Button>
+  );
+}`}
       />
+
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Toast component is built on top of{' '}
-          <a href="https://reactnativereusables.com/docs/toast" className="underline" target="_blank" rel="noreferrer">
-            React Native Reusables Toast (@rn-primitives/toast)
-          </a>
-          , powered by our custom programmatic state hooks and transitions.
+          The Toast component for Native is built on top of <code>@rn-primitives/toast</code>.
         </p>
 
-        <h4 className="mt-6 text-lg font-medium">Toast (Root)</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'variant',
-              type: '"default" | "destructive"',
-              defaultValue: '"default"',
-              description: 'The visual variant of the toast.',
-            },
-            {
-              name: 'duration',
-              type: 'number',
-              defaultValue: '5000',
-              description: 'The time in milliseconds that the toast should remain visible for.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">Toaster</h4>
-        <p className="text-muted-foreground text-sm">The Toaster component renders all active toasts.</p>
-
         <h4 className="mt-6 text-lg font-medium">useToast</h4>
-        <p className="text-muted-foreground text-sm">The `useToast` hook is used to trigger toasts.</p>
         <PropsTable
           props={[
             {

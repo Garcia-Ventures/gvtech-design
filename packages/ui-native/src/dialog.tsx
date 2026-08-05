@@ -2,10 +2,11 @@ import { DialogBaseProps, DialogContentBaseProps } from '@gv-tech/ui-core';
 import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
-import { StyleSheet, View, type ViewStyle } from 'react-native';
+import { Platform, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 
 import { cn } from './lib/utils';
+import { Text } from './text';
 
 const Dialog = DialogPrimitive.Root;
 
@@ -25,51 +26,73 @@ const DialogPortal = DialogPrimitive.Portal;
 const DialogClose = DialogPrimitive.Close;
 
 export type DialogOverlayProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>;
-export type DialogOverlayRef = React.ElementRef<typeof DialogPrimitive.Overlay>;
+export type DialogOverlayRef = React.ComponentRef<typeof DialogPrimitive.Overlay>;
 
 const DialogOverlay: React.ForwardRefExoticComponent<DialogOverlayProps & React.RefAttributes<DialogOverlayRef>> =
-  React.forwardRef<DialogOverlayRef, DialogOverlayProps>(({ className, ...props }, ref) => {
+  React.forwardRef<DialogOverlayRef, DialogOverlayProps>(({ className, style, ...props }, ref) => {
     return (
-      <DialogPrimitive.Overlay style={StyleSheet.absoluteFill} asChild ref={ref} {...props}>
+      <DialogPrimitive.Overlay
+        style={[
+          {
+            position: Platform.OS === 'web' ? 'fixed' : 'absolute',
+            top: 0,
+            right: 0,
+            bottom: 0,
+            left: 0,
+            zIndex: 50,
+          } as unknown as ViewStyle,
+          style as StyleProp<ViewStyle>,
+        ]}
+        asChild
+        ref={ref}
+        {...props}
+      >
         <Animated.View
           entering={FadeIn.duration(150)}
           exiting={FadeOut.duration(150)}
-          className={cn('z-50 flex items-center justify-center bg-black/80 p-2', className)}
+          className={cn('flex items-center justify-center bg-black/60 p-2 backdrop-blur-md', className)}
         />
       </DialogPrimitive.Overlay>
     );
   });
 DialogOverlay.displayName = DialogPrimitive.Overlay?.displayName || 'DialogOverlay';
 
-export type DialogContentRef = React.ElementRef<typeof DialogPrimitive.Content>;
+export type DialogContentRef = React.ComponentRef<typeof DialogPrimitive.Content>;
 const DialogContent: React.ForwardRefExoticComponent<DialogContentProps & React.RefAttributes<DialogContentRef>> =
   React.forwardRef<DialogContentRef, DialogContentProps>(
     ({ className, children, portalHost, overlayClassName, overlayStyle, ...props }, ref) => {
       return (
         <DialogPortal hostName={portalHost}>
           <DialogOverlay className={overlayClassName} style={overlayStyle} />
-          <DialogPrimitive.Content ref={ref} asChild {...props}>
-            <Animated.View
-              entering={FadeIn.duration(150)}
-              exiting={FadeOut.duration(150)}
-              className={cn(
-                'border-border bg-background z-50 w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
-                className,
-              )}
-            >
-              {children}
-              <DialogPrimitive.Close
-                className={
-                  'ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'
-                }
+          {/* Centering wrapper that is full screen */}
+          <View
+            pointerEvents="box-none"
+            className={cn(
+              'absolute inset-0 z-50 flex items-center justify-center p-4',
+              Platform.OS === 'web' && 'fixed',
+            )}
+          >
+            <DialogPrimitive.Content ref={ref} asChild {...props}>
+              <Animated.View
+                entering={FadeIn.duration(150)}
+                exiting={FadeOut.duration(150)}
+                className={cn(
+                  'border-border bg-background w-full max-w-lg gap-4 rounded-xl border p-6 shadow-lg sm:rounded-lg',
+                  className,
+                )}
               >
-                <X size={18} className="text-muted-foreground" />
-                <View className="sr-only">
-                  <DialogPrimitive.Title>Close</DialogPrimitive.Title>
-                </View>
-              </DialogPrimitive.Close>
-            </Animated.View>
-          </DialogPrimitive.Content>
+                {children}
+                <DialogPrimitive.Close
+                  className={
+                    'ring-offset-background focus:ring-ring data-[state=open]:bg-accent data-[state=open]:text-muted-foreground absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none'
+                  }
+                >
+                  <X size={18} className="text-muted-foreground" />
+                  <Text className="sr-only">Close</Text>
+                </DialogPrimitive.Close>
+              </Animated.View>
+            </DialogPrimitive.Content>
+          </View>
         </DialogPortal>
       );
     },
@@ -86,7 +109,7 @@ const DialogFooter = ({ className, ...props }: React.ComponentPropsWithoutRef<ty
 );
 DialogFooter.displayName = 'DialogFooter';
 
-export type DialogTitleRef = React.ElementRef<typeof DialogPrimitive.Title>;
+export type DialogTitleRef = React.ComponentRef<typeof DialogPrimitive.Title>;
 export type DialogTitleProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>;
 const DialogTitle: React.ForwardRefExoticComponent<DialogTitleProps & React.RefAttributes<DialogTitleRef>> =
   React.forwardRef<DialogTitleRef, DialogTitleProps>(({ className, ...props }, ref) => (
@@ -98,7 +121,7 @@ const DialogTitle: React.ForwardRefExoticComponent<DialogTitleProps & React.RefA
   ));
 DialogTitle.displayName = DialogPrimitive.Title?.displayName || 'DialogTitle';
 
-export type DialogDescriptionRef = React.ElementRef<typeof DialogPrimitive.Description>;
+export type DialogDescriptionRef = React.ComponentRef<typeof DialogPrimitive.Description>;
 export type DialogDescriptionProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>;
 const DialogDescription: React.ForwardRefExoticComponent<
   DialogDescriptionProps & React.RefAttributes<DialogDescriptionRef>

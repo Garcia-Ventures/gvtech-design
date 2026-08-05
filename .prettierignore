@@ -2,3 +2,5 @@ CHANGELOG.md
 .yarn
 dist-site
 .husky
+.gitnexus
+.nx

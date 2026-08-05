@@ -2,7 +2,18 @@ import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View, type ViewStyle } from 'react-native';
-import Animated, { FadeIn, FadeOut, SlideInRight, SlideOutRight } from 'react-native-reanimated';
+import Animated, {
+  FadeIn,
+  FadeOut,
+  SlideInDown,
+  SlideInLeft,
+  SlideInRight,
+  SlideInUp,
+  SlideOutDown,
+  SlideOutLeft,
+  SlideOutRight,
+  SlideOutUp,
+} from 'react-native-reanimated';
 
 import { type DialogContentProps } from './dialog';
 import { cn } from './lib/utils';
@@ -16,7 +27,7 @@ const SheetClose = DialogPrimitive.Close;
 
 const SheetPortal = DialogPrimitive.Portal;
 
-export type SheetOverlayRef = React.ElementRef<typeof DialogPrimitive.Overlay>;
+export type SheetOverlayRef = React.ComponentRef<typeof DialogPrimitive.Overlay>;
 export type SheetOverlayProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Overlay>;
 const SheetOverlay: React.ForwardRefExoticComponent<SheetOverlayProps & React.RefAttributes<SheetOverlayRef>> =
   React.forwardRef<SheetOverlayRef, SheetOverlayProps>(({ className, ...props }, ref) => {
@@ -30,14 +41,14 @@ const SheetOverlay: React.ForwardRefExoticComponent<SheetOverlayProps & React.Re
         <Animated.View
           entering={FadeIn.duration(150)}
           exiting={FadeOut.duration(150)}
-          className={cn('web:cursor-default absolute inset-0 z-50 bg-black/80', className)}
+          className={cn('web:cursor-default absolute inset-0 z-50 bg-black/60 backdrop-blur-md', className)}
         />
       </DialogPrimitive.Overlay>
     );
   });
 SheetOverlay.displayName = DialogPrimitive.Overlay?.displayName || 'SheetOverlay';
 
-export type SheetContentRef = React.ElementRef<typeof DialogPrimitive.Content>;
+export type SheetContentRef = React.ComponentRef<typeof DialogPrimitive.Content>;
 export type SheetContentProps = DialogContentProps & {
   side?: 'top' | 'right' | 'bottom' | 'left';
   overlayClassName?: string;
@@ -48,8 +59,26 @@ const SheetContent: React.ForwardRefExoticComponent<SheetContentProps & React.Re
     ({ className, children, side = 'right', overlayClassName, overlayStyle, ...props }, ref) => {
       const isWeb = Platform.OS === 'web';
       // TODO: Add support for other sides
-      const entering = isWeb ? undefined : SlideInRight;
-      const exiting = isWeb ? undefined : SlideOutRight;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let entering: any = undefined;
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      let exiting: any = undefined;
+
+      if (!isWeb) {
+        if (side === 'bottom') {
+          entering = SlideInDown;
+          exiting = SlideOutDown;
+        } else if (side === 'top') {
+          entering = SlideInUp;
+          exiting = SlideOutUp;
+        } else if (side === 'left') {
+          entering = SlideInLeft;
+          exiting = SlideOutLeft;
+        } else {
+          entering = SlideInRight;
+          exiting = SlideOutRight;
+        }
+      }
 
       return (
         <SheetPortal>
@@ -99,7 +128,7 @@ const SheetFooter = ({ className, ...props }: React.ComponentPropsWithoutRef<typ
 );
 SheetFooter.displayName = 'SheetFooter';
 
-export type SheetTitleRef = React.ElementRef<typeof DialogPrimitive.Title>;
+export type SheetTitleRef = React.ComponentRef<typeof DialogPrimitive.Title>;
 export type SheetTitleProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Title>;
 const SheetTitle: React.ForwardRefExoticComponent<SheetTitleProps & React.RefAttributes<SheetTitleRef>> =
   React.forwardRef<SheetTitleRef, SheetTitleProps>(({ className, ...props }, ref) => (
@@ -107,7 +136,7 @@ const SheetTitle: React.ForwardRefExoticComponent<SheetTitleProps & React.RefAtt
   ));
 SheetTitle.displayName = DialogPrimitive.Title?.displayName || 'SheetTitle';
 
-export type SheetDescriptionRef = React.ElementRef<typeof DialogPrimitive.Description>;
+export type SheetDescriptionRef = React.ComponentRef<typeof DialogPrimitive.Description>;
 export type SheetDescriptionProps = React.ComponentPropsWithoutRef<typeof DialogPrimitive.Description>;
 const SheetDescription: React.ForwardRefExoticComponent<
   SheetDescriptionProps & React.RefAttributes<SheetDescriptionRef>

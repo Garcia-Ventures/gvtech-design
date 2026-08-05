@@ -8,7 +8,10 @@ export interface DropdownMenuBaseProps {
 }
 
 export interface DropdownMenuTriggerBaseProps {
-  children: React.ReactNode;
+  className?: string;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   asChild?: boolean;
 }
 
@@ -67,7 +70,10 @@ export interface DropdownMenuSubBaseProps {
 
 export interface DropdownMenuSubTriggerBaseProps {
   className?: string;
-  children?: React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+  asChild?: boolean;
   inset?: boolean;
 }
 

@@ -1,55 +1,50 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function SelectDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default select component."
-        code={`<Select>
-  <SelectTrigger className="w-[180px]">
-    <SelectValue placeholder="Select a fruit" />
-  </SelectTrigger>
-  <SelectContent>
-    <SelectGroup>
-      <SelectLabel>Fruits</SelectLabel>
-      <SelectItem value="apple" label="Apple">Apple</SelectItem>
-      <SelectItem value="banana" label="Banana">Banana</SelectItem>
-      <SelectItem value="blueberry" label="Blueberry">Blueberry</SelectItem>
-      <SelectItem value="grapes" label="Grapes">Grapes</SelectItem>
-      <SelectItem value="pineapple" label="Pineapple">Pineapple</SelectItem>
-    </SelectGroup>
-  </SelectContent>
-</Select>`}
+        description="A default select component for Native."
+        code={`import { 
+  Select, 
+  SelectTrigger, 
+  SelectValue, 
+  SelectContent, 
+  SelectGroup, 
+  SelectLabel, 
+  SelectItem,
+  Text 
+} from "@gv-tech/design-system";
+
+export function SelectExample() {
+  return (
+    <Select>
+      <SelectTrigger className="w-[180px]">
+        <SelectValue placeholder="Select a fruit" />
+      </SelectTrigger>
+      <SelectContent>
+        <SelectGroup>
+          <SelectLabel><Text>Fruits</Text></SelectLabel>
+          <SelectItem value="apple"><Text>Apple</Text></SelectItem>
+          <SelectItem value="banana"><Text>Banana</Text></SelectItem>
+        </SelectGroup>
+      </SelectContent>
+    </Select>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Select component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/select"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Select
-          </a>
-          .
+          The Select component for Native is built on top of <code>@rn-primitives/select</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Select (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultValue',
-              type: 'string',
-              description: 'The value of the select when initially rendered.',
-            },
             {
               name: 'value',
               type: 'string',
@@ -65,43 +60,6 @@ export function SelectDocs() {
               type: 'boolean',
               description: 'The controlled open state of the select.',
             },
-            {
-              name: 'onOpenChange',
-              type: '(open: boolean) => void',
-              description: 'Event handler called when the open state changes.',
-            },
-            {
-              name: 'dir',
-              type: '"ltr" | "rtl"',
-              description: 'The reading direction of the select.',
-            },
-            {
-              name: 'name',
-              type: 'string',
-              description: 'The name of the select. Submitted with its owning form as part of a name/value pair.',
-            },
-            {
-              name: 'disabled',
-              type: 'boolean',
-              description: 'When true, prevents the user from interacting with select.',
-            },
-            {
-              name: 'required',
-              type: 'boolean',
-              description:
-                'When true, indicates that the user must select a value before the owning form can be submitted.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">SelectTrigger</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'asChild',
-              type: 'boolean',
-              description: 'Change the default rendered element for the one passed as a child.',
-            },
           ]}
         />
 
@@ -112,18 +70,12 @@ export function SelectDocs() {
               name: 'value',
               type: 'string',
               required: true,
-              description: 'The value given as data when submitted with a name.',
+              description: 'The value for the item.',
             },
             {
-              name: 'disabled',
-              type: 'boolean',
-              description: 'When true, prevents the user from interacting with the item.',
-            },
-            {
-              name: 'textValue',
+              name: 'label',
               type: 'string',
-              description:
-                'Optional text used for typeahead purposes. By default the typeahead behavior will use the .textContent of the Item.',
+              description: 'The label to display (defaults to string children).',
             },
           ]}
         />

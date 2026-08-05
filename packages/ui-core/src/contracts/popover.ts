@@ -9,7 +9,9 @@ export interface PopoverBaseProps {
 }
 
 export interface PopoverTriggerBaseProps {
-  children: React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   className?: string;
   asChild?: boolean;
 }

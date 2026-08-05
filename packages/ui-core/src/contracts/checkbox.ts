@@ -3,8 +3,8 @@
 
 // Platform-agnostic props shared by every Checkbox implementation.
 export interface CheckboxBaseProps {
-  checked?: boolean;
-  defaultChecked?: boolean;
+  checked?: boolean | 'indeterminate';
+  defaultChecked?: boolean | 'indeterminate';
   disabled?: boolean;
   className?: string;
   onCheckedChange?: (checked: boolean) => void;

@@ -1,12 +1,13 @@
 import { Alert, AlertDescription, AlertTitle, Card, CardContent, CardHeader, CardTitle } from '@gv-tech/ui-web';
-import { Info } from 'lucide-react';
+import { ArrowRight, Info, Monitor, Smartphone } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import { useDocMetadata } from '@/hooks/useDocMetadata';
 
 export function GettingStartedPage() {
   useDocMetadata({
     title: 'Getting Started',
-    description: 'Learn how to get started with the GV Tech Design System.',
+    description: 'Learn how to get started with the GV Tech Design System across Web and React Native.',
   });
   return (
     <div className="space-y-12 pb-10">
@@ -61,36 +62,56 @@ export function GettingStartedPage() {
         <div className="grid gap-6 md:grid-cols-2">
           <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-blue-500" />
-                <h3 className="text-xl font-bold">@gv-tech/ui-web</h3>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Monitor className="h-5 w-5 text-blue-500" />
+                  <h3 className="text-xl font-bold">@gv-tech/ui-web</h3>
+                </div>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                The primary package for web applications. Built with <strong>Tailwind CSS 4.0</strong> and
-                <strong>Radix UI</strong> primitives. It provides accessible, unstyled components that are styled via
-                our design tokens.
+                The primary package for web applications. Built with <strong>Tailwind CSS 4.0</strong> and{' '}
+                <strong>Radix UI</strong> primitives. Provides accessible components styled via design tokens.
               </p>
             </div>
-            <div className="text-muted-foreground bg-muted/50 rounded p-2 font-mono text-xs">
-              Ideal for: Next.js, Vite, Create React App
+            <div className="flex items-center justify-between pt-2">
+              <span className="text-muted-foreground bg-muted/50 rounded px-2 py-1 font-mono text-xs">
+                Next.js, Vite, React DOM
+              </span>
+              <Link
+                to="/docs/installation"
+                className="text-primary flex items-center gap-1 text-xs font-semibold hover:underline"
+              >
+                Web Setup <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
+
           <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
             <div className="space-y-4">
-              <div className="flex items-center gap-3">
-                <div className="h-2 w-2 rounded-full bg-purple-500" />
-                <h3 className="text-xl font-bold">@gv-tech/ui-native</h3>
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <Smartphone className="h-5 w-5 text-purple-500" />
+                  <h3 className="text-xl font-bold">@gv-tech/ui-native</h3>
+                </div>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                The platform implementation for <strong>React Native</strong>. Powered by <strong>NativeWind</strong>
-                to provide a unified styling experience. It transforms our shared tokens into native styles
-                effortlessly.
+                The platform implementation for <strong>React Native</strong>. Powered by <strong>NativeWind v5</strong>{' '}
+                for seamless token-driven styling on iOS, Android, and Expo.
               </p>
             </div>
-            <div className="text-muted-foreground bg-muted/50 rounded p-2 font-mono text-xs">
-              Ideal for: Expo, React Native CLI
+            <div className="flex items-center justify-between pt-2">
+              <span className="text-muted-foreground bg-muted/50 rounded px-2 py-1 font-mono text-xs">
+                Expo SDK, React Native CLI
+              </span>
+              <Link
+                to="/docs/installation"
+                className="text-primary flex items-center gap-1 text-xs font-semibold hover:underline"
+              >
+                Native Setup <ArrowRight className="h-3 w-3" />
+              </Link>
             </div>
           </div>
+
           <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -98,14 +119,15 @@ export function GettingStartedPage() {
                 <h3 className="text-xl font-bold">@gv-tech/ui-core</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                The <strong>Universal Contract</strong> layer. It defines exactly how a component should behave and what
-                props it accepts, ensuring that developers get a consistent API regardless of the platform.
+                The <strong>Universal Contract</strong> layer. It defines component contracts and prop interfaces,
+                ensuring developers get a consistent API regardless of platform.
               </p>
             </div>
             <div className="text-muted-foreground bg-muted/50 rounded p-2 font-mono text-xs">
               Role: Interfaces, Types, Constants
             </div>
           </div>
+
           <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
             <div className="space-y-4">
               <div className="flex items-center gap-3">
@@ -113,8 +135,8 @@ export function GettingStartedPage() {
                 <h3 className="text-xl font-bold">@gv-tech/design-tokens</h3>
               </div>
               <p className="text-muted-foreground leading-relaxed">
-                The <strong>Visual Genome</strong> of the system. Contains all raw values for colors, spacing, and
-                typography. Used to generate the CSS variables and theme objects that power the entire ecosystem.
+                The <strong>Visual Genome</strong> of the system. Contains raw HSL token values for colors, spacing, and
+                typography, exporting Tailwind presets for both Web and Mobile.
               </p>
             </div>
             <div className="text-muted-foreground bg-muted/50 rounded p-2 font-mono text-xs">
@@ -139,24 +161,30 @@ export function GettingStartedPage() {
           <div className="space-y-2">
             <h4 className="font-bold">Consistency by Default</h4>
             <p className="text-muted-foreground text-sm">
-              By implementating the same <code className="bg-muted rounded px-1.5 py-0.5">ui-core</code> contracts, we
+              By implementing the same <code className="bg-muted rounded px-1.5 py-0.5">ui-core</code> contracts, we
               guarantee that switching between web and mobile development feels natural and predictable.
             </p>
           </div>
           <div className="space-y-2">
             <h4 className="font-bold">Token-First Styling</h4>
             <p className="text-muted-foreground text-sm">
-              We don't hardcode colors. Every component is tied to our semantic token system, enabling instant theme
+              We don't hardcode colors. Every component is tied to our semantic HSL token system, enabling instant theme
               updates and perfect dark mode support out of the box.
             </p>
           </div>
         </div>
         <Alert variant="info" className="border-primary/20 bg-primary/5">
           <Info className="h-5 w-5" />
-          <AlertTitle className="text-lg font-bold">Getting Started</AlertTitle>
+          <AlertTitle className="text-lg font-bold">Installation & Configuration</AlertTitle>
           <AlertDescription className="mt-2 text-base">
-            Ready to integrate? Choose your platform and follow our guided <strong>Installation</strong> steps to get
-            set up in under 5 minutes.
+            Ready to integrate? Follow our step-by-step{' '}
+            <strong>
+              <Link to="/docs/installation" className="underline">
+                Installation Guide
+              </Link>
+            </strong>{' '}
+            for complete setup instructions including Tailwind content pathing, HSL global CSS variables, Metro, and
+            TypeScript configuration.
           </AlertDescription>
         </Alert>
       </section>
@@ -174,7 +202,7 @@ export function GettingStartedPage() {
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
               <span className="text-xs text-green-600">✓</span>
             </div>
-            <span>Tailwind CSS 4.0 Support</span>
+            <span>Tailwind CSS 4.0 & NativeWind v5 Support</span>
           </div>
           <div className="bg-muted/20 flex items-center gap-3 rounded-lg p-3">
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
@@ -186,7 +214,7 @@ export function GettingStartedPage() {
             <div className="flex h-5 w-5 items-center justify-center rounded-full bg-green-500/20">
               <span className="text-xs text-green-600">✓</span>
             </div>
-            <span>Zero-runtime CSS variants</span>
+            <span>Zero-runtime CSS variants & TypeScript ready</span>
           </div>
         </div>
       </section>

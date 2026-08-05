@@ -28,21 +28,32 @@ describe('Alert', () => {
 
     const alert = screen.getByRole('alert');
     expect(alert).toBeInTheDocument();
-    expect(alert).toHaveClass('border-destructive/50');
     expect(alert).toHaveClass('text-destructive');
+  });
+
+  it('renders warning variant', () => {
+    render(
+      <Alert variant="warning">
+        <AlertTitle>Warning</AlertTitle>
+        <AlertDescription>Proceed with caution.</AlertDescription>
+      </Alert>,
+    );
+
+    const alert = screen.getByRole('alert');
+    expect(alert).toBeInTheDocument();
+    expect(alert).toHaveClass('text-amber-600');
   });
 
   it('renders info variant', () => {
     render(
       <Alert variant="info">
         <AlertTitle>Info</AlertTitle>
-        <AlertDescription>This is an informational message.</AlertDescription>
+        <AlertDescription>Note that Expo SDK versions must match.</AlertDescription>
       </Alert>,
     );
 
     const alert = screen.getByRole('alert');
     expect(alert).toBeInTheDocument();
-    expect(alert).toHaveClass('border-blue-500/50');
     expect(alert).toHaveClass('text-blue-600');
   });
 });

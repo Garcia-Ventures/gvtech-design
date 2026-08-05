@@ -7,7 +7,7 @@ describe('Resizable', () => {
   it('renders correctly', () => {
     // Basic render test
     render(
-      <ResizablePanelGroup direction="horizontal">
+      <ResizablePanelGroup orientation="horizontal">
         <ResizablePanel defaultSize={50}>
           <div>One</div>
         </ResizablePanel>

@@ -1,3 +1,89 @@
+## 2.26.2 (2026-07-11)
+
+### 🩹 Fixes
+
+- update token generator to wrap CSS color variables in hsl() function ([89c5637](https://github.com/Garcia-Ventures/gvtech-design/commit/89c5637))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.26.1 (2026-06-21)
+
+No changes for this project
+
+## 2.26.0 (2026-06-21)
+
+No changes for this project
+
+## 2.25.4 (2026-06-13)
+
+No changes for this project
+
+## 2.25.3 (2026-06-12)
+
+No changes for this project
+
+## 2.25.2 (2026-06-11)
+
+No changes for this project
+
+## 2.25.1 (2026-06-11)
+
+No changes for this project
+
+## 2.25.0 (2026-06-11)
+
+### 🚀 Features
+
+- update sync script to export design tokens within CSS theme block ([177d880](https://github.com/Garcia-Ventures/gvtech-design/commit/177d880))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.24.0 (2026-06-10)
+
+### 🩹 Fixes
+
+- implement CSS theme block and normalize design token variable naming conventions ([1b0446e](https://github.com/Garcia-Ventures/gvtech-design/commit/1b0446e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.3 (2026-06-09)
+
+No changes for this project
+
+## 2.23.2 (2026-06-04)
+
+### 🚀 Features
+
+- upgrade to NativeWind v5 and update component contract verification types ([d1df2be](https://github.com/Garcia-Ventures/gvtech-design/commit/d1df2be))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.1 (2026-06-03)
+
+No changes for this project
+
+## 2.23.0 (2026-06-03)
+
+### 🚀 Features
+
+- implement collapsible sidebar with category grouping and dropdown navigation in documentation ([60f094a](https://github.com/Garcia-Ventures/gvtech-design/commit/60f094a))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.2 (2026-06-03)
+
+No changes for this project
+
 ## 2.22.1 (2026-06-03)
 
 No changes for this project

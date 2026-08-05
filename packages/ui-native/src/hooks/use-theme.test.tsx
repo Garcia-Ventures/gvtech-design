@@ -3,16 +3,16 @@ import { renderHook } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 import { useTheme } from './use-theme';
 
-// Mock nativewind using a dynamic module-level variable
+// Mock react-native's useColorScheme
 let mockColorScheme = 'light';
-const mockSetColorScheme = vi.fn();
 
-vi.mock('nativewind', () => ({
-  useColorScheme: () => ({
-    colorScheme: mockColorScheme,
-    setColorScheme: mockSetColorScheme,
-  }),
-}));
+vi.mock('react-native', async (importOriginal) => {
+  const actual = await importOriginal<typeof import('react-native')>();
+  return {
+    ...actual,
+    useColorScheme: () => mockColorScheme,
+  };
+});
 
 describe('useTheme (Native)', () => {
   it('returns default light tokens when colorScheme is light', () => {
@@ -31,11 +31,5 @@ describe('useTheme (Native)', () => {
     expect(result.current.theme).toBe('dark');
     expect(result.current.resolvedTheme).toBe('dark');
     expect(result.current.tokens).toEqual(designTokens.dark);
-  });
-
-  it('allows changing the theme via setTheme', () => {
-    const { result } = renderHook(() => useTheme());
-    result.current.setTheme('dark');
-    expect(mockSetColorScheme).toHaveBeenCalledWith('dark');
   });
 });

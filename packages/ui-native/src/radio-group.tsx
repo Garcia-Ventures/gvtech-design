@@ -8,7 +8,7 @@ import { cn } from './lib/utils';
 export interface RadioGroupProps
   extends React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Root>, RadioGroupBaseProps {}
 
-const RadioGroup = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Root>, RadioGroupProps>(
+const RadioGroup = React.forwardRef<React.ComponentRef<typeof RadioGroupPrimitive.Root>, RadioGroupProps>(
   ({ className, ...props }, ref) => {
     return <RadioGroupPrimitive.Root className={cn('web:grid gap-2', className)} {...props} ref={ref} />;
   },
@@ -18,7 +18,7 @@ RadioGroup.displayName = RadioGroupPrimitive.Root?.displayName || 'RadioGroup';
 export interface RadioGroupItemProps
   extends Omit<React.ComponentPropsWithoutRef<typeof RadioGroupPrimitive.Item>, 'disabled'>, RadioGroupItemBaseProps {}
 
-const RadioGroupItem = React.forwardRef<React.ElementRef<typeof RadioGroupPrimitive.Item>, RadioGroupItemProps>(
+const RadioGroupItem = React.forwardRef<React.ComponentRef<typeof RadioGroupPrimitive.Item>, RadioGroupItemProps>(
   ({ className, ...props }, ref) => {
     return (
       <RadioGroupPrimitive.Item

@@ -12,6 +12,6 @@ describe('Separator', () => {
 
   it('applies orientation classes', () => {
     render(<Separator orientation="vertical" data-testid="separator-vertical" />);
-    expect(screen.getByTestId('separator-vertical')).toHaveClass('h-full w-[1px]');
+    expect(screen.getByTestId('separator-vertical')).toHaveClass('data-[orientation=vertical]:w-px');
   });
 });

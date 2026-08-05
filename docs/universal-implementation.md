@@ -39,7 +39,8 @@ Key rules:
 | :--------------- | :-: | :----: | :-------------------------------------------------------- |
 | **Button**       | ✅  |   ✅   | Pressable + all variants; `onPress` replaces `onClick`    |
 | **Checkbox**     | ✅  |   ✅   | `@rn-primitives/checkbox`; size/stroke differ by platform |
-| **Form**         | ✅  |   🚫   | react-hook-form; web-first pattern                        |
+| **Combobox**     | ✅  |   ✅   | Modal with embedded search input and FlatList patterns    |
+| **Form**         | ✅  |   ✅   | react-hook-form; web-first pattern                        |
 | **Input**        | ✅  |   ✅   | RN `TextInput`; no `onChange`, uses `onChangeText`        |
 | **Label**        | ✅  |   ✅   | Uses `nativeID` + `onPress` instead of `htmlFor`          |
 | **Radio Group**  | ✅  |   ✅   | `@rn-primitives/radio-group`                              |
@@ -58,9 +59,9 @@ Key rules:
 | **Alert**       | ✅  |   ✅   | Variants: default, destructive, warning, info          |
 | **Avatar**      | ✅  |   ✅   | `@rn-primitives/avatar`                                |
 | **Badge**       | ✅  |   ✅   | Text wrapped in View; NativeWind variant classes       |
-| **Calendar**    | ✅  |   🚫   | Complex date picker; no RN primitive                   |
+| **Calendar**    | ✅  |   ✅   | `@react-native-community/datetimepicker` wrapped       |
 | **Card**        | ✅  |   ✅   | View/Text-based; full sub-components                   |
-| **Carousel**    | ✅  |   🚫   | Embla-based; no comparable RN lib yet                  |
+| **Carousel**    | ✅  |   ✅   | Basic paging implementation via `ScrollView`           |
 | **Chart**       | ✅  |   🚫   | recharts (web-only SVG); consider victory-native later |
 | **Collapsible** | ✅  |   ✅   | `@rn-primitives/collapsible`                           |
 | **Skeleton**    | ✅  |   ✅   | Reanimated pulsing opacity (vs CSS animation)          |
@@ -73,9 +74,9 @@ Key rules:
 | :--------------- | :-: | :----: | :------------------------------------------------- |
 | **Alert Dialog** | ✅  |   ✅   | `@rn-primitives/alert-dialog` + Reanimated overlay |
 | **Dialog**       | ✅  |   ✅   | `@rn-primitives/dialog` + Reanimated fade          |
-| **Hover Card**   | ✅  |   🚫   | Hover interaction; not applicable on touch         |
+| **Hover Card**   | ✅  |   ✅   | `@rn-primitives/hover-card`                        |
 | **Popover**      | ✅  |   ✅   | Modal-based implementation                         |
-| **Progress**     | ✅  |   🚫   | No `@rn-primitives/progress` yet                   |
+| **Progress**     | ✅  |   ✅   | View-based progress bar                            |
 | **Sheet**        | ✅  |   ✅   | SlideInRight/Left Reanimated; side prop supported  |
 | **Skeleton**     | ✅  |   ✅   | See Data Display above                             |
 | **Sonner**       | ✅  |   🚫   | Web toast library; use `Toast` on native           |
@@ -84,28 +85,28 @@ Key rules:
 
 ### Navigation
 
-| Component           | Web | Native | Notes                                          |
-| :------------------ | :-: | :----: | :--------------------------------------------- |
-| **Breadcrumb**      | ✅  |   🚫   | Navigation-heavy; alternative: Text links      |
-| **Command**         | ✅  |   🚫   | cmdk-based; no RN equivalent                   |
-| **Context Menu**    | ✅  |   🚫   | Right-click/long-press; consider ActionSheet   |
-| **Drawer**          | ✅  |   🚫   | vaul-based; Sheet covers the pattern on native |
-| **Dropdown Menu**   | ✅  |   🚫   | Pointer-triggered; no RN primitive yet         |
-| **Menubar**         | ✅  |   🚫   | Desktop navigation pattern                     |
-| **Navigation Menu** | ✅  |   🚫   | Web navigation pattern                         |
-| **Pagination**      | ✅  |   🚫   | Alternative: infinite scroll on native         |
-| **Search**          | ✅  |   ✅   | Command palette pattern                        |
-| **Sheet**           | ✅  |   ✅   | See Feedback above                             |
-| **Tabs**            | ✅  |   ✅   | `@rn-primitives/tabs` + TextClassContext       |
+| Component           | Web | Native | Notes                                           |
+| :------------------ | :-: | :----: | :---------------------------------------------- |
+| **Breadcrumb**      | ✅  |   ✅   | View/Text-based navigation links                |
+| **Command**         | ✅  |   🚫   | cmdk-based; no RN equivalent                    |
+| **Context Menu**    | ✅  |   ✅   | `@rn-primitives/context-menu`                   |
+| **Drawer**          | ✅  |   ✅   | `@rn-primitives/dialog` + SlideInDown animation |
+| **Dropdown Menu**   | ✅  |   ✅   | `@rn-primitives/dropdown-menu`                  |
+| **Menubar**         | ✅  |   ✅   | `@rn-primitives/menubar`                        |
+| **Navigation Menu** | ✅  |   ✅   | `@rn-primitives/navigation-menu`                |
+| **Pagination**      | ✅  |   ✅   | Button-based pagination controls                |
+| **Search**          | ✅  |   ✅   | Command palette pattern                         |
+| **Sheet**           | ✅  |   ✅   | See Feedback above                              |
+| **Tabs**            | ✅  |   ✅   | `@rn-primitives/tabs` + TextClassContext        |
 
 ### Layout
 
-| Component        | Web | Native | Notes                                             |
-| :--------------- | :-: | :----: | :------------------------------------------------ |
-| **Aspect Ratio** | ✅  |   🚫   | CSS `aspect-ratio`; RN View handles this natively |
-| **Resizable**    | ✅  |   🚫   | Drag-based; not a native interaction pattern      |
-| **Scroll Area**  | ✅  |   🚫   | Native scroll is built-in via `ScrollView`        |
-| **Separator**    | ✅  |   ✅   | `@rn-primitives/separator`                        |
+| Component        | Web | Native | Notes                                        |
+| :--------------- | :-: | :----: | :------------------------------------------- |
+| **Aspect Ratio** | ✅  |   ✅   | `@rn-primitives/aspect-ratio`                |
+| **Resizable**    | ✅  |   🚫   | Drag-based; not a native interaction pattern |
+| **Scroll Area**  | ✅  |   🚫   | Native scroll is built-in via `ScrollView`   |
+| **Separator**    | ✅  |   ✅   | `@rn-primitives/separator`                   |
 
 ### Utilities
 
@@ -158,38 +159,3 @@ Document intentional platform differences here. Each entry explains the _semanti
 3. If yes, build from RN primitives (`View`, `Text`, `Pressable`, `TextInput`)
 4. Wire Reanimated for any animations
 5. Add to `ui-native/src/index.ts` and `docs.ts` platforms
-
----
-
-## Outstanding Issues & Next Steps
-
-### 1. Native Test Coverage
-
-12 of 27+ native components have test files. Remaining components that need tests:
-
-- Accordion, Alert, Alert Dialog, Avatar, Badge, Label, Search, Select, Separator, Switch, Table, Tabs, Theme Toggle, Toggle, Toggle Group, Tooltip
-
-### 2. Native Playground Expansion
-
-`apps/native-playground/src/app/App.tsx` currently demos: Button, Card, Input, Checkbox, RadioGroup, Text, Badge. Add:
-
-- Accordion, Alert, AlertDialog, Avatar, Badge, Collapsible, Dialog, Select, Separator, Sheet, Skeleton, Switch, Table, Tabs, Toast, Toggle, Tooltip
-
-### 3. Token Expansion (Design Tokens)
-
-`packages/design-tokens` exports palette, theme, spacing, typography, shadows, and radii. Next:
-
-- Add a tokens reference page to the playground (showing all raw values)
-- Ensure `ui-native` consumes `design-tokens` directly (no duplication)
-
-### 4. Sub-Package Publishing
-
-Currently only `@gv-tech/design-system` (root) is published. Phase 2 should add:
-
-- `@gv-tech/ui-web`
-- `@gv-tech/ui-native`
-- `@gv-tech/ui-core`
-- `@gv-tech/design-tokens`
-
-> [!TIP]
-> During the transition period, the existing root package continues to work. The monorepo migration is additive — existing imports won't break until explicitly migrated.

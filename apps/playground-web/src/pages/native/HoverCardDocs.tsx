@@ -1,55 +1,56 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function HoverCardDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A hover card showing user details."
-        code={`<HoverCard>
-  <HoverCardTrigger asChild>
-    <Button variant="link">@nextjs</Button>
-  </HoverCardTrigger>
-  <HoverCardContent className="w-80">
-    <div className="flex justify-between space-x-4">
-      <Avatar>
-        <AvatarImage src="https://github.com/vercel.png" />
-        <AvatarFallback>VC</AvatarFallback>
-      </Avatar>
-      <div className="space-y-1">
-        <h4 className="text-sm font-semibold">@nextjs</h4>
-        <p className="text-sm">
-          The React Framework – created and maintained by @vercel.
-        </p>
-        <div className="flex items-center pt-2">
-          <CalendarDays className="mr-2 h-4 w-4 opacity-70" />{" "}
-          <span className="text-xs text-muted-foreground">
-            Joined December 2021
-          </span>
-        </div>
-      </div>
-    </div>
-  </HoverCardContent>
-</HoverCard>`}
+        description="A hover card (tap to open on mobile) for Native."
+        code={`import { 
+  HoverCard, 
+  HoverCardTrigger, 
+  HoverCardContent,
+  Avatar,
+  AvatarImage,
+  AvatarFallback,
+  Button,
+  Text
+} from '@gv-tech/design-system';
+import { View } from 'react-native';
+
+export function HoverCardExample() {
+  return (
+    <HoverCard>
+      <HoverCardTrigger asChild>
+        <Button variant="link">
+          <Text>@nextjs</Text>
+        </Button>
+      </HoverCardTrigger>
+      <HoverCardContent className="w-80">
+        <View className="flex flex-row justify-between space-x-4">
+          <Avatar>
+            <AvatarImage source={{ uri: "https://github.com/vercel.png" }} />
+            <AvatarFallback><Text>VC</Text></AvatarFallback>
+          </Avatar>
+          <View className="flex-1 space-y-1">
+            <Text className="text-sm font-semibold">@nextjs</Text>
+            <Text className="text-sm">
+              The React Framework – created and maintained by @vercel.
+            </Text>
+          </View>
+        </View>
+      </HoverCardContent>
+    </HoverCard>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The HoverCard component is built on top of{' '}
-          <a
-            href="https://reactnativereusables.com/docs/hover-card"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            React Native Reusables HoverCard (@rn-primitives/hover-card)
-          </a>
-          . Note that on mobile viewports, hover acts as a quick tap to toggle the card portal.
+          The HoverCard component for Native is built on top of <code>@rn-primitives/hover-card</code>. Note: On touch
+          devices, this component behaves as a tap-to-toggle.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">HoverCard (Root)</h4>
@@ -61,49 +62,9 @@ export function HoverCardDocs() {
               description: 'The controlled open state of the hover card.',
             },
             {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The default open state when uncontrolled.',
-            },
-            {
               name: 'onOpenChange',
               type: '(open: boolean) => void',
               description: 'Event handler called when the open state changes.',
-            },
-            {
-              name: 'openDelay',
-              type: 'number',
-              defaultValue: '700',
-              description: 'The duration from when the mouse enters the trigger until the hover card opens.',
-            },
-            {
-              name: 'closeDelay',
-              type: 'number',
-              defaultValue: '300',
-              description: 'The duration from when the mouse leaves the trigger until the hover card closes.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">HoverCardContent</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'forceMount',
-              type: 'boolean',
-              description: 'Used to force mounting when more control is needed.',
-            },
-            {
-              name: 'sideOffset',
-              type: 'number',
-              defaultValue: '4',
-              description: 'The distance in pixels from the trigger.',
-            },
-            {
-              name: 'align',
-              type: '"start" | "center" | "end"',
-              defaultValue: '"center"',
-              description: 'The preferred alignment against the trigger.',
             },
           ]}
         />

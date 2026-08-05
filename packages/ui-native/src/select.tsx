@@ -36,14 +36,24 @@ const SelectGroup = SelectPrimitive.Group;
 export interface SelectValueProps
   extends Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Value>, 'placeholder'>, SelectValueBaseProps {}
 
-const SelectValue = SelectPrimitive.Value;
+const SelectValue = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Value>, SelectValueProps>(
+  ({ className, placeholder, ...props }, ref) => (
+    <SelectPrimitive.Value
+      ref={ref}
+      className={cn('text-foreground native:text-base text-sm', className)}
+      placeholder={typeof placeholder === 'string' ? placeholder : ''}
+      {...props}
+    />
+  ),
+);
+SelectValue.displayName = SelectPrimitive.Value?.displayName || 'SelectValue';
 
 export interface SelectTriggerProps
   extends
     Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Trigger>, 'children' | 'disabled'>,
     SelectTriggerBaseProps {}
 
-const SelectTrigger = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
+const SelectTrigger = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Trigger>, SelectTriggerProps>(
   ({ className, children, ...props }, ref) => (
     <SelectPrimitive.Trigger
       ref={ref}
@@ -65,7 +75,7 @@ export interface SelectScrollUpButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>, SelectScrollUpButtonBaseProps {}
 
 const SelectScrollUpButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollUpButton>,
+  React.ComponentRef<typeof SelectPrimitive.ScrollUpButton>,
   SelectScrollUpButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollUpButton
@@ -85,7 +95,7 @@ export interface SelectScrollDownButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>, SelectScrollDownButtonBaseProps {}
 
 const SelectScrollDownButton = React.forwardRef<
-  React.ElementRef<typeof SelectPrimitive.ScrollDownButton>,
+  React.ComponentRef<typeof SelectPrimitive.ScrollDownButton>,
   SelectScrollDownButtonProps
 >(({ className, ...props }, ref) => (
   <SelectPrimitive.ScrollDownButton
@@ -109,7 +119,7 @@ export interface SelectContentProps
   overlayStyle?: ViewStyle;
 }
 
-const SelectContent = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Content>, SelectContentProps>(
+const SelectContent = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Content>, SelectContentProps>(
   ({ className, children, position = 'popper', portalHost, overlayClassName, overlayStyle, ...props }, ref) => {
     const { open } = SelectPrimitive.useRootContext();
 
@@ -151,11 +161,11 @@ SelectContent.displayName = SelectPrimitive.Content?.displayName || 'SelectConte
 export interface SelectLabelProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Label>, SelectLabelBaseProps {}
 
-const SelectLabel = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Label>, SelectLabelProps>(
+const SelectLabel = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Label>, SelectLabelProps>(
   ({ className, ...props }, ref) => (
     <SelectPrimitive.Label
       ref={ref}
-      className={cn('text-popover-foreground py-1.5 pr-2 pl-8 text-sm font-semibold', className)}
+      className={cn('text-foreground py-1.5 pr-2 pl-8 text-sm font-semibold', className)}
       {...props}
     />
   ),
@@ -169,7 +179,7 @@ export interface SelectItemProps
   label?: string;
 }
 
-const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item>, SelectItemProps>(
+const SelectItem = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Item>, SelectItemProps>(
   ({ className, children, label, ...props }, ref) => {
     const itemLabel = label || (typeof children === 'string' ? children : '');
     return (
@@ -188,11 +198,11 @@ const SelectItem = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Item
           {...({} as Record<string, unknown>)}
         >
           <SelectPrimitive.ItemIndicator>
-            <Check size={14} strokeWidth={3} className="text-popover-foreground" {...({} as Record<string, unknown>)} />
+            <Check size={14} strokeWidth={3} className="text-foreground" {...({} as Record<string, unknown>)} />
           </SelectPrimitive.ItemIndicator>
         </View>
         {/* @ts-expect-error TODO: fix type */}
-        <SelectPrimitive.ItemText className="text-popover-foreground native:text-base text-sm">
+        <SelectPrimitive.ItemText className="text-foreground native:text-base text-sm">
           {children}
         </SelectPrimitive.ItemText>
       </SelectPrimitive.Item>
@@ -204,7 +214,7 @@ SelectItem.displayName = SelectPrimitive.Item?.displayName || 'SelectItem';
 export interface SelectSeparatorProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.Separator>, SelectSeparatorBaseProps {}
 
-const SelectSeparator = React.forwardRef<React.ElementRef<typeof SelectPrimitive.Separator>, SelectSeparatorProps>(
+const SelectSeparator = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.Separator>, SelectSeparatorProps>(
   ({ className, ...props }, ref) => (
     <SelectPrimitive.Separator
       ref={ref}
