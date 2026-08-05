@@ -10,9 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg shadow-sm">
-                <span className="text-primary-foreground text-sm font-bold">GV</span>
-              </div>
+              <img src="/logo192.png" alt="GV Tech Logo" className="h-8 w-8 rounded-lg shadow-sm" />
               <h3 className="text-lg font-bold tracking-tight">GVTech Design</h3>
             </div>
             <p className="text-muted-foreground max-w-xs text-sm leading-relaxed">

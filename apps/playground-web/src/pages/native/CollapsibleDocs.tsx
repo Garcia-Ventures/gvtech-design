@@ -1,47 +1,52 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function CollapsibleDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A collapsible panel with animation."
-        code={`
+        description="A collapsible panel for Native."
+        code={`import { 
+  Collapsible, 
+  CollapsibleTrigger, 
+  CollapsibleContent,
+  Button,
+  Text 
+} from "@gv-tech/design-system";
+import { View } from "react-native";
+import { ChevronsUpDown } from "lucide-react-native";
 
-<Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-[350px] space-y-2">
-  <div className="flex items-center justify-between space-x-4 px-4">
-    <h4 className="text-sm font-semibold">@peduarte starred 3 repositories</h4>
-    <CollapsibleTrigger asChild>
-      <Button variant="ghost" size="sm" className="w-9 p-0">
-        <ChevronsUpDown className="h-4 w-4" />
-      </Button>
-    </CollapsibleTrigger>
-  </div>
-  <div className="rounded-md border px-4 py-3 font-mono text-sm">@radix-ui/primitives</div>
-  <CollapsibleContent className="space-y-2">
-    <div className="rounded-md border px-4 py-3 font-mono text-sm">@radix-ui/colors</div>
-    <div className="rounded-md border px-4 py-3 font-mono text-sm">@stitches/react</div>
-  </CollapsibleContent>
-</Collapsible>`}
+export function CollapsibleExample() {
+  const [isOpen, setIsOpen] = React.useState(false);
+
+  return (
+    <Collapsible open={isOpen} onOpenChange={setIsOpen} className="w-[300px] space-y-2">
+      <View className="flex flex-row items-center justify-between px-4">
+        <Text className="text-sm font-semibold">@peduarte starred 3 repositories</Text>
+        <CollapsibleTrigger asChild>
+          <Button variant="ghost" size="sm" className="w-9 p-0">
+            <ChevronsUpDown size={16} className="text-foreground" />
+          </Button>
+        </CollapsibleTrigger>
+      </View>
+      <View className="rounded-md border px-4 py-3">
+        <Text className="font-mono text-sm">@radix-ui/primitives</Text>
+      </View>
+      <CollapsibleContent className="space-y-2">
+        <View className="rounded-md border px-4 py-3">
+          <Text className="font-mono text-sm">@radix-ui/colors</Text>
+        </View>
+      </CollapsibleContent>
+    </Collapsible>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Collapsible component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/collapsible"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Collapsible
-          </a>
-          .
+          The Collapsible component for Native is built on top of <code>@rn-primitives/collapsible</code>.
         </p>
         <PropsTable
           props={[
@@ -51,11 +56,6 @@ export function CollapsibleDocs() {
               description: 'The controlled open state of the collapsible.',
             },
             {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The default open state when uncontrolled.',
-            },
-            {
               name: 'onOpenChange',
               type: '(open: boolean) => void',
               description: 'Event handler called when the open state changes.',
@@ -63,17 +63,7 @@ export function CollapsibleDocs() {
             {
               name: 'disabled',
               type: 'boolean',
-              description: 'When true, prevents the user from interacting with the collapsible.',
-            },
-          ]}
-        />
-        <h4 className="mt-6 text-lg font-medium">CollapsibleContent</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'forceMount',
-              type: 'boolean',
-              description: 'Used to force mounting when more control is needed.',
+              description: 'When true, prevents interaction.',
             },
           ]}
         />

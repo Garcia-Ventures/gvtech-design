@@ -17,7 +17,7 @@ export interface ToggleGroupProps
     Omit<React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Root>, 'value' | 'onValueChange' | 'type'>,
     ToggleGroupBaseProps {}
 
-const ToggleGroup = React.forwardRef<React.ElementRef<typeof ToggleGroupPrimitive.Root>, ToggleGroupProps>(
+const ToggleGroup = React.forwardRef<React.ComponentRef<typeof ToggleGroupPrimitive.Root>, ToggleGroupProps>(
   ({ className, variant, size, children, type, value, onValueChange, ...props }, ref) => (
     <ToggleGroupPrimitive.Root
       ref={ref}
@@ -41,7 +41,7 @@ export interface ToggleGroupItemProps
     Omit<React.ComponentPropsWithoutRef<typeof ToggleGroupPrimitive.Item>, 'children' | 'disabled'>,
     ToggleGroupItemBaseProps {}
 
-const ToggleGroupItem = React.forwardRef<React.ElementRef<typeof ToggleGroupPrimitive.Item>, ToggleGroupItemProps>(
+const ToggleGroupItem = React.forwardRef<React.ComponentRef<typeof ToggleGroupPrimitive.Item>, ToggleGroupItemProps>(
   ({ className, children, variant, size, value, ...props }, ref) => {
     const context = React.useContext(ToggleGroupContext);
 

@@ -1,46 +1,41 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function SeparatorDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A horizontal separator."
-        code={`<div>
-  <div className="space-y-1">
-    <h4 className="text-sm font-medium leading-none">Radix Primitives</h4>
-    <p className="text-sm text-muted-foreground">
-      An open-source UI component library.
-    </p>
-  </div>
-  <Separator className="my-4" />
-  <div className="flex h-5 items-center space-x-4 text-sm">
-    <div>Blog</div>
-    <Separator orientation="vertical" />
-    <div>Docs</div>
-    <Separator orientation="vertical" />
-    <div>Source</div>
-  </div>
-</div>`}
+        description="A horizontal separator for Native."
+        code={`import { Separator, Text } from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function SeparatorExample() {
+  return (
+    <View>
+      <View className="space-y-1">
+        <Text className="text-sm font-medium leading-none">Radix Primitives</Text>
+        <Text className="text-sm text-muted-foreground">
+          An open-source UI component library.
+        </Text>
+      </View>
+      <Separator className="my-4" />
+      <View className="flex flex-row h-5 items-center space-x-4">
+        <Text className="text-sm">Blog</Text>
+        <Separator orientation="vertical" />
+        <Text className="text-sm">Docs</Text>
+        <Separator orientation="vertical" />
+        <Text className="text-sm">Source</Text>
+      </View>
+    </View>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Separator component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/separator"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Separator
-          </a>
-          .
+          The Separator component for Native is built on top of <code>@rn-primitives/separator</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Separator (Root)</h4>
@@ -51,12 +46,6 @@ export function SeparatorDocs() {
               type: '"horizontal" | "vertical"',
               defaultValue: '"horizontal"',
               description: 'The orientation of the separator.',
-            },
-            {
-              name: 'decorative',
-              type: 'boolean',
-              description:
-                'When true, signifies that it is purely visual, covers it from the accessibility tree. When false, signifies that it is a semantic separator.',
             },
           ]}
         />

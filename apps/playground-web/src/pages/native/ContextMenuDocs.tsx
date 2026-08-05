@@ -1,91 +1,60 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function ContextMenuDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="Right-click to open the context menu."
-        code={`<ContextMenu>
-  <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed text-sm">
-    Right click here
-  </ContextMenuTrigger>
-  <ContextMenuContent className="w-64">
-    <ContextMenuItem>
-      Back
-      <ContextMenuShortcut>⌘[</ContextMenuShortcut>
-    </ContextMenuItem>
-    <ContextMenuItem disabled>
-      Forward
-      <ContextMenuShortcut>⌘]</ContextMenuShortcut>
-    </ContextMenuItem>
-    <ContextMenuItem>
-      Reload
-      <ContextMenuShortcut>⌘R</ContextMenuShortcut>
-    </ContextMenuItem>
-    <ContextMenuSub>
-      <ContextMenuSubTrigger>More Tools</ContextMenuSubTrigger>
-      <ContextMenuSubContent className="w-48">
-        <ContextMenuItem>Save Page As...</ContextMenuItem>
-        <ContextMenuItem>Create Shortcut...</ContextMenuItem>
+        description="Long-press to open the context menu on Native."
+        code={`import { 
+  ContextMenu, 
+  ContextMenuTrigger, 
+  ContextMenuContent, 
+  ContextMenuItem, 
+  ContextMenuSeparator, 
+  ContextMenuSub, 
+  ContextMenuSubTrigger, 
+  ContextMenuSubContent,
+  Text 
+} from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function ContextMenuExample() {
+  return (
+    <ContextMenu>
+      <ContextMenuTrigger className="flex h-[150px] w-[300px] items-center justify-center rounded-md border border-dashed">
+        <Text className="text-sm">Long press here</Text>
+      </ContextMenuTrigger>
+      <ContextMenuContent className="w-64">
+        <ContextMenuItem onSelect={() => console.log("Back")}>
+          <Text>Back</Text>
+        </ContextMenuItem>
+        <ContextMenuItem disabled>
+          <Text>Forward</Text>
+        </ContextMenuItem>
         <ContextMenuSeparator />
-        <ContextMenuItem>Developer Tools</ContextMenuItem>
-      </ContextMenuSubContent>
-    </ContextMenuSub>
-    <ContextMenuSeparator />
-    <ContextMenuItem>
-      View Page Source
-      <ContextMenuShortcut>⌘U</ContextMenuShortcut>
-    </ContextMenuItem>
-  </ContextMenuContent>
-</ContextMenu>`}
+        <ContextMenuSub>
+          <ContextMenuSubTrigger>
+            <Text>More Tools</Text>
+          </ContextMenuSubTrigger>
+          <ContextMenuSubContent className="w-48">
+            <ContextMenuItem>
+              <Text>Save Page As...</Text>
+            </ContextMenuItem>
+          </ContextMenuSubContent>
+        </ContextMenuSub>
+      </ContextMenuContent>
+    </ContextMenu>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Context Menu component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/context-menu"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Context Menu
-          </a>
-          .
+          The Context Menu component for Native is built on top of <code>@rn-primitives/context-menu</code>.
         </p>
-        <h4 className="mt-6 text-lg font-medium">ContextMenu (Root)</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'onOpenChange',
-              type: '(open: boolean) => void',
-              description: 'Event handler called when the open state changes.',
-            },
-            {
-              name: 'modal',
-              type: 'boolean',
-              defaultValue: 'true',
-              description: 'The modality of the context menu.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">ContextMenuTrigger</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'disabled',
-              type: 'boolean',
-              description: 'Whether the trigger is disabled.',
-            },
-          ]}
-        />
 
         <h4 className="mt-6 text-lg font-medium">ContextMenuItem</h4>
         <PropsTable
@@ -99,11 +68,6 @@ export function ContextMenuDocs() {
               name: 'disabled',
               type: 'boolean',
               description: 'Whether the item is disabled.',
-            },
-            {
-              name: 'textValue',
-              type: 'string',
-              description: 'Text representation of the item for typeahead support.',
             },
           ]}
         />

@@ -10,6 +10,7 @@ import {
   FormLabel,
   FormMessage,
   Input,
+  toast,
 } from '@gv-tech/ui-web';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
@@ -30,7 +31,10 @@ export function FormDocs() {
   });
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values);
+    toast({
+      title: 'Success',
+      description: `Form submitted successfully with: ${JSON.stringify(values)}`,
+    });
   }
 
   return (
@@ -49,6 +53,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
+  toast,
 } from "@gv-tech/ui-web"
 
 const formSchema = z.object({
@@ -66,7 +71,10 @@ export function ProfileForm() {
   })
 
   function onSubmit(values: z.infer<typeof formSchema>) {
-    console.log(values)
+    toast({
+      title: "Success",
+      description: \`Form submitted successfully with: \${JSON.stringify(values)}\`,
+    })
   }
 
   return (

@@ -9,6 +9,10 @@ vi.mock('lucide-react-native', () => ({
   SunMoon: () => null,
 }));
 
+vi.mock('react-native-css-interop', () => ({
+  cssInterop: vi.fn(),
+}));
+
 // Mock nativewind
 vi.mock('nativewind', () => ({
   useColorScheme: vi.fn(() => ({
@@ -21,7 +25,7 @@ vi.mock('nativewind', () => ({
 // Mock Dropdown Menu primitives
 vi.mock('@rn-primitives/dropdown-menu', () => {
   const React = require('react');
-  const Mock = ({ children }: any) => React.createElement('div', {}, children);
+  const Mock = ({ children }: { children?: React.ReactNode }) => React.createElement('div', {}, children);
   return {
     Root: Mock,
     Trigger: Mock,
@@ -42,17 +46,26 @@ vi.mock('@rn-primitives/dropdown-menu', () => {
   };
 });
 
+vi.mock('@radix-ui/react-dropdown-menu', () => {
+  const React = require('react');
+  const Mock = ({ children }: { children?: React.ReactNode }) => React.createElement('div', {}, children);
+  return {
+    Item: Mock,
+  };
+});
+
 // Mock reanimated
 vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
     default: {
-      View: ({ children, style }: any) => React.createElement('div', { style }, children),
+      View: ({ children, style }: { children?: React.ReactNode; style?: any }) =>
+        React.createElement('div', { style }, children),
     },
     useAnimatedStyle: () => ({}),
-    useDerivedValue: (val: any) => ({ value: typeof val === 'function' ? val() : val }),
+    useDerivedValue: (val: unknown) => ({ value: typeof val === 'function' ? (val as () => unknown)() : val }),
     interpolate: () => 0,
-    withTiming: (val: any) => val,
+    withTiming: (val: unknown) => val,
     FadeIn: { duration: () => ({}) },
     FadeOut: { duration: () => ({}) },
     Extrapolation: { CLAMP: 'clamp' },
@@ -61,11 +74,9 @@ vi.mock('react-native-reanimated', () => {
 
 describe('ThemeToggle (Native Implementation)', () => {
   it('renders correctly', () => {
-    // Binary variant (default)
     const { rerender } = render(<ThemeToggle variant="binary" />);
     expect(screen).toBeDefined();
 
-    // Ternary variant
     rerender(<ThemeToggle variant="ternary" />);
     expect(screen).toBeDefined();
   });

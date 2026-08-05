@@ -17,7 +17,7 @@ describe('Badge', () => {
     expect(getByText('Secondary')).toHaveClass('bg-secondary');
 
     rerender(<Badge variant="destructive">Destructive</Badge>);
-    expect(getByText('Destructive')).toHaveClass('bg-destructive');
+    expect(getByText('Destructive')).toHaveClass('bg-destructive/10');
 
     rerender(<Badge variant="outline">Outline</Badge>);
     expect(getByText('Outline')).toHaveClass('text-foreground');

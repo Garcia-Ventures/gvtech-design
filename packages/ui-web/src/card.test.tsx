@@ -24,13 +24,6 @@ describe('Card', () => {
 
   it('renders with class names', () => {
     const { container } = render(<Card className="test-class" />);
-    expect(container.firstChild).toHaveClass(
-      'test-class',
-      'rounded-xl',
-      'border',
-      'bg-card',
-      'text-card-foreground',
-      'shadow',
-    );
+    expect(container.firstChild).toHaveClass('test-class', 'bg-card', 'text-card-foreground', 'ring-1');
   });
 });

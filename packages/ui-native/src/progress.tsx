@@ -5,7 +5,7 @@ import { View } from 'react-native';
 import { cn } from './lib/utils';
 
 const Progress = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & ProgressBaseProps
 >(({ className, value, ...props }, ref) => (
   <View

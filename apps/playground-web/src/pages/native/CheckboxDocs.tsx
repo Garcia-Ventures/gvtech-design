@@ -1,32 +1,66 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-// @ts-nocheck
-
-const isNative = true as boolean;
-
-const platform = 'native' as string;
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function CheckboxDocs() {
   return (
     <>
-      <ComponentShowcase title="Default" description="A basic checkbox." code={`<Checkbox id="terms" />`} />
+      <ComponentShowcase
+        title="Default"
+        description="A basic checkbox for Native."
+        code={`import { Checkbox } from "@gv-tech/design-system";
+
+export function CheckboxExample() {
+  return <Checkbox nativeID="terms" />;
+}`}
+      />
 
       <ComponentShowcase
         title="With Label"
-        description="A checkbox with a label."
-        code={`<div className="flex items-center space-x-2">
-  <Checkbox id="terms" />
-  <Label htmlFor="terms">Accept terms and conditions</Label>
-</div>`}
+        description="A checkbox with a label for Native."
+        code={`import { Checkbox, Label } from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function CheckboxWithLabel() {
+  return (
+    <View className="flex flex-row items-center space-x-2">
+      <Checkbox nativeID="terms-label" />
+      <Label nativeID="terms-label">Accept terms and conditions</Label>
+    </View>
+  );
+}`}
       />
 
-      <ComponentShowcase
-        title="Disabled"
-        description="A disabled checkbox."
-        code={`<div className="flex items-center space-x-2">
-  <Checkbox id="terms-disabled" disabled />
-  <Label htmlFor="terms-disabled">Accept terms and conditions</Label>
-</div>`}
-      />
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-muted-foreground text-sm">
+          The Checkbox component for Native is built on top of <code>@rn-primitives/checkbox</code>.
+        </p>
+        <PropsTable
+          props={[
+            {
+              name: 'checked',
+              type: 'boolean',
+              description: 'The controlled checked state of the checkbox.',
+            },
+            {
+              name: 'onCheckedChange',
+              type: '(checked: boolean) => void',
+              description: 'Event handler called when the checked state changes.',
+            },
+            {
+              name: 'disabled',
+              type: 'boolean',
+              defaultValue: 'false',
+              description: 'Whether the checkbox is disabled.',
+            },
+            {
+              name: 'nativeID',
+              type: 'string',
+              description: 'Used to link the checkbox with a Label.',
+            },
+          ]}
+        />
+      </div>
     </>
   );
 }

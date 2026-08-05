@@ -1,74 +1,46 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function TooltipDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default tooltip."
-        code={`<TooltipProvider>
-  <Tooltip>
-    <TooltipTrigger asChild>
-      <Button variant="outline">Hover</Button>
-    </TooltipTrigger>
-    <TooltipContent>
-      <p>Add to library</p>
-    </TooltipContent>
-  </Tooltip>
-</TooltipProvider>`}
+        description="A tooltip (tap to open on mobile) for Native."
+        code={`import { 
+  Tooltip, 
+  TooltipTrigger, 
+  TooltipContent, 
+  Button, 
+  Text 
+} from "@gv-tech/design-system";
+
+export function TooltipExample() {
+  return (
+    <Tooltip>
+      <TooltipTrigger asChild>
+        <Button variant="outline">
+          <Text>Long press or tap</Text>
+        </Button>
+      </TooltipTrigger>
+      <TooltipContent>
+        <Text>Add to library</Text>
+      </TooltipContent>
+    </Tooltip>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Tooltip component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/tooltip"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Tooltip
-          </a>
-          .
+          The Tooltip component for Native is built on top of <code>@rn-primitives/tooltip</code>. Note: On touch
+          devices, this component behaves as a tap-to-toggle or long-press-to-toggle depending on configuration.
         </p>
-
-        <h4 className="mt-6 text-lg font-medium">TooltipProvider</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'delayDuration',
-              type: 'number',
-              defaultValue: '700',
-              description: 'The duration from when the mouse enters a tooltip trigger until the tooltip opens.',
-            },
-            {
-              name: 'skipDelayDuration',
-              type: 'number',
-              defaultValue: '300',
-              description: 'How much time a user has to enter another trigger without incurring a delay again.',
-            },
-            {
-              name: 'disableHoverableContent',
-              type: 'boolean',
-              description:
-                'When true, trying to hover the content will result in the tooltip closing as the pointer leaves the trigger.',
-            },
-          ]}
-        />
 
         <h4 className="mt-6 text-lg font-medium">Tooltip (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The open state of the tooltip when it is initially rendered.',
-            },
             {
               name: 'open',
               type: 'boolean',
@@ -77,19 +49,7 @@ export function TooltipDocs() {
             {
               name: 'onOpenChange',
               type: '(open: boolean) => void',
-              description: 'Event handler called when the open state of the tooltip changes.',
-            },
-            {
-              name: 'delayDuration',
-              type: 'number',
-              defaultValue: '700',
-              description: 'The duration from when the mouse enters a tooltip trigger until the tooltip opens.',
-            },
-            {
-              name: 'disableHoverableContent',
-              type: 'boolean',
-              description:
-                'When true, trying to hover the content will result in the tooltip closing as the pointer leaves the trigger.',
+              description: 'Event handler called when the open state changes.',
             },
           ]}
         />
@@ -102,29 +62,6 @@ export function TooltipDocs() {
               type: '"top" | "right" | "bottom" | "left"',
               defaultValue: '"top"',
               description: 'The preferred side of the trigger to render against when open.',
-            },
-            {
-              name: 'sideOffset',
-              type: 'number',
-              description: 'The distance in pixels from the trigger.',
-            },
-            {
-              name: 'align',
-              type: '"start" | "center" | "end"',
-              defaultValue: '"center"',
-              description: 'The preferred alignment against the trigger.',
-            },
-            {
-              name: 'alignOffset',
-              type: 'number',
-              description: 'An offset in pixels from the "start" or "end" alignment options.',
-            },
-            {
-              name: 'avoidCollisions',
-              type: 'boolean',
-              defaultValue: 'true',
-              description:
-                'When true, overrides the side and align preferences to prevent collisions with boundary edges.',
             },
           ]}
         />

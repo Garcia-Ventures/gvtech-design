@@ -46,7 +46,7 @@ export function SearchDocs() {
               </div>
               <span className="hidden text-sm font-semibold md:inline">Documentation</span>
             </div>
-            <Search open={open} onOpenChange={setOpen}>
+            <Search open={open} onOpenChange={setOpen} disableShortcut>
               <CommandInput placeholder="Type a command or search..." />
               <CommandList>
                 <CommandEmpty>No results found.</CommandEmpty>
@@ -88,29 +88,29 @@ export function SearchDocs() {
 
       <ComponentShowcase
         title="Compact Variant"
-        description="A strictly small version of the trigger, ideal for headers where horizontal space is at a premium."
-        code={`<SearchTrigger variant="compact" />`}
+        description="A strictly small version of the trigger, ideal for headers where horizontal space is at a premium. Disable responsive mode to prevent expansion."
+        code={`<SearchTrigger variant="compact" responsive={false} />`}
       >
         <div className="bg-muted/40 border-border/50 flex w-full items-center justify-between rounded-xl border p-3 shadow-sm">
           <div className="bg-accent border-border/50 h-8 w-8 rounded-full border" />
-          <SearchTrigger variant="compact" onClick={() => setOpen(true)} />
+          <SearchTrigger variant="compact" responsive={false} onClick={() => setOpen(true)} />
         </div>
       </ComponentShowcase>
 
       <ComponentShowcase
-        title="Responsive Variant"
-        description="Starts compact but expands on larger screens (2xl) to show the full search input."
-        code={`<SearchTrigger variant="compact" responsive />`}
+        title="Responsive Variant (Default)"
+        description="Starts compact but expands on medium screens (md) and up to show the full search input. This is the default behavior."
+        code={`<SearchTrigger variant="compact" />`}
       >
         <div className="bg-muted/40 border-border/50 flex w-full flex-col gap-4 rounded-xl border p-6 shadow-sm">
           <div className="flex items-center justify-between">
             <span className="text-sm font-medium">Simulated Header</span>
-            <SearchTrigger variant="compact" responsive onClick={() => setOpen(true)} />
+            <SearchTrigger variant="compact" onClick={() => setOpen(true)} />
           </div>
           <div className="bg-primary/5 border-primary/20 rounded border p-3">
             <p className="text-primary mb-1 text-xs font-medium tracking-wider uppercase">Note</p>
             <p className="text-muted-foreground text-xs">
-              On screens larger than 1536px (2xl), this trigger will automatically expand into a full search bar.
+              On screens medium (md) and larger, this trigger will automatically expand into a full search bar.
             </p>
           </div>
         </div>
@@ -137,6 +137,12 @@ export function SearchDocs() {
               type: 'ReactNode',
               required: false,
               description: 'The search content (CommandInput, CommandList, etc.).',
+            },
+            {
+              name: 'disableShortcut',
+              type: 'boolean',
+              required: false,
+              description: 'Whether to disable the Cmd+K global keyboard shortcut listener.',
             },
           ]}
         />
@@ -175,9 +181,9 @@ export function SearchDocs() {
             {
               name: 'responsive',
               type: 'boolean',
-              defaultValue: 'false',
+              defaultValue: 'true',
               required: false,
-              description: 'Whether the compact variant should expand on large (2xl+) screens.',
+              description: 'Whether the compact variant should expand on large (md+) screens.',
             },
           ]}
         />

@@ -20,7 +20,7 @@ const alertVariants = cva('relative w-full rounded-lg border p-4', {
 });
 
 const Alert = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & VariantProps<typeof alertVariants>
 >(({ className, variant, children, ...props }, ref) => (
   <View ref={ref} className={cn(alertVariants({ variant }), className)} {...props}>
@@ -29,7 +29,7 @@ const Alert = React.forwardRef<
 ));
 Alert.displayName = 'Alert';
 
-const AlertTitle = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
+const AlertTitle = React.forwardRef<React.ComponentRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
     <Text
       ref={ref}
@@ -40,7 +40,7 @@ const AlertTitle = React.forwardRef<React.ElementRef<typeof Text>, React.Compone
 );
 AlertTitle.displayName = 'AlertTitle';
 
-const AlertDescription = React.forwardRef<React.ElementRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
+const AlertDescription = React.forwardRef<React.ComponentRef<typeof Text>, React.ComponentPropsWithoutRef<typeof Text>>(
   ({ className, ...props }, ref) => (
     <Text ref={ref} className={cn('text-muted-foreground text-sm leading-relaxed', className)} {...props} />
   ),

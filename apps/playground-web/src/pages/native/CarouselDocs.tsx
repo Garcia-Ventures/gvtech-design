@@ -1,93 +1,55 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function CarouselDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A basic carousel with numbered cards."
-        code={`<Carousel className="w-full max-w-xs">
-  <CarouselContent>
-    {Array.from({ length: 5 }).map((_, index) => (
-      <CarouselItem key={index}>
-        <div className="p-1">
-          <Card>
-            <CardContent className="flex aspect-square items-center justify-center p-6">
-              <span className="text-4xl font-semibold">{index + 1}</span>
-            </CardContent>
-          </Card>
-        </div>
-      </CarouselItem>
-    ))}
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>`}
-      />
+        description="A basic carousel using paging ScrollView on Native."
+        code={`import { 
+  Carousel, 
+  CarouselContent, 
+  CarouselItem, 
+  CarouselPrevious, 
+  CarouselNext,
+  Card,
+  CardContent,
+  Text
+} from "@gv-tech/design-system";
+import { View } from "react-native";
 
-      <ComponentShowcase
-        title="Partial Visible Items"
-        description="A carousel showing partial items using basis classes."
-        code={`<Carousel className="w-full max-w-sm" opts={{ align: "start" }}>
-  <CarouselContent>
-    {Array.from({ length: 5 }).map((_, index) => (
-      <CarouselItem key={index} className="basis-1/3">
-        <div className="p-1">
-          <Card>
-            <CardContent className="flex aspect-square items-center justify-center p-6">
-              <span className="text-2xl font-semibold">{index + 1}</span>
-            </CardContent>
-          </Card>
-        </div>
-      </CarouselItem>
-    ))}
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>`}
-      />
-
-      <ComponentShowcase
-        title="Orientation"
-        description="A vertically oriented carousel."
-        code={`<Carousel orientation="vertical" className="w-full max-w-xs" opts={{ align: "start" }}>
-  <CarouselContent className="-mt-1 h-[200px]">
-    {Array.from({ length: 5 }).map((_, index) => (
-      <CarouselItem key={index} className="pt-1 md:basis-1/2">
-        <div className="p-1">
-          <Card>
-            <CardContent className="flex items-center justify-center p-6">
-              <span className="text-3xl font-semibold">{index + 1}</span>
-            </CardContent>
-          </Card>
-        </div>
-      </CarouselItem>
-    ))}
-  </CarouselContent>
-  <CarouselPrevious />
-  <CarouselNext />
-</Carousel>`}
+export function CarouselExample() {
+  return (
+    <Carousel className="w-full">
+      <CarouselContent>
+        {Array.from({ length: 5 }).map((_, index) => (
+          <CarouselItem key={index}>
+            <View className="p-1">
+              <Card>
+                <CardContent className="flex aspect-square items-center justify-center p-6">
+                  <Text className="text-4xl font-semibold">{index + 1}</Text>
+                </CardContent>
+              </Card>
+            </View>
+          </CarouselItem>
+        ))}
+      </CarouselContent>
+      <CarouselPrevious />
+      <CarouselNext />
+    </Carousel>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-muted-foreground text-sm">
+          The Carousel component for Native is implemented using a paging <code>ScrollView</code>.
+        </p>
         <h4 className="mt-6 text-lg font-medium">Carousel (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'opts',
-              type: 'CarouselOptions',
-              description: 'Options passed to the Embla Carousel instance.',
-            },
-            {
-              name: 'plugins',
-              type: 'CarouselPlugin',
-              description: 'Plugins passed to the Embla Carousel instance.',
-            },
             {
               name: 'orientation',
               type: '"horizontal" | "vertical"',
@@ -97,7 +59,7 @@ export function CarouselDocs() {
             {
               name: 'setApi',
               type: '(api: CarouselApi) => void',
-              description: 'Callback to get the Embla Carousel API instance.',
+              description: 'Callback to get a shimmed Carousel API instance.',
             },
           ]}
         />

@@ -138,7 +138,7 @@ export function SupportFab({
         aria-label="Support this project"
         type={type ?? 'button'}
         className={cn(
-          'inline-flex h-14 w-14 rounded-full border border-black/15 bg-[#ffdd00] text-black shadow-[0_16px_36px_-18px_rgba(0,0,0,0.8)] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-[#ffe347] focus-visible:ring-2 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95',
+          'inline-flex h-14 w-14 items-center justify-center rounded-full border border-black/15 bg-[#ffdd00] text-black shadow-[0_16px_36px_-18px_rgba(0,0,0,0.8)] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-[#ffe347] focus-visible:ring-2 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95',
           buttonClassName,
           className,
         )}

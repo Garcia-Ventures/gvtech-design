@@ -1,47 +1,52 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function TableDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A list of recent invoices."
-        code={`<Table>
-  <TableCaption>A list of your recent invoices.</TableCaption>
-  <TableHeader>
-    <TableRow>
-      <TableHead className="w-[100px]">Invoice</TableHead>
-      <TableHead>Status</TableHead>
-      <TableHead>Method</TableHead>
-      <TableHead className="text-right">Amount</TableHead>
-    </TableRow>
-  </TableHeader>
-  <TableBody>
-    {invoices.map((invoice) => (
-      <TableRow key={invoice.invoice}>
-        <TableCell className="font-medium">{invoice.invoice}</TableCell>
-        <TableCell>{invoice.paymentStatus}</TableCell>
-        <TableCell>{invoice.paymentMethod}</TableCell>
-        <TableCell className="text-right">{invoice.totalAmount}</TableCell>
-      </TableRow>
-    ))}
-  </TableBody>
-  <TableFooter>
-    <TableRow>
-      <TableCell colSpan={3}>Total</TableCell>
-      <TableCell className="text-right">$2,500.00</TableCell>
-    </TableRow>
-  </TableFooter>
-</Table>`}
+        description="A list of items rendered in a table for Native."
+        code={`import { 
+  Table, 
+  TableCaption, 
+  TableHeader, 
+  TableRow, 
+  TableHead, 
+  TableBody, 
+  TableCell,
+  Text 
+} from "@gv-tech/design-system";
+
+export function TableExample() {
+  return (
+    <Table>
+      <TableCaption><Text>A list of your recent invoices.</Text></TableCaption>
+      <TableHeader>
+        <TableRow>
+          <TableHead className="w-[100px]"><Text>Invoice</Text></TableHead>
+          <TableHead><Text>Status</Text></TableHead>
+          <TableHead className="text-right"><Text>Amount</Text></TableHead>
+        </TableRow>
+      </TableHeader>
+      <TableBody>
+        <TableRow>
+          <TableCell><Text>INV001</Text></TableCell>
+          <TableCell><Text>Paid</Text></TableCell>
+          <TableCell className="text-right"><Text>$250.00</Text></TableCell>
+        </TableRow>
+      </TableBody>
+    </Table>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-muted-foreground text-sm">The Table component uses standard HTML table elements.</p>
+        <p className="text-muted-foreground text-sm">
+          The Table component for Native is implemented using <code>View</code> and <code>Text</code> arranged in rows
+          and columns.
+        </p>
 
         <h4 className="mt-6 text-lg font-medium">Table</h4>
         <PropsTable
@@ -49,7 +54,7 @@ export function TableDocs() {
             {
               name: 'className',
               type: 'string',
-              description: 'Additional class names to apply.',
+              description: 'NativeWind classes to apply.',
             },
           ]}
         />

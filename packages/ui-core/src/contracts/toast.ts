@@ -2,7 +2,7 @@
 // Feedback pattern — web uses shadcn/sonner, native uses a custom View.
 
 export const toastVariantValues = ['default', 'destructive'] as const;
-export type ToastVariant = (typeof toastVariantValues)[number];
+export type ToastVariant = (typeof toastVariantValues)[number] | null;
 
 // Platform-agnostic props shared by every Toast implementation.
 export interface ToastBaseProps {

@@ -10,7 +10,7 @@ export interface ToggleProps
     Omit<React.ComponentPropsWithoutRef<typeof TogglePrimitive.Root>, 'pressed' | 'onPressedChange' | 'children'>,
     ToggleBaseProps {}
 
-const Toggle = React.forwardRef<React.ElementRef<typeof TogglePrimitive.Root>, ToggleProps>(
+const Toggle = React.forwardRef<React.ComponentRef<typeof TogglePrimitive.Root>, ToggleProps>(
   ({ className, variant, size, ...props }, ref) => (
     <TextClassContext.Provider
       value={cn(

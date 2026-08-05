@@ -1,3 +1,165 @@
+## 2.26.2 (2026-07-11)
+
+No changes for this project
+
+## 2.26.1 (2026-06-21)
+
+### 🩹 Fixes
+
+- update Item component to use custom Text, add SelectValue forwarding ref, and standardize colors across Select components ([21efe56](https://github.com/Garcia-Ventures/gvtech-design/commit/21efe56))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.26.0 (2026-06-21)
+
+### 🚀 Features
+
+- add GitNexus documentation skills and update registry dependencies for dialog component ([d8a5bad](https://github.com/Garcia-Ventures/gvtech-design/commit/d8a5bad))
+- add directional animation support to Sheet component and invert Accordion chevron rotation ([a914d1c](https://github.com/Garcia-Ventures/gvtech-design/commit/a914d1c))
+
+### 🩹 Fixes
+
+- update system theme reset to use unspecified instead of null for Appearance.setColorScheme ([b16e189](https://github.com/Garcia-Ventures/gvtech-design/commit/b16e189))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.25.4 (2026-06-13)
+
+### 🩹 Fixes
+
+- unify dialog and alert dialog layout with standardized centering wrapper component ([e6720ab](https://github.com/Garcia-Ventures/gvtech-design/commit/e6720ab))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.25.3 (2026-06-12)
+
+### 🚀 Features
+
+- implement ThemeContext in ThemeProvider to support manual theme overrides and provide a synchronized theme state via useTheme hook ([e69950e](https://github.com/Garcia-Ventures/gvtech-design/commit/e69950e))
+- add web support for dropdown-menu ([b4ce1e1](https://github.com/Garcia-Ventures/gvtech-design/commit/b4ce1e1))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.25.2 (2026-06-11)
+
+### 🩹 Fixes
+
+- migrate theme management from nativewind to react-native Appearance API and remove setTheme hook ([4bee783](https://github.com/Garcia-Ventures/gvtech-design/commit/4bee783))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.25.1 (2026-06-11)
+
+### 🩹 Fixes
+
+- remove redundant scale classes in theme toggle and ignore additional build directories in prettier ([d42563d](https://github.com/Garcia-Ventures/gvtech-design/commit/d42563d))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.25.0 (2026-06-11)
+
+### 🚀 Features
+
+- update Calendar to use specific event handlers and improve React Native mock styling in tests ([18a957e](https://github.com/Garcia-Ventures/gvtech-design/commit/18a957e))
+- **ui-native:** implement Calendar and Combobox components ([ee0f4db](https://github.com/Garcia-Ventures/gvtech-design/commit/ee0f4db))
+
+### 🩹 Fixes
+
+- update Calendar component props and resolve TypeScript type errors in Dialog and tsconfig ([afd5655](https://github.com/Garcia-Ventures/gvtech-design/commit/afd5655))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.24.0 (2026-06-10)
+
+No changes for this project
+
+## 2.23.3 (2026-06-09)
+
+### 🚀 Features
+
+- add component generation script, update build registry validation, and rename ui-native bundle to .esm.js ([c7215c4](https://github.com/Garcia-Ventures/gvtech-design/commit/c7215c4))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.2 (2026-06-04)
+
+### 🚀 Features
+
+- upgrade to NativeWind v5 and update component contract verification types ([d1df2be](https://github.com/Garcia-Ventures/gvtech-design/commit/d1df2be))
+- add iconWithClassName utility to enable style support for Lucide icons in ThemeToggle ([72d5b85](https://github.com/Garcia-Ventures/gvtech-design/commit/72d5b85))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.23.1 (2026-06-03)
+
+No changes for this project
+
+## 2.23.0 (2026-06-03)
+
+### 🚀 Features
+
+- document and enable shadcn CLI installation for web and native components ([50c2d9d](https://github.com/Garcia-Ventures/gvtech-design/commit/50c2d9d))
+- initialize registry.json configurations for web and native UI packages ([214f73d](https://github.com/Garcia-Ventures/gvtech-design/commit/214f73d))
+- update Search component with disableShortcut and responsive toggle, rename Sidebar components, and refine ui-core contracts. ([0623a42](https://github.com/Garcia-Ventures/gvtech-design/commit/0623a42))
+- implement new UI components and core contracts across web and native platforms with corresponding playground documentation ([daa7a49](https://github.com/Garcia-Ventures/gvtech-design/commit/daa7a49))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.2 (2026-06-03)
+
+### 🚀 Features
+
+- implement native Search and Form components, update Carousel, and add documentation for complex components. ([db72bf5](https://github.com/Garcia-Ventures/gvtech-design/commit/db72bf5))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.1 (2026-06-03)
+
+### 🚀 Features
+
+- add useTheme hook for cross-platform design token management and update ThemeToggle ([39b9b5f](https://github.com/Garcia-Ventures/gvtech-design/commit/39b9b5f))
+- add onSelect prop to DropdownMenuItem and update theme toggle usage ([fc1d570](https://github.com/Garcia-Ventures/gvtech-design/commit/fc1d570))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.22.0 (2026-06-02)
+
+### 🚀 Features
+
+- **ThemeToggle:** migrate ui-native theme provider to use NativeWind color scheme management ([c0c6b68](https://github.com/Garcia-Ventures/gvtech-design/commit/c0c6b68))
+
+### 🩹 Fixes
+
+- **ui-native:** standardize type exports and native installation paths ([b495a7b](https://github.com/Garcia-Ventures/gvtech-design/commit/b495a7b))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.21.1 (2026-05-28)
 
 No changes for this project

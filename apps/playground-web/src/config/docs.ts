@@ -1,3 +1,6 @@
+import type { LucideIcon } from 'lucide-react';
+import { Compass, Database, FormInput, LayoutTemplate, MessageSquare, Rocket, Wrench } from 'lucide-react';
+
 export type DocPlatform = 'web' | 'native';
 
 export interface DocItem {
@@ -10,6 +13,7 @@ export interface DocItem {
 
 export interface DocCategory {
   title: string;
+  icon: LucideIcon;
   items: DocItem[];
 }
 
@@ -22,6 +26,7 @@ export interface DocCategory {
 export const docConfig: DocCategory[] = [
   {
     title: 'Getting Started',
+    icon: Rocket,
     items: [
       {
         title: 'Getting Started',
@@ -45,6 +50,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Layout',
+    icon: LayoutTemplate,
     items: [
       {
         title: 'Aspect Ratio',
@@ -71,10 +77,16 @@ export const docConfig: DocCategory[] = [
         href: 'separator',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Direction',
+        href: 'direction',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Forms',
+    icon: FormInput,
     items: [
       {
         title: 'Button',
@@ -136,10 +148,41 @@ export const docConfig: DocCategory[] = [
         href: 'toggle-group',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Button Group',
+        href: 'button-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Field',
+        href: 'field',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input Group',
+        href: 'input-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Native Select',
+        href: 'native-select',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Combobox',
+        href: 'combobox',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input OTP',
+        href: 'input-otp',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Data Display',
+    icon: Database,
     items: [
       {
         title: 'Accordion',
@@ -196,10 +239,26 @@ export const docConfig: DocCategory[] = [
         href: 'text',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Empty State',
+        href: 'empty',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Kbd',
+        href: 'kbd',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Item',
+        href: 'item',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Feedback',
+    icon: MessageSquare,
     items: [
       {
         title: 'Alert Dialog',
@@ -246,10 +305,16 @@ export const docConfig: DocCategory[] = [
         href: 'tooltip',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Spinner',
+        href: 'spinner',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Navigation',
+    icon: Compass,
     items: [
       {
         title: 'Breadcrumb',
@@ -302,6 +367,11 @@ export const docConfig: DocCategory[] = [
         platforms: ['web', 'native'],
       },
       {
+        title: 'Sidebar',
+        href: 'sidebar',
+        platforms: ['web', 'native'],
+      },
+      {
         title: 'Tabs',
         href: 'tabs',
         platforms: ['web', 'native'],
@@ -310,6 +380,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Utilities',
+    icon: Wrench,
     items: [
       {
         title: 'Support FAB',

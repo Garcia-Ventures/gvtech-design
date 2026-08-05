@@ -18,7 +18,7 @@ const PopoverContext = React.createContext<{
 });
 
 const Popover = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & PopoverBaseProps
 >(({ children, open, onOpenChange, ...props }, ref) => {
   const [internalOpen, setInternalOpen] = React.useState(false);
@@ -37,7 +37,7 @@ const Popover = React.forwardRef<
 Popover.displayName = 'Popover';
 
 const PopoverTrigger = React.forwardRef<
-  React.ElementRef<typeof Pressable>,
+  React.ComponentRef<typeof Pressable>,
   React.ComponentPropsWithoutRef<typeof Pressable> & PopoverTriggerBaseProps
 >(({ children, ...props }, ref) => {
   const { setOpen } = React.useContext(PopoverContext);
@@ -51,13 +51,13 @@ const PopoverTrigger = React.forwardRef<
 PopoverTrigger.displayName = 'PopoverTrigger';
 
 const PopoverAnchor = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & PopoverAnchorBaseProps
 >(({ ...props }, ref) => <View ref={ref} {...props} />);
 PopoverAnchor.displayName = 'PopoverAnchor';
 
 const PopoverContent = React.forwardRef<
-  React.ElementRef<typeof View>,
+  React.ComponentRef<typeof View>,
   React.ComponentPropsWithoutRef<typeof View> & PopoverContentBaseProps
 >(({ className, children, ...props }, ref) => {
   const { open, setOpen } = React.useContext(PopoverContext);

@@ -10,6 +10,7 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   },
   resolve: {
+    dedupe: ['react', 'react-dom'],
     alias: [
       {
         find: /^react-native$/,
@@ -23,6 +24,10 @@ export default defineConfig({
         find: /^lucide-react-native$/,
         replacement: resolve(__dirname, 'src/lib/lucide-react-native-shim.ts'),
       },
+      {
+        find: /^@react-native-community\/datetimepicker$/,
+        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
+      },
       { find: '@', replacement: resolve(__dirname, './src') },
       { find: '@gv-tech/design-tokens', replacement: resolve(__dirname, '../../packages/design-tokens/src') },
       { find: '@gv-tech/ui-core', replacement: resolve(__dirname, '../../packages/ui-core/src') },
@@ -35,17 +40,20 @@ export default defineConfig({
     rolldownOptions: {
       moduleTypes: {
         '.js': 'jsx',
+        '.mjs': 'jsx',
       },
     },
     include: ['react-native-web', 'react-native-reanimated', 'react-native-svg', 'lucide-react', '@rn-primitives/**/*'],
   },
-  oxc: {
-    include: [/src\/.*\.[jt]sx?$/, /node_modules\/@rn-primitives\/.*\.js$/],
-    exclude: [],
-  },
   build: {
     outDir: 'dist-site',
     emptyOutDir: true,
+    rolldownOptions: {
+      moduleTypes: {
+        '.js': 'jsx',
+        '.mjs': 'jsx',
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {
