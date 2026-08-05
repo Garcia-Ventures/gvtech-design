@@ -9,8 +9,25 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { cn } from './lib/utils';
 import { Text } from './text';
 
+const ALLOWED_DOMAINS = new Set(['buymeacoffee.com', 'www.buymeacoffee.com']);
+
+const validateSupportUrl = (url: string) => {
+  try {
+    const parsed = new URL(url);
+    if (parsed.protocol !== 'https:' || !ALLOWED_DOMAINS.has(parsed.hostname)) {
+      console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+      return 'https://www.buymeacoffee.com';
+    }
+    return url;
+  } catch {
+    console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+    return 'https://www.buymeacoffee.com';
+  }
+};
+
 const normalizeBaseUrl = (url: string) => {
-  const trimmed = url.trim();
+  const validated = validateSupportUrl(url);
+  const trimmed = validated.trim();
   return trimmed.endsWith('/') ? trimmed.slice(0, -1) : trimmed;
 };
 
