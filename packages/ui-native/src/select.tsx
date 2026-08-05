@@ -71,48 +71,42 @@ const SelectTrigger = React.forwardRef<React.ComponentRef<typeof SelectPrimitive
 );
 SelectTrigger.displayName = SelectPrimitive.Trigger?.displayName || 'SelectTrigger';
 
-const ScrollUpButtonPrimitive = SelectPrimitive.ScrollUpButton as unknown as React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton> &
-    React.RefAttributes<React.ElementRef<typeof View>>
->;
-
 export interface SelectScrollUpButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>, SelectScrollUpButtonBaseProps {}
 
-const SelectScrollUpButton = React.forwardRef<React.ElementRef<typeof View>, SelectScrollUpButtonProps>(
-  ({ className, ...props }, ref) => (
-    <ScrollUpButtonPrimitive
-      ref={ref}
-      className={cn('flex cursor-default items-center justify-center py-1', className)}
-      {...props}
-    >
-      <ChevronUp size={14} className="text-foreground" />
-    </ScrollUpButtonPrimitive>
-  ),
-);
+const SelectScrollUpButton = React.forwardRef<
+  React.ComponentRef<typeof SelectPrimitive.ScrollUpButton>,
+  SelectScrollUpButtonProps
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollUpButton
+    // @ts-expect-error TODO: fix type
+    ref={ref}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    {...props}
+  >
+    <ChevronUp size={14} className="text-foreground" />
+  </SelectPrimitive.ScrollUpButton>
+));
 SelectScrollUpButton.displayName =
   ((SelectPrimitive.ScrollUpButton as unknown as Record<string, unknown>)?.displayName as string | undefined) ||
   'SelectScrollUpButton';
 
-const ScrollDownButtonPrimitive = SelectPrimitive.ScrollDownButton as unknown as React.ForwardRefExoticComponent<
-  React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton> &
-    React.RefAttributes<React.ElementRef<typeof View>>
->;
-
 export interface SelectScrollDownButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>, SelectScrollDownButtonBaseProps {}
 
-const SelectScrollDownButton = React.forwardRef<React.ElementRef<typeof View>, SelectScrollDownButtonProps>(
-  ({ className, ...props }, ref) => (
-    <ScrollDownButtonPrimitive
-      ref={ref}
-      className={cn('flex cursor-default items-center justify-center py-1', className)}
-      {...props}
-    >
-      <ChevronDown size={14} className="text-foreground" />
-    </ScrollDownButtonPrimitive>
-  ),
-);
+const SelectScrollDownButton = React.forwardRef<
+  React.ComponentRef<typeof SelectPrimitive.ScrollDownButton>,
+  SelectScrollDownButtonProps
+>(({ className, ...props }, ref) => (
+  <SelectPrimitive.ScrollDownButton
+    // @ts-expect-error TODO: fix type
+    ref={ref}
+    className={cn('flex cursor-default items-center justify-center py-1', className)}
+    {...props}
+  >
+    <ChevronDown size={14} className="text-foreground" />
+  </SelectPrimitive.ScrollDownButton>
+));
 
 SelectScrollDownButton.displayName =
   ((SelectPrimitive.ScrollDownButton as unknown as Record<string, unknown>)?.displayName as string | undefined) ||

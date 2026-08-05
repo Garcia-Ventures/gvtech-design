@@ -216,7 +216,7 @@ function buildRegistry() {
   // Format the generated files
   try {
     const { execSync } = require('node:child_process');
-    execSync(`bun x prettier --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
+    execSync(`bun run prettier --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
       stdio: 'ignore',
     });
     console.log('✅ Formatted registry files.');

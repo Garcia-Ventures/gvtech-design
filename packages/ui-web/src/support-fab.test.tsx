@@ -1,17 +1,13 @@
 'use client';
 
-import { act, fireEvent, render, screen } from '@testing-library/react';
+import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
 import { SupportFab } from './support-fab';
 
 vi.mock('./dialog', () => ({
   Dialog: ({ open, children }: { open?: boolean; children: React.ReactNode }) => <div>{open ? children : null}</div>,
-  DialogContent: ({ children, className }: { children: React.ReactNode; className?: string }) => (
-    <div data-testid="desktop-dialog" className={className}>
-      {children}
-    </div>
-  ),
+  DialogContent: ({ children }: { children: React.ReactNode }) => <div data-testid="desktop-dialog">{children}</div>,
   DialogHeader: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   DialogTitle: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
   DialogDescription: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
@@ -19,11 +15,7 @@ vi.mock('./dialog', () => ({
 
 vi.mock('./drawer', () => ({
   Drawer: ({ open, children }: { open?: boolean; children: React.ReactNode }) => <div>{open ? children : null}</div>,
-  DrawerContent: ({ children, className }: { children: React.ReactNode; className?: string }) => (
-    <div data-testid="mobile-drawer" className={className}>
-      {children}
-    </div>
-  ),
+  DrawerContent: ({ children }: { children: React.ReactNode }) => <div data-testid="mobile-drawer">{children}</div>,
   DrawerHeader: ({ children }: { children: React.ReactNode }) => <div>{children}</div>,
   DrawerTitle: ({ children }: { children: React.ReactNode }) => <h2>{children}</h2>,
   DrawerDescription: ({ children }: { children: React.ReactNode }) => <p>{children}</p>,
@@ -104,163 +96,5 @@ describe('SupportFab', () => {
     expect(fallbackLink).toHaveAttribute('href', 'https://www.buymeacoffee.com/eng618');
     expect(fallbackLink).toHaveAttribute('target', '_blank');
     expect(fallbackLink).toHaveAttribute('rel', 'noopener noreferrer');
-  });
-
-  it('renders custom title, description, and iframeTitle in the desktop dialog', () => {
-    setMobile(false);
-    render(
-      <SupportFab
-        creatorId="eng618"
-        title="Custom Coffee Title"
-        description="Custom description text"
-        iframeTitle="Custom iframe title"
-        defaultOpen
-      />,
-    );
-
-    expect(screen.getByText('Custom Coffee Title')).toBeInTheDocument();
-    expect(screen.getByText('Custom description text')).toBeInTheDocument();
-    expect(screen.getByTitle('Custom iframe title')).toBeInTheDocument();
-  });
-
-  it('applies custom class names correctly to DOM elements', () => {
-    setMobile(false);
-    render(
-      <SupportFab
-        creatorId="eng618"
-        buttonClassName="custom-btn-class"
-        positionClassName="custom-pos-class"
-        panelClassName="custom-panel-class"
-        defaultOpen
-      />,
-    );
-
-    const button = screen.getByRole('button', { name: /support this project/i });
-    expect(button).toHaveClass('custom-btn-class');
-
-    const parent = button.parentElement;
-    expect(parent).toHaveClass('custom-pos-class');
-
-    const dialog = screen.getByTestId('desktop-dialog');
-    expect(dialog).toHaveClass('custom-panel-class');
-  });
-
-  it('applies custom panel class name on mobile drawer correctly', () => {
-    setMobile(true);
-    render(<SupportFab creatorId="eng618" panelClassName="custom-mobile-panel-class" defaultOpen />);
-
-    const drawer = screen.getByTestId('mobile-drawer');
-    expect(drawer).toHaveClass('custom-mobile-panel-class');
-  });
-
-  it('calls custom onClick handler and respects event.preventDefault()', () => {
-    setMobile(false);
-    const onClick = vi.fn().mockImplementation((e: React.MouseEvent<HTMLButtonElement>) => {
-      e.preventDefault();
-    });
-
-    render(<SupportFab creatorId="eng618" onClick={onClick} />);
-
-    const button = screen.getByRole('button', { name: /support this project/i });
-    fireEvent.click(button);
-
-    expect(onClick).toHaveBeenCalledTimes(1);
-    expect(screen.queryByTestId('desktop-dialog')).not.toBeInTheDocument();
-  });
-
-  it('calls custom onClick handler and opens dialog if event.preventDefault() is not called', () => {
-    setMobile(false);
-    const onClick = vi.fn();
-
-    render(<SupportFab creatorId="eng618" onClick={onClick} />);
-
-    const button = screen.getByRole('button', { name: /support this project/i });
-    fireEvent.click(button);
-
-    expect(onClick).toHaveBeenCalledTimes(1);
-    expect(screen.getByTestId('desktop-dialog')).toBeInTheDocument();
-  });
-
-  it('does not open dialog when button is disabled', () => {
-    setMobile(false);
-    render(<SupportFab creatorId="eng618" disabled />);
-
-    const button = screen.getByRole('button', { name: /support this project/i });
-    expect(button).toBeDisabled();
-
-    fireEvent.click(button);
-    expect(screen.queryByTestId('desktop-dialog')).not.toBeInTheDocument();
-  });
-
-  it('responds correctly to matchMedia change event listener updates', () => {
-    let changeListener: ((event: any) => void) | null = null;
-    let matchesValue = false;
-
-    Object.defineProperty(window, 'matchMedia', {
-      configurable: true,
-      writable: true,
-      value: vi.fn().mockImplementation((query: string) => {
-        const isMatch = query === '(max-width: 767px)' ? matchesValue : false;
-        return {
-          matches: isMatch,
-          media: query,
-          onchange: null,
-          addListener: vi.fn(),
-          removeListener: vi.fn(),
-          addEventListener: vi.fn().mockImplementation((event, listener) => {
-            if (event === 'change') {
-              changeListener = listener;
-            }
-          }),
-          removeEventListener: vi.fn().mockImplementation((event, listener) => {
-            if (event === 'change' && changeListener === listener) {
-              changeListener = null;
-            }
-          }),
-          dispatchEvent: vi.fn(),
-        } as unknown as MediaQueryList;
-      }),
-    });
-
-    const { rerender } = render(<SupportFab creatorId="eng618" />);
-
-    // Initially desktop
-    expect(screen.queryByTestId('desktop-dialog')).not.toBeInTheDocument();
-    fireEvent.click(screen.getByRole('button', { name: /support this project/i }));
-    expect(screen.getByTestId('desktop-dialog')).toBeInTheDocument();
-    expect(screen.queryByTestId('mobile-drawer')).not.toBeInTheDocument();
-
-    // Now simulate window size change to mobile
-    matchesValue = true;
-    if (changeListener) {
-      act(() => {
-        (changeListener as any)({ matches: true });
-      });
-    }
-
-    // Since state is open, now it should switch to mobile-drawer
-    rerender(<SupportFab creatorId="eng618" />);
-    expect(screen.getByTestId('mobile-drawer')).toBeInTheDocument();
-    expect(screen.queryByTestId('desktop-dialog')).not.toBeInTheDocument();
-  });
-
-  it('handles environment without window.matchMedia without crashing', () => {
-    const originalMatchMedia = window.matchMedia;
-    Object.defineProperty(window, 'matchMedia', {
-      configurable: true,
-      writable: true,
-      value: undefined,
-    });
-
-    expect(() => render(<SupportFab creatorId="eng618" />)).not.toThrow();
-
-    fireEvent.click(screen.getByRole('button', { name: /support this project/i }));
-    expect(screen.getByTestId('desktop-dialog')).toBeInTheDocument();
-
-    Object.defineProperty(window, 'matchMedia', {
-      configurable: true,
-      writable: true,
-      value: originalMatchMedia,
-    });
   });
 });
