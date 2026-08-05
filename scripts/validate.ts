@@ -118,7 +118,11 @@ for (const step of steps) {
   console.log(yellow(`\n> ${step.name}`));
   console.log(yellow(`> ${step.cmd}\n`));
 
-  const result = spawnSync(step.cmd, { stdio: 'inherit', shell: true, env });
+  const parts = step.cmd.split(/\s+/).filter(Boolean);
+  const command = parts[0];
+  const cmdArgs = parts.slice(1);
+
+  const result = spawnSync(command, cmdArgs, { stdio: 'inherit', shell: false, env });
 
   if (result.error) {
     console.error(red(`\nFailed to run: ${step.cmd}`));
