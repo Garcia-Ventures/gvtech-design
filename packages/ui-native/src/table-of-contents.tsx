@@ -89,15 +89,23 @@ export function TableOfContents({ children, activeId: activeIdOverride }: TableO
     (event: NativeSyntheticEvent<NativeScrollEvent>) => {
       const scrollY = event.nativeEvent.contentOffset.y;
 
-      // Find the current active heading
-      let currentId = null;
-      for (let i = headings.length - 1; i >= 0; i--) {
-        if (scrollY >= headings[i].pageY - 100) {
-          // Offset for header/buffer
-          currentId = headings[i].id;
-          break;
+      // Find the current active heading using binary search
+      const target = scrollY + 100; // Offset for header/buffer
+      let low = 0;
+      let high = headings.length - 1;
+      let resultIndex = -1;
+
+      while (low <= high) {
+        const mid = (low + high) >> 1;
+        if (headings[mid].pageY <= target) {
+          resultIndex = mid;
+          low = mid + 1;
+        } else {
+          high = mid - 1;
         }
       }
+
+      const currentId = resultIndex !== -1 ? headings[resultIndex].id : null;
 
       if (currentId !== activeId) {
         setActiveId(currentId);

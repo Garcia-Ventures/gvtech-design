@@ -17,6 +17,8 @@ export default defineConfig({
       '@gv-tech/ui-web': resolve(__dirname, './packages/ui-web/src'),
       '@gv-tech/ui-native': resolve(__dirname, './packages/ui-native/src'),
       'react-native': resolve(__dirname, 'apps/playground-web/src/lib/react-native-shim.js'),
+      react: resolve(__dirname, './node_modules/react'),
+      'react-dom': resolve(__dirname, './node_modules/react-dom'),
     },
     exclude: ['**/node_modules/**', '**/dist/**', '**/cypress/**', '**/.{idea,git,cache,output,temp}/**'],
     testTimeout: 10000,
