@@ -153,7 +153,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   return (
     <>
       {/* Mobile Sticky Header */}
-      <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur xl:hidden', className)}>
+      <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur lg:hidden', className)}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-full items-center justify-between px-4 py-3 text-left"
@@ -186,7 +186,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
       </div>
 
       {/* Desktop Hidden List */}
-      <nav className={cn('hidden xl:block', className)} aria-label="Table of contents">
+      <nav className={cn('hidden lg:block', className)} aria-label="Table of contents">
         {listContent}
       </nav>
     </>
