@@ -96,8 +96,8 @@ console.log(`✅ Generated ${path.relative(rootDir, nativeTestPath)}`);
 
 // Format the generated files
 try {
-  const { execSync } = require('node:child_process');
-  execSync(`bun x prettier --write ${webTestPath} ${nativeTestPath}`, { stdio: 'ignore' });
+  const { execFileSync } = require('node:child_process');
+  execFileSync('bun', ['x', 'prettier', '--write', webTestPath, nativeTestPath], { stdio: 'ignore' });
   console.log('✅ Formatted contract test files.');
 } catch (e) {
   // Ignore errors if prettier fails
