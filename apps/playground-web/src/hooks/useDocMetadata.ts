@@ -5,10 +5,19 @@ export interface DocMetadata {
   description?: string;
 }
 
+// Module-level cache to avoid repeated DOM queries across hooks or layout updates
+let cachedMetaDescription: HTMLMetaElement | null = null;
+
 export function useDocMetadata({ title, description }: DocMetadata) {
   React.useEffect(() => {
     const previousTitle = document.title;
-    let metaDescription = document.querySelector('meta[name="description"]');
+
+    // Retrieve cached element if still present in document.head
+    if (!cachedMetaDescription || !document.head.contains(cachedMetaDescription)) {
+      cachedMetaDescription = document.querySelector('meta[name="description"]');
+    }
+
+    let metaDescription = cachedMetaDescription;
     const previousDescription = metaDescription?.getAttribute('content');
 
     // Update title
@@ -20,6 +29,7 @@ export function useDocMetadata({ title, description }: DocMetadata) {
         metaDescription = document.createElement('meta');
         metaDescription.setAttribute('name', 'description');
         document.head.appendChild(metaDescription);
+        cachedMetaDescription = metaDescription;
       }
       metaDescription.setAttribute('content', description);
     }
