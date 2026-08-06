@@ -30,4 +30,30 @@ describe('Alert', () => {
     expect(alert).toBeInTheDocument();
     expect(alert).toHaveClass('text-destructive');
   });
+
+  it('renders warning variant', () => {
+    render(
+      <Alert variant="warning">
+        <AlertTitle>Warning</AlertTitle>
+        <AlertDescription>Proceed with caution.</AlertDescription>
+      </Alert>,
+    );
+
+    const alert = screen.getByRole('alert');
+    expect(alert).toBeInTheDocument();
+    expect(alert).toHaveClass('text-amber-600');
+  });
+
+  it('renders info variant', () => {
+    render(
+      <Alert variant="info">
+        <AlertTitle>Info</AlertTitle>
+        <AlertDescription>Note that Expo SDK versions must match.</AlertDescription>
+      </Alert>,
+    );
+
+    const alert = screen.getByRole('alert');
+    expect(alert).toBeInTheDocument();
+    expect(alert).toHaveClass('text-blue-600');
+  });
 });

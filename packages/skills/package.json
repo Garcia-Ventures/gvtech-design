@@ -1,0 +1,36 @@
+{
+  "name": "@gv-tech/skills",
+  "version": "1.0.0",
+  "description": "Skills, rules, and CLI installer for integrating GV Tech Design System into downstream applications",
+  "main": "./bin/cli.mjs",
+  "bin": {
+    "gvtech-skills": "./bin/cli.mjs",
+    "skills": "./bin/cli.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
+    "directory": "packages/skills"
+  },
+  "license": "MIT",
+  "author": "Eric N. Garcia <eng618@garciaericn.com>",
+  "keywords": [
+    "skills",
+    "rules",
+    "design-system",
+    "gvtech",
+    "react-native",
+    "nativewind",
+    "tailwind"
+  ],
+  "files": [
+    "bin",
+    "skills",
+    "rules",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}
