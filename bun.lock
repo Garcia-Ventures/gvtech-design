@@ -145,6 +145,14 @@
       "name": "@gv-tech/design-tokens",
       "version": "2.26.2",
     },
+    "packages/skills": {
+      "name": "@gv-tech/skills",
+      "version": "1.0.0",
+      "bin": {
+        "gvtech-skills": "./bin/cli.mjs",
+        "skills": "./bin/cli.mjs",
+      },
+    },
     "packages/ui-core": {
       "name": "@gv-tech/ui-core",
       "version": "2.26.2",
@@ -741,6 +749,8 @@
     "@gv-tech/design-tokens": ["@gv-tech/design-tokens@workspace:packages/design-tokens"],
 
     "@gv-tech/eslint-config": ["@gv-tech/eslint-config@0.1.14", "", { "dependencies": { "@eslint/js": "^10.0.1", "eslint-config-prettier": "^10.1.8", "eslint-plugin-prettier": "^5.5.5", "eslint-plugin-unused-imports": "^4.4.1", "globals": "^17.3.0", "typescript-eslint": "^8.54.0" }, "peerDependencies": { "@eng618/prettier-config": "^2.0.0", "@next/eslint-plugin-next": "^15.0.0 || ^16.0.0", "eslint": "^9.0.0", "prettier": "^3.0.0", "typescript": ">=5.0.0" }, "optionalPeers": ["@eng618/prettier-config", "@next/eslint-plugin-next", "prettier", "typescript"] }, "sha512-IjGKfn9lh7fWFToqsSAZP9wTz0Y3fYvNwH88+T73Pq5gg+01Ffnbeb7J+dawWy/aJm5seH1sEqdUSBHvvq5qrQ=="],
+
+    "@gv-tech/skills": ["@gv-tech/skills@workspace:packages/skills"],
 
     "@gv-tech/ui-core": ["@gv-tech/ui-core@workspace:packages/ui-core"],
 
