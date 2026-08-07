@@ -1,6 +1,7 @@
 import { SwitchBaseProps } from '@gv-tech/ui-core';
 import * as SwitchPrimitive from '@rn-primitives/switch';
 import * as React from 'react';
+import { StyleSheet } from 'react-native';
 
 import { cn } from './lib/utils';
 
@@ -13,6 +14,25 @@ const Switch = React.forwardRef<React.ComponentRef<typeof SwitchPrimitive.Root>,
   ({ className, checked = false, onCheckedChange, style, ...props }, ref) => {
     const isChecked = checked ?? false;
 
+    const resolvedStyle =
+      typeof style === 'function'
+        ? (state: unknown) => ({
+            width: 44,
+            height: 24,
+            minWidth: 44,
+            minHeight: 24,
+            flexShrink: 0,
+            ...(StyleSheet.flatten(style(state as never)) || {}),
+          })
+        : {
+            width: 44,
+            height: 24,
+            minWidth: 44,
+            minHeight: 24,
+            flexShrink: 0,
+            ...(StyleSheet.flatten(style) || {}),
+          };
+
     return (
       <SwitchPrimitive.Root
         ref={ref}
@@ -23,11 +43,7 @@ const Switch = React.forwardRef<React.ComponentRef<typeof SwitchPrimitive.Root>,
           isChecked ? 'bg-primary' : 'bg-input',
           className,
         )}
-        style={
-          typeof style === 'function'
-            ? (state) => [{ width: 44, height: 24, minWidth: 44, minHeight: 24, flexShrink: 0 }, style(state)]
-            : [{ width: 44, height: 24, minWidth: 44, minHeight: 24, flexShrink: 0 }, style]
-        }
+        style={resolvedStyle as React.ComponentPropsWithoutRef<typeof SwitchPrimitive.Root>['style']}
         {...props}
       >
         <SwitchPrimitive.Thumb
