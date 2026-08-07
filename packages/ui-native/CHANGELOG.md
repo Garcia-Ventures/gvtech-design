@@ -1,3 +1,13 @@
+## 2.27.2 (2026-08-07)
+
+### 🩹 Fixes
+
+- optimize Switch component layout and state handling for native consistency ([11e92d2](https://github.com/Garcia-Ventures/gvtech-design/commit/11e92d2))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.27.1 (2026-08-07)
 
 ### 🚀 Features
