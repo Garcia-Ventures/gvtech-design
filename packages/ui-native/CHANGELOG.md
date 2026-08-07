@@ -1,3 +1,13 @@
+## 2.27.1 (2026-08-07)
+
+### 🚀 Features
+
+- integrate design token CSS imports and add automated theme synchronization for web and native platforms ([9216c40](https://github.com/Garcia-Ventures/gvtech-design/commit/9216c40))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.27.0 (2026-08-07)
 
 ### 🩹 Fixes
