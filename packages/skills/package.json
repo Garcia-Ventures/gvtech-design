@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/skills",
-  "version": "2.27.2",
+  "version": "2.27.3",
   "description": "Skills, rules, and CLI installer for integrating GV Tech Design System into downstream applications",
   "main": "./bin/cli.mjs",
   "bin": {

@@ -1,3 +1,13 @@
+## 2.27.3 (2026-08-07)
+
+### 🩹 Fixes
+
+- improve switch style resolution by flattening styles to correctly apply dimensions ([cd28565](https://github.com/Garcia-Ventures/gvtech-design/commit/cd28565))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.27.2 (2026-08-07)
 
 ### 🩹 Fixes
