@@ -1,3 +1,17 @@
+## 2.27.0 (2026-08-07)
+
+### 🚀 Features
+
+- overhaul Native installation documentation to support NativeWind v5 and update VS Code theme settings ([0976786](https://github.com/Garcia-Ventures/gvtech-design/commit/0976786))
+
+### 🩹 Fixes
+
+- **test:** update types ([ce3e83b](https://github.com/Garcia-Ventures/gvtech-design/commit/ce3e83b))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.26.2 (2026-07-11)
 
 No changes for this project
