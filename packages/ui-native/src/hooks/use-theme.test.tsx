@@ -14,6 +14,14 @@ vi.mock('react-native', async (importOriginal) => {
   };
 });
 
+vi.mock('nativewind', () => ({
+  useColorScheme: () => ({
+    colorScheme: mockColorScheme,
+    setColorScheme: vi.fn(),
+    toggleColorScheme: vi.fn(),
+  }),
+}));
+
 describe('useTheme (Native)', () => {
   it('returns default light tokens when colorScheme is light', () => {
     mockColorScheme = 'light';
