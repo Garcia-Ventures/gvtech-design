@@ -10,7 +10,7 @@ interface FlutterComponentPreviewProps {
 
 export function FlutterComponentPreview({
   route = '',
-  height = 360,
+  height = 460,
   title = 'Flutter Component Live Preview',
 }: FlutterComponentPreviewProps) {
   const [key, setKey] = useState(0);
@@ -22,7 +22,7 @@ export function FlutterComponentPreview({
   };
 
   return (
-    <Card className="overflow-hidden border p-0">
+    <Card className="w-full overflow-hidden border p-0 shadow-sm">
       <div className="bg-muted/40 flex items-center justify-between border-b px-4 py-2 text-xs">
         <div className="flex items-center gap-2 font-medium">
           <span className="inline-block h-2 w-2 rounded-full bg-blue-500" />

@@ -56,26 +56,17 @@ class ShowcaseHomePage extends StatelessWidget {
     final path = Uri.base.path.toLowerCase();
     final fullTarget = '$rawUri $fragment $path';
 
-    Widget body;
+    Widget innerContent;
     if (fullTarget.contains('button')) {
-      body = const SingleChildScrollView(
-        padding: EdgeInsets.all(GVSpacing.s6),
-        child: ButtonShowcase(),
-      );
+      innerContent = const ButtonShowcase();
     } else if (fullTarget.contains('card')) {
-      body = const SingleChildScrollView(
-        padding: EdgeInsets.all(GVSpacing.s6),
-        child: CardShowcase(),
-      );
+      innerContent = const CardShowcase();
     } else if (fullTarget.contains('badge')) {
-      body = const SingleChildScrollView(
-        padding: EdgeInsets.all(GVSpacing.s6),
-        child: BadgeShowcase(),
-      );
+      innerContent = const BadgeShowcase();
     } else {
-      body = ListView(
-        padding: const EdgeInsets.all(GVSpacing.s6),
-        children: const [
+      innerContent = const Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
           ButtonShowcase(),
           SizedBox(height: GVSpacing.s8),
           CardShowcase(),
@@ -102,7 +93,16 @@ class ShowcaseHomePage extends StatelessWidget {
           ),
         ],
       ),
-      body: body,
+      body: SizedBox.expand(
+        child: SingleChildScrollView(
+          padding: const EdgeInsets.all(GVSpacing.s6),
+          child: Container(
+            width: double.infinity,
+            alignment: Alignment.topLeft,
+            child: innerContent,
+          ),
+        ),
+      ),
     );
   }
 }

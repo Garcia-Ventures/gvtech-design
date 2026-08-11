@@ -38,7 +38,7 @@ class MyCardWidget extends StatelessWidget {
         description="Live preview of the GVCard widget compiled from packages/ui-flutter."
         code={codeExample}
       >
-        <FlutterComponentPreview route="card" height={360} title="GVCard Interactive Preview" />
+        <FlutterComponentPreview route="card" height={420} title="GVCard Interactive Preview" />
       </ComponentShowcase>
 
       <PropsTable

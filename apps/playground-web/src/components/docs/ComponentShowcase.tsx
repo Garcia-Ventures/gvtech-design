@@ -69,7 +69,9 @@ export function ComponentShowcase({ title, description, code, children, classNam
                 </AlertDescription>
               </Alert>
             ) : (
-              <div className="flex flex-wrap items-center gap-4 overflow-x-auto">{children}</div>
+              <div className="flex flex-wrap items-center gap-4 overflow-x-auto [&>*:only-child]:w-full">
+                {children}
+              </div>
             )}
           </TabsContent>
           <TabsContent value="code" className="mt-0">

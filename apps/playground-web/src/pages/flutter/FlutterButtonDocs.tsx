@@ -26,7 +26,7 @@ class MyWidget extends StatelessWidget {
         description="Live preview of the GVButton widget compiled from packages/ui-flutter."
         code={codeExample}
       >
-        <FlutterComponentPreview route="button" height={340} title="GVButton Interactive Preview" />
+        <FlutterComponentPreview route="button" height={420} title="GVButton Interactive Preview" />
       </ComponentShowcase>
 
       <PropsTable
