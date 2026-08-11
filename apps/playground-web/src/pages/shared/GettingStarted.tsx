@@ -114,6 +114,35 @@ export function GettingStartedPage() {
 
           <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
             <div className="space-y-4">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-5 w-5 items-center justify-center rounded-full bg-cyan-500/20 text-xs font-bold text-cyan-600">
+                    💙
+                  </div>
+                  <h3 className="text-xl font-bold">@gv-tech/ui-flutter</h3>
+                </div>
+              </div>
+              <p className="text-muted-foreground leading-relaxed">
+                The platform implementation for <strong>Flutter</strong>. Provides Material & Cupertino widgets driven
+                by Dart tokens (<code className="bg-muted rounded px-1 text-xs">GVColors</code>,{' '}
+                <code className="bg-muted rounded px-1 text-xs">GVThemeData</code>) for Web, iOS, Android, and Desktop.
+              </p>
+            </div>
+            <div className="flex items-center justify-between pt-2">
+              <span className="text-muted-foreground bg-muted/50 rounded px-2 py-1 font-mono text-xs">
+                Flutter SDK, Dart 3
+              </span>
+              <Link
+                to="/docs/installation"
+                className="text-primary flex items-center gap-1 text-xs font-semibold hover:underline"
+              >
+                Flutter Setup <ArrowRight className="h-3 w-3" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="hover:bg-muted/20 flex flex-col justify-between space-y-4 rounded-xl border p-6 transition-colors">
+            <div className="space-y-4">
               <div className="flex items-center gap-3">
                 <div className="h-2 w-2 rounded-full bg-green-500" />
                 <h3 className="text-xl font-bold">@gv-tech/ui-core</h3>

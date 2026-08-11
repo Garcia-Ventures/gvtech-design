@@ -47,6 +47,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Install the GV Tech Design System in your project.',
     web: web('WebInstallationDocs'),
     native: native('NativeInstallationDocs'),
+    flutter: flutter('FlutterInstallationDocs'),
   },
   {
     path: 'theming',
