@@ -32,7 +32,7 @@
     "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && VITE_LIB=true vite build",
     "build:flutter-web": "cd packages/ui-flutter && flutter build web --release --base-href /flutter/ --output ../../apps/playground-web/public/flutter",
     "build:registry": "tsx scripts/build-registry.ts",
-    "build:site": "bun --filter playground-web build",
+    "build:site": "bun build:flutter-web && bun --filter playground-web build",
     "clean": "rm -rf .nx .next .expo .turbo dist dist-site *.tsbuildinfo .eslintcache",
     "dev": "bun --filter playground-web dev",
     "shadcn:update": "cd packages/ui-web && bunx shadcn@latest add --all --overwrite --yes",
