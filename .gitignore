@@ -12,6 +12,10 @@
 
 # production
 /build
+**/build/
+.dart_tool/
+.pub-cache/
+.pub/
 
 # misc
 .DS_Store
