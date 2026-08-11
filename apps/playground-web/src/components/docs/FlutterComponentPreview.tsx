@@ -15,7 +15,7 @@ export function FlutterComponentPreview({
 }: FlutterComponentPreviewProps) {
   const [key, setKey] = useState(0);
 
-  const iframeSrc = route ? `/flutter/#/${route}` : '/flutter/';
+  const iframeSrc = route ? `/flutter/index.html#/${route}` : '/flutter/index.html';
 
   const handleRefresh = () => {
     setKey((prev) => prev + 1);

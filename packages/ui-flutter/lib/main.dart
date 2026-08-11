@@ -51,24 +51,36 @@ class ShowcaseHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final isDark = Theme.of(context).brightness == Brightness.dark;
-    final route = Uri.base.fragment;
+    final rawUri = Uri.base.toString().toLowerCase();
+    final fragment = Uri.base.fragment.toLowerCase();
+    final path = Uri.base.path.toLowerCase();
+    final fullTarget = '$rawUri $fragment $path';
 
     Widget body;
-    if (route.contains('button')) {
-      body = const ButtonShowcase();
-    } else if (route.contains('card')) {
-      body = const CardShowcase();
-    } else if (route.contains('badge')) {
-      body = const BadgeShowcase();
+    if (fullTarget.contains('button')) {
+      body = const SingleChildScrollView(
+        padding: EdgeInsets.all(GVSpacing.s6),
+        child: ButtonShowcase(),
+      );
+    } else if (fullTarget.contains('card')) {
+      body = const SingleChildScrollView(
+        padding: EdgeInsets.all(GVSpacing.s6),
+        child: CardShowcase(),
+      );
+    } else if (fullTarget.contains('badge')) {
+      body = const SingleChildScrollView(
+        padding: EdgeInsets.all(GVSpacing.s6),
+        child: BadgeShowcase(),
+      );
     } else {
       body = ListView(
         padding: const EdgeInsets.all(GVSpacing.s6),
-        children: [
-          const ButtonShowcase(),
-          const SizedBox(height: GVSpacing.s8),
-          const CardShowcase(),
-          const SizedBox(height: GVSpacing.s8),
-          const BadgeShowcase(),
+        children: const [
+          ButtonShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          CardShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          BadgeShowcase(),
         ],
       );
     }
@@ -151,7 +163,7 @@ class _ButtonShowcaseState extends State<ButtonShowcase> {
             ),
           ],
         ),
-        const SizedBox(height: GVSpacing.s4),
+        const SizedBox(height: GVSpacing.s6),
         Wrap(
           spacing: GVSpacing.s3,
           runSpacing: GVSpacing.s3,
