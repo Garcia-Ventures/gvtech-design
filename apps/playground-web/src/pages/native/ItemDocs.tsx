@@ -1,32 +1,29 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@gv-tech/ui-native';
-import { UserIcon } from 'lucide-react-native';
 
 export function ItemDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A flexible item layout for lists."
-        code={`<Item>
-  <ItemMedia variant="icon"><UserIcon size={16} /></ItemMedia>
-  <ItemContent>
-    <ItemTitle>User Profile</ItemTitle>
-    <ItemDescription>Manage your settings.</ItemDescription>
-  </ItemContent>
-</Item>`}
-      >
-        <Item className="w-full max-w-sm">
-          <ItemMedia variant="icon">
-            <UserIcon size={16} />
-          </ItemMedia>
-          <ItemContent>
-            <ItemTitle>User Profile</ItemTitle>
-            <ItemDescription>Manage your settings.</ItemDescription>
-          </ItemContent>
-        </Item>
-      </ComponentShowcase>
+        description="A flexible item layout for lists on Native."
+        code={`import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@gv-tech/ui-native';
+import { UserIcon } from 'lucide-react-native';
+
+export function ItemExample() {
+  return (
+    <Item className="w-full max-w-sm">
+      <ItemMedia variant="icon">
+        <UserIcon size={16} />
+      </ItemMedia>
+      <ItemContent>
+        <ItemTitle>User Profile</ItemTitle>
+        <ItemDescription>Manage your settings.</ItemDescription>
+      </ItemContent>
+    </Item>
+  );
+}`}
+      />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>

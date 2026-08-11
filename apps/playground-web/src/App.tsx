@@ -140,6 +140,7 @@ function DocumentationLayout() {
                                     description={route.description}
                                     web={route.web ? <route.web /> : undefined}
                                     native={route.native ? <route.native /> : undefined}
+                                    flutter={route.flutter ? <route.flutter /> : undefined}
                                   />
                                 }
                               />

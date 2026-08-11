@@ -6,6 +6,7 @@ export interface DocRoute {
   description: string;
   web?: React.LazyExoticComponent<React.ComponentType>;
   native?: React.LazyExoticComponent<React.ComponentType>;
+  flutter?: React.LazyExoticComponent<React.ComponentType>;
 }
 
 // Helper to lazy load pages
@@ -14,6 +15,10 @@ const web = (name: string) =>
 const native = (name: string) =>
   React.lazy(() =>
     import('@/pages/native').then((m) => ({ default: (m as Record<string, React.ComponentType>)[name] })),
+  );
+const flutter = (name: string) =>
+  React.lazy(() =>
+    import('@/pages/flutter').then((m) => ({ default: (m as Record<string, React.ComponentType>)[name] })),
   );
 const shared = (name: string) =>
   React.lazy(() =>
@@ -29,6 +34,12 @@ export const docRoutes: DocRoute[] = [
     title: 'Getting Started',
     description: 'Learn how to get started with the GV Tech Design System.',
     web: shared('GettingStartedPage'),
+  },
+  {
+    path: 'status',
+    title: 'Component Status Matrix',
+    description: 'Component implementation matrix across Web, React Native, and Flutter.',
+    web: shared('ComponentStatusPage'),
   },
   {
     path: 'installation',
@@ -109,6 +120,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a badge or a component that looks like a badge.',
     web: web('WebBadgeDocs'),
     native: native('NativeBadgeDocs'),
+    flutter: flutter('FlutterBadgeDocs'),
   },
   {
     path: 'breadcrumb',
@@ -123,6 +135,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a button or a component that looks like a button.',
     web: web('WebButtonDocs'),
     native: native('NativeButtonDocs'),
+    flutter: flutter('FlutterButtonDocs'),
   },
   {
     path: 'calendar',
@@ -137,6 +150,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a card with header, content, and footer.',
     web: web('WebCardDocs'),
     native: native('NativeCardDocs'),
+    flutter: flutter('FlutterCardDocs'),
   },
   {
     path: 'carousel',
