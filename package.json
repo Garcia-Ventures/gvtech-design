@@ -30,7 +30,7 @@
   },
   "scripts": {
     "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && VITE_LIB=true vite build",
-    "build:flutter-web": "cd packages/ui-flutter && flutter build web --release --base-href /flutter/ --output ../../apps/playground-web/public/flutter",
+    "build:flutter-web": "bash scripts/build-flutter-web.sh",
     "build:registry": "tsx scripts/build-registry.ts",
     "build:site": "bun build:flutter-web && bun --filter playground-web build",
     "clean": "rm -rf .nx .next .expo .turbo dist dist-site *.tsbuildinfo .eslintcache",
