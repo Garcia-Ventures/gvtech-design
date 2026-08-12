@@ -81,7 +81,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Avatar',
@@ -97,7 +97,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Alert',
@@ -294,7 +294,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Resizable',
@@ -335,7 +335,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Sidebar',
@@ -360,7 +360,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Spinner',
@@ -368,7 +368,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Table',
@@ -378,7 +378,14 @@ const componentStatuses: ComponentStatusItem[] = [
     native: 'implemented',
     flutter: 'planned',
   },
-  { name: 'Tabs', href: 'tabs', category: 'Components', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  {
+    name: 'Tabs',
+    href: 'tabs',
+    category: 'Components',
+    web: 'implemented',
+    native: 'implemented',
+    flutter: 'implemented',
+  },
   { name: 'Text', href: 'text', category: 'Components', web: 'implemented', native: 'implemented', flutter: 'planned' },
   {
     name: 'Textarea',
@@ -394,7 +401,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   { name: 'Toggle', href: 'toggle', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
   {
@@ -411,7 +418,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
 ];
 

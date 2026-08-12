@@ -93,6 +93,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A vertically stacked set of interactive headings that each reveal a section of content.',
     web: web('WebAccordionDocs'),
     native: native('NativeAccordionDocs'),
+    flutter: flutter('FlutterAccordionDocs'),
   },
   {
     path: 'alert',
@@ -205,6 +206,7 @@ export const docRoutes: DocRoute[] = [
       'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.',
     web: web('WebDialogDocs'),
     native: native('NativeDialogDocs'),
+    flutter: flutter('FlutterDialogDocs'),
   },
   {
     path: 'drawer',
@@ -294,6 +296,7 @@ export const docRoutes: DocRoute[] = [
       'A set of checkable buttons—known as radio buttons—where no more than one button can be checked at a time.',
     web: web('WebRadioGroupDocs'),
     native: native('NativeRadioGroupDocs'),
+    flutter: flutter('FlutterRadioGroupDocs'),
   },
   {
     path: 'select',
@@ -316,6 +319,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Extends the Dialog component to display content that complements the main content of the screen.',
     web: web('WebSheetDocs'),
     native: native('NativeSheetDocs'),
+    flutter: flutter('FlutterSheetDocs'),
   },
   {
     path: 'skeleton',
@@ -338,6 +342,7 @@ export const docRoutes: DocRoute[] = [
     description: 'An opinionated toast component for React.',
     web: web('WebSonnerDocs'),
     native: native('NativeSonnerDocs'), // (use Toast for native)
+    flutter: flutter('FlutterToastDocs'),
   },
   {
     path: 'switch',
@@ -360,6 +365,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
     web: web('WebTabsDocs'),
     native: native('NativeTabsDocs'),
+    flutter: flutter('FlutterTabsDocs'),
   },
   {
     path: 'text',
@@ -409,6 +415,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A succinct message that is displayed temporarily.',
     web: web('WebToastDocs'),
     native: native('NativeToastDocs'),
+    flutter: flutter('FlutterToastDocs'),
   },
   {
     path: 'toggle',
@@ -431,6 +438,7 @@ export const docRoutes: DocRoute[] = [
       'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
     web: web('WebTooltipDocs'),
     native: native('NativeTooltipDocs'),
+    flutter: flutter('FlutterTooltipDocs'),
   },
   {
     path: 'table-of-contents',
@@ -466,6 +474,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A loading indicator.',
     web: web('WebSpinnerDocs'),
     native: native('NativeSpinnerDocs'),
+    flutter: flutter('FlutterSpinnerDocs'),
   },
   {
     path: 'field',

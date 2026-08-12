@@ -114,6 +114,22 @@ class ShowcaseHomePage extends StatelessWidget {
       innerContent = const ProgressShowcase();
     } else if (fullTarget.contains('skeleton')) {
       innerContent = const SkeletonShowcase();
+    } else if (fullTarget.contains('spinner')) {
+      innerContent = const SpinnerShowcase();
+    } else if (fullTarget.contains('radio-group')) {
+      innerContent = const RadioGroupShowcase();
+    } else if (fullTarget.contains('accordion')) {
+      innerContent = const AccordionShowcase();
+    } else if (fullTarget.contains('tabs')) {
+      innerContent = const TabsShowcase();
+    } else if (fullTarget.contains('dialog')) {
+      innerContent = const DialogShowcase();
+    } else if (fullTarget.contains('sheet')) {
+      innerContent = const SheetShowcase();
+    } else if (fullTarget.contains('toast') || fullTarget.contains('sonner')) {
+      innerContent = const ToastShowcase();
+    } else if (fullTarget.contains('tooltip')) {
+      innerContent = const TooltipShowcase();
     } else {
       innerContent = const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,6 +155,22 @@ class ShowcaseHomePage extends StatelessWidget {
           ProgressShowcase(),
           SizedBox(height: GVSpacing.s8),
           SkeletonShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          SpinnerShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          RadioGroupShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          AccordionShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          TabsShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          DialogShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          SheetShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          ToastShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          TooltipShowcase(),
         ],
       );
     }
@@ -685,3 +717,325 @@ class SkeletonShowcase extends StatelessWidget {
     );
   }
 }
+
+class SpinnerShowcase extends StatelessWidget {
+  const SpinnerShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Spinner Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        Row(
+          children: [
+            GVSpinner(size: GVSpinnerSize.sm),
+            SizedBox(width: GVSpacing.s4),
+            GVSpinner(size: GVSpinnerSize.md),
+            SizedBox(width: GVSpacing.s4),
+            GVSpinner(size: GVSpinnerSize.lg),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class RadioGroupShowcase extends StatefulWidget {
+  const RadioGroupShowcase({super.key});
+
+  @override
+  State<RadioGroupShowcase> createState() => _RadioGroupShowcaseState();
+}
+
+class _RadioGroupShowcaseState extends State<RadioGroupShowcase> {
+  String _selected = 'default';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Radio Group Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVRadioGroup<String>(
+          label: 'Notify me about...',
+          value: _selected,
+          onChanged: (val) => setState(() => _selected = val!),
+          options: const [
+            GVRadioOption(
+              value: 'all',
+              label: 'All new messages',
+              description: 'Direct messages and mentions',
+            ),
+            GVRadioOption(
+              value: 'direct',
+              label: 'Direct messages only',
+              description: 'Only messages sent directly to you',
+            ),
+            GVRadioOption(
+              value: 'nothing',
+              label: 'Nothing',
+              description: 'Turn off all notifications',
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class AccordionShowcase extends StatelessWidget {
+  const AccordionShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Accordion Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVAccordion(
+          initialExpandedId: 'item-1',
+          items: [
+            GVAccordionItemData(
+              id: 'item-1',
+              title: 'Is it accessible?',
+              content: Text(
+                'Yes. It adheres to the WAI-ARIA design pattern and supports full keyboard navigation.',
+              ),
+            ),
+            GVAccordionItemData(
+              id: 'item-2',
+              title: 'Is it styled?',
+              content: Text(
+                'Yes. It comes with default styles that match the GV Tech Design System tokens.',
+              ),
+            ),
+            GVAccordionItemData(
+              id: 'item-3',
+              title: 'Is it animated?',
+              content: Text(
+                'Yes. It features smooth vertical expand/collapse animations out of the box.',
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class TabsShowcase extends StatelessWidget {
+  const TabsShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Tabs Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVTabs(
+          initialValue: 'account',
+          tabs: [
+            GVTabData(
+              value: 'account',
+              label: 'Account',
+              content: Text(
+                'Make changes to your account settings here. Click save when done.',
+              ),
+            ),
+            GVTabData(
+              value: 'password',
+              label: 'Password',
+              content: Text(
+                'Change your password here. After saving, you will be logged out.',
+              ),
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class DialogShowcase extends StatelessWidget {
+  const DialogShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Dialog Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVButton(
+          label: 'Open Dialog',
+          onPressed: () {
+            GVDialog.show(
+              context: context,
+              title: 'Edit Profile',
+              description:
+                  'Make changes to your profile here. Click save when done.',
+              content: const Column(
+                children: [
+                  GVInput(label: 'Name', placeholder: 'Enrique Garcia'),
+                  SizedBox(height: GVSpacing.s3),
+                  GVInput(label: 'Username', placeholder: '@engarcia'),
+                ],
+              ),
+              actions: [
+                GVButton(
+                  label: 'Save Changes',
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class SheetShowcase extends StatelessWidget {
+  const SheetShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Sheet Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVButton(
+          label: 'Open Sheet',
+          onPressed: () {
+            GVSheet.show(
+              context: context,
+              title: 'Edit Profile',
+              description:
+                  'Make changes to your profile here. Click save when done.',
+              child: Column(
+                children: [
+                  const GVInput(label: 'Name', placeholder: 'Enrique Garcia'),
+                  const SizedBox(height: GVSpacing.s3),
+                  const GVInput(label: 'Username', placeholder: '@engarcia'),
+                  const SizedBox(height: GVSpacing.s4),
+                  GVButton(
+                    label: 'Save Changes',
+                    onPressed: () => Navigator.of(context).pop(),
+                  ),
+                ],
+              ),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class ToastShowcase extends StatelessWidget {
+  const ToastShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Toast Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        Wrap(
+          spacing: GVSpacing.s3,
+          runSpacing: GVSpacing.s3,
+          children: [
+            GVButton(
+              label: 'Show Default Toast',
+              onPressed: () {
+                GVToast.show(
+                  context,
+                  title: 'Event Scheduled',
+                  description: 'Friday, February 10, 2026 at 5:00 PM',
+                );
+              },
+            ),
+            GVButton(
+              label: 'Show Success Toast',
+              variant: GVButtonVariant.secondary,
+              onPressed: () {
+                GVToast.show(
+                  context,
+                  title: 'Changes Saved',
+                  description: 'Your settings have been updated successfully.',
+                  variant: GVToastVariant.success,
+                );
+              },
+            ),
+            GVButton(
+              label: 'Show Destructive Toast',
+              variant: GVButtonVariant.destructive,
+              onPressed: () {
+                GVToast.show(
+                  context,
+                  title: 'Error Occurred',
+                  description: 'Failed to delete repository.',
+                  variant: GVToastVariant.destructive,
+                );
+              },
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class TooltipShowcase extends StatelessWidget {
+  const TooltipShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Tooltip Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVTooltip(
+          message: 'Add to library',
+          child: GVButton(
+            label: 'Hover or Long Press Me',
+            variant: GVButtonVariant.outline,
+          ),
+        ),
+      ],
+    );
+  }
+}
+
