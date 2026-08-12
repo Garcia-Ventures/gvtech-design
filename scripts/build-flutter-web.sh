@@ -2,7 +2,7 @@
 set -e
 
 # Check if flutter is installed in PATH
-if command -v flutter >/dev/null 2>&1; then
+if command -v flutter > /dev/null 2>&1; then
   echo "=> Using system Flutter SDK..."
   FLUTTER_BIN="flutter"
 elif [ -f "/tmp/flutter/bin/flutter" ]; then
