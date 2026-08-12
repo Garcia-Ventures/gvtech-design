@@ -100,6 +100,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a callout for user attention.',
     web: web('WebAlertDocs'),
     native: native('NativeAlertDocs'),
+    flutter: flutter('FlutterAlertDocs'),
   },
   {
     path: 'alert-dialog',
@@ -114,6 +115,7 @@ export const docRoutes: DocRoute[] = [
     description: 'An image element with a fallback for representing the user.',
     web: web('WebAvatarDocs'),
     native: native('NativeAvatarDocs'),
+    flutter: flutter('FlutterAvatarDocs'),
   },
   {
     path: 'badge',
@@ -173,6 +175,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A control that allows the user to toggle between checked and not checked.',
     web: web('WebCheckboxDocs'),
     native: native('NativeCheckboxDocs'),
+    flutter: flutter('FlutterCheckboxDocs'),
   },
   {
     path: 'collapsible',
@@ -237,6 +240,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a form input field or a component that looks like an input field.',
     web: web('WebInputDocs'),
     native: native('NativeInputDocs'),
+    flutter: flutter('FlutterInputDocs'),
   },
   {
     path: 'label',
@@ -281,6 +285,7 @@ export const docRoutes: DocRoute[] = [
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
     web: web('WebProgressDocs'),
     native: native('NativeProgressDocs'),
+    flutter: flutter('FlutterProgressDocs'),
   },
   {
     path: 'radio-group',
@@ -303,6 +308,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Visually or semantically separates content.',
     web: web('WebSeparatorDocs'),
     native: native('NativeSeparatorDocs'),
+    flutter: flutter('FlutterSeparatorDocs'),
   },
   {
     path: 'sheet',
@@ -317,6 +323,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Use to show a placeholder while content is loading.',
     web: web('WebSkeletonDocs'),
     native: native('NativeSkeletonDocs'),
+    flutter: flutter('FlutterSkeletonDocs'),
   },
   {
     path: 'slider',
@@ -338,6 +345,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A control that allows the user to toggle between checked and not checked.',
     web: web('WebSwitchDocs'),
     native: native('NativeSwitchDocs'),
+    flutter: flutter('FlutterSwitchDocs'),
   },
   {
     path: 'table',

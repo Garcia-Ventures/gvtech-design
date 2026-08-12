@@ -1,4 +1,12 @@
+export { FlutterAlertDocs } from './FlutterAlertDocs';
+export { FlutterAvatarDocs } from './FlutterAvatarDocs';
 export { FlutterBadgeDocs } from './FlutterBadgeDocs';
 export { FlutterButtonDocs } from './FlutterButtonDocs';
 export { FlutterCardDocs } from './FlutterCardDocs';
+export { FlutterCheckboxDocs } from './FlutterCheckboxDocs';
+export { FlutterInputDocs } from './FlutterInputDocs';
 export { FlutterInstallationDocs } from './FlutterInstallationDocs';
+export { FlutterProgressDocs } from './FlutterProgressDocs';
+export { FlutterSeparatorDocs } from './FlutterSeparatorDocs';
+export { FlutterSkeletonDocs } from './FlutterSkeletonDocs';
+export { FlutterSwitchDocs } from './FlutterSwitchDocs';

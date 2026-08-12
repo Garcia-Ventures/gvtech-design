@@ -57,7 +57,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'in-progress',
+    flutter: 'implemented',
   },
   {
     name: 'Checkbox',
@@ -65,9 +65,16 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
-  { name: 'Switch', href: 'switch', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  {
+    name: 'Switch',
+    href: 'switch',
+    category: 'Forms',
+    web: 'implemented',
+    native: 'implemented',
+    flutter: 'implemented',
+  },
   {
     name: 'Dialog',
     href: 'dialog',
@@ -82,7 +89,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Accordion',
@@ -98,7 +105,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Alert Dialog',
@@ -279,7 +286,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Radio Group',
@@ -320,7 +327,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Sheet',
@@ -344,7 +351,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   { name: 'Slider', href: 'slider', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
   {
