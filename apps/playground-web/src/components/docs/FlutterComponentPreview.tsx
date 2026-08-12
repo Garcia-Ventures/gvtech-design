@@ -1,6 +1,7 @@
 import { Card } from '@gv-tech/ui-web';
 import { ExternalLink, RefreshCw } from 'lucide-react';
-import { useState } from 'react';
+import { useTheme } from 'next-themes';
+import { useEffect, useRef, useState } from 'react';
 
 interface FlutterComponentPreviewProps {
   route?: string; // e.g. 'button', 'card', 'badge'
@@ -14,8 +15,25 @@ export function FlutterComponentPreview({
   title = 'Flutter Component Live Preview',
 }: FlutterComponentPreviewProps) {
   const [key, setKey] = useState(0);
+  const iframeRef = useRef<HTMLIFrameElement>(null);
+  const { theme, resolvedTheme } = useTheme();
 
-  const iframeSrc = route ? `/flutter/index.html#/${route}` : '/flutter/index.html';
+  const activeTheme = resolvedTheme || theme || 'light';
+  const iframeSrc = route
+    ? `/flutter/index.html?theme=${activeTheme}#/${route}`
+    : `/flutter/index.html?theme=${activeTheme}`;
+
+  useEffect(() => {
+    if (iframeRef.current?.contentWindow) {
+      iframeRef.current.contentWindow.postMessage({ type: 'gv-set-theme', theme: activeTheme }, '*');
+    }
+  }, [activeTheme]);
+
+  const handleLoad = () => {
+    if (iframeRef.current?.contentWindow) {
+      iframeRef.current.contentWindow.postMessage({ type: 'gv-set-theme', theme: activeTheme }, '*');
+    }
+  };
 
   const handleRefresh = () => {
     setKey((prev) => prev + 1);
@@ -50,9 +68,11 @@ export function FlutterComponentPreview({
       </div>
       <div className="relative w-full" style={{ height }}>
         <iframe
+          ref={iframeRef}
           key={key}
           src={iframeSrc}
           title={title}
+          onLoad={handleLoad}
           className="bg-background h-full w-full border-none"
           loading="lazy"
         />

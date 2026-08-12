@@ -1,5 +1,14 @@
+import 'dart:js_interop';
 import 'package:flutter/material.dart';
 import 'package:gv_ui_flutter/gv_ui_flutter.dart';
+import 'package:web/web.dart' as web;
+
+@JS()
+@anonymous
+extension type ThemeMessage._(JSObject _) implements JSObject {
+  external String? get type;
+  external String? get theme;
+}
 
 void main() {
   runApp(const GVShowcaseApp());
@@ -15,11 +24,48 @@ class GVShowcaseApp extends StatefulWidget {
 class _GVShowcaseAppState extends State<GVShowcaseApp> {
   ThemeMode _themeMode = ThemeMode.light;
 
-  void _toggleTheme() {
-    setState(() {
-      _themeMode =
-          _themeMode == ThemeMode.light ? ThemeMode.dark : ThemeMode.light;
-    });
+  @override
+  void initState() {
+    super.initState();
+    _initThemeFromUri();
+    _listenForHostThemeMessages();
+  }
+
+  void _initThemeFromUri() {
+    try {
+      final href = web.window.location.href.toLowerCase();
+      if (href.contains('theme=dark')) {
+        _themeMode = ThemeMode.dark;
+      } else if (href.contains('theme=light')) {
+        _themeMode = ThemeMode.light;
+      }
+    } catch (_) {}
+  }
+
+  void _listenForHostThemeMessages() {
+    try {
+      web.window.addEventListener(
+        'message',
+        (web.Event event) {
+          if (event.isA<web.MessageEvent>()) {
+            final msgEvent = event as web.MessageEvent;
+            final data = msgEvent.data;
+            if (data != null && data.isA<JSObject>()) {
+              final msg = data as ThemeMessage;
+              if (msg.type == 'gv-set-theme') {
+                final themeStr = msg.theme;
+                if (themeStr == 'dark' && _themeMode != ThemeMode.dark) {
+                  setState(() => _themeMode = ThemeMode.dark);
+                } else if (themeStr == 'light' &&
+                    _themeMode != ThemeMode.light) {
+                  setState(() => _themeMode = ThemeMode.light);
+                }
+              }
+            }
+          }
+        }.toJS,
+      );
+    } catch (_) {}
   }
 
   @override
@@ -30,27 +76,16 @@ class _GVShowcaseAppState extends State<GVShowcaseApp> {
       theme: GVThemeData.light(),
       darkTheme: GVThemeData.dark(),
       themeMode: _themeMode,
-      home: ShowcaseHomePage(
-        themeMode: _themeMode,
-        onToggleTheme: _toggleTheme,
-      ),
+      home: const ShowcaseHomePage(),
     );
   }
 }
 
 class ShowcaseHomePage extends StatelessWidget {
-  final ThemeMode themeMode;
-  final VoidCallback onToggleTheme;
-
-  const ShowcaseHomePage({
-    super.key,
-    required this.themeMode,
-    required this.onToggleTheme,
-  });
+  const ShowcaseHomePage({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final isDark = Theme.of(context).brightness == Brightness.dark;
     final rawUri = Uri.base.toString().toLowerCase();
     final fragment = Uri.base.fragment.toLowerCase();
     final path = Uri.base.path.toLowerCase();
@@ -82,16 +117,6 @@ class ShowcaseHomePage extends StatelessWidget {
           'GVTech Flutter Showcase',
           style: TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
         ),
-        actions: [
-          IconButton(
-            icon: Icon(
-              isDark ? Icons.light_mode : Icons.dark_mode,
-              size: 20,
-            ),
-            onPressed: onToggleTheme,
-            tooltip: 'Toggle Theme',
-          ),
-        ],
       ),
       body: SizedBox.expand(
         child: SingleChildScrollView(
