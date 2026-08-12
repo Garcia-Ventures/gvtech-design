@@ -22,7 +22,7 @@ class MyBadgeWidget extends StatelessWidget {
         description="Live preview of the GVBadge widget compiled from packages/ui-flutter."
         code={codeExample}
       >
-        <FlutterComponentPreview route="badge" height={220} title="GVBadge Interactive Preview" />
+        <FlutterComponentPreview route="badge" height={360} title="GVBadge Interactive Preview" />
       </ComponentShowcase>
 
       <PropsTable
