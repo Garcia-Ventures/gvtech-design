@@ -132,6 +132,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays the path to the current resource using a hierarchy of links.',
     web: web('WebBreadcrumbDocs'),
     native: native('NativeBreadcrumbDocs'),
+    flutter: flutter('FlutterBreadcrumbDocs'),
   },
   {
     path: 'button',
@@ -304,6 +305,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a list of options for the user to pick from—triggered by a button.',
     web: web('WebSelectDocs'),
     native: native('NativeSelectDocs'),
+    flutter: flutter('FlutterSelectDocs'),
   },
   {
     path: 'separator',
@@ -335,6 +337,7 @@ export const docRoutes: DocRoute[] = [
     description: 'An input where the user selects a value from within a given range.',
     web: web('WebSliderDocs'),
     native: native('NativeSliderDocs'),
+    flutter: flutter('FlutterSliderDocs'),
   },
   {
     path: 'sonner',
@@ -373,13 +376,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Typography component for various text styles.',
     web: web('WebTextDocs'),
     native: native('NativeTextDocs'),
-  },
-  {
-    path: 'text',
-    title: 'Text',
-    description: 'Typography component for various text styles.',
-    web: web('WebTextDocs'),
-    native: native('NativeTextDocs'),
+    flutter: flutter('FlutterTextDocs'),
   },
   {
     path: 'textarea',
@@ -387,6 +384,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a form textarea or a component that looks like a textarea.',
     web: web('WebTextareaDocs'),
     native: native('NativeTextareaDocs'),
+    flutter: flutter('FlutterTextareaDocs'),
   },
   {
     path: 'theme-toggle',
@@ -423,6 +421,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A two-state button that can be either on or off.',
     web: web('WebToggleDocs'),
     native: native('NativeToggleDocs'),
+    flutter: flutter('FlutterToggleDocs'),
   },
   {
     path: 'toggle-group',
@@ -467,6 +466,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A component used to indicate an empty list or missing content.',
     web: web('WebEmptyDocs'),
     native: native('NativeEmptyDocs'),
+    flutter: flutter('FlutterEmptyDocs'),
   },
   {
     path: 'spinner',
@@ -503,6 +503,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A keyboard key symbol.',
     web: web('WebKbdDocs'),
     native: native('NativeKbdDocs'),
+    flutter: flutter('FlutterKbdDocs'),
   },
   {
     path: 'item',

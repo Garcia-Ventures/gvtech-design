@@ -130,6 +130,22 @@ class ShowcaseHomePage extends StatelessWidget {
       innerContent = const ToastShowcase();
     } else if (fullTarget.contains('tooltip')) {
       innerContent = const TooltipShowcase();
+    } else if (fullTarget.contains('text')) {
+      innerContent = const TextShowcase();
+    } else if (fullTarget.contains('textarea')) {
+      innerContent = const TextareaShowcase();
+    } else if (fullTarget.contains('slider')) {
+      innerContent = const SliderShowcase();
+    } else if (fullTarget.contains('toggle')) {
+      innerContent = const ToggleShowcase();
+    } else if (fullTarget.contains('kbd')) {
+      innerContent = const KbdShowcase();
+    } else if (fullTarget.contains('breadcrumb')) {
+      innerContent = const BreadcrumbShowcase();
+    } else if (fullTarget.contains('select')) {
+      innerContent = const SelectShowcase();
+    } else if (fullTarget.contains('empty')) {
+      innerContent = const EmptyShowcase();
     } else {
       innerContent = const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -171,6 +187,22 @@ class ShowcaseHomePage extends StatelessWidget {
           ToastShowcase(),
           SizedBox(height: GVSpacing.s8),
           TooltipShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          TextShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          TextareaShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          SliderShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          ToggleShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          KbdShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          BreadcrumbShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          SelectShowcase(),
+          SizedBox(height: GVSpacing.s8),
+          EmptyShowcase(),
         ],
       );
     }
@@ -1038,4 +1070,257 @@ class TooltipShowcase extends StatelessWidget {
     );
   }
 }
+
+class TextShowcase extends StatelessWidget {
+  const TextShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Text Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVText('Heading 1', variant: GVTextVariant.h1),
+        SizedBox(height: GVSpacing.s2),
+        GVText('Heading 2', variant: GVTextVariant.h2),
+        SizedBox(height: GVSpacing.s2),
+        GVText('Heading 3', variant: GVTextVariant.h3),
+        SizedBox(height: GVSpacing.s2),
+        GVText('Heading 4', variant: GVTextVariant.h4),
+        SizedBox(height: GVSpacing.s3),
+        GVText('This is body paragraph text styled with design tokens.'),
+        SizedBox(height: GVSpacing.s3),
+        GVText(
+          'A simple blockquote text element for quotation notes.',
+          variant: GVTextVariant.blockquote,
+        ),
+        SizedBox(height: GVSpacing.s3),
+        GVText('Muted footnote text', variant: GVTextVariant.muted),
+      ],
+    );
+  }
+}
+
+class TextareaShowcase extends StatefulWidget {
+  const TextareaShowcase({super.key});
+
+  @override
+  State<TextareaShowcase> createState() => _TextareaShowcaseState();
+}
+
+class _TextareaShowcaseState extends State<TextareaShowcase> {
+  final TextEditingController _controller = TextEditingController();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Textarea Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVTextarea(
+          label: 'Bio / Notes',
+          placeholder: 'Tell us a little bit about yourself...',
+          controller: _controller,
+          helperText: 'You can @mention other users and organizations.',
+        ),
+      ],
+    );
+  }
+}
+
+class SliderShowcase extends StatefulWidget {
+  const SliderShowcase({super.key});
+
+  @override
+  State<SliderShowcase> createState() => _SliderShowcaseState();
+}
+
+class _SliderShowcaseState extends State<SliderShowcase> {
+  double _value = 50.0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Slider Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVSlider(
+          label: 'Volume Control',
+          value: _value,
+          min: 0,
+          max: 100,
+          onChanged: (val) => setState(() => _value = val),
+        ),
+      ],
+    );
+  }
+}
+
+class ToggleShowcase extends StatefulWidget {
+  const ToggleShowcase({super.key});
+
+  @override
+  State<ToggleShowcase> createState() => _ToggleShowcaseState();
+}
+
+class _ToggleShowcaseState extends State<ToggleShowcase> {
+  bool _pressed = false;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Toggle Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVToggle(
+          isPressed: _pressed,
+          onPressed: (val) => setState(() => _pressed = val),
+          child: const Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Icon(Icons.format_bold, size: 16),
+              SizedBox(width: 4),
+              Text('Bold'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class KbdShowcase extends StatelessWidget {
+  const KbdShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Kbd Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        Row(
+          children: [
+            GVKbd('⌘'),
+            SizedBox(width: GVSpacing.s1),
+            GVKbd('K'),
+            SizedBox(width: GVSpacing.s4),
+            GVKbd('Ctrl'),
+            SizedBox(width: GVSpacing.s1),
+            GVKbd('Shift'),
+            SizedBox(width: GVSpacing.s1),
+            GVKbd('P'),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class BreadcrumbShowcase extends StatelessWidget {
+  const BreadcrumbShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Breadcrumb Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVBreadcrumb(
+          items: [
+            GVBreadcrumbItem(label: 'Home'),
+            GVBreadcrumbItem(label: 'Components'),
+            GVBreadcrumbItem(label: 'Breadcrumb'),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class SelectShowcase extends StatefulWidget {
+  const SelectShowcase({super.key});
+
+  @override
+  State<SelectShowcase> createState() => _SelectShowcaseState();
+}
+
+class _SelectShowcaseState extends State<SelectShowcase> {
+  String? _selected = 'apple';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Select Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVSelect<String>(
+          label: 'Favorite Fruit',
+          value: _selected,
+          onChanged: (val) => setState(() => _selected = val),
+          items: const [
+            GVSelectItem(value: 'apple', label: 'Apple'),
+            GVSelectItem(value: 'banana', label: 'Banana'),
+            GVSelectItem(value: 'orange', label: 'Orange'),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class EmptyShowcase extends StatelessWidget {
+  const EmptyShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Empty State Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVEmpty(
+          title: 'No projects found',
+          description: 'You haven\'t created any projects yet. Get started by creating your first project.',
+          icon: const Icon(Icons.folder_open),
+          action: GVButton(
+            label: 'Create Project',
+            onPressed: () {},
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 
