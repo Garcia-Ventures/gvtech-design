@@ -1,5 +1,5 @@
 import { useDocMetadata } from '@/hooks/useDocMetadata';
-import { safeTrack } from '@/lib/analytics';
+import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { Info } from 'lucide-react';
 import React from 'react';
@@ -69,6 +69,7 @@ export function CombinedDocsLayout({ title, description, web, native, flutter }:
 
     setActiveTab(newTab);
     localStorage.setItem('gv-docs-platform', newTab);
+    updateGlobalAnalyticsProperties({ platformTab: newTab });
   };
 
   const activeCount = [web, native, flutter].filter(Boolean).length;
