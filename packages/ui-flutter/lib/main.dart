@@ -162,6 +162,22 @@ class ShowcaseHomePage extends StatelessWidget {
       innerContent = const PaginationShowcase();
     } else if (fullTarget.contains('popover')) {
       innerContent = const PopoverShowcase();
+    } else if (fullTarget.contains('dropdown-menu')) {
+      innerContent = const DropdownMenuShowcase();
+    } else if (fullTarget.contains('context-menu')) {
+      innerContent = const ContextMenuShowcase();
+    } else if (fullTarget.contains('menubar')) {
+      innerContent = const MenubarShowcase();
+    } else if (fullTarget.contains('alert-dialog')) {
+      innerContent = const AlertDialogShowcase();
+    } else if (fullTarget.contains('item')) {
+      innerContent = const ItemShowcase();
+    } else if (fullTarget.contains('collapsible')) {
+      innerContent = const CollapsibleShowcase();
+    } else if (fullTarget.contains('hover-card')) {
+      innerContent = const HoverCardShowcase();
+    } else if (fullTarget.contains('drawer')) {
+      innerContent = const DrawerShowcase();
     } else {
       innerContent = const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1569,5 +1585,251 @@ class PopoverShowcase extends StatelessWidget {
     );
   }
 }
+
+class DropdownMenuShowcase extends StatelessWidget {
+  const DropdownMenuShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Dropdown Menu Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVDropdownMenu(
+          trigger: GVButton(
+            label: 'Open Menu',
+            variant: GVButtonVariant.outline,
+          ),
+          items: [
+            GVDropdownMenuItem(label: 'Profile', icon: Icons.person),
+            GVDropdownMenuItem(label: 'Billing', icon: Icons.credit_card),
+            GVDropdownMenuItem(label: 'Settings', icon: Icons.settings),
+            GVDropdownMenuItem(label: 'Logout', icon: Icons.logout, isDestructive: true),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ContextMenuShowcase extends StatelessWidget {
+  const ContextMenuShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Context Menu Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVContextMenu(
+          items: [
+            GVDropdownMenuItem(label: 'Back', icon: Icons.arrow_back),
+            GVDropdownMenuItem(label: 'Reload', icon: Icons.refresh),
+            GVDropdownMenuItem(label: 'Inspect', icon: Icons.code),
+          ],
+          child: GVCard(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text('Right-click or Long-press Me', style: TextStyle(fontWeight: FontWeight.bold)),
+                SizedBox(height: 4),
+                Text('Context menu will trigger on action.'),
+              ],
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class MenubarShowcase extends StatelessWidget {
+  const MenubarShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Menubar Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVMenubar(
+          menus: [
+            GVMenubarMenu(
+              title: 'File',
+              items: [
+                GVDropdownMenuItem(label: 'New Tab'),
+                GVDropdownMenuItem(label: 'New Window'),
+              ],
+            ),
+            GVMenubarMenu(
+              title: 'Edit',
+              items: [
+                GVDropdownMenuItem(label: 'Undo'),
+                GVDropdownMenuItem(label: 'Redo'),
+              ],
+            ),
+            GVMenubarMenu(
+              title: 'View',
+              items: [
+                GVDropdownMenuItem(label: 'Reload'),
+                GVDropdownMenuItem(label: 'Toggle Full Screen'),
+              ],
+            ),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class AlertDialogShowcase extends StatelessWidget {
+  const AlertDialogShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Alert Dialog Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVButton(
+          label: 'Show Alert Dialog',
+          variant: GVButtonVariant.destructive,
+          onPressed: () {
+            GVAlertDialog.show(
+              context,
+              title: 'Are you absolutely sure?',
+              description: 'This action cannot be undone. This will permanently delete your account.',
+              actionLabel: 'Delete Account',
+              isDestructive: true,
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class ItemShowcase extends StatelessWidget {
+  const ItemShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Item Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVItem(
+          title: 'Two-Factor Authentication',
+          subtitle: 'Secure your account with 2FA.',
+          leading: Icon(Icons.shield),
+          trailing: Icon(Icons.chevron_right, size: 18),
+        ),
+      ],
+    );
+  }
+}
+
+class CollapsibleShowcase extends StatelessWidget {
+  const CollapsibleShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Collapsible Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVCollapsible(
+          title: Text('@peduarte starred 3 repositories', style: TextStyle(fontWeight: FontWeight.w600)),
+          child: Text('@radix-ui/primitives, @radix-ui/colors, @stitches/react'),
+        ),
+      ],
+    );
+  }
+}
+
+class HoverCardShowcase extends StatelessWidget {
+  const HoverCardShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Hover Card Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVHoverCard(
+          trigger: Text('@nextjs', style: TextStyle(fontWeight: FontWeight.bold, decoration: TextDecoration.underline)),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Next.js', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(height: 4),
+              Text('The React Framework for the Web - created and maintained by @vercel.'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class DrawerShowcase extends StatelessWidget {
+  const DrawerShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Drawer Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVButton(
+          label: 'Open Drawer',
+          variant: GVButtonVariant.outline,
+          onPressed: () {
+            GVDrawer.show(
+              context,
+              title: 'Move Goal',
+              description: 'Set your daily activity goal.',
+              child: const Text('Daily goal details content.'),
+            );
+          },
+        ),
+      ],
+    );
+  }
+}
+
 
 

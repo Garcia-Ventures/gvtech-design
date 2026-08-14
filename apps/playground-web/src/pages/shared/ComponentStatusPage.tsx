@@ -113,7 +113,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Aspect Ratio',
@@ -161,7 +161,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Combobox',
@@ -185,7 +185,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Direction',
@@ -201,7 +201,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Dropdown Menu',
@@ -209,7 +209,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Empty',
@@ -234,7 +234,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Input Group',
@@ -252,7 +252,14 @@ const componentStatuses: ComponentStatusItem[] = [
     native: 'implemented',
     flutter: 'implemented',
   },
-  { name: 'Item', href: 'item', category: 'Components', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  {
+    name: 'Item',
+    href: 'item',
+    category: 'Components',
+    web: 'implemented',
+    native: 'implemented',
+    flutter: 'implemented',
+  },
   {
     name: 'Kbd',
     href: 'kbd',
@@ -268,7 +275,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Navigation Menu',

@@ -109,6 +109,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A modal dialog that interrupts the user with important content and expects a response.',
     web: web('WebAlertDialogDocs'),
     native: native('NativeAlertDialogDocs'),
+    flutter: flutter('FlutterAlertDialogDocs'),
   },
   {
     path: 'avatar',
@@ -186,6 +187,7 @@ export const docRoutes: DocRoute[] = [
     description: 'An interactive component which can be expanded or collapsed.',
     web: web('WebCollapsibleDocs'),
     native: native('NativeCollapsibleDocs'),
+    flutter: flutter('FlutterCollapsibleDocs'),
   },
   {
     path: 'command',
@@ -200,6 +202,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a menu located at the pointer, triggered by a right-click or a long-press.',
     web: web('WebContextMenuDocs'),
     native: native('NativeContextMenuDocs'),
+    flutter: flutter('FlutterContextMenuDocs'),
   },
   {
     path: 'dialog',
@@ -216,6 +219,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A responsive drawer component.',
     web: web('WebDrawerDocs'),
     native: native('NativeDrawerDocs'),
+    flutter: flutter('FlutterDrawerDocs'),
   },
   {
     path: 'dropdown-menu',
@@ -223,6 +227,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a menu to the user — such as a set of actions or functions — triggered by a button.',
     web: web('WebDropdownMenuDocs'),
     native: native('NativeDropdownMenuDocs'),
+    flutter: flutter('FlutterDropdownMenuDocs'),
   },
   {
     path: 'form',
@@ -237,6 +242,7 @@ export const docRoutes: DocRoute[] = [
     description: 'For sighted users to preview content available behind a link.',
     web: web('WebHoverCardDocs'),
     native: native('NativeHoverCardDocs'),
+    flutter: flutter('FlutterHoverCardDocs'),
   },
   {
     path: 'input',
@@ -260,6 +266,7 @@ export const docRoutes: DocRoute[] = [
       'A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.',
     web: web('WebMenubarDocs'),
     native: native('NativeMenubarDocs'),
+    flutter: flutter('FlutterMenubarDocs'),
   },
   {
     path: 'navigation-menu',
@@ -517,6 +524,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A flexible item layout for lists.',
     web: web('WebItemDocs'),
     native: native('NativeItemDocs'),
+    flutter: flutter('FlutterItemDocs'),
   },
   {
     path: 'combobox',
