@@ -1,7 +1,7 @@
 import { docItemsMap } from '@/config/docs';
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
-import { initOpenPanel, safeTrack } from './analytics';
+import { initOpenPanel, safeScreenView, safeTrack } from './analytics';
 
 const DEFAULT_CLIENT_ID = '3316e353-e491-472e-84ff-7830c595a872';
 const DEFAULT_API_URL = 'https://openpanel.gventureshq.com/api';
@@ -69,19 +69,33 @@ export function OpenPanelProvider({ children }: { children: React.ReactNode }): 
   }, []);
 
   React.useEffect(() => {
-    if (!isReady || !location.pathname.startsWith('/docs')) {
+    if (!isReady) {
       return;
     }
 
-    const slug = location.pathname.split('/').filter(Boolean).pop() || 'getting-started';
+    const pathname = location.pathname;
+    const slug = pathname.split('/').filter(Boolean).pop() || 'getting-started';
     const doc = getDocItem(slug);
+    const componentName = doc?.item.title || (pathname === '/' ? 'Home' : slug);
+    const category = doc?.category || 'General';
+    const pageTitle = document.querySelector('h1')?.textContent?.trim() || document.title;
 
-    safeTrack('docs_pageview', {
-      path: location.pathname,
+    // 1. Native OpenPanel screenView (populates OpenPanel's built-in Screens/Pages dashboard)
+    safeScreenView(pathname, {
+      path: pathname,
       doc_slug: slug,
-      doc_title: doc?.item.title || slug,
-      doc_category: doc?.category || 'Unknown',
-      page_title: document.querySelector('h1')?.textContent?.trim() || document.title,
+      component_name: componentName,
+      component_category: category,
+      page_title: pageTitle,
+    });
+
+    // 2. Custom docs_pageview event for granular component usage tracking
+    safeTrack('docs_pageview', {
+      path: pathname,
+      doc_slug: slug,
+      component_name: componentName,
+      component_category: category,
+      page_title: pageTitle,
     });
   }, [isReady, location.pathname]);
 

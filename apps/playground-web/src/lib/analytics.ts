@@ -93,3 +93,15 @@ export function safeTrack(eventName: string, options?: AnalyticsTrackOptions | R
     }
   }
 }
+
+export function safeScreenView(name: string, properties?: Record<string, unknown>): void {
+  try {
+    if (openPanelInstance) {
+      openPanelInstance.screenView(name, properties);
+    }
+  } catch (error) {
+    if (import.meta.env.DEV) {
+      console.debug('OpenPanel screenView skipped', { name, error });
+    }
+  }
+}
