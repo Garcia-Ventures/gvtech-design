@@ -20,6 +20,7 @@ import {
 import { Loader2 } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
+import { DomainRedirectNotice } from './components/DomainRedirectNotice';
 import {
   CombinedDocsLayout,
   DocSearch,
@@ -29,7 +30,7 @@ import {
   Footer,
 } from './components/docs';
 import { docItemsMap } from './config/docs';
-import { PlausibleProvider } from './lib/PlausibleProvider';
+import { OpenPanelProvider } from './lib/OpenPanelProvider';
 import { safeTrack } from './lib/analytics';
 
 import { docRoutes } from './routes/doc-routes';
@@ -81,6 +82,7 @@ function DocumentationLayout() {
           <DocsSidebar />
 
           <SidebarInset className="bg-background flex w-full flex-col overflow-hidden">
+            <DomainRedirectNotice />
             <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-14 shrink-0 items-center justify-between border-b px-4 backdrop-blur md:px-6">
               <div className="flex min-w-0 items-center gap-2">
                 <SidebarTrigger className="-ml-1" />
@@ -194,12 +196,12 @@ function App() {
     <ThemeProvider>
       <TooltipProvider>
         <BrowserRouter>
-          <PlausibleProvider>
+          <OpenPanelProvider>
             <Routes>
               <Route path="/" element={<Navigate to="/docs/getting-started" replace />} />
               <Route path="/docs/*" element={<DocumentationLayout />} />
             </Routes>
-          </PlausibleProvider>
+          </OpenPanelProvider>
         </BrowserRouter>
         <Toaster />
         <SonnerToaster />

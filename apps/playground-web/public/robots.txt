@@ -1,4 +1,4 @@
 # https://www.robotstxt.org/robotstxt.html
 User-agent: *
 
-Sitemap: https://gvtech-design.pages.dev/sitemap.xml
+Sitemap: https://design.gventureshq.com/sitemap.xml

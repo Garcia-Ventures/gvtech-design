@@ -12,7 +12,7 @@ Runs the Vite development server for local development.
 
 Local: [http://localhost:5173](http://localhost:5173)
 
-Live: [https://gvtech-design.pages.dev/](https://gvtech-design.pages.dev/)
+Live: [https://design.gventureshq.com/](https://design.gventureshq.com/)
 
 The page will reload if you make edits, and HMR will update components instantly. You will also see any lint errors in the console.
 
