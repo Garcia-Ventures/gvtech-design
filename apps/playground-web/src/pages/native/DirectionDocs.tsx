@@ -1,7 +1,5 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { DirectionProvider } from '@gv-tech/ui-native';
-import { Text, View } from 'react-native';
 
 export function DirectionDocs() {
   return (
@@ -9,16 +7,19 @@ export function DirectionDocs() {
       <ComponentShowcase
         title="Provider"
         description="A provider to manage RTL/LTR direction."
-        code={`<DirectionProvider dir="rtl">
-  {children}
-</DirectionProvider>`}
-      >
-        <DirectionProvider dir="ltr">
-          <View className="border-border rounded border p-4">
-            <Text>LTR Context</Text>
-          </View>
-        </DirectionProvider>
-      </ComponentShowcase>
+        code={`import { DirectionProvider } from '@gv-tech/ui-native';
+import { Text, View } from 'react-native';
+
+export function DirectionExample() {
+  return (
+    <DirectionProvider dir="rtl">
+      <View className="p-4 border border-border rounded">
+        <Text>RTL Context</Text>
+      </View>
+    </DirectionProvider>
+  );
+}`}
+      />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>

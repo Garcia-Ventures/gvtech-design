@@ -1,5 +1,6 @@
 import { spawnSync } from 'child_process';
 import os from 'os';
+import path from 'path';
 
 const args = process.argv.slice(2);
 const fix = args.includes('--fix');
@@ -70,6 +71,12 @@ const steps = [
     }`,
   },
   {
+    name: 'Flutter analyze & test',
+    cmd: 'flutter analyze && flutter test',
+    cwd: path.join(process.cwd(), 'packages/ui-flutter'),
+    shell: true,
+  },
+  {
     name: 'Build Sub-packages & Apps',
     cmd: `nx run-many -t build ${nxParallelFlag}${nxFlagsCombined}`,
   },
@@ -108,7 +115,7 @@ function wait(ms: number) {
   }
 }
 
-for (const step of steps) {
+for (const step of steps as Array<{ name: string; cmd: string; cwd?: string; shell?: boolean }>) {
   const freeMemGb = os.freemem() / (1024 * 1024 * 1024);
   if (sequential && freeMemGb < 1.5) {
     console.log(yellow(`⚠️ Low free memory detected (${freeMemGb.toFixed(2)}GB). Waiting for reclamation...`));
@@ -118,11 +125,12 @@ for (const step of steps) {
   console.log(yellow(`\n> ${step.name}`));
   console.log(yellow(`> ${step.cmd}\n`));
 
-  const parts = step.cmd.split(/\s+/).filter(Boolean);
-  const command = parts[0];
-  const cmdArgs = parts.slice(1);
-
-  const result = spawnSync(command, cmdArgs, { stdio: 'inherit', shell: false, env });
+  const result = step.shell
+    ? spawnSync(step.cmd, [], { stdio: 'inherit', shell: true, cwd: step.cwd, env })
+    : (() => {
+        const parts = step.cmd.split(/\s+/).filter(Boolean);
+        return spawnSync(parts[0], parts.slice(1), { stdio: 'inherit', shell: false, cwd: step.cwd, env });
+      })();
 
   if (result.error) {
     console.error(red(`\nFailed to run: ${step.cmd}`));
