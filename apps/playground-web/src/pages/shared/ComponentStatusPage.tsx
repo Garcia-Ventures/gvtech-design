@@ -137,7 +137,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Carousel',
@@ -169,7 +169,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Command',
@@ -219,7 +219,14 @@ const componentStatuses: ComponentStatusItem[] = [
     native: 'implemented',
     flutter: 'implemented',
   },
-  { name: 'Field', href: 'field', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  {
+    name: 'Field',
+    href: 'field',
+    category: 'Forms',
+    web: 'implemented',
+    native: 'implemented',
+    flutter: 'implemented',
+  },
   { name: 'Form', href: 'form', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
   {
     name: 'Hover Card',
@@ -235,7 +242,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Input OTP',
@@ -243,7 +250,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   { name: 'Item', href: 'item', category: 'Components', web: 'implemented', native: 'implemented', flutter: 'planned' },
   {
@@ -277,7 +284,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Popover',
@@ -285,7 +292,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Progress',
@@ -445,7 +452,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Forms',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Tooltip',

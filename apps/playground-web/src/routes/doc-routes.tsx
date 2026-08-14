@@ -148,6 +148,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A date field component that allows users to enter and edit dates.',
     web: web('WebCalendarDocs'),
     native: native('NativeCalendarDocs'),
+    flutter: flutter('FlutterCalendarDocs'),
   },
   {
     path: 'card',
@@ -273,6 +274,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Pagination with next and previous buttons.',
     web: web('WebPaginationDocs'),
     native: native('NativePaginationDocs'),
+    flutter: flutter('FlutterPaginationDocs'),
   },
   {
     path: 'popover',
@@ -280,6 +282,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays rich content in a portal, triggered by a button.',
     web: web('WebPopoverDocs'),
     native: native('NativePopoverDocs'),
+    flutter: flutter('FlutterPopoverDocs'),
   },
   {
     path: 'progress',
@@ -429,6 +432,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A set of two-state buttons that can be toggled on or off.',
     web: web('WebToggleGroupDocs'),
     native: native('NativeToggleGroupDocs'),
+    flutter: flutter('FlutterToggleGroupDocs'),
   },
   {
     path: 'tooltip',
@@ -482,6 +486,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A form field with label, description, and error message.',
     web: web('WebFieldDocs'),
     native: native('NativeFieldDocs'),
+    flutter: flutter('FlutterFieldDocs'),
   },
   {
     path: 'input-group',
@@ -489,6 +494,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Input fields with attached prefix or suffix addons.',
     web: web('WebInputGroupDocs'),
     native: native('NativeInputGroupDocs'),
+    flutter: flutter('FlutterInputGroupDocs'),
   },
   {
     path: 'native-select',
@@ -518,6 +524,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Autocomplete input and command palette with a list of suggestions.',
     web: web('WebComboboxDocs'),
     native: native('NativeComboboxDocs'),
+    flutter: flutter('FlutterComboboxDocs'),
   },
   {
     path: 'input-otp',
@@ -525,6 +532,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Accessible one-time password component with copy paste functionality.',
     web: web('WebInputOTPDocs'),
     native: native('NativeInputOTPDocs'),
+    flutter: flutter('FlutterInputOTPDocs'),
   },
   {
     path: 'sidebar',

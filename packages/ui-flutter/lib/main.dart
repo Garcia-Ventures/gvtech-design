@@ -146,6 +146,22 @@ class ShowcaseHomePage extends StatelessWidget {
       innerContent = const SelectShowcase();
     } else if (fullTarget.contains('empty')) {
       innerContent = const EmptyShowcase();
+    } else if (fullTarget.contains('calendar')) {
+      innerContent = const CalendarShowcase();
+    } else if (fullTarget.contains('toggle-group')) {
+      innerContent = const ToggleGroupShowcase();
+    } else if (fullTarget.contains('input-otp')) {
+      innerContent = const InputOTPShowcase();
+    } else if (fullTarget.contains('input-group')) {
+      innerContent = const InputGroupShowcase();
+    } else if (fullTarget.contains('field')) {
+      innerContent = const FieldShowcase();
+    } else if (fullTarget.contains('combobox')) {
+      innerContent = const ComboboxShowcase();
+    } else if (fullTarget.contains('pagination')) {
+      innerContent = const PaginationShowcase();
+    } else if (fullTarget.contains('popover')) {
+      innerContent = const PopoverShowcase();
     } else {
       innerContent = const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1316,6 +1332,237 @@ class EmptyShowcase extends StatelessWidget {
           action: GVButton(
             label: 'Create Project',
             onPressed: () {},
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class CalendarShowcase extends StatefulWidget {
+  const CalendarShowcase({super.key});
+
+  @override
+  State<CalendarShowcase> createState() => _CalendarShowcaseState();
+}
+
+class _CalendarShowcaseState extends State<CalendarShowcase> {
+  DateTime _date = DateTime.now();
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Calendar Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVCalendar(
+          selectedDate: _date,
+          onDateSelected: (d) => setState(() => _date = d),
+        ),
+      ],
+    );
+  }
+}
+
+class ToggleGroupShowcase extends StatefulWidget {
+  const ToggleGroupShowcase({super.key});
+
+  @override
+  State<ToggleGroupShowcase> createState() => _ToggleGroupShowcaseState();
+}
+
+class _ToggleGroupShowcaseState extends State<ToggleGroupShowcase> {
+  String? _value = 'center';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Toggle Group Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVToggleGroup<String>(
+          value: _value,
+          onChanged: (val) => setState(() => _value = val),
+          items: const [
+            GVToggleGroupItem(value: 'left', child: Icon(Icons.format_align_left)),
+            GVToggleGroupItem(value: 'center', child: Icon(Icons.format_align_center)),
+            GVToggleGroupItem(value: 'right', child: Icon(Icons.format_align_right)),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class InputOTPShowcase extends StatelessWidget {
+  const InputOTPShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Input OTP Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVInputOTP(length: 6),
+      ],
+    );
+  }
+}
+
+class InputGroupShowcase extends StatelessWidget {
+  const InputGroupShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Input Group Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVInputGroup(
+          prefixAddon: Text('https://', style: TextStyle(fontSize: 13, color: Colors.grey)),
+          child: TextField(
+            decoration: InputDecoration(
+              hintText: 'example.com',
+              border: InputBorder.none,
+            ),
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class FieldShowcase extends StatelessWidget {
+  const FieldShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Field Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVField(
+          label: 'Username',
+          description: 'This is your public display name.',
+          child: GVInput(placeholder: 'johndoe'),
+        ),
+      ],
+    );
+  }
+}
+
+class ComboboxShowcase extends StatefulWidget {
+  const ComboboxShowcase({super.key});
+
+  @override
+  State<ComboboxShowcase> createState() => _ComboboxShowcaseState();
+}
+
+class _ComboboxShowcaseState extends State<ComboboxShowcase> {
+  String? _selected = 'next';
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Combobox Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVCombobox<String>(
+          label: 'Framework',
+          value: _selected,
+          onChanged: (val) => setState(() => _selected = val),
+          items: const [
+            GVComboboxItem(value: 'next', label: 'Next.js'),
+            GVComboboxItem(value: 'react', label: 'React'),
+            GVComboboxItem(value: 'flutter', label: 'Flutter'),
+            GVComboboxItem(value: 'vue', label: 'Vue.js'),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class PaginationShowcase extends StatefulWidget {
+  const PaginationShowcase({super.key});
+
+  @override
+  State<PaginationShowcase> createState() => _PaginationShowcaseState();
+}
+
+class _PaginationShowcaseState extends State<PaginationShowcase> {
+  int _page = 1;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Pagination Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVPagination(
+          currentPage: _page,
+          totalPages: 5,
+          onPageChanged: (p) => setState(() => _page = p),
+        ),
+      ],
+    );
+  }
+}
+
+class PopoverShowcase extends StatelessWidget {
+  const PopoverShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Popover Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVPopover(
+          trigger: GVButton(
+            label: 'Open Popover',
+            variant: GVButtonVariant.outline,
+          ),
+          content: Column(
+            mainAxisSize: MainAxisSize.min,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Dimensions', style: TextStyle(fontWeight: FontWeight.bold)),
+              SizedBox(height: 8),
+              Text('Set the dimensions for the layer.'),
+            ],
           ),
         ),
       ],
