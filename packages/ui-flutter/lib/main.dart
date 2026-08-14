@@ -178,6 +178,22 @@ class ShowcaseHomePage extends StatelessWidget {
       innerContent = const HoverCardShowcase();
     } else if (fullTarget.contains('drawer')) {
       innerContent = const DrawerShowcase();
+    } else if (fullTarget.contains('table')) {
+      innerContent = const TableShowcase();
+    } else if (fullTarget.contains('sidebar')) {
+      innerContent = const SidebarShowcase();
+    } else if (fullTarget.contains('command')) {
+      innerContent = const CommandShowcase();
+    } else if (fullTarget.contains('carousel')) {
+      innerContent = const CarouselShowcase();
+    } else if (fullTarget.contains('aspect-ratio')) {
+      innerContent = const AspectRatioShowcase();
+    } else if (fullTarget.contains('button-group')) {
+      innerContent = const ButtonGroupShowcase();
+    } else if (fullTarget.contains('chart')) {
+      innerContent = const ChartShowcase();
+    } else if (fullTarget.contains('scroll-area')) {
+      innerContent = const ScrollAreaShowcase();
     } else {
       innerContent = const Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -1830,6 +1846,227 @@ class DrawerShowcase extends StatelessWidget {
     );
   }
 }
+
+class TableShowcase extends StatelessWidget {
+  const TableShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Table Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVTable(
+          columns: [
+            GVTableColumn(title: 'Invoice'),
+            GVTableColumn(title: 'Status'),
+            GVTableColumn(title: 'Amount'),
+          ],
+          rows: [
+            [Text('INV-001'), Text('Paid'), Text('\$250.00')],
+            [Text('INV-002'), Text('Pending'), Text('\$150.00')],
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class SidebarShowcase extends StatelessWidget {
+  const SidebarShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Sidebar Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVSidebar(
+          title: 'Acme Inc',
+          items: [
+            GVSidebarItem(label: 'Home', icon: Icons.home, isSelected: true),
+            GVSidebarItem(label: 'Inbox', icon: Icons.inbox),
+            GVSidebarItem(label: 'Settings', icon: Icons.settings),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class CommandShowcase extends StatelessWidget {
+  const CommandShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text(
+          'Command Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const SizedBox(height: GVSpacing.s4),
+        GVButton(
+          label: 'Open Command Palette',
+          variant: GVButtonVariant.outline,
+          onPressed: () {
+            GVCommand.show(context, const [
+              GVCommandItem(label: 'Calendar', icon: Icons.calendar_today),
+              GVCommandItem(label: 'Search Emoji', icon: Icons.emoji_emotions),
+              GVCommandItem(label: 'Settings', icon: Icons.settings),
+            ]);
+          },
+        ),
+      ],
+    );
+  }
+}
+
+class CarouselShowcase extends StatelessWidget {
+  const CarouselShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Carousel Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVCarousel(
+          height: 120,
+          items: [
+            GVCard(child: Center(child: Text('Slide 1'))),
+            GVCard(child: Center(child: Text('Slide 2'))),
+            GVCard(child: Center(child: Text('Slide 3'))),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class AspectRatioShowcase extends StatelessWidget {
+  const AspectRatioShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Aspect Ratio Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVAspectRatio(
+          aspectRatio: 16 / 9,
+          child: GVCard(child: Center(child: Text('16 : 9 Container'))),
+        ),
+      ],
+    );
+  }
+}
+
+class ButtonGroupShowcase extends StatelessWidget {
+  const ButtonGroupShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Button Group Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVButtonGroup(
+          children: [
+            GVButton(label: 'Years'),
+            SizedBox(width: 4),
+            GVButton(label: 'Months', variant: GVButtonVariant.outline),
+            SizedBox(width: 4),
+            GVButton(label: 'Days', variant: GVButtonVariant.outline),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ChartShowcase extends StatelessWidget {
+  const ChartShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Chart Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVChart(
+          data: [
+            GVChartDataPoint(label: 'Jan', value: 186),
+            GVChartDataPoint(label: 'Feb', value: 305),
+            GVChartDataPoint(label: 'Mar', value: 237),
+            GVChartDataPoint(label: 'Apr', value: 173),
+            GVChartDataPoint(label: 'May', value: 209),
+          ],
+        ),
+      ],
+    );
+  }
+}
+
+class ScrollAreaShowcase extends StatelessWidget {
+  const ScrollAreaShowcase({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return const Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(
+          'Scroll Area Showcase',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        SizedBox(height: GVSpacing.s4),
+        GVScrollArea(
+          height: 120,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text('Item 1'),
+              Text('Item 2'),
+              Text('Item 3'),
+              Text('Item 4'),
+              Text('Item 5'),
+              Text('Item 6'),
+              Text('Item 7'),
+              Text('Item 8'),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
 
 
 

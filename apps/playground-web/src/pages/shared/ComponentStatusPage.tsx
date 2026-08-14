@@ -121,7 +121,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Breadcrumb',
@@ -145,7 +145,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Chart',
@@ -153,7 +153,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Collapsible',
@@ -177,7 +177,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Context Menu',
@@ -193,7 +193,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Drawer',
@@ -227,7 +227,7 @@ const componentStatuses: ComponentStatusItem[] = [
     native: 'implemented',
     flutter: 'implemented',
   },
-  { name: 'Form', href: 'form', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  { name: 'Form', href: 'form', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'implemented' },
   {
     name: 'Hover Card',
     href: 'hover-card',
@@ -268,7 +268,14 @@ const componentStatuses: ComponentStatusItem[] = [
     native: 'implemented',
     flutter: 'implemented',
   },
-  { name: 'Label', href: 'label', category: 'Forms', web: 'implemented', native: 'implemented', flutter: 'planned' },
+  {
+    name: 'Label',
+    href: 'label',
+    category: 'Forms',
+    web: 'implemented',
+    native: 'implemented',
+    flutter: 'implemented',
+  },
   {
     name: 'Menubar',
     href: 'menubar',
@@ -283,7 +290,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Pagination',
@@ -323,7 +330,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Scroll Area',
@@ -331,7 +338,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Scroll To Top',
@@ -339,7 +346,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Layout',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Select',
@@ -371,7 +378,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Skeleton',
@@ -411,7 +418,7 @@ const componentStatuses: ComponentStatusItem[] = [
     category: 'Components',
     web: 'implemented',
     native: 'implemented',
-    flutter: 'planned',
+    flutter: 'implemented',
   },
   {
     name: 'Tabs',
