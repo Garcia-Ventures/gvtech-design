@@ -108,6 +108,16 @@ describe('SupportFab', () => {
     );
   });
 
+  it('trims surrounding whitespace before validating the support url', () => {
+    setMobile(false);
+    render(<SupportFab supportUrl="  https://www.buymeacoffee.com  " creatorId="eng618" defaultOpen />);
+
+    expect(screen.getByTitle(/buy me a coffee support form/i)).toHaveAttribute(
+      'src',
+      'https://www.buymeacoffee.com/widget/page/eng618',
+    );
+  });
+
   it('rejects unallowed domains and falls back to default', () => {
     setMobile(false);
     render(<SupportFab supportUrl="https://evil.com" creatorId="eng618" defaultOpen />);
