@@ -1,3 +1,47 @@
+## 2.27.3 (2026-08-07)
+
+### 🩹 Fixes
+
+- improve switch style resolution by flattening styles to correctly apply dimensions ([cd28565](https://github.com/Garcia-Ventures/gvtech-design/commit/cd28565))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.27.2 (2026-08-07)
+
+### 🩹 Fixes
+
+- optimize Switch component layout and state handling for native consistency ([11e92d2](https://github.com/Garcia-Ventures/gvtech-design/commit/11e92d2))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.27.1 (2026-08-07)
+
+### 🚀 Features
+
+- integrate design token CSS imports and add automated theme synchronization for web and native platforms ([9216c40](https://github.com/Garcia-Ventures/gvtech-design/commit/9216c40))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
+## 2.27.0 (2026-08-07)
+
+### 🩹 Fixes
+
+- **ui-native:** resolve select scroll button ref type error ([#131](https://github.com/Garcia-Ventures/gvtech-design/pull/131))
+
+### 🔥 Performance
+
+- **ui-native:** optimize scroll event handler with O(log N) binary search ([#118](https://github.com/Garcia-Ventures/gvtech-design/pull/118))
+
+### ❤️ Thank You
+
+- Eric Garcia @eng618
+
 ## 2.26.2 (2026-07-11)
 
 No changes for this project

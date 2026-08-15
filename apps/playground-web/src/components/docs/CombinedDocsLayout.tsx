@@ -1,5 +1,5 @@
 import { useDocMetadata } from '@/hooks/useDocMetadata';
-import { safeTrack } from '@/lib/analytics';
+import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { Info } from 'lucide-react';
 import React from 'react';
@@ -9,45 +9,52 @@ interface CombinedDocsLayoutProps {
   description?: string;
   web?: React.ReactNode;
   native?: React.ReactNode;
+  flutter?: React.ReactNode;
 }
 
-export const PlatformContext = React.createContext<'web' | 'native'>('web');
+export const PlatformContext = React.createContext<'web' | 'native' | 'flutter'>('web');
 
-export function CombinedDocsLayout({ title, description, web, native }: CombinedDocsLayoutProps) {
+export function CombinedDocsLayout({ title, description, web, native, flutter }: CombinedDocsLayoutProps) {
   useDocMetadata({
     title: title || 'Documentation',
     description: description || 'GV Tech Design System documentation.',
   });
   // Use localStorage to persist platform preference
-  const [activeTab, setActiveTab] = React.useState<'web' | 'native'>(() => {
-    // Check if there is a saved preference
+  const [activeTab, setActiveTab] = React.useState<'web' | 'native' | 'flutter'>(() => {
     const saved = typeof window !== 'undefined' ? localStorage.getItem('gv-docs-platform') : null;
-    if (saved === 'web' || saved === 'native') {
-      // Ensure the saved preference is actually available for this component
-      if (saved === 'web' && web) {
-        return 'web';
-      }
-      if (saved === 'native' && native) {
-        return 'native';
-      }
+    if (saved === 'web' && web) {
+      return 'web';
     }
-    // Default to web if available, otherwise native
-    return web ? 'web' : 'native';
+    if (saved === 'native' && native) {
+      return 'native';
+    }
+    if (saved === 'flutter' && flutter) {
+      return 'flutter';
+    }
+    if (web) {
+      return 'web';
+    }
+    if (native) {
+      return 'native';
+    }
+    if (flutter) {
+      return 'flutter';
+    }
+    return 'web';
   });
 
-  // When navigating between pages, React Router reuses this component without
-  // remounting, so the useState initializer won't re-run. Sync activeTab
-  // whenever the set of available platforms changes to avoid showing a blank tab.
   React.useEffect(() => {
-    if (activeTab === 'native' && !native) {
-      setActiveTab(web ? 'web' : 'native');
-    } else if (activeTab === 'web' && !web && native) {
-      setActiveTab('native');
+    if (activeTab === 'flutter' && !flutter) {
+      setActiveTab(web ? 'web' : native ? 'native' : 'flutter');
+    } else if (activeTab === 'native' && !native) {
+      setActiveTab(web ? 'web' : flutter ? 'flutter' : 'native');
+    } else if (activeTab === 'web' && !web) {
+      setActiveTab(flutter ? 'flutter' : native ? 'native' : 'web');
     }
-  }, [web, native, activeTab]);
+  }, [web, native, flutter, activeTab]);
 
   const onTabChange = (value: string) => {
-    const newTab = value as 'web' | 'native';
+    const newTab = value as 'web' | 'native' | 'flutter';
     if (newTab === activeTab) {
       return;
     }
@@ -62,9 +69,11 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
 
     setActiveTab(newTab);
     localStorage.setItem('gv-docs-platform', newTab);
+    updateGlobalAnalyticsProperties({ platformTab: newTab });
   };
 
-  const showTabs = !!(web && native);
+  const activeCount = [web, native, flutter].filter(Boolean).length;
+  const showTabs = activeCount > 1;
 
   return (
     <TableOfContents minLevel={1} maxLevel={4}>
@@ -89,7 +98,12 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
                   )}
                   {native && (
                     <TabsTrigger value="native" className="data-[state=active]:after:bg-primary px-2 font-semibold">
-                      Native
+                      React Native
+                    </TabsTrigger>
+                  )}
+                  {flutter && (
+                    <TabsTrigger value="flutter" className="data-[state=active]:after:bg-primary px-2 font-semibold">
+                      Flutter
                     </TabsTrigger>
                   )}
                 </TabsList>
@@ -117,6 +131,23 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
                     </PlatformContext.Provider>
                   </TabsContent>
                 )}
+                {flutter && (
+                  <TabsContent value="flutter" className="mt-8 border-none p-0 outline-none md:mt-10">
+                    <PlatformContext.Provider value="flutter">
+                      <div className="mx-4 mb-6 flex gap-3 rounded-lg border border-sky-500/20 bg-sky-500/10 p-4 text-sky-500 md:mx-0">
+                        <Info className="h-5 w-5 shrink-0" />
+                        <div className="text-sm">
+                          <p className="font-semibold">Flutter Implementation (`@gv-tech/ui-flutter`)</p>
+                          <p className="opacity-90">
+                            These components are compiled from Dart for Flutter Web, iOS, Android, and desktop targets.
+                            Previews below show live Flutter Web widgets and Dart code snippets.
+                          </p>
+                        </div>
+                      </div>
+                      <div className="space-y-10 md:space-y-12">{flutter}</div>
+                    </PlatformContext.Provider>
+                  </TabsContent>
+                )}
               </Tabs>
             ) : (
               <div className="mt-8 px-4 md:mt-10 md:px-0">
@@ -128,6 +159,11 @@ export function CombinedDocsLayout({ title, description, web, native }: Combined
                 {native && (
                   <PlatformContext.Provider value="native">
                     <div className="space-y-10 md:space-y-12">{native}</div>
+                  </PlatformContext.Provider>
+                )}
+                {flutter && (
+                  <PlatformContext.Provider value="flutter">
+                    <div className="space-y-10 md:space-y-12">{flutter}</div>
                   </PlatformContext.Provider>
                 )}
               </div>

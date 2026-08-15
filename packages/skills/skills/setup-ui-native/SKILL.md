@@ -26,6 +26,7 @@ Add the `lightningcss` override in your `package.json` to prevent build deserial
 ### Step 2: Create Global CSS (`src/global.css`)
 
 ```css
+@import '@gv-tech/design-tokens/theme.css';
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css';

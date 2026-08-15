@@ -24,6 +24,8 @@ export function CodeBlock({ code, language = 'tsx', className }: CodeBlockProps)
       </pre>
       <button
         onClick={copyToClipboard}
+        data-track="copy_code_snippet"
+        data-track-language={language}
         className="absolute top-3 right-3 rounded-md bg-zinc-800 p-2 text-zinc-400 opacity-0 transition-colors group-hover:opacity-100 hover:bg-zinc-700 hover:text-zinc-100"
         aria-label="Copy code"
       >

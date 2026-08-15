@@ -1,13 +1,18 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { NativeSelect } from '@gv-tech/ui-native';
 
 export function NativeSelectDocs() {
   return (
     <>
-      <ComponentShowcase title="Default" description="A native select dropdown." code={`<NativeSelect />`}>
-        <NativeSelect className="w-[200px]" />
-      </ComponentShowcase>
+      <ComponentShowcase
+        title="Default"
+        description="A native select dropdown for Native."
+        code={`import { NativeSelect } from '@gv-tech/ui-native';
+
+export function NativeSelectExample() {
+  return <NativeSelect className="w-[200px]" />;
+}`}
+      />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
@@ -16,7 +21,7 @@ export function NativeSelectDocs() {
             {
               name: 'className',
               type: 'string',
-              description: 'Tailwind CSS classes.',
+              description: 'NativeWind classes.',
             },
           ]}
         />

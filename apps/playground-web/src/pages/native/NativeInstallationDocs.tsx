@@ -155,7 +155,8 @@ export function NativeInstallationDocs() {
 
         <CodeBlock
           language="css"
-          code={`@import "tailwindcss/theme.css" layer(theme);
+          code={`@import "@gv-tech/design-tokens/theme.css";
+@import "tailwindcss/theme.css" layer(theme);
 @import "tailwindcss/preflight.css" layer(base);
 @import "tailwindcss/utilities.css";
 @import "nativewind/theme";

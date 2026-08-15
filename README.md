@@ -40,7 +40,7 @@ To see a full list of all available components and their implementation and test
 
 ## Demo
 
-The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
+The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version at [design.gventureshq.com](https://design.gventureshq.com/).
 
 ## Install
 

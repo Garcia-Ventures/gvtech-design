@@ -1,7 +1,7 @@
 import type { LucideIcon } from 'lucide-react';
 import { Compass, Database, FormInput, LayoutTemplate, MessageSquare, Rocket, Wrench } from 'lucide-react';
 
-export type DocPlatform = 'web' | 'native';
+export type DocPlatform = 'web' | 'native' | 'flutter';
 
 export interface DocItem {
   title: string;
@@ -17,12 +17,6 @@ export interface DocCategory {
   items: DocItem[];
 }
 
-// We'll import the actual components in App.tsx to keep the config lightweight if we want
-// but for now, to make the loop work, we might need to reference them differently
-// or just export the structure and map it in App.tsx.
-// Let's stick to a pure config structure and map in App.tsx to avoid circular deps if configs grow.
-// Actually, mapping in App.tsx is safer.
-
 export const docConfig: DocCategory[] = [
   {
     title: 'Getting Started',
@@ -31,19 +25,25 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Getting Started',
         href: 'getting-started',
-        platforms: ['web', 'native'],
+        platforms: ['web', 'native', 'flutter'],
         description: 'Introduction to the GV Tech Design System.',
+      },
+      {
+        title: 'Component Status',
+        href: 'status',
+        platforms: ['web', 'native', 'flutter'],
+        description: 'Component implementation matrix across Web, React Native, and Flutter.',
       },
       {
         title: 'Installation',
         href: 'installation',
-        platforms: ['web', 'native'],
-        description: 'How to install and configure for Web and Mobile.',
+        platforms: ['web', 'native', 'flutter'],
+        description: 'How to install and configure for Web, Mobile, and Flutter.',
       },
       {
         title: 'Theming',
         href: 'theming',
-        platforms: ['web', 'native'],
+        platforms: ['web', 'native', 'flutter'],
         description: 'Customizing colors and design tokens.',
       },
     ],
