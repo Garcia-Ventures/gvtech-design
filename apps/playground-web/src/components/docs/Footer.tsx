@@ -89,6 +89,8 @@ export function Footer() {
                     href="https://github.com/Garcia-Ventures/gvtech-design"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="github_repo"
                     className="hover:text-foreground transition-colors"
                   >
                     GitHub Repository
@@ -99,6 +101,8 @@ export function Footer() {
                     href="https://www.npmjs.com/package/@gv-tech/design-system"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="npm_package"
                     className="hover:text-foreground transition-colors"
                   >
                     NPM Package
@@ -109,6 +113,8 @@ export function Footer() {
                     href="https://ui.shadcn.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="shadcn_ui"
                     className="hover:text-foreground transition-colors"
                   >
                     shadcn/ui

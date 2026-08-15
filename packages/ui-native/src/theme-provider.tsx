@@ -1,6 +1,6 @@
 import { theme as designTokens } from '@gv-tech/design-tokens';
 import * as React from 'react';
-import { useColorScheme, View, ViewProps } from 'react-native';
+import { Appearance, useColorScheme, View, ViewProps } from 'react-native';
 import { cn } from './lib/utils';
 
 export interface ThemeContextValue {
@@ -24,6 +24,24 @@ export function ThemeProvider({ children, className, style, value, ...props }: T
   const tokens = resolvedTheme === 'dark' ? designTokens.dark : designTokens.light;
 
   const isDark = resolvedTheme === 'dark';
+
+  React.useEffect(() => {
+    if (typeof document !== 'undefined') {
+      document.documentElement.classList.toggle('dark', isDark);
+      if (document.body) {
+        document.body.classList.toggle('dark', isDark);
+      }
+    }
+    try {
+      if (theme === 'system') {
+        Appearance.setColorScheme('unspecified');
+      } else {
+        Appearance.setColorScheme(isDark ? 'dark' : 'light');
+      }
+    } catch {
+      // Fallback for platform limitations
+    }
+  }, [theme, isDark]);
 
   const contextValue = React.useMemo<ThemeContextValue>(
     () => ({

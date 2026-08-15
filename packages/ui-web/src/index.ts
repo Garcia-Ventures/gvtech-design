@@ -11,7 +11,7 @@ export { cn } from './lib/utils';
 export { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion';
 
 // Alert
-export { Alert, AlertDescription, AlertTitle } from './alert';
+export { Alert, AlertAction, AlertDescription, AlertTitle } from './alert';
 
 // Alert Dialog
 export {

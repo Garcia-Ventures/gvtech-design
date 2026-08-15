@@ -1,3 +1,4 @@
+import { safeTrack } from '@/lib/analytics';
 import { Button } from '@gv-tech/ui-web';
 import { AlertTriangle } from 'lucide-react';
 import { Component, ErrorInfo, ReactNode } from 'react';
@@ -24,6 +25,12 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
+    safeTrack('component_render_error', {
+      error_name: error.name,
+      error_message: error.message,
+      component_stack: errorInfo.componentStack,
+      url: typeof window !== 'undefined' ? window.location.href : '',
+    });
   }
 
   public render() {

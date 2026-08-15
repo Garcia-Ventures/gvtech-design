@@ -12,6 +12,13 @@
 
 # production
 /build
+**/build/
+.dart_tool/
+.pub-cache/
+.pub/
+.flutter-plugins*
+*.iml
+.idea/
 
 # misc
 .DS_Store
@@ -33,6 +40,7 @@ storybook-static
 dist
 dist-site
 apps/playground-web/public/registry
+apps/playground-web/public/flutter
 apps/playground-web/public/sitemap.xml
 
 # yarn v2

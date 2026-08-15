@@ -1,3 +1,29 @@
+## 2.27.3 (2026-08-07)
+
+No changes for this project
+
+## 2.27.2 (2026-08-07)
+
+No changes for this project
+
+## 2.27.1 (2026-08-07)
+
+No changes for this project
+
+## 2.27.0 (2026-08-07)
+
+No changes for this project
+
+## 2.26.2 (2026-07-11)
+
+### 🩹 Fixes
+
+- update token generator to wrap CSS color variables in hsl() function ([89c5637](https://github.com/Garcia-Ventures/gvtech-design/commit/89c5637))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.26.1 (2026-06-21)
 
 No changes for this project

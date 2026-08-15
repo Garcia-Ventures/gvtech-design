@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/design-system",
-  "version": "2.26.1",
+  "version": "2.27.3",
   "description": "Garcia Ventures react design system",
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
@@ -30,8 +30,9 @@
   },
   "scripts": {
     "build": "rm -f tsconfig.tsbuildinfo && bun build:registry && VITE_LIB=true vite build",
+    "build:flutter-web": "bash scripts/build-flutter-web.sh",
     "build:registry": "tsx scripts/build-registry.ts",
-    "build:site": "bun --filter playground-web build",
+    "build:site": "bun build:flutter-web && bun --filter playground-web build",
     "clean": "rm -rf .nx .next .expo .turbo dist dist-site *.tsbuildinfo .eslintcache",
     "dev": "bun --filter playground-web dev",
     "shadcn:update": "cd packages/ui-web && bunx shadcn@latest add --all --overwrite --yes",

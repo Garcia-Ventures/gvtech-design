@@ -5,7 +5,7 @@ const ROOT = resolve(process.cwd());
 const ROUTES_FILE = resolve(ROOT, 'src/routes/doc-routes.tsx');
 const SITEMAP_FILE = resolve(ROOT, 'public/sitemap.xml');
 
-const DEFAULT_SITE_URL = 'https://gvtech-design.pages.dev';
+const DEFAULT_SITE_URL = 'https://design.gventureshq.com';
 const siteUrl = (process.env.SITE_URL || DEFAULT_SITE_URL).replace(/\/$/, '');
 
 const routesSource = readFileSync(ROUTES_FILE, 'utf8');
