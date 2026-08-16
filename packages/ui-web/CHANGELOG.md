@@ -1,3 +1,13 @@
+## 2.28.0 (2026-08-16)
+
+### 🚀 Features
+
+- migrate analytics to OpenPanel, update site URL to design.gventureshq.com, and export AlertAction from ui-web ([07ef4ac](https://github.com/Garcia-Ventures/gvtech-design/commit/07ef4ac))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.27.3 (2026-08-07)
 
 No changes for this project
