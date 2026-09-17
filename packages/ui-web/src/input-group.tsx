@@ -1,5 +1,10 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
 import * as React from 'react';
+
+import { Button } from '@/./button';
+import { Input } from '@/./input';
+import { Textarea } from '@/./textarea';
 
 import type {
   InputGroupAddonBaseProps,
@@ -9,10 +14,6 @@ import type {
   InputGroupTextareaBaseProps,
   InputGroupTextBaseProps,
 } from '@gv-tech/ui-core';
-import { Button } from './button';
-import { Input } from './input';
-import { cn } from './lib/utils';
-import { Textarea } from './textarea';
 
 function InputGroup({ className, ...props }: React.ComponentProps<'div'> & InputGroupBaseProps) {
   return (
@@ -29,7 +30,7 @@ function InputGroup({ className, ...props }: React.ComponentProps<'div'> & Input
 }
 
 const inputGroupAddonVariants = cva(
-  'flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*=size-])]:size-4',
+  "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
   {
     variants: {
       align: {
@@ -71,7 +72,7 @@ function InputGroupAddon({
 const inputGroupButtonVariants = cva('flex items-center gap-2 text-sm shadow-none', {
   variants: {
     size: {
-      xs: 'h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*=size-])]:size-3.5',
+      xs: "h-6 gap-1 rounded-[calc(var(--radius)-3px)] px-1.5 [&>svg:not([class*='size-'])]:size-3.5",
       sm: '',
       'icon-xs': 'size-6 rounded-[calc(var(--radius)-3px)] p-0 has-[>svg]:p-0',
       'icon-sm': 'size-8 p-0 has-[>svg]:p-0',
@@ -106,7 +107,7 @@ function InputGroupText({ className, ...props }: React.ComponentProps<'span'> & 
   return (
     <span
       className={cn(
-        'text-muted-foreground flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*=size-])]:size-4',
+        "text-muted-foreground flex items-center gap-2 text-sm [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4",
         className,
       )}
       {...props}

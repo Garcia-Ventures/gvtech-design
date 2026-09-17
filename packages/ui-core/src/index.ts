@@ -465,3 +465,86 @@ export type {
   SidebarSeparatorBaseProps,
   SidebarTriggerBaseProps,
 } from './contracts/sidebar';
+
+// Attachment
+export type {
+  AttachmentActionBaseProps,
+  AttachmentActionsBaseProps,
+  AttachmentBaseProps,
+  AttachmentContentBaseProps,
+  AttachmentDescriptionBaseProps,
+  AttachmentGroupBaseProps,
+  AttachmentMediaBaseProps,
+  AttachmentMediaVariant,
+  AttachmentOrientation,
+  AttachmentSize,
+  AttachmentState,
+  AttachmentSubComponent,
+  AttachmentTitleBaseProps,
+  AttachmentTriggerBaseProps,
+} from './contracts/attachment';
+
+// Bubble
+export type {
+  BubbleAlign,
+  BubbleBaseProps,
+  BubbleContentBaseProps,
+  BubbleGroupBaseProps,
+  BubbleReactionsBaseProps,
+  BubbleReactionsSide,
+  BubbleSubComponent,
+  BubbleVariant,
+} from './contracts/bubble';
+
+// Marker
+export type {
+  MarkerBaseProps,
+  MarkerContentBaseProps,
+  MarkerIconBaseProps,
+  MarkerSubComponent,
+  MarkerVariant,
+} from './contracts/marker';
+
+// Message
+export type {
+  MessageAlign,
+  MessageAvatarBaseProps,
+  MessageBaseProps,
+  MessageContentBaseProps,
+  MessageFooterBaseProps,
+  MessageGroupBaseProps,
+  MessageHeaderBaseProps,
+  MessageSubComponent,
+} from './contracts/message';
+
+// Message Scroller
+export type {
+  MessageScrollerBaseProps,
+  MessageScrollerButtonBaseProps,
+  MessageScrollerContentBaseProps,
+  MessageScrollerDirection,
+  MessageScrollerItemBaseProps,
+  MessageScrollerProviderBaseProps,
+  MessageScrollerSubComponent,
+  MessageScrollerViewportBaseProps,
+} from './contracts/message-scroller';
+
+// Questionnaire
+export type {
+  QuestionnaireActionsBaseProps,
+  QuestionnaireBaseProps,
+  QuestionnaireChoiceBaseProps,
+  QuestionnaireChoiceDescriptionBaseProps,
+  QuestionnaireChoicesBaseProps,
+  QuestionnaireDescriptionBaseProps,
+  QuestionnaireErrorBaseProps,
+  QuestionnaireInputBaseProps,
+  QuestionnaireItemBaseProps,
+  QuestionnaireNextBaseProps,
+  QuestionnairePreviousBaseProps,
+  QuestionnaireProgressBaseProps,
+  QuestionnaireSkipBaseProps,
+  QuestionnaireSubComponent,
+  QuestionnaireSubmitBaseProps,
+  QuestionnaireTitleBaseProps,
+} from './contracts/questionnaire';

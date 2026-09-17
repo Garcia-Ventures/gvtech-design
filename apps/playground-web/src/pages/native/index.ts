@@ -65,3 +65,21 @@ export { KbdDocs as NativeKbdDocs } from './KbdDocs';
 export * from './NativeFormDocs';
 export { NativeSelectDocs as NativeNativeSelectDocs } from './NativeSelectDocs';
 export { SidebarDocs as NativeSidebarDocs } from './SidebarDocs';
+
+// Message
+export { MessageDocs as NativeMessageDocs } from './MessageDocs';
+
+// Bubble
+export { BubbleDocs as NativeBubbleDocs } from './BubbleDocs';
+
+// Marker
+export { MarkerDocs as NativeMarkerDocs } from './MarkerDocs';
+
+// Attachment
+export { AttachmentDocs as NativeAttachmentDocs } from './AttachmentDocs';
+
+// MessageScroller
+export { MessageScrollerDocs as NativeMessageScrollerDocs } from './MessageScrollerDocs';
+
+// Questionnaire
+export { QuestionnaireDocs as NativeQuestionnaireDocs } from './QuestionnaireDocs';

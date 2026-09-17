@@ -1,7 +1,6 @@
+import { cn } from 'cn';
 import * as React from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
-
-import { cn } from './lib/utils';
 
 import type { DrawerBaseProps } from '@gv-tech/ui-core';
 
@@ -26,7 +25,7 @@ function DrawerOverlay({ className, ...props }: React.ComponentProps<typeof Draw
     <DrawerPrimitive.Overlay
       data-slot="drawer-overlay"
       className={cn(
-        'data-[state=open]:animate-in data-[state=open]:fade-in-0 data-[state=closed]:animate-out data-[state=closed]:fade-out-0 fixed inset-0 z-50 bg-black/10 supports-backdrop-filter:backdrop-blur-xs',
+        'data-open:animate-in data-open:fade-in-0 data-closed:animate-out data-closed:fade-out-0 fixed inset-0 z-50 bg-black/10 supports-backdrop-filter:backdrop-blur-xs',
         className,
       )}
       {...props}

@@ -2,8 +2,6 @@ import { CircleCheckIcon, InfoIcon, Loader2Icon, OctagonXIcon, TriangleAlertIcon
 import { useTheme } from 'next-themes';
 import { Toaster as Sonner, type ToasterProps } from 'sonner';
 
-import type { SonnerBaseProps } from '@gv-tech/ui-core';
-
 const Toaster = ({ ...props }: ToasterProps) => {
   const { theme = 'system' } = useTheme();
 
@@ -37,6 +35,3 @@ const Toaster = ({ ...props }: ToasterProps) => {
 };
 
 export { Toaster };
-
-// Verify that the component satisfies the ui-core contract
-export type ___verifySonnerContract = React.ComponentProps<typeof Sonner> extends SonnerBaseProps ? true : false;

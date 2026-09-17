@@ -28,6 +28,17 @@ export default defineConfig({
         find: /^@react-native-community\/datetimepicker$/,
         replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
       },
+      // shadcn emits `@/./<sibling>` + `@/hooks/*` imports inside packages/ui-web/src
+      // (see its components.json aliases). These must resolve to ui-web, and are
+      // listed before the generic `@` rule because first match wins.
+      {
+        find: /^@\/\.\//,
+        replacement: `${resolve(__dirname, '../../packages/ui-web/src')}/`,
+      },
+      {
+        find: /^@\/hooks\/use-mobile/,
+        replacement: resolve(__dirname, '../../packages/ui-web/src/hooks/use-mobile.ts'),
+      },
       { find: '@', replacement: resolve(__dirname, './src') },
       { find: '@gv-tech/design-tokens', replacement: resolve(__dirname, '../../packages/design-tokens/src') },
       { find: '@gv-tech/ui-core', replacement: resolve(__dirname, '../../packages/ui-core/src') },

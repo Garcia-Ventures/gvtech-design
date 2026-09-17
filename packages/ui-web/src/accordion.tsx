@@ -1,8 +1,7 @@
+import { cn } from 'cn';
+import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
-import { cn } from './lib/utils';
 
 import type { AccordionBaseProps } from '@gv-tech/ui-core';
 
@@ -45,7 +44,7 @@ function AccordionContent({ className, children, ...props }: React.ComponentProp
   return (
     <AccordionPrimitive.Content
       data-slot="accordion-content"
-      className="data-[state=open]:animate-accordion-down data-[state=closed]:animate-accordion-up overflow-hidden text-sm"
+      className="data-open:animate-accordion-down data-closed:animate-accordion-up overflow-hidden text-sm"
       {...props}
     >
       <div

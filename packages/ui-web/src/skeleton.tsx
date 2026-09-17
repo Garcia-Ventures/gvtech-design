@@ -1,4 +1,4 @@
-import { cn } from './lib/utils';
+import { cn } from 'cn';
 
 import type { SkeletonBaseProps } from '@gv-tech/ui-core';
 

@@ -436,3 +436,54 @@ export {
   SidebarTrigger,
   useSidebar,
 } from './sidebar';
+
+// Attachment
+export {
+  Attachment,
+  AttachmentAction,
+  AttachmentActions,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentGroup,
+  AttachmentMedia,
+  AttachmentTitle,
+  AttachmentTrigger,
+} from './attachment';
+
+// Bubble
+export { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from './bubble';
+
+// Marker
+export { Marker, MarkerContent, MarkerIcon } from './marker';
+
+// Message
+export { Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader } from './message';
+
+// Message Scroller
+export {
+  MessageScroller,
+  MessageScrollerButton,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
+} from './message-scroller';
+
+// Questionnaire
+export {
+  Questionnaire,
+  QuestionnaireActions,
+  QuestionnaireChoice,
+  QuestionnaireChoiceDescription,
+  QuestionnaireChoices,
+  QuestionnaireDescription,
+  QuestionnaireError,
+  QuestionnaireInput,
+  QuestionnaireItem,
+  QuestionnaireNext,
+  QuestionnairePrevious,
+  QuestionnaireProgress,
+  QuestionnaireSkip,
+  QuestionnaireSubmit,
+  QuestionnaireTitle,
+} from './questionnaire';

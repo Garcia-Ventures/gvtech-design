@@ -313,6 +313,42 @@ export const docConfig: DocCategory[] = [
     ],
   },
   {
+    title: 'Messaging',
+    icon: MessagesSquare,
+    items: [
+      {
+        title: 'Message',
+        href: 'message',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Bubble',
+        href: 'bubble',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Marker',
+        href: 'marker',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Attachment',
+        href: 'attachment',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Message Scroller',
+        href: 'message-scroller',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Questionnaire',
+        href: 'questionnaire',
+        platforms: ['web', 'native'],
+      },
+    ],
+  },
+  {
     title: 'Navigation',
     icon: Compass,
     items: [

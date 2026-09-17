@@ -1,6 +1,9 @@
 import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
 import { Slot } from 'radix-ui';
 import * as React from 'react';
+
+import { Separator } from '@/./separator';
 
 import type {
   ItemActionsBaseProps,
@@ -14,8 +17,6 @@ import type {
   ItemSeparatorBaseProps,
   ItemTitleBaseProps,
 } from '@gv-tech/ui-core';
-import { cn } from './lib/utils';
-import { Separator } from './separator';
 
 function ItemGroup({ className, ...props }: React.ComponentProps<'div'> & ItemGroupBaseProps) {
   return (
@@ -82,7 +83,7 @@ const itemMediaVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
-        icon: '[&_svg:not([class*=size-])]:size-4',
+        icon: "[&_svg:not([class*='size-'])]:size-4",
         image:
           'size-10 overflow-hidden rounded-sm group-data-[size=sm]/item:size-8 group-data-[size=xs]/item:size-6 [&_img]:size-full [&_img]:object-cover',
       },

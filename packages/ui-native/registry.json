@@ -80,6 +80,20 @@
       ]
     },
     {
+      "name": "attachment",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/attachment.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": [
@@ -121,6 +135,20 @@
       "files": [
         {
           "path": "src/breadcrumb.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "bubble",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/bubble.tsx",
           "type": "registry:ui"
         }
       ]
@@ -514,6 +542,20 @@
       ]
     },
     {
+      "name": "marker",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/marker.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": [
@@ -528,6 +570,34 @@
       "files": [
         {
           "path": "src/menubar.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message-scroller",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/message-scroller.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "message",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/message.tsx",
           "type": "registry:ui"
         }
       ]
@@ -605,6 +675,20 @@
       "files": [
         {
           "path": "src/progress.tsx",
+          "type": "registry:ui"
+        }
+      ]
+    },
+    {
+      "name": "questionnaire",
+      "type": "registry:ui",
+      "dependencies": [
+        "@gv-tech/ui-core"
+      ],
+      "registryDependencies": [],
+      "files": [
+        {
+          "path": "src/questionnaire.tsx",
           "type": "registry:ui"
         }
       ]

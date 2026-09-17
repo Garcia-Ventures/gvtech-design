@@ -20,6 +20,15 @@ import {
   AlertDialogTrigger,
   AlertTitle,
   AspectRatio,
+  Attachment,
+  AttachmentAction,
+  AttachmentActions,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentGroup,
+  AttachmentMedia,
+  AttachmentTitle,
+  AttachmentTrigger,
   Avatar,
   AvatarFallback,
   AvatarImage,
@@ -31,6 +40,10 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
+  Bubble,
+  BubbleContent,
+  BubbleGroup,
+  BubbleReactions,
   Button,
   ButtonGroup,
   ButtonGroupSeparator,
@@ -154,6 +167,9 @@ import {
   Kbd,
   KbdGroup,
   Label,
+  Marker,
+  MarkerContent,
+  MarkerIcon,
   Menubar,
   MenubarCheckboxItem,
   MenubarContent,
@@ -167,6 +183,18 @@ import {
   MenubarSubContent,
   MenubarSubTrigger,
   MenubarTrigger,
+  Message,
+  MessageAvatar,
+  MessageContent,
+  MessageFooter,
+  MessageGroup,
+  MessageHeader,
+  MessageScroller,
+  MessageScrollerButton,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
   NativeSelect,
   NativeSelectOptGroup,
   NativeSelectOption,
@@ -190,6 +218,21 @@ import {
   PopoverContent,
   PopoverTrigger,
   Progress,
+  Questionnaire,
+  QuestionnaireActions,
+  QuestionnaireChoice,
+  QuestionnaireChoiceDescription,
+  QuestionnaireChoices,
+  QuestionnaireDescription,
+  QuestionnaireError,
+  QuestionnaireInput,
+  QuestionnaireItem,
+  QuestionnaireNext,
+  QuestionnairePrevious,
+  QuestionnaireProgress,
+  QuestionnaireSkip,
+  QuestionnaireSubmit,
+  QuestionnaireTitle,
   RadioGroup,
   RadioGroupItem,
   ResizableHandle,
@@ -292,6 +335,15 @@ import type {
   AlertDialogTriggerBaseProps,
   AlertTitleBaseProps,
   AspectRatioBaseProps,
+  AttachmentActionBaseProps,
+  AttachmentActionsBaseProps,
+  AttachmentBaseProps,
+  AttachmentContentBaseProps,
+  AttachmentDescriptionBaseProps,
+  AttachmentGroupBaseProps,
+  AttachmentMediaBaseProps,
+  AttachmentTitleBaseProps,
+  AttachmentTriggerBaseProps,
   AvatarBaseProps,
   AvatarFallbackBaseProps,
   AvatarImageBaseProps,
@@ -303,6 +355,10 @@ import type {
   BreadcrumbListBaseProps,
   BreadcrumbPageBaseProps,
   BreadcrumbSeparatorBaseProps,
+  BubbleBaseProps,
+  BubbleContentBaseProps,
+  BubbleGroupBaseProps,
+  BubbleReactionsBaseProps,
   ButtonBaseProps,
   ButtonGroupBaseProps,
   ButtonGroupSeparatorBaseProps,
@@ -426,6 +482,9 @@ import type {
   KbdBaseProps,
   KbdGroupBaseProps,
   LabelBaseProps,
+  MarkerBaseProps,
+  MarkerContentBaseProps,
+  MarkerIconBaseProps,
   MenubarBaseProps,
   MenubarCheckboxItemBaseProps,
   MenubarContentBaseProps,
@@ -439,6 +498,18 @@ import type {
   MenubarSubContentBaseProps,
   MenubarSubTriggerBaseProps,
   MenubarTriggerBaseProps,
+  MessageAvatarBaseProps,
+  MessageBaseProps,
+  MessageContentBaseProps,
+  MessageFooterBaseProps,
+  MessageGroupBaseProps,
+  MessageHeaderBaseProps,
+  MessageScrollerBaseProps,
+  MessageScrollerButtonBaseProps,
+  MessageScrollerContentBaseProps,
+  MessageScrollerItemBaseProps,
+  MessageScrollerProviderBaseProps,
+  MessageScrollerViewportBaseProps,
   NativeSelectBaseProps,
   NativeSelectOptGroupBaseProps,
   NativeSelectOptionBaseProps,
@@ -462,6 +533,21 @@ import type {
   PopoverContentBaseProps,
   PopoverTriggerBaseProps,
   ProgressBaseProps,
+  QuestionnaireActionsBaseProps,
+  QuestionnaireBaseProps,
+  QuestionnaireChoiceBaseProps,
+  QuestionnaireChoiceDescriptionBaseProps,
+  QuestionnaireChoicesBaseProps,
+  QuestionnaireDescriptionBaseProps,
+  QuestionnaireErrorBaseProps,
+  QuestionnaireInputBaseProps,
+  QuestionnaireItemBaseProps,
+  QuestionnaireNextBaseProps,
+  QuestionnairePreviousBaseProps,
+  QuestionnaireProgressBaseProps,
+  QuestionnaireSkipBaseProps,
+  QuestionnaireSubmitBaseProps,
+  QuestionnaireTitleBaseProps,
   RadioGroupBaseProps,
   RadioGroupItemBaseProps,
   ResizableHandleBaseProps,
@@ -921,5 +1007,82 @@ export const _test_SidebarProvider: SidebarProviderBaseProps = {} as React.Compo
 export const _test_SidebarRail: SidebarRailBaseProps = {} as React.ComponentProps<typeof SidebarRail>;
 export const _test_SidebarSeparator: SidebarSeparatorBaseProps = {} as React.ComponentProps<typeof SidebarSeparator>;
 export const _test_SidebarTrigger: SidebarTriggerBaseProps = {} as React.ComponentProps<typeof SidebarTrigger>;
+export const _test_AttachmentAction: AttachmentActionBaseProps = {} as React.ComponentProps<typeof AttachmentAction>;
+export const _test_AttachmentActions: AttachmentActionsBaseProps = {} as React.ComponentProps<typeof AttachmentActions>;
+export const _test_Attachment: AttachmentBaseProps = {} as React.ComponentProps<typeof Attachment>;
+export const _test_AttachmentContent: AttachmentContentBaseProps = {} as React.ComponentProps<typeof AttachmentContent>;
+export const _test_AttachmentDescription: AttachmentDescriptionBaseProps = {} as React.ComponentProps<
+  typeof AttachmentDescription
+>;
+export const _test_AttachmentGroup: AttachmentGroupBaseProps = {} as React.ComponentProps<typeof AttachmentGroup>;
+export const _test_AttachmentMedia: AttachmentMediaBaseProps = {} as React.ComponentProps<typeof AttachmentMedia>;
+export const _test_AttachmentTitle: AttachmentTitleBaseProps = {} as React.ComponentProps<typeof AttachmentTitle>;
+export const _test_AttachmentTrigger: AttachmentTriggerBaseProps = {} as React.ComponentProps<typeof AttachmentTrigger>;
+export const _test_Bubble: BubbleBaseProps = {} as React.ComponentProps<typeof Bubble>;
+export const _test_BubbleContent: BubbleContentBaseProps = {} as React.ComponentProps<typeof BubbleContent>;
+export const _test_BubbleGroup: BubbleGroupBaseProps = {} as React.ComponentProps<typeof BubbleGroup>;
+export const _test_BubbleReactions: BubbleReactionsBaseProps = {} as React.ComponentProps<typeof BubbleReactions>;
+export const _test_Marker: MarkerBaseProps = {} as React.ComponentProps<typeof Marker>;
+export const _test_MarkerContent: MarkerContentBaseProps = {} as React.ComponentProps<typeof MarkerContent>;
+export const _test_MarkerIcon: MarkerIconBaseProps = {} as React.ComponentProps<typeof MarkerIcon>;
+export const _test_MessageAvatar: MessageAvatarBaseProps = {} as React.ComponentProps<typeof MessageAvatar>;
+export const _test_Message: MessageBaseProps = {} as React.ComponentProps<typeof Message>;
+export const _test_MessageContent: MessageContentBaseProps = {} as React.ComponentProps<typeof MessageContent>;
+export const _test_MessageFooter: MessageFooterBaseProps = {} as React.ComponentProps<typeof MessageFooter>;
+export const _test_MessageGroup: MessageGroupBaseProps = {} as React.ComponentProps<typeof MessageGroup>;
+export const _test_MessageHeader: MessageHeaderBaseProps = {} as React.ComponentProps<typeof MessageHeader>;
+export const _test_MessageScroller: MessageScrollerBaseProps = {} as React.ComponentProps<typeof MessageScroller>;
+export const _test_MessageScrollerButton: MessageScrollerButtonBaseProps = {} as React.ComponentProps<
+  typeof MessageScrollerButton
+>;
+export const _test_MessageScrollerContent: MessageScrollerContentBaseProps = {} as React.ComponentProps<
+  typeof MessageScrollerContent
+>;
+export const _test_MessageScrollerItem: MessageScrollerItemBaseProps = {} as React.ComponentProps<
+  typeof MessageScrollerItem
+>;
+export const _test_MessageScrollerProvider: MessageScrollerProviderBaseProps = {} as React.ComponentProps<
+  typeof MessageScrollerProvider
+>;
+export const _test_MessageScrollerViewport: MessageScrollerViewportBaseProps = {} as React.ComponentProps<
+  typeof MessageScrollerViewport
+>;
+export const _test_QuestionnaireActions: QuestionnaireActionsBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireActions
+>;
+export const _test_Questionnaire: QuestionnaireBaseProps = {} as React.ComponentProps<typeof Questionnaire>;
+export const _test_QuestionnaireChoice: QuestionnaireChoiceBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireChoice
+>;
+export const _test_QuestionnaireChoiceDescription: QuestionnaireChoiceDescriptionBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireChoiceDescription
+>;
+export const _test_QuestionnaireChoices: QuestionnaireChoicesBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireChoices
+>;
+export const _test_QuestionnaireDescription: QuestionnaireDescriptionBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireDescription
+>;
+export const _test_QuestionnaireError: QuestionnaireErrorBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireError
+>;
+export const _test_QuestionnaireInput: QuestionnaireInputBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireInput
+>;
+export const _test_QuestionnaireItem: QuestionnaireItemBaseProps = {} as React.ComponentProps<typeof QuestionnaireItem>;
+export const _test_QuestionnaireNext: QuestionnaireNextBaseProps = {} as React.ComponentProps<typeof QuestionnaireNext>;
+export const _test_QuestionnairePrevious: QuestionnairePreviousBaseProps = {} as React.ComponentProps<
+  typeof QuestionnairePrevious
+>;
+export const _test_QuestionnaireProgress: QuestionnaireProgressBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireProgress
+>;
+export const _test_QuestionnaireSkip: QuestionnaireSkipBaseProps = {} as React.ComponentProps<typeof QuestionnaireSkip>;
+export const _test_QuestionnaireSubmit: QuestionnaireSubmitBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireSubmit
+>;
+export const _test_QuestionnaireTitle: QuestionnaireTitleBaseProps = {} as React.ComponentProps<
+  typeof QuestionnaireTitle
+>;
 
 export {};

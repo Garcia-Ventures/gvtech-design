@@ -1,42 +1,26 @@
 # Contributing Guidelines
 
-This project uses **Vite** for development, builds, and as a component playground.
+This repo is an **Nx + Bun workspaces monorepo** (`packages/*`, `apps/*`). The old Vite-only notes are archived at [`../docs/archive/CONTRIBUTING-vite-only.md`](../docs/archive/CONTRIBUTING-vite-only.md) — do not follow them.
 
-## Available Scripts
+## Start here
 
-In the project directory, you can run:
+1. [Local Setup](../docs/tutorials/01-local-setup.md) — `bun install`, `bun run dev`, `bun run native`.
+2. [Create a Component](../docs/tutorials/03-create-component.md) — contract-first (`ui-core` → `ui-web` + `ui-native` → playground).
+3. [Contract-First](../docs/explanation/contract-first.md) — why contracts are the API.
 
-### `bun run dev`
+## Before opening a PR
 
-Runs the Vite development server for local development.
+```bash
+bun run lint
+bun run test
+bun run build:registry
+bun run generate:contract-tests
+# full gate:
+bun run validate
+```
 
-Local: [http://localhost:5173](http://localhost:5173)
+- Follow **Conventional Commits** (drives Nx Release SemVer + changelogs).
+- Contract change → update both impls + playground tabs + divergence note in the same PR.
+- Run `bun run sync-tokens` if you touched `packages/design-tokens/src/*.ts` and commit the generated `theme.css`.
 
-Live: [https://design.gventureshq.com/](https://design.gventureshq.com/)
-
-The page will reload if you make edits, and HMR will update components instantly. You will also see any lint errors in the console.
-
-### `bun run test`
-
-Runs the test suite using **Vitest** (configured in `vitest.config.ts`). For interactive watch mode run `bun run test` locally; for CI the project uses `bun run test:ci`.
-
-See the Vitest docs for more information: <https://vitest.dev/guide/>.
-
-### `bun run build`
-
-Builds the library and the component registry using Vite.
-
-### `bun run build:site`
-
-Builds the playground site as a production-ready application.
-
-### Build configuration
-
-This project uses Vite for development and builds. If you need to customize build behavior, edit `vite.config.ts` or add Vite plugins. This project does not use `react-scripts` or `eject`.
-
-## Learn More
-
-- Vite docs: <https://vitejs.dev/> (build, config and plugins)
-- Vitest docs: <https://vitest.dev/> (testing guide)
-
-To customize build behavior, edit `vite.config.ts` or add Vite plugins. For component details and testing examples, check the `src` directory.
+Details: [Run Tests, Lint, Contracts](../docs/how-to/run-tests-lint-contracts.md) · [Update Registry](../docs/how-to/update-registry.md) · [Troubleshoot](../docs/how-to/troubleshoot-common.md).

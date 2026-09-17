@@ -64,3 +64,21 @@ export { ItemDocs as WebItemDocs } from './ItemDocs';
 export { KbdDocs as WebKbdDocs } from './KbdDocs';
 export { NativeSelectDocs as WebNativeSelectDocs } from './NativeSelectDocs';
 export { SidebarDocs as WebSidebarDocs } from './SidebarDocs';
+
+// Message
+export { MessageDocs as WebMessageDocs } from './MessageDocs';
+
+// Bubble
+export { BubbleDocs as WebBubbleDocs } from './BubbleDocs';
+
+// Marker
+export { MarkerDocs as WebMarkerDocs } from './MarkerDocs';
+
+// Attachment
+export { AttachmentDocs as WebAttachmentDocs } from './AttachmentDocs';
+
+// MessageScroller
+export { MessageScrollerDocs as WebMessageScrollerDocs } from './MessageScrollerDocs';
+
+// Questionnaire
+export { QuestionnaireDocs as WebQuestionnaireDocs } from './QuestionnaireDocs';

@@ -1,6 +1,8 @@
 'use client';
 
+import { cn } from 'cn';
 import { OTPInput, OTPInputContext } from 'input-otp';
+import { MinusIcon } from 'lucide-react';
 import * as React from 'react';
 
 import type {
@@ -9,8 +11,6 @@ import type {
   InputOTPSeparatorBaseProps,
   InputOTPSlotBaseProps,
 } from '@gv-tech/ui-core';
-import { MinusIcon } from 'lucide-react';
-import { cn } from './lib/utils';
 
 function InputOTP({
   className,
@@ -69,7 +69,7 @@ function InputOTPSeparator({ ...props }: React.ComponentProps<'div'> & InputOTPS
   return (
     <div
       data-slot="input-otp-separator"
-      className="flex items-center [&_svg:not([class*=size-])]:size-4"
+      className="flex items-center [&_svg:not([class*='size-'])]:size-4"
       role="separator"
       {...props}
     >

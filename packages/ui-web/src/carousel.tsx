@@ -1,9 +1,9 @@
+import { cn } from 'cn';
 import useEmblaCarousel, { type UseEmblaCarouselType } from 'embla-carousel-react';
+import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
 import * as React from 'react';
 
-import { ChevronLeftIcon, ChevronRightIcon } from 'lucide-react';
-import { Button } from './button';
-import { cn } from './lib/utils';
+import { Button } from '@/./button';
 
 import type { CarouselBaseProps } from '@gv-tech/ui-core';
 
@@ -175,7 +175,7 @@ function CarouselPrevious({
       className={cn(
         'absolute touch-manipulation rounded-full',
         orientation === 'horizontal'
-          ? '-start-12 top-1/2 -translate-y-1/2'
+          ? 'inset-y-0 -start-12 my-auto'
           : 'start-1/2 -top-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2',
         className,
       )}
@@ -183,7 +183,7 @@ function CarouselPrevious({
       onClick={scrollPrev}
       {...props}
     >
-      <ChevronLeftIcon />
+      <ChevronLeftIcon className="rtl:rotate-180" />
       <span className="sr-only">Previous slide</span>
     </Button>
   );
@@ -205,7 +205,7 @@ function CarouselNext({
       className={cn(
         'absolute touch-manipulation rounded-full',
         orientation === 'horizontal'
-          ? '-end-12 top-1/2 -translate-y-1/2'
+          ? 'inset-y-0 -end-12 my-auto'
           : 'start-1/2 -bottom-12 -translate-x-1/2 rotate-90 rtl:translate-x-1/2',
         className,
       )}
@@ -213,7 +213,7 @@ function CarouselNext({
       onClick={scrollNext}
       {...props}
     >
-      <ChevronRightIcon />
+      <ChevronRightIcon className="rtl:rotate-180" />
       <span className="sr-only">Next slide</span>
     </Button>
   );

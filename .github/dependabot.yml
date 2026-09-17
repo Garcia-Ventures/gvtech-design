@@ -21,6 +21,13 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    # All @nx/* packages must stay on the same major as `nx` itself.
+    # A lone @nx/expo v23 bump (see #146) breaks every `nx run-many`
+    # invocation because @nx/devkit@23 re-exports `workspaceDataDirectory`
+    # from nx core, which does not exist on v22.
+    ignore:
+      - dependency-name: "@nx/expo"
+        update-types: ["version-update:semver-major"]
 
   # Enable version updates for Docker
   # - package-ecosystem: "docker"
