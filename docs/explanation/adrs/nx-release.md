@@ -60,5 +60,5 @@ We have completed the migration from `release-please` to `nx release`. This choi
 ## References
 
 - [Nx Release Documentation](https://nx.dev/features/manage-releases)
-- [Release-Please Monorepo Guide](https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md)
-- [update-plan.md](./update-plan.md)
+- [Release-Please Monorepo Guide](https://github.com/googleapis/release-please/blob/main/docs/manifest-releaser.md) (legacy comparison)
+- How we release now: [Cut a Release](../../how-to/cut-release.md)

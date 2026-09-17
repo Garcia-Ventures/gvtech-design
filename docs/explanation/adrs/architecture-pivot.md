@@ -4,7 +4,7 @@
 **Status:** Accepted  
 **Author(s):** Garcia Ventures Engineering
 
-> See [update-plan.md](./update-plan.md) for the actionable Phase 0/1 migration plan with PR checklists.
+> Superseded planning link: `update-plan.md` / `phase-1-tracker.md` were never committed — see [Roadmap](../roadmap.md) and [Create a Component tutorial](../../tutorials/03-create-component.md) instead.
 
 ---
 
@@ -127,4 +127,4 @@ gvtech-design/                       (Nx workspace root)
 - [Nx Dependency Graph](https://nx.dev/docs/features/explore-graph)
 - [React Native Reusables](https://rnr-docs.vercel.app/)
 - [Bun Workspaces Docs](https://bun.sh/docs/install/workspaces)
-- Prior art: `docs/universal-implementation.md`
+- Prior art: [`docs/archive/universal-implementation-2026-03-05.md`](../../archive/universal-implementation-2026-03-05.md)

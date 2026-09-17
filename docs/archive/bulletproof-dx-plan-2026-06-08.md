@@ -1,3 +1,6 @@
+> [!CAUTION]
+> **Archived 2026-09-17 — superseded by [`../explanation/roadmap.md`](../explanation/roadmap.md).** Kept for status-log history.
+
 # Roadmap: Bulletproof Developer Experience
 
 This document tracks the strategic initiative to transform the GV Tech Design System into a world-class, multi-platform developer experience.

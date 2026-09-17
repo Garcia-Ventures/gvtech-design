@@ -16,6 +16,8 @@
 
 A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Nx**, **Vite**, and **TypeScript**.
 
+> **Docs:** start at [`docs/index.md`](docs/index.md) — Tutorials (setup, first usage, create a component), How-to guides, Reference (registry, parity, divergence), Explanation (architecture, ADRs, roadmap).
+
 ---
 
 **Table of Contents**
@@ -36,7 +38,7 @@ A React component design system. This repository provides a lightweight, opinion
 
 ## Implementation Status
 
-To see a full list of all available components and their implementation and testing status across Web and Native platforms, please refer to the [Component Registry](docs/component-registry.md).
+To see a full list of all available components and their implementation and testing status across Web and Native platforms, please refer to the [Component Registry](docs/reference/component-registry.md). Platform notes: [Parity Matrix](docs/reference/parity-matrix.md) · [Divergence Registry](docs/reference/divergence-registry.md).
 
 ## Demo
 
@@ -116,7 +118,7 @@ Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` packages.
 
 ## Contributing
 
-Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) before contributing. Key points:
+New contributor? Start with [Local Setup](docs/tutorials/01-local-setup.md) and [Create a Component](docs/tutorials/03-create-component.md). Then read the full gates in [CONTRIBUTING.md](.github/CONTRIBUTING.md). Key points:
 
 - Follow **Conventional Commits** to ensure release tooling produces accurate changelogs.
 - Run `bun run lint` and `bun run test` before opening PRs.

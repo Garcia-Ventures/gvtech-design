@@ -1,5 +1,7 @@
 # Component Registry
 
+> **Last verified:** 2026-09-17. Regenerate status with `bun run build:registry` then update ✅/⏳ below. Test detail per group: [Parity Matrix](./parity-matrix.md).
+
 This document serves as the single source of truth for the implementation status of all components within the GV Tech Design System.
 
 > **Legend:** ✅ Fully Implemented | ⏳ Not Yet Implemented (Stubbed) | 🟢 100% Coverage
@@ -10,9 +12,11 @@ This document serves as the single source of truth for the implementation status
 | **Alert**             |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Alert Dialog**      |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Aspect Ratio**      |         ✅         |          ✅           |    🟢     |      —       |
+| **Attachment**        |         ✅         |          ⏳           |    🟢     |      —       |
 | **Avatar**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Badge**             |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Breadcrumb**        |         ✅         |          ✅           |    🟢     |      —       |
+| **Bubble**            |         ✅         |          ⏳           |    🟢     |      —       |
 | **Button**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Button Group**      |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Calendar**          |         ✅         |          ✅           |    🟢     |      —       |
@@ -38,12 +42,16 @@ This document serves as the single source of truth for the implementation status
 | **Item**              |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Kbd**               |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Label**             |         ✅         |          ✅           |    🟢     |      🟢      |
+| **Marker**            |         ✅         |          ⏳           |    🟢     |      —       |
+| **Message**           |         ✅         |          ⏳           |    🟢     |      —       |
+| **Message Scroller**  |         ✅         |          ⏳           |    🟢     |      —       |
 | **Menubar**           |         ✅         |          ✅           |    🟢     |      —       |
 | **Native Select**     |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Navigation Menu**   |         ✅         |          ✅           |    🟢     |      —       |
 | **Pagination**        |         ✅         |          ✅           |    🟢     |      —       |
 | **Popover**           |         ✅         |          ✅           |    🟢     |      —       |
 | **Progress**          |         ✅         |          ✅           |    🟢     |      —       |
+| **Questionnaire**     |         ✅         |          ⏳           |    🟢     |      —       |
 | **Radio Group**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Resizable**         |         ✅         |          ⏳           |    🟢     |      —       |
 | **Scroll Area**       |         ✅         |          ⏳           |    🟢     |      —       |

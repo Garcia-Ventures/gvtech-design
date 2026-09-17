@@ -1,7 +1,10 @@
+> [!CAUTION]
+> **Archived 2026-09-17 — superseded.** Parity data → [`../reference/parity-matrix.md`](../reference/parity-matrix.md), divergence → [`../reference/divergence-registry.md`](../reference/divergence-registry.md), checklist → [`../tutorials/03-create-component.md`](../tutorials/03-create-component.md). Do not update this file.
+
 # Universal Component Implementation Guide
 
 > [!IMPORTANT]
-> **Architectural Pivot (2026-02-17):** This project is transitioning from a single-package design system to an **Nx monorepo** with shared packages. See [architecture-pivot.md](./architecture-pivot.md) for the full ADR and [phase-1-tracker.md](./phase-1-tracker.md) for Phase 1 scope.
+> **Architectural Pivot (2026-02-17):** This project is transitioning from a single-package design system to an **Nx monorepo** with shared packages. See `architecture-pivot.md` (now at `../explanation/adrs/architecture-pivot.md`) for the full ADR. (`phase-1-tracker.md` was never committed.)
 
 This document outlines the current state of web/native component parity and serves as the reference for the platform divergence registry.
 

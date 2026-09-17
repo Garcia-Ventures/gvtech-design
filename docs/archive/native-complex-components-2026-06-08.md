@@ -1,3 +1,6 @@
+> [!CAUTION]
+> **Archived 2026-09-17 — superseded by [`../reference/parity-matrix.md`](../reference/parity-matrix.md).** Status here contradicted the registry (e.g. Calendar listed stubbed after native impl landed). Do not update.
+
 # Native Complex Components Tracker
 
 This document tracks the implementation status and strategy for complex `@gv-tech/ui-native` components that require significant custom development or the integration of external dependencies.
