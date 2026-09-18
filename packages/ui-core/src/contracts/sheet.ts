@@ -10,16 +10,14 @@ export interface SheetBaseProps {
 
 export interface SheetTriggerBaseProps {
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   className?: string;
   asChild?: boolean;
 }
 
 export interface SheetCloseBaseProps {
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   className?: string;
   asChild?: boolean;
 }

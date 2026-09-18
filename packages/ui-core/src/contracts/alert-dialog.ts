@@ -34,21 +34,18 @@ export interface AlertDialogDescriptionBaseProps {
 export interface AlertDialogActionBaseProps {
   className?: string;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
 }
 
 export interface AlertDialogCancelBaseProps {
   className?: string;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
 }
 
 export interface AlertDialogTriggerBaseProps {
   className?: string;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   asChild?: boolean;
 }

@@ -11,8 +11,7 @@ export interface CollapsibleBaseProps {
 export interface CollapsibleTriggerBaseProps {
   asChild?: boolean;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   className?: string;
 }
 

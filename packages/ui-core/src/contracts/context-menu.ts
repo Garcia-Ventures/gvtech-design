@@ -67,8 +67,7 @@ export interface ContextMenuSubBaseProps {
 export interface ContextMenuTriggerBaseProps {
   className?: string;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   disabled?: boolean | null;
 }
 
