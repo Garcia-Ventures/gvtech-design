@@ -1,94 +1,55 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function DropdownMenuDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A simple dropdown menu."
-        code={`<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline">Open</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="w-56">
-    <DropdownMenuLabel>My Account</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuGroup>
-      <DropdownMenuItem>
-        <User className="mr-2 h-4 w-4" />
-        <span>Profile</span>
-        <DropdownMenuShortcut>⇧⌘P</DropdownMenuShortcut>
-      </DropdownMenuItem>
-      ...
-    </DropdownMenuGroup>
-    ...
-    <DropdownMenuItem>
-      <SiGithub className="mr-2 h-4 w-4" />
-      <span>GitHub</span>
-    </DropdownMenuItem>
-    ...
-  </DropdownMenuContent>
-</DropdownMenu>`}
-      />
+        description="A simple dropdown menu for Native."
+        code={`import { 
+  DropdownMenu, 
+  DropdownMenuTrigger, 
+  DropdownMenuContent, 
+  DropdownMenuItem, 
+  DropdownMenuLabel, 
+  DropdownMenuSeparator, 
+  Button, 
+  Text 
+} from '@gv-tech/design-system';
+import { User, Github } from 'lucide-react-native';
 
-      <ComponentShowcase
-        title="Checkboxes and Radios"
-        description="A dropdown menu with checkboxes and radio items."
-        code={`<DropdownMenu>
-  <DropdownMenuTrigger asChild>
-    <Button variant="outline">Open</Button>
-  </DropdownMenuTrigger>
-  <DropdownMenuContent className="w-56">
-    <DropdownMenuLabel>Appearance</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuCheckboxItem
-      checked={showStatusBar}
-      onCheckedChange={setShowStatusBar}
-    >
-      Status Bar
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuCheckboxItem
-      checked={showActivityBar}
-      onCheckedChange={setShowActivityBar}
-      disabled
-    >
-      Activity Bar
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuCheckboxItem
-      checked={showPanel}
-      onCheckedChange={setShowPanel}
-    >
-      Panel
-    </DropdownMenuCheckboxItem>
-    <DropdownMenuSeparator />
-    <DropdownMenuLabel>Panel Position</DropdownMenuLabel>
-    <DropdownMenuSeparator />
-    <DropdownMenuRadioGroup value={position} onValueChange={setPosition}>
-      <DropdownMenuRadioItem value="top">Top</DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="bottom">Bottom</DropdownMenuRadioItem>
-      <DropdownMenuRadioItem value="right">Right</DropdownMenuRadioItem>
-    </DropdownMenuRadioGroup>
-  </DropdownMenuContent>
-</DropdownMenu>`}
+export function DropdownExample() {
+  return (
+    <DropdownMenu>
+      <DropdownMenuTrigger asChild>
+        <Button variant="outline">
+          <Text>Open Menu</Text>
+        </Button>
+      </DropdownMenuTrigger>
+      <DropdownMenuContent className="w-56">
+        <DropdownMenuLabel>
+          <Text>My Account</Text>
+        </DropdownMenuLabel>
+        <DropdownMenuSeparator />
+        <DropdownMenuItem onSelect={() => console.log('profile')}>
+          <User size={14} className="text-foreground mr-2" />
+          <Text>Profile</Text>
+        </DropdownMenuItem>
+        <DropdownMenuItem onSelect={() => console.log('github')}>
+          <Github size={14} className="text-foreground mr-2" />
+          <Text>GitHub</Text>
+        </DropdownMenuItem>
+      </DropdownMenuContent>
+    </DropdownMenu>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The DropdownMenu component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/dropdown-menu"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Dropdown Menu
-          </a>
-          .
+          The DropdownMenu component for Native is built on top of <code>@rn-primitives/dropdown-menu</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">DropdownMenu (Root)</h4>
@@ -100,25 +61,9 @@ export function DropdownMenuDocs() {
               description: 'The controlled open state of the dropdown menu.',
             },
             {
-              name: 'defaultOpen',
-              type: 'boolean',
-              description: 'The default open state when uncontrolled.',
-            },
-            {
               name: 'onOpenChange',
               type: '(open: boolean) => void',
               description: 'Event handler called when the open state changes.',
-            },
-            {
-              name: 'modal',
-              type: 'boolean',
-              defaultValue: 'true',
-              description: 'The modality of the dropdown menu.',
-            },
-            {
-              name: 'dir',
-              type: '"ltr" | "rtl"',
-              description: 'The reading direction of the dropdown menu.',
             },
           ]}
         />
@@ -128,29 +73,13 @@ export function DropdownMenuDocs() {
           props={[
             {
               name: 'checked',
-              type: 'boolean | "indeterminate"',
+              type: 'boolean',
               description: 'The controlled checked state of the item.',
             },
             {
               name: 'onCheckedChange',
               type: '(checked: boolean) => void',
               description: 'Event handler called when the checked state changes.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">DropdownMenuRadioGroup</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'value',
-              type: 'string',
-              description: 'The value of the selected item in the group.',
-            },
-            {
-              name: 'onValueChange',
-              type: '(value: string) => void',
-              description: 'Event handler called when the value changes.',
             },
           ]}
         />

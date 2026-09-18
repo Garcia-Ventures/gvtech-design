@@ -18,12 +18,14 @@ export interface CarouselItemBaseProps {
 
 export interface CarouselPreviousBaseProps {
   className?: string;
-  variant?: string;
-  size?: string;
+  variant?: string | null;
+  size?: string | null;
+  children?: React.ReactNode;
 }
 
 export interface CarouselNextBaseProps {
   className?: string;
-  variant?: string;
-  size?: string;
+  variant?: string | null;
+  size?: string | null;
+  children?: React.ReactNode;
 }

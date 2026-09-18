@@ -123,10 +123,8 @@ function FormsScreen() {
         ref={scrollRef}
         className="flex-1"
         onScroll={(e) => scrollToTopRef.current?.handleScroll(e)}
-        {...(Platform.OS !== 'web' && {
-          contentContainerStyle: { padding: 16, paddingBottom: 100 },
-          scrollEventThrottle: 16,
-        })}
+        contentContainerStyle={Platform.OS !== 'web' ? { padding: 16, paddingBottom: 100 } : undefined}
+        scrollEventThrottle={Platform.OS !== 'web' ? 16 : undefined}
       >
         <SectionHeader title="Forms" subtitle="Input, Checkbox, Switch, RadioGroup, Select, Textarea, Toggle" />
 
@@ -325,9 +323,7 @@ function DisplayScreen() {
   return (
     <ScrollView
       className="bg-background flex-1"
-      {...(Platform.OS !== 'web' && {
-        contentContainerStyle: { padding: 16, paddingBottom: 40 },
-      })}
+      contentContainerStyle={Platform.OS !== 'web' ? { padding: 16, paddingBottom: 40 } : undefined}
     >
       <SectionHeader title="Data Display" subtitle="Text, Badge, Avatar, Card, Accordion, Table, Skeleton" />
 
@@ -528,9 +524,7 @@ function FeedbackScreen() {
   return (
     <ScrollView
       className="bg-background flex-1"
-      {...(Platform.OS !== 'web' && {
-        contentContainerStyle: { padding: 16, paddingBottom: 40 },
-      })}
+      contentContainerStyle={Platform.OS !== 'web' ? { padding: 16, paddingBottom: 40 } : undefined}
     >
       <SectionHeader title="Feedback" subtitle="Alert, AlertDialog, Dialog, Sheet, Tooltip, Toast, Collapsible" />
 
@@ -712,9 +706,7 @@ function LayoutScreen() {
   return (
     <ScrollView
       className="bg-background flex-1"
-      {...(Platform.OS !== 'web' && {
-        contentContainerStyle: { padding: 16, paddingBottom: 40 },
-      })}
+      contentContainerStyle={Platform.OS !== 'web' ? { padding: 16, paddingBottom: 40 } : undefined}
     >
       <SectionHeader title="Layout & Theme" subtitle="Card, Separator, ThemeToggle" />
 
@@ -724,9 +716,16 @@ function LayoutScreen() {
           <CardTitle>Theme Toggle</CardTitle>
           <CardDescription>Switch between light, dark, and system</CardDescription>
         </CardHeader>
-        <CardContent className="flex-row items-center justify-between">
-          <Text className="text-foreground">Current theme</Text>
-          <ThemeToggle />
+        <CardContent className="gap-4">
+          <View className="flex-row items-center justify-between">
+            <Text className="text-foreground font-medium">Binary (Toggle)</Text>
+            <ThemeToggle variant="binary" />
+          </View>
+          <Separator />
+          <View className="flex-row items-center justify-between">
+            <Text className="text-foreground font-medium">Ternary (Dropdown)</Text>
+            <ThemeToggle variant="ternary" />
+          </View>
         </CardContent>
       </Card>
 

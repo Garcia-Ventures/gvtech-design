@@ -5,13 +5,24 @@ import * as React from 'react';
 import { cn } from './lib/utils';
 import { TextClassContext } from './text';
 
-const Tabs = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Root>, TabsProps>((props, ref) => (
-  <TabsPrimitive.Root ref={ref} {...props} />
-));
+const Tabs = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Root>, TabsProps>(
+  ({ value: valueProp, defaultValue, onValueChange, ...props }, ref) => {
+    const [uncontrolledValue, setUncontrolledValue] = React.useState(defaultValue ?? '');
+    const value = valueProp ?? uncontrolledValue;
+    const handleValueChange = (next: string) => {
+      setUncontrolledValue(next);
+      onValueChange?.(next);
+    };
+    return <TabsPrimitive.Root ref={ref} value={value} onValueChange={handleValueChange} {...props} />;
+  },
+);
 Tabs.displayName = 'Tabs';
 
-export type TabsProps = Omit<React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>, 'onValueChange' | 'value'> &
-  Omit<TabsBaseProps, 'value'> & { value: string; onValueChange: (value: string) => void };
+export type TabsProps = Omit<
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>,
+  'onValueChange' | 'value' | 'defaultValue'
+> &
+  TabsBaseProps;
 export interface TabsListProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>, TabsListBaseProps {}
 export interface TabsTriggerProps
   extends
@@ -20,7 +31,7 @@ export interface TabsTriggerProps
 export interface TabsContentProps
   extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.Content>, TabsContentBaseProps {}
 
-const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, TabsListProps>(
+const TabsList = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.List>, TabsListProps>(
   ({ className, ...props }, ref) => (
     <TabsPrimitive.List
       ref={ref}
@@ -34,7 +45,7 @@ const TabsList = React.forwardRef<React.ElementRef<typeof TabsPrimitive.List>, T
 );
 TabsList.displayName = TabsPrimitive.List?.displayName || 'TabsList';
 
-const TabsTrigger = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Trigger>, TabsTriggerProps>(
+const TabsTrigger = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Trigger>, TabsTriggerProps>(
   ({ className, ...props }, ref) => {
     const { value } = TabsPrimitive.useRootContext();
     return (
@@ -60,7 +71,7 @@ const TabsTrigger = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Trigg
 );
 TabsTrigger.displayName = TabsPrimitive.Trigger?.displayName || 'TabsTrigger';
 
-const TabsContent = React.forwardRef<React.ElementRef<typeof TabsPrimitive.Content>, TabsContentProps>(
+const TabsContent = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Content>, TabsContentProps>(
   ({ className, ...props }, ref) => (
     <TabsPrimitive.Content
       ref={ref}

@@ -12,11 +12,9 @@
     "forceConsistentCasingInFileNames": true,
     "jsx": "react-jsx",
     "outDir": "dist",
-    "rootDir": "../..",
+    "rootDir": "src",
     "types": ["node", "vitest/globals", "@testing-library/jest-dom"],
     "paths": {
-      "@gv-tech/design-tokens": ["../design-tokens/src"],
-      "@gv-tech/ui-core": ["../ui-core/src"],
       "@gv-tech/ui-web": ["./src"],
       "@/*": ["./src/*"]
     }

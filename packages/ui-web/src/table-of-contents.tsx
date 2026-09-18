@@ -105,6 +105,13 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   const { headings, activeId, activeHeadingText } = useTOC();
   const [isOpen, setIsOpen] = React.useState(false);
 
+  const currentMinLevel = React.useMemo(() => {
+    if (headings.length === 0) {
+      return 0;
+    }
+    return Math.min(...headings.map((h) => h.level));
+  }, [headings]);
+
   // Auto-collapse on scroll
   React.useEffect(() => {
     if (!isOpen) {
@@ -122,8 +129,6 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   if (headings.length === 0) {
     return null;
   }
-
-  const currentMinLevel = Math.min(...headings.map((h) => h.level));
 
   const listContent = (
     <ul className="m-0 list-none text-sm">
@@ -153,7 +158,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   return (
     <>
       {/* Mobile Sticky Header */}
-      <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur xl:hidden', className)}>
+      <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur lg:hidden', className)}>
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="flex w-full items-center justify-between px-4 py-3 text-left"
@@ -186,7 +191,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
       </div>
 
       {/* Desktop Hidden List */}
-      <nav className={cn('hidden xl:block', className)} aria-label="Table of contents">
+      <nav className={cn('hidden lg:block', className)} aria-label="Table of contents">
         {listContent}
       </nav>
     </>

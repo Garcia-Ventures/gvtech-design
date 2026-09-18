@@ -89,6 +89,8 @@ export function DocSearch({ variant = 'default', className, placeholder, respons
         });
         context.setOpen(true);
       }}
+      data-track="search_trigger_click"
+      data-track-variant={variant}
       variant={variant}
       className={className}
       placeholder={placeholder || defaultPlaceholder}

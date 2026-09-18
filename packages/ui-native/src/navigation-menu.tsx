@@ -16,7 +16,7 @@ import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 import { cn } from './lib/utils';
 
 export const NavigationMenu = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Root>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Root>,
   NavigationMenuBaseProps
 >(
   (
@@ -41,7 +41,7 @@ export const NavigationMenu = React.forwardRef<
 NavigationMenu.displayName = 'NavigationMenu';
 
 export const NavigationMenuList = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.List>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.List>,
   NavigationMenuListBaseProps
 >(({ className, children, ...props }, ref) => {
   return (
@@ -57,7 +57,7 @@ export const NavigationMenuList = React.forwardRef<
 NavigationMenuList.displayName = 'NavigationMenuList';
 
 export const NavigationMenuItem = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Item>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Item>,
   NavigationMenuItemBaseProps
 >(({ className, children, value, ...props }, ref) => {
   return (
@@ -69,7 +69,7 @@ export const NavigationMenuItem = React.forwardRef<
 NavigationMenuItem.displayName = 'NavigationMenuItem';
 
 export const NavigationMenuTrigger = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Trigger>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Trigger>,
   NavigationMenuTriggerBaseProps
 >(({ className, children, disabled, ...props }, ref) => {
   return (
@@ -93,7 +93,7 @@ export const NavigationMenuTrigger = React.forwardRef<
 NavigationMenuTrigger.displayName = 'NavigationMenuTrigger';
 
 export const NavigationMenuContent = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Content>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
   NavigationMenuContentBaseProps
 >(({ className, children, forceMount, ...props }, ref) => {
   return (
@@ -113,7 +113,7 @@ export const NavigationMenuContent = React.forwardRef<
 NavigationMenuContent.displayName = 'NavigationMenuContent';
 
 export const NavigationMenuLink = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Link>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
   NavigationMenuLinkBaseProps & { onPress?: () => void }
 >(({ className, children, active, onSelect, onPress, href, ...props }, ref) => {
   const handlePress = (e: GestureResponderEvent) => {
@@ -144,7 +144,7 @@ export const NavigationMenuLink = React.forwardRef<
 NavigationMenuLink.displayName = 'NavigationMenuLink';
 
 export const NavigationMenuViewport = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Viewport>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
   NavigationMenuViewportBaseProps
 >(({ className, forceMount, ...props }, ref) => {
   return (
@@ -163,7 +163,7 @@ export const NavigationMenuViewport = React.forwardRef<
 NavigationMenuViewport.displayName = 'NavigationMenuViewport';
 
 export const NavigationMenuIndicator = React.forwardRef<
-  React.ElementRef<typeof NavigationMenuPrimitive.Indicator>,
+  React.ComponentRef<typeof NavigationMenuPrimitive.Indicator>,
   NavigationMenuIndicatorBaseProps
 >(({ className, forceMount, ...props }, ref) => {
   return (

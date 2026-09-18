@@ -1,0 +1,40 @@
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
+
+export function FieldDocs() {
+  return (
+    <>
+      <ComponentShowcase
+        title="Default"
+        description="A form field with a label and description on Native."
+        code={`import { Field, FieldContent, FieldDescription, FieldLabel, Input } from '@gv-tech/ui-native';
+
+export function FieldExample() {
+  return (
+    <Field className="w-full max-w-sm">
+      <FieldLabel>Username</FieldLabel>
+      <FieldContent>
+        <Input placeholder="Enter your username" />
+        <FieldDescription>This is your public display name.</FieldDescription>
+      </FieldContent>
+    </Field>
+  );
+}`}
+      />
+
+      <div className="space-y-4">
+        <h3 className="text-xl font-semibold">Props</h3>
+        <PropsTable
+          props={[
+            {
+              name: 'orientation',
+              type: '"vertical" | "horizontal" | "responsive"',
+              defaultValue: '"vertical"',
+              description: 'The orientation of the field components.',
+            },
+          ]}
+        />
+      </div>
+    </>
+  );
+}

@@ -1,49 +1,49 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function TextareaDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default textarea."
-        code={`<div className="grid w-full gap-1.5">
-  <Label htmlFor="message">Your message</Label>
-  <Textarea placeholder="Type your message here." id="message" />
-</div>`}
+        description="A default textarea for Native."
+        code={`import { Textarea, Label } from "@gv-tech/design-system";
+import { View } from "react-native";
+
+export function TextareaExample() {
+  return (
+    <View className="grid w-full gap-1.5">
+      <Label nativeID="message">Your message</Label>
+      <Textarea placeholder="Type your message here." nativeID="message" />
+    </View>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Textarea component accepts all standard HTML textarea attributes.
+          The Textarea component for Native wraps the standard <code>TextInput</code> with <code>multiline</code>{' '}
+          enabled.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Textarea</h4>
         <PropsTable
           props={[
             {
-              name: 'className',
-              type: 'string',
-              description: 'Additional class names to apply.',
+              name: 'onChangeText',
+              type: '(text: string) => void',
+              description: 'Event handler called when the text changes.',
             },
             {
               name: 'placeholder',
               type: 'string',
-              description: 'The placeholder object.',
+              description: 'The placeholder text.',
             },
             {
               name: 'disabled',
               type: 'boolean',
               description: 'Whether the textarea is disabled.',
-            },
-            {
-              name: 'required',
-              type: 'boolean',
-              description: 'Whether the textarea is required.',
             },
           ]}
         />

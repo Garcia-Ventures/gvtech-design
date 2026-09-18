@@ -6,7 +6,10 @@ export interface DrawerBaseProps {
 }
 
 export interface DrawerTriggerBaseProps {
-  children: React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+  asChild?: boolean;
 }
 
 export interface DrawerContentBaseProps {
@@ -35,5 +38,8 @@ export interface DrawerDescriptionBaseProps {
 }
 
 export interface DrawerCloseBaseProps {
-  children?: React.ReactNode;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+  asChild?: boolean;
 }

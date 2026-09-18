@@ -10,9 +10,7 @@ export function Footer() {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-2">
-              <div className="bg-primary flex h-8 w-8 items-center justify-center rounded-lg shadow-sm">
-                <span className="text-primary-foreground text-sm font-bold">GV</span>
-              </div>
+              <img src="/logo192.png" alt="GV Tech Logo" className="h-8 w-8 rounded-lg shadow-sm" />
               <h3 className="text-lg font-bold tracking-tight">GVTech Design</h3>
             </div>
             <p className="text-muted-foreground max-w-xs text-sm leading-relaxed">
@@ -91,6 +89,8 @@ export function Footer() {
                     href="https://github.com/Garcia-Ventures/gvtech-design"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="github_repo"
                     className="hover:text-foreground transition-colors"
                   >
                     GitHub Repository
@@ -101,6 +101,8 @@ export function Footer() {
                     href="https://www.npmjs.com/package/@gv-tech/design-system"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="npm_package"
                     className="hover:text-foreground transition-colors"
                   >
                     NPM Package
@@ -111,6 +113,8 @@ export function Footer() {
                     href="https://ui.shadcn.com"
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-track="footer_link_click"
+                    data-track-target="shadcn_ui"
                     className="hover:text-foreground transition-colors"
                   >
                     shadcn/ui
@@ -177,7 +181,7 @@ export function Footer() {
               <p>
                 Crafted by{' '}
                 <a
-                  href="https://github.com/garciaericn"
+                  href="http://github.com/Garcia-Ventures"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="hover:text-foreground underline underline-offset-4"

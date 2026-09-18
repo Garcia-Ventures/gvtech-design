@@ -6,11 +6,18 @@ import { recommended } from '@gv-tech/eslint-config';
  * - Next.js apps: use nextjs (see template below)
  */
 export default [
-  // Example: If you add a Next.js app, enable this block and set the correct path
-  // {
-  //   files: ['apps/next-app/**', 'apps/next-app/**/*'],
-  //   ...nextjs,
-  // },
+  {
+    ignores: [
+      '**/dist/**',
+      '**/dist-site/**',
+      '**/build/**',
+      '**/.dart_tool/**',
+      '**/public/flutter/**',
+      '**/public/registry/**',
+      'packages/ui-flutter/**',
+      'eslint.config.mjs',
+    ],
+  },
   ...recommended,
   {
     files: ['**/tests/**', '**/*.test.{ts,tsx}', '**/setupTests.{ts,tsx}'],
@@ -18,8 +25,5 @@ export default [
       '@typescript-eslint/no-explicit-any': 'off', // Tests may use 'any' for flexibility
       '@typescript-eslint/no-require-imports': 'off', // Tests may use require() for dynamic imports or mocks
     },
-  },
-  {
-    ignores: ['eslint.config.mjs'],
   },
 ];

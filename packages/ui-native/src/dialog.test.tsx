@@ -19,19 +19,21 @@ vi.mock('@rn-primitives/dialog', () => {
       const { open } = React.useContext(DialogContext);
       return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
     },
-    Overlay: React.forwardRef(({ children, asChild, forceMount, ...props }: any, ref: any) => {
+    Overlay: React.forwardRef(({ children, asChild, forceMount, style, ...props }: any, ref: any) => {
       const { open } = React.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
-      return React.createElement('div', { ref, ...props }, children);
+      const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
+      return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
-    Content: React.forwardRef(({ children, asChild, forceMount, ...props }: any, ref: any) => {
+    Content: React.forwardRef(({ children, asChild, forceMount, style, ...props }: any, ref: any) => {
       const { open } = React.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
-      return React.createElement('div', { ref, ...props }, children);
+      const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
+      return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
     Title: React.forwardRef(({ children, asChild, ...props }: any, ref: any) =>
       React.createElement('h2', { ref, ...props }, children),
@@ -52,9 +54,10 @@ vi.mock('react-native-reanimated', () => {
   const React = require('react');
   return {
     default: {
-      View: React.forwardRef(({ children, ...props }: any, ref: any) =>
-        React.createElement('div', { ref, ...props }, children),
-      ),
+      View: React.forwardRef(({ children, style, ...props }: any, ref: any) => {
+        const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
+        return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
+      }),
     },
     FadeIn: { duration: () => ({}) },
     FadeOut: { duration: () => ({}) },

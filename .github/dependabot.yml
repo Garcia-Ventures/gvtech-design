@@ -21,6 +21,14 @@ updates:
     directory: "/"
     schedule:
       interval: "monthly"
+    # All @nx/* packages must move as one group on the same major as `nx`.
+    # A lone @nx/expo v23 bump on a v22 workspace (see #146) broke every
+    # `nx run-many` invocation, because @nx/devkit@23 re-exports
+    # `workspaceDataDirectory` from nx core, which does not exist on v22.
+    groups:
+      nx:
+        patterns: ["@nx/*", "nx"]
+        update-types: ["major", "minor", "patch"]
 
   # Enable version updates for Docker
   # - package-ecosystem: "docker"

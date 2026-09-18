@@ -158,7 +158,8 @@ export {
 } from './dropdown-menu';
 
 // Form
-export { Form } from './form';
+export { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, useFormField } from './form';
+export type { FormControlProps, FormDescriptionProps, FormItemProps, FormLabelProps, FormMessageProps } from './form';
 
 // Hover Card
 export { HoverCard, HoverCardContent, HoverCardTrigger } from './hover-card';
@@ -314,6 +315,7 @@ export type { ToastProps } from './toast';
 export { ThemeProvider } from './theme-provider';
 
 // Theme Toggle
+export { useTheme } from './hooks/use-theme';
 export { ThemeToggle } from './theme-toggle';
 
 // Toaster
@@ -326,3 +328,162 @@ export {
   TableOfContentsHeading,
   TableOfContentsList,
 } from './table-of-contents';
+
+// Button Group
+export { ButtonGroup, ButtonGroupSeparator, ButtonGroupText, buttonGroupVariants } from './button-group';
+
+// Direction
+export { DirectionProvider, useDirection } from './direction';
+
+// Empty
+export { Empty, EmptyContent, EmptyDescription, EmptyHeader, EmptyMedia, EmptyTitle } from './empty';
+
+// Spinner
+export { Spinner } from './spinner';
+
+// Field
+export {
+  Field,
+  FieldContent,
+  FieldDescription,
+  FieldError,
+  FieldGroup,
+  FieldLabel,
+  FieldLegend,
+  FieldSeparator,
+  FieldSet,
+  FieldTitle,
+} from './field';
+
+// Input Group
+export {
+  InputGroup,
+  InputGroupAddon,
+  InputGroupButton,
+  InputGroupInput,
+  InputGroupText,
+  InputGroupTextarea,
+} from './input-group';
+
+// Native Select
+export { NativeSelect, NativeSelectOptGroup, NativeSelectOption } from './native-select';
+
+// Kbd
+export { Kbd, KbdGroup } from './kbd';
+
+// Item
+export {
+  Item,
+  ItemActions,
+  ItemContent,
+  ItemDescription,
+  ItemFooter,
+  ItemGroup,
+  ItemHeader,
+  ItemMedia,
+  ItemSeparator,
+  ItemTitle,
+} from './item';
+
+// Combobox
+export {
+  Combobox,
+  ComboboxChip,
+  ComboboxChips,
+  ComboboxChipsInput,
+  ComboboxClear,
+  ComboboxCollection,
+  ComboboxContent,
+  ComboboxEmpty,
+  ComboboxGroup,
+  ComboboxInput,
+  ComboboxItem,
+  ComboboxLabel,
+  ComboboxList,
+  ComboboxSeparator,
+  ComboboxTrigger,
+  ComboboxValue,
+  useComboboxAnchor,
+} from './combobox';
+
+// Input OTP
+export { InputOTP, InputOTPGroup, InputOTPSeparator, InputOTPSlot } from './input-otp';
+
+// Sidebar
+export {
+  Sidebar,
+  SidebarContent,
+  SidebarFooter,
+  SidebarGroup,
+  SidebarGroupAction,
+  SidebarGroupContent,
+  SidebarGroupLabel,
+  SidebarHeader,
+  SidebarInput,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuAction,
+  SidebarMenuBadge,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarMenuSkeleton,
+  SidebarMenuSub,
+  SidebarMenuSubButton,
+  SidebarMenuSubItem,
+  SidebarProvider,
+  SidebarRail,
+  SidebarSeparator,
+  SidebarTrigger,
+  useSidebar,
+} from './sidebar';
+
+// Attachment
+export {
+  Attachment,
+  AttachmentAction,
+  AttachmentActions,
+  AttachmentContent,
+  AttachmentDescription,
+  AttachmentGroup,
+  AttachmentMedia,
+  AttachmentTitle,
+  AttachmentTrigger,
+} from './attachment';
+
+// Bubble
+export { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from './bubble';
+
+// Marker
+export { Marker, MarkerContent, MarkerIcon } from './marker';
+
+// Message
+export { Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader } from './message';
+
+// Message Scroller
+export {
+  MessageScroller,
+  MessageScrollerButton,
+  MessageScrollerContent,
+  MessageScrollerItem,
+  MessageScrollerProvider,
+  MessageScrollerViewport,
+} from './message-scroller';
+
+// Questionnaire
+export {
+  Questionnaire,
+  QuestionnaireActions,
+  QuestionnaireChoice,
+  QuestionnaireChoiceDescription,
+  QuestionnaireChoices,
+  QuestionnaireDescription,
+  QuestionnaireError,
+  QuestionnaireInput,
+  QuestionnaireItem,
+  QuestionnaireNext,
+  QuestionnairePrevious,
+  QuestionnaireProgress,
+  QuestionnaireSkip,
+  QuestionnaireSubmit,
+  QuestionnaireTitle,
+} from './questionnaire';

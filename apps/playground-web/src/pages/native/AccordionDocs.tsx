@@ -1,43 +1,49 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-// @ts-nocheck
 
 export function AccordionDocs() {
   return (
     <>
       <ComponentShowcase
         title="Example"
-        description="A simple accordion with three items."
-        code={`import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@gv-tech/design-system";
+        description="A simple accordion with multiple items on Native."
+        code={`import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger,
+  Text
+} from "@gv-tech/design-system";
 
-const isNative = true as boolean;
-
-const platform = 'native' as string;
-
-<Accordion type="multiple" collapsible defaultValue={["item-1"]}>
-  <AccordionItem value="item-1">
-    <AccordionTrigger>Is it accessible?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It adheres to the WAI-ARIA design pattern.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-2">
-    <AccordionTrigger>Is it styled?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It comes with default styles that matches the other components' aesthetic.
-    </AccordionContent>
-  </AccordionItem>
-  <AccordionItem value="item-3">
-    <AccordionTrigger>Is it animated?</AccordionTrigger>
-    <AccordionContent>
-      Yes. It's animated by default, but you can disable it if you prefer.
-    </AccordionContent>
-  </AccordionItem>
-</Accordion>`}
+export function AccordionExample() {
+  return (
+    <Accordion type="multiple" collapsible defaultValue={["item-1"]}>
+      <AccordionItem value="item-1">
+        <AccordionTrigger>
+          <Text>Is it accessible?</Text>
+        </AccordionTrigger>
+        <AccordionContent>
+          <Text>Yes. It adheres to the WAI-ARIA design pattern using @rn-primitives.</Text>
+        </AccordionContent>
+      </AccordionItem>
+      <AccordionItem value="item-2">
+        <AccordionTrigger>
+          <Text>Is it styled?</Text>
+        </AccordionTrigger>
+        <AccordionContent>
+          <Text>Yes. It uses NativeWind for consistent styling across platforms.</Text>
+        </AccordionContent>
+      </AccordionItem>
+    </Accordion>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
+        <p className="text-muted-foreground text-sm">
+          The Accordion component for Native is built on top of <code>@rn-primitives/accordion</code>.
+        </p>
         <PropsTable
           props={[
             {
@@ -55,7 +61,7 @@ const platform = 'native' as string;
             {
               name: 'defaultValue',
               type: 'string | string[]',
-              description: 'The value of the item to expand by default.',
+              description: 'The value of the item(s) to expand by default.',
             },
             {
               name: 'value',

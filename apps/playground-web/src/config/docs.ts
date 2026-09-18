@@ -1,4 +1,16 @@
-export type DocPlatform = 'web' | 'native';
+import type { LucideIcon } from 'lucide-react';
+import {
+  Compass,
+  Database,
+  FormInput,
+  LayoutTemplate,
+  MessageSquare,
+  MessagesSquare,
+  Rocket,
+  Wrench,
+} from 'lucide-react';
+
+export type DocPlatform = 'web' | 'native' | 'flutter';
 
 export interface DocItem {
   title: string;
@@ -10,41 +22,44 @@ export interface DocItem {
 
 export interface DocCategory {
   title: string;
+  icon: LucideIcon;
   items: DocItem[];
 }
-
-// We'll import the actual components in App.tsx to keep the config lightweight if we want
-// but for now, to make the loop work, we might need to reference them differently
-// or just export the structure and map it in App.tsx.
-// Let's stick to a pure config structure and map in App.tsx to avoid circular deps if configs grow.
-// Actually, mapping in App.tsx is safer.
 
 export const docConfig: DocCategory[] = [
   {
     title: 'Getting Started',
+    icon: Rocket,
     items: [
       {
         title: 'Getting Started',
         href: 'getting-started',
-        platforms: ['web', 'native'],
+        platforms: ['web', 'native', 'flutter'],
         description: 'Introduction to the GV Tech Design System.',
+      },
+      {
+        title: 'Component Status',
+        href: 'status',
+        platforms: ['web', 'native', 'flutter'],
+        description: 'Component implementation matrix across Web, React Native, and Flutter.',
       },
       {
         title: 'Installation',
         href: 'installation',
-        platforms: ['web', 'native'],
-        description: 'How to install and configure for Web and Mobile.',
+        platforms: ['web', 'native', 'flutter'],
+        description: 'How to install and configure for Web, Mobile, and Flutter.',
       },
       {
         title: 'Theming',
         href: 'theming',
-        platforms: ['web', 'native'],
+        platforms: ['web', 'native', 'flutter'],
         description: 'Customizing colors and design tokens.',
       },
     ],
   },
   {
     title: 'Layout',
+    icon: LayoutTemplate,
     items: [
       {
         title: 'Aspect Ratio',
@@ -71,10 +86,16 @@ export const docConfig: DocCategory[] = [
         href: 'separator',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Direction',
+        href: 'direction',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Forms',
+    icon: FormInput,
     items: [
       {
         title: 'Button',
@@ -136,10 +157,41 @@ export const docConfig: DocCategory[] = [
         href: 'toggle-group',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Button Group',
+        href: 'button-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Field',
+        href: 'field',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input Group',
+        href: 'input-group',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Native Select',
+        href: 'native-select',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Combobox',
+        href: 'combobox',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Input OTP',
+        href: 'input-otp',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Data Display',
+    icon: Database,
     items: [
       {
         title: 'Accordion',
@@ -196,10 +248,26 @@ export const docConfig: DocCategory[] = [
         href: 'text',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Empty State',
+        href: 'empty',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Kbd',
+        href: 'kbd',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Item',
+        href: 'item',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Feedback',
+    icon: MessageSquare,
     items: [
       {
         title: 'Alert Dialog',
@@ -246,10 +314,52 @@ export const docConfig: DocCategory[] = [
         href: 'tooltip',
         platforms: ['web', 'native'],
       },
+      {
+        title: 'Spinner',
+        href: 'spinner',
+        platforms: ['web', 'native'],
+      },
+    ],
+  },
+  {
+    title: 'Messaging',
+    icon: MessagesSquare,
+    items: [
+      {
+        title: 'Message',
+        href: 'message',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Bubble',
+        href: 'bubble',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Marker',
+        href: 'marker',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Attachment',
+        href: 'attachment',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Message Scroller',
+        href: 'message-scroller',
+        platforms: ['web', 'native'],
+      },
+      {
+        title: 'Questionnaire',
+        href: 'questionnaire',
+        platforms: ['web', 'native'],
+      },
     ],
   },
   {
     title: 'Navigation',
+    icon: Compass,
     items: [
       {
         title: 'Breadcrumb',
@@ -302,6 +412,11 @@ export const docConfig: DocCategory[] = [
         platforms: ['web', 'native'],
       },
       {
+        title: 'Sidebar',
+        href: 'sidebar',
+        platforms: ['web', 'native'],
+      },
+      {
         title: 'Tabs',
         href: 'tabs',
         platforms: ['web', 'native'],
@@ -310,6 +425,7 @@ export const docConfig: DocCategory[] = [
   },
   {
     title: 'Utilities',
+    icon: Wrench,
     items: [
       {
         title: 'Support FAB',
@@ -329,3 +445,13 @@ export const docConfig: DocCategory[] = [
     ],
   },
 ];
+
+export const docItemsMap: ReadonlyMap<string, { category: string; item: DocItem }> = (() => {
+  const map = new Map<string, { category: string; item: DocItem }>();
+  for (const category of docConfig) {
+    for (const item of category.items) {
+      map.set(item.href, { category: category.title, item });
+    }
+  }
+  return map;
+})();

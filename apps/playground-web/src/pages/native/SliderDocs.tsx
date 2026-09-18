@@ -1,36 +1,37 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function SliderDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default slider."
-        code={`<Slider defaultValue={[33]} max={100} step={1} />`}
+        description="A default slider for Native."
+        code={`import { Slider } from "@gv-tech/design-system";
+
+export function SliderExample() {
+  const [value, setValue] = React.useState([33]);
+
+  return (
+    <Slider 
+      value={value} 
+      onValueChange={setValue} 
+      max={100} 
+      step={1} 
+    />
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Slider component is built on top of{' '}
-          <a href="https://reactnativereusables.com/docs/slider" className="underline" target="_blank" rel="noreferrer">
-            React Native Reusables Slider (@rn-primitives/slider)
-          </a>
-          .
+          The Slider component for Native is built on top of <code>@rn-primitives/slider</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Slider (Root)</h4>
         <PropsTable
           props={[
-            {
-              name: 'defaultValue',
-              type: 'number[]',
-              description: 'The value of the slider when initially rendered.',
-            },
             {
               name: 'value',
               type: 'number[]',
@@ -42,60 +43,22 @@ export function SliderDocs() {
               description: 'Event handler called when the value changes.',
             },
             {
-              name: 'onValueCommit',
-              type: '(value: number[]) => void',
-              description: 'Event handler called when the value changes at the end of an interaction.',
-            },
-            {
-              name: 'name',
-              type: 'string',
-              description: 'The name of the slider. Submitted with its owning form as part of a name/value pair.',
-            },
-            {
-              name: 'disabled',
-              type: 'boolean',
-              description: 'When true, prevents the user from interacting with the slider.',
-            },
-            {
-              name: 'orientation',
-              type: '"horizontal" | "vertical"',
-              defaultValue: '"horizontal"',
-              description: 'The orientation of the slider.',
-            },
-            {
-              name: 'dir',
-              type: '"ltr" | "rtl"',
-              description: 'The reading direction of the slider.',
-            },
-            {
               name: 'min',
               type: 'number',
               defaultValue: '0',
-              description: 'The minimum value for the range.',
+              description: 'The minimum value.',
             },
             {
               name: 'max',
               type: 'number',
               defaultValue: '100',
-              description: 'The maximum value for the range.',
+              description: 'The maximum value.',
             },
             {
               name: 'step',
               type: 'number',
               defaultValue: '1',
               description: 'The stepping interval.',
-            },
-            {
-              name: 'minStepsBetweenThumbs',
-              type: 'number',
-              defaultValue: '0',
-              description: 'The minimum permitted step difference between thumbs.',
-            },
-            {
-              name: 'inverted',
-              type: 'boolean',
-              defaultValue: 'false',
-              description: 'Whether the slider is visually inverted.',
             },
           ]}
         />

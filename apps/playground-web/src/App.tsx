@@ -5,15 +5,11 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-  Button,
   ScrollArea,
   ScrollToTop,
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
+  SidebarInset,
+  SidebarProvider,
+  SidebarTrigger,
   SonnerToaster,
   SupportFab,
   ThemeProvider,
@@ -21,12 +17,20 @@ import {
   Toaster,
   TooltipProvider,
 } from '@gv-tech/ui-web';
-import { Loader2, Menu } from 'lucide-react';
+import { Loader2 } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { CombinedDocsLayout, DocSearch, DocSearchProvider, ErrorBoundary, Footer, Sidebar } from './components/docs';
-import { docConfig, type DocItem } from './config/docs';
-import { PlausibleProvider } from './lib/PlausibleProvider';
+import { DomainRedirectNotice } from './components/DomainRedirectNotice';
+import {
+  CombinedDocsLayout,
+  DocSearch,
+  DocSearchProvider,
+  DocsSidebar,
+  ErrorBoundary,
+  Footer,
+} from './components/docs';
+import { docItemsMap } from './config/docs';
+import { OpenPanelProvider } from './lib/OpenPanelProvider';
 import { safeTrack } from './lib/analytics';
 
 import { docRoutes } from './routes/doc-routes';
@@ -50,7 +54,6 @@ function PageLoader() {
 }
 
 function DocumentationLayout() {
-  const [isSidebarOpen, setIsSidebarOpen] = React.useState(false);
   const [docsScrollViewport, setDocsScrollViewport] = React.useState<HTMLElement | null>(null);
   const docsScrollAreaRef = React.useRef<HTMLDivElement>(null);
   const location = useLocation();
@@ -58,7 +61,9 @@ function DocumentationLayout() {
 
   const docSlug = location.pathname.split('/').pop() || 'getting-started';
 
-  const activeRoute = docItemsMap.get(docSlug) || null;
+  const activeRoute = React.useMemo(() => {
+    return docItemsMap.get(docSlug)?.item || null;
+  }, [docSlug]);
 
   React.useEffect(() => {
     if (activeRoute?.title) {
@@ -80,33 +85,14 @@ function DocumentationLayout() {
   return (
     <DocSearchProvider>
       <PackageManagerProvider>
-        <div className="bg-background text-foreground flex h-screen">
-          {/* Desktop Sidebar */}
-          <div className="hidden h-full shrink-0 lg:flex">
-            <Sidebar />
-          </div>
+        <SidebarProvider className="h-screen overflow-hidden">
+          <DocsSidebar />
 
-          <div className="flex flex-1 flex-col overflow-hidden">
+          <SidebarInset className="bg-background flex w-full flex-col overflow-hidden">
+            <DomainRedirectNotice />
             <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-14 shrink-0 items-center justify-between border-b px-4 backdrop-blur md:px-6">
               <div className="flex min-w-0 items-center gap-2">
-                {/* Mobile Menu Toggle */}
-                <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
-                  <SheetTrigger asChild>
-                    <Button variant="ghost" size="icon" className="shrink-0 lg:hidden">
-                      <Menu className="h-5 w-5" />
-                      <span className="sr-only">Toggle menu</span>
-                    </Button>
-                  </SheetTrigger>
-                  <SheetContent side="left" className="w-72 p-0">
-                    <SheetHeader className="sr-only">
-                      <SheetTitle>Navigation Menu</SheetTitle>
-                      <SheetDescription>
-                        Explore the components and documentation for GV Tech Design System.
-                      </SheetDescription>
-                    </SheetHeader>
-                    <Sidebar className="w-full border-none" onLinkClick={() => setIsSidebarOpen(false)} />
-                  </SheetContent>
-                </Sheet>
+                <SidebarTrigger className="-ml-1" />
 
                 <Breadcrumb className="hidden min-w-0 md:flex">
                   <BreadcrumbList>
@@ -142,7 +128,7 @@ function DocumentationLayout() {
                 <ThemeToggle variant="ternary" />
               </div>
             </header>
-            <ScrollArea ref={docsScrollAreaRef} className="flex-1">
+            <ScrollArea ref={docsScrollAreaRef} className="min-h-0 flex-1">
               <div className="flex min-h-full flex-col">
                 <main className="flex w-full flex-1 flex-col p-4 md:p-8">
                   <div className="mx-auto w-full max-w-[1400px]">
@@ -163,6 +149,7 @@ function DocumentationLayout() {
                                     description={route.description}
                                     web={route.web ? <route.web /> : undefined}
                                     native={route.native ? <route.native /> : undefined}
+                                    flutter={route.flutter ? <route.flutter /> : undefined}
                                   />
                                 }
                               />
@@ -204,8 +191,8 @@ function DocumentationLayout() {
               }}
             />
             <ScrollToTop scrollTarget={docsScrollViewport} threshold={180} className="right-6 bottom-24" />
-          </div>
-        </div>
+          </SidebarInset>
+        </SidebarProvider>
       </PackageManagerProvider>
     </DocSearchProvider>
   );
@@ -216,12 +203,12 @@ function App() {
     <ThemeProvider>
       <TooltipProvider>
         <BrowserRouter>
-          <PlausibleProvider>
+          <OpenPanelProvider>
             <Routes>
               <Route path="/" element={<Navigate to="/docs/getting-started" replace />} />
               <Route path="/docs/*" element={<DocumentationLayout />} />
             </Routes>
-          </PlausibleProvider>
+          </OpenPanelProvider>
         </BrowserRouter>
         <Toaster />
         <SonnerToaster />

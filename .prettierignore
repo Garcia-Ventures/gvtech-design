@@ -2,3 +2,9 @@ CHANGELOG.md
 .yarn
 dist-site
 .husky
+.gitnexus
+.nx
+.dart_tool
+**/build
+*.g.dart
+pubspec.lock

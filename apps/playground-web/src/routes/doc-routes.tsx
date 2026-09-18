@@ -6,6 +6,7 @@ export interface DocRoute {
   description: string;
   web?: React.LazyExoticComponent<React.ComponentType>;
   native?: React.LazyExoticComponent<React.ComponentType>;
+  flutter?: React.LazyExoticComponent<React.ComponentType>;
 }
 
 // Helper to lazy load pages
@@ -14,6 +15,10 @@ const web = (name: string) =>
 const native = (name: string) =>
   React.lazy(() =>
     import('@/pages/native').then((m) => ({ default: (m as Record<string, React.ComponentType>)[name] })),
+  );
+const flutter = (name: string) =>
+  React.lazy(() =>
+    import('@/pages/flutter').then((m) => ({ default: (m as Record<string, React.ComponentType>)[name] })),
   );
 const shared = (name: string) =>
   React.lazy(() =>
@@ -31,11 +36,18 @@ export const docRoutes: DocRoute[] = [
     web: shared('GettingStartedPage'),
   },
   {
+    path: 'status',
+    title: 'Component Status Matrix',
+    description: 'Component implementation matrix across Web, React Native, and Flutter.',
+    web: shared('ComponentStatusPage'),
+  },
+  {
     path: 'installation',
     title: 'Installation',
     description: 'Install the GV Tech Design System in your project.',
     web: web('WebInstallationDocs'),
     native: native('NativeInstallationDocs'),
+    flutter: flutter('FlutterInstallationDocs'),
   },
   {
     path: 'theming',
@@ -50,21 +62,21 @@ export const docRoutes: DocRoute[] = [
     title: 'Aspect Ratio',
     description: 'Displays content within a desired ratio.',
     web: web('WebAspectRatioDocs'),
-    // Native: not yet implemented
+    native: native('NativeAspectRatioDocs'),
   },
   {
     path: 'resizable',
     title: 'Resizable',
     description: 'Accessible resizable panel groups and layouts with keyboard support.',
     web: web('WebResizableDocs'),
-    // Native: not yet implemented
+    native: native('NativeResizableDocs'),
   },
   {
     path: 'scroll-area',
     title: 'Scroll-area',
     description: 'Augments native scroll functionality for custom, cross-browser styling.',
     web: web('WebScrollAreaDocs'),
-    // Native: not yet implemented
+    native: native('NativeScrollAreaDocs'),
   },
   {
     path: 'scroll-to-top',
@@ -81,6 +93,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A vertically stacked set of interactive headings that each reveal a section of content.',
     web: web('WebAccordionDocs'),
     native: native('NativeAccordionDocs'),
+    flutter: flutter('FlutterAccordionDocs'),
   },
   {
     path: 'alert',
@@ -88,6 +101,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a callout for user attention.',
     web: web('WebAlertDocs'),
     native: native('NativeAlertDocs'),
+    flutter: flutter('FlutterAlertDocs'),
   },
   {
     path: 'alert-dialog',
@@ -95,6 +109,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A modal dialog that interrupts the user with important content and expects a response.',
     web: web('WebAlertDialogDocs'),
     native: native('NativeAlertDialogDocs'),
+    flutter: flutter('FlutterAlertDialogDocs'),
   },
   {
     path: 'avatar',
@@ -102,6 +117,7 @@ export const docRoutes: DocRoute[] = [
     description: 'An image element with a fallback for representing the user.',
     web: web('WebAvatarDocs'),
     native: native('NativeAvatarDocs'),
+    flutter: flutter('FlutterAvatarDocs'),
   },
   {
     path: 'badge',
@@ -109,13 +125,15 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a badge or a component that looks like a badge.',
     web: web('WebBadgeDocs'),
     native: native('NativeBadgeDocs'),
+    flutter: flutter('FlutterBadgeDocs'),
   },
   {
     path: 'breadcrumb',
     title: 'Breadcrumb',
     description: 'Displays the path to the current resource using a hierarchy of links.',
     web: web('WebBreadcrumbDocs'),
-    // Native: not yet implemented
+    native: native('NativeBreadcrumbDocs'),
+    flutter: flutter('FlutterBreadcrumbDocs'),
   },
   {
     path: 'button',
@@ -123,13 +141,15 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a button or a component that looks like a button.',
     web: web('WebButtonDocs'),
     native: native('NativeButtonDocs'),
+    flutter: flutter('FlutterButtonDocs'),
   },
   {
     path: 'calendar',
     title: 'Calendar',
     description: 'A date field component that allows users to enter and edit dates.',
     web: web('WebCalendarDocs'),
-    // Native: not yet implemented
+    native: native('NativeCalendarDocs'),
+    flutter: flutter('FlutterCalendarDocs'),
   },
   {
     path: 'card',
@@ -137,20 +157,21 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a card with header, content, and footer.',
     web: web('WebCardDocs'),
     native: native('NativeCardDocs'),
+    flutter: flutter('FlutterCardDocs'),
   },
   {
     path: 'carousel',
     title: 'Carousel',
     description: 'A carousel with next and previous buttons.',
     web: web('WebCarouselDocs'),
-    // Native: not yet implemented
+    native: native('NativeCarouselDocs'),
   },
   {
     path: 'chart',
     title: 'Chart',
     description: 'A chart component with various types of charts.',
     web: web('WebChartDocs'),
-    // Native: not yet implemented
+    native: native('NativeChartDocs'),
   },
   {
     path: 'checkbox',
@@ -158,6 +179,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A control that allows the user to toggle between checked and not checked.',
     web: web('WebCheckboxDocs'),
     native: native('NativeCheckboxDocs'),
+    flutter: flutter('FlutterCheckboxDocs'),
   },
   {
     path: 'collapsible',
@@ -165,20 +187,22 @@ export const docRoutes: DocRoute[] = [
     description: 'An interactive component which can be expanded or collapsed.',
     web: web('WebCollapsibleDocs'),
     native: native('NativeCollapsibleDocs'),
+    flutter: flutter('FlutterCollapsibleDocs'),
   },
   {
     path: 'command',
     title: 'Command',
     description: 'A command menu for running tasks and navigating.',
     web: web('WebCommandDocs'),
-    // Native: not yet implemented
+    native: native('NativeCommandDocs'),
   },
   {
     path: 'context-menu',
     title: 'Context Menu',
     description: 'Displays a menu located at the pointer, triggered by a right-click or a long-press.',
     web: web('WebContextMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeContextMenuDocs'),
+    flutter: flutter('FlutterContextMenuDocs'),
   },
   {
     path: 'dialog',
@@ -187,33 +211,38 @@ export const docRoutes: DocRoute[] = [
       'A window overlaid on either the primary window or another dialog window, rendering the content underneath inert.',
     web: web('WebDialogDocs'),
     native: native('NativeDialogDocs'),
+    flutter: flutter('FlutterDialogDocs'),
   },
   {
     path: 'drawer',
     title: 'Drawer',
     description: 'A responsive drawer component.',
     web: web('WebDrawerDocs'),
-    // Native: not yet implemented
+    native: native('NativeDrawerDocs'),
+    flutter: flutter('FlutterDrawerDocs'),
   },
   {
     path: 'dropdown-menu',
     title: 'Dropdown Menu',
     description: 'Displays a menu to the user — such as a set of actions or functions — triggered by a button.',
     web: web('WebDropdownMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeDropdownMenuDocs'),
+    flutter: flutter('FlutterDropdownMenuDocs'),
   },
   {
     path: 'form',
     title: 'Form',
     description: 'Building forms with React Hook Form and Zod.',
     web: web('WebFormDocs'),
+    native: native('NativeFormDocs'),
   },
   {
     path: 'hover-card',
     title: 'Hover Card',
     description: 'For sighted users to preview content available behind a link.',
     web: web('WebHoverCardDocs'),
-    // Native: not yet implemented
+    native: native('NativeHoverCardDocs'),
+    flutter: flutter('FlutterHoverCardDocs'),
   },
   {
     path: 'input',
@@ -221,6 +250,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a form input field or a component that looks like an input field.',
     web: web('WebInputDocs'),
     native: native('NativeInputDocs'),
+    flutter: flutter('FlutterInputDocs'),
   },
   {
     path: 'label',
@@ -235,28 +265,31 @@ export const docRoutes: DocRoute[] = [
     description:
       'A visually persistent menu common in desktop applications that provides quick access to a consistent set of commands.',
     web: web('WebMenubarDocs'),
-    // Native: not yet implemented
+    native: native('NativeMenubarDocs'),
+    flutter: flutter('FlutterMenubarDocs'),
   },
   {
     path: 'navigation-menu',
     title: 'Navigation Menu',
     description: 'A collection of links for navigating websites.',
     web: web('WebNavigationMenuDocs'),
-    // Native: not yet implemented
+    native: native('NativeNavigationMenuDocs'),
   },
   {
     path: 'pagination',
     title: 'Pagination',
     description: 'Pagination with next and previous buttons.',
     web: web('WebPaginationDocs'),
-    // Native: not yet implemented
+    native: native('NativePaginationDocs'),
+    flutter: flutter('FlutterPaginationDocs'),
   },
   {
     path: 'popover',
     title: 'Popover',
     description: 'Displays rich content in a portal, triggered by a button.',
     web: web('WebPopoverDocs'),
-    // Native: not yet implemented
+    native: native('NativePopoverDocs'),
+    flutter: flutter('FlutterPopoverDocs'),
   },
   {
     path: 'progress',
@@ -264,7 +297,8 @@ export const docRoutes: DocRoute[] = [
     description:
       'Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.',
     web: web('WebProgressDocs'),
-    // Native: not yet implemented
+    native: native('NativeProgressDocs'),
+    flutter: flutter('FlutterProgressDocs'),
   },
   {
     path: 'radio-group',
@@ -273,6 +307,7 @@ export const docRoutes: DocRoute[] = [
       'A set of checkable buttons—known as radio buttons—where no more than one button can be checked at a time.',
     web: web('WebRadioGroupDocs'),
     native: native('NativeRadioGroupDocs'),
+    flutter: flutter('FlutterRadioGroupDocs'),
   },
   {
     path: 'select',
@@ -280,6 +315,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a list of options for the user to pick from—triggered by a button.',
     web: web('WebSelectDocs'),
     native: native('NativeSelectDocs'),
+    flutter: flutter('FlutterSelectDocs'),
   },
   {
     path: 'separator',
@@ -287,6 +323,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Visually or semantically separates content.',
     web: web('WebSeparatorDocs'),
     native: native('NativeSeparatorDocs'),
+    flutter: flutter('FlutterSeparatorDocs'),
   },
   {
     path: 'sheet',
@@ -294,6 +331,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Extends the Dialog component to display content that complements the main content of the screen.',
     web: web('WebSheetDocs'),
     native: native('NativeSheetDocs'),
+    flutter: flutter('FlutterSheetDocs'),
   },
   {
     path: 'skeleton',
@@ -301,20 +339,23 @@ export const docRoutes: DocRoute[] = [
     description: 'Use to show a placeholder while content is loading.',
     web: web('WebSkeletonDocs'),
     native: native('NativeSkeletonDocs'),
+    flutter: flutter('FlutterSkeletonDocs'),
   },
   {
     path: 'slider',
     title: 'Slider',
     description: 'An input where the user selects a value from within a given range.',
     web: web('WebSliderDocs'),
-    // Native: not yet implemented
+    native: native('NativeSliderDocs'),
+    flutter: flutter('FlutterSliderDocs'),
   },
   {
     path: 'sonner',
     title: 'Sonner',
     description: 'An opinionated toast component for React.',
     web: web('WebSonnerDocs'),
-    // Native: not yet implemented (use Toast for native)
+    native: native('NativeSonnerDocs'), // (use Toast for native)
+    flutter: flutter('FlutterToastDocs'),
   },
   {
     path: 'switch',
@@ -322,6 +363,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A control that allows the user to toggle between checked and not checked.',
     web: web('WebSwitchDocs'),
     native: native('NativeSwitchDocs'),
+    flutter: flutter('FlutterSwitchDocs'),
   },
   {
     path: 'table',
@@ -336,6 +378,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A set of layered sections of content—known as tab panels—that are displayed one at a time.',
     web: web('WebTabsDocs'),
     native: native('NativeTabsDocs'),
+    flutter: flutter('FlutterTabsDocs'),
   },
   {
     path: 'text',
@@ -343,13 +386,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Typography component for various text styles.',
     web: web('WebTextDocs'),
     native: native('NativeTextDocs'),
-  },
-  {
-    path: 'text',
-    title: 'Text',
-    description: 'Typography component for various text styles.',
-    web: web('WebTextDocs'),
-    native: native('NativeTextDocs'),
+    flutter: flutter('FlutterTextDocs'),
   },
   {
     path: 'textarea',
@@ -357,6 +394,7 @@ export const docRoutes: DocRoute[] = [
     description: 'Displays a form textarea or a component that looks like a textarea.',
     web: web('WebTextareaDocs'),
     native: native('NativeTextareaDocs'),
+    flutter: flutter('FlutterTextareaDocs'),
   },
   {
     path: 'theme-toggle',
@@ -385,6 +423,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A succinct message that is displayed temporarily.',
     web: web('WebToastDocs'),
     native: native('NativeToastDocs'),
+    flutter: flutter('FlutterToastDocs'),
   },
   {
     path: 'toggle',
@@ -392,6 +431,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A two-state button that can be either on or off.',
     web: web('WebToggleDocs'),
     native: native('NativeToggleDocs'),
+    flutter: flutter('FlutterToggleDocs'),
   },
   {
     path: 'toggle-group',
@@ -399,6 +439,7 @@ export const docRoutes: DocRoute[] = [
     description: 'A set of two-state buttons that can be toggled on or off.',
     web: web('WebToggleGroupDocs'),
     native: native('NativeToggleGroupDocs'),
+    flutter: flutter('FlutterToggleGroupDocs'),
   },
   {
     path: 'tooltip',
@@ -407,6 +448,7 @@ export const docRoutes: DocRoute[] = [
       'A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.',
     web: web('WebTooltipDocs'),
     native: native('NativeTooltipDocs'),
+    flutter: flutter('FlutterTooltipDocs'),
   },
   {
     path: 'table-of-contents',
@@ -414,5 +456,139 @@ export const docRoutes: DocRoute[] = [
     description: 'A component used to extract headings from a page and render a clickable, nested Table of Contents.',
     web: web('WebTableOfContentsDocs'),
     native: native('NativeTableOfContentsDocs'),
+  },
+  {
+    path: 'button-group',
+    title: 'Button Group',
+    description: 'A group of buttons with shared borders.',
+    web: web('WebButtonGroupDocs'),
+    native: native('NativeButtonGroupDocs'),
+  },
+  {
+    path: 'direction',
+    title: 'Direction',
+    description: 'A provider for right-to-left layout direction.',
+    web: web('WebDirectionDocs'),
+    native: native('NativeDirectionDocs'),
+  },
+  {
+    path: 'empty',
+    title: 'Empty State',
+    description: 'A component used to indicate an empty list or missing content.',
+    web: web('WebEmptyDocs'),
+    native: native('NativeEmptyDocs'),
+    flutter: flutter('FlutterEmptyDocs'),
+  },
+  {
+    path: 'spinner',
+    title: 'Spinner',
+    description: 'A loading indicator.',
+    web: web('WebSpinnerDocs'),
+    native: native('NativeSpinnerDocs'),
+    flutter: flutter('FlutterSpinnerDocs'),
+  },
+  {
+    path: 'field',
+    title: 'Field',
+    description: 'A form field with label, description, and error message.',
+    web: web('WebFieldDocs'),
+    native: native('NativeFieldDocs'),
+    flutter: flutter('FlutterFieldDocs'),
+  },
+  {
+    path: 'input-group',
+    title: 'Input Group',
+    description: 'Input fields with attached prefix or suffix addons.',
+    web: web('WebInputGroupDocs'),
+    native: native('NativeInputGroupDocs'),
+    flutter: flutter('FlutterInputGroupDocs'),
+  },
+  {
+    path: 'native-select',
+    title: 'Native Select',
+    description: 'A native HTML select element dropdown.',
+    web: web('WebNativeSelectDocs'),
+    native: native('NativeNativeSelectDocs'),
+  },
+  {
+    path: 'kbd',
+    title: 'Kbd',
+    description: 'A keyboard key symbol.',
+    web: web('WebKbdDocs'),
+    native: native('NativeKbdDocs'),
+    flutter: flutter('FlutterKbdDocs'),
+  },
+  {
+    path: 'item',
+    title: 'Item',
+    description: 'A flexible item layout for lists.',
+    web: web('WebItemDocs'),
+    native: native('NativeItemDocs'),
+    flutter: flutter('FlutterItemDocs'),
+  },
+  {
+    path: 'combobox',
+    title: 'Combobox',
+    description: 'Autocomplete input and command palette with a list of suggestions.',
+    web: web('WebComboboxDocs'),
+    native: native('NativeComboboxDocs'),
+    flutter: flutter('FlutterComboboxDocs'),
+  },
+  {
+    path: 'input-otp',
+    title: 'Input OTP',
+    description: 'Accessible one-time password component with copy paste functionality.',
+    web: web('WebInputOTPDocs'),
+    native: native('NativeInputOTPDocs'),
+    flutter: flutter('FlutterInputOTPDocs'),
+  },
+  {
+    path: 'sidebar',
+    title: 'Sidebar',
+    description: 'A composable, themeable and customizable sidebar component.',
+    web: web('WebSidebarDocs'),
+    native: native('NativeSidebarDocs'),
+  },
+  {
+    path: 'message',
+    title: 'Message',
+    description: 'A Message component.',
+    web: web('WebMessageDocs'),
+    native: native('NativeMessageDocs'),
+  },
+  {
+    path: 'bubble',
+    title: 'Bubble',
+    description: 'A Bubble component.',
+    web: web('WebBubbleDocs'),
+    native: native('NativeBubbleDocs'),
+  },
+  {
+    path: 'marker',
+    title: 'Marker',
+    description: 'A Marker component.',
+    web: web('WebMarkerDocs'),
+    native: native('NativeMarkerDocs'),
+  },
+  {
+    path: 'attachment',
+    title: 'Attachment',
+    description: 'A Attachment component.',
+    web: web('WebAttachmentDocs'),
+    native: native('NativeAttachmentDocs'),
+  },
+  {
+    path: 'message-scroller',
+    title: 'MessageScroller',
+    description: 'A MessageScroller component.',
+    web: web('WebMessageScrollerDocs'),
+    native: native('NativeMessageScrollerDocs'),
+  },
+  {
+    path: 'questionnaire',
+    title: 'Questionnaire',
+    description: 'A Questionnaire component.',
+    web: web('WebQuestionnaireDocs'),
+    native: native('NativeQuestionnaireDocs'),
   },
 ];

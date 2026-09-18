@@ -8,14 +8,14 @@ export interface DocMetadata {
 export function useDocMetadata({ title, description }: DocMetadata) {
   React.useEffect(() => {
     const previousTitle = document.title;
-    const previousDescription = document.querySelector('meta[name="description"]')?.getAttribute('content');
+    let metaDescription = document.querySelector('meta[name="description"]');
+    const previousDescription = metaDescription?.getAttribute('content');
 
     // Update title
     document.title = `${title} | GV Tech Design System`;
 
     // Update description
     if (description) {
-      let metaDescription = document.querySelector('meta[name="description"]');
       if (!metaDescription) {
         metaDescription = document.createElement('meta');
         metaDescription.setAttribute('name', 'description');
@@ -26,8 +26,8 @@ export function useDocMetadata({ title, description }: DocMetadata) {
 
     return () => {
       document.title = previousTitle;
-      if (previousDescription) {
-        document.querySelector('meta[name="description"]')?.setAttribute('content', previousDescription);
+      if (previousDescription && metaDescription) {
+        metaDescription.setAttribute('content', previousDescription);
       }
     };
   }, [title, description]);

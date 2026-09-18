@@ -50,3 +50,35 @@ export { ToggleDocs as WebToggleDocs } from './ToggleDocs';
 export { ToggleGroupDocs as WebToggleGroupDocs } from './ToggleGroupDocs';
 export { TooltipDocs as WebTooltipDocs } from './TooltipDocs';
 export { WebInstallationDocs } from './WebInstallationDocs';
+
+export { ButtonGroupDocs as WebButtonGroupDocs } from './ButtonGroupDocs';
+export { DirectionDocs as WebDirectionDocs } from './DirectionDocs';
+export { EmptyDocs as WebEmptyDocs } from './EmptyDocs';
+export { SpinnerDocs as WebSpinnerDocs } from './SpinnerDocs';
+
+export { ComboboxDocs as WebComboboxDocs } from './ComboboxDocs';
+export { FieldDocs as WebFieldDocs } from './FieldDocs';
+export { InputGroupDocs as WebInputGroupDocs } from './InputGroupDocs';
+export { InputOTPDocs as WebInputOTPDocs } from './InputOTPDocs';
+export { ItemDocs as WebItemDocs } from './ItemDocs';
+export { KbdDocs as WebKbdDocs } from './KbdDocs';
+export { NativeSelectDocs as WebNativeSelectDocs } from './NativeSelectDocs';
+export { SidebarDocs as WebSidebarDocs } from './SidebarDocs';
+
+// Message
+export { MessageDocs as WebMessageDocs } from './MessageDocs';
+
+// Bubble
+export { BubbleDocs as WebBubbleDocs } from './BubbleDocs';
+
+// Marker
+export { MarkerDocs as WebMarkerDocs } from './MarkerDocs';
+
+// Attachment
+export { AttachmentDocs as WebAttachmentDocs } from './AttachmentDocs';
+
+// MessageScroller
+export { MessageScrollerDocs as WebMessageScrollerDocs } from './MessageScrollerDocs';
+
+// Questionnaire
+export { QuestionnaireDocs as WebQuestionnaireDocs } from './QuestionnaireDocs';

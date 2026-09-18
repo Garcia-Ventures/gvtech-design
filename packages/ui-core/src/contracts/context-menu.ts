@@ -4,24 +4,6 @@ export interface ContextMenuBaseProps {
   children?: React.ReactNode;
 }
 
-export interface ContextMenuTriggerBaseProps {
-  children: React.ReactNode;
-  disabled?: boolean;
-}
-
-export interface ContextMenuContentBaseProps {
-  className?: string;
-  children?: React.ReactNode;
-}
-
-export interface ContextMenuItemBaseProps {
-  className?: string;
-  children?: React.ReactNode;
-  inset?: boolean;
-  disabled?: boolean;
-  onSelect?: (event: Event) => void;
-}
-
 export interface ContextMenuCheckboxItemBaseProps {
   className?: string;
   children?: React.ReactNode;
@@ -30,17 +12,43 @@ export interface ContextMenuCheckboxItemBaseProps {
   disabled?: boolean;
 }
 
-export interface ContextMenuRadioItemBaseProps {
+export interface ContextMenuContentBaseProps {
   className?: string;
   children?: React.ReactNode;
-  value: string;
+  align?: 'start' | 'center' | 'end';
+}
+
+export interface ContextMenuGroupBaseProps {
+  className?: string;
+  children?: React.ReactNode;
+}
+
+export interface ContextMenuItemBaseProps {
+  className?: string;
+  children?: React.ReactNode;
   disabled?: boolean;
+  inset?: boolean;
+  onSelect?: (event: Event) => void;
 }
 
 export interface ContextMenuLabelBaseProps {
   className?: string;
   children?: React.ReactNode;
   inset?: boolean;
+}
+
+export interface ContextMenuRadioGroupBaseProps {
+  className?: string;
+  children?: React.ReactNode;
+  value?: string;
+  onValueChange?: (value: string) => void;
+}
+
+export interface ContextMenuRadioItemBaseProps {
+  className?: string;
+  children?: React.ReactNode;
+  value: string;
+  disabled?: boolean;
 }
 
 export interface ContextMenuSeparatorBaseProps {
@@ -56,10 +64,12 @@ export interface ContextMenuSubBaseProps {
   children?: React.ReactNode;
 }
 
-export interface ContextMenuSubTriggerBaseProps {
+export interface ContextMenuTriggerBaseProps {
   className?: string;
-  children?: React.ReactNode;
-  inset?: boolean;
+  children?:
+    | React.ReactNode
+    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+  disabled?: boolean | null;
 }
 
 export interface ContextMenuSubContentBaseProps {
@@ -67,12 +77,9 @@ export interface ContextMenuSubContentBaseProps {
   children?: React.ReactNode;
 }
 
-export interface ContextMenuGroupBaseProps {
+export interface ContextMenuSubTriggerBaseProps {
+  className?: string;
   children?: React.ReactNode;
-}
-
-export interface ContextMenuRadioGroupBaseProps {
-  children?: React.ReactNode;
-  value?: string;
-  onValueChange?: (value: string) => void;
+  disabled?: boolean;
+  inset?: boolean;
 }

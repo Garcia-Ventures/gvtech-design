@@ -1,5 +1,6 @@
 import { spawnSync } from 'child_process';
 import os from 'os';
+import path from 'path';
 
 const args = process.argv.slice(2);
 const fix = args.includes('--fix');
@@ -9,21 +10,47 @@ const sequentialInput = args.includes('--sequential') || args.includes('-s');
 
 // Auto-detect low resource environment (e.g. <= 4 CPU cores or <= 8GB RAM)
 const cpus = os.cpus() ? os.cpus().length : 4;
-const totalMemGb = os.totalmem() ? os.totalmem() / (1024 * 1024 * 1024) : 8;
+const totalMem = os.totalmem();
+const totalMemGb = totalMem ? totalMem / (1024 * 1024 * 1024) : 8;
 const isLowResource = cpus <= 4 || totalMemGb <= 8;
 
 // Enable sequential mode if low resource or explicitly requested, unless parallel is forced
 const sequential = (isLowResource || sequentialInput) && !forceParallel;
 
+// Nx optimizations for low memory
 const nxFlags = noCache ? ' --skipNxCache' : '';
 const nxParallelFlag = sequential ? '--parallel=false' : '--parallel';
 const nxMaxParallel = sequential ? ' --maxParallel=1' : '';
 const nxFlagsCombined = `${nxFlags}${nxMaxParallel}`;
 
+// Environment variables for memory management
+const env = {
+  ...process.env,
+  // Disable Nx daemon in low resource mode to save memory
+  NX_DAEMON: sequential ? 'false' : 'true',
+  // Limit Node's heap size on low resource machines to force GC more often
+  // and prevent it from trying to grab too much of the 8GB total.
+  NODE_OPTIONS: sequential
+    ? `${process.env.NODE_OPTIONS || ''} --max-old-space-size=2048`.trim()
+    : process.env.NODE_OPTIONS,
+};
+
 const steps = [
   {
     name: 'Sync Tokens',
     cmd: 'bun run tsx scripts/sync-tokens.ts',
+  },
+  {
+    name: 'Build Registry',
+    cmd: 'bun run build:registry',
+  },
+  {
+    name: 'Generate Contract Tests',
+    cmd: 'bun run generate:contract-tests',
+  },
+  {
+    name: 'CSS smoke check (Tailwind compiles component selectors)',
+    cmd: 'bun run validate:css',
   },
   {
     name: fix ? 'Prettier fix' : 'Prettier check',
@@ -48,6 +75,12 @@ const steps = [
     }`,
   },
   {
+    name: 'Flutter analyze & test',
+    cmd: 'flutter analyze && flutter test',
+    cwd: path.join(process.cwd(), 'packages/ui-flutter'),
+    shell: true,
+  },
+  {
     name: 'Build Sub-packages & Apps',
     cmd: `nx run-many -t build ${nxParallelFlag}${nxFlagsCombined}`,
   },
@@ -63,14 +96,14 @@ const red = (s: string) => `\x1b[31m${s}\x1b[0m`;
 const yellow = (s: string) => `\x1b[33m${s}\x1b[0m`;
 
 console.log(SEP);
-console.log('\x1b[1mRunning validate steps (sequential)\x1b[0m');
+console.log('\x1b[1mRunning validate steps\x1b[0m');
 console.log(SEP);
 
 if (sequential) {
   if (isLowResource && !sequentialInput) {
     console.log(yellow(`ℹ️ Low resource environment detected (${cpus} CPUs, ${totalMemGb.toFixed(1)}GB RAM).`));
     console.log(yellow(`   Defaulting to sequential validation mode for stability.`));
-    console.log(yellow(`   (To override and force parallel run, use the --parallel flag.)\n`));
+    console.log(yellow(`   Nx daemon disabled and memory limits applied.\n`));
   } else {
     console.log(yellow(`ℹ️ Running in sequential validation mode (CPU/RAM optimized).\n`));
   }
@@ -78,11 +111,30 @@ if (sequential) {
   console.log(green(`🚀 Running in parallel validation mode (${cpus} CPUs, ${totalMemGb.toFixed(1)}GB RAM).\n`));
 }
 
-for (const step of steps) {
+/** Utility to wait for memory to be reclaimed */
+function wait(ms: number) {
+  const start = Date.now();
+  while (Date.now() - start < ms) {
+    // Blocking wait to ensure OS has a moment to breathe between heavy spawns
+  }
+}
+
+for (const step of steps as Array<{ name: string; cmd: string; cwd?: string; shell?: boolean }>) {
+  const freeMemGb = os.freemem() / (1024 * 1024 * 1024);
+  if (sequential && freeMemGb < 1.5) {
+    console.log(yellow(`⚠️ Low free memory detected (${freeMemGb.toFixed(2)}GB). Waiting for reclamation...`));
+    wait(2000);
+  }
+
   console.log(yellow(`\n> ${step.name}`));
   console.log(yellow(`> ${step.cmd}\n`));
 
-  const result = spawnSync(step.cmd, { stdio: 'inherit', shell: true });
+  const result = step.shell
+    ? spawnSync(step.cmd, [], { stdio: 'inherit', shell: true, cwd: step.cwd, env })
+    : (() => {
+        const parts = step.cmd.split(/\s+/).filter(Boolean);
+        return spawnSync(parts[0], parts.slice(1), { stdio: 'inherit', shell: false, cwd: step.cwd, env });
+      })();
 
   if (result.error) {
     console.error(red(`\nFailed to run: ${step.cmd}`));
@@ -97,6 +149,11 @@ for (const step of steps) {
   }
 
   console.log(green(`\n${step.name} succeeded.`));
+
+  if (sequential) {
+    // Brief cool-down after each step in low-resource mode
+    wait(1000);
+  }
 }
 
 console.log('\n' + SEP);

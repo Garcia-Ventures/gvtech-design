@@ -1,6 +1,6 @@
 import '@testing-library/jest-dom';
 import * as matchers from '@testing-library/jest-dom/matchers';
-import { expect } from 'vitest';
+import { expect, vi } from 'vitest';
 
 // React Native libraries (for example reanimated) read this global in test environments.
 if (!('__DEV__' in globalThis)) {
@@ -10,6 +10,15 @@ if (!('__DEV__' in globalThis)) {
     configurable: true,
   });
 }
+
+// Mock nativewind in test environments
+vi.mock('nativewind', () => ({
+  useColorScheme: vi.fn(() => ({
+    colorScheme: 'light',
+    setColorScheme: vi.fn(),
+    toggleColorScheme: vi.fn(),
+  })),
+}));
 
 expect.extend(matchers);
 

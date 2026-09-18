@@ -1,64 +1,58 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function InputDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A default input field."
-        code={`<Input type="email" placeholder="Email" />`}
-      />
-      <ComponentShowcase
-        title="File"
-        description="A file input field."
-        code={`<div className="grid w-full max-w-sm items-center gap-1.5">
-  <Label htmlFor="picture">Picture</Label>
-  <Input id="picture" type="file" />
-</div>`}
+        description="A default text input for Native."
+        code={`import { Input } from "@gv-tech/design-system";
+
+export function InputExample() {
+  const [value, setValue] = React.useState("");
+
+  return (
+    <Input 
+      placeholder="Email" 
+      value={value} 
+      onChangeText={setValue} 
+    />
+  );
+}`}
       />
 
       <ComponentShowcase
         title="Disabled"
         description="A disabled input field."
-        code={`<Input disabled type="email" placeholder="Email" />`}
+        code={`import { Input } from "@gv-tech/design-system";
+
+export function InputDisabled() {
+  return <Input disabled placeholder="Disabled input" />;
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
-        <p className="text-muted-foreground text-sm">The Input component extends the standard HTML input element.</p>
+        <p className="text-muted-foreground text-sm">
+          The Input component for Native wraps the standard <code>TextInput</code> from React Native.
+        </p>
         <PropsTable
           props={[
             {
-              name: 'type',
-              type: 'string',
-              defaultValue: '"text"',
-              description: 'The type of input to render.',
+              name: 'onChangeText',
+              type: '(text: string) => void',
+              description: 'Event handler called when the text changes.',
             },
-            {
-              name: 'className',
-              type: 'string',
-              description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
-            },
-            ...[
-              {
-                name: 'placeholderClassName',
-                type: 'string',
-                description: 'Styling for the placeholder text (NativeWind).',
-              },
-            ],
             {
               name: 'value',
-              type: 'string | number | readonly string[]',
+              type: 'string',
               description: 'The value of the input.',
             },
             {
               name: 'placeholder',
               type: 'string',
-              description: 'The placeholder text for the input.',
+              description: 'The placeholder text.',
             },
             {
               name: 'disabled',
@@ -66,9 +60,9 @@ export function InputDocs() {
               description: 'Whether the input is disabled.',
             },
             {
-              name: 'onChange',
-              type: '(event: React.ChangeEvent<HTMLInputElement>) => void',
-              description: 'Event handler called when the value changes.',
+              name: 'className',
+              type: 'string',
+              description: 'NativeWind classes.',
             },
           ]}
         />

@@ -10,6 +10,7 @@ export default defineConfig({
     'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV || 'development'),
   },
   resolve: {
+    dedupe: ['react', 'react-dom'],
     alias: [
       {
         find: /^react-native$/,
@@ -23,6 +24,21 @@ export default defineConfig({
         find: /^lucide-react-native$/,
         replacement: resolve(__dirname, 'src/lib/lucide-react-native-shim.ts'),
       },
+      {
+        find: /^@react-native-community\/datetimepicker$/,
+        replacement: resolve(__dirname, 'src/lib/react-native-shim.js'),
+      },
+      // shadcn emits `@/./<sibling>` + `@/hooks/*` imports inside packages/ui-web/src
+      // (see its components.json aliases). These must resolve to ui-web, and are
+      // listed before the generic `@` rule because first match wins.
+      {
+        find: /^@\/\.\//,
+        replacement: `${resolve(__dirname, '../../packages/ui-web/src')}/`,
+      },
+      {
+        find: /^@\/hooks\/use-mobile/,
+        replacement: resolve(__dirname, '../../packages/ui-web/src/hooks/use-mobile.ts'),
+      },
       { find: '@', replacement: resolve(__dirname, './src') },
       { find: '@gv-tech/design-tokens', replacement: resolve(__dirname, '../../packages/design-tokens/src') },
       { find: '@gv-tech/ui-core', replacement: resolve(__dirname, '../../packages/ui-core/src') },
@@ -35,17 +51,20 @@ export default defineConfig({
     rolldownOptions: {
       moduleTypes: {
         '.js': 'jsx',
+        '.mjs': 'jsx',
       },
     },
     include: ['react-native-web', 'react-native-reanimated', 'react-native-svg', 'lucide-react', '@rn-primitives/**/*'],
   },
-  oxc: {
-    include: [/src\/.*\.[jt]sx?$/, /node_modules\/@rn-primitives\/.*\.js$/],
-    exclude: [],
-  },
   build: {
     outDir: 'dist-site',
     emptyOutDir: true,
+    rolldownOptions: {
+      moduleTypes: {
+        '.js': 'jsx',
+        '.mjs': 'jsx',
+      },
+    },
     rollupOptions: {
       output: {
         manualChunks(id) {

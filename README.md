@@ -16,6 +16,8 @@
 
 A React component design system. This repository provides a lightweight, opinionated set of UI components and tooling used by Garcia Ventures projects, built with **Nx**, **Vite**, and **TypeScript**.
 
+> **Docs:** start at [`docs/index.md`](docs/index.md) — Tutorials (setup, first usage, create a component), How-to guides, Reference (registry, parity, divergence), Explanation (architecture, ADRs, roadmap).
+
 ---
 
 **Table of Contents**
@@ -34,9 +36,13 @@ A React component design system. This repository provides a lightweight, opinion
 
 ---
 
+## Implementation Status
+
+To see a full list of all available components and their implementation and testing status across Web and Native platforms, please refer to the [Component Registry](docs/reference/component-registry.md). Platform notes: [Parity Matrix](docs/reference/parity-matrix.md) · [Divergence Registry](docs/reference/divergence-registry.md).
+
 ## Demo
 
-The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version on [Cloudflare Pages](https://gvtech-design.pages.dev/).
+The design system includes a Vite-based playground site. Run it locally with `bun run dev` or view the hosted version at [design.gventureshq.com](https://design.gventureshq.com/).
 
 ## Install
 
@@ -48,6 +54,22 @@ npm install @gv-tech/design-system
 
 # bun
 bun add @gv-tech/design-system
+```
+
+## Adding Components via Shadcn CLI
+
+If you don't want to install the entire library and prefer to own the source code, you can use the `shadcn` CLI to pull individual components directly from our GitHub registry.
+
+For **Web** components:
+
+```bash
+npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-web"
+```
+
+For **React Native** components:
+
+```bash
+npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-native"
 ```
 
 ## Usage
@@ -96,7 +118,7 @@ Publishing uses OIDC via npm Trusted Publishers for `@gv-tech` packages.
 
 ## Contributing
 
-Please read the full guidelines in [CONTRIBUTING.md](.github/CONTRIBUTING.md) before contributing. Key points:
+New contributor? Start with [Local Setup](docs/tutorials/01-local-setup.md) and [Create a Component](docs/tutorials/03-create-component.md). Then read the full gates in [CONTRIBUTING.md](.github/CONTRIBUTING.md). Key points:
 
 - Follow **Conventional Commits** to ensure release tooling produces accurate changelogs.
 - Run `bun run lint` and `bun run test` before opening PRs.

@@ -54,7 +54,7 @@ export function MyComponent({ className, ...props }) {
 ## Integration Points
 
 - **Vite:** Handles development, site building, and library bundling.
-- **Cloudflare Pages:** Primary deployment target for the playground site: [https://gvtech-design.pages.dev/](https://gvtech-design.pages.dev/) (configured via `wrangler.toml`).
+- **Cloudflare Pages:** Primary deployment target for the playground site: [https://design.gventureshq.com/](https://design.gventureshq.com/).
 - **ESLint + Prettier:** Code quality and formatting.
 - **Husky:** Git hooks for pre-commit checks.
 

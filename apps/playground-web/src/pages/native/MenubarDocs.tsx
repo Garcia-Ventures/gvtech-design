@@ -1,185 +1,66 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function MenubarDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A standard menubar."
-        code={`<Menubar>
-  <MenubarMenu>
-    <MenubarTrigger>File</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        New Tab <MenubarShortcut>⌘T</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem>
-        New Window <MenubarShortcut>⌘N</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem disabled>New Incognito Window</MenubarItem>
-      <MenubarSeparator />
-      <MenubarSub>
-        <MenubarSubTrigger>Share</MenubarSubTrigger>
-        <MenubarSubContent>
-          <MenubarItem>Email link</MenubarItem>
-          <MenubarItem>Messages</MenubarItem>
-          <MenubarItem>Notes</MenubarItem>
-        </MenubarSubContent>
-      </MenubarSub>
-      <MenubarSeparator />
-      <MenubarItem>
-        Print... <MenubarShortcut>⌘P</MenubarShortcut>
-      </MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>Edit</MenubarTrigger>
-    <MenubarContent>
-      <MenubarItem>
-        Undo <MenubarShortcut>⌘Z</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem>
-        Redo <MenubarShortcut>⇧⌘Z</MenubarShortcut>
-      </MenubarItem>
-      <MenubarSeparator />
-      <MenubarSub>
-        <MenubarSubTrigger>Find</MenubarSubTrigger>
-        <MenubarSubContent>
-          <MenubarItem>Search the web</MenubarItem>
+        description="A standard menubar for Native."
+        code={`import { 
+  Menubar, 
+  MenubarMenu, 
+  MenubarTrigger, 
+  MenubarContent, 
+  MenubarItem, 
+  MenubarSeparator, 
+  MenubarSub, 
+  MenubarSubTrigger, 
+  MenubarSubContent,
+  Text 
+} from '@gv-tech/design-system';
+
+export function MenubarExample() {
+  return (
+    <Menubar>
+      <MenubarMenu>
+        <MenubarTrigger><Text>File</Text></MenubarTrigger>
+        <MenubarContent>
+          <MenubarItem onSelect={() => console.log('new tab')}>
+            <Text>New Tab</Text>
+          </MenubarItem>
           <MenubarSeparator />
-          <MenubarItem>Find...</MenubarItem>
-          <MenubarItem>Find Next</MenubarItem>
-          <MenubarItem>Find Previous</MenubarItem>
-        </MenubarSubContent>
-      </MenubarSub>
-      <MenubarSeparator />
-      <MenubarItem>Cut</MenubarItem>
-      <MenubarItem>Copy</MenubarItem>
-      <MenubarItem>Paste</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>View</MenubarTrigger>
-    <MenubarContent>
-      <MenubarCheckboxItem>Always Show Bookmarks Bar</MenubarCheckboxItem>
-      <MenubarCheckboxItem checked>
-        Always Show Full URLs
-      </MenubarCheckboxItem>
-      <MenubarSeparator />
-      <MenubarItem inset>
-        Reload <MenubarShortcut>⌘R</MenubarShortcut>
-      </MenubarItem>
-      <MenubarItem disabled inset>
-        Force Reload <MenubarShortcut>⇧⌘R</MenubarShortcut>
-      </MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem inset>Toggle Fullscreen</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem inset>Hide Sidebar</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-  <MenubarMenu>
-    <MenubarTrigger>Profiles</MenubarTrigger>
-    <MenubarContent>
-      <MenubarRadioGroup value="benoit">
-        <MenubarRadioItem value="andy">Andy</MenubarRadioItem>
-        <MenubarRadioItem value="benoit">Benoit</MenubarRadioItem>
-        <MenubarRadioItem value="Luis">Luis</MenubarRadioItem>
-      </MenubarRadioGroup>
-      <MenubarSeparator />
-      <MenubarItem inset>Edit...</MenubarItem>
-      <MenubarSeparator />
-      <MenubarItem inset>Add Profile...</MenubarItem>
-    </MenubarContent>
-  </MenubarMenu>
-</Menubar>`}
+          <MenubarSub>
+            <MenubarSubTrigger><Text>Share</Text></MenubarSubTrigger>
+            <MenubarSubContent>
+              <MenubarItem><Text>Email</Text></MenubarItem>
+            </MenubarSubContent>
+          </MenubarSub>
+        </MenubarContent>
+      </MenubarMenu>
+    </Menubar>
+  );
+}`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">
-          The Menubar component is built on top of{' '}
-          <a
-            href="https://www.radix-ui.com/primitives/docs/components/menubar"
-            className="underline"
-            target="_blank"
-            rel="noreferrer"
-          >
-            Radix UI Menubar
-          </a>
-          .
+          The Menubar component for Native is built on top of <code>@rn-primitives/menubar</code>.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">Menubar (Root)</h4>
         <PropsTable
           props={[
             {
-              name: 'defaultValue',
-              type: 'string',
-              description: 'The value of the menu item that should be active when initially rendered.',
-            },
-            {
               name: 'value',
               type: 'string',
-              description: 'The controlled value of the active menu item.',
+              description: 'The controlled value of the active menu.',
             },
             {
               name: 'onValueChange',
               type: '(value: string) => void',
-              description: 'Event handler called when the value changes.',
-            },
-            {
-              name: 'loop',
-              type: 'boolean',
-              defaultValue: 'false',
-              description: 'Whether keyboard navigation should loop from last item to first, and vice versa.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">MenubarMenu</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'value',
-              type: 'string',
-              description: 'A unique value that identifies the menu.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">MenubarCheckboxItem</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'checked',
-              type: 'boolean | "indeterminate"',
-              description: 'The controlled checked state of the item.',
-            },
-            {
-              name: 'onCheckedChange',
-              type: '(checked: boolean) => void',
-              description: 'Event handler called when the checked state changes.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">MenubarRadioGroup</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'value',
-              type: 'string',
-              description: 'The value of the selected item in the group.',
-            },
-            {
-              name: 'onValueChange',
-              type: '(value: string) => void',
-              description: 'Event handler called when the value changes.',
+              description: 'Event handler called when the active menu changes.',
             },
           ]}
         />

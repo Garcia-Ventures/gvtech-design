@@ -9,9 +9,31 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } f
 import { cn } from './lib/utils';
 import { Text } from './text';
 
-const normalizeBaseUrl = (url: string) => {
+const DEFAULT_SUPPORT_URL = 'https://www.buymeacoffee.com';
+const ALLOWED_SUPPORT_DOMAINS = new Set(['buymeacoffee.com', 'www.buymeacoffee.com']);
+
+const validateSupportUrl = (url: string) => {
   const trimmed = url.trim();
-  return trimmed.endsWith('/') ? trimmed.slice(0, -1) : trimmed;
+
+  try {
+    const parsed = new URL(trimmed);
+    const hostname = parsed.hostname.toLowerCase();
+
+    if (parsed.protocol !== 'https:' || !ALLOWED_SUPPORT_DOMAINS.has(hostname)) {
+      console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+      return DEFAULT_SUPPORT_URL;
+    }
+
+    return trimmed;
+  } catch {
+    console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+    return DEFAULT_SUPPORT_URL;
+  }
+};
+
+const normalizeBaseUrl = (url: string) => {
+  const validated = validateSupportUrl(url);
+  return validated.endsWith('/') ? validated.slice(0, -1) : validated;
 };
 
 const sanitizeCreator = (creatorId: string) => creatorId.trim().replace(/^@+/, '');
@@ -36,7 +58,7 @@ export interface SupportFabProps extends Omit<React.ComponentPropsWithoutRef<typ
 }
 
 export function SupportFab({
-  supportUrl = 'https://www.buymeacoffee.com',
+  supportUrl = DEFAULT_SUPPORT_URL,
   creatorId,
   title = 'Buy me a coffee',
   description = 'Support the project directly from this panel.',

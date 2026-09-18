@@ -1,163 +1,24 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
-// @ts-nocheck
-
-const isNative = true as boolean;
-
-const platform = 'native' as string;
 
 export function CommandDocs() {
   return (
     <>
       <ComponentShowcase
         title="Default"
-        description="A command palette with search and groups."
-        code={`<Command className="rounded-lg border shadow-md md:min-w-[450px]">
-  <CommandInput placeholder="Type a command or search..." />
-  <CommandList>
-    <CommandEmpty>No results found.</CommandEmpty>
-    <CommandGroup heading="Suggestions">
-      <CommandItem>
-        <Calendar className="mr-2 h-4 w-4" />
-        <span>Calendar</span>
-      </CommandItem>
-      <CommandItem>
-        <Smile className="mr-2 h-4 w-4" />
-        <span>Search Emoji</span>
-      </CommandItem>
-      <CommandItem>
-        <Calculator className="mr-2 h-4 w-4" />
-        <span>Calculator</span>
-      </CommandItem>
-    </CommandGroup>
-    <CommandSeparator />
-    <CommandGroup heading="Settings">
-      <CommandItem>
-        <User className="mr-2 h-4 w-4" />
-        <span>Profile</span>
-        <CommandShortcut>⌘P</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <CreditCard className="mr-2 h-4 w-4" />
-        <span>Billing</span>
-        <CommandShortcut>⌘B</CommandShortcut>
-      </CommandItem>
-      <CommandItem>
-        <Settings className="mr-2 h-4 w-4" />
-        <span>Settings</span>
-        <CommandShortcut>⌘S</CommandShortcut>
-      </CommandItem>
-    </CommandGroup>
-  </CommandList>
-</Command>`}
+        description="The command palette is currently a stub for Native."
+        code={`import { Command } from "@gv-tech/design-system";
+
+export function CommandExample() {
+  return <Command />;
+}`}
       />
 
       <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Props</h3>
+        <h3 className="text-xl font-semibold">Status</h3>
         <p className="text-muted-foreground text-sm">
-          The Command component is built on top of{' '}
-          <a href="https://cmdk.paco.me/" className="underline" target="_blank" rel="noreferrer">
-            cmdk
-          </a>
-          .
+          The Command component is currently not implemented for Native. It is recommended to use the{' '}
+          <code>Search</code> component instead for similar patterns on mobile.
         </p>
-        <h4 className="mt-6 text-lg font-medium">Command (Root)</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'label',
-              type: 'string',
-              description: 'Accessible label for the command menu.',
-            },
-            {
-              name: 'shouldFilter',
-              type: 'boolean',
-              defaultValue: 'true',
-              description: 'Whether to filter items based on input.',
-            },
-            {
-              name: 'filter',
-              type: '(value: string, search: string) => number',
-              description: 'Custom filter function.',
-            },
-            {
-              name: 'value',
-              type: 'string',
-              description: 'Controlled value of the selected item.',
-            },
-            {
-              name: 'onValueChange',
-              type: '(value: string) => void',
-              description: 'Event handler called when value changes.',
-            },
-            {
-              name: 'loop',
-              type: 'boolean',
-              description: 'Whether to loop selection when navigating with keys.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">CommandInput</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'placeholder',
-              type: 'string',
-              description: 'Placeholder text for the input.',
-            },
-            {
-              name: 'value',
-              type: 'string',
-              description: 'Controlled value of the input.',
-            },
-            {
-              name: 'onValueChange',
-              type: '(value: string) => void',
-              description: 'Event handler called when input value changes.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">CommandList</h4>
-        <p className="text-muted-foreground text-sm">Contains items and groups.</p>
-
-        <h4 className="mt-6 text-lg font-medium">CommandItem</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'disabled',
-              type: 'boolean',
-              description: 'Whether the item is disabled.',
-            },
-            {
-              name: 'onSelect',
-              type: '(value: string) => void',
-              description: 'Event handler called when the item is selected.',
-            },
-            {
-              name: 'value',
-              type: 'string',
-              description: 'Unique value for the item. Defaults to text content if not provided.',
-            },
-          ]}
-        />
-
-        <h4 className="mt-6 text-lg font-medium">CommandGroup</h4>
-        <PropsTable
-          props={[
-            {
-              name: 'heading',
-              type: 'ReactNode',
-              description: 'Heading for the group.',
-            },
-            {
-              name: 'value',
-              type: 'string',
-              description: 'Unique value for the group.',
-            },
-          ]}
-        />
       </div>
     </>
   );

@@ -4,6 +4,7 @@ export interface SearchBaseProps {
   children?: React.ReactNode;
   open?: boolean;
   onOpenChange?: (open: boolean) => void;
+  disableShortcut?: boolean;
 }
 
 export interface SearchTriggerBaseProps {

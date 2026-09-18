@@ -5,7 +5,7 @@ import { cn } from './lib/utils';
 
 export type TextareaProps = React.ComponentPropsWithoutRef<typeof TextInput>;
 
-const Textarea = React.forwardRef<React.ElementRef<typeof TextInput>, TextareaProps>(
+const Textarea = React.forwardRef<React.ComponentRef<typeof TextInput>, TextareaProps>(
   ({ className, placeholderClassName, ...props }, ref) => {
     return (
       <TextInput

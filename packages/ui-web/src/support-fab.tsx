@@ -8,10 +8,31 @@ import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } f
 import { cn } from './lib/utils';
 
 const MOBILE_QUERY = '(max-width: 767px)';
+const DEFAULT_SUPPORT_URL = 'https://www.buymeacoffee.com';
+const ALLOWED_SUPPORT_DOMAINS = new Set(['buymeacoffee.com', 'www.buymeacoffee.com']);
+
+const validateSupportUrl = (url: string) => {
+  const trimmed = url.trim();
+
+  try {
+    const parsed = new URL(trimmed);
+    const hostname = parsed.hostname.toLowerCase();
+
+    if (parsed.protocol !== 'https:' || !ALLOWED_SUPPORT_DOMAINS.has(hostname)) {
+      console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+      return DEFAULT_SUPPORT_URL;
+    }
+
+    return trimmed;
+  } catch {
+    console.warn(`Invalid supportUrl: ${url}. Falling back to default.`);
+    return DEFAULT_SUPPORT_URL;
+  }
+};
 
 const normalizeBaseUrl = (url: string) => {
-  const trimmed = url.trim();
-  return trimmed.endsWith('/') ? trimmed.slice(0, -1) : trimmed;
+  const validated = validateSupportUrl(url);
+  return validated.endsWith('/') ? validated.slice(0, -1) : validated;
 };
 
 const sanitizeCreator = (creatorId: string) => creatorId.trim().replace(/^@+/, '');
@@ -72,7 +93,7 @@ export interface SupportFabProps extends Omit<React.ButtonHTMLAttributes<HTMLBut
 }
 
 export function SupportFab({
-  supportUrl = 'https://www.buymeacoffee.com',
+  supportUrl = DEFAULT_SUPPORT_URL,
   creatorId,
   title = 'Buy me a coffee',
   description = 'Support the project directly from this panel.',
@@ -138,7 +159,7 @@ export function SupportFab({
         aria-label="Support this project"
         type={type ?? 'button'}
         className={cn(
-          'inline-flex h-14 w-14 rounded-full border border-black/15 bg-[#ffdd00] text-black shadow-[0_16px_36px_-18px_rgba(0,0,0,0.8)] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-[#ffe347] focus-visible:ring-2 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95',
+          'inline-flex h-14 w-14 items-center justify-center rounded-full border border-black/15 bg-[#ffdd00] text-black shadow-[0_16px_36px_-18px_rgba(0,0,0,0.8)] transition hover:-translate-y-0.5 hover:scale-105 hover:bg-[#ffe347] focus-visible:ring-2 focus-visible:ring-offset-2 active:translate-y-0 active:scale-95',
           buttonClassName,
           className,
         )}

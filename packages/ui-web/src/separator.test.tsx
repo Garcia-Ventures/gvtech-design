@@ -1,4 +1,5 @@
 'use client';
+
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
 import { Separator } from '.';
@@ -12,6 +13,6 @@ describe('Separator', () => {
 
   it('applies orientation classes', () => {
     render(<Separator orientation="vertical" data-testid="separator-vertical" />);
-    expect(screen.getByTestId('separator-vertical')).toHaveClass('h-full w-[1px]');
+    expect(screen.getByTestId('separator-vertical')).toHaveClass('data-vertical:w-px');
   });
 });
