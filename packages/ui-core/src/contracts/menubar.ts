@@ -17,8 +17,7 @@ export interface MenubarMenuBaseProps {
 
 export interface MenubarTriggerBaseProps {
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
   className?: string;
   disabled?: boolean;
 }

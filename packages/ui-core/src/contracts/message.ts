@@ -38,9 +38,4 @@ export interface MessageFooterBaseProps {
 
 // Message exports the same sub-components on both platforms.
 export type MessageSubComponent =
-  | 'Message'
-  | 'MessageAvatar'
-  | 'MessageContent'
-  | 'MessageFooter'
-  | 'MessageGroup'
-  | 'MessageHeader';
+  'Message' | 'MessageAvatar' | 'MessageContent' | 'MessageFooter' | 'MessageGroup' | 'MessageHeader';

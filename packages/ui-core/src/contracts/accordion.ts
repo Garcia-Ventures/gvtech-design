@@ -15,8 +15,7 @@ export interface AccordionItemBaseProps {
 export interface AccordionTriggerBaseProps {
   className?: string;
   children?:
-    | React.ReactNode
-    | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
+    React.ReactNode | ((state: any) /* eslint-disable-line @typescript-eslint/no-explicit-any */ => React.ReactNode);
 }
 
 export interface AccordionContentBaseProps {
