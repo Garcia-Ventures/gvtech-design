@@ -22,7 +22,7 @@ export interface ScrollToTopProps extends ScrollToTopBaseProps {
    * For Native: The scroll target is typically a ref to a ScrollView or FlatList.
    * This is required unless you manually call the scroll handler.
    */
-  scrollRef?: React.RefObject<ScrollView | FlatList>;
+  scrollRef?: React.RefObject<ScrollView | FlatList | null>;
 
   /**
    * Custom duration specifically for Native animations (opacity/transform).

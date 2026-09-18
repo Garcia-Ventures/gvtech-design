@@ -1,5 +1,14 @@
 import type { LucideIcon } from 'lucide-react';
-import { Compass, Database, FormInput, LayoutTemplate, MessageSquare, Rocket, Wrench } from 'lucide-react';
+import {
+  Compass,
+  Database,
+  FormInput,
+  LayoutTemplate,
+  MessageSquare,
+  MessagesSquare,
+  Rocket,
+  Wrench,
+} from 'lucide-react';
 
 export type DocPlatform = 'web' | 'native' | 'flutter';
 

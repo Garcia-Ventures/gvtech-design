@@ -54,6 +54,7 @@
     "test:ci": "CI=true vitest --run --reporter=dot --passWithNoTests",
     "test:watch": "vitest --watch",
     "validate": "tsx ./scripts/validate.ts",
+    "validate:css": "tsx scripts/validate-css.ts",
     "validate:fix": "tsx ./scripts/validate.ts --fix",
     "validate:no-cache": "tsx ./scripts/validate.ts --no-cache"
   },
@@ -62,8 +63,8 @@
     "@expo/metro-runtime": "~56.0.13",
     "@rn-primitives/types": "^1.2.0",
     "class-variance-authority": "^0.7.1",
-    "expo": "~56.0.5",
-    "expo-splash-screen": "~56.0.10",
+    "expo": "~56.0.21",
+    "expo-splash-screen": "~56.0.15",
     "expo-status-bar": "~56.0.4",
     "expo-system-ui": "~56.0.5",
     "lucide-react-native": "^1.8.0",

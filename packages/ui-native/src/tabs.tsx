@@ -5,13 +5,24 @@ import * as React from 'react';
 import { cn } from './lib/utils';
 import { TextClassContext } from './text';
 
-const Tabs = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Root>, TabsProps>((props, ref) => (
-  <TabsPrimitive.Root ref={ref} {...props} />
-));
+const Tabs = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Root>, TabsProps>(
+  ({ value: valueProp, defaultValue, onValueChange, ...props }, ref) => {
+    const [uncontrolledValue, setUncontrolledValue] = React.useState(defaultValue ?? '');
+    const value = valueProp ?? uncontrolledValue;
+    const handleValueChange = (next: string) => {
+      setUncontrolledValue(next);
+      onValueChange?.(next);
+    };
+    return <TabsPrimitive.Root ref={ref} value={value} onValueChange={handleValueChange} {...props} />;
+  },
+);
 Tabs.displayName = 'Tabs';
 
-export type TabsProps = Omit<React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>, 'onValueChange' | 'value'> &
-  Omit<TabsBaseProps, 'value'> & { value: string; onValueChange: (value: string) => void };
+export type TabsProps = Omit<
+  React.ComponentPropsWithoutRef<typeof TabsPrimitive.Root>,
+  'onValueChange' | 'value' | 'defaultValue'
+> &
+  TabsBaseProps;
 export interface TabsListProps extends React.ComponentPropsWithoutRef<typeof TabsPrimitive.List>, TabsListBaseProps {}
 export interface TabsTriggerProps
   extends

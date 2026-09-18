@@ -7,6 +7,13 @@ import { theme } from '../packages/design-tokens/src/theme';
 
 const OUTPUT_CSS_PATH = path.join(process.cwd(), 'packages/design-tokens/src/theme.css');
 const OUTPUT_DART_PATH = path.join(process.cwd(), 'packages/ui-flutter/lib/src/tokens/gv_tokens.g.dart');
+// Vendored shadcn Tailwind primitives (@custom-variant definitions, scroll-fade
+// + shimmer utilities). Upstream components reference these bare `data-*:`
+// variants and utilities, which are NOT Tailwind CSS core — without them the
+// classes compile to nothing (or never match) and layouts silently break.
+// Appended verbatim to the generated theme.css so every consumer gets them
+// through the documented `@import '@gv-tech/design-tokens/theme.css'` entrypoint.
+const VENDOR_CSS_PATH = path.join(process.cwd(), 'packages/design-tokens/src/vendor/shadcn.css');
 
 /** Strips hsl() wrapper and commas to match Tailwind/shadcn expectation of "H S L" */
 function formatTokenValue(value: string) {
@@ -168,6 +175,13 @@ function generateCss() {
   }
 
   css += '  }\n}\n';
+
+  css += '\n/* shadcn vendor primitives (see src/vendor/shadcn.css) */\n';
+  css +=
+    fs
+      .readFileSync(VENDOR_CSS_PATH, 'utf8')
+      .replace(/^\/\*\*[\s\S]*?\*\//, '')
+      .trim() + '\n';
 
   return css;
 }

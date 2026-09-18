@@ -49,6 +49,10 @@ const steps = [
     cmd: 'bun run generate:contract-tests',
   },
   {
+    name: 'CSS smoke check (Tailwind compiles component selectors)',
+    cmd: 'bun run validate:css',
+  },
+  {
     name: fix ? 'Prettier fix' : 'Prettier check',
     cmd: fix
       ? `nx run-many -t format:fix ${nxParallelFlag}${nxFlagsCombined}`

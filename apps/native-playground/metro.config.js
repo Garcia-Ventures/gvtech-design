@@ -1,6 +1,6 @@
 const { withNxMetro } = require('@nx/expo');
-const { getDefaultConfig } = require('@expo/metro-config');
-const { mergeConfig } = require('metro-config');
+const { getDefaultConfig } = require('expo/metro-config');
+const { mergeConfig } = require('@expo/metro/metro-config');
 const { withNativeWind } = require('nativewind/metro');
 
 const defaultConfig = getDefaultConfig(__dirname);
