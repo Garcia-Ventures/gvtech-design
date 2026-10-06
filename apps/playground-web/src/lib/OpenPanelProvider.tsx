@@ -1,6 +1,8 @@
-import { docItemsMap } from '@/config/docs';
 import * as React from 'react';
 import { useLocation } from 'react-router-dom';
+
+import { docItemsMap } from '@/config/docs';
+
 import { initOpenPanel, safeScreenView, safeTrack } from './analytics';
 
 const DEFAULT_CLIENT_ID = '3316e353-e491-472e-84ff-7830c595a872';

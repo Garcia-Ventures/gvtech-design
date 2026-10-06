@@ -1,15 +1,3 @@
-import {
-  MessageScroller as MessageScrollerPrimitive,
-  useMessageScroller,
-  useMessageScrollerScrollable,
-  useMessageScrollerVisibility,
-} from '@shadcn/react/message-scroller';
-import { cn } from 'cn';
-import * as React from 'react';
-
-import { Button } from '@/./button';
-import { ArrowDownIcon } from 'lucide-react';
-
 import type {
   MessageScrollerBaseProps,
   MessageScrollerButtonBaseProps,
@@ -18,6 +6,17 @@ import type {
   MessageScrollerProviderBaseProps,
   MessageScrollerViewportBaseProps,
 } from '@gv-tech/ui-core';
+import {
+  MessageScroller as MessageScrollerPrimitive,
+  useMessageScroller,
+  useMessageScrollerScrollable,
+  useMessageScrollerVisibility,
+} from '@shadcn/react/message-scroller';
+import { cn } from 'cn';
+import { ArrowDownIcon } from 'lucide-react';
+import * as React from 'react';
+
+import { Button } from '@/./button';
 
 function MessageScrollerProvider(
   props: React.ComponentProps<typeof MessageScrollerPrimitive.Provider> & MessageScrollerProviderBaseProps,

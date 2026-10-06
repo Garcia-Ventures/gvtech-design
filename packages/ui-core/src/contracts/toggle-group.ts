@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ToggleSize, ToggleVariant } from './toggle';
 
 export interface ToggleGroupBaseProps {

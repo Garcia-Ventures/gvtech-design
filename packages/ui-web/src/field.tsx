@@ -1,12 +1,5 @@
 'use client';
 
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from 'cn';
-import { useMemo } from 'react';
-
-import { Label } from '@/./label';
-import { Separator } from '@/./separator';
-
 import type {
   FieldBaseProps,
   FieldContentBaseProps,
@@ -19,6 +12,12 @@ import type {
   FieldSetBaseProps,
   FieldTitleBaseProps,
 } from '@gv-tech/ui-core';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
+import { useMemo } from 'react';
+
+import { Label } from '@/./label';
+import { Separator } from '@/./separator';
 
 function FieldSet({ className, ...props }: React.ComponentProps<'fieldset'> & FieldSetBaseProps) {
   return (
@@ -61,7 +60,7 @@ function FieldGroup({ className, ...props }: React.ComponentProps<'div'> & Field
   );
 }
 
-const fieldVariants = cva('group/field flex w-full gap-2 data-[invalid=true]:text-destructive', {
+const fieldVariants = cva('group/field data-[invalid=true]:text-destructive flex w-full gap-2', {
   variants: {
     orientation: {
       vertical: 'flex-col *:w-full [&>.sr-only]:w-auto',

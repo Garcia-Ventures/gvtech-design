@@ -1,8 +1,8 @@
+import type { ButtonBaseProps } from '@gv-tech/ui-core';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
 
-import type { ButtonBaseProps } from '@gv-tech/ui-core';
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 
@@ -13,7 +13,7 @@ const buttonVariants = cva(
       variant: {
         default: 'bg-primary shadow-sm',
         destructive: 'bg-destructive shadow-sm',
-        outline: 'border border-input bg-transparent shadow-sm',
+        outline: 'border-input border bg-transparent shadow-sm',
         secondary: 'bg-secondary shadow-sm',
         ghost: 'bg-transparent',
         link: 'bg-transparent',

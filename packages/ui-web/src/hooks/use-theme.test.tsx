@@ -2,6 +2,7 @@ import { theme } from '@gv-tech/design-tokens';
 import { renderHook } from '@testing-library/react';
 import { useTheme as useNextTheme } from 'next-themes';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { useTheme } from './use-theme';
 
 // Mock next-themes

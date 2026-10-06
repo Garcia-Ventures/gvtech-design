@@ -1,7 +1,6 @@
+import type { EmptyBaseProps, EmptyMediaBaseProps } from '@gv-tech/ui-core';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from 'cn';
-
-import type { EmptyBaseProps, EmptyMediaBaseProps } from '@gv-tech/ui-core';
 
 function Empty({ className, ...props }: React.ComponentProps<'div'> & EmptyBaseProps) {
   return (
@@ -28,7 +27,7 @@ const emptyMediaVariants = cva(
     variants: {
       variant: {
         default: 'bg-transparent',
-        icon: "flex size-8 shrink-0 items-center justify-center rounded-lg bg-muted text-foreground [&_svg:not([class*='size-'])]:size-4",
+        icon: "bg-muted text-foreground flex size-8 shrink-0 items-center justify-center rounded-lg [&_svg:not([class*='size-'])]:size-4",
       },
     },
     defaultVariants: {

@@ -2,13 +2,20 @@
   "name": "@gv-tech/ui-core",
   "version": "2.28.0",
   "description": "Shared component contracts (props, variants, sizes) for the GV Tech design system",
+  "license": "MIT",
+  "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
     "directory": "packages/ui-core"
   },
-  "license": "MIT",
-  "author": "Eric N. Garcia <eng618@garciaericn.com>",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -18,13 +25,10 @@
       "default": "./dist/index.mjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "vite build",
     "lint": "echo 'Linted from workspace root'",
@@ -36,9 +40,5 @@
   },
   "peerDependencies": {
     "react": ">=18"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }

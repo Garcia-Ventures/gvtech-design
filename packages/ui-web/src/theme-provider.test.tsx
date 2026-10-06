@@ -3,6 +3,7 @@
 import { render, screen } from '@testing-library/react';
 import { useTheme } from 'next-themes';
 import { describe, expect, it } from 'vitest';
+
 import { ThemeProvider } from './theme-provider';
 
 // A simple consumer component to check context values

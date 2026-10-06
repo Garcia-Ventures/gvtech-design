@@ -1,6 +1,3 @@
-import { cn } from 'cn';
-import * as React from 'react';
-
 import type {
   MessageAvatarBaseProps,
   MessageBaseProps,
@@ -9,6 +6,8 @@ import type {
   MessageGroupBaseProps,
   MessageHeaderBaseProps,
 } from '@gv-tech/ui-core';
+import { cn } from 'cn';
+import * as React from 'react';
 
 function MessageGroup({ className, ...props }: React.ComponentProps<'div'> & MessageGroupBaseProps) {
   return <div data-slot="message-group" className={cn('flex min-w-0 flex-col gap-2', className)} {...props} />;

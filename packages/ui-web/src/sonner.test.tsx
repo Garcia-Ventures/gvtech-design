@@ -1,6 +1,7 @@
 'use client';
 import { render } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+
 import { Toaster } from '.';
 
 describe('Sonner Toaster', () => {

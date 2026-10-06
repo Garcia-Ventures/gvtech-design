@@ -1,8 +1,9 @@
-import { useDocMetadata } from '@/hooks/useDocMetadata';
-import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { Info } from 'lucide-react';
 import React from 'react';
+
+import { useDocMetadata } from '@/hooks/useDocMetadata';
+import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 
 interface CombinedDocsLayoutProps {
   title?: string;

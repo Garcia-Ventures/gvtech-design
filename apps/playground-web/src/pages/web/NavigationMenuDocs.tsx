@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   NavigationMenu,
@@ -12,6 +10,9 @@ import {
   navigationMenuTriggerStyle,
 } from '@gv-tech/ui-web';
 import React from 'react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 

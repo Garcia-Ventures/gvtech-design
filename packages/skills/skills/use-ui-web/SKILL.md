@@ -27,7 +27,7 @@ export function UserCard() {
         <CardDescription>Manage your profile and settings.</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
-        <p className="text-sm text-muted-foreground">Your account is active. Explore design system components.</p>
+        <p className="text-muted-foreground text-sm">Your account is active. Explore design system components.</p>
         <Button variant="default">View Profile</Button>
       </CardContent>
     </Card>

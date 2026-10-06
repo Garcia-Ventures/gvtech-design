@@ -6,9 +6,7 @@
     {
       "name": "__contracts",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -20,12 +18,7 @@
     {
       "name": "accordion",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -37,11 +30,7 @@
     {
       "name": "alert-dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -53,11 +42,7 @@
     {
       "name": "alert",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -69,10 +54,7 @@
     {
       "name": "aspect-ratio",
       "type": "registry:ui",
-      "dependencies": [
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -84,12 +66,7 @@
     {
       "name": "attachment",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -101,10 +78,7 @@
     {
       "name": "avatar",
       "type": "registry:ui",
-      "dependencies": [
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -116,11 +90,7 @@
     {
       "name": "badge",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -132,12 +102,7 @@
     {
       "name": "breadcrumb",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -149,12 +114,7 @@
     {
       "name": "bubble",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -166,12 +126,7 @@
     {
       "name": "button-group",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -183,12 +138,7 @@
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -200,12 +150,7 @@
     {
       "name": "calendar",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "react-day-picker",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "react-day-picker", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -217,10 +162,7 @@
     {
       "name": "card",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -232,12 +174,7 @@
     {
       "name": "carousel",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "embla-carousel-react",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "embla-carousel-react", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -249,10 +186,7 @@
     {
       "name": "chart",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "recharts"
-      ],
+      "dependencies": ["cn", "recharts"],
       "registryDependencies": [],
       "files": [
         {
@@ -264,12 +198,7 @@
     {
       "name": "checkbox",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -281,10 +210,7 @@
     {
       "name": "collapsible",
       "type": "registry:ui",
-      "dependencies": [
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -296,12 +222,7 @@
     {
       "name": "combobox",
       "type": "registry:ui",
-      "dependencies": [
-        "@base-ui/react",
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@base-ui/react", "cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -313,12 +234,7 @@
     {
       "name": "command",
       "type": "registry:ui",
-      "dependencies": [
-        "cmdk",
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cmdk", "cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -330,12 +246,7 @@
     {
       "name": "context-menu",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -347,12 +258,7 @@
     {
       "name": "dialog",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -364,10 +270,7 @@
     {
       "name": "direction",
       "type": "registry:ui",
-      "dependencies": [
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -379,11 +282,7 @@
     {
       "name": "drawer",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "vaul",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "vaul", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -395,12 +294,7 @@
     {
       "name": "dropdown-menu",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -412,11 +306,7 @@
     {
       "name": "empty",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -428,11 +318,7 @@
     {
       "name": "field",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -444,15 +330,8 @@
     {
       "name": "form",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-label",
-        "@radix-ui/react-slot",
-        "react-hook-form",
-        "@gv-tech/ui-core"
-      ],
-      "registryDependencies": [
-        "label"
-      ],
+      "dependencies": ["@radix-ui/react-label", "@radix-ui/react-slot", "react-hook-form", "@gv-tech/ui-core"],
+      "registryDependencies": ["label"],
       "files": [
         {
           "path": "src/form.tsx",
@@ -463,11 +342,7 @@
     {
       "name": "hover-card",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -479,11 +354,7 @@
     {
       "name": "input-group",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -495,12 +366,7 @@
     {
       "name": "input-otp",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "input-otp",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "input-otp", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -512,10 +378,7 @@
     {
       "name": "input",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -527,12 +390,7 @@
     {
       "name": "item",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -544,10 +402,7 @@
     {
       "name": "kbd",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -559,11 +414,7 @@
     {
       "name": "label",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -575,12 +426,7 @@
     {
       "name": "marker",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -592,12 +438,7 @@
     {
       "name": "menubar",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -609,12 +450,7 @@
     {
       "name": "message-scroller",
       "type": "registry:ui",
-      "dependencies": [
-        "@shadcn/react",
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@shadcn/react", "cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -626,10 +462,7 @@
     {
       "name": "message",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -641,11 +474,7 @@
     {
       "name": "native-select",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -657,13 +486,7 @@
     {
       "name": "navigation-menu",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -675,11 +498,7 @@
     {
       "name": "pagination",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -691,11 +510,7 @@
     {
       "name": "popover",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -707,11 +522,7 @@
     {
       "name": "progress",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -723,12 +534,7 @@
     {
       "name": "questionnaire",
       "type": "registry:ui",
-      "dependencies": [
-        "@shadcn/react",
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@shadcn/react", "cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -740,10 +546,7 @@
     {
       "name": "radio-group",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui"
-      ],
+      "dependencies": ["cn", "radix-ui"],
       "registryDependencies": [],
       "files": [
         {
@@ -755,10 +558,7 @@
     {
       "name": "resizable",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "react-resizable-panels"
-      ],
+      "dependencies": ["cn", "react-resizable-panels"],
       "registryDependencies": [],
       "files": [
         {
@@ -770,11 +570,7 @@
     {
       "name": "scroll-area",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -786,13 +582,8 @@
     {
       "name": "scroll-to-top",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button"
-      ],
+      "dependencies": ["@gv-tech/ui-core", "lucide-react"],
+      "registryDependencies": ["button"],
       "files": [
         {
           "path": "src/scroll-to-top.tsx",
@@ -803,14 +594,8 @@
     {
       "name": "search",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "command"
-      ],
+      "dependencies": ["@gv-tech/ui-core", "lucide-react"],
+      "registryDependencies": ["button", "command"],
       "files": [
         {
           "path": "src/search.tsx",
@@ -821,12 +606,7 @@
     {
       "name": "select",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -838,11 +618,7 @@
     {
       "name": "separator",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -854,9 +630,7 @@
     {
       "name": "setupTests",
       "type": "registry:ui",
-      "dependencies": [
-        "vitest"
-      ],
+      "dependencies": ["vitest"],
       "registryDependencies": [],
       "files": [
         {
@@ -868,12 +642,7 @@
     {
       "name": "sheet",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -885,13 +654,7 @@
     {
       "name": "sidebar",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "lucide-react",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "lucide-react", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -903,10 +666,7 @@
     {
       "name": "skeleton",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -918,11 +678,7 @@
     {
       "name": "slider",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -934,11 +690,7 @@
     {
       "name": "spinner",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -950,14 +702,8 @@
     {
       "name": "support-fab",
       "type": "registry:ui",
-      "dependencies": [
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "dialog",
-        "drawer"
-      ],
+      "dependencies": ["lucide-react"],
+      "registryDependencies": ["button", "dialog", "drawer"],
       "files": [
         {
           "path": "src/support-fab.tsx",
@@ -968,11 +714,7 @@
     {
       "name": "switch",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -984,9 +726,7 @@
     {
       "name": "table-of-contents",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -998,10 +738,7 @@
     {
       "name": "table",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1013,12 +750,7 @@
     {
       "name": "tabs",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1030,10 +762,7 @@
     {
       "name": "text",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1045,10 +774,7 @@
     {
       "name": "textarea",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1060,10 +786,7 @@
     {
       "name": "theme-provider",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core",
-        "next-themes"
-      ],
+      "dependencies": ["@gv-tech/ui-core", "next-themes"],
       "registryDependencies": [],
       "files": [
         {
@@ -1075,14 +798,8 @@
     {
       "name": "theme-toggle",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core",
-        "lucide-react"
-      ],
-      "registryDependencies": [
-        "button",
-        "dropdown-menu"
-      ],
+      "dependencies": ["@gv-tech/ui-core", "lucide-react"],
+      "registryDependencies": ["button", "dropdown-menu"],
       "files": [
         {
           "path": "src/theme-toggle.tsx",
@@ -1093,12 +810,7 @@
     {
       "name": "toast",
       "type": "registry:ui",
-      "dependencies": [
-        "@radix-ui/react-toast",
-        "class-variance-authority",
-        "lucide-react",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["@radix-ui/react-toast", "class-variance-authority", "lucide-react", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1110,12 +822,8 @@
     {
       "name": "toaster",
       "type": "registry:ui",
-      "dependencies": [
-        "@gv-tech/ui-core"
-      ],
-      "registryDependencies": [
-        "toast"
-      ],
+      "dependencies": ["@gv-tech/ui-core"],
+      "registryDependencies": ["toast"],
       "files": [
         {
           "path": "src/toaster.tsx",
@@ -1126,12 +834,7 @@
     {
       "name": "toggle-group",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1143,12 +846,7 @@
     {
       "name": "toggle",
       "type": "registry:ui",
-      "dependencies": [
-        "class-variance-authority",
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["class-variance-authority", "cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {
@@ -1160,11 +858,7 @@
     {
       "name": "tooltip",
       "type": "registry:ui",
-      "dependencies": [
-        "cn",
-        "radix-ui",
-        "@gv-tech/ui-core"
-      ],
+      "dependencies": ["cn", "radix-ui", "@gv-tech/ui-core"],
       "registryDependencies": [],
       "files": [
         {

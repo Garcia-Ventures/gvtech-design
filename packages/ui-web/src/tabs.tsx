@@ -1,11 +1,10 @@
 'use client';
 
+import type { TabsBaseProps } from '@gv-tech/ui-core';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from 'cn';
 import { Tabs as TabsPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { TabsBaseProps } from '@gv-tech/ui-core';
 
 function Tabs({ className, orientation = 'horizontal', ...props }: React.ComponentProps<typeof TabsPrimitive.Root>) {
   return (
@@ -19,7 +18,7 @@ function Tabs({ className, orientation = 'horizontal', ...props }: React.Compone
 }
 
 const tabsListVariants = cva(
-  'group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none',
+  'group/tabs-list text-muted-foreground inline-flex w-fit items-center justify-center rounded-lg p-[3px] group-data-horizontal/tabs:h-8 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none',
   {
     variants: {
       variant: {

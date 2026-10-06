@@ -1,7 +1,6 @@
+import type { TableBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import * as React from 'react';
-
-import type { TableBaseProps } from '@gv-tech/ui-core';
 
 function Table({ className, ...props }: React.ComponentProps<'table'>) {
   return (

@@ -1,10 +1,9 @@
 'use client';
 
+import type { SliderBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { Slider as SliderPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { SliderBaseProps } from '@gv-tech/ui-core';
 
 function Slider({
   className,

@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@expo/metro": "~56.0.0",
+    "@tailwindcss/postcss": "^4.3.0",
     "babel-preset-expo": "~56.0.0",
     "expo": "~56.0.0",
     "expo-splash-screen": "~56.0.10",
@@ -15,7 +16,6 @@
     "expo-system-ui": "~56.0.5",
     "nativewind": "^5.0.0-preview.4",
     "postcss": "^8.5.8",
-    "@tailwindcss/postcss": "^4.3.0",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-native": "0.85.3",

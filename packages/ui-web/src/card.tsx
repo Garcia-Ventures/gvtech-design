@@ -1,7 +1,6 @@
+import type { CardBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import * as React from 'react';
-
-import type { CardBaseProps } from '@gv-tech/ui-core';
 
 function Card({ className, size = 'default', ...props }: React.ComponentProps<'div'> & { size?: 'default' | 'sm' }) {
   return (

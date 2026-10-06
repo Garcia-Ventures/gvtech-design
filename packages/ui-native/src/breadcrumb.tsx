@@ -11,6 +11,7 @@ import { Slot } from '@rn-primitives/slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react-native';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
+
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 import { Text } from './text';

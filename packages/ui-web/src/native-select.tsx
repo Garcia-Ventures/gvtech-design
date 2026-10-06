@@ -1,12 +1,11 @@
-import { cn } from 'cn';
-import { ChevronDownIcon } from 'lucide-react';
-import * as React from 'react';
-
 import type {
   NativeSelectBaseProps,
   NativeSelectOptGroupBaseProps,
   NativeSelectOptionBaseProps,
 } from '@gv-tech/ui-core';
+import { cn } from 'cn';
+import { ChevronDownIcon } from 'lucide-react';
+import * as React from 'react';
 
 type NativeSelectProps = Omit<React.ComponentProps<'select'>, 'size'> & NativeSelectBaseProps;
 

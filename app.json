@@ -1,5 +1,3 @@
 {
-  "plugins": [
-    "expo-splash-screen"
-  ]
+  "plugins": ["expo-splash-screen"]
 }

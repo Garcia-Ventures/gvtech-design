@@ -12,6 +12,7 @@ import * as DialogPrimitive from '@rn-primitives/dialog';
 import * as React from 'react';
 import { Platform, View, type StyleProp, type ViewStyle } from 'react-native';
 import Animated, { FadeIn, FadeOut, SlideInDown, SlideOutDown } from 'react-native-reanimated';
+
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 

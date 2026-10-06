@@ -8,6 +8,7 @@ import {
   TableOfContentsRootBaseProps,
 } from '@gv-tech/ui-core';
 import * as React from 'react';
+
 import { cn, slugify } from './lib/utils';
 
 // Context for sharing heading data
@@ -33,10 +34,9 @@ function useTOC() {
 export type TableOfContentsProps = TableOfContentsRootBaseProps;
 
 /**
- * Root component that provides the Table of Contents context.
- * Can be used as a wrapper OR standalone.
- * If used as a wrapper: <TableOfContents><List /><Content>{children}</Content></TableOfContents>
- * If used standalone: <TableOfContents /> (requires container ref or defaults to document)
+ * Root component that provides the Table of Contents context. Can be used as a wrapper OR standalone. If used as a
+ * wrapper: <TableOfContents><List /><Content>{children}</Content></TableOfContents> If used standalone:
+ * <TableOfContents /> (requires container ref or defaults to document)
  */
 function TableOfContents({
   children,
@@ -98,9 +98,7 @@ function TableOfContents({
   );
 }
 
-/**
- * Renders the actual list of links.
- */
+/** Renders the actual list of links. */
 function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   const { headings, activeId, activeHeadingText } = useTOC();
   const [isOpen, setIsOpen] = React.useState(false);
@@ -198,9 +196,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
   );
 }
 
-/**
- * Wraps the content area and automatically detects headings within it.
- */
+/** Wraps the content area and automatically detects headings within it. */
 function TableOfContentsContent({ children, className }: TableOfContentsContentBaseProps) {
   const { registerHeadings, setActiveId, config } = useTOC();
   const contentRef = React.useRef<HTMLDivElement>(null);

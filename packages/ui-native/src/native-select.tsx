@@ -5,6 +5,7 @@ import type {
 } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 function NativeSelect({ className, size, ...props }: React.ComponentProps<typeof View> & NativeSelectBaseProps) {

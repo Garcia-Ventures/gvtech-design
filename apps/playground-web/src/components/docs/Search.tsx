@@ -1,5 +1,3 @@
-import { docConfig } from '@/config/docs';
-import { safeTrack } from '@/lib/analytics';
 import {
   CommandEmpty,
   CommandGroup,
@@ -11,6 +9,9 @@ import {
 } from '@gv-tech/ui-web';
 import * as React from 'react';
 import { useNavigate } from 'react-router-dom';
+
+import { docConfig } from '@/config/docs';
+import { safeTrack } from '@/lib/analytics';
 
 interface SearchContextType {
   open: boolean;

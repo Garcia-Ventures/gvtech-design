@@ -1,3 +1,4 @@
+import type { CommandBaseProps } from '@gv-tech/ui-core';
 import { Command as CommandPrimitive } from 'cmdk';
 import { cn } from 'cn';
 import { CheckIcon, SearchIcon } from 'lucide-react';
@@ -5,8 +6,6 @@ import * as React from 'react';
 
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from '@/./dialog';
 import { InputGroup, InputGroupAddon } from '@/./input-group';
-
-import type { CommandBaseProps } from '@gv-tech/ui-core';
 
 function Command({ className, ...props }: React.ComponentProps<typeof CommandPrimitive>) {
   return (

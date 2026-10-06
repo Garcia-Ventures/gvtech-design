@@ -1,9 +1,8 @@
+import type { CheckboxBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { CheckIcon } from 'lucide-react';
 import { Checkbox as CheckboxPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { CheckboxBaseProps } from '@gv-tech/ui-core';
 
 function Checkbox({ className, ...props }: React.ComponentProps<typeof CheckboxPrimitive.Root>) {
   return (

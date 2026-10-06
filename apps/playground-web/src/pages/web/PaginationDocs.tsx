@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Pagination,
   PaginationContent,
@@ -9,6 +7,9 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from '@gv-tech/ui-web';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

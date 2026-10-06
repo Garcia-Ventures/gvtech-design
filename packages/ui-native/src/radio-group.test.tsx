@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { RadioGroup, RadioGroupItem } from './radio-group';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules

@@ -1,6 +1,7 @@
 import { theme as designTokens } from '@gv-tech/design-tokens';
 import * as React from 'react';
 import { useColorScheme } from 'react-native';
+
 import { ThemeContext } from '../theme-provider';
 
 export function useTheme() {

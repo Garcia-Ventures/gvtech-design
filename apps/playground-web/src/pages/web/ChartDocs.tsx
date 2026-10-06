@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@gv-tech/ui-web';
 import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

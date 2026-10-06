@@ -1,11 +1,3 @@
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from 'cn';
-import * as React from 'react';
-
-import { Button } from '@/./button';
-import { Input } from '@/./input';
-import { Textarea } from '@/./textarea';
-
 import type {
   InputGroupAddonBaseProps,
   InputGroupBaseProps,
@@ -14,6 +6,13 @@ import type {
   InputGroupTextareaBaseProps,
   InputGroupTextBaseProps,
 } from '@gv-tech/ui-core';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
+import * as React from 'react';
+
+import { Button } from '@/./button';
+import { Input } from '@/./input';
+import { Textarea } from '@/./textarea';
 
 function InputGroup({ className, ...props }: React.ComponentProps<'div'> & InputGroupBaseProps) {
   return (
@@ -30,7 +29,7 @@ function InputGroup({ className, ...props }: React.ComponentProps<'div'> & Input
 }
 
 const inputGroupAddonVariants = cva(
-  "flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium text-muted-foreground select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
+  "text-muted-foreground flex h-auto cursor-text items-center justify-center gap-2 py-1.5 text-sm font-medium select-none group-data-[disabled=true]/input-group:opacity-50 [&>kbd]:rounded-[calc(var(--radius)-5px)] [&>svg:not([class*='size-'])]:size-4",
   {
     variants: {
       align: {

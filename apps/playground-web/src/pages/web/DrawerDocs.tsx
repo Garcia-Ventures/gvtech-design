@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Button,
   Drawer,
@@ -14,6 +12,9 @@ import {
 import { Minus, Plus } from 'lucide-react';
 import * as React from 'react';
 import { Bar, BarChart, ResponsiveContainer } from 'recharts';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

@@ -1,8 +1,7 @@
+import type { HoverCardBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { HoverCard as HoverCardPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { HoverCardBaseProps } from '@gv-tech/ui-core';
 
 function HoverCard({ ...props }: React.ComponentProps<typeof HoverCardPrimitive.Root>) {
   return <HoverCardPrimitive.Root data-slot="hover-card" {...props} />;

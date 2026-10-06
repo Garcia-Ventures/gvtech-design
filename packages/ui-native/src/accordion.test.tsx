@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from './accordion';
 
 // Mock primitives

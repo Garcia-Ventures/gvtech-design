@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Toast, ToastDescription, ToastTitle } from './toast';
 
 // Mock primitives

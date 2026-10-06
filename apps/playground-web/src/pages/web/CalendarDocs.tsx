@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Calendar } from '@gv-tech/ui-web';
 import * as React from 'react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

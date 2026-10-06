@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+
 // CSS smoke check: compiles the real playground stylesheet through Tailwind
 // and asserts that the selectors our components depend on are actually emitted.
 //
@@ -9,8 +12,6 @@
 // silently dead: present in the DOM and in unit-test assertions, but matching
 // nothing. Vitest/jsdom cannot catch this — only a real CSS compile can.
 import tailwindcss from '@tailwindcss/postcss';
-import { readFileSync } from 'node:fs';
-import path from 'node:path';
 import postcss from 'postcss';
 
 const root = process.cwd();

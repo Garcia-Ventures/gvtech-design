@@ -1,6 +1,7 @@
+import { Button, ButtonGroup, ButtonGroupSeparator } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Button, ButtonGroup, ButtonGroupSeparator } from '@gv-tech/ui-web';
 
 export function ButtonGroupDocs() {
   return (

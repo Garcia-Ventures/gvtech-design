@@ -1,4 +1,3 @@
-import { CodeBlock } from '@/components/docs/CodeBlock';
 import { tokens } from '@gv-tech/design-tokens';
 import {
   Card,
@@ -19,6 +18,7 @@ import {
 } from '@gv-tech/ui-web';
 import { Info, Layers, Palette, Settings2 } from 'lucide-react';
 
+import { CodeBlock } from '@/components/docs/CodeBlock';
 import { useDocMetadata } from '@/hooks/useDocMetadata';
 
 export function ColorTokensDocs() {

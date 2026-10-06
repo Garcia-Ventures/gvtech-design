@@ -11,6 +11,7 @@ import type {
   ItemTitleBaseProps,
 } from '@gv-tech/ui-core';
 import { View } from 'react-native';
+
 import { cn } from './lib/utils';
 import { Text } from './text';
 

@@ -1,6 +1,7 @@
 'use client';
 
 import { ToasterBaseProps } from '@gv-tech/ui-core';
+
 import { useToast } from './hooks/use-toast';
 import { Toast, ToastClose, ToastDescription, ToastProvider, ToastTitle, ToastViewport } from './toast';
 

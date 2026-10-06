@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Empty, EmptyDescription, EmptyMedia, EmptyTitle } from '@gv-tech/ui-web';
 import { FolderX } from 'lucide-react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function EmptyDocs() {
   return (

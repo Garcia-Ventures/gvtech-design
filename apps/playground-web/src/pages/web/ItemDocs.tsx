@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Item, ItemContent, ItemDescription, ItemMedia, ItemTitle } from '@gv-tech/ui-web';
 import { UserIcon } from 'lucide-react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function ItemDocs() {
   return (

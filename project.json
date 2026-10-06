@@ -40,9 +40,7 @@
       }
     },
     "nx-release-publish": {
-      "dependsOn": [
-        "build"
-      ],
+      "dependsOn": ["build"],
       "executor": "nx:run-commands",
       "options": {
         "command": "npm publish --provenance --access public",

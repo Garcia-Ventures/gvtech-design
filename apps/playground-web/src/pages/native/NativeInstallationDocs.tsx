@@ -1,7 +1,8 @@
-import { CodeBlock } from '@/components/docs/CodeBlock';
-import { usePackageManager, type PackageManager } from '@/hooks/usePackageManager';
 import { Alert, AlertDescription, AlertTitle, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { AlertCircle, AlertTriangle, CheckCircle2, Info } from 'lucide-react';
+
+import { CodeBlock } from '@/components/docs/CodeBlock';
+import { usePackageManager, type PackageManager } from '@/hooks/usePackageManager';
 
 export function NativeInstallationDocs() {
   const { packageManager, setPackageManager } = usePackageManager();

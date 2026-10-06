@@ -1,4 +1,5 @@
 import * as React from 'react';
+
 import { ButtonSize } from './button';
 
 export interface PaginationBaseProps {
