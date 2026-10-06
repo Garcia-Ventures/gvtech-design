@@ -4,9 +4,6 @@ import * as React from 'react';
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
-
 export function CalendarDocs() {
   const [date, setDate] = React.useState<Date | undefined>(new Date());
 

@@ -1,9 +1,6 @@
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = true as boolean;
-const platform = 'native' as string;
-
 export function ScrollAreaDocs() {
   return (
     <>

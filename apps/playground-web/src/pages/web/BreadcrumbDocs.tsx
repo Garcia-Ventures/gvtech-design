@@ -10,9 +10,6 @@ import {
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
-
 export function BreadcrumbDocs() {
   return (
     <>

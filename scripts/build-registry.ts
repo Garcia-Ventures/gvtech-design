@@ -220,7 +220,7 @@ function buildRegistry() {
       stdio: 'ignore',
     });
     console.log('✅ Formatted registry files.');
-  } catch (e) {
+  } catch {
     // Ignore errors if prettier fails
   }
 }
