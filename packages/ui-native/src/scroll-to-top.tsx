@@ -11,7 +11,8 @@ import {
   type NativeScrollEvent,
   type NativeSyntheticEvent,
   Platform,
-  View} from 'react-native';
+  View,
+} from 'react-native';
 
 import { Button } from './button';
 import { cn } from './lib/utils';

@@ -11,7 +11,7 @@ import type {
 import * as NavigationMenuPrimitive from '@rn-primitives/navigation-menu';
 import { ChevronDown } from 'lucide-react-native';
 import * as React from 'react';
-import type { GestureResponderEvent} from 'react-native';
+import type { GestureResponderEvent } from 'react-native';
 import { View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
 

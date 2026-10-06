@@ -1,4 +1,4 @@
-import type { ToggleBaseProps} from '@gv-tech/ui-core';
+import type { ToggleBaseProps } from '@gv-tech/ui-core';
 import { toggleVariants } from '@gv-tech/ui-core';
 import * as TogglePrimitive from '@rn-primitives/toggle';
 import * as React from 'react';
