@@ -117,8 +117,8 @@ function ComboboxClear({
 
 function ComboboxInput({
   className,
-  showClear,
-  showTrigger,
+  _showClear,
+  _showTrigger,
   placeholder = 'Search...',
   ...props
 }: React.ComponentProps<typeof TextInput> & ComboboxInputBaseProps) {
@@ -140,11 +140,11 @@ function ComboboxInput({
 
 function ComboboxContent({
   className,
-  side,
-  sideOffset,
-  align,
-  alignOffset,
-  anchor,
+  _side,
+  _sideOffset,
+  _align,
+  _alignOffset,
+  _anchor,
   ...props
 }: React.ComponentProps<typeof View> & ComboboxContentBaseProps) {
   return (

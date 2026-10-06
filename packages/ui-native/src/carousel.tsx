@@ -48,7 +48,7 @@ export type CarouselProps = CarouselBaseProps & {
 };
 
 export const Carousel = React.forwardRef<View, CarouselProps>(
-  ({ children, className, opts, orientation = 'horizontal', setApi, plugins, ...props }, ref) => {
+  ({ children, className, _opts, orientation = 'horizontal', setApi, _plugins, ...props }, ref) => {
     const scrollRef = React.useRef<ScrollView>(null) as React.RefObject<ScrollView>;
     const [canScrollNext, setCanScrollNext] = React.useState(true);
     const [canScrollPrev, setCanScrollPrev] = React.useState(false);

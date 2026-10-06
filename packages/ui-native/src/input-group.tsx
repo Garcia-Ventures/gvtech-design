@@ -16,13 +16,13 @@ function InputGroup({ className, ...props }: React.ComponentProps<typeof View> &
   return <View className={cn('border-input flex flex-row items-center rounded-md border', className)} {...props} />;
 }
 
-function InputGroupAddon({ className, align, ...props }: React.ComponentProps<typeof View> & InputGroupAddonBaseProps) {
+function InputGroupAddon({ className, _align, ...props }: React.ComponentProps<typeof View> & InputGroupAddonBaseProps) {
   return <View className={cn('p-2', className)} {...props} />;
 }
 
 function InputGroupButton({
   className,
-  type,
+  _type,
   variant,
   size,
   ...props

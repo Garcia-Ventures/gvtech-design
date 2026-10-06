@@ -15,7 +15,7 @@ export type CalendarProps = Omit<
   };
 
 export const Calendar = React.forwardRef<View, CalendarProps>(
-  ({ className, value, onChange, showOutsideDays, ...props }, ref) => {
+  ({ className, value, onChange, _showOutsideDays, ...props }, ref) => {
     // If no value is provided, default to current date so the picker doesn't crash
     const [date, setDate] = React.useState<Date>(value || new Date());
 
