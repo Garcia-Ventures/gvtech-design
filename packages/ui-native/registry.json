@@ -138,7 +138,7 @@
     {
       "name": "button",
       "type": "registry:ui",
-      "dependencies": ["class-variance-authority", "@gv-tech/ui-core"],
+      "dependencies": ["@gv-tech/ui-core", "class-variance-authority"],
       "registryDependencies": [],
       "files": [
         {
@@ -341,7 +341,7 @@
     {
       "name": "form",
       "type": "registry:ui",
-      "dependencies": ["react-hook-form", "@gv-tech/ui-core", "@rn-primitives/slot"],
+      "dependencies": ["@gv-tech/ui-core", "@rn-primitives/slot", "react-hook-form"],
       "registryDependencies": ["label"],
       "files": [
         {
@@ -598,7 +598,7 @@
     {
       "name": "scroll-to-top",
       "type": "registry:ui",
-      "dependencies": ["lucide-react-native", "@gv-tech/ui-core"],
+      "dependencies": ["@gv-tech/ui-core", "lucide-react-native"],
       "registryDependencies": ["button"],
       "files": [
         {
@@ -766,7 +766,7 @@
     {
       "name": "text",
       "type": "registry:ui",
-      "dependencies": ["class-variance-authority", "@gv-tech/ui-core"],
+      "dependencies": ["@gv-tech/ui-core", "class-variance-authority"],
       "registryDependencies": [],
       "files": [
         {

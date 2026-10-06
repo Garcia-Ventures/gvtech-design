@@ -7,14 +7,7 @@ import type {
 } from '@gv-tech/ui-core';
 import { ArrowLeft, ArrowRight } from 'lucide-react-native';
 import * as React from 'react';
-import {
-  Dimensions,
-  ScrollView,
-  View,
-  type LayoutChangeEvent,
-  type NativeScrollEvent,
-  type NativeSyntheticEvent,
-} from 'react-native';
+import { Dimensions, ScrollView, View, type LayoutChangeEvent } from 'react-native';
 
 import { Button } from './button';
 import { cn } from './lib/utils';
@@ -50,10 +43,10 @@ export type CarouselProps = CarouselBaseProps & {
 export const Carousel = React.forwardRef<View, CarouselProps>(
   ({ children, className, opts: _opts, orientation = 'horizontal', setApi, plugins: _plugins, ...props }, ref) => {
     const scrollRef = React.useRef<ScrollView>(null) as React.RefObject<ScrollView>;
-    const [canScrollNext, setCanScrollNext] = React.useState(true);
-    const [canScrollPrev, setCanScrollPrev] = React.useState(false);
+    const [canScrollNext] = React.useState(true);
+    const [canScrollPrev] = React.useState(false);
     const [itemWidth, setItemWidth] = React.useState(Dimensions.get('window').width);
-    const [currentIndex, setCurrentIndex] = React.useState(0);
+    const [currentIndex] = React.useState(0);
 
     const scrollNext = React.useCallback(() => {
       scrollRef.current?.scrollTo({ x: (currentIndex + 1) * itemWidth, animated: true });
@@ -76,17 +69,6 @@ export const Carousel = React.forwardRef<View, CarouselProps>(
         } as unknown as CarouselApi);
       }
     }, [setApi, scrollNext, scrollPrev, canScrollNext, canScrollPrev]);
-
-    const _handleScroll = (event: NativeSyntheticEvent<NativeScrollEvent>) => {
-      const offsetX = event.nativeEvent.contentOffset.x;
-      const contentWidth = event.nativeEvent.contentSize.width;
-      const layoutWidth = event.nativeEvent.layoutMeasurement.width;
-
-      const newIndex = Math.round(offsetX / itemWidth);
-      setCurrentIndex(newIndex);
-      setCanScrollPrev(offsetX > 0);
-      setCanScrollNext(offsetX + layoutWidth < contentWidth);
-    };
 
     return (
       <CarouselContext.Provider
