@@ -4,7 +4,7 @@ export function NativeSonnerDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Sonner"
+        title="Sonner"
         description="The native implementation of Sonner is currently a shim and returns 'Not implemented'."
         code={`import { Sonner } from '@gv-tech/ui-native';
 

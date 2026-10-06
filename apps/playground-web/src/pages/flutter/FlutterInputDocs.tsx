@@ -29,43 +29,43 @@ class MyInputWidget extends StatelessWidget {
         <FlutterComponentPreview route="input" height={360} title="GVInput Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVInput Props</h3>
       <PropsTable
-        title="GVInput Props"
         props={[
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Field title label.',
           },
           {
             name: 'placeholder',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Placeholder hint text.',
           },
           {
             name: 'helperText',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Informative helper message rendered below input.',
           },
           {
             name: 'errorText',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Validation error message. Renders input in error state.',
           },
           {
             name: 'obscureText',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Masks input characters for passwords.',
           },
           {
             name: 'disabled',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Disables editing interaction.',
           },
         ]}

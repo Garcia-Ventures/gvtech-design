@@ -4,7 +4,7 @@ export function NativePopoverDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Popover"
+        title="Popover"
         description="The native implementation of Popover is currently a shim and returns 'Not implemented'."
         code={`import { Popover } from '@gv-tech/ui-native';
 

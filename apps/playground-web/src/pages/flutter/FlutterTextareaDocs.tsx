@@ -27,31 +27,31 @@ class MyTextareaWidget extends StatelessWidget {
         <FlutterComponentPreview route="textarea" height={320} title="GVTextarea Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVTextarea Props</h3>
       <PropsTable
-        title="GVTextarea Props"
         props={[
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Field title label.',
           },
           {
             name: 'placeholder',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Placeholder hint text.',
           },
           {
             name: 'minLines',
             type: 'int',
-            default: '3',
+            defaultValue: '3',
             description: 'Minimum line height.',
           },
           {
             name: 'maxLines',
             type: 'int',
-            default: '6',
+            defaultValue: '6',
             description: 'Maximum expandable lines.',
           },
         ]}

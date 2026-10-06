@@ -33,31 +33,31 @@ class _MySwitchWidgetState extends State<MySwitchWidget> {
         <FlutterComponentPreview route="switch" height={280} title="GVSwitch Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSwitch Props</h3>
       <PropsTable
-        title="GVSwitch Props"
         props={[
           {
             name: 'value',
             type: 'bool',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Whether the switch is toggled on.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<bool>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when toggle state changes.',
           },
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Option label rendered beside switch.',
           },
           {
             name: 'disabled',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Disables tap interaction.',
           },
         ]}

@@ -4,7 +4,7 @@ export function NativeNavigationMenuDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="NavigationMenu"
+        title="NavigationMenu"
         description="The native implementation of NavigationMenu is currently a shim and returns 'Not implemented'."
         code={`import { NavigationMenu } from '@gv-tech/ui-native';
 

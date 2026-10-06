@@ -9,7 +9,8 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["./src/*"],
+      "@/*": ["./src/*", "../../packages/ui-web/src/*"],
+      "@/./*": ["../../packages/ui-web/src/*"],
       "@gv-tech/design-tokens": ["../../packages/design-tokens/src"],
       "@gv-tech/ui-core": ["../../packages/ui-core/src"],
       "@gv-tech/ui-web": ["../../packages/ui-web/src"],
@@ -17,5 +18,11 @@
     },
     "ignoreDeprecations": "6.0"
   },
-  "include": ["src", "../../packages/ui-web/src"]
+  "include": [
+    "src",
+    "../../packages/design-tokens/src",
+    "../../packages/ui-core/src",
+    "../../packages/ui-web/src",
+    "../../packages/ui-native/src"
+  ]
 }

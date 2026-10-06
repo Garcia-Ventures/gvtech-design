@@ -4,7 +4,7 @@ export function NativePaginationDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Pagination"
+        title="Pagination"
         description="The native implementation of Pagination is currently a shim and returns 'Not implemented'."
         code={`import { Pagination } from '@gv-tech/ui-native';
 

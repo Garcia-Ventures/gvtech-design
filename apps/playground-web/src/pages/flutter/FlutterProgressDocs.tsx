@@ -24,25 +24,25 @@ class MyProgressWidget extends StatelessWidget {
         <FlutterComponentPreview route="progress" height={260} title="GVProgress Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVProgress Props</h3>
       <PropsTable
-        title="GVProgress Props"
         props={[
           {
             name: 'value',
             type: 'double?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Progress value from 0.0 to 1.0. If null, renders indeterminate loading animation.',
           },
           {
             name: 'height',
             type: 'double',
-            default: '6.0',
+            defaultValue: '6.0',
             description: 'Progress bar height in logical pixels.',
           },
           {
             name: 'color',
             type: 'Color?',
-            default: 'theme.colorScheme.primary',
+            defaultValue: 'theme.colorScheme.primary',
             description: 'Active fill color override.',
           },
         ]}

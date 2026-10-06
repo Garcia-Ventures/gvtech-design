@@ -30,37 +30,37 @@ void openMyDialog(BuildContext context) {
         <FlutterComponentPreview route="dialog" height={280} title="GVDialog Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVDialog.show Parameters</h3>
       <PropsTable
-        title="GVDialog.show Parameters"
         props={[
           {
             name: 'context',
             type: 'BuildContext',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Flutter build context.',
           },
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Modal header title.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional modal body description.',
           },
           {
             name: 'content',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Body content widget.',
           },
           {
             name: 'actions',
             type: 'List<Widget>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Footer action buttons.',
           },
         ]}

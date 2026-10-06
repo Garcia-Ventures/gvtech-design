@@ -27,31 +27,31 @@ class MyAlertWidget extends StatelessWidget {
         <FlutterComponentPreview route="alert" height={420} title="GVAlert Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVAlert Props</h3>
       <PropsTable
-        title="GVAlert Props"
         props={[
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Alert headline title text.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional body description text.',
           },
           {
             name: 'icon',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional leading icon widget.',
           },
           {
             name: 'variant',
             type: 'GVAlertVariant',
-            default: 'GVAlertVariant.defaultVariant',
+            defaultValue: 'GVAlertVariant.defaultVariant',
             description: 'Visual style: defaultVariant, destructive, info, success, warning.',
           },
         ]}
