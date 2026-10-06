@@ -4,7 +4,7 @@ export function NativeMenubarDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Menubar"
+        title="Menubar"
         description="The native implementation of Menubar is currently a shim and returns 'Not implemented'."
         code={`import { Menubar } from '@gv-tech/ui-native';
 

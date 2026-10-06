@@ -24,37 +24,37 @@ void showMyToast(BuildContext context) {
         <FlutterComponentPreview route="toast" height={280} title="GVToast Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVToast.show Parameters</h3>
       <PropsTable
-        title="GVToast.show Parameters"
         props={[
           {
             name: 'context',
             type: 'BuildContext',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Flutter build context.',
           },
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Toast headline title.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional body description.',
           },
           {
             name: 'variant',
             type: 'GVToastVariant',
-            default: 'GVToastVariant.defaultVariant',
+            defaultValue: 'GVToastVariant.defaultVariant',
             description: 'Toast style: defaultVariant, destructive, success.',
           },
           {
             name: 'duration',
             type: 'Duration',
-            default: 'Duration(seconds: 3)',
+            defaultValue: 'Duration(seconds: 3)',
             description: 'Display duration before auto-hiding.',
           },
         ]}

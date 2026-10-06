@@ -31,19 +31,19 @@ class MyAccordionWidget extends StatelessWidget {
         <FlutterComponentPreview route="accordion" height={360} title="GVAccordion Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVAccordion Props</h3>
       <PropsTable
-        title="GVAccordion Props"
         props={[
           {
             name: 'items',
             type: 'List<GVAccordionItemData>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of accordion items containing id, title, and content widget.',
           },
           {
             name: 'initialExpandedId',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'ID of the item that should be open on initial render.',
           },
         ]}

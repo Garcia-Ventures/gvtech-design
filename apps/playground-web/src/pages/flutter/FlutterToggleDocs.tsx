@@ -33,25 +33,25 @@ class _MyToggleWidgetState extends State<MyToggleWidget> {
         <FlutterComponentPreview route="toggle" height={260} title="GVToggle Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVToggle Props</h3>
       <PropsTable
-        title="GVToggle Props"
         props={[
           {
             name: 'isPressed',
             type: 'bool',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Whether the toggle button is active.',
           },
           {
             name: 'onPressed',
             type: 'ValueChanged<bool>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when toggle state changes.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Content widget rendered inside button.',
           },
         ]}

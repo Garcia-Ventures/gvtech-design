@@ -37,31 +37,31 @@ class _MyRadioGroupWidgetState extends State<MyRadioGroupWidget> {
         <FlutterComponentPreview route="radio-group" height={340} title="GVRadioGroup Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVRadioGroup Props</h3>
       <PropsTable
-        title="GVRadioGroup Props"
         props={[
           {
             name: 'value',
             type: 'T?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Currently selected option value.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<T?>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback fired when an option is selected.',
           },
           {
             name: 'options',
             type: 'List<GVRadioOption<T>>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of radio options with value, label, description, and disabled state.',
           },
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Group headline label.',
           },
         ]}

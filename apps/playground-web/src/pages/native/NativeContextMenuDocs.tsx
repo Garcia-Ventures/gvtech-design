@@ -4,7 +4,7 @@ export function NativeContextMenuDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="ContextMenu"
+        title="ContextMenu"
         description="The native implementation of ContextMenu is currently a shim and returns 'Not implemented'."
         code={`import { ContextMenu } from '@gv-tech/ui-native';
 

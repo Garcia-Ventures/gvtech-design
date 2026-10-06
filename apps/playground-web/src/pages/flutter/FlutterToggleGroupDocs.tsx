@@ -37,25 +37,25 @@ class _MyToggleGroupWidgetState extends State<MyToggleGroupWidget> {
         <FlutterComponentPreview route="toggle-group" height={280} title="GVToggleGroup Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVToggleGroup Props</h3>
       <PropsTable
-        title="GVToggleGroup Props"
         props={[
           {
             name: 'value',
             type: 'T?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Currently selected item value.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<T?>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when selected segment item changes.',
           },
           {
             name: 'items',
             type: 'List<GVToggleGroupItem<T>>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of toggle group segment items.',
           },
         ]}

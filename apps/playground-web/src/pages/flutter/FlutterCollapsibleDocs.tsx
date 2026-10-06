@@ -25,19 +25,19 @@ class MyCollapsibleWidget extends StatelessWidget {
         <FlutterComponentPreview route="collapsible" height={280} title="GVCollapsible Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVCollapsible Props</h3>
       <PropsTable
-        title="GVCollapsible Props"
         props={[
           {
             name: 'title',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Trigger title widget.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Collapsible content panel body.',
           },
         ]}

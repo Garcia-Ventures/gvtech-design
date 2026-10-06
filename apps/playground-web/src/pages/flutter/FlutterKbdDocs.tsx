@@ -28,13 +28,13 @@ class MyKbdWidget extends StatelessWidget {
         <FlutterComponentPreview route="kbd" height={260} title="GVKbd Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVKbd Props</h3>
       <PropsTable
-        title="GVKbd Props"
         props={[
           {
             name: 'label',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Keyboard key symbol or text string.',
           },
         ]}

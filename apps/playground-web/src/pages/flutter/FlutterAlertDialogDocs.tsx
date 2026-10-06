@@ -33,31 +33,31 @@ class MyAlertDialogWidget extends StatelessWidget {
         <FlutterComponentPreview route="alert-dialog" height={320} title="GVAlertDialog Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVAlertDialog Props</h3>
       <PropsTable
-        title="GVAlertDialog Props"
         props={[
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Alert dialog title string.',
           },
           {
             name: 'description',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Alert body explanation.',
           },
           {
             name: 'cancelLabel',
             type: 'String',
-            default: 'Cancel',
+            defaultValue: 'Cancel',
             description: 'Cancel button label.',
           },
           {
             name: 'actionLabel',
             type: 'String',
-            default: 'Continue',
+            defaultValue: 'Continue',
             description: 'Confirm action button label.',
           },
         ]}

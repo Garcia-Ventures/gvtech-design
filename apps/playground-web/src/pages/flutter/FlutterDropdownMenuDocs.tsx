@@ -28,19 +28,19 @@ class MyDropdownMenuWidget extends StatelessWidget {
         <FlutterComponentPreview route="dropdown-menu" height={320} title="GVDropdownMenu Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVDropdownMenu Props</h3>
       <PropsTable
-        title="GVDropdownMenu Props"
         props={[
           {
             name: 'trigger',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Trigger element widget.',
           },
           {
             name: 'items',
             type: 'List<GVDropdownMenuItem>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of menu option items.',
           },
         ]}

@@ -25,19 +25,19 @@ class MyPopoverWidget extends StatelessWidget {
         <FlutterComponentPreview route="popover" height={320} title="GVPopover Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVPopover Props</h3>
       <PropsTable
-        title="GVPopover Props"
         props={[
           {
             name: 'trigger',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Button or trigger widget.',
           },
           {
             name: 'content',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Overlay popover body widget.',
           },
         ]}

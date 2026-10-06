@@ -37,31 +37,31 @@ class _MySelectWidgetState extends State<MySelectWidget> {
         <FlutterComponentPreview route="select" height={300} title="GVSelect Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSelect Props</h3>
       <PropsTable
-        title="GVSelect Props"
         props={[
           {
             name: 'value',
             type: 'T?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Currently selected option value.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<T?>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback fired when selected value changes.',
           },
           {
             name: 'items',
             type: 'List<GVSelectItem<T>>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of dropdown options.',
           },
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Option label.',
           },
         ]}

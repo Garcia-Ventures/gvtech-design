@@ -33,31 +33,31 @@ class _MyCheckboxWidgetState extends State<MyCheckboxWidget> {
         <FlutterComponentPreview route="checkbox" height={280} title="GVCheckbox Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVCheckbox Props</h3>
       <PropsTable
-        title="GVCheckbox Props"
         props={[
           {
             name: 'value',
             type: 'bool',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Whether the checkbox is checked.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<bool?>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when toggle state changes.',
           },
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Option label rendered beside checkbox.',
           },
           {
             name: 'disabled',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Disables tap interaction.',
           },
         ]}

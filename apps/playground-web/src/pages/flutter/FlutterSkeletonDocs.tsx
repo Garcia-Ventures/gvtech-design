@@ -28,25 +28,25 @@ class MySkeletonWidget extends StatelessWidget {
         <FlutterComponentPreview route="skeleton" height={260} title="GVSkeleton Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSkeleton Props</h3>
       <PropsTable
-        title="GVSkeleton Props"
         props={[
           {
             name: 'width',
             type: 'double?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Placeholder width in logical pixels. If null, fills horizontal space.',
           },
           {
             name: 'height',
             type: 'double?',
-            default: '16.0',
+            defaultValue: '16.0',
             description: 'Placeholder height in logical pixels.',
           },
           {
             name: 'borderRadius',
             type: 'double',
-            default: 'GVRadii.md',
+            defaultValue: 'GVRadii.md',
             description: 'Corner rounding radius.',
           },
         ]}

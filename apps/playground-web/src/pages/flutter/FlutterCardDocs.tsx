@@ -41,25 +41,25 @@ class MyCardWidget extends StatelessWidget {
         <FlutterComponentPreview route="card" height={420} title="GVCard Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVCard Props</h3>
       <PropsTable
-        title="GVCard Props"
         props={[
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Child widget contained within the card body.',
           },
           {
             name: 'padding',
             type: 'EdgeInsetsGeometry?',
-            default: 'EdgeInsets.all(GVSpacing.s6)',
+            defaultValue: 'EdgeInsets.all(GVSpacing.s6)',
             description: 'Custom padding around card content.',
           },
           {
             name: 'onTap',
             type: 'VoidCallback?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional tap gesture handler for interactive cards.',
           },
         ]}

@@ -4,7 +4,7 @@ export function NativeDropdownMenuDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="DropdownMenu"
+        title="DropdownMenu"
         description="The native implementation of DropdownMenu is currently a shim and returns 'Not implemented'."
         code={`import { DropdownMenu } from '@gv-tech/ui-native';
 

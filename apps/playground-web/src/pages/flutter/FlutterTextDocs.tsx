@@ -27,25 +27,25 @@ class MyTextWidget extends StatelessWidget {
         <FlutterComponentPreview route="text" height={380} title="GVText Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVText Props</h3>
       <PropsTable
-        title="GVText Props"
         props={[
           {
             name: 'text',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Text string content.',
           },
           {
             name: 'variant',
             type: 'GVTextVariant',
-            default: 'GVTextVariant.p',
+            defaultValue: 'GVTextVariant.p',
             description: 'Typography style: h1, h2, h3, h4, p, blockquote, lead, large, small, muted.',
           },
           {
             name: 'color',
             type: 'Color?',
-            default: 'theme.colorScheme.onSurface',
+            defaultValue: 'theme.colorScheme.onSurface',
             description: 'Custom text color override.',
           },
         ]}

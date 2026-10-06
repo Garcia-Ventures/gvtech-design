@@ -37,25 +37,25 @@ class _MyComboboxWidgetState extends State<MyComboboxWidget> {
         <FlutterComponentPreview route="combobox" height={320} title="GVCombobox Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVCombobox Props</h3>
       <PropsTable
-        title="GVCombobox Props"
         props={[
           {
             name: 'value',
             type: 'T?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Selected value.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<T?>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when selected item changes.',
           },
           {
             name: 'items',
             type: 'List<GVComboboxItem<T>>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of combobox items with search filter.',
           },
         ]}

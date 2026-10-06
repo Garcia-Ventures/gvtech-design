@@ -4,7 +4,7 @@ export function NativeResizableDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Resizable"
+        title="Resizable"
         description="The native implementation of Resizable is currently a shim and returns 'Not implemented'."
         code={`import { Resizable } from '@gv-tech/ui-native';
 

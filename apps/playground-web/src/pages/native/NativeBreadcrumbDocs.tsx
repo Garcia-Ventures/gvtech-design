@@ -4,7 +4,7 @@ export function NativeBreadcrumbDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Breadcrumb"
+        title="Breadcrumb"
         description="The native implementation of Breadcrumb is currently a shim and returns 'Not implemented'."
         code={`import { Breadcrumb } from '@gv-tech/ui-native';
 

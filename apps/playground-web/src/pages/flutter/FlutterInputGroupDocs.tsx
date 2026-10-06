@@ -27,25 +27,25 @@ class MyInputGroupWidget extends StatelessWidget {
         <FlutterComponentPreview route="input-group" height={280} title="GVInputGroup Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVInputGroup Props</h3>
       <PropsTable
-        title="GVInputGroup Props"
         props={[
           {
             name: 'prefixAddon',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Addon widget attached to the left of input.',
           },
           {
             name: 'suffixAddon',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Addon widget attached to the right of input.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Input widget container.',
           },
         ]}

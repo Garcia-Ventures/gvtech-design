@@ -33,25 +33,25 @@ class _MyPaginationWidgetState extends State<MyPaginationWidget> {
         <FlutterComponentPreview route="pagination" height={280} title="GVPagination Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVPagination Props</h3>
       <PropsTable
-        title="GVPagination Props"
         props={[
           {
             name: 'currentPage',
             type: 'int',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Current 1-indexed active page.',
           },
           {
             name: 'totalPages',
             type: 'int',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Total number of pages.',
           },
           {
             name: 'onPageChanged',
             type: 'ValueChanged<int>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when user selects a page.',
           },
         ]}

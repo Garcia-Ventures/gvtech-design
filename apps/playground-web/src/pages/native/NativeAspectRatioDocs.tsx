@@ -4,7 +4,7 @@ export function NativeAspectRatioDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="AspectRatio"
+        title="AspectRatio"
         description="The native implementation of AspectRatio is currently a shim and returns 'Not implemented'."
         code={`import { AspectRatio } from '@gv-tech/ui-native';
 

@@ -28,19 +28,19 @@ class MyBreadcrumbWidget extends StatelessWidget {
         <FlutterComponentPreview route="breadcrumb" height={260} title="GVBreadcrumb Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVBreadcrumb Props</h3>
       <PropsTable
-        title="GVBreadcrumb Props"
         props={[
           {
             name: 'items',
             type: 'List<GVBreadcrumbItem>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of breadcrumb items with label and optional onTap handler.',
           },
           {
             name: 'separator',
             type: 'Widget?',
-            default: 'Icon(Icons.chevron_right)',
+            defaultValue: 'Icon(Icons.chevron_right)',
             description: 'Custom separator widget override.',
           },
         ]}

@@ -32,19 +32,19 @@ class _MyCalendarWidgetState extends State<MyCalendarWidget> {
         <FlutterComponentPreview route="calendar" height={420} title="GVCalendar Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVCalendar Props</h3>
       <PropsTable
-        title="GVCalendar Props"
         props={[
           {
             name: 'selectedDate',
             type: 'DateTime?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Currently selected DateTime value.',
           },
           {
             name: 'onDateSelected',
             type: 'ValueChanged<DateTime>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when user taps a date.',
           },
         ]}

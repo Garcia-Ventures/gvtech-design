@@ -24,19 +24,19 @@ class MySpinnerWidget extends StatelessWidget {
         <FlutterComponentPreview route="spinner" height={260} title="GVSpinner Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSpinner Props</h3>
       <PropsTable
-        title="GVSpinner Props"
         props={[
           {
             name: 'size',
             type: 'GVSpinnerSize',
-            default: 'GVSpinnerSize.md',
+            defaultValue: 'GVSpinnerSize.md',
             description: 'Size variant: sm (16), md (24), lg (36).',
           },
           {
             name: 'color',
             type: 'Color?',
-            default: 'theme.colorScheme.primary',
+            defaultValue: 'theme.colorScheme.primary',
             description: 'Active stroke color override.',
           },
         ]}

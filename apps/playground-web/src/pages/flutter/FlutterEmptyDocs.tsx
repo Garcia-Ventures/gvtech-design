@@ -30,31 +30,31 @@ class MyEmptyWidget extends StatelessWidget {
         <FlutterComponentPreview route="empty" height={360} title="GVEmpty Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVEmpty Props</h3>
       <PropsTable
-        title="GVEmpty Props"
         props={[
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Empty state headline title.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional body description.',
           },
           {
             name: 'icon',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional graphic icon widget.',
           },
           {
             name: 'action',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional action button widget.',
           },
         ]}

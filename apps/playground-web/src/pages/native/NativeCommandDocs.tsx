@@ -4,7 +4,7 @@ export function NativeCommandDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Command"
+        title="Command"
         description="The native implementation of Command is currently a shim and returns 'Not implemented'."
         code={`import { Command } from '@gv-tech/ui-native';
 

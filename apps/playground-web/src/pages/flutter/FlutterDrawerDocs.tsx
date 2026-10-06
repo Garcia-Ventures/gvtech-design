@@ -31,25 +31,25 @@ class MyDrawerWidget extends StatelessWidget {
         <FlutterComponentPreview route="drawer" height={320} title="GVDrawer Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVDrawer Props</h3>
       <PropsTable
-        title="GVDrawer Props"
         props={[
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Drawer header title.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional drawer description subtitle.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Drawer body content widget.',
           },
         ]}

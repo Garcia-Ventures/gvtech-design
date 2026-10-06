@@ -4,7 +4,7 @@ export function NativeProgressDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Progress"
+        title="Progress"
         description="The native implementation of Progress is currently a shim and returns 'Not implemented'."
         code={`import { Progress } from '@gv-tech/ui-native';
 

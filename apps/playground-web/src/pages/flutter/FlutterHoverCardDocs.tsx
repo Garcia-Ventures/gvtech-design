@@ -25,19 +25,19 @@ class MyHoverCardWidget extends StatelessWidget {
         <FlutterComponentPreview route="hover-card" height={300} title="GVHoverCard Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVHoverCard Props</h3>
       <PropsTable
-        title="GVHoverCard Props"
         props={[
           {
             name: 'trigger',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Trigger text or widget.',
           },
           {
             name: 'content',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Hover card popover body.',
           },
         ]}

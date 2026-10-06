@@ -27,31 +27,31 @@ class MyItemWidget extends StatelessWidget {
         <FlutterComponentPreview route="item" height={280} title="GVItem Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVItem Props</h3>
       <PropsTable
-        title="GVItem Props"
         props={[
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Item primary title label.',
           },
           {
             name: 'subtitle',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Item secondary subtitle text.',
           },
           {
             name: 'leading',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Leading icon or widget slot.',
           },
           {
             name: 'trailing',
             type: 'Widget?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Trailing action icon or widget slot.',
           },
         ]}

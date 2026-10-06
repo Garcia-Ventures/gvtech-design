@@ -4,7 +4,7 @@ export function NativeSliderDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Slider"
+        title="Slider"
         description="The native implementation of Slider is currently a shim and returns 'Not implemented'."
         code={`import { Slider } from '@gv-tech/ui-native';
 

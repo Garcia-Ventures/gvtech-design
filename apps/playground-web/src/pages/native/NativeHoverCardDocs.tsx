@@ -4,7 +4,7 @@ export function NativeHoverCardDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="HoverCard"
+        title="HoverCard"
         description="The native implementation of HoverCard is currently a shim and returns 'Not implemented'."
         code={`import { HoverCard } from '@gv-tech/ui-native';
 

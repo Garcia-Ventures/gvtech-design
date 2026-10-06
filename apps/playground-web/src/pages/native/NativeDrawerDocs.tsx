@@ -4,7 +4,7 @@ export function NativeDrawerDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Drawer"
+        title="Drawer"
         description="The native implementation of Drawer is currently a shim and returns 'Not implemented'."
         code={`import { Drawer } from '@gv-tech/ui-native';
 

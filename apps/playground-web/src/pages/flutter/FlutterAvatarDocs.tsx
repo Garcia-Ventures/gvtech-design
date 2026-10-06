@@ -28,31 +28,31 @@ class MyAvatarWidget extends StatelessWidget {
         <FlutterComponentPreview route="avatar" height={260} title="GVAvatar Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVAvatar Props</h3>
       <PropsTable
-        title="GVAvatar Props"
         props={[
           {
             name: 'initials',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Fallback text initials rendered inside avatar circle.',
           },
           {
             name: 'imageProvider',
             type: 'ImageProvider?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional image source.',
           },
           {
             name: 'size',
             type: 'GVAvatarSize',
-            default: 'GVAvatarSize.md',
+            defaultValue: 'GVAvatarSize.md',
             description: 'Size variant: xs (24), sm (32), md (40), lg (48), xl (64).',
           },
           {
             name: 'onTap',
             type: 'VoidCallback?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional tap handler.',
           },
         ]}

@@ -37,13 +37,6 @@ import { safeTrack } from './lib/analytics';
 import { OpenPanelProvider } from './lib/OpenPanelProvider';
 import { docRoutes } from './routes/doc-routes';
 
-const docItemsMap = new Map<string, DocItem>();
-for (const category of docConfig) {
-  for (const item of category.items) {
-    docItemsMap.set(item.href, item);
-  }
-}
-
 function PageLoader() {
   return (
     <div className="flex h-[400px] w-full items-center justify-center">

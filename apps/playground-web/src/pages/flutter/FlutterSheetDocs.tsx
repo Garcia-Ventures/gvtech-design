@@ -24,31 +24,31 @@ void openMySheet(BuildContext context) {
         <FlutterComponentPreview route="sheet" height={280} title="GVSheet Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSheet.show Parameters</h3>
       <PropsTable
-        title="GVSheet.show Parameters"
         props={[
           {
             name: 'context',
             type: 'BuildContext',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Flutter build context.',
           },
           {
             name: 'title',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Bottom sheet title.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional body description.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Body content widget rendered inside sheet.',
           },
         ]}

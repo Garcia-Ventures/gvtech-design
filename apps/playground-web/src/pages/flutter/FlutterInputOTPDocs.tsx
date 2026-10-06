@@ -25,19 +25,19 @@ class MyInputOTPWidget extends StatelessWidget {
         <FlutterComponentPreview route="input-otp" height={280} title="GVInputOTP Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVInputOTP Props</h3>
       <PropsTable
-        title="GVInputOTP Props"
         props={[
           {
             name: 'length',
             type: 'int',
-            default: '6',
+            defaultValue: '6',
             description: 'Number of digit pin boxes.',
           },
           {
             name: 'onCompleted',
             type: 'ValueChanged<String>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when all digit boxes are filled.',
           },
         ]}

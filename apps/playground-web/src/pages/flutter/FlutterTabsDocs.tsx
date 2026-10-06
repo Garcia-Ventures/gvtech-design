@@ -36,19 +36,19 @@ class MyTabsWidget extends StatelessWidget {
         <FlutterComponentPreview route="tabs" height={320} title="GVTabs Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVTabs Props</h3>
       <PropsTable
-        title="GVTabs Props"
         props={[
           {
             name: 'tabs',
             type: 'List<GVTabData>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of tab items with value, label, optional icon, and content widget.',
           },
           {
             name: 'initialValue',
             type: 'String?',
-            default: 'first tab value',
+            defaultValue: 'first tab value',
             description: 'Value of the tab selected by default.',
           },
         ]}

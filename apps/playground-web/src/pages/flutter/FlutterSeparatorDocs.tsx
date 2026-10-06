@@ -24,25 +24,25 @@ class MySeparatorWidget extends StatelessWidget {
         <FlutterComponentPreview route="separator" height={260} title="GVSeparator Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSeparator Props</h3>
       <PropsTable
-        title="GVSeparator Props"
         props={[
           {
             name: 'orientation',
             type: 'GVSeparatorOrientation',
-            default: 'GVSeparatorOrientation.horizontal',
+            defaultValue: 'GVSeparatorOrientation.horizontal',
             description: 'Divider direction: horizontal or vertical.',
           },
           {
             name: 'thickness',
             type: 'double',
-            default: '1.0',
+            defaultValue: '1.0',
             description: 'Line thickness in logical pixels.',
           },
           {
             name: 'color',
             type: 'Color?',
-            default: 'theme.colorScheme.outlineVariant',
+            defaultValue: 'theme.colorScheme.outlineVariant',
             description: 'Custom divider color override.',
           },
         ]}
