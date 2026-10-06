@@ -26,6 +26,8 @@ vi.mock('@rn-primitives/dialog', () => {
       if (!open && !forceMount) {
         return null;
       }
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('div', { ref, ...props }, children);
     }),
     Content: React.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
@@ -33,6 +35,8 @@ vi.mock('@rn-primitives/dialog', () => {
       if (!open && !forceMount) {
         return null;
       }
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('div', { ref, ...props }, children);
     }),
     Title: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
@@ -43,6 +47,8 @@ vi.mock('@rn-primitives/dialog', () => {
     ),
     Close: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
       const { onOpenChange } = React.useContext(DialogContext);
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
     }),
     useRootContext: () => React.useContext(DialogContext),

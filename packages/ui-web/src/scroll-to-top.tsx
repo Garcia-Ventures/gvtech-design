@@ -39,8 +39,12 @@ export function ScrollToTop({
   React.useEffect(() => {
     const target = scrollTarget === undefined ? window : scrollTarget;
 
-    if (!target) {
+    const hideControl = () => {
       setIsVisible(false);
+    };
+
+    if (!target) {
+      hideControl();
       return;
     }
 

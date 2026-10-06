@@ -26,6 +26,8 @@ vi.mock('@rn-primitives/dialog', () => {
         return null;
       }
       const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
     Content: React.forwardRef(({ children, _asChild, forceMount, style, ...props }: any, ref: any) => {
@@ -34,6 +36,8 @@ vi.mock('@rn-primitives/dialog', () => {
         return null;
       }
       const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
     Title: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
@@ -44,6 +48,8 @@ vi.mock('@rn-primitives/dialog', () => {
     ),
     Close: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
       const { onOpenChange } = React.useContext(DialogContext);
+      // Test mocks forward refs into host elements by design
+      // eslint-disable-next-line react/refs
       return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
     }),
     useRootContext: () => React.useContext(DialogContext),

@@ -131,7 +131,6 @@ function ComboboxInput({
         placeholderTextColor="#a1a1aa"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        autoFocus
         {...props}
       />
     </View>

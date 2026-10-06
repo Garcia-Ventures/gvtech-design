@@ -13,7 +13,7 @@ export function AspectRatioDocs() {
   <AspectRatio ratio={16 / 9} className="bg-muted">
     <img
       src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800"
-      alt="Photo by Drew Beamer"
+      alt="Drew Beamer"
       className="h-full w-full rounded-md object-cover"
     />
   </AspectRatio>
@@ -23,7 +23,7 @@ export function AspectRatioDocs() {
           <AspectRatio ratio={16 / 9} className="bg-muted">
             <img
               src="https://images.unsplash.com/photo-1588345921523-c2dcdb7f1dcd?w=800"
-              alt="Photo by Drew Beamer"
+              alt="Drew Beamer"
               className="h-full w-full rounded-md object-cover"
             />
           </AspectRatio>

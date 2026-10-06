@@ -14,12 +14,14 @@ function Skeleton({ className, ...props }: React.ComponentPropsWithoutRef<typeof
   const opacity = useSharedValue(0.5);
 
   React.useEffect(() => {
+    // Shared values are stable across renders; mutation here drives the Reanimated loop
+    // eslint-disable-next-line react/immutability
     opacity.value = withRepeat(
       withSequence(withTiming(0.2, { duration: 500 }), withTiming(0.5, { duration: 500 })),
       -1,
       true,
     );
-  }, []);
+  }, [opacity]);
 
   const animatedStyle = useAnimatedStyle(() => ({
     opacity: opacity.value,

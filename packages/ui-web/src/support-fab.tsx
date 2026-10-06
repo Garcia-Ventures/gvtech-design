@@ -67,8 +67,11 @@ const useIsMobile = () => {
 
     const mediaQuery = window.matchMedia(MOBILE_QUERY);
     const onChange = (event: MediaQueryListEvent) => setIsMobile(event.matches);
+    const syncInitialValue = () => {
+      setIsMobile(mediaQuery.matches);
+    };
 
-    setIsMobile(mediaQuery.matches);
+    syncInitialValue();
     mediaQuery.addEventListener('change', onChange);
 
     return () => {
