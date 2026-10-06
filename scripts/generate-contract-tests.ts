@@ -79,8 +79,6 @@ import type {
 // It uses variable assignments to verify that implementations extend the base contracts.
 
 ${tests.join('\n')}
-
-export {};
 `;
 
   return content;
@@ -97,10 +95,10 @@ console.log(`✅ Generated ${path.relative(rootDir, nativeTestPath)}`);
 // Format the generated files
 try {
   const { execSync } = require('node:child_process');
-  execSync(`bun run prettier --write ${webTestPath} ${nativeTestPath}`, { stdio: 'ignore' });
+  execSync(`bunx oxfmt --write ${webTestPath} ${nativeTestPath}`, { stdio: 'ignore' });
   console.log('✅ Formatted contract test files.');
 } catch {
-  // Ignore errors if prettier fails
+  // Ignore errors if oxfmt fails
 }
 
 // Cleanup old/conflicting files if they exist

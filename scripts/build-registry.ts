@@ -216,12 +216,12 @@ function buildRegistry() {
   // Format the generated files
   try {
     const { execSync } = require('node:child_process');
-    execSync(`bun run prettier --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
+    execSync(`bunx oxfmt --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
       stdio: 'ignore',
     });
     console.log('✅ Formatted registry files.');
   } catch {
-    // Ignore errors if prettier fails
+    // Ignore errors if oxfmt fails
   }
 }
 
