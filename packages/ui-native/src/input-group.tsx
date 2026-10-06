@@ -18,7 +18,7 @@ function InputGroup({ className, ...props }: React.ComponentProps<typeof View> &
 
 function InputGroupAddon({
   className,
-  _align,
+  align: _align,
   ...props
 }: React.ComponentProps<typeof View> & InputGroupAddonBaseProps) {
   return <View className={cn('p-2', className)} {...props} />;
@@ -26,7 +26,7 @@ function InputGroupAddon({
 
 function InputGroupButton({
   className,
-  _type,
+  type: _type,
   variant,
   size,
   ...props

@@ -71,7 +71,7 @@ PaginationLink.displayName = 'PaginationLink';
 
 export const PaginationPrevious = ({
   className,
-  _children,
+  children: _children,
   onPress,
   ...props
 }: PaginationPreviousBaseProps & { onPress?: () => void }) => (
@@ -90,7 +90,7 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 
 export const PaginationNext = ({
   className,
-  _children,
+  children: _children,
   onPress,
   ...props
 }: PaginationNextBaseProps & { onPress?: () => void }) => (

@@ -20,7 +20,11 @@ function EmptyHeader({ className, ...props }: React.ComponentProps<typeof View>)
   return <View className={cn('flex flex-col items-center gap-2', className)} {...props} />;
 }
 
-function EmptyMedia({ className, _variant, ...props }: React.ComponentProps<typeof View> & EmptyMediaBaseProps) {
+function EmptyMedia({
+  className,
+  variant: _variant,
+  ...props
+}: React.ComponentProps<typeof View> & EmptyMediaBaseProps) {
   return <View className={cn('flex items-center justify-center', className)} {...props} />;
 }
 

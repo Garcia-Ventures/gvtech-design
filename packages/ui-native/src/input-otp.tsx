@@ -24,7 +24,11 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<typeof View
   return <View className={className} {...props} />;
 }
 
-function InputOTPSlot({ className, _index, ...props }: React.ComponentProps<typeof View> & InputOTPSlotBaseProps) {
+function InputOTPSlot({
+  className,
+  index: _index,
+  ...props
+}: React.ComponentProps<typeof View> & InputOTPSlotBaseProps) {
   return <View className={className} {...props} />;
 }
 

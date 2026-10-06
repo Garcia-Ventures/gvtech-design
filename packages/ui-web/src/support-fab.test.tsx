@@ -36,7 +36,7 @@ const setMobile = (isMobile: boolean) => {
           removeListener: vi.fn<() => void>(),
           addEventListener: vi.fn<() => void>(),
           removeEventListener: vi.fn<() => void>(),
-          dispatchEvent: vi.fn<() => void>(),
+          dispatchEvent: vi.fn<() => boolean>(),
         }) as MediaQueryList,
     ),
   });
