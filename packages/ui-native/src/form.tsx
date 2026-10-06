@@ -1,4 +1,4 @@
-import {
+import type {
   FormControlBaseProps,
   FormDescriptionBaseProps,
   FormItemBaseProps,

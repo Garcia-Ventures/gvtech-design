@@ -1,4 +1,4 @@
-import { SwitchBaseProps } from '@gv-tech/ui-core';
+import type { SwitchBaseProps } from '@gv-tech/ui-core';
 import * as SwitchPrimitives from '@rn-primitives/switch';
 import * as React from 'react';
 

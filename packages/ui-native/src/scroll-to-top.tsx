@@ -3,6 +3,8 @@
 import type { ScrollToTopBaseProps } from '@gv-tech/ui-core';
 import { ArrowUp } from 'lucide-react-native';
 import * as React from 'react';
+import type {
+  ScrollView} from 'react-native';
 import {
   AccessibilityInfo,
   Animated,
@@ -10,7 +12,6 @@ import {
   type NativeScrollEvent,
   type NativeSyntheticEvent,
   Platform,
-  ScrollView,
   View,
 } from 'react-native';
 

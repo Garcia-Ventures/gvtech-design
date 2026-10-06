@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { View } from 'react-native';
+import type { View } from 'react-native';
 import Animated, {
   useAnimatedStyle,
   useSharedValue,

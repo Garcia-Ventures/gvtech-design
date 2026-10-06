@@ -1,4 +1,4 @@
-import { TabsBaseProps, TabsContentBaseProps, TabsListBaseProps, TabsTriggerBaseProps } from '@gv-tech/ui-core';
+import type { TabsBaseProps, TabsContentBaseProps, TabsListBaseProps, TabsTriggerBaseProps } from '@gv-tech/ui-core';
 import * as TabsPrimitive from '@rn-primitives/tabs';
 import * as React from 'react';
 

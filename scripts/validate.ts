@@ -1,6 +1,6 @@
-import { spawnSync } from 'child_process';
-import os from 'os';
-import path from 'path';
+import { spawnSync } from 'node:child_process';
+import os from 'node:os';
+import path from 'node:path';
 
 const args = process.argv.slice(2);
 const fix = args.includes('--fix');

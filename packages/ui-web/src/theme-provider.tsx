@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeProviderBaseProps } from '@gv-tech/ui-core';
+import type { ThemeProviderBaseProps } from '@gv-tech/ui-core';
 import type { ThemeProviderProps as NextThemesProviderProps } from 'next-themes';
 import { ThemeProvider as NextThemesProvider } from 'next-themes';
 

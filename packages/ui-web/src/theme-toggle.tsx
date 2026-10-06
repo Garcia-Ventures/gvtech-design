@@ -1,6 +1,6 @@
 'use client';
 
-import { ThemeToggleBaseProps } from '@gv-tech/ui-core';
+import type { ThemeToggleBaseProps } from '@gv-tech/ui-core';
 import { Moon, Sun, SunMoon } from 'lucide-react';
 
 import { Button } from './button';

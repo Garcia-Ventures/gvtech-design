@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ToggleSize, ToggleVariant } from './toggle';
+import type { ToggleSize, ToggleVariant } from './toggle';
 
 export interface ToggleGroupBaseProps {
   children?: React.ReactNode;

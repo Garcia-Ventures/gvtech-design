@@ -1,6 +1,7 @@
 import { theme as designTokens } from '@gv-tech/design-tokens';
 import * as React from 'react';
-import { Appearance, useColorScheme, View, ViewProps } from 'react-native';
+import type { ViewProps } from 'react-native';
+import { Appearance, useColorScheme, View } from 'react-native';
 
 import { cn } from './lib/utils';
 

@@ -1,4 +1,4 @@
-import { ToggleGroupBaseProps, ToggleGroupItemBaseProps } from '@gv-tech/ui-core';
+import type { ToggleGroupBaseProps, ToggleGroupItemBaseProps } from '@gv-tech/ui-core';
 import * as ToggleGroupPrimitive from '@rn-primitives/toggle-group';
 import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';

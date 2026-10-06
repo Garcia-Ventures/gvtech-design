@@ -316,7 +316,7 @@ import * as React from 'react';
 
 // These components and their base props are imported to verify that
 // the platform-specific implementations correctly satisfy the ui-core contracts.
-import {
+import type {
   Accordion,
   AccordionContent,
   AccordionItem,
@@ -1084,4 +1084,4 @@ export const _test_QuestionnaireTitle: QuestionnaireTitleBaseProps = {} as React
   typeof QuestionnaireTitle
 >;
 
-export {};
+

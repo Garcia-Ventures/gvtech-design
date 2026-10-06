@@ -71,7 +71,7 @@ export function safeTrack(eventName: string, options?: AnalyticsTrackOptions | R
   try {
     const rawProps = options && 'props' in options && typeof options.props === 'object' ? options.props : options;
     const properties = {
-      ...(rawProps || {}),
+      ...rawProps,
       domain: typeof window !== 'undefined' ? window.location.hostname : 'unknown',
       environment:
         typeof window !== 'undefined'

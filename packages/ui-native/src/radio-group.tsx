@@ -1,4 +1,4 @@
-import { RadioGroupBaseProps, RadioGroupItemBaseProps } from '@gv-tech/ui-core';
+import type { RadioGroupBaseProps, RadioGroupItemBaseProps } from '@gv-tech/ui-core';
 import * as RadioGroupPrimitive from '@rn-primitives/radio-group';
 import { Circle } from 'lucide-react-native';
 import * as React from 'react';

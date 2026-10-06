@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { ButtonSize } from './button';
+import type { ButtonSize } from './button';
 
 export interface PaginationBaseProps {
   children?: React.ReactNode;

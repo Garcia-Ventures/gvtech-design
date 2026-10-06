@@ -1,4 +1,4 @@
-import { ThemeToggleBaseProps } from '@gv-tech/ui-core';
+import type { ThemeToggleBaseProps } from '@gv-tech/ui-core';
 import { Moon, Sun, SunMoon } from 'lucide-react-native';
 import { Appearance, View } from 'react-native';
 
