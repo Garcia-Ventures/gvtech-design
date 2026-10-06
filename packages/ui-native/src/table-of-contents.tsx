@@ -4,17 +4,8 @@ import type {
   TableOfContentsRootBaseProps,
 } from '@gv-tech/ui-core';
 import * as React from 'react';
-import type {
-  LayoutChangeEvent,
-  NativeScrollEvent,
-  NativeSyntheticEvent} from 'react-native';
-import {
-  Platform,
-  Text as RNText,
-  ScrollView,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import type { LayoutChangeEvent, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import { Platform, Text as RNText, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import { cn, slugify } from './lib/utils';
 import { Text } from './text';
