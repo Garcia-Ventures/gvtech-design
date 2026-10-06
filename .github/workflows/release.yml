@@ -41,36 +41,44 @@ jobs:
       - name: Install Bun
         uses: oven-sh/setup-bun@v2
         with:
-          bun-version: latest
+          bun-version: 1.4.2
 
-      # Use Nx as the pre-check (fast, and matches your nx.json config)
+      # Use Nx as the pre-check (fast, and matches your nx.json config).
+      # NOTE: the Nx invocation's exit code is captured with `set +e` so its
+      # output is always printed before we decide what to do. A previous
+      # version redirected output to a file under `bash -e`, which hid the
+      # real error and failed the step before `cat` could run (this masked
+      # the Nx 23 removal of the `releaseTagPattern` flat property for weeks).
       - name: Check if release is needed (dry-run)
         id: need_release
         run: |
-          # Install just enough to run Nx
+          # Install just enough to run Nx (node_modules persists for later steps)
           bun install --frozen-lockfile
 
-          # Capture output of dry-run; Nx --dry-run doesn't modify local files
+          # Nx --dry-run doesn't modify local files
+          set +e
           bunx nx release version --git-tag=false --git-commit=false --dry-run > nx_release_output.txt 2>&1
+          NX_STATUS=$?
+          set -e
           cat nx_release_output.txt
 
+          if [ "$NX_STATUS" -ne 0 ]; then
+            echo "::error::nx release version dry-run failed with exit code $NX_STATUS"
+            exit "$NX_STATUS"
+          fi
+
           # Look for indicators that a version bump would occur
-          if grep -E "Resolved the specifier as \"(major|minor|patch)\"" nx_release_output.txt || \
-             grep -E "Applied version .+ directly" nx_release_output.txt; then
+          if grep -E 'Resolved the specifier as "(major|minor|patch)"' nx_release_output.txt || \
+             grep -E 'Applied version .+ directly' nx_release_output.txt; then
             echo "needs-release=true" >> "$GITHUB_OUTPUT"
           else
             echo "needs-release=false" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Exit early if no release needed
+      - name: No release needed
         if: steps.need_release.outputs.needs-release == 'false'
         run: |
-          echo "Nx release dry-run produced no changes. Skipping."
-          exit 0
-
-      - name: Install dependencies
-        if: steps.need_release.outputs.needs-release == 'true'
-        run: bun install --frozen-lockfile
+          echo "Nx release dry-run produced no changes. Skipping remaining steps."
 
       - name: Build
         if: steps.need_release.outputs.needs-release == 'true'
@@ -89,7 +97,11 @@ jobs:
           NPM_CONFIG_PROVENANCE: "true"
           NPM_CONFIG_REGISTRY: "https://registry.npmjs.org"
           RELEASE_SPECIFIER: ${{ github.event.inputs.specifier }}
-        run: bunx nx release "$RELEASE_SPECIFIER" --yes --verbose
-
-      - run: bunx nx fix-ci
-        if: always()
+        run: |
+          # An empty specifier input (scheduled runs) must be omitted, not
+          # passed as an empty string — Nx rejects `nx release ""`.
+          if [ -z "$RELEASE_SPECIFIER" ]; then
+            bunx nx release --yes --verbose
+          else
+            bunx nx release "$RELEASE_SPECIFIER" --yes --verbose
+          fi

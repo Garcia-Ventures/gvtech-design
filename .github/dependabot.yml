@@ -25,6 +25,10 @@ updates:
     # A lone @nx/expo v23 bump on a v22 workspace (see #146) broke every
     # `nx run-many` invocation, because @nx/devkit@23 re-exports
     # `workspaceDataDirectory` from nx core, which does not exist on v22.
+    # Nx majors can also remove deprecated release config: v23 dropped the
+    # `releaseTagPattern` flat property (use `releaseTag.pattern`), which
+    # silently broke the Release workflow's dry-run in Sep 2026. After any
+    # Nx major bump, run `bunx nx release version --dry-run` to verify.
     groups:
       nx:
         patterns: ["@nx/*", "nx"]

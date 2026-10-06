@@ -90,7 +90,9 @@
           "specifierSource": "conventional-commits",
           "currentVersionResolver": "git-tag"
         },
-        "releaseTagPattern": "v{version}",
+        "releaseTag": {
+          "pattern": "v{version}"
+        },
         "publish": {
           "targetName": "nx-release-publish"
         },
