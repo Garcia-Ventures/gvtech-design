@@ -4,9 +4,9 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { TableOfContents } from './table-of-contents';
 
 // Mock IntersectionObserver
-const observeMock = vi.fn();
-const unobserveMock = vi.fn();
-const disconnectMock = vi.fn();
+const observeMock = vi.fn<() => void>();
+const unobserveMock = vi.fn<() => void>();
+const disconnectMock = vi.fn<() => void>();
 
 class MockIntersectionObserver {
   constructor(callback: IntersectionObserverCallback) {

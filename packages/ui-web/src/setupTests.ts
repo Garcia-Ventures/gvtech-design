@@ -37,15 +37,15 @@ globalThis.IntersectionObserver = class IntersectionObserver {
 // matchMedia polyfill
 Object.defineProperty(window, 'matchMedia', {
   writable: true,
-  value: vi.fn().mockImplementation((query) => ({
+  value: vi.fn<(query: string) => MediaQueryList>().mockImplementation((query) => ({
     matches: false,
     media: query,
     onchange: null,
-    addListener: vi.fn(), // deprecated
-    removeListener: vi.fn(), // deprecated
-    addEventListener: vi.fn(),
-    removeEventListener: vi.fn(),
-    dispatchEvent: vi.fn(),
+    addListener: vi.fn<() => void>(), // deprecated
+    removeListener: vi.fn<() => void>(), // deprecated
+    addEventListener: vi.fn<() => void>(),
+    removeEventListener: vi.fn<() => void>(),
+    dispatchEvent: vi.fn<() => boolean>(),
   })),
 });
 
@@ -110,6 +110,6 @@ Object.defineProperties(HTMLElement.prototype, {
   },
 });
 
-window.HTMLElement.prototype.scrollIntoView = vi.fn();
-window.HTMLElement.prototype.releasePointerCapture = vi.fn();
-window.HTMLElement.prototype.hasPointerCapture = vi.fn();
+window.HTMLElement.prototype.scrollIntoView = vi.fn<() => void>();
+window.HTMLElement.prototype.releasePointerCapture = vi.fn<() => void>();
+window.HTMLElement.prototype.hasPointerCapture = vi.fn<() => boolean>();

@@ -72,7 +72,7 @@ describe('ToggleGroup (Native Implementation)', () => {
   });
 
   it('handles value change', () => {
-    const onValueChange = vi.fn();
+    const onValueChange = vi.fn<() => void>();
     render(
       <ToggleGroup type="single" value="" onValueChange={onValueChange}>
         <ToggleGroupItem value="item1">

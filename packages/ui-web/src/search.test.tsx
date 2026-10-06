@@ -26,7 +26,7 @@ describe('Search', () => {
   });
 
   it('opens search dialog when trigger is clicked (controlled)', () => {
-    const onOpenChange = vi.fn();
+    const onOpenChange = vi.fn<() => void>();
     render(
       <Search open={false} onOpenChange={onOpenChange}>
         <CommandInput placeholder="Search..." />

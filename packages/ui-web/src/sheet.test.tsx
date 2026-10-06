@@ -6,10 +6,10 @@ import { describe, expect, it, vi } from 'vitest';
 import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle, SheetTrigger } from '.';
 
 // Mock ResizeObserver for Radix UI
-globalThis.ResizeObserver = vi.fn().mockImplementation(() => ({
-  observe: vi.fn(),
-  unobserve: vi.fn(),
-  disconnect: vi.fn(),
+globalThis.ResizeObserver = vi.fn<(...args: any[]) => any>().mockImplementation(() => ({
+  observe: vi.fn<() => void>(),
+  unobserve: vi.fn<() => void>(),
+  disconnect: vi.fn<() => void>(),
 }));
 
 describe('Sheet', () => {

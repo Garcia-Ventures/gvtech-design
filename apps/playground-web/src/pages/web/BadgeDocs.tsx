@@ -52,7 +52,6 @@ export function BadgeDocs() {
               type: 'string',
               description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
-            ...[],
           ]}
         />
       </div>

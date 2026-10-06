@@ -47,7 +47,7 @@ describe('Checkbox (Native Implementation)', () => {
   });
 
   it('handles onCheckedChange', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Checkbox checked={false} onCheckedChange={onCheckedChange} />);
 
     const checkbox = screen.getByRole('checkbox');

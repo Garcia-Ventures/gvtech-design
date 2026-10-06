@@ -13,11 +13,13 @@ if (!('__DEV__' in globalThis)) {
 
 // Mock nativewind in test environments
 vi.mock('nativewind', () => ({
-  useColorScheme: vi.fn(() => ({
-    colorScheme: 'light',
-    setColorScheme: vi.fn(),
-    toggleColorScheme: vi.fn(),
-  })),
+  useColorScheme: vi.fn<() => { colorScheme: string; setColorScheme: () => void; toggleColorScheme: () => void }>(
+    () => ({
+      colorScheme: 'light',
+      setColorScheme: vi.fn<() => void>(),
+      toggleColorScheme: vi.fn<() => void>(),
+    }),
+  ),
 }));
 
 expect.extend(matchers);

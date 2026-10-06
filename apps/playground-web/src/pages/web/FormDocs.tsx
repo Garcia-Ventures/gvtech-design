@@ -172,8 +172,4 @@ export function ProfileForm() {
       </div>
     </>
   );
-
-  const isNative = false as boolean;
-
-  const platform = 'web' as string;
 }

@@ -21,7 +21,7 @@ describe('Label (Native Implementation)', () => {
   });
 
   it('handles onPress', () => {
-    const onPress = vi.fn();
+    const onPress = vi.fn<() => void>();
     render(<Label onPress={onPress}>Clickable label</Label>);
 
     fireEvent.click(screen.getByText('Clickable label'));

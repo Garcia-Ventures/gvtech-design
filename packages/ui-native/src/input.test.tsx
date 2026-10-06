@@ -10,7 +10,7 @@ describe('Input (Native Implementation)', () => {
   });
 
   it('handles onChangeText', () => {
-    const onChangeText = vi.fn();
+    const onChangeText = vi.fn<() => void>();
     render(<Input placeholder="Enter text" onChangeText={onChangeText} />);
 
     const input = screen.getByPlaceholderText('Enter text');

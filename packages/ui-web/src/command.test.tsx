@@ -51,12 +51,18 @@ describe('Command', () => {
     // or checks class names.
     // Let's check if Search Emoji is not visible or removed
     const emoji = screen.queryByText('Search Emoji');
-    // If it's still in document but hidden, we check visibility
-    if (emoji) {
-      expect(emoji).not.toBeVisible();
-    } else {
-      expect(emoji).not.toBeInTheDocument();
-    }
+    // cmdk either removes filtered items or hides them — both mean "filtered out"
+    const visibleEmojis = screen
+      .queryAllByText('Search Emoji')
+      .filter(
+        (el) =>
+          el instanceof HTMLElement &&
+          getComputedStyle(el).display !== 'none' &&
+          getComputedStyle(el).visibility !== 'hidden' &&
+          !el.hidden &&
+          el.getAttribute('aria-hidden') !== 'true',
+      );
+    expect(emoji === null || visibleEmojis.length === 0).toBe(true);
   });
 
   it('shows empty state when no results', async () => {
