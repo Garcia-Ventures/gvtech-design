@@ -15,7 +15,7 @@ import { Text, View } from 'react-native';
 
 import { cn } from './lib/utils';
 
-function Field({ className, _orientation, ...props }: React.ComponentProps<typeof View> & FieldBaseProps) {
+function Field({ className, orientation: _orientation, ...props }: React.ComponentProps<typeof View> & FieldBaseProps) {
   return <View className={cn('flex flex-col gap-2', className)} {...props} />;
 }
 

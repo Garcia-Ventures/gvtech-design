@@ -8,7 +8,7 @@ export const Slider: React.FC<SliderBaseProps> = ({
   className,
   value,
   onValueChange: onValueChangeProp,
-  _defaultValue,
+  defaultValue: _defaultValue,
   min = 0,
   max = 100,
   step = 1,
