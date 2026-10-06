@@ -1,7 +1,8 @@
-import { safeTrack } from '@/lib/analytics';
 import { Button } from '@gv-tech/ui-web';
 import { AlertTriangle } from 'lucide-react';
 import { Component, ErrorInfo, ReactNode } from 'react';
+
+import { safeTrack } from '@/lib/analytics';
 
 interface Props {
   children?: ReactNode;

@@ -1,5 +1,6 @@
 'use client';
 
+import type { ScrollToTopBaseProps } from '@gv-tech/ui-core';
 import { ArrowUp } from 'lucide-react-native';
 import * as React from 'react';
 import {
@@ -13,19 +14,19 @@ import {
   View,
 } from 'react-native';
 
-import type { ScrollToTopBaseProps } from '@gv-tech/ui-core';
 import { Button } from './button';
 import { cn } from './lib/utils';
 
 export interface ScrollToTopProps extends ScrollToTopBaseProps {
   /**
-   * For Native: The scroll target is typically a ref to a ScrollView or FlatList.
-   * This is required unless you manually call the scroll handler.
+   * For Native: The scroll target is typically a ref to a ScrollView or FlatList. This is required unless you manually
+   * call the scroll handler.
    */
   scrollRef?: React.RefObject<ScrollView | FlatList | null>;
 
   /**
    * Custom duration specifically for Native animations (opacity/transform).
+   *
    * @default 300
    */
   animationDuration?: number;
@@ -34,8 +35,8 @@ export interface ScrollToTopProps extends ScrollToTopBaseProps {
 /**
  * GV Tech Animated Scroll To Top (Native)
  *
- * A floating action button that appears when scrolling down and allows the user
- * to quickly return to the top of a ScrollView, FlatList, or SectionList.
+ * A floating action button that appears when scrolling down and allows the user to quickly return to the top of a
+ * ScrollView, FlatList, or SectionList.
  *
  * Reuses the internal GV Tech Button primitive for consistent styling.
  */

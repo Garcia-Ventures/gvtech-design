@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { ThemeToggle } from '@gv-tech/ui-web';
 import { useState } from 'react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function ThemeToggleDocs() {
   const [binaryTheme, setBinaryTheme] = useState('light');

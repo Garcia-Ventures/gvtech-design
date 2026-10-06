@@ -1,6 +1,7 @@
+import { Marker, MarkerContent, MarkerIcon } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Marker, MarkerContent, MarkerIcon } from '@gv-tech/ui-web';
 
 export function MarkerDocs() {
   return (

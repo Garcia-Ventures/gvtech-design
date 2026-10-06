@@ -13,6 +13,7 @@ import { ChevronDown } from 'lucide-react-native';
 import * as React from 'react';
 import { GestureResponderEvent, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+
 import { cn } from './lib/utils';
 
 export const NavigationMenu = React.forwardRef<

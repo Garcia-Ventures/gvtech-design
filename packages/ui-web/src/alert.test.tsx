@@ -1,6 +1,7 @@
 'use client';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+
 import { Alert, AlertDescription, AlertTitle } from './alert';
 
 describe('Alert', () => {

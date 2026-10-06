@@ -1,4 +1,3 @@
-import { useDocMetadata } from '@/hooks/useDocMetadata';
 import {
   Badge,
   Card,
@@ -16,6 +15,8 @@ import {
 import { CheckCircle2, Clock, Search, XCircle } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+
+import { useDocMetadata } from '@/hooks/useDocMetadata';
 
 interface ComponentStatusItem {
   name: string;

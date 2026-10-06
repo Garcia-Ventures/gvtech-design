@@ -48,7 +48,7 @@ const ToggleGroupItem = React.forwardRef<React.ComponentRef<typeof ToggleGroupPr
     return (
       <TextClassContext.Provider
         value={cn(
-          'text-sm native:text-base text-foreground font-medium',
+          'native:text-base text-foreground text-sm font-medium',
           props.disabled && 'web:cursor-not-allowed opacity-50',
           value === '' && 'text-accent-foreground',
           className,

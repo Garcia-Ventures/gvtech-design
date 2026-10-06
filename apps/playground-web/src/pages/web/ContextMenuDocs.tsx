@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   ContextMenu,
   ContextMenuContent,
@@ -11,6 +9,9 @@ import {
   ContextMenuSubTrigger,
   ContextMenuTrigger,
 } from '@gv-tech/ui-web';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

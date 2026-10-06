@@ -2,13 +2,22 @@
   "name": "@gv-tech/ui-web",
   "version": "2.28.0",
   "description": "Web (DOM/Radix) implementations of the GV Tech design system components",
+  "license": "MIT",
+  "author": "Eric N. Garcia <eng618@garciaericn.com>",
   "repository": {
     "type": "git",
     "url": "https://github.com/Garcia-Ventures/gvtech-design.git",
     "directory": "packages/ui-web"
   },
-  "license": "MIT",
-  "author": "Eric N. Garcia <eng618@garciaericn.com>",
+  "files": [
+    "dist",
+    "src",
+    "!src/**/*.test.*",
+    "!src/**/*.spec.*"
+  ],
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.ts",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
@@ -23,15 +32,10 @@
       "default": "./dist/*.mjs"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
-  "types": "./dist/index.d.ts",
-  "files": [
-    "dist",
-    "src",
-    "!src/**/*.test.*",
-    "!src/**/*.spec.*"
-  ],
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  },
   "scripts": {
     "build": "vite build",
     "lint": "echo 'Linted from workspace root'",
@@ -92,9 +96,5 @@
     "next-themes": "^0.4.6",
     "react": ">=18",
     "react-dom": ">=18"
-  },
-  "publishConfig": {
-    "access": "public",
-    "provenance": true
   }
 }

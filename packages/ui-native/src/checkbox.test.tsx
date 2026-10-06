@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Checkbox } from './checkbox';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules

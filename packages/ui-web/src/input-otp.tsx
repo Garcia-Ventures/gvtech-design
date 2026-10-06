@@ -1,16 +1,15 @@
 'use client';
 
-import { cn } from 'cn';
-import { OTPInput, OTPInputContext } from 'input-otp';
-import { MinusIcon } from 'lucide-react';
-import * as React from 'react';
-
 import type {
   InputOTPBaseProps,
   InputOTPGroupBaseProps,
   InputOTPSeparatorBaseProps,
   InputOTPSlotBaseProps,
 } from '@gv-tech/ui-core';
+import { cn } from 'cn';
+import { OTPInput, OTPInputContext } from 'input-otp';
+import { MinusIcon } from 'lucide-react';
+import * as React from 'react';
 
 function InputOTP({
   className,

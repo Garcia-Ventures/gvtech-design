@@ -1,6 +1,7 @@
+import { Checkbox, Label } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Checkbox, Label } from '@gv-tech/ui-web';
 
 const isNative = false as boolean;
 const platform = 'web' as string;

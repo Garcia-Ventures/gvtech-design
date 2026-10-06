@@ -1,5 +1,3 @@
-import { docConfig } from '@/config/docs';
-import { safeTrack } from '@/lib/analytics';
 import {
   cn,
   Collapsible,
@@ -26,6 +24,10 @@ import {
 import { ChevronRight } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
+
+import { docConfig } from '@/config/docs';
+import { safeTrack } from '@/lib/analytics';
+
 import { version } from '../../../../../package.json';
 
 interface DocsSidebarProps {

@@ -1,13 +1,12 @@
 'use client';
 
+import type { ToggleGroupBaseProps } from '@gv-tech/ui-core';
 import { type VariantProps } from 'class-variance-authority';
 import { cn } from 'cn';
 import { ToggleGroup as ToggleGroupPrimitive } from 'radix-ui';
 import * as React from 'react';
 
 import { toggleVariants } from '@/./toggle';
-
-import type { ToggleGroupBaseProps } from '@gv-tech/ui-core';
 
 const ToggleGroupContext = React.createContext<
   VariantProps<typeof toggleVariants> & {

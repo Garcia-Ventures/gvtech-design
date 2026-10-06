@@ -6,8 +6,7 @@ export interface ScrollToTopBaseProps {
    */
   threshold?: number;
   /**
-   * Delay in milliseconds before the page scroll-to-top is triggered,
-   * allowing the exit animation to complete first.
+   * Delay in milliseconds before the page scroll-to-top is triggered, allowing the exit animation to complete first.
    *
    * @default 450
    */

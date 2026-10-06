@@ -1,7 +1,7 @@
+import type { CardBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
 
-import type { CardBaseProps } from '@gv-tech/ui-core';
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 

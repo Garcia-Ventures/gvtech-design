@@ -2,10 +2,7 @@
   "compilerOptions": {
     "allowSyntheticDefaultImports": true,
     "jsx": "react-native",
-    "lib": [
-      "dom",
-      "esnext"
-    ],
+    "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
     "skipLibCheck": true,
@@ -14,9 +11,7 @@
     "declaration": true
   },
   "files": [],
-  "include": [
-    "nativewind-env.d.ts"
-  ],
+  "include": ["nativewind-env.d.ts"],
   "references": [
     {
       "path": "./tsconfig.app.json"

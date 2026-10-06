@@ -1,6 +1,7 @@
 import { render } from '@testing-library/react';
 import { Text } from 'react-native';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Carousel, CarouselContent, CarouselItem } from './carousel';
 
 vi.mock('lucide-react-native', () => ({

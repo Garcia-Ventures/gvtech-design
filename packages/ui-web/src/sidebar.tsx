@@ -1,17 +1,3 @@
-import { useIsMobile } from '@/hooks/use-mobile';
-import { cva, type VariantProps } from 'class-variance-authority';
-import { cn } from 'cn';
-import { PanelLeftIcon } from 'lucide-react';
-import { Slot } from 'radix-ui';
-import * as React from 'react';
-
-import { Button } from '@/./button';
-import { Input } from '@/./input';
-import { Separator } from '@/./separator';
-import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/./sheet';
-import { Skeleton } from '@/./skeleton';
-import { Tooltip, TooltipContent, TooltipTrigger } from '@/./tooltip';
-
 import type {
   SidebarBaseProps,
   SidebarContentBaseProps,
@@ -37,6 +23,19 @@ import type {
   SidebarSeparatorBaseProps,
   SidebarTriggerBaseProps,
 } from '@gv-tech/ui-core';
+import { cva, type VariantProps } from 'class-variance-authority';
+import { cn } from 'cn';
+import { PanelLeftIcon } from 'lucide-react';
+import { Slot } from 'radix-ui';
+import * as React from 'react';
+
+import { Button } from '@/./button';
+import { Input } from '@/./input';
+import { Separator } from '@/./separator';
+import { Sheet, SheetContent, SheetDescription, SheetHeader, SheetTitle } from '@/./sheet';
+import { Skeleton } from '@/./skeleton';
+import { Tooltip, TooltipContent, TooltipTrigger } from '@/./tooltip';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const SIDEBAR_COOKIE_NAME = 'sidebar_state';
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7;
@@ -454,13 +453,13 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<'li'> & S
 }
 
 const sidebarMenuButtonVariants = cva(
-  'peer/menu-button group/menu-button flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start text-sm ring-sidebar-ring outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! hover:bg-sidebar-accent hover:text-sidebar-accent-foreground focus-visible:ring-2 active:bg-sidebar-accent active:text-sidebar-accent-foreground disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:font-medium data-active:text-sidebar-accent-foreground [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate',
+  'peer/menu-button group/menu-button ring-sidebar-ring hover:bg-sidebar-accent hover:text-sidebar-accent-foreground active:bg-sidebar-accent active:text-sidebar-accent-foreground data-open:hover:bg-sidebar-accent data-open:hover:text-sidebar-accent-foreground data-active:bg-sidebar-accent data-active:text-sidebar-accent-foreground flex w-full items-center gap-2 overflow-hidden rounded-md p-2 text-start text-sm outline-hidden transition-[width,height,padding] group-has-data-[sidebar=menu-action]/menu-item:pe-8 group-data-[collapsible=icon]:size-8! group-data-[collapsible=icon]:p-2! focus-visible:ring-2 disabled:pointer-events-none disabled:opacity-50 aria-disabled:pointer-events-none aria-disabled:opacity-50 data-active:font-medium [&_svg]:size-4 [&_svg]:shrink-0 [&>span:last-child]:truncate',
   {
     variants: {
       variant: {
         default: 'hover:bg-sidebar-accent hover:text-sidebar-accent-foreground',
         outline:
-          'bg-background shadow-[0_0_0_1px_var(--sidebar-border)] hover:bg-sidebar-accent hover:text-sidebar-accent-foreground hover:shadow-[0_0_0_1px_var(--sidebar-accent)]',
+          'bg-background hover:bg-sidebar-accent hover:text-sidebar-accent-foreground shadow-[0_0_0_1px_var(--sidebar-border)] hover:shadow-[0_0_0_1px_var(--sidebar-accent)]',
       },
       size: {
         default: 'h-8 text-sm',

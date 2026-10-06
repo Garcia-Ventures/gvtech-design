@@ -20,14 +20,14 @@ Use this skill when implementing or using `@gv-tech/ui-native` components in Rea
 ## Usage Example
 
 ```tsx
+import { ThemeProvider, Card, CardHeader, CardTitle, CardContent, Text, Button } from '@gv-tech/ui-native';
 import * as React from 'react';
 import { View } from 'react-native';
-import { ThemeProvider, Card, CardHeader, CardTitle, CardContent, Text, Button } from '@gv-tech/ui-native';
 
 export function Screen() {
   return (
     <ThemeProvider value="system">
-      <View className="flex-1 items-center justify-center bg-background p-6">
+      <View className="bg-background flex-1 items-center justify-center p-6">
         <Card className="w-full max-w-sm">
           <CardHeader>
             <CardTitle>Native Card</CardTitle>

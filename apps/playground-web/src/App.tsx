@@ -20,7 +20,7 @@ import {
 import { Loader2 } from 'lucide-react';
 import * as React from 'react';
 import { BrowserRouter, Link, Navigate, Route, Routes, useLocation, useNavigate } from 'react-router-dom';
-import { DomainRedirectNotice } from './components/DomainRedirectNotice';
+
 import {
   CombinedDocsLayout,
   DocSearch,
@@ -29,14 +29,13 @@ import {
   ErrorBoundary,
   Footer,
 } from './components/docs';
+import { DomainRedirectNotice } from './components/DomainRedirectNotice';
 import { docItemsMap } from './config/docs';
-import { OpenPanelProvider } from './lib/OpenPanelProvider';
-import { safeTrack } from './lib/analytics';
-
-import { docRoutes } from './routes/doc-routes';
-
 // Lazy load docs pages
 import { PackageManagerProvider } from './hooks/usePackageManager';
+import { safeTrack } from './lib/analytics';
+import { OpenPanelProvider } from './lib/OpenPanelProvider';
+import { docRoutes } from './routes/doc-routes';
 
 const docItemsMap = new Map<string, DocItem>();
 for (const category of docConfig) {

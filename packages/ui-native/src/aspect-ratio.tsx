@@ -1,6 +1,7 @@
 import type { AspectRatioBaseProps } from '@gv-tech/ui-core';
 import * as AspectRatioPrimitive from '@rn-primitives/aspect-ratio';
 import * as React from 'react';
+
 import { cn } from './lib/utils';
 
 export const AspectRatio: React.FC<AspectRatioBaseProps> = ({ children, className, ratio = 1 }) => {

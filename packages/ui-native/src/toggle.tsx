@@ -14,7 +14,7 @@ const Toggle = React.forwardRef<React.ComponentRef<typeof TogglePrimitive.Root>,
   ({ className, variant, size, ...props }, ref) => (
     <TextClassContext.Provider
       value={cn(
-        'text-sm native:text-base text-foreground font-medium',
+        'native:text-base text-foreground text-sm font-medium',
         props.pressed && 'text-accent-foreground',
         className,
       )}

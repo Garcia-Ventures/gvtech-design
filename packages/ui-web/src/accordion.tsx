@@ -1,9 +1,8 @@
+import type { AccordionBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { ChevronDownIcon, ChevronUpIcon } from 'lucide-react';
 import { Accordion as AccordionPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { AccordionBaseProps } from '@gv-tech/ui-core';
 
 function Accordion({ className, ...props }: React.ComponentProps<typeof AccordionPrimitive.Root>) {
   return <AccordionPrimitive.Root data-slot="accordion" className={cn('flex w-full flex-col', className)} {...props} />;

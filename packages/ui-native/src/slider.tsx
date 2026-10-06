@@ -1,6 +1,7 @@
 import type { SliderBaseProps } from '@gv-tech/ui-core';
 import * as SliderPrimitive from '@rn-primitives/slider';
 import * as React from 'react';
+
 import { cn } from './lib/utils';
 
 export const Slider: React.FC<SliderBaseProps> = ({

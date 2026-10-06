@@ -1,8 +1,7 @@
+import type { ScrollAreaBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { ScrollArea as ScrollAreaPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { ScrollAreaBaseProps } from '@gv-tech/ui-core';
 
 function ScrollArea({ className, children, ...props }: React.ComponentProps<typeof ScrollAreaPrimitive.Root>) {
   return (

@@ -1,8 +1,8 @@
+import type { TextBaseProps } from '@gv-tech/ui-core';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Text as RNText } from 'react-native';
 
-import type { TextBaseProps } from '@gv-tech/ui-core';
 import { cn } from './lib/utils';
 
 const TextClassContext = React.createContext<string | undefined>(undefined);
@@ -16,9 +16,9 @@ const textVariants = cva('text-foreground', {
       h4: 'text-xl font-semibold tracking-tight',
       body: 'text-base leading-7',
       bodySmall: 'text-sm leading-6',
-      caption: 'text-xs text-muted-foreground',
+      caption: 'text-muted-foreground text-xs',
       label: 'text-sm font-medium',
-      overline: 'text-xs font-semibold uppercase tracking-widest text-muted-foreground',
+      overline: 'text-muted-foreground text-xs font-semibold tracking-widest uppercase',
     },
   },
   defaultVariants: {

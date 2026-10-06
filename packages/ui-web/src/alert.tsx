@@ -1,8 +1,7 @@
+import type { AlertBaseProps } from '@gv-tech/ui-core';
 import { cva, type VariantProps } from 'class-variance-authority';
 import { cn } from 'cn';
 import * as React from 'react';
-
-import type { AlertBaseProps } from '@gv-tech/ui-core';
 
 const alertVariants = cva(
   "group/alert relative grid w-full gap-0.5 rounded-lg border px-2.5 py-2 text-start text-sm has-data-[slot=alert-action]:relative has-data-[slot=alert-action]:pe-18 has-[>svg]:grid-cols-[auto_1fr] has-[>svg]:gap-x-2 *:[svg]:row-span-2 *:[svg]:translate-y-0.5 *:[svg]:text-current *:[svg:not([class*='size-'])]:size-4",
@@ -13,8 +12,8 @@ const alertVariants = cva(
         destructive:
           'bg-card text-destructive *:data-[slot=alert-description]:text-destructive/90 *:[svg]:text-current',
         warning:
-          'bg-card text-amber-600 dark:text-amber-400 *:data-[slot=alert-description]:text-amber-700/90 dark:*:data-[slot=alert-description]:text-amber-300/90 *:[svg]:text-current',
-        info: 'bg-card text-blue-600 dark:text-blue-400 *:data-[slot=alert-description]:text-blue-700/90 dark:*:data-[slot=alert-description]:text-blue-300/90 *:[svg]:text-current',
+          'bg-card text-amber-600 *:data-[slot=alert-description]:text-amber-700/90 dark:text-amber-400 dark:*:data-[slot=alert-description]:text-amber-300/90 *:[svg]:text-current',
+        info: 'bg-card text-blue-600 *:data-[slot=alert-description]:text-blue-700/90 dark:text-blue-400 dark:*:data-[slot=alert-description]:text-blue-300/90 *:[svg]:text-current',
       },
     },
     defaultVariants: {

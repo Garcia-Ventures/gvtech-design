@@ -18,6 +18,7 @@ import type {
 import { Check, ChevronDown, X } from 'lucide-react-native';
 import * as React from 'react';
 import { Pressable, TextInput, View } from 'react-native';
+
 import { Dialog, DialogContent, DialogTrigger } from './dialog';
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';

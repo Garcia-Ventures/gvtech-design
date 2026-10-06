@@ -1,5 +1,6 @@
-import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
+
+import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 
 export const PACKAGEMANAGERS = ['npm', 'bun', 'pnpm', 'yarn', 'yarn-classic'] as const;
 export type PackageManager = (typeof PACKAGEMANAGERS)[number];

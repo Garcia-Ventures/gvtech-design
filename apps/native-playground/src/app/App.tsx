@@ -1,5 +1,4 @@
 import '../global.css';
-
 import {
   Accordion,
   AccordionContent,

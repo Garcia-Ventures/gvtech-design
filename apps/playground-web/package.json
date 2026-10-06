@@ -4,10 +4,10 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "generate:sitemap": "node scripts/generate-sitemap.mjs",
-    "prebuild": "bun run generate:sitemap",
     "build": "vite build",
     "dev": "vite",
+    "generate:sitemap": "node scripts/generate-sitemap.mjs",
+    "prebuild": "bun run generate:sitemap",
     "preview": "vite preview",
     "typecheck": "npx tsc --noEmit"
   },

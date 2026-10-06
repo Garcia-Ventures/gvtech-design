@@ -1,11 +1,10 @@
 'use client';
 
+import type { MenubarBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { CheckIcon, ChevronRightIcon } from 'lucide-react';
 import { Menubar as MenubarPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { MenubarBaseProps } from '@gv-tech/ui-core';
 
 function Menubar({ className, ...props }: React.ComponentProps<typeof MenubarPrimitive.Root>) {
   return (

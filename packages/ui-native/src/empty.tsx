@@ -1,6 +1,7 @@
 import type { EmptyBaseProps, EmptyMediaBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 function Empty({ className, ...props }: React.ComponentProps<typeof View> & EmptyBaseProps) {

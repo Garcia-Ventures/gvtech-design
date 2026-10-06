@@ -1,7 +1,6 @@
+import type { SpinnerBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { Loader2Icon } from 'lucide-react';
-
-import type { SpinnerBaseProps } from '@gv-tech/ui-core';
 
 function Spinner({ className, ...props }: React.ComponentProps<'svg'> & SpinnerBaseProps) {
   return (

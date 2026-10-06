@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   MessageScroller,
   MessageScrollerButton,
@@ -8,6 +6,9 @@ import {
   MessageScrollerProvider,
   MessageScrollerViewport,
 } from '@gv-tech/ui-web';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function MessageScrollerDocs() {
   return (
