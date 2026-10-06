@@ -10,26 +10,8 @@ import { cn } from './lib/utils';
 
 export type ThemeToggleProps = ThemeToggleBaseProps;
 
-export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, className }: ThemeToggleProps) {
-  const { theme: nextTheme, setTheme: setNextTheme, resolvedTheme } = useTheme();
-
-  // Use customTheme if provided, otherwise fallback to next-themes
-  const currentTheme = customTheme ?? nextTheme;
-
-  // Determine the effective theme for icon rendering
-  const effectiveTheme = customTheme ? customTheme : resolvedTheme;
-  const isDark = effectiveTheme === 'dark';
-  const isSystem = currentTheme === 'system';
-
-  const handleThemeChange = (newTheme: string) => {
-    if (onThemeChange) {
-      onThemeChange(newTheme);
-    } else {
-      setNextTheme(newTheme);
-    }
-  };
-
-  const IconToggle = () => (
+function ThemeIcons({ isDark, isSystem }: { isDark: boolean; isSystem: boolean }) {
+  return (
     <>
       <Sun
         className={cn(
@@ -52,13 +34,33 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       <span className="sr-only">Toggle theme</span>
     </>
   );
+}
+
+export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, className }: ThemeToggleProps) {
+  const { theme: nextTheme, setTheme: setNextTheme, resolvedTheme } = useTheme();
+
+  // Use customTheme if provided, otherwise fallback to next-themes
+  const currentTheme = customTheme ?? nextTheme;
+
+  // Determine the effective theme for icon rendering
+  const effectiveTheme = customTheme ? customTheme : resolvedTheme;
+  const isDark = effectiveTheme === 'dark';
+  const isSystem = currentTheme === 'system';
+
+  const handleThemeChange = (newTheme: string) => {
+    if (onThemeChange) {
+      onThemeChange(newTheme);
+    } else {
+      setNextTheme(newTheme);
+    }
+  };
 
   if (variant === 'ternary') {
     return (
       <DropdownMenu>
         <DropdownMenuTrigger asChild>
           <Button variant="ghost" size="icon" className={cn('relative h-9 w-9', className)}>
-            <IconToggle />
+            <ThemeIcons isDark={isDark} isSystem={isSystem} />
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
@@ -87,7 +89,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       onClick={() => handleThemeChange(currentTheme === 'dark' ? 'light' : 'dark')}
       aria-label="Toggle theme"
     >
-      <IconToggle />
+      <ThemeIcons isDark={isDark} isSystem={isSystem} />
     </Button>
   );
 }

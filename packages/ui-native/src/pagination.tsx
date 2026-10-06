@@ -18,6 +18,8 @@ import { Text } from './text';
 export const Pagination = ({ className, children, ...props }: PaginationBaseProps) => {
   return (
     <View
+      // RN has no nav element; `role` targets web parity via react-native-web
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       role="navigation"
       aria-label="pagination"
       className={cn('mx-auto flex w-full flex-row justify-center', className)}

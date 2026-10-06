@@ -14,6 +14,8 @@ vi.mock('@rn-primitives/checkbox', () => {
       const value = React.useMemo(() => ({ checked, onCheckedChange }), [checked, onCheckedChange]);
       return React.createElement(
         'div',
+        // Test mocks forward refs into host elements by design
+        // eslint-disable-next-line react/refs
         {
           ref,
           role: 'checkbox',

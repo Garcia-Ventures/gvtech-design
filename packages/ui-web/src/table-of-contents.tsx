@@ -159,6 +159,7 @@ function TableOfContentsList({ className }: TableOfContentsListBaseProps) {
       <div className={cn('bg-background/95 sticky top-0 z-40 border-b backdrop-blur lg:hidden', className)}>
         <button
           onClick={() => setIsOpen(!isOpen)}
+          aria-label={activeHeadingText ? `On this page: ${activeHeadingText}` : 'Table of contents'}
           className="flex w-full items-center justify-between px-4 py-3 text-left"
         >
           <div className="flex items-center gap-2 overflow-hidden">

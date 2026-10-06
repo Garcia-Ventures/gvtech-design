@@ -22,7 +22,7 @@ import {
   useSidebar,
 } from '@gv-tech/ui-web';
 import { ChevronRight } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 
 import { docConfig } from '@/config/docs';
@@ -47,14 +47,18 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
       .map((cat) => cat.title);
   });
 
-  useEffect(() => {
-    const activeCategory = docConfig.find((cat) =>
-      cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
-    );
-    if (activeCategory && !openCategories.includes(activeCategory.title)) {
-      setOpenCategories((prev) => [...prev, activeCategory.title]);
+  const activeCategoryTitle = docConfig.find((cat) =>
+    cat.items.some((item) => location.pathname.includes(`/docs/${item.href}`)),
+  )?.title;
+
+  // Keep the active category open as navigation changes (adjust during render)
+  const [prevPathname, setPrevPathname] = useState(location.pathname);
+  if (location.pathname !== prevPathname) {
+    setPrevPathname(location.pathname);
+    if (activeCategoryTitle && !openCategories.includes(activeCategoryTitle)) {
+      setOpenCategories((prev) => [...prev, activeCategoryTitle]);
     }
-  }, [location.pathname]);
+  }
 
   const toggleCategory = (title: string, open: boolean) => {
     setOpenCategories((prev) => (open ? [...prev, title] : prev.filter((t) => t !== title)));

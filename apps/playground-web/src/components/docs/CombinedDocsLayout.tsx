@@ -44,15 +44,14 @@ export function CombinedDocsLayout({ title, description, web, native, flutter }:
     return 'web';
   });
 
-  React.useEffect(() => {
-    if (activeTab === 'flutter' && !flutter) {
-      setActiveTab(web ? 'web' : native ? 'native' : 'flutter');
-    } else if (activeTab === 'native' && !native) {
-      setActiveTab(web ? 'web' : flutter ? 'flutter' : 'native');
-    } else if (activeTab === 'web' && !web) {
-      setActiveTab(flutter ? 'flutter' : native ? 'native' : 'web');
-    }
-  }, [web, native, flutter, activeTab]);
+  // Fall back when the active tab has no content (adjust during render)
+  if (activeTab === 'flutter' && !flutter) {
+    setActiveTab(web ? 'web' : native ? 'native' : 'flutter');
+  } else if (activeTab === 'native' && !native) {
+    setActiveTab(web ? 'web' : flutter ? 'flutter' : 'native');
+  } else if (activeTab === 'web' && !web) {
+    setActiveTab(flutter ? 'flutter' : native ? 'native' : 'web');
+  }
 
   const onTabChange = (value: string) => {
     const newTab = value as 'web' | 'native' | 'flutter';

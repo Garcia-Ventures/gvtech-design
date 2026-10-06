@@ -2,6 +2,8 @@ import { Button, Separator, Tooltip, TooltipContent, TooltipTrigger } from '@gv-
 import { FaLinkedin } from 'react-icons/fa6';
 import { SiGithub, SiX } from 'react-icons/si';
 
+const CURRENT_YEAR = new Date().getFullYear();
+
 export function Footer() {
   return (
     <footer className="bg-muted/40 border-border/50 border-t">
@@ -164,7 +166,7 @@ export function Footer() {
 
         <div className="border-border/50 mt-12 border-t pt-8">
           <div className="text-muted-foreground flex flex-col items-center justify-between gap-4 text-xs md:flex-row">
-            <p>© {new Date().getFullYear()} GVTech. All rights reserved.</p>
+            <p>© {CURRENT_YEAR} GVTech. All rights reserved.</p>
             <div className="flex items-center gap-4">
               <p>
                 Built with{' '}

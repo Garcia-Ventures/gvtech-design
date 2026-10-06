@@ -12,7 +12,6 @@ const Progress = React.forwardRef<
     ref={ref}
     className={cn('bg-muted relative h-2 w-full overflow-hidden rounded-full', className)}
     accessibilityRole="progressbar"
-    role="progressbar"
     {...props}
   >
     <View className="bg-primary h-full rounded-full" style={{ width: `${value || 0}%` }} />

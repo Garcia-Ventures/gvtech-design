@@ -17,14 +17,16 @@ export type CalendarProps = Omit<
 export const Calendar = React.forwardRef<View, CalendarProps>(
   ({ className, value, onChange, _showOutsideDays, ...props }, ref) => {
     // If no value is provided, default to current date so the picker doesn't crash
-    const [date, setDate] = React.useState<Date>(value || new Date());
+    const [date, setDate] = React.useState<Date>(() => value ?? new Date());
+    const [prevValue, setPrevValue] = React.useState(value);
 
-    // Sync internal state if external value changes
-    React.useEffect(() => {
+    // Sync internal state if external value changes (adjust during render)
+    if (value !== prevValue) {
+      setPrevValue(value);
       if (value) {
         setDate(value);
       }
-    }, [value]);
+    }
 
     const handleValueChange = (event: unknown, selectedDate: Date) => {
       setDate(selectedDate);

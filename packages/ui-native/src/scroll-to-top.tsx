@@ -62,9 +62,9 @@ export const ScrollToTop = React.forwardRef<ScrollToTopHandle, ScrollToTopProps>
     const [isVisible, setIsVisible] = React.useState(false);
     const [isExiting, setIsExiting] = React.useState(false);
 
-    // Animation states
-    const opacity = React.useRef(new Animated.Value(0)).current;
-    const translateY = React.useRef(new Animated.Value(20)).current;
+    // Animation states (lazy state initializers keep stable instances without render-time ref reads)
+    const [opacity] = React.useState(() => new Animated.Value(0));
+    const [translateY] = React.useState(() => new Animated.Value(20));
 
     const animateIn = () => {
       Animated.parallel([
