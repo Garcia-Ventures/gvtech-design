@@ -1,6 +1,6 @@
 'use client';
 
-import {
+import type {
   HeadingItem,
   TableOfContentsBaseProps,
   TableOfContentsContentBaseProps,

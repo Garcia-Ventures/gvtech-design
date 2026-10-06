@@ -1,4 +1,5 @@
-import React, { createContext, ReactNode, useCallback, useContext, useState } from 'react';
+import type { ReactNode} from 'react';
+import React, { createContext, useCallback, useContext, useState } from 'react';
 
 import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 

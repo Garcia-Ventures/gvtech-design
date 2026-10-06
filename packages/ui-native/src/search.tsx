@@ -1,4 +1,4 @@
-import { SearchBaseProps, SearchTriggerBaseProps } from '@gv-tech/ui-core';
+import type { SearchBaseProps, SearchTriggerBaseProps } from '@gv-tech/ui-core';
 import { Search as SearchIcon } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, Text, View } from 'react-native';

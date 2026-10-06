@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const PLAYGROUND_PUBLIC_PATH = path.join(process.cwd(), 'apps/playground-web/public');
 const WEB_REGISTRY_PATH = path.join(PLAYGROUND_PUBLIC_PATH, 'registry');

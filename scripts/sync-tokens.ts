@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 // We use a dynamic import or relative require because we are running with tsx
 // and want to avoid complex tsconfig path issues for a simple script.

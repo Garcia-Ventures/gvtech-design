@@ -10,7 +10,7 @@ class MyEmptyWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return GVEmpty(
       title: 'No projects found',
-      description: 'You haven\'t created any projects yet.',
+      description: 'You haven't created any projects yet.',
       icon: Icon(Icons.folder_open),
       action: GVButton(
         label: 'Create Project',

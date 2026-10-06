@@ -1,6 +1,7 @@
 import { Button } from '@gv-tech/ui-web';
 import { AlertTriangle } from 'lucide-react';
-import { Component, ErrorInfo, ReactNode } from 'react';
+import type { ErrorInfo, ReactNode } from 'react';
+import { Component } from 'react';
 
 import { safeTrack } from '@/lib/analytics';
 

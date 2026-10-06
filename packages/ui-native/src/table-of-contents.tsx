@@ -1,13 +1,14 @@
-import {
+import type {
   HeadingItem as BaseHeadingItem,
   TableOfContentsContentBaseProps,
   TableOfContentsRootBaseProps,
 } from '@gv-tech/ui-core';
 import * as React from 'react';
-import {
+import type {
   LayoutChangeEvent,
   NativeScrollEvent,
-  NativeSyntheticEvent,
+  NativeSyntheticEvent} from 'react-native';
+import {
   Platform,
   Text as RNText,
   ScrollView,

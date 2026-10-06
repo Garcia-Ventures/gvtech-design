@@ -1,7 +1,8 @@
 import type { ButtonBaseProps } from '@gv-tech/ui-core';
 import { cva } from 'class-variance-authority';
 import * as React from 'react';
-import { Pressable, Text, View } from 'react-native';
+import type { View } from 'react-native';
+import { Pressable, Text } from 'react-native';
 
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
