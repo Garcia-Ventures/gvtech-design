@@ -3,17 +3,15 @@
 import type { ScrollToTopBaseProps } from '@gv-tech/ui-core';
 import { ArrowUp } from 'lucide-react-native';
 import * as React from 'react';
-import type {
-  ScrollView} from 'react-native';
 import {
+  type ScrollView,
   AccessibilityInfo,
   Animated,
   type FlatList,
   type NativeScrollEvent,
   type NativeSyntheticEvent,
   Platform,
-  View,
-} from 'react-native';
+  View} from 'react-native';
 
 import { Button } from './button';
 import { cn } from './lib/utils';

@@ -99,7 +99,7 @@ try {
   const { execSync } = require('node:child_process');
   execSync(`bun run prettier --write ${webTestPath} ${nativeTestPath}`, { stdio: 'ignore' });
   console.log('✅ Formatted contract test files.');
-} catch (e) {
+} catch {
   // Ignore errors if prettier fails
 }
 

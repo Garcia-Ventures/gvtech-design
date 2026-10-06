@@ -14,9 +14,6 @@ import { Calculator, CreditCard, Settings, Smile, User } from 'lucide-react';
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
-
 export function CommandDocs() {
   return (
     <>

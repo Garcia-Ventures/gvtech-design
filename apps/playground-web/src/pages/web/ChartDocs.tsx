@@ -4,9 +4,6 @@ import { Bar, BarChart, CartesianGrid, XAxis } from 'recharts';
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
-
 const chartData = [
   { month: 'January', desktop: 186, mobile: 80 },
   { month: 'February', desktop: 305, mobile: 200 },

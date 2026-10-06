@@ -10,8 +10,6 @@ import { PropsTable } from '@/components/docs/PropsTable';
 
 const isNative = false as boolean;
 
-const platform = 'web' as string;
-
 export function AccordionDocs() {
   const Accordion = WebAccordion;
   const AccordionContent = WebAccordionContent;

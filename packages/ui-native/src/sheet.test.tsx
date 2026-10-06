@@ -13,7 +13,7 @@ vi.mock('@rn-primitives/dialog', () => {
   return {
     Root: ({ children, open, onOpenChange }: any) =>
       React.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
-    Trigger: ({ children, asChild, ...props }: any) => {
+    Trigger: ({ children, _asChild, ...props }: any) => {
       const { open, onOpenChange } = React.useContext(DialogContext);
       return React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
     },
@@ -21,27 +21,27 @@ vi.mock('@rn-primitives/dialog', () => {
       const { open } = React.useContext(DialogContext);
       return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
     },
-    Overlay: React.forwardRef(({ children, asChild, forceMount, ...props }: any, ref: any) => {
+    Overlay: React.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
       const { open } = React.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       return React.createElement('div', { ref, ...props }, children);
     }),
-    Content: React.forwardRef(({ children, asChild, forceMount, ...props }: any, ref: any) => {
+    Content: React.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
       const { open } = React.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       return React.createElement('div', { ref, ...props }, children);
     }),
-    Title: React.forwardRef(({ children, asChild, ...props }: any, ref: any) =>
+    Title: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
       React.createElement('h2', { ref, ...props }, children),
     ),
-    Description: React.forwardRef(({ children, asChild, ...props }: any, ref: any) =>
+    Description: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
       React.createElement('p', { ref, ...props }, children),
     ),
-    Close: React.forwardRef(({ children, asChild, ...props }: any, ref: any) => {
+    Close: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
       const { onOpenChange } = React.useContext(DialogContext);
       return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
     }),
