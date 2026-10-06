@@ -39,7 +39,7 @@ describe('Switch (Native Implementation)', () => {
   });
 
   it('handles checked state change', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Switch checked={false} onCheckedChange={onCheckedChange} />);
 
     const switchElement = screen.getByRole('switch');
@@ -48,7 +48,7 @@ describe('Switch (Native Implementation)', () => {
   });
 
   it('respects initial checked state', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Switch checked={true} onCheckedChange={onCheckedChange} />);
 
     const switchElement = screen.getByRole('switch');

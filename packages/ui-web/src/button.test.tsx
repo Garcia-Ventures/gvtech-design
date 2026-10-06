@@ -11,7 +11,7 @@ describe('Button', () => {
   });
 
   it('handles click events', async () => {
-    const handleClick = vi.fn();
+    const handleClick = vi.fn<() => void>();
     render(<Button onClick={handleClick}>Click me</Button>);
     const user = userEvent.setup();
 

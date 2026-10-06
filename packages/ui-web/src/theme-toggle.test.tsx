@@ -13,7 +13,7 @@ vi.mock('./hooks/use-theme', async () => {
     ...actual,
     useTheme: () => ({
       theme: 'light',
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: 'light',
       tokens: {},
     }),

@@ -19,7 +19,7 @@ describe('ScrollToTop', () => {
     Object.defineProperty(window, 'scrollTo', {
       configurable: true,
       writable: true,
-      value: vi.fn(),
+      value: vi.fn<() => void>(),
     });
   });
 
@@ -74,7 +74,7 @@ describe('ScrollToTop', () => {
     Object.defineProperty(target, 'scrollTo', {
       configurable: true,
       writable: true,
-      value: vi.fn(),
+      value: vi.fn<() => void>(),
     });
 
     render(<ScrollToTop label="Back to top" threshold={50} scrollTarget={target} behavior="auto" />);

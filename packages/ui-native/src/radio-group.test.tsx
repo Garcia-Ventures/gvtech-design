@@ -63,7 +63,7 @@ describe('RadioGroup (Native Implementation)', () => {
   });
 
   it('handles value change', () => {
-    const onValueChange = vi.fn();
+    const onValueChange = vi.fn<() => void>();
     render(
       <RadioGroup value="option-one" onValueChange={onValueChange}>
         <RadioGroupItem value="option-one" aria-label="Option One" />

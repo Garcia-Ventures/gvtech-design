@@ -8,7 +8,7 @@ import { useTheme } from './use-theme';
 // Mock next-themes
 vi.mock('next-themes', () => {
   return {
-    useTheme: vi.fn(),
+    useTheme: vi.fn<() => void>(),
   };
 });
 
@@ -20,7 +20,7 @@ describe('useTheme hook', () => {
   it('should call useNextTheme and return light theme tokens when resolvedTheme is undefined', () => {
     const mockContext = {
       theme: undefined,
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: undefined,
       themes: ['light', 'dark'],
       systemTheme: 'light' as const,
@@ -38,7 +38,7 @@ describe('useTheme hook', () => {
   it('should return light theme tokens when resolvedTheme is "light"', () => {
     const mockContext = {
       theme: 'light',
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: 'light',
       themes: ['light', 'dark'],
       systemTheme: 'light' as const,
@@ -54,7 +54,7 @@ describe('useTheme hook', () => {
   it('should return dark theme tokens when resolvedTheme is "dark"', () => {
     const mockContext = {
       theme: 'dark',
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: 'dark',
       themes: ['light', 'dark'],
       systemTheme: 'dark' as const,
@@ -70,7 +70,7 @@ describe('useTheme hook', () => {
   it('should fall back to light theme tokens when resolvedTheme is an invalid/custom value', () => {
     const mockContext = {
       theme: 'system',
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: 'custom-theme' as any,
       themes: ['light', 'dark'],
       systemTheme: 'light' as const,
@@ -83,7 +83,7 @@ describe('useTheme hook', () => {
   });
 
   it('should correctly expose all properties and methods returned by useNextTheme', () => {
-    const setThemeMock = vi.fn();
+    const setThemeMock = vi.fn<() => void>();
     const mockContext = {
       theme: 'dark',
       setTheme: setThemeMock,

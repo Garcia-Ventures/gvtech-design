@@ -42,7 +42,7 @@ describe('Toggle (Native Implementation)', () => {
   });
 
   it('handles press state change', () => {
-    const onPressedChange = vi.fn();
+    const onPressedChange = vi.fn<() => void>();
     render(
       <Toggle pressed={false} onPressedChange={onPressedChange}>
         <Text>Toggle me</Text>

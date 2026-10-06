@@ -79,14 +79,12 @@ export function InputDocs() {
               type: 'string',
               description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
-            ...[
-              {
-                name: 'type',
-                type: 'string',
-                defaultValue: '"text"',
-                description: 'The HTML input type.',
-              },
-            ],
+            {
+              name: 'type',
+              type: 'string',
+              defaultValue: '"text"',
+              description: 'The HTML input type.',
+            },
             {
               name: 'value',
               type: 'string | number | readonly string[]',
