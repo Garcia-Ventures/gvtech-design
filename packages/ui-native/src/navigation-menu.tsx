@@ -22,7 +22,7 @@ export const NavigationMenu = React.forwardRef<
   NavigationMenuBaseProps
 >(
   (
-    { className, children, value, onValueChange, dir, orientation, delayDuration, skipDelayDuration, ...props },
+    { className, children, value, onValueChange, _dir, _orientation, delayDuration, skipDelayDuration, ...props },
     ref,
   ) => {
     return (
@@ -97,7 +97,7 @@ NavigationMenuTrigger.displayName = 'NavigationMenuTrigger';
 export const NavigationMenuContent = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
   NavigationMenuContentBaseProps
->(({ className, children, forceMount, ...props }, ref) => {
+>(({ className, children, _forceMount, ...props }, ref) => {
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Content ref={ref} {...props}>
@@ -117,7 +117,7 @@ NavigationMenuContent.displayName = 'NavigationMenuContent';
 export const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
   NavigationMenuLinkBaseProps & { onPress?: () => void }
->(({ className, children, active, onSelect, onPress, href, ...props }, ref) => {
+>(({ className, children, active, onSelect, onPress, _href, ...props }, ref) => {
   const handlePress = (e: GestureResponderEvent) => {
     if (onPress) {
       onPress();
@@ -148,7 +148,7 @@ NavigationMenuLink.displayName = 'NavigationMenuLink';
 export const NavigationMenuViewport = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
   NavigationMenuViewportBaseProps
->(({ className, forceMount, ...props }, ref) => {
+>(({ className, _forceMount, ...props }, ref) => {
   return (
     <View className="absolute top-full left-0 flex justify-center">
       <NavigationMenuPrimitive.Viewport
@@ -167,7 +167,7 @@ NavigationMenuViewport.displayName = 'NavigationMenuViewport';
 export const NavigationMenuIndicator = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Indicator>,
   NavigationMenuIndicatorBaseProps
->(({ className, forceMount, ...props }, ref) => {
+>(({ className, _forceMount, ...props }, ref) => {
   return (
     <NavigationMenuPrimitive.Indicator
       ref={ref}

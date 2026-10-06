@@ -15,7 +15,7 @@ import { View } from 'react-native';
 import { cn } from './lib/utils';
 import { Text } from './text';
 
-function Item({ className, variant, size, ...props }: React.ComponentProps<typeof View> & ItemBaseProps) {
+function Item({ className, _variant, _size, ...props }: React.ComponentProps<typeof View> & ItemBaseProps) {
   return (
     <View className={cn('flex flex-row flex-wrap items-center gap-2 rounded-lg border p-3', className)} {...props} />
   );
@@ -45,13 +45,13 @@ function ItemHeader({ className, ...props }: React.ComponentProps<typeof View> &
   return <View className={cn('flex w-full flex-row items-center justify-between gap-2', className)} {...props} />;
 }
 
-function ItemMedia({ className, variant, ...props }: React.ComponentProps<typeof View> & ItemMediaBaseProps) {
+function ItemMedia({ className, _variant, ...props }: React.ComponentProps<typeof View> & ItemMediaBaseProps) {
   return <View className={cn('flex shrink-0 items-center justify-center gap-2', className)} {...props} />;
 }
 
 function ItemSeparator({
   className,
-  orientation,
+  _orientation,
   ...props
 }: React.ComponentProps<typeof View> & ItemSeparatorBaseProps) {
   return <View className={cn('bg-border my-2 h-px w-full', className)} {...props} />;

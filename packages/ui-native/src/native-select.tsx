@@ -8,7 +8,7 @@ import { Text, View } from 'react-native';
 
 import { cn } from './lib/utils';
 
-function NativeSelect({ className, size, ...props }: React.ComponentProps<typeof View> & NativeSelectBaseProps) {
+function NativeSelect({ className, _size, ...props }: React.ComponentProps<typeof View> & NativeSelectBaseProps) {
   // Native select relies on @react-native-picker/picker, providing shim
   return (
     <View className={cn('border-input rounded-md border p-2', className)} {...props}>
