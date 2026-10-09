@@ -9,7 +9,7 @@
   "dependencies": {
     "@expo/metro": "~56.0.0",
     "babel-preset-expo": "~56.0.0",
-    "expo": "~56.0.0",
+    "expo": "~57.0.26",
     "expo-splash-screen": "~56.0.10",
     "expo-status-bar": "~56.0.4",
     "expo-system-ui": "~56.0.5",
