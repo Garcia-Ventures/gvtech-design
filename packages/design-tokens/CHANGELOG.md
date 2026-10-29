@@ -1,3 +1,13 @@
+## 2.29.0 (2026-10-11)
+
+### 🚀 Features
+
+- major upgrades and new new components ([75e2f4e](https://github.com/Garcia-Ventures/gvtech-design/commit/75e2f4e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.28.0 (2026-08-16)
 
 No changes for this project

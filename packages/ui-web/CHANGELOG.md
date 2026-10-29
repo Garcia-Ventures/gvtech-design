@@ -1,3 +1,18 @@
+## 2.29.0 (2026-10-11)
+
+### 🚀 Features
+
+- **shadcn:** fully update and pull in latest components ([209657b](https://github.com/Garcia-Ventures/gvtech-design/commit/209657b))
+
+### 🔥 Performance
+
+- **ui-web:** optimize unique error array allocation in field error component ([#139](https://github.com/Garcia-Ventures/gvtech-design/pull/139))
+
+### ❤️ Thank You
+
+- Eric Garcia @eng618
+- Eric N. Garcia @eng618
+
 ## 2.28.0 (2026-08-16)
 
 ### 🚀 Features
