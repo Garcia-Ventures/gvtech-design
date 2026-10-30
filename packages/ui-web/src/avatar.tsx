@@ -1,9 +1,8 @@
+import type { AvatarBaseProps } from '@gv-tech/ui-core';
 import { Avatar as AvatarPrimitive } from 'radix-ui';
 import * as React from 'react';
 
 import { cn } from './lib/utils';
-
-import type { AvatarBaseProps } from '@gv-tech/ui-core';
 
 function Avatar({
   className,

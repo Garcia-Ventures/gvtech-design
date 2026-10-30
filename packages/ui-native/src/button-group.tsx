@@ -1,16 +1,21 @@
 import type { ButtonGroupBaseProps, ButtonGroupSeparatorBaseProps, ButtonGroupTextBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 // TODO: Implement proper React Native ButtonGroup logic
-function ButtonGroup({ className, orientation, ...props }: React.ComponentProps<typeof View> & ButtonGroupBaseProps) {
+function ButtonGroup({
+  className,
+  orientation: _orientation,
+  ...props
+}: React.ComponentProps<typeof View> & ButtonGroupBaseProps) {
   return <View className={cn('flex flex-row', className)} {...props} />;
 }
 
 function ButtonGroupText({
   className,
-  asChild,
+  asChild: _asChild,
   ...props
 }: React.ComponentProps<typeof Text> & ButtonGroupTextBaseProps) {
   return <Text className={cn('text-sm font-medium', className)} {...props} />;
@@ -18,7 +23,7 @@ function ButtonGroupText({
 
 function ButtonGroupSeparator({
   className,
-  orientation,
+  orientation: _orientation,
   ...props
 }: React.ComponentProps<typeof View> & ButtonGroupSeparatorBaseProps) {
   return <View className={cn('bg-border h-full w-px', className)} {...props} />;

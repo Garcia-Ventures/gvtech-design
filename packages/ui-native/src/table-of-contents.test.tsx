@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import {
   TableOfContents,
   TableOfContentsContent,
@@ -27,7 +28,7 @@ vi.mock('react-native', () => {
       );
     }),
     ScrollView: ReactMock.forwardRef(({ children, className, ...props }: any, ref: any) => {
-      const scrollTo = vi.fn();
+      const scrollTo = vi.fn<() => void>();
       if (ref) {
         if (typeof ref === 'function') {
           ref({ scrollTo });

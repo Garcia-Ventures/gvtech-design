@@ -1,10 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { describe, expect, it, vi } from 'vitest';
-import { Avatar, AvatarFallback, AvatarImage } from './avatar';
-import { Text } from './text';
-
 // Mock primitives
 import React from 'react';
+import { describe, expect, it, vi } from 'vitest';
+
+import { Avatar, AvatarFallback, AvatarImage } from './avatar';
+import { Text } from './text';
 vi.mock('@rn-primitives/avatar', () => {
   return {
     Root: ({ children, className }: { children: React.ReactNode; className?: string }) =>

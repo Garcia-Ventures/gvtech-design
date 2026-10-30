@@ -53,8 +53,8 @@ export interface StatProps extends StatBaseProps, React.ComponentPropsWithoutRef
 Native (`packages/ui-native/src/stat.tsx`):
 
 ```tsx
-import { View, Text } from 'react-native';
 import type { StatBaseProps } from '@gv-tech/ui-core';
+import { View, Text } from 'react-native';
 export interface StatProps extends StatBaseProps {}
 ```
 

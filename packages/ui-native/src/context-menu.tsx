@@ -14,6 +14,7 @@ import { Check, ChevronRight, Circle } from 'lucide-react-native';
 import * as React from 'react';
 import { Platform, StyleSheet, View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 import { Text } from './text';

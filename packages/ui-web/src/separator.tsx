@@ -1,8 +1,7 @@
+import type { SeparatorBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { Separator as SeparatorPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { SeparatorBaseProps } from '@gv-tech/ui-core';
 
 function Separator({
   className,

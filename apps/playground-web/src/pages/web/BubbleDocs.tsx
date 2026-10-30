@@ -1,6 +1,7 @@
+import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from '@gv-tech/ui-web';
 
 export function BubbleDocs() {
   return (

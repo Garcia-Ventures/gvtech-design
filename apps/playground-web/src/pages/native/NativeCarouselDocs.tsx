@@ -4,7 +4,7 @@ export function NativeCarouselDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Carousel"
+        title="Carousel"
         description="The native implementation of Carousel is currently a shim and returns 'Not implemented'."
         code={`import { Carousel } from '@gv-tech/ui-native';
 

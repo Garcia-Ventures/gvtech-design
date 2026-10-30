@@ -1,8 +1,7 @@
+import type { DrawerBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import * as React from 'react';
 import { Drawer as DrawerPrimitive } from 'vaul';
-
-import type { DrawerBaseProps } from '@gv-tech/ui-core';
 
 function Drawer({ ...props }: React.ComponentProps<typeof DrawerPrimitive.Root>) {
   return <DrawerPrimitive.Root data-slot="drawer" {...props} />;

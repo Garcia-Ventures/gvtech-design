@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Text } from './text';
 import { ToggleGroup, ToggleGroupItem } from './toggle-group';
 
@@ -71,7 +72,7 @@ describe('ToggleGroup (Native Implementation)', () => {
   });
 
   it('handles value change', () => {
-    const onValueChange = vi.fn();
+    const onValueChange = vi.fn<() => void>();
     render(
       <ToggleGroup type="single" value="" onValueChange={onValueChange}>
         <ToggleGroupItem value="item1">

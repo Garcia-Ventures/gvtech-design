@@ -4,7 +4,7 @@ export function NativeChartDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Chart"
+        title="Chart"
         description="The native implementation of Chart is currently a shim and returns 'Not implemented'."
         code={`import { Chart } from '@gv-tech/ui-native';
 

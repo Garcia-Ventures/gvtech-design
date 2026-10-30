@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Button } from './button';
 import { Text } from './text';
 
@@ -14,7 +15,7 @@ describe('Button (Native Implementation)', () => {
   });
 
   it('handles onPress', () => {
-    const onPress = vi.fn();
+    const onPress = vi.fn<() => void>();
     render(
       <Button onPress={onPress}>
         <Text>Click me</Text>

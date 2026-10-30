@@ -28,19 +28,19 @@ class MyContextMenuWidget extends StatelessWidget {
         <FlutterComponentPreview route="context-menu" height={320} title="GVContextMenu Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVContextMenu Props</h3>
       <PropsTable
-        title="GVContextMenu Props"
         props={[
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Target surface container widget.',
           },
           {
             name: 'items',
             type: 'List<GVDropdownMenuItem>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of context menu option items.',
           },
         ]}

@@ -26,31 +26,31 @@ class MyFieldWidget extends StatelessWidget {
         <FlutterComponentPreview route="field" height={300} title="GVField Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVField Props</h3>
       <PropsTable
-        title="GVField Props"
         props={[
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Label title text.',
           },
           {
             name: 'description',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Body helper description text.',
           },
           {
             name: 'errorText',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Validation error text.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Form control input widget.',
           },
         ]}

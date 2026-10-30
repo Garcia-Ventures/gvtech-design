@@ -1,6 +1,7 @@
 import type { ScrollAreaBaseProps, ScrollBarBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { ScrollView, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 export const ScrollArea = React.forwardRef<ScrollView, ScrollAreaBaseProps>(

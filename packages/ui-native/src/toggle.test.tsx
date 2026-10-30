@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Text } from './text';
 import { Toggle } from './toggle';
 
@@ -41,7 +42,7 @@ describe('Toggle (Native Implementation)', () => {
   });
 
   it('handles press state change', () => {
-    const onPressedChange = vi.fn();
+    const onPressedChange = vi.fn<() => void>();
     render(
       <Toggle pressed={false} onPressedChange={onPressedChange}>
         <Text>Toggle me</Text>

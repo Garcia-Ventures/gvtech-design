@@ -1,20 +1,12 @@
-import * as React from 'react';
-import {
-  LayoutChangeEvent,
-  NativeScrollEvent,
-  NativeSyntheticEvent,
-  Platform,
-  Text as RNText,
-  ScrollView,
-  TouchableOpacity,
-  View,
-} from 'react-native';
-
-import {
+import type {
   HeadingItem as BaseHeadingItem,
   TableOfContentsContentBaseProps,
   TableOfContentsRootBaseProps,
 } from '@gv-tech/ui-core';
+import * as React from 'react';
+import type { LayoutChangeEvent, NativeScrollEvent, NativeSyntheticEvent } from 'react-native';
+import { Platform, Text as RNText, ScrollView, TouchableOpacity, View } from 'react-native';
+
 import { cn, slugify } from './lib/utils';
 import { Text } from './text';
 
@@ -43,9 +35,7 @@ export function useTOC() {
   return context;
 }
 
-/**
- * Native Table of Contents Provider
- */
+/** Native Table of Contents Provider */
 export function TableOfContents({ children, activeId: activeIdOverride }: TableOfContentsRootBaseProps) {
   const [headings, setHeadings] = React.useState<HeadingItem[]>([]);
   const [activeId, setActiveId] = React.useState<string | null>(null);
@@ -136,9 +126,7 @@ export function TableOfContents({ children, activeId: activeIdOverride }: TableO
   );
 }
 
-/**
- * Heading component that registers itself with the TOC provider
- */
+/** Heading component that registers itself with the TOC provider */
 export function TableOfContentsHeader({
   children,
   level = 2,
@@ -174,9 +162,7 @@ export function TableOfContentsHeader({
   );
 }
 
-/**
- * Renders the TOC list of links
- */
+/** Renders the TOC list of links */
 export function TableOfContentsList({ className }: { className?: string }) {
   const { headings, activeId, scrollToHeading } = useTOC();
 
@@ -217,9 +203,7 @@ export function TableOfContentsList({ className }: { className?: string }) {
   );
 }
 
-/**
- * Wrapper for content that handles scrolling
- */
+/** Wrapper for content that handles scrolling */
 export function TableOfContentsContent({ children, className }: TableOfContentsContentBaseProps) {
   const { scrollViewRef, onScroll } = useTOC();
 

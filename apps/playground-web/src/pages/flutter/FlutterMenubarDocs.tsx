@@ -29,13 +29,13 @@ class MyMenubarWidget extends StatelessWidget {
         <FlutterComponentPreview route="menubar" height={280} title="GVMenubar Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVMenubar Props</h3>
       <PropsTable
-        title="GVMenubar Props"
         props={[
           {
             name: 'menus',
             type: 'List<GVMenubarMenu>',
-            default: 'required',
+            defaultValue: 'required',
             description: 'List of desktop top-level menu definitions.',
           },
         ]}

@@ -1,11 +1,10 @@
+import { Button, Input, Label } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { Button, Input, Label } from '@gv-tech/ui-web';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 
 const isNative = false as boolean;
-
-const platform = 'web' as string;
 
 export function InputDocs() {
   return (
@@ -78,14 +77,12 @@ export function InputDocs() {
               type: 'string',
               description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
-            ...[
-              {
-                name: 'type',
-                type: 'string',
-                defaultValue: '"text"',
-                description: 'The HTML input type.',
-              },
-            ],
+            {
+              name: 'type',
+              type: 'string',
+              defaultValue: '"text"',
+              description: 'The HTML input type.',
+            },
             {
               name: 'value',
               type: 'string | number | readonly string[]',

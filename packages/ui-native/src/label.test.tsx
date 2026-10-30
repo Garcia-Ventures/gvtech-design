@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Label } from './label';
 
 // Mock primitives
@@ -20,7 +21,7 @@ describe('Label (Native Implementation)', () => {
   });
 
   it('handles onPress', () => {
-    const onPress = vi.fn();
+    const onPress = vi.fn<() => void>();
     render(<Label onPress={onPress}>Clickable label</Label>);
 
     fireEvent.click(screen.getByText('Clickable label'));

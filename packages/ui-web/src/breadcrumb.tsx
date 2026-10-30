@@ -1,9 +1,8 @@
+import type { BreadcrumbBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { ChevronRightIcon, MoreHorizontalIcon } from 'lucide-react';
 import { Slot } from 'radix-ui';
 import * as React from 'react';
-
-import type { BreadcrumbBaseProps } from '@gv-tech/ui-core';
 
 function Breadcrumb({ className, ...props }: React.ComponentProps<'nav'>) {
   return <nav aria-label="breadcrumb" data-slot="breadcrumb" className={cn(className)} {...props} />;
@@ -41,8 +40,6 @@ function BreadcrumbPage({ className, ...props }: React.ComponentProps<'span'>) {
   return (
     <span
       data-slot="breadcrumb-page"
-      role="link"
-      aria-disabled="true"
       aria-current="page"
       className={cn('text-foreground font-normal', className)}
       {...props}

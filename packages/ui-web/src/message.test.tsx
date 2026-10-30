@@ -1,6 +1,7 @@
 'use client';
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it } from 'vitest';
+
 import { Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader } from './message';
 
 describe('Message', () => {

@@ -5,47 +5,46 @@ import * as React from 'react';
 const TARGET_DOMAIN = 'design.gventureshq.com';
 const DISMISS_KEY = 'gvtech_domain_notice_dismissed';
 
+function computeRedirectUrl(): string {
+  if (typeof window === 'undefined') {
+    return '';
+  }
+
+  const hostname = window.location.hostname;
+  const isLegacyDomain =
+    hostname === 'design.garciaericn.com' ||
+    hostname.endsWith('.garciaericn.com') ||
+    hostname === 'gvtech-design.pages.dev' ||
+    hostname.endsWith('.pages.dev');
+
+  if (!isLegacyDomain) {
+    return '';
+  }
+
+  if (sessionStorage.getItem(DISMISS_KEY) === 'true') {
+    return '';
+  }
+
+  const targetUrl = new URL(window.location.href);
+  targetUrl.protocol = 'https:';
+  targetUrl.hostname = TARGET_DOMAIN;
+  targetUrl.port = '';
+
+  return targetUrl.toString();
+}
+
 export function DomainRedirectNotice(): React.ReactElement | null {
-  const [visible, setVisible] = React.useState(false);
-  const [newUrl, setNewUrl] = React.useState('');
+  const [newUrl] = React.useState(() => computeRedirectUrl());
+  const [dismissed, setDismissed] = React.useState(false);
 
-  React.useEffect(() => {
-    if (typeof window === 'undefined') {
-      return;
-    }
-
-    const hostname = window.location.hostname;
-    const isLegacyDomain =
-      hostname === 'design.garciaericn.com' ||
-      hostname.endsWith('.garciaericn.com') ||
-      hostname === 'gvtech-design.pages.dev' ||
-      hostname.endsWith('.pages.dev');
-
-    if (!isLegacyDomain) {
-      return;
-    }
-
-    const isDismissed = sessionStorage.getItem(DISMISS_KEY) === 'true';
-    if (isDismissed) {
-      return;
-    }
-
-    const targetUrl = new URL(window.location.href);
-    targetUrl.protocol = 'https:';
-    targetUrl.hostname = TARGET_DOMAIN;
-    targetUrl.port = '';
-
-    setNewUrl(targetUrl.toString());
-    setVisible(true);
-  }, []);
-
+  const visible = newUrl !== '' && !dismissed;
   if (!visible) {
     return null;
   }
 
   const handleDismiss = () => {
     sessionStorage.setItem(DISMISS_KEY, 'true');
-    setVisible(false);
+    setDismissed(true);
   };
 
   return (

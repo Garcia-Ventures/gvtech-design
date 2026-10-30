@@ -1,8 +1,9 @@
 'use client';
 
-import { SearchBaseProps, SearchTriggerBaseProps } from '@gv-tech/ui-core';
+import type { SearchBaseProps, SearchTriggerBaseProps } from '@gv-tech/ui-core';
 import { Search as SearchIcon } from 'lucide-react';
 import * as React from 'react';
+
 import { Button } from './button';
 import { CommandDialog } from './command';
 import { cn } from './lib/utils';

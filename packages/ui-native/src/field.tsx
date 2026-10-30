@@ -12,9 +12,10 @@ import type {
 } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
-function Field({ className, orientation, ...props }: React.ComponentProps<typeof View> & FieldBaseProps) {
+function Field({ className, orientation: _orientation, ...props }: React.ComponentProps<typeof View> & FieldBaseProps) {
   return <View className={cn('flex flex-col gap-2', className)} {...props} />;
 }
 

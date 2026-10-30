@@ -1,5 +1,5 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
 
 const PLAYGROUND_PUBLIC_PATH = path.join(process.cwd(), 'apps/playground-web/public');
 const WEB_REGISTRY_PATH = path.join(PLAYGROUND_PUBLIC_PATH, 'registry');
@@ -216,12 +216,12 @@ function buildRegistry() {
   // Format the generated files
   try {
     const { execSync } = require('node:child_process');
-    execSync(`bun run prettier --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
+    execSync(`bunx oxfmt --write packages/ui-web/registry.json packages/ui-native/registry.json`, {
       stdio: 'ignore',
     });
     console.log('✅ Formatted registry files.');
-  } catch (e) {
-    // Ignore errors if prettier fails
+  } catch {
+    // Ignore errors if oxfmt fails
   }
 }
 

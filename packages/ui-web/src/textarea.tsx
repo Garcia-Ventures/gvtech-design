@@ -1,7 +1,6 @@
+import type { TextareaBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import * as React from 'react';
-
-import type { TextareaBaseProps } from '@gv-tech/ui-core';
 
 function Textarea({ className, ...props }: React.ComponentProps<'textarea'>) {
   return (

@@ -1,9 +1,8 @@
 'use client';
 
+import type { DirectionProviderBaseProps } from '@gv-tech/ui-core';
 import { Direction } from 'radix-ui';
 import * as React from 'react';
-
-import type { DirectionProviderBaseProps } from '@gv-tech/ui-core';
 
 function DirectionProvider({
   dir,

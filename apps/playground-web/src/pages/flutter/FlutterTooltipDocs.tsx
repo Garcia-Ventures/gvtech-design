@@ -28,19 +28,19 @@ class MyTooltipWidget extends StatelessWidget {
         <FlutterComponentPreview route="tooltip" height={260} title="GVTooltip Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVTooltip Props</h3>
       <PropsTable
-        title="GVTooltip Props"
         props={[
           {
             name: 'message',
             type: 'String',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Tooltip message text displayed on hover or long press.',
           },
           {
             name: 'child',
             type: 'Widget',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Child target widget.',
           },
         ]}

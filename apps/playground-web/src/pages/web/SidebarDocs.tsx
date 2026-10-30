@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Sidebar,
   SidebarContent,
@@ -11,6 +9,9 @@ import {
   SidebarMenuItem,
   SidebarProvider,
 } from '@gv-tech/ui-web';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function SidebarDocs() {
   return (

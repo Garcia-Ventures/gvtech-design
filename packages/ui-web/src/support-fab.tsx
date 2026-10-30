@@ -2,6 +2,7 @@
 
 import { Coffee, ExternalLink } from 'lucide-react';
 import * as React from 'react';
+
 import { Button } from './button';
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle } from './dialog';
 import { Drawer, DrawerContent, DrawerDescription, DrawerHeader, DrawerTitle } from './drawer';
@@ -66,8 +67,11 @@ const useIsMobile = () => {
 
     const mediaQuery = window.matchMedia(MOBILE_QUERY);
     const onChange = (event: MediaQueryListEvent) => setIsMobile(event.matches);
+    const syncInitialValue = () => {
+      setIsMobile(mediaQuery.matches);
+    };
 
-    setIsMobile(mediaQuery.matches);
+    syncInitialValue();
     mediaQuery.addEventListener('change', onChange);
 
     return () => {

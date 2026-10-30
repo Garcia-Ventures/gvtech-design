@@ -1,10 +1,10 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Alert, AlertDescription, AlertTitle } from '@gv-tech/ui-web';
 import { AlertCircle, Info, Terminal } from 'lucide-react';
 
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
+
 const isNative = false as boolean;
-const platform = 'web' as string;
 
 export function AlertDocs() {
   return (

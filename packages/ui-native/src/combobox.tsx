@@ -18,6 +18,7 @@ import type {
 import { Check, ChevronDown, X } from 'lucide-react-native';
 import * as React from 'react';
 import { Pressable, TextInput, View } from 'react-native';
+
 import { Dialog, DialogContent, DialogTrigger } from './dialog';
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
@@ -116,8 +117,8 @@ function ComboboxClear({
 
 function ComboboxInput({
   className,
-  showClear,
-  showTrigger,
+  showClear: _showClear,
+  showTrigger: _showTrigger,
   placeholder = 'Search...',
   ...props
 }: React.ComponentProps<typeof TextInput> & ComboboxInputBaseProps) {
@@ -130,7 +131,6 @@ function ComboboxInput({
         placeholderTextColor="#a1a1aa"
         value={searchQuery}
         onChangeText={setSearchQuery}
-        autoFocus
         {...props}
       />
     </View>
@@ -139,11 +139,11 @@ function ComboboxInput({
 
 function ComboboxContent({
   className,
-  side,
-  sideOffset,
-  align,
-  alignOffset,
-  anchor,
+  side: _side,
+  sideOffset: _sideOffset,
+  align: _align,
+  alignOffset: _alignOffset,
+  anchor: _anchor,
   ...props
 }: React.ComponentProps<typeof View> & ComboboxContentBaseProps) {
   return (

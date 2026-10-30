@@ -2,6 +2,7 @@
 
 import { act, fireEvent, render, screen } from '@testing-library/react';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+
 import { ScrollToTop } from './scroll-to-top';
 
 const setScrollY = (value: number) => {
@@ -18,7 +19,7 @@ describe('ScrollToTop', () => {
     Object.defineProperty(window, 'scrollTo', {
       configurable: true,
       writable: true,
-      value: vi.fn(),
+      value: vi.fn<() => void>(),
     });
   });
 
@@ -73,7 +74,7 @@ describe('ScrollToTop', () => {
     Object.defineProperty(target, 'scrollTo', {
       configurable: true,
       writable: true,
-      value: vi.fn(),
+      value: vi.fn<() => void>(),
     });
 
     render(<ScrollToTop label="Back to top" threshold={50} scrollTarget={target} behavior="auto" />);

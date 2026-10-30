@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
 import {
   Menubar,
@@ -17,9 +15,8 @@ import {
   MenubarTrigger,
 } from '@gv-tech/ui-web';
 
-const isNative = false as boolean;
-
-const platform = 'web' as string;
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function MenubarDocs() {
   return (

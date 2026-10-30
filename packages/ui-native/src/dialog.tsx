@@ -1,4 +1,4 @@
-import { DialogBaseProps, DialogContentBaseProps } from '@gv-tech/ui-core';
+import type { DialogBaseProps, DialogContentBaseProps } from '@gv-tech/ui-core';
 import * as DialogPrimitive from '@rn-primitives/dialog';
 import { X } from 'lucide-react-native';
 import * as React from 'react';

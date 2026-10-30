@@ -4,7 +4,7 @@ export function NativeCalendarDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="Calendar"
+        title="Calendar"
         description="The native implementation of Calendar is currently a shim and returns 'Not implemented'."
         code={`import { Calendar } from '@gv-tech/ui-native';
 

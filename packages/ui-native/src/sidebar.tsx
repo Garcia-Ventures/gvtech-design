@@ -25,13 +25,14 @@ import type {
 } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Pressable, Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 function SidebarProvider({
   className,
-  defaultOpen,
-  open,
-  onOpenChange,
+  defaultOpen: _defaultOpen,
+  open: _open,
+  onOpenChange: _onOpenChange,
   ...props
 }: React.ComponentProps<typeof View> & SidebarProviderBaseProps) {
   return <View className={className} {...props} />;
@@ -39,9 +40,9 @@ function SidebarProvider({
 
 function Sidebar({
   className,
-  side,
-  variant,
-  collapsible,
+  side: _side,
+  variant: _variant,
+  collapsible: _collapsible,
   ...props
 }: React.ComponentProps<typeof View> & SidebarBaseProps) {
   return (
@@ -89,7 +90,7 @@ function SidebarGroup({ className, ...props }: React.ComponentProps<typeof View>
 
 function SidebarGroupLabel({
   className,
-  asChild,
+  asChild: _asChild,
   ...props
 }: React.ComponentProps<typeof View> & SidebarGroupLabelBaseProps) {
   return <View className={className} {...props} />;
@@ -97,7 +98,7 @@ function SidebarGroupLabel({
 
 function SidebarGroupAction({
   className,
-  asChild,
+  asChild: _asChild,
   ...props
 }: React.ComponentProps<typeof Pressable> & SidebarGroupActionBaseProps) {
   return <Pressable className={className} {...(props as Record<string, unknown>)} />;
@@ -120,11 +121,11 @@ function SidebarMenuItem({ className, ...props }: React.ComponentProps<typeof Vi
 
 function SidebarMenuButton({
   className,
-  asChild,
-  isActive,
-  variant,
-  size,
-  tooltip,
+  asChild: _asChild,
+  isActive: _isActive,
+  variant: _variant,
+  size: _size,
+  tooltip: _tooltip,
   ...props
 }: React.ComponentProps<typeof Pressable> & SidebarMenuButtonBaseProps) {
   return <Pressable className={className} {...(props as Record<string, unknown>)} />;
@@ -132,8 +133,8 @@ function SidebarMenuButton({
 
 function SidebarMenuAction({
   className,
-  asChild,
-  showOnHover,
+  asChild: _asChild,
+  showOnHover: _showOnHover,
   ...props
 }: React.ComponentProps<typeof Pressable> & SidebarMenuActionBaseProps) {
   return <Pressable className={className} {...(props as Record<string, unknown>)} />;
@@ -145,7 +146,7 @@ function SidebarMenuBadge({ className, ...props }: React.ComponentProps<typeof V
 
 function SidebarMenuSkeleton({
   className,
-  showIcon,
+  showIcon: _showIcon,
   ...props
 }: React.ComponentProps<typeof View> & SidebarMenuSkeletonBaseProps) {
   return <View className={className} {...props} />;
@@ -161,9 +162,9 @@ function SidebarMenuSubItem({ className, ...props }: React.ComponentProps<typeof
 
 function SidebarMenuSubButton({
   className,
-  asChild,
-  size,
-  isActive,
+  asChild: _asChild,
+  size: _size,
+  isActive: _isActive,
   ...props
 }: React.ComponentProps<typeof Pressable> & SidebarMenuSubButtonBaseProps) {
   return <Pressable className={className} {...(props as Record<string, unknown>)} />;

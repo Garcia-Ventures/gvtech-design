@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Checkbox } from './checkbox';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules
@@ -13,6 +14,8 @@ vi.mock('@rn-primitives/checkbox', () => {
       const value = React.useMemo(() => ({ checked, onCheckedChange }), [checked, onCheckedChange]);
       return React.createElement(
         'div',
+        // Test mocks forward refs into host elements by design
+        // eslint-disable-next-line react/refs
         {
           ref,
           role: 'checkbox',
@@ -46,7 +49,7 @@ describe('Checkbox (Native Implementation)', () => {
   });
 
   it('handles onCheckedChange', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Checkbox checked={false} onCheckedChange={onCheckedChange} />);
 
     const checkbox = screen.getByRole('checkbox');

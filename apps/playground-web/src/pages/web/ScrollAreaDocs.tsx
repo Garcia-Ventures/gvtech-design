@@ -1,10 +1,8 @@
+import { ScrollArea, Separator } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { ScrollArea, Separator } from '@gv-tech/ui-web';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-
-const isNative = false as boolean;
-const platform = 'web' as string;
 
 const tags = Array.from({ length: 50 }).map((_, i, a) => `v1.2.0-beta.${a.length - i}`);
 

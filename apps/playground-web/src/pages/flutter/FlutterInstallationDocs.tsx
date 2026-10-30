@@ -1,6 +1,7 @@
-import { CodeBlock } from '@/components/docs/CodeBlock';
 import { Alert, AlertDescription, AlertTitle } from '@gv-tech/ui-web';
 import { CheckCircle2, Info, Package, Sparkles } from 'lucide-react';
+
+import { CodeBlock } from '@/components/docs/CodeBlock';
 
 export function FlutterInstallationDocs() {
   return (

@@ -1,6 +1,7 @@
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
+
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { usePackageManager, type PackageManager } from '@/hooks/usePackageManager';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 
 export function WebInstallationDocs() {
   const { packageManager, setPackageManager } = usePackageManager();

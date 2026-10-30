@@ -35,31 +35,31 @@ class _MySliderWidgetState extends State<MySliderWidget> {
         <FlutterComponentPreview route="slider" height={280} title="GVSlider Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVSlider Props</h3>
       <PropsTable
-        title="GVSlider Props"
         props={[
           {
             name: 'value',
             type: 'double',
-            default: 'required',
+            defaultValue: 'required',
             description: 'Current slider value.',
           },
           {
             name: 'onChanged',
             type: 'ValueChanged<double>?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when slider thumb position changes.',
           },
           {
             name: 'min',
             type: 'double',
-            default: '0.0',
+            defaultValue: '0.0',
             description: 'Minimum value bound.',
           },
           {
             name: 'max',
             type: 'double',
-            default: '100.0',
+            defaultValue: '100.0',
             description: 'Maximum value bound.',
           },
         ]}

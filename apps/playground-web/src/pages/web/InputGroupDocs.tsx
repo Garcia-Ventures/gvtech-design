@@ -1,7 +1,8 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@gv-tech/ui-web';
 import { Search } from 'lucide-react';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function InputGroupDocs() {
   return (

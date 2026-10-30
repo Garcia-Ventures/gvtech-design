@@ -1,13 +1,11 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Calendar } from '@gv-tech/ui-web';
 import * as React from 'react';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function CalendarDocs() {
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
+  const [date, setDate] = React.useState<Date | undefined>(() => new Date());
 
   return (
     <>

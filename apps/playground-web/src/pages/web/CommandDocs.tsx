@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Calendar,
   Command,
@@ -13,8 +11,8 @@ import {
 } from '@gv-tech/ui-web';
 import { Calculator, CreditCard, Settings, Smile, User } from 'lucide-react';
 
-const isNative = false as boolean;
-const platform = 'web' as string;
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
 export function CommandDocs() {
   return (

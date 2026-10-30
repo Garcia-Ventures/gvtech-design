@@ -16,7 +16,7 @@ export function SidebarExample() {
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Props</h3>
         <p className="text-muted-foreground text-sm">The Sidebar component specification for Native.</p>
-        <PropsTable name="Sidebar" />
+        <PropsTable props={[]} />
       </div>
     </>
   );

@@ -3,6 +3,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { SupportFab } from './support-fab';
 
 vi.mock('./dialog', () => ({
@@ -25,17 +26,17 @@ const setMobile = (isMobile: boolean) => {
   Object.defineProperty(window, 'matchMedia', {
     configurable: true,
     writable: true,
-    value: vi.fn().mockImplementation(
+    value: vi.fn<(...args: any[]) => any>().mockImplementation(
       (query: string) =>
         ({
           matches: query === '(max-width: 767px)' ? isMobile : false,
           media: query,
           onchange: null,
-          addListener: vi.fn(),
-          removeListener: vi.fn(),
-          addEventListener: vi.fn(),
-          removeEventListener: vi.fn(),
-          dispatchEvent: vi.fn(),
+          addListener: vi.fn<() => void>(),
+          removeListener: vi.fn<() => void>(),
+          addEventListener: vi.fn<() => void>(),
+          removeEventListener: vi.fn<() => void>(),
+          dispatchEvent: vi.fn<() => boolean>(),
         }) as MediaQueryList,
     ),
   });
@@ -73,7 +74,7 @@ describe('SupportFab', () => {
 
   it('supports controlled open state', () => {
     setMobile(false);
-    const onOpenChange = vi.fn();
+    const onOpenChange = vi.fn<() => void>();
 
     render(<SupportFab creatorId="eng618" open={false} onOpenChange={onOpenChange} />);
 

@@ -1,6 +1,13 @@
 'use client';
 
-import * as LabelPrimitive from '@radix-ui/react-label';
+import type {
+  FormControlBaseProps,
+  FormDescriptionBaseProps,
+  FormItemBaseProps,
+  FormLabelBaseProps,
+  FormMessageBaseProps,
+} from '@gv-tech/ui-core';
+import type * as LabelPrimitive from '@radix-ui/react-label';
 import { Slot } from '@radix-ui/react-slot';
 import * as React from 'react';
 import {
@@ -12,13 +19,6 @@ import {
   type FieldValues,
 } from 'react-hook-form';
 
-import {
-  FormControlBaseProps,
-  FormDescriptionBaseProps,
-  FormItemBaseProps,
-  FormLabelBaseProps,
-  FormMessageBaseProps,
-} from '@gv-tech/ui-core';
 import { Label } from './label';
 import { cn } from './lib/utils';
 

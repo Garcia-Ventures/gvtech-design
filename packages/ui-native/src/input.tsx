@@ -1,7 +1,7 @@
+import type { InputBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { TextInput } from 'react-native';
 
-import type { InputBaseProps } from '@gv-tech/ui-core';
 import { cn } from './lib/utils';
 
 export interface InputProps extends React.ComponentPropsWithoutRef<typeof TextInput>, InputBaseProps {}

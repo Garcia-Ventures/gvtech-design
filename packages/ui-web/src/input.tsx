@@ -1,7 +1,6 @@
+import type { InputBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import * as React from 'react';
-
-import type { InputBaseProps } from '@gv-tech/ui-core';
 
 function Input({ className, type, ...props }: React.ComponentProps<'input'>) {
   return (

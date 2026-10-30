@@ -1,4 +1,4 @@
-import { ToggleGroupBaseProps, ToggleGroupItemBaseProps } from '@gv-tech/ui-core';
+import type { ToggleGroupBaseProps, ToggleGroupItemBaseProps } from '@gv-tech/ui-core';
 import * as ToggleGroupPrimitive from '@rn-primitives/toggle-group';
 import { type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
@@ -48,7 +48,7 @@ const ToggleGroupItem = React.forwardRef<React.ComponentRef<typeof ToggleGroupPr
     return (
       <TextClassContext.Provider
         value={cn(
-          'text-sm native:text-base text-foreground font-medium',
+          'native:text-base text-foreground text-sm font-medium',
           props.disabled && 'web:cursor-not-allowed opacity-50',
           value === '' && 'text-accent-foreground',
           className,

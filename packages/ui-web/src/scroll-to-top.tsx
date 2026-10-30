@@ -1,8 +1,9 @@
 'use client';
 
-import { ScrollToTopBaseProps } from '@gv-tech/ui-core';
+import type { ScrollToTopBaseProps } from '@gv-tech/ui-core';
 import { ArrowUp } from 'lucide-react';
 import * as React from 'react';
+
 import { Button } from './button';
 import { cn } from './lib/utils';
 
@@ -38,8 +39,12 @@ export function ScrollToTop({
   React.useEffect(() => {
     const target = scrollTarget === undefined ? window : scrollTarget;
 
-    if (!target) {
+    const hideControl = () => {
       setIsVisible(false);
+    };
+
+    if (!target) {
+      hideControl();
       return;
     }
 

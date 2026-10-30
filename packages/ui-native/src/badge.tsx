@@ -7,9 +7,9 @@ import { cn } from './lib/utils';
 const badgeVariants = cva('flex-row items-center rounded-md border px-2 py-0.5', {
   variants: {
     variant: {
-      default: 'border-transparent bg-primary',
-      secondary: 'border-transparent bg-secondary',
-      destructive: 'border-transparent bg-destructive',
+      default: 'bg-primary border-transparent',
+      secondary: 'bg-secondary border-transparent',
+      destructive: 'bg-destructive border-transparent',
       outline: 'border-border bg-transparent',
     },
   },

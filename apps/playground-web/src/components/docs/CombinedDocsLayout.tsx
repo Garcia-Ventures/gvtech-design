@@ -1,8 +1,9 @@
-import { useDocMetadata } from '@/hooks/useDocMetadata';
-import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 import { TableOfContents, Tabs, TabsContent, TabsList, TabsTrigger } from '@gv-tech/ui-web';
 import { Info } from 'lucide-react';
 import React from 'react';
+
+import { useDocMetadata } from '@/hooks/useDocMetadata';
+import { safeTrack, updateGlobalAnalyticsProperties } from '@/lib/analytics';
 
 interface CombinedDocsLayoutProps {
   title?: string;
@@ -43,15 +44,14 @@ export function CombinedDocsLayout({ title, description, web, native, flutter }:
     return 'web';
   });
 
-  React.useEffect(() => {
-    if (activeTab === 'flutter' && !flutter) {
-      setActiveTab(web ? 'web' : native ? 'native' : 'flutter');
-    } else if (activeTab === 'native' && !native) {
-      setActiveTab(web ? 'web' : flutter ? 'flutter' : 'native');
-    } else if (activeTab === 'web' && !web) {
-      setActiveTab(flutter ? 'flutter' : native ? 'native' : 'web');
-    }
-  }, [web, native, flutter, activeTab]);
+  // Fall back when the active tab has no content (adjust during render)
+  if (activeTab === 'flutter' && !flutter) {
+    setActiveTab(web ? 'web' : native ? 'native' : 'flutter');
+  } else if (activeTab === 'native' && !native) {
+    setActiveTab(web ? 'web' : flutter ? 'flutter' : 'native');
+  } else if (activeTab === 'web' && !web) {
+    setActiveTab(flutter ? 'flutter' : native ? 'native' : 'web');
+  }
 
   const onTabChange = (value: string) => {
     const newTab = value as 'web' | 'native' | 'flutter';

@@ -1,9 +1,9 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Badge } from '@gv-tech/ui-web';
 
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
+
 const isNative = false as boolean;
-const platform = 'web' as string;
 
 export function BadgeDocs() {
   return (
@@ -51,7 +51,6 @@ export function BadgeDocs() {
               type: 'string',
               description: isNative ? 'Tailwind (NativeWind) classes.' : 'Additional CSS classes to apply.',
             },
-            ...[],
           ]}
         />
       </div>

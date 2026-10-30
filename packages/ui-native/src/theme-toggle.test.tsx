@@ -1,5 +1,6 @@
 import { render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { ThemeToggle } from './theme-toggle';
 
 // Mock lucide-react-native
@@ -10,15 +11,15 @@ vi.mock('lucide-react-native', () => ({
 }));
 
 vi.mock('react-native-css-interop', () => ({
-  cssInterop: vi.fn(),
+  cssInterop: vi.fn<() => void>(),
 }));
 
 // Mock nativewind
 vi.mock('nativewind', () => ({
-  useColorScheme: vi.fn(() => ({
+  useColorScheme: vi.fn<(...args: any[]) => any>(() => ({
     colorScheme: 'light',
-    setColorScheme: vi.fn(),
-    toggleColorScheme: vi.fn(),
+    setColorScheme: vi.fn<() => void>(),
+    toggleColorScheme: vi.fn<() => void>(),
   })),
 }));
 

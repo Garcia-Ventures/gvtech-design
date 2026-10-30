@@ -1,12 +1,5 @@
 'use client';
 
-import { Questionnaire as QuestionnairePrimitive } from '@shadcn/react/questionnaire';
-import { cn } from 'cn';
-import * as React from 'react';
-
-import { buttonVariants, type Button } from '@/./button';
-import { CheckIcon } from 'lucide-react';
-
 import type {
   QuestionnaireActionsBaseProps,
   QuestionnaireBaseProps,
@@ -24,6 +17,12 @@ import type {
   QuestionnaireSubmitBaseProps,
   QuestionnaireTitleBaseProps,
 } from '@gv-tech/ui-core';
+import { Questionnaire as QuestionnairePrimitive } from '@shadcn/react/questionnaire';
+import { cn } from 'cn';
+import { CheckIcon } from 'lucide-react';
+import * as React from 'react';
+
+import { buttonVariants, type Button } from '@/./button';
 
 function Questionnaire({
   className,

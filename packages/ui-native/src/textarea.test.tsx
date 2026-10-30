@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Textarea } from './textarea';
 
 describe('Textarea (Native Implementation)', () => {
@@ -9,7 +10,7 @@ describe('Textarea (Native Implementation)', () => {
   });
 
   it('handles onChangeText', () => {
-    const onChangeText = vi.fn();
+    const onChangeText = vi.fn<() => void>();
     render(<Textarea placeholder="Enter text" onChangeText={onChangeText} />);
 
     const textarea = screen.getByPlaceholderText('Enter text');

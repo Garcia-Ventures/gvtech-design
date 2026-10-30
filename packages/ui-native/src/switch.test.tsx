@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Switch } from './switch';
 
 // Mock primitives
@@ -38,7 +39,7 @@ describe('Switch (Native Implementation)', () => {
   });
 
   it('handles checked state change', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Switch checked={false} onCheckedChange={onCheckedChange} />);
 
     const switchElement = screen.getByRole('switch');
@@ -47,7 +48,7 @@ describe('Switch (Native Implementation)', () => {
   });
 
   it('respects initial checked state', () => {
-    const onCheckedChange = vi.fn();
+    const onCheckedChange = vi.fn<() => void>();
     render(<Switch checked={true} onCheckedChange={onCheckedChange} />);
 
     const switchElement = screen.getByRole('switch');

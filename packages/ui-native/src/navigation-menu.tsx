@@ -11,8 +11,10 @@ import type {
 import * as NavigationMenuPrimitive from '@rn-primitives/navigation-menu';
 import { ChevronDown } from 'lucide-react-native';
 import * as React from 'react';
-import { GestureResponderEvent, View } from 'react-native';
+import type { GestureResponderEvent } from 'react-native';
+import { View } from 'react-native';
 import Animated, { FadeIn, FadeOut } from 'react-native-reanimated';
+
 import { cn } from './lib/utils';
 
 export const NavigationMenu = React.forwardRef<
@@ -20,7 +22,17 @@ export const NavigationMenu = React.forwardRef<
   NavigationMenuBaseProps
 >(
   (
-    { className, children, value, onValueChange, dir, orientation, delayDuration, skipDelayDuration, ...props },
+    {
+      className,
+      children,
+      value,
+      onValueChange,
+      dir: _dir,
+      orientation: _orientation,
+      delayDuration,
+      skipDelayDuration,
+      ...props
+    },
     ref,
   ) => {
     return (
@@ -95,7 +107,7 @@ NavigationMenuTrigger.displayName = 'NavigationMenuTrigger';
 export const NavigationMenuContent = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Content>,
   NavigationMenuContentBaseProps
->(({ className, children, forceMount, ...props }, ref) => {
+>(({ className, children, forceMount: _forceMount, ...props }, ref) => {
   return (
     <NavigationMenuPrimitive.Portal>
       <NavigationMenuPrimitive.Content ref={ref} {...props}>
@@ -115,7 +127,7 @@ NavigationMenuContent.displayName = 'NavigationMenuContent';
 export const NavigationMenuLink = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Link>,
   NavigationMenuLinkBaseProps & { onPress?: () => void }
->(({ className, children, active, onSelect, onPress, href, ...props }, ref) => {
+>(({ className, children, active, onSelect, onPress, href: _href, ...props }, ref) => {
   const handlePress = (e: GestureResponderEvent) => {
     if (onPress) {
       onPress();
@@ -146,7 +158,7 @@ NavigationMenuLink.displayName = 'NavigationMenuLink';
 export const NavigationMenuViewport = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Viewport>,
   NavigationMenuViewportBaseProps
->(({ className, forceMount, ...props }, ref) => {
+>(({ className, forceMount: _forceMount, ...props }, ref) => {
   return (
     <View className="absolute top-full left-0 flex justify-center">
       <NavigationMenuPrimitive.Viewport
@@ -165,7 +177,7 @@ NavigationMenuViewport.displayName = 'NavigationMenuViewport';
 export const NavigationMenuIndicator = React.forwardRef<
   React.ComponentRef<typeof NavigationMenuPrimitive.Indicator>,
   NavigationMenuIndicatorBaseProps
->(({ className, forceMount, ...props }, ref) => {
+>(({ className, forceMount: _forceMount, ...props }, ref) => {
   return (
     <NavigationMenuPrimitive.Indicator
       ref={ref}

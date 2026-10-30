@@ -1,10 +1,9 @@
 'use client';
 
+import type { SwitchBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { Switch as SwitchPrimitive } from 'radix-ui';
 import * as React from 'react';
-
-import type { SwitchBaseProps } from '@gv-tech/ui-core';
 
 function Switch({
   className,

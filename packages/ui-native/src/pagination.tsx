@@ -10,6 +10,7 @@ import type {
 import { ChevronLeft, ChevronRight, MoreHorizontal } from 'lucide-react-native';
 import * as React from 'react';
 import { View } from 'react-native';
+
 import { Button } from './button';
 import { cn } from './lib/utils';
 import { Text } from './text';
@@ -17,6 +18,8 @@ import { Text } from './text';
 export const Pagination = ({ className, children, ...props }: PaginationBaseProps) => {
   return (
     <View
+      // RN has no nav element; `role` targets web parity via react-native-web
+      // eslint-disable-next-line jsx-a11y/prefer-tag-over-role
       role="navigation"
       aria-label="pagination"
       className={cn('mx-auto flex w-full flex-row justify-center', className)}
@@ -68,7 +71,7 @@ PaginationLink.displayName = 'PaginationLink';
 
 export const PaginationPrevious = ({
   className,
-  children,
+  children: _children,
   onPress,
   ...props
 }: PaginationPreviousBaseProps & { onPress?: () => void }) => (
@@ -87,7 +90,7 @@ PaginationPrevious.displayName = 'PaginationPrevious';
 
 export const PaginationNext = ({
   className,
-  children,
+  children: _children,
   onPress,
   ...props
 }: PaginationNextBaseProps & { onPress?: () => void }) => (

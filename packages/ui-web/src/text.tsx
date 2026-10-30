@@ -1,8 +1,8 @@
 'use client';
+import type { TextBaseProps } from '@gv-tech/ui-core';
 import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 
-import type { TextBaseProps } from '@gv-tech/ui-core';
 import { cn } from './lib/utils';
 
 const textVariants = cva('', {
@@ -14,9 +14,9 @@ const textVariants = cva('', {
       h4: 'scroll-m-20 text-xl font-semibold tracking-tight',
       body: 'leading-7',
       bodySmall: 'text-sm leading-6',
-      caption: 'text-xs text-muted-foreground',
-      label: 'text-sm font-medium leading-none',
-      overline: 'text-xs font-semibold uppercase tracking-widest text-muted-foreground',
+      caption: 'text-muted-foreground text-xs',
+      label: 'text-sm leading-none font-medium',
+      overline: 'text-muted-foreground text-xs font-semibold tracking-widest uppercase',
     },
   },
   defaultVariants: {

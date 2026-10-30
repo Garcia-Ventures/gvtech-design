@@ -4,7 +4,7 @@ export function NativeScrollAreaDocs() {
   return (
     <>
       <ComponentShowcase
-        componentName="ScrollArea"
+        title="ScrollArea"
         description="The native implementation of ScrollArea is currently a shim and returns 'Not implemented'."
         code={`import { ScrollArea } from '@gv-tech/ui-native';
 

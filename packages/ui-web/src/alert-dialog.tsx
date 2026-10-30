@@ -1,10 +1,9 @@
+import type { AlertDialogBaseProps } from '@gv-tech/ui-core';
 import { cn } from 'cn';
 import { AlertDialog as AlertDialogPrimitive } from 'radix-ui';
 import * as React from 'react';
 
 import { Button } from '@/./button';
-
-import type { AlertDialogBaseProps } from '@gv-tech/ui-core';
 
 function AlertDialog({ ...props }: React.ComponentProps<typeof AlertDialogPrimitive.Root>) {
   return <AlertDialogPrimitive.Root data-slot="alert-dialog" {...props} />;

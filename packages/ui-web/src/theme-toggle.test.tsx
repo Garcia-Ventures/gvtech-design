@@ -3,6 +3,7 @@ import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ThemeProvider } from 'next-themes';
 import { describe, expect, it, vi } from 'vitest';
+
 import { ThemeToggle } from './theme-toggle';
 
 // Mock the useTheme hook to control its return values
@@ -12,7 +13,7 @@ vi.mock('./hooks/use-theme', async () => {
     ...actual,
     useTheme: () => ({
       theme: 'light',
-      setTheme: vi.fn(),
+      setTheme: vi.fn<() => void>(),
       resolvedTheme: 'light',
       tokens: {},
     }),

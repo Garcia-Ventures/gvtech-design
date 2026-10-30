@@ -1,12 +1,9 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import { Button } from '@gv-tech/ui-web';
 import { toast } from 'sonner';
+
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-
-const isNative = false as boolean;
-
-const platform = 'web' as string;
 
 export function SonnerDocs() {
   return (

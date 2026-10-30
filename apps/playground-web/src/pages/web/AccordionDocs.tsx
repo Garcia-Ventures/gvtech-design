@@ -1,5 +1,3 @@
-import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
-import { PropsTable } from '@/components/docs/PropsTable';
 import {
   Accordion as WebAccordion,
   AccordionContent as WebAccordionContent,
@@ -7,9 +5,10 @@ import {
   AccordionTrigger as WebAccordionTrigger,
 } from '@gv-tech/ui-web';
 
-const isNative = false as boolean;
+import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
+import { PropsTable } from '@/components/docs/PropsTable';
 
-const platform = 'web' as string;
+const isNative = false as boolean;
 
 export function AccordionDocs() {
   const Accordion = WebAccordion;

@@ -1,6 +1,7 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './tabs';
 import { Text } from './text';
 
@@ -51,7 +52,7 @@ vi.mock('@rn-primitives/tabs', () => {
 describe('Tabs (Native Implementation)', () => {
   it('renders correctly', () => {
     render(
-      <Tabs value="tab1" onValueChange={vi.fn()}>
+      <Tabs value="tab1" onValueChange={vi.fn<() => void>()}>
         <TabsList>
           <TabsTrigger value="tab1">
             <Text>Tab 1</Text>
@@ -75,7 +76,7 @@ describe('Tabs (Native Implementation)', () => {
   });
 
   it('handles tab switching', () => {
-    const onValueChange = vi.fn();
+    const onValueChange = vi.fn<() => void>();
     render(
       <Tabs value="tab1" onValueChange={onValueChange}>
         <TabsList>

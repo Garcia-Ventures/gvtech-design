@@ -6,6 +6,7 @@ import type {
 } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 function InputOTP({ className, containerClassName, ...props }: React.ComponentProps<typeof View> & InputOTPBaseProps) {
@@ -23,7 +24,11 @@ function InputOTPGroup({ className, ...props }: React.ComponentProps<typeof View
   return <View className={className} {...props} />;
 }
 
-function InputOTPSlot({ className, index, ...props }: React.ComponentProps<typeof View> & InputOTPSlotBaseProps) {
+function InputOTPSlot({
+  className,
+  index: _index,
+  ...props
+}: React.ComponentProps<typeof View> & InputOTPSlotBaseProps) {
   return <View className={className} {...props} />;
 }
 

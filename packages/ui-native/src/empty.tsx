@@ -1,6 +1,7 @@
 import type { EmptyBaseProps, EmptyMediaBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { Text, View } from 'react-native';
+
 import { cn } from './lib/utils';
 
 function Empty({ className, ...props }: React.ComponentProps<typeof View> & EmptyBaseProps) {
@@ -19,7 +20,11 @@ function EmptyHeader({ className, ...props }: React.ComponentProps<typeof View>)
   return <View className={cn('flex flex-col items-center gap-2', className)} {...props} />;
 }
 
-function EmptyMedia({ className, variant, ...props }: React.ComponentProps<typeof View> & EmptyMediaBaseProps) {
+function EmptyMedia({
+  className,
+  variant: _variant,
+  ...props
+}: React.ComponentProps<typeof View> & EmptyMediaBaseProps) {
   return <View className={cn('flex items-center justify-center', className)} {...props} />;
 }
 

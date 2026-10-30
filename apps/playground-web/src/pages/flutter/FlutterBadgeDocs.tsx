@@ -25,25 +25,25 @@ class MyBadgeWidget extends StatelessWidget {
         <FlutterComponentPreview route="badge" height={360} title="GVBadge Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVBadge Props</h3>
       <PropsTable
-        title="GVBadge Props"
         props={[
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Badge text content.',
           },
           {
             name: 'variant',
             type: 'GVBadgeVariant',
-            default: 'GVBadgeVariant.defaultVariant',
+            defaultValue: 'GVBadgeVariant.defaultVariant',
             description: 'Visual style: defaultVariant, secondary, destructive, outline.',
           },
           {
             name: 'icon',
             type: 'IconData?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Optional leading icon.',
           },
         ]}

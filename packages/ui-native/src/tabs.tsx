@@ -1,4 +1,4 @@
-import { TabsBaseProps, TabsContentBaseProps, TabsListBaseProps, TabsTriggerBaseProps } from '@gv-tech/ui-core';
+import type { TabsBaseProps, TabsContentBaseProps, TabsListBaseProps, TabsTriggerBaseProps } from '@gv-tech/ui-core';
 import * as TabsPrimitive from '@rn-primitives/tabs';
 import * as React from 'react';
 
@@ -51,7 +51,7 @@ const TabsTrigger = React.forwardRef<React.ComponentRef<typeof TabsPrimitive.Tri
     return (
       <TextClassContext.Provider
         value={cn(
-          'text-sm native:text-base font-medium text-muted-foreground web:transition-all',
+          'native:text-base text-muted-foreground web:transition-all text-sm font-medium',
           value === props.value && 'text-foreground',
         )}
       >

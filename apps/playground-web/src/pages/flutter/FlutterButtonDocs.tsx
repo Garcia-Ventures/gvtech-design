@@ -29,43 +29,43 @@ class MyWidget extends StatelessWidget {
         <FlutterComponentPreview route="button" height={420} title="GVButton Interactive Preview" />
       </ComponentShowcase>
 
+      <h3 className="mt-6 text-xl font-semibold">GVButton Props (Dart Parameters)</h3>
       <PropsTable
-        title="GVButton Props (Dart Parameters)"
         props={[
           {
             name: 'label',
             type: 'String?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Button text label.',
           },
           {
             name: 'variant',
             type: 'GVButtonVariant',
-            default: 'GVButtonVariant.primary',
+            defaultValue: 'GVButtonVariant.primary',
             description: 'Visual style: primary, secondary, destructive, outline, ghost, link.',
           },
           {
             name: 'size',
             type: 'GVButtonSize',
-            default: 'GVButtonSize.defaultSize',
+            defaultValue: 'GVButtonSize.defaultSize',
             description: 'Size variant: xs, sm, defaultSize, lg, icon.',
           },
           {
             name: 'onPressed',
             type: 'VoidCallback?',
-            default: 'null',
+            defaultValue: 'null',
             description: 'Callback when tapped. If null or disabled=true, button enters disabled state.',
           },
           {
             name: 'disabled',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Disables tap interaction and lowers opacity.',
           },
           {
             name: 'isLoading',
             type: 'bool',
-            default: 'false',
+            defaultValue: 'false',
             description: 'Renders a circular progress indicator.',
           },
         ]}

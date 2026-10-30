@@ -1,6 +1,5 @@
-import { cn } from 'cn';
-
 import type { KbdBaseProps, KbdGroupBaseProps } from '@gv-tech/ui-core';
+import { cn } from 'cn';
 
 function Kbd({ className, ...props }: React.ComponentProps<'kbd'> & KbdBaseProps) {
   return (

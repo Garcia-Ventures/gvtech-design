@@ -1,6 +1,7 @@
-import { ThemeToggleBaseProps } from '@gv-tech/ui-core';
+import type { ThemeToggleBaseProps } from '@gv-tech/ui-core';
 import { Moon, Sun, SunMoon } from 'lucide-react-native';
 import { Appearance, View } from 'react-native';
+
 import { Button } from './button';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './dropdown-menu';
 import { useTheme } from './hooks/use-theme';
@@ -13,6 +14,37 @@ iconWithClassName(Moon);
 iconWithClassName(SunMoon);
 
 export type ThemeToggleProps = ThemeToggleBaseProps;
+
+function ThemeIcons({ isDark, isSystem, foreground }: { isDark: boolean; isSystem: boolean; foreground: string }) {
+  return (
+    <View className="flex h-6 w-6 items-center justify-center">
+      <View
+        className={cn(
+          'items-center justify-center transition-all',
+          !isSystem && !isDark ? 'rotate-0 opacity-100' : 'absolute -rotate-90 opacity-0',
+        )}
+      >
+        <Sun size={18} color={foreground} />
+      </View>
+      <View
+        className={cn(
+          'items-center justify-center transition-all',
+          !isSystem && isDark ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
+        )}
+      >
+        <Moon size={18} color={foreground} />
+      </View>
+      <View
+        className={cn(
+          'items-center justify-center transition-all',
+          isSystem ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
+        )}
+      >
+        <SunMoon size={18} color={foreground} />
+      </View>
+    </View>
+  );
+}
 
 export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, className }: ThemeToggleProps) {
   const { theme, resolvedTheme, tokens } = useTheme();
@@ -36,35 +68,6 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
     }
   };
 
-  const IconToggle = () => (
-    <View className="flex h-6 w-6 items-center justify-center">
-      <View
-        className={cn(
-          'items-center justify-center transition-all',
-          !isSystem && !isDark ? 'rotate-0 opacity-100' : 'absolute -rotate-90 opacity-0',
-        )}
-      >
-        <Sun size={18} color={tokens.foreground} />
-      </View>
-      <View
-        className={cn(
-          'items-center justify-center transition-all',
-          !isSystem && isDark ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
-        )}
-      >
-        <Moon size={18} color={tokens.foreground} />
-      </View>
-      <View
-        className={cn(
-          'items-center justify-center transition-all',
-          isSystem ? 'rotate-0 opacity-100' : 'absolute rotate-90 opacity-0',
-        )}
-      >
-        <SunMoon size={18} color={tokens.foreground} />
-      </View>
-    </View>
-  );
-
   if (variant === 'ternary') {
     return (
       <DropdownMenu>
@@ -74,7 +77,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
             className,
           )}
         >
-          <IconToggle />
+          <ThemeIcons isDark={isDark} isSystem={isSystem} foreground={tokens.foreground} />
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
           <DropdownMenuItem onSelect={() => handleThemeChange('light')}>
@@ -101,7 +104,7 @@ export function ThemeToggle({ variant = 'binary', onThemeChange, customTheme, cl
       className={cn('relative h-9 w-9', className)}
       onPress={() => handleThemeChange(currentTheme === 'dark' ? 'light' : 'dark')}
     >
-      <IconToggle />
+      <ThemeIcons isDark={isDark} isSystem={isSystem} foreground={tokens.foreground} />
     </Button>
   );
 }

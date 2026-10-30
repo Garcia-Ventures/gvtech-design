@@ -1,5 +1,6 @@
 import { fireEvent, render, screen } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
+
 import { RadioGroup, RadioGroupItem } from './radio-group';
 
 // Mock the primitive to avoid JSX parsing issues in node_modules
@@ -62,7 +63,7 @@ describe('RadioGroup (Native Implementation)', () => {
   });
 
   it('handles value change', () => {
-    const onValueChange = vi.fn();
+    const onValueChange = vi.fn<() => void>();
     render(
       <RadioGroup value="option-one" onValueChange={onValueChange}>
         <RadioGroupItem value="option-one" aria-label="Option One" />

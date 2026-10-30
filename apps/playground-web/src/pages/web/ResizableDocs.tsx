@@ -1,11 +1,8 @@
+import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@gv-tech/ui-web';
+
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
-import { ResizableHandle, ResizablePanel, ResizablePanelGroup } from '@gv-tech/ui-web';
 /*   @typescript-eslint/ban-ts-comment, @typescript-eslint/no-unused-vars */
-
-const isNative = false as boolean;
-
-const platform = 'web' as string;
 
 export function ResizableDocs() {
   return (
@@ -14,7 +11,7 @@ export function ResizableDocs() {
         title="Default"
         description="A resizable panel group with three panels."
         code={`<ResizablePanelGroup
-  direction="horizontal"
+  orientation="horizontal"
   className="max-w-md rounded-lg border"
 >
   <ResizablePanel defaultSize={50}>
@@ -24,7 +21,7 @@ export function ResizableDocs() {
   </ResizablePanel>
   <ResizableHandle />
   <ResizablePanel defaultSize={50}>
-    <ResizablePanelGroup direction="vertical">
+    <ResizablePanelGroup orientation="vertical">
       <ResizablePanel defaultSize={25}>
         <div className="flex h-full items-center justify-center p-6">
           <span className="font-semibold">Two</span>
@@ -40,7 +37,7 @@ export function ResizableDocs() {
   </ResizablePanel>
 </ResizablePanelGroup>`}
       >
-        <ResizablePanelGroup direction="horizontal" className="max-w-md rounded-lg border">
+        <ResizablePanelGroup orientation="horizontal" className="max-w-md rounded-lg border">
           <ResizablePanel defaultSize={50}>
             <div className="flex h-[200px] items-center justify-center p-6">
               <span className="font-semibold">One</span>
@@ -48,7 +45,7 @@ export function ResizableDocs() {
           </ResizablePanel>
           <ResizableHandle />
           <ResizablePanel defaultSize={50}>
-            <ResizablePanelGroup direction="vertical">
+            <ResizablePanelGroup orientation="vertical">
               <ResizablePanel defaultSize={25}>
                 <div className="flex h-full items-center justify-center p-6">
                   <span className="font-semibold">Two</span>
@@ -84,10 +81,10 @@ export function ResizableDocs() {
         <PropsTable
           props={[
             {
-              name: 'direction',
+              name: 'orientation',
               type: '"horizontal" | "vertical"',
               required: true,
-              description: 'The direction of the panels.',
+              description: 'The orientation of the panels.',
             },
             {
               name: 'onLayout',

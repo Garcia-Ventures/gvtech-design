@@ -11,6 +11,7 @@ import { Slot } from '@rn-primitives/slot';
 import { ChevronRight, MoreHorizontal } from 'lucide-react-native';
 import * as React from 'react';
 import { Pressable, View } from 'react-native';
+
 import { wrapTextChildren } from './lib/render-native';
 import { cn } from './lib/utils';
 import { Text } from './text';
@@ -85,14 +86,7 @@ BreadcrumbLink.displayName = 'BreadcrumbLink';
 export const BreadcrumbPage = React.forwardRef<View, BreadcrumbPageBaseProps>(
   ({ className, children, ...props }, ref) => {
     return (
-      <View
-        ref={ref}
-        role="link"
-        aria-disabled={true}
-        aria-current="page"
-        className={cn('flex flex-row items-center', className)}
-        {...props}
-      >
+      <View ref={ref} aria-current="page" className={cn('flex flex-row items-center', className)} {...props}>
         {wrapTextChildren(children, Text, {
           className: 'text-foreground text-sm font-normal',
         })}
