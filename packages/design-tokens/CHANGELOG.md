@@ -1,3 +1,13 @@
+## 2.29.1 (2026-11-01)
+
+### 🚀 Features
+
+- **tooling:** migrate to oxc (oxlint & oxfmt) and achieve zero-error lint ([#162](https://github.com/Garcia-Ventures/gvtech-design/pull/162))
+
+### ❤️ Thank You
+
+- Eric Garcia @eng618
+
 ## 2.29.0 (2026-10-11)
 
 ### 🚀 Features
