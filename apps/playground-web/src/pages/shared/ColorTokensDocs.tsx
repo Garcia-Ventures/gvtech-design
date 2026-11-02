@@ -17,9 +17,351 @@ import {
   TabsTrigger,
 } from '@gv-tech/ui-web';
 import { Info, Layers, Palette, Settings2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 import { CodeBlock } from '@/components/docs/CodeBlock';
 import { useDocMetadata } from '@/hooks/useDocMetadata';
+
+type BrandColor = keyof typeof tokens.palette.brand;
+type ThemeMode = keyof typeof tokens.theme;
+
+type Swatch = {
+  key: BrandColor;
+  name: string;
+  role: string;
+};
+
+type SurfaceSpec = {
+  id: string;
+  role: string;
+  backgroundKey: keyof typeof tokens.theme.light;
+  foregroundKey: keyof typeof tokens.theme.light;
+};
+
+const themeSurfaces: readonly SurfaceSpec[] = [
+  {
+    id: 'primary',
+    role: 'Primary',
+    backgroundKey: 'primary',
+    foregroundKey: 'primaryForeground',
+  },
+  {
+    id: 'secondary',
+    role: 'Secondary',
+    backgroundKey: 'secondary',
+    foregroundKey: 'secondaryForeground',
+  },
+  {
+    id: 'card',
+    role: 'Card',
+    backgroundKey: 'card',
+    foregroundKey: 'cardForeground',
+  },
+  {
+    id: 'accent',
+    role: 'Accent',
+    backgroundKey: 'accent',
+    foregroundKey: 'accentForeground',
+  },
+  {
+    id: 'muted',
+    role: 'Muted',
+    backgroundKey: 'muted',
+    foregroundKey: 'mutedForeground',
+  },
+  {
+    id: 'destructive',
+    role: 'Destructive',
+    backgroundKey: 'destructive',
+    foregroundKey: 'destructiveForeground',
+  },
+];
+
+const canvasTokens = ['background', 'foreground', 'mutedForeground', 'border'] as const;
+
+function tokenLabel(key: string) {
+  return key.replace(/[A-Z]/g, (letter) => `-${letter.toLowerCase()}`);
+}
+
+function palettePath(value: string) {
+  for (const [group, colors] of Object.entries(tokens.palette)) {
+    for (const [name, color] of Object.entries(colors)) {
+      if (color === value) {
+        return `${group}.${name}`;
+      }
+    }
+  }
+
+  return value;
+}
+
+/** Dark-to-light brand greens that back primary, secondary, and foreground. */
+const primaryRamp: readonly Swatch[] = [
+  { key: 'inkDeep', name: 'Ink deep', role: 'Text on primary' },
+  { key: 'ink', name: 'Ink', role: 'Foreground, light' },
+  { key: 'green', name: 'Green', role: 'Primary, light' },
+  { key: 'greenMuted', name: 'Green muted', role: 'Secondary, light' },
+  { key: 'greenBright', name: 'Green bright', role: 'Primary, dark' },
+  { key: 'greenSoft', name: 'Green soft', role: 'Secondary, dark' },
+];
+
+/** Paper colors and the retained blue accent, kept off the green ramp. */
+const paletteCompanions: readonly Swatch[] = [
+  { key: 'floralWhite', name: 'Floral white', role: 'Highlight' },
+  { key: 'cream', name: 'Cream', role: 'Foreground, dark' },
+  { key: 'blue', name: 'Blue', role: 'Accent' },
+];
+
+function ThemeBoard({
+  mode,
+  copiedKey,
+  onCopy,
+}: {
+  mode: ThemeMode;
+  copiedKey: string | null;
+  onCopy: (key: string, value: string) => void;
+}) {
+  const theme = tokens.theme[mode];
+  const sidebarMatches = theme.sidebar === theme.background;
+  const sidebarNote = sidebarMatches
+    ? 'Sidebar matches this background.'
+    : `Sidebar is ${palettePath(theme.sidebar)}, set deeper than this background.`;
+
+  return (
+    <div
+      className="@container overflow-hidden rounded-xl border"
+      style={{
+        backgroundColor: theme.background,
+        borderColor: theme.border,
+        color: theme.foreground,
+      }}
+    >
+      <div className="space-y-1 px-4 py-3">
+        <h3 className="text-sm font-semibold">{mode === 'light' ? 'Light' : 'Dark'}</h3>
+        <p className="text-xs" style={{ color: theme.mutedForeground }}>
+          {mode === 'light'
+            ? 'White text on primary and secondary. Ink on the page, cards, and accent.'
+            : 'Ink deep on primary and secondary. Cream on the page, cards, and accent.'}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-px" style={{ backgroundColor: theme.border }}>
+        {themeSurfaces.map((surface) => {
+          const background = theme[surface.backgroundKey];
+          const foreground = theme[surface.foregroundKey];
+          const copyKey = `${mode}.${surface.id}`;
+          const copied = copiedKey === copyKey;
+          const payload = `${tokenLabel(surface.backgroundKey)}: ${background}\n${tokenLabel(surface.foregroundKey)}: ${foreground}`;
+
+          return (
+            <button
+              key={surface.id}
+              type="button"
+              onClick={() => onCopy(copyKey, payload)}
+              data-track="copy_theme_pair"
+              data-track-token={copyKey}
+              aria-label={`Copy ${surface.role}. ${tokenLabel(surface.backgroundKey)} ${background}. ${tokenLabel(surface.foregroundKey)} ${foreground}.`}
+              className="text-left focus-visible:relative focus-visible:z-10 focus-visible:outline-2 focus-visible:outline-offset-2"
+              style={{ outlineColor: theme.ring }}
+            >
+              <span
+                className="flex h-20 flex-col justify-end px-3 py-2"
+                style={{ backgroundColor: background, color: foreground }}
+              >
+                <span className="text-sm font-medium">{surface.role}</span>
+                <span className="text-xs">{palettePath(foreground)}</span>
+              </span>
+              <span className="block space-y-0.5 px-3 py-3" style={{ backgroundColor: theme.background }}>
+                <span className="block text-xs" style={{ color: theme.mutedForeground }}>
+                  {palettePath(background)}
+                </span>
+                <span
+                  className="block font-mono text-[10px] whitespace-nowrap tabular-nums"
+                  style={{ color: theme.mutedForeground }}
+                  aria-live="polite"
+                >
+                  {copied ? 'Copied' : background}
+                </span>
+              </span>
+            </button>
+          );
+        })}
+      </div>
+
+      <div className="space-y-3 border-t px-4 py-3" style={{ borderColor: theme.border }}>
+        <div className="space-y-1">
+          <p className="text-sm">Body text uses the foreground color.</p>
+          <p className="text-sm" style={{ color: theme.mutedForeground }}>
+            Supporting text uses muted-foreground.
+          </p>
+        </div>
+        <div className="grid gap-1">
+          {canvasTokens.map((key) => {
+            const value = theme[key];
+            const copyKey = `${mode}.${key}`;
+            const copied = copiedKey === copyKey;
+
+            return (
+              <button
+                key={key}
+                type="button"
+                onClick={() => onCopy(copyKey, `${tokenLabel(key)}: ${value}`)}
+                data-track="copy_theme_pair"
+                data-track-token={copyKey}
+                aria-label={`Copy ${tokenLabel(key)}, ${value}`}
+                className="flex items-center justify-between gap-3 rounded-sm text-left focus-visible:outline-2 focus-visible:outline-offset-2"
+                style={{ outlineColor: theme.ring }}
+              >
+                <span className="flex items-center gap-2">
+                  <span
+                    className="h-3 w-3 shrink-0 rounded-sm border"
+                    style={{
+                      backgroundColor: value,
+                      borderColor: theme.border,
+                    }}
+                  />
+                  <span
+                    className="text-xs"
+                    style={{
+                      color: key === 'foreground' || key === 'mutedForeground' ? value : theme.foreground,
+                    }}
+                  >
+                    {tokenLabel(key)}
+                  </span>
+                </span>
+                <span className="font-mono text-[10px] whitespace-nowrap" style={{ color: theme.mutedForeground }}>
+                  {copied ? 'Copied' : palettePath(value)}
+                </span>
+              </button>
+            );
+          })}
+        </div>
+        <p className="text-xs" style={{ color: theme.mutedForeground }}>
+          {sidebarNote} Focus ring uses primary.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function PrimaryPalette() {
+  const [copiedKey, setCopiedKey] = useState<string | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current !== null) {
+        window.clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
+
+  const copyText = async (key: string, value: string) => {
+    try {
+      await navigator.clipboard.writeText(value);
+    } catch {
+      return;
+    }
+
+    setCopiedKey(key);
+    if (timeoutRef.current !== null) {
+      window.clearTimeout(timeoutRef.current);
+    }
+    timeoutRef.current = window.setTimeout(() => {
+      setCopiedKey((current) => (current === key ? null : current));
+    }, 1600);
+  };
+
+  return (
+    <section className="space-y-8">
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <h2 className="text-lg font-semibold tracking-tight">Primary palette</h2>
+          <p className="text-muted-foreground text-sm">
+            Source colors for both themes. Select a swatch to copy its value.
+          </p>
+        </div>
+
+        <div className="@container overflow-hidden rounded-xl border shadow-sm">
+          <div className="bg-border grid grid-cols-2 gap-px @min-[40rem]:grid-cols-3 @min-[48rem]:grid-cols-6">
+            {primaryRamp.map((swatch) => {
+              const value = tokens.palette.brand[swatch.key];
+              const copied = copiedKey === swatch.key;
+
+              return (
+                <button
+                  key={swatch.key}
+                  type="button"
+                  onClick={() => copyText(swatch.key, tokens.palette.brand[swatch.key])}
+                  data-track="copy_palette_swatch"
+                  data-track-token={swatch.key}
+                  aria-label={`Copy ${swatch.name}, ${value}`}
+                  className="group focus-visible:ring-ring bg-background text-left focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  <span className="block h-20" style={{ backgroundColor: value }} />
+                  <span className="group-hover:bg-muted/50 block space-y-0.5 px-3 py-3 transition-colors">
+                    <span className="block text-sm font-medium">{swatch.name}</span>
+                    <span className="text-muted-foreground block text-xs">{swatch.role}</span>
+                    <span
+                      className="text-muted-foreground block font-mono text-[10px] whitespace-nowrap tabular-nums"
+                      aria-live="polite"
+                    >
+                      {copied ? 'Copied' : value}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+
+          <div className="grid grid-cols-1 divide-y border-t @min-[40rem]:grid-cols-3 @min-[40rem]:divide-x @min-[40rem]:divide-y-0">
+            {paletteCompanions.map((swatch) => {
+              const value = tokens.palette.brand[swatch.key];
+              const copied = copiedKey === swatch.key;
+
+              return (
+                <button
+                  key={swatch.key}
+                  type="button"
+                  onClick={() => copyText(swatch.key, tokens.palette.brand[swatch.key])}
+                  data-track="copy_palette_swatch"
+                  data-track-token={swatch.key}
+                  aria-label={`Copy ${swatch.name}, ${value}`}
+                  className="group focus-visible:ring-ring hover:bg-muted/50 flex items-center gap-3 p-3 text-left transition-colors focus-visible:relative focus-visible:z-10 focus-visible:ring-2 focus-visible:outline-none focus-visible:ring-inset"
+                >
+                  <span className="h-11 w-11 shrink-0 rounded-md border" style={{ backgroundColor: value }} />
+                  <span className="min-w-0 space-y-0.5">
+                    <span className="block text-sm font-medium">{swatch.name}</span>
+                    <span className="text-muted-foreground block text-xs">{swatch.role}</span>
+                    <span
+                      className="text-muted-foreground block font-mono text-[10px] whitespace-nowrap tabular-nums"
+                      aria-live="polite"
+                    >
+                      {copied ? 'Copied' : value}
+                    </span>
+                  </span>
+                </button>
+              );
+            })}
+          </div>
+        </div>
+      </div>
+
+      <div className="space-y-3">
+        <div className="space-y-1">
+          <h2 className="text-lg font-semibold tracking-tight">Light and dark</h2>
+          <p className="text-muted-foreground text-sm">
+            Each surface is shown with the text color that sits on it. Select a sample to copy the pair.
+          </p>
+        </div>
+        <div className="grid gap-4 lg:grid-cols-2">
+          <ThemeBoard mode="light" copiedKey={copiedKey} onCopy={copyText} />
+          <ThemeBoard mode="dark" copiedKey={copiedKey} onCopy={copyText} />
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export function ColorTokensDocs() {
   useDocMetadata({
@@ -29,6 +371,8 @@ export function ColorTokensDocs() {
 
   return (
     <div className="space-y-12 pb-10">
+      <PrimaryPalette />
+
       <section className="space-y-8">
         <div className="grid gap-6 md:grid-cols-3">
           <div className="space-y-2">
@@ -405,7 +749,9 @@ export function ChartComponent() {
                       <div className="flex items-center gap-2">
                         <div
                           className="h-4 w-4 rounded-full border shadow-sm"
-                          style={{ backgroundColor: tokens.theme.light[key] as string }}
+                          style={{
+                            backgroundColor: tokens.theme.light[key] as string,
+                          }}
                         />
                         <span className="font-mono text-[10px] tabular-nums">{tokens.theme.light[key]}</span>
                       </div>
@@ -414,7 +760,9 @@ export function ChartComponent() {
                       <div className="flex items-center gap-2">
                         <div
                           className="h-4 w-4 rounded-full border shadow-sm"
-                          style={{ backgroundColor: tokens.theme.dark[key] as string }}
+                          style={{
+                            backgroundColor: tokens.theme.dark[key] as string,
+                          }}
                         />
                         <span className="font-mono text-[10px] tabular-nums">{tokens.theme.dark[key]}</span>
                       </div>
