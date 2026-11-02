@@ -4,7 +4,7 @@
 
 ## Prerequisites
 
-- Node >= 20, `bun@1.2.2` (`package.json:packageManager`), Xcode/Android Studio only if running on-device (Expo Go works otherwise).
+- Node >= 22.13, `bun@1.4.2` (`package.json:packageManager`), Xcode/Android Studio only if running on-device (Expo Go works otherwise).
 - Clone: `git clone https://github.com/Garcia-Ventures/gvtech-design.git && cd gvtech-design`
 
 ## 1. Install
@@ -13,7 +13,7 @@
 bun install
 ```
 
-This installs the Nx workspace (`nx.json`), Bun workspaces (`packages/*`, `apps/*`), and Expo SDK 56 deps.
+This installs the Nx workspace (`nx.json`), Bun workspaces (`packages/*`, `apps/*`), and Expo SDK 58 deps.
 
 ## 2. Run the web playground
 

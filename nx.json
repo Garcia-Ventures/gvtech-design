@@ -90,5 +90,8 @@
     }
   },
   "nxCloudId": "699a5e124eaac2a056d389c4",
-  "analytics": false
+  "analytics": false,
+  "affected": {
+    "legacy": true
+  }
 }

@@ -2,7 +2,7 @@
 
 ## Playground won't start
 
-- `bun install` first (Bun workspaces, not npm). Node >= 20 required.
+- `bun install` first (Bun workspaces, not npm). Node >= 22.13 required.
 - Web blank? Check `packages/design-tokens/src/theme.css` exists — if not, `bun run sync-tokens`.
 - Native QR fails? `bun run native:clear` (clears Metro + Expo CNG cache).
 

@@ -3,6 +3,7 @@
     "target": "ES2020",
     "module": "ESNext",
     "moduleResolution": "bundler",
+    "customConditions": ["react-native", "react-native-legacy-deep-imports"],
     "declaration": true,
     "declarationMap": true,
     "sourceMap": true,

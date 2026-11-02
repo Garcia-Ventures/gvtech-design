@@ -5,6 +5,7 @@
     "lib": ["dom", "esnext"],
     "module": "esnext",
     "moduleResolution": "bundler",
+    "customConditions": ["react-native", "react-native-legacy-deep-imports"],
     "skipLibCheck": true,
     "resolveJsonModule": true,
     "strict": true,

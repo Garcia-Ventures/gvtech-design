@@ -4,26 +4,27 @@
   "private": true,
   "scripts": {
     "eas-build-post-install": "cd ../../ && node tools/scripts/eas-build-post-install.mjs . apps/native-playground",
+    "eas-build-pre-install": "cd ../../ && node tools/scripts/eas-build-pre-install.mjs . apps/native-playground",
     "typecheck": "tsc --noEmit -p tsconfig.app.json"
   },
   "dependencies": {
-    "@expo/metro": "~56.0.0",
+    "@expo/metro": "~58.0.0",
     "@tailwindcss/postcss": "^4.3.0",
-    "babel-preset-expo": "~56.0.0",
-    "expo": "~57.0.26",
-    "expo-splash-screen": "~56.0.10",
-    "expo-status-bar": "~56.0.4",
-    "expo-system-ui": "~56.0.5",
-    "nativewind": "^5.0.0-preview.4",
+    "babel-preset-expo": "~58.0.23",
+    "expo": "~58.0.22",
+    "expo-splash-screen": "~58.0.12",
+    "expo-status-bar": "~58.0.4",
+    "expo-system-ui": "~58.0.7",
+    "nativewind": "5.0.0-preview.4",
     "postcss": "^8.5.8",
-    "react": "^19.2.4",
-    "react-dom": "^19.2.4",
-    "react-native": "0.87.1",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-native": "0.88.1",
     "react-native-css": "^3.0.1",
-    "react-native-reanimated": "4.3.1",
-    "react-native-svg": "^15.15.4",
+    "react-native-reanimated": "4.7.1",
+    "react-native-svg": "15.16.0",
     "react-native-svg-transformer": "~1.5.3",
-    "react-native-web": "^0.21.2",
-    "react-native-worklets": "0.8.3"
+    "react-native-web": "~0.21.4",
+    "react-native-worklets": "0.13.0"
   }
 }

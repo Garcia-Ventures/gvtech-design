@@ -11,6 +11,11 @@ export default defineConfig({
       provider: 'v8',
       reporter: ['text', 'lcov'],
     },
+    server: {
+      deps: {
+        inline: ['react-native-reanimated', 'react-native-worklets'],
+      },
+    },
     alias: {
       // `@` follows shadcn's components.json convention (`@/.` = components dir).
       // ui-web is the only package whose sources import `@/...`, and root src/

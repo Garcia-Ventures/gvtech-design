@@ -18,6 +18,7 @@ export default mergeConfig(
             'lucide-react-native',
             'nativewind',
             'react-native-reanimated',
+            'react-native-worklets',
             'react-native-css-interop',
           ],
         },
