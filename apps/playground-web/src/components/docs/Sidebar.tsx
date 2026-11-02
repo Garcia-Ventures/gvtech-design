@@ -29,6 +29,7 @@ import { docConfig } from '@/config/docs';
 import { safeTrack } from '@/lib/analytics';
 
 import { version } from '../../../../../package.json';
+import { BrandMark } from './BrandMark';
 
 interface DocsSidebarProps {
   className?: string;
@@ -68,15 +69,10 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
     <Sidebar className={className} collapsible="icon">
       <SidebarHeader className="flex h-14 shrink-0 flex-row items-center border-b p-6 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
         <div className="flex items-center gap-2 text-xl font-bold group-data-[collapsible=icon]:hidden">
-          <img src="/logo192.png" alt="GV Tech Logo" className="h-6 w-6 rounded" />
+          <BrandMark className="h-6 w-6 object-contain" />
           GVTech Design
         </div>
-        {/* Render only the logo when collapsed */}
-        <img
-          src="/logo192.png"
-          alt="GV Tech Logo"
-          className="hidden h-6 w-6 rounded group-data-[collapsible=icon]:flex"
-        />
+        <BrandMark className="hidden h-6 w-6 object-contain group-data-[collapsible=icon]:flex" />
         <div className="ml-auto flex flex-col items-end gap-0.5 group-data-[collapsible=icon]:hidden">
           <span className="text-muted-foreground font-mono text-[10px]">v{version}</span>
         </div>
