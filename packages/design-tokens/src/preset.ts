@@ -43,6 +43,12 @@ export const preset = {
         brand: {
           blue: 'hsl(var(--brand-blue) / <alpha-value>)',
           green: 'hsl(var(--brand-green) / <alpha-value>)',
+          'green-bright': 'hsl(var(--brand-green-bright) / <alpha-value>)',
+          'green-muted': 'hsl(var(--brand-green-muted) / <alpha-value>)',
+          'green-soft': 'hsl(var(--brand-green-soft) / <alpha-value>)',
+          ink: 'hsl(var(--brand-ink) / <alpha-value>)',
+          'ink-deep': 'hsl(var(--brand-ink-deep) / <alpha-value>)',
+          cream: 'hsl(var(--brand-cream) / <alpha-value>)',
           'floral-white': 'hsl(var(--brand-floral-white) / <alpha-value>)',
         },
         neutral: {

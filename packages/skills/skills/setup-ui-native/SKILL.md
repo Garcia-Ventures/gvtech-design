@@ -34,34 +34,48 @@ Add the `lightningcss` override in your `package.json` to prevent build deserial
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
+    --background: 35 25% 88%;
+    --foreground: 150 50% 22%;
+    --card: 35 20% 94%;
+    --card-foreground: 150 50% 22%;
+    --popover: 35 20% 94%;
+    --popover-foreground: 150 50% 22%;
+    --primary: 150 50% 28%;
+    --primary-foreground: 35 33% 97%;
+    --secondary: 150 25% 40%;
+    --secondary-foreground: 35 33% 97%;
+    --muted: 35 15% 80%;
+    --muted-foreground: 150 15% 32%;
+    --accent: 35 18% 82%;
+    --accent-foreground: 150 50% 22%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 35 33% 97%;
+    --border: 35 15% 80%;
+    --input: 35 15% 80%;
+    --ring: 150 50% 28%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 222.2 84% 4.9%;
-    --foreground: 210 40% 98%;
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --primary: 210 40% 98%;
-    --primary-foreground: 222.2 47.4% 11.2%;
-    --secondary: 217.2 32.6% 17.5%;
-    --secondary-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --background: 30 15% 12%;
+    --foreground: 35 20% 92%;
+    --card: 30 12% 16%;
+    --card-foreground: 35 20% 92%;
+    --popover: 30 12% 16%;
+    --popover-foreground: 35 20% 92%;
+    --primary: 150 40% 55%;
+    --primary-foreground: 150 45% 10%;
+    --secondary: 150 30% 65%;
+    --secondary-foreground: 150 45% 10%;
+    --muted: 30 10% 22%;
+    --muted-foreground: 35 12% 70%;
+    --accent: 30 12% 18%;
+    --accent-foreground: 35 20% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 35 20% 92%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 150 40% 55%;
   }
 }
 ```

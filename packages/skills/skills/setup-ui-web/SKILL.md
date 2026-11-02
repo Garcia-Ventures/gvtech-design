@@ -36,6 +36,14 @@ npm install @gv-tech/ui-web @gv-tech/design-tokens lucide-react clsx tailwind-me
   --color-secondary-foreground: hsl(var(--secondary-foreground));
   --color-card: hsl(var(--card));
   --color-card-foreground: hsl(var(--card-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-popover: hsl(var(--popover));
+  --color-popover-foreground: hsl(var(--popover-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
@@ -47,32 +55,48 @@ npm install @gv-tech/ui-web @gv-tech/design-tokens lucide-react clsx tailwind-me
 ```css
 @layer base {
   :root {
-    --background: 0 0% 96%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --primary: 225 73% 57%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 93 28% 54%;
-    --secondary-foreground: 0 0% 100%;
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 222 47% 11%;
+    --background: 35 25% 88%;
+    --foreground: 150 50% 22%;
+    --card: 35 20% 94%;
+    --card-foreground: 150 50% 22%;
+    --popover: 35 20% 94%;
+    --popover-foreground: 150 50% 22%;
+    --primary: 150 50% 28%;
+    --primary-foreground: 35 33% 97%;
+    --secondary: 150 25% 40%;
+    --secondary-foreground: 35 33% 97%;
+    --muted: 35 15% 80%;
+    --muted-foreground: 150 15% 32%;
+    --accent: 35 18% 82%;
+    --accent-foreground: 150 50% 22%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 35 33% 97%;
+    --border: 35 15% 80%;
+    --input: 35 15% 80%;
+    --ring: 150 50% 28%;
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 0 0% 9%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 100%;
-    --primary: 227 96% 71%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 96 44% 61%;
-    --secondary-foreground: 0 0% 9%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 90%;
+    --background: 30 15% 12%;
+    --foreground: 35 20% 92%;
+    --card: 30 12% 16%;
+    --card-foreground: 35 20% 92%;
+    --popover: 30 12% 16%;
+    --popover-foreground: 35 20% 92%;
+    --primary: 150 40% 55%;
+    --primary-foreground: 150 45% 10%;
+    --secondary: 150 30% 65%;
+    --secondary-foreground: 150 45% 10%;
+    --muted: 30 10% 22%;
+    --muted-foreground: 35 12% 70%;
+    --accent: 30 12% 18%;
+    --accent-foreground: 35 20% 92%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 35 20% 92%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 150 40% 55%;
   }
 }
 ```

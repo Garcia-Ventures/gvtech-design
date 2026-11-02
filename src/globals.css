@@ -37,46 +37,60 @@
 @layer base {
   /* @tokens-start */
   :root {
-    --background: 0 0% 96%;
-    --foreground: 222 47% 11%;
-    --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
-    --primary: 225 73% 57%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 93 28% 54%;
-    --secondary-foreground: 0 0% 100%;
-    --muted: 0 0% 92%;
-    --muted-foreground: 215 16% 47%;
-    --accent: 0 0% 88%;
-    --accent-foreground: 222 47% 11%;
+    --background: 35 25% 88%;
+    --foreground: 150 50% 22%;
+    --card: 35 20% 94%;
+    --card-foreground: 150 50% 22%;
+    --popover: 35 20% 94%;
+    --popover-foreground: 150 50% 22%;
+    --primary: 150 50% 28%;
+    --primary-foreground: 35 33% 97%;
+    --secondary: 150 25% 40%;
+    --secondary-foreground: 35 33% 97%;
+    --muted: 35 15% 80%;
+    --muted-foreground: 150 15% 32%;
+    --accent: 35 18% 82%;
+    --accent-foreground: 150 50% 22%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 89%;
-    --input: 0 0% 89%;
-    --ring: 222 47% 11%;
+    --destructive-foreground: 35 33% 97%;
+    --border: 35 15% 80%;
+    --input: 35 15% 80%;
+    --ring: 150 50% 28%;
+    --sidebar: 35 25% 88%;
+    --sidebar-foreground: 150 50% 22%;
+    --sidebar-primary: 150 50% 28%;
+    --sidebar-primary-foreground: 35 33% 97%;
+    --sidebar-accent: 35 15% 80%;
+    --sidebar-accent-foreground: 150 50% 22%;
+    --sidebar-border: 35 15% 80%;
+    --sidebar-ring: 150 50% 28%;
     --radius: 0.5rem;
 
     /* Brand Tokens */
     --brand-blue: 225 73% 57%;
-    --brand-green: 151 66% 27%;
-    --brand-floral-white: 40 100% 97%;
-    --neutral-white: 0 0% 100%;
-    --neutral-black: 0 0% 0%;
-    --neutral-gray50: 0 0% 96%;
-    --neutral-gray100: 0 0% 92%;
-    --neutral-gray200: 0 0% 89%;
-    --neutral-gray300: 0 0% 88%;
-    --neutral-gray400: 0 0% 70%;
-    --neutral-gray500: 215 16% 47%;
-    --neutral-gray600: 222 47% 11%;
-    --neutral-gray700: 0 0% 18%;
-    --neutral-gray800: 0 0% 15%;
-    --neutral-gray900: 0 0% 14%;
-    --neutral-gray950: 0 0% 11%;
-    --neutral-gray975: 0 0% 9%;
-    --neutral-gray990: 0 0% 6%;
+    --brand-green: 150 50% 28%;
+    --brand-green-bright: 150 40% 55%;
+    --brand-green-muted: 150 25% 40%;
+    --brand-green-soft: 150 30% 65%;
+    --brand-ink: 150 50% 22%;
+    --brand-ink-deep: 150 45% 10%;
+    --brand-cream: 35 20% 92%;
+    --brand-floral-white: 35 28% 96%;
+    --neutral-white: 35 33% 97%;
+    --neutral-black: 30 18% 6%;
+    --neutral-gray50: 35 20% 94%;
+    --neutral-gray100: 35 25% 88%;
+    --neutral-gray200: 35 18% 82%;
+    --neutral-gray300: 35 15% 80%;
+    --neutral-gray400: 35 12% 70%;
+    --neutral-gray500: 150 15% 32%;
+    --neutral-gray600: 150 20% 28%;
+    --neutral-gray700: 30 10% 22%;
+    --neutral-gray800: 30 12% 18%;
+    --neutral-gray900: 30 12% 16%;
+    --neutral-gray950: 30 14% 14%;
+    --neutral-gray975: 30 15% 12%;
+    --neutral-gray990: 30 18% 8%;
     --semantic-success: 93 28% 54%;
     --semantic-success-dark: 96 44% 61%;
     --semantic-destructive: 0 84.2% 60.2%;
@@ -84,25 +98,33 @@
   }
 
   .dark {
-    --background: 0 0% 9%;
-    --foreground: 0 0% 100%;
-    --card: 0 0% 14%;
-    --card-foreground: 0 0% 100%;
-    --popover: 0 0% 11%;
-    --popover-foreground: 0 0% 100%;
-    --primary: 227 96% 71%;
-    --primary-foreground: 0 0% 9%;
-    --secondary: 96 44% 61%;
-    --secondary-foreground: 0 0% 9%;
-    --muted: 0 0% 6%;
-    --muted-foreground: 0 0% 70%;
-    --accent: 0 0% 15%;
-    --accent-foreground: 0 0% 100%;
+    --background: 30 15% 12%;
+    --foreground: 35 20% 92%;
+    --card: 30 12% 16%;
+    --card-foreground: 35 20% 92%;
+    --popover: 30 12% 16%;
+    --popover-foreground: 35 20% 92%;
+    --primary: 150 40% 55%;
+    --primary-foreground: 150 45% 10%;
+    --secondary: 150 30% 65%;
+    --secondary-foreground: 150 45% 10%;
+    --muted: 30 10% 22%;
+    --muted-foreground: 35 12% 70%;
+    --accent: 30 12% 18%;
+    --accent-foreground: 35 20% 92%;
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 0 0% 18%;
-    --input: 0 0% 18%;
-    --ring: 0 0% 90%;
+    --destructive-foreground: 35 20% 92%;
+    --border: 30 10% 22%;
+    --input: 30 10% 22%;
+    --ring: 150 40% 55%;
+    --sidebar: 30 18% 8%;
+    --sidebar-foreground: 35 12% 70%;
+    --sidebar-primary: 150 40% 55%;
+    --sidebar-primary-foreground: 150 45% 10%;
+    --sidebar-accent: 30 10% 22%;
+    --sidebar-accent-foreground: 35 20% 92%;
+    --sidebar-border: 30 10% 22%;
+    --sidebar-ring: 150 40% 55%;
     --radius: 0.5rem;
   }
   /* @tokens-end */
@@ -138,6 +160,14 @@
   --color-border: hsl(var(--border));
   --color-input: hsl(var(--input));
   --color-ring: hsl(var(--ring));
+  --color-sidebar: hsl(var(--sidebar));
+  --color-sidebar-foreground: hsl(var(--sidebar-foreground));
+  --color-sidebar-primary: hsl(var(--sidebar-primary));
+  --color-sidebar-primary-foreground: hsl(var(--sidebar-primary-foreground));
+  --color-sidebar-accent: hsl(var(--sidebar-accent));
+  --color-sidebar-accent-foreground: hsl(var(--sidebar-accent-foreground));
+  --color-sidebar-border: hsl(var(--sidebar-border));
+  --color-sidebar-ring: hsl(var(--sidebar-ring));
 }
 
 /* Sticky footer support for ScrollArea */
