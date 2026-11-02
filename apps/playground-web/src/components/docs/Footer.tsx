@@ -2,7 +2,7 @@ import { Button, Separator, Tooltip, TooltipContent, TooltipTrigger } from '@gv-
 import { FaLinkedin } from 'react-icons/fa6';
 import { SiGithub, SiX } from 'react-icons/si';
 
-import { BrandMark } from './BrandMark';
+import { BrandLockup } from './BrandLockup';
 
 const CURRENT_YEAR = new Date().getFullYear();
 
@@ -13,10 +13,7 @@ export function Footer() {
         <div className="flex flex-col gap-10 md:flex-row md:justify-between">
           {/* Brand */}
           <div className="space-y-4">
-            <div className="flex items-center gap-2">
-              <BrandMark className="h-8 w-8 object-contain" />
-              <h3 className="text-lg font-bold tracking-tight">GVTech Design</h3>
-            </div>
+            <BrandLockup className="h-10 w-auto" />
             <p className="text-muted-foreground max-w-xs text-sm leading-relaxed">
               A premium React component library built with performance and aesthetics in mind. Created for Garcia
               Ventures.

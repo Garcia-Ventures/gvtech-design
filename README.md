@@ -1,7 +1,7 @@
 # GV Tech Design System
 
 <p align="center">
-  <img alt="Garcia Ventures" src="apps/playground-web/public/logo512.png" width="180" />
+  <img alt="GV Tech" src="apps/playground-web/public/brand/gvtech-lockup-green.png" width="280" />
 </p>
 
 [![npm version](https://img.shields.io/npm/v/@gv-tech/design-system?style=flat-square&color=CB3837)](https://www.npmjs.com/package/@gv-tech/design-system)

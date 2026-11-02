@@ -29,6 +29,7 @@ import { docConfig } from '@/config/docs';
 import { safeTrack } from '@/lib/analytics';
 
 import { version } from '../../../../../package.json';
+import { BrandLockup } from './BrandLockup';
 import { BrandMark } from './BrandMark';
 
 interface DocsSidebarProps {
@@ -67,15 +68,15 @@ export function DocsSidebar({ className }: DocsSidebarProps) {
 
   return (
     <Sidebar className={className} collapsible="icon">
-      <SidebarHeader className="flex h-14 shrink-0 flex-row items-center border-b p-6 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
-        <div className="flex items-center gap-2 text-xl font-bold group-data-[collapsible=icon]:hidden">
-          <BrandMark className="h-6 w-6 object-contain" />
-          GVTech Design
+      <SidebarHeader className="flex h-16 shrink-0 flex-row items-center border-b px-6 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:px-2">
+        <div className="flex w-full items-start group-data-[collapsible=icon]:hidden">
+          <div className="flex min-w-0 flex-col gap-1">
+            <BrandLockup className="h-7 w-auto" />
+            <p className="text-primary text-[11px] leading-none font-medium">Design System</p>
+          </div>
+          <span className="text-muted-foreground mt-1.5 ml-auto font-mono text-[10px] leading-none">v{version}</span>
         </div>
         <BrandMark className="hidden h-6 w-6 object-contain group-data-[collapsible=icon]:flex" />
-        <div className="ml-auto flex flex-col items-end gap-0.5 group-data-[collapsible=icon]:hidden">
-          <span className="text-muted-foreground font-mono text-[10px]">v{version}</span>
-        </div>
       </SidebarHeader>
 
       <SidebarContent className="p-4 group-data-[collapsible=icon]:p-2">

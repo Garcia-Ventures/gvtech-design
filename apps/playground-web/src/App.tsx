@@ -82,7 +82,7 @@ function DocumentationLayout() {
 
           <SidebarInset className="bg-background flex w-full flex-col overflow-hidden">
             <DomainRedirectNotice />
-            <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-14 shrink-0 items-center justify-between border-b px-4 backdrop-blur md:px-6">
+            <header className="bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-16 shrink-0 items-center justify-between border-b px-4 backdrop-blur md:px-6">
               <div className="flex min-w-0 items-center gap-2">
                 <SidebarTrigger className="-ml-1" />
 
