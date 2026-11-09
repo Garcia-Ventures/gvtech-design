@@ -1,3 +1,13 @@
+## 2.29.3 (2026-11-09)
+
+### 🩹 Fixes
+
+- **ui-web:** enhance Vite configuration for external dependencies and import handling ([88647c1](https://github.com/Garcia-Ventures/gvtech-design/commit/88647c1))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.29.2 (2026-11-08)
 
 No changes for this project

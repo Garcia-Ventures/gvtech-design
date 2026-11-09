@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-native",
-  "version": "2.29.2",
+  "version": "2.29.3",
   "description": "React Native implementations of the GV Tech design system components",
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",
