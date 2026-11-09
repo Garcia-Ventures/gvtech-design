@@ -1,9 +1,29 @@
 import fs from 'node:fs';
-import { resolve } from 'node:path';
+import path, { resolve } from 'node:path';
 
 import react from '@vitejs/plugin-react';
 import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
+
+const srcRoot = resolve(__dirname, 'src');
+
+// Bundle only this package's source. Inlining dependencies lets Rolldown rewrite
+// their `require("react")` calls into a dynamic require helper, which Next.js
+// static export rejects when a consumer imports the barrel.
+const isExternal = (id: string) => {
+  // shadcn sibling imports (`@/./button`, `@/hooks/use-mobile`) are this package.
+  if (id.startsWith('\0') || id.startsWith('.') || id.startsWith('@/')) {
+    return false;
+  }
+
+  if (path.isAbsolute(id)) {
+    const relativeToSrc = path.relative(srcRoot, id);
+    const insideSrc = relativeToSrc !== '' && !relativeToSrc.startsWith('..') && !path.isAbsolute(relativeToSrc);
+    return !insideSrc;
+  }
+
+  return true;
+};
 
 const getEntries = () => {
   const entries: Record<string, string> = {
@@ -44,9 +64,7 @@ export default defineConfig({
     }),
   ],
   resolve: {
-    alias: {
-      '@': resolve(__dirname, 'src'),
-    },
+    alias: [{ find: /^@\//, replacement: `${resolve(__dirname, 'src')}/` }],
   },
   build: {
     lib: {
@@ -59,24 +77,7 @@ export default defineConfig({
       formats: ['es', 'cjs'],
     },
     rollupOptions: {
-      external: [
-        'react',
-        'react/jsx-runtime',
-        'react/jsx-dev-runtime',
-        'react-dom',
-        '@gv-tech/design-tokens',
-        '@gv-tech/ui-core',
-        'next-themes',
-        'lucide-react',
-        'class-variance-authority',
-        'clsx',
-        'tailwind-merge',
-        'react-hook-form',
-        'zod',
-        'recharts',
-        'sonner',
-        'vaul',
-      ],
+      external: isExternal,
       output: {
         globals: {
           react: 'React',
