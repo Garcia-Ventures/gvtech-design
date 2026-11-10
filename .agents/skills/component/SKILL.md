@@ -27,7 +27,7 @@ The web scaffold still imports `cn` from `./lib/utils`. Change that to `import {
 
 Native keeps `import { cn } from './lib/utils'`. Map web-only props: `onClick` → `onPress`, `onChange` → `onChangeText`, `htmlFor` → `nativeID`. CSS animation becomes Reanimated.
 
-Leave these unimplemented on native and record that in `docs/reference/parity-matrix.md`: Chart, Command, Resizable, Scroll Area, Sonner. Native stand-ins are Toast, ScrollView, and Sheet.
+Leave these off the `@gv-tech/ui-native` entrypoint and record that in `docs/reference/parity-matrix.md`: Chart, Command, Resizable, Sonner. Native stand-ins are Toast, Search, and a fixed layout. Scroll Area is exported as a `ScrollView` wrapper. Do not export Attachment, Bubble, Marker, Message, Message Scroller, or Questionnaire until the native behavior is real.
 
 ## Pull from shadcn
 

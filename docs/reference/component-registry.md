@@ -1,10 +1,10 @@
 # Component Registry
 
-> **Last verified:** 2026-09-17. Regenerate status with `bun run build:registry` then update ✅/⏳ below. Test detail per group: [Parity Matrix](./parity-matrix.md).
+> **Last verified:** 2026-11-09 against `packages/ui-native/src/index.ts`. Regenerate the shadcn JSON with `bun run build:registry`, then update the marks below. Group notes: [Parity Matrix](./parity-matrix.md).
 
 This document serves as the single source of truth for the implementation status of all components within the GV Tech Design System.
 
-> **Legend:** ✅ Fully Implemented | ⏳ Not Yet Implemented (Stubbed) | 🟢 100% Coverage
+> **Legend:** ✅ Exported implementation | ⏳ Planned, not exported | 🚫 Web-only, not exported | 🟢 Test file present | — No test file. `—` is not a pass. Test-column cleanup is EP-18.
 
 | Component             | Web Implementation | Native Implementation | Web Tests | Native Tests |
 | :-------------------- | :----------------: | :-------------------: | :-------: | :----------: |
@@ -22,11 +22,11 @@ This document serves as the single source of truth for the implementation status
 | **Calendar**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Card**              |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Carousel**          |         ✅         |          ✅           |    🟢     |      —       |
-| **Chart**             |         ✅         |          ⏳           |    🟢     |      —       |
+| **Chart**             |         ✅         |          🚫           |    🟢     |      —       |
 | **Checkbox**          |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Collapsible**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Combobox**          |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Command**           |         ✅         |          ⏳           |    🟢     |      —       |
+| **Command**           |         ✅         |          🚫           |    🟢     |      —       |
 | **Context Menu**      |         ✅         |          ✅           |    🟢     |      —       |
 | **Dialog**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Direction**         |         ✅         |          ✅           |    🟢     |      🟢      |
@@ -53,8 +53,8 @@ This document serves as the single source of truth for the implementation status
 | **Progress**          |         ✅         |          ✅           |    🟢     |      —       |
 | **Questionnaire**     |         ✅         |          ⏳           |    🟢     |      —       |
 | **Radio Group**       |         ✅         |          ✅           |    🟢     |      🟢      |
-| **Resizable**         |         ✅         |          ⏳           |    🟢     |      —       |
-| **Scroll Area**       |         ✅         |          ⏳           |    🟢     |      —       |
+| **Resizable**         |         ✅         |          🚫           |    🟢     |      —       |
+| **Scroll Area**       |         ✅         |          ✅           |    🟢     |      —       |
 | **Scroll To Top**     |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Search**            |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Select**            |         ✅         |          ✅           |    🟢     |      🟢      |
@@ -63,7 +63,7 @@ This document serves as the single source of truth for the implementation status
 | **Sidebar**           |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Skeleton**          |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Slider**            |         ✅         |          ✅           |    🟢     |      —       |
-| **Sonner**            |         ✅         |          ⏳           |    🟢     |      —       |
+| **Sonner**            |         ✅         |          🚫           |    🟢     |      —       |
 | **Spinner**           |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Support FAB**       |         ✅         |          ✅           |    🟢     |      🟢      |
 | **Switch**            |         ✅         |          ✅           |    🟢     |      🟢      |

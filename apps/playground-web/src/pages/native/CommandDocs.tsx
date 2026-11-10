@@ -2,24 +2,18 @@ import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 
 export function CommandDocs() {
   return (
-    <>
-      <ComponentShowcase
-        title="Default"
-        description="The command palette is currently a stub for Native."
-        code={`import { Command } from "@gv-tech/design-system";
+    <ComponentShowcase
+      title="Web only"
+      description="Command is not exported from @gv-tech/ui-native. Use Search."
+      code={`import { Search } from '@gv-tech/ui-native';
 
-export function CommandExample() {
-  return <Command />;
+export function FindAction() {
+  return <Search />;
 }`}
-      />
-
-      <div className="space-y-4">
-        <h3 className="text-xl font-semibold">Status</h3>
-        <p className="text-muted-foreground text-sm">
-          The Command component is currently not implemented for Native. It is recommended to use the{' '}
-          <code>Search</code> component instead for similar patterns on mobile.
-        </p>
-      </div>
-    </>
+    >
+      <p className="text-muted-foreground text-sm">
+        The command palette depends on cmdk. On native, Search is the substitute.
+      </p>
+    </ComponentShowcase>
   );
 }

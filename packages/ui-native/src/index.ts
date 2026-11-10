@@ -62,35 +62,12 @@ export type { CardProps } from './card';
 // Carousel
 export { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from './carousel';
 
-// Chart
-export {
-  ChartContainer,
-  ChartLegend,
-  ChartLegendContent,
-  ChartStyle,
-  ChartTooltip,
-  ChartTooltipContent,
-} from './chart';
-
 // Checkbox
 export { Checkbox } from './checkbox';
 export type { CheckboxProps } from './checkbox';
 
 // Collapsible
 export { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsible';
-
-// Command
-export {
-  Command,
-  CommandDialog,
-  CommandEmpty,
-  CommandGroup,
-  CommandInput,
-  CommandItem,
-  CommandList,
-  CommandSeparator,
-  CommandShortcut,
-} from './command';
 
 // Context Menu
 export {
@@ -224,9 +201,6 @@ export { Progress } from './progress';
 export { RadioGroup, RadioGroupItem } from './radio-group';
 export type { RadioGroupItemProps, RadioGroupProps } from './radio-group';
 
-// Resizable
-export { ResizableHandle, ResizablePanel, ResizablePanelGroup } from './resizable';
-
 // Scroll Area
 export { ScrollArea } from './scroll-area';
 
@@ -277,9 +251,6 @@ export { Skeleton } from './skeleton';
 
 // Slider
 export { Slider } from './slider';
-
-// Sonner
-export { Toaster as Sonner } from './sonner';
 
 // Switch
 export { Switch } from './switch';
@@ -437,53 +408,7 @@ export {
   useSidebar,
 } from './sidebar';
 
-// Attachment
-export {
-  Attachment,
-  AttachmentAction,
-  AttachmentActions,
-  AttachmentContent,
-  AttachmentDescription,
-  AttachmentGroup,
-  AttachmentMedia,
-  AttachmentTitle,
-  AttachmentTrigger,
-} from './attachment';
-
-// Bubble
-export { Bubble, BubbleContent, BubbleGroup, BubbleReactions } from './bubble';
-
-// Marker
-export { Marker, MarkerContent, MarkerIcon } from './marker';
-
-// Message
-export { Message, MessageAvatar, MessageContent, MessageFooter, MessageGroup, MessageHeader } from './message';
-
-// Message Scroller
-export {
-  MessageScroller,
-  MessageScrollerButton,
-  MessageScrollerContent,
-  MessageScrollerItem,
-  MessageScrollerProvider,
-  MessageScrollerViewport,
-} from './message-scroller';
-
-// Questionnaire
-export {
-  Questionnaire,
-  QuestionnaireActions,
-  QuestionnaireChoice,
-  QuestionnaireChoiceDescription,
-  QuestionnaireChoices,
-  QuestionnaireDescription,
-  QuestionnaireError,
-  QuestionnaireInput,
-  QuestionnaireItem,
-  QuestionnaireNext,
-  QuestionnairePrevious,
-  QuestionnaireProgress,
-  QuestionnaireSkip,
-  QuestionnaireSubmit,
-  QuestionnaireTitle,
-} from './questionnaire';
+// Chart, Command, Resizable, and Sonner are web-only and are not exported.
+// Attachment, Bubble, Marker, Message, Message Scroller, and Questionnaire
+// stay unexported until the native behavior is real. Contracts remain in ui-core.
+// See docs/reference/parity-matrix.md.

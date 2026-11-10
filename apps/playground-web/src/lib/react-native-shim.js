@@ -8,6 +8,10 @@ export const TurboModuleRegistry = {
   get: () => null,
 };
 
+// react-native-svg's fabric entry calls this at module scope. The web playground
+// never mounts those native views.
+export const codegenNativeComponent = () => () => null;
+
 // Keep stable fallbacks for legacy RN packages without probing optional RNW exports.
 export const UnimplementedView = () => null;
 export const ViewPropTypes = {};
@@ -28,6 +32,7 @@ Object.assign(ReactNative, {
   TurboModuleRegistry,
   UnimplementedView,
   ViewPropTypes,
+  codegenNativeComponent,
 });
 
 // Default export

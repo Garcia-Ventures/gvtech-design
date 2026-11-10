@@ -1,3 +1,4 @@
+// Not exported from @gv-tech/ui-native. Web-only. Use Toast. See docs/reference/parity-matrix.md.
 import type { SonnerBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 

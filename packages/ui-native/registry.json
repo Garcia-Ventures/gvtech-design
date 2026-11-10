@@ -64,18 +64,6 @@
       ]
     },
     {
-      "name": "attachment",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/attachment.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "avatar",
       "type": "registry:ui",
       "dependencies": ["@rn-primitives/avatar"],
@@ -112,22 +100,10 @@
       ]
     },
     {
-      "name": "bubble",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/bubble.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "button-group",
       "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
+      "dependencies": ["@gv-tech/ui-core", "class-variance-authority"],
+      "registryDependencies": ["separator"],
       "files": [
         {
           "path": "src/button-group.tsx",
@@ -184,18 +160,6 @@
       ]
     },
     {
-      "name": "chart",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/chart.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "checkbox",
       "type": "registry:ui",
       "dependencies": ["@rn-primitives/checkbox", "lucide-react-native"],
@@ -227,18 +191,6 @@
       "files": [
         {
           "path": "src/combobox.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "command",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/command.tsx",
           "type": "registry:ui"
         }
       ]
@@ -435,18 +387,6 @@
       ]
     },
     {
-      "name": "marker",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/marker.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "menubar",
       "type": "registry:ui",
       "dependencies": ["@gv-tech/ui-core", "@rn-primitives/menubar", "lucide-react-native", "react-native-reanimated"],
@@ -454,30 +394,6 @@
       "files": [
         {
           "path": "src/menubar.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "message-scroller",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/message-scroller.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "message",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/message.tsx",
           "type": "registry:ui"
         }
       ]
@@ -548,18 +464,6 @@
       ]
     },
     {
-      "name": "questionnaire",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/questionnaire.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
       "name": "radio-group",
       "type": "registry:ui",
       "dependencies": ["@gv-tech/ui-core", "@rn-primitives/radio-group", "lucide-react-native"],
@@ -567,18 +471,6 @@
       "files": [
         {
           "path": "src/radio-group.tsx",
-          "type": "registry:ui"
-        }
-      ]
-    },
-    {
-      "name": "resizable",
-      "type": "registry:ui",
-      "dependencies": ["@gv-tech/ui-core"],
-      "registryDependencies": [],
-      "files": [
-        {
-          "path": "src/resizable.tsx",
           "type": "registry:ui"
         }
       ]

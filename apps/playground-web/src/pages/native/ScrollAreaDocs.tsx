@@ -7,19 +7,15 @@ export function ScrollAreaDocs() {
       <ComponentShowcase
         title="Default"
         description="A default scroll area."
-        code={`<ScrollArea className="h-72 w-48 rounded-md border">
-  <div className="p-4">
-    <h4 className="mb-4 text-sm font-medium leading-none">Tags</h4>
-    {tags.map((tag) => (
-      <>
-        <div key={tag} className="text-sm">
-          {tag}
-        </div>
-        <Separator className="my-2" />
-      </>
-    ))}
-  </div>
-</ScrollArea>`}
+        code={`import { ScrollArea, Text } from '@gv-tech/ui-native';
+
+export function ScrollAreaExample() {
+  return (
+    <ScrollArea className="h-72">
+      <Text>Long content</Text>
+    </ScrollArea>
+  );
+}`}
       />
 
       <div className="space-y-4">
@@ -29,7 +25,9 @@ export function ScrollAreaDocs() {
           <a href="https://reactnative.dev/docs/scrollview" className="underline" target="_blank" rel="noreferrer">
             React Native ScrollView
           </a>{' '}
-          primitive with styling enhancements and hidden default indicators.
+          primitive and shows the platform scroll indicators. The web props <code>type</code>,{' '}
+          <code>scrollHideDelay</code>, and <code>dir</code> stay on the shared contract. This wrapper does not apply
+          them. <code>ScrollBar</code> renders nothing, because the platform draws the indicator.
         </p>
 
         <h4 className="mt-6 text-lg font-medium">ScrollArea (Root)</h4>
@@ -39,19 +37,18 @@ export function ScrollAreaDocs() {
               name: 'type',
               type: '"auto" | "always" | "scroll" | "hover"',
               defaultValue: '"hover"',
-              description: 'Describes the nature of scrollbar visibility.',
+              description: 'Web scrollbar visibility. The native wrapper does not apply this.',
             },
             {
               name: 'scrollHideDelay',
               type: 'number',
               defaultValue: '600',
-              description:
-                'If type is "scroll" or "hover", this property determines how long the scrollbar remains visible before hiding.',
+              description: 'Web hide delay. The native wrapper does not apply this.',
             },
             {
               name: 'dir',
               type: '"ltr" | "rtl"',
-              description: 'The reading direction of the scroll area.',
+              description: 'Web reading direction. The native wrapper does not apply this.',
             },
           ]}
         />
@@ -63,7 +60,7 @@ export function ScrollAreaDocs() {
               name: 'orientation',
               type: '"horizontal" | "vertical"',
               defaultValue: '"vertical"',
-              description: 'The orientation of the scrollbar.',
+              description: 'Web scrollbar orientation. Native ScrollBar renders nothing.',
             },
             {
               name: 'forceMount',

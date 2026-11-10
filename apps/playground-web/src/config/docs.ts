@@ -69,12 +69,12 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Resizable',
         href: 'resizable',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Scroll Area',
         href: 'scroll-area',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Scroll To Top',
@@ -135,7 +135,7 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Slider',
         href: 'slider',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Switch',
@@ -231,7 +231,7 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Chart',
         href: 'chart',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Collapsible',
@@ -302,7 +302,7 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Sonner',
         href: 'sonner',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Toast',
@@ -369,7 +369,7 @@ export const docConfig: DocCategory[] = [
       {
         title: 'Command',
         href: 'command',
-        platforms: ['web'],
+        platforms: ['web', 'native'],
       },
       {
         title: 'Search',

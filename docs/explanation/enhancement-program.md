@@ -25,10 +25,10 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 
 | ID    | Work                                                    | Priority | Lane                | Effort | Status     |
 | :---- | :------------------------------------------------------ | :------: | :------------------ | :----: | :--------- |
-| EP-01 | One platform status, with web-only called out           |    P0    | Docs                |   S    | `proposed` |
-| EP-02 | Native Button Group matches its registry row            |    P0    | Native, Docs        |   M    | `proposed` |
-| EP-03 | Messaging stubs leave the native public entry           |    P0    | Native, Docs        |   M    | `proposed` |
-| EP-04 | Button props in the playground come from the contract   |    P0    | Tooling, Docs       |   M    | `proposed` |
+| EP-01 | One platform status, with web-only called out           |    P0    | Docs                |   S    | `done`     |
+| EP-02 | Native Button Group matches its registry row            |    P0    | Native, Docs        |   M    | `done`     |
+| EP-03 | Messaging stubs leave the native public entry           |    P0    | Native, Docs        |   M    | `done`     |
+| EP-04 | Button props in the playground come from the contract   |    P0    | Tooling, Docs       |   M    | `done`     |
 | EP-05 | Success, warning, and info become theme roles           |    P1    | Design, Web, Native |   M    | `proposed` |
 | EP-06 | Contrast check inside `bun run validate`                |    P1    | Design, Tooling     |   M    | `proposed` |
 | EP-07 | Touch target rule for the 24px controls                 |    P1    | Design, Web, Native |   M    | `proposed` |
@@ -44,12 +44,12 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 | EP-17 | Web screenshot checks, light and dark                   |    P2    | Tooling             |   L    | `proposed` |
 | EP-18 | Registry test column matches files on disk              |    P2    | Docs, Native        |   M    | `proposed` |
 | EP-19 | Native Select types, and the stale Sheet TODO           |    P2    | Native              |   M    | `proposed` |
-| EP-20 | Charts stay web-only until a product asks               |    P2    | Docs                |   S    | `proposed` |
+| EP-20 | Charts stay web-only until a product asks               |    P2    | Docs                |   S    | `done`     |
 
-- [ ] EP-01
-- [ ] EP-02
-- [ ] EP-03
-- [ ] EP-04
+- [x] EP-01
+- [x] EP-02
+- [x] EP-03
+- [x] EP-04
 - [ ] EP-05
 - [ ] EP-06
 - [ ] EP-07
@@ -65,7 +65,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 - [ ] EP-17
 - [ ] EP-18
 - [ ] EP-19
-- [ ] EP-20
+- [x] EP-20
 
 Do P0 before adding components. P0 is what makes the other rows safe to trust.
 
@@ -448,6 +448,7 @@ This program leaves the following in place.
 
 ## Log
 
-| Date       | Change                                                                                        |
-| :--------- | :-------------------------------------------------------------------------------------------- |
-| 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`. |
+| Date       | Change                                                                                                                                                                                                                   |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`.                                                                                                                            |
+| 2026-11-09 | EP-01 through EP-04 done. Button props tables follow the contract. Other component pages still hand-write their unions. EP-20 closed in the same pass: Chart is web-only in the parity matrix and the native chart page. |

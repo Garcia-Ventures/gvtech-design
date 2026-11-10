@@ -1,3 +1,4 @@
+// Not exported from @gv-tech/ui-native. Web-only. Use a fixed layout. See docs/reference/parity-matrix.md.
 import type { ResizableHandleBaseProps, ResizablePanelBaseProps, ResizablePanelGroupBaseProps } from '@gv-tech/ui-core';
 import * as React from 'react';
 import { View } from 'react-native';

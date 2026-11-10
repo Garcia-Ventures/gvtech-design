@@ -1,8 +1,10 @@
+import { buttonSizeValues, buttonVariantValues } from '@gv-tech/ui-core';
 import { Button } from '@gv-tech/ui-web';
 import { ChevronRight, Loader2, Mail } from 'lucide-react';
 
 import { ComponentShowcase } from '@/components/docs/ComponentShowcase';
 import { PropsTable } from '@/components/docs/PropsTable';
+import { buttonSizeLabel, buttonSizeType, buttonVariantType, isIconButtonSize } from '@/lib/button-contract-docs';
 
 export function ButtonDocs() {
   return (
@@ -27,18 +29,26 @@ export function ButtonDocs() {
 
       <ComponentShowcase
         title="Sizes"
-        description="Buttons come in default, small, large, and icon sizes."
-        code={`<Button size="default">Default</Button>
-<Button size="sm">Small</Button>
-<Button size="lg">Large</Button>
-<Button size="icon"><ChevronRight className="h-4 w-4" /></Button>`}
+        description="Every size declared on the shared button contract."
+        code={buttonSizeValues
+          .map((size) =>
+            isIconButtonSize(size)
+              ? `<Button size="${size}" aria-label="${buttonSizeLabel(size)}"><ChevronRight className="h-4 w-4" /></Button>`
+              : `<Button size="${size}">${buttonSizeLabel(size)}</Button>`,
+          )
+          .join('\n')}
       >
-        <Button size="default">Default</Button>
-        <Button size="sm">Small</Button>
-        <Button size="lg">Large</Button>
-        <Button size="icon">
-          <ChevronRight className="h-4 w-4" />
-        </Button>
+        {buttonSizeValues.map((size) =>
+          isIconButtonSize(size) ? (
+            <Button key={size} size={size} aria-label={buttonSizeLabel(size)}>
+              <ChevronRight className="h-4 w-4" />
+            </Button>
+          ) : (
+            <Button key={size} size={size}>
+              {buttonSizeLabel(size)}
+            </Button>
+          ),
+        )}
       </ComponentShowcase>
 
       <ComponentShowcase
@@ -81,15 +91,15 @@ export function ButtonDocs() {
           props={[
             {
               name: 'variant',
-              type: '"default" | "destructive" | "outline" | "secondary" | "ghost" | "link"',
+              type: buttonVariantType,
               defaultValue: '"default"',
-              description: 'The visual style of the button.',
+              description: `The visual style of the button. Values: ${buttonVariantValues.join(', ')}.`,
             },
             {
               name: 'size',
-              type: '"default" | "sm" | "lg" | "icon"',
+              type: buttonSizeType,
               defaultValue: '"default"',
-              description: 'The size of the button.',
+              description: `The size of the button. Values: ${buttonSizeValues.join(', ')}.`,
             },
             {
               name: 'asChild',

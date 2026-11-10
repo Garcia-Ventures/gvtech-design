@@ -5,19 +5,16 @@ export function MarkerDocs() {
     <>
       <ComponentShowcase
         title="Default"
-        description="The Marker component is currently a stub for Native."
-        code={`import { Marker } from "@gv-tech/design-system";
-
-export function MarkerExample() {
-  return <Marker />;
-}`}
+        description="Marker is not exported from @gv-tech/ui-native yet."
+        code={`// Marker is planned for native and is not exported.
+// The contract stays in @gv-tech/ui-core. Use @gv-tech/ui-web on the web.`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Status</h3>
         <p className="text-muted-foreground text-sm">
-          The Marker component for Native is currently a stub. The web implementation is complete. The stub preserves
-          the export surface with View semantics until the full native implementation lands.
+          Marker is planned for native. It is not part of the public native entry. Use the web implementation until the
+          native behavior lands.
         </p>
       </div>
     </>

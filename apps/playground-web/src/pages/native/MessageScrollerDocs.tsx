@@ -5,20 +5,16 @@ export function MessageScrollerDocs() {
     <>
       <ComponentShowcase
         title="Default"
-        description="The MessageScroller component is currently a stub for Native."
-        code={`import { MessageScroller } from "@gv-tech/design-system";
-
-export function MessageScrollerExample() {
-  return <MessageScroller />;
-}`}
+        description="Message Scroller is not exported from @gv-tech/ui-native yet."
+        code={`// Message Scroller is planned for native and is not exported.
+// The contract stays in @gv-tech/ui-core. Use @gv-tech/ui-web on the web.`}
       />
 
       <div className="space-y-4">
         <h3 className="text-xl font-semibold">Status</h3>
         <p className="text-muted-foreground text-sm">
-          The MessageScroller component for Native is currently a stub. The web implementation is backed by the
-          @shadcn/react/message-scroller headless primitive, which has no React Native equivalent. The stub preserves
-          the export surface with ScrollView semantics.
+          Message Scroller is planned for native. The web implementation uses @shadcn/react/message-scroller, which has
+          no React Native equivalent yet. The component is not part of the public native entry.
         </p>
       </div>
     </>

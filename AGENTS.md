@@ -68,6 +68,6 @@ Docs entry: `docs/index.md` (Diataxis). Trust `packages/*/src`. On-demand proced
 ## Gotchas
 
 - Native tests run in Vitest/jsdom via a `react-native-web` shim (vitest aliases `react-native` to the playground shim) — no device needed. Typical failure: web-only props (`onClick`, `htmlFor`, `onChange`) leaked into a native impl. Mappings: `onClick→onPress`, `onChange→onChangeText`, `htmlFor→nativeID`, CSS animation→Reanimated.
-- Intentionally web-only components stay unimplemented on native (Chart/recharts, Command/cmdk, Resizable, Scroll Area, Sonner) — use native equivalents (Toast, ScrollView, Sheet) and note it in the parity matrix.
+- Web-only components are not exported from `@gv-tech/ui-native`: Chart (Recharts), Command (cmdk), Resizable, and Sonner. Substitutes are recorded in `docs/reference/parity-matrix.md` (Toast for Sonner, Search for Command, a fixed layout for Resizable). Scroll Area is exported and wraps `ScrollView`. Attachment, Bubble, Marker, Message, Message Scroller, and Questionnaire stay unexported until the native behavior is real.
 - `lightningcss: 1.30.1` in `overrides` + `resolutions` is required by NativeWind v5 — do not remove.
 - Releases use Nx Release lock-step (`v{version}` tags), Sundays + manual dispatch, OIDC publish. Conventional Commits are required (they drive version bumps and changelogs); archived release-please notes are retired.

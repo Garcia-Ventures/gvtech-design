@@ -6,7 +6,7 @@ export function ButtonGroupDocs() {
     <>
       <ComponentShowcase
         title="Horizontal"
-        description="A group of buttons aligned horizontally."
+        description="A group of buttons. Set orientation to vertical for a column. Shared borders are not collapsed the way they are on the web."
         code={`import { Button, ButtonGroup, ButtonGroupSeparator, Text } from '@gv-tech/ui-native';
 
 export function ButtonGroupExample() {

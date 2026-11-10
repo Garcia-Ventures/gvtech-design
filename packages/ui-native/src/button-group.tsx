@@ -1,16 +1,33 @@
+// Native groups follow `orientation` and the separator's own orientation.
+// Joined corner radii from the web CSS child selectors are not applied here.
+// See the divergence registry.
+
 import type { ButtonGroupBaseProps, ButtonGroupSeparatorBaseProps, ButtonGroupTextBaseProps } from '@gv-tech/ui-core';
+import { cva, type VariantProps } from 'class-variance-authority';
 import * as React from 'react';
 import { Text, View } from 'react-native';
 
 import { cn } from './lib/utils';
+import { Separator } from './separator';
 
-// TODO: Implement proper React Native ButtonGroup logic
+const buttonGroupVariants = cva('flex w-fit items-stretch', {
+  variants: {
+    orientation: {
+      horizontal: 'flex-row',
+      vertical: 'flex-col',
+    },
+  },
+  defaultVariants: {
+    orientation: 'horizontal',
+  },
+});
+
 function ButtonGroup({
   className,
-  orientation: _orientation,
+  orientation = 'horizontal',
   ...props
-}: React.ComponentProps<typeof View> & ButtonGroupBaseProps) {
-  return <View className={cn('flex flex-row', className)} {...props} />;
+}: React.ComponentProps<typeof View> & VariantProps<typeof buttonGroupVariants> & ButtonGroupBaseProps) {
+  return <View className={cn(buttonGroupVariants({ orientation }), className)} {...props} />;
 }
 
 function ButtonGroupText({
@@ -18,18 +35,20 @@ function ButtonGroupText({
   asChild: _asChild,
   ...props
 }: React.ComponentProps<typeof Text> & ButtonGroupTextBaseProps) {
-  return <Text className={cn('text-sm font-medium', className)} {...props} />;
+  return (
+    <Text
+      className={cn('bg-muted text-foreground rounded-lg border px-2.5 text-sm font-medium', className)}
+      {...props}
+    />
+  );
 }
 
 function ButtonGroupSeparator({
   className,
-  orientation: _orientation,
+  orientation = 'vertical',
   ...props
-}: React.ComponentProps<typeof View> & ButtonGroupSeparatorBaseProps) {
-  return <View className={cn('bg-border h-full w-px', className)} {...props} />;
+}: React.ComponentProps<typeof Separator> & ButtonGroupSeparatorBaseProps) {
+  return <Separator orientation={orientation} className={cn('bg-border', className)} {...props} />;
 }
-
-// Stub for buttonGroupVariants to satisfy web/native shared imports if needed
-const buttonGroupVariants = () => '';
 
 export { ButtonGroup, ButtonGroupSeparator, ButtonGroupText, buttonGroupVariants };

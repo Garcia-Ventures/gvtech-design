@@ -16,4 +16,4 @@ Task: implement a `ui-native` component from a contract, preferring `@rn-primiti
 
 ## When no primitive exists
 
-Ask: is this interaction appropriate for native? Examples: `Resizable` (drag panels) and `Scroll Area` (custom scrollbar) are web-only — native uses `ScrollView` directly. Mark ⏳ in [Parity Matrix](../reference/parity-matrix.md) with a note instead of forcing it.
+Ask: is this interaction appropriate for native? Chart, Command, Resizable, and Sonner stay web-only and are not exported. Scroll Area is the exported `ScrollView` wrapper. A planned component stays out of `packages/ui-native/src/index.ts` until the behavior is real. Record the choice in the [Parity Matrix](../reference/parity-matrix.md).

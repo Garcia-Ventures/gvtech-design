@@ -12,7 +12,7 @@ import {
   TableHeader,
   TableRow,
 } from '@gv-tech/ui-web';
-import { CheckCircle2, Clock, Search, XCircle } from 'lucide-react';
+import { Ban, CheckCircle2, Clock, Search, XCircle } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
@@ -22,9 +22,9 @@ interface ComponentStatusItem {
   name: string;
   href: string;
   category: string;
-  web: 'implemented' | 'in-progress' | 'planned';
-  native: 'implemented' | 'in-progress' | 'planned';
-  flutter: 'implemented' | 'in-progress' | 'planned';
+  web: 'implemented' | 'in-progress' | 'planned' | 'web-only';
+  native: 'implemented' | 'in-progress' | 'planned' | 'web-only';
+  flutter: 'implemented' | 'in-progress' | 'planned' | 'web-only';
 }
 
 const componentStatuses: ComponentStatusItem[] = [
@@ -153,7 +153,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'chart',
     category: 'Components',
     web: 'implemented',
-    native: 'implemented',
+    native: 'web-only',
     flutter: 'implemented',
   },
   {
@@ -177,7 +177,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'command',
     category: 'Components',
     web: 'implemented',
-    native: 'implemented',
+    native: 'web-only',
     flutter: 'implemented',
   },
   {
@@ -330,7 +330,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'resizable',
     category: 'Layout',
     web: 'implemented',
-    native: 'implemented',
+    native: 'web-only',
     flutter: 'implemented',
   },
   {
@@ -402,7 +402,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'sonner',
     category: 'Components',
     web: 'implemented',
-    native: 'implemented',
+    native: 'web-only',
     flutter: 'implemented',
   },
   {
@@ -482,7 +482,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'message',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
   {
@@ -490,7 +490,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'bubble',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
   {
@@ -498,7 +498,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'marker',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
   {
@@ -506,7 +506,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'attachment',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
   {
@@ -514,7 +514,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'message-scroller',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
   {
@@ -522,7 +522,7 @@ const componentStatuses: ComponentStatusItem[] = [
     href: 'questionnaire',
     category: 'Messaging',
     web: 'implemented',
-    native: 'in-progress',
+    native: 'planned',
     flutter: 'planned',
   },
 ];
@@ -548,7 +548,7 @@ export function ComponentStatusPage() {
     flutterCount: componentStatuses.filter((i) => i.flutter === 'implemented').length,
   };
 
-  const renderStatusBadge = (status: 'implemented' | 'in-progress' | 'planned') => {
+  const renderStatusBadge = (status: 'implemented' | 'in-progress' | 'planned' | 'web-only') => {
     switch (status) {
       case 'implemented':
         return (
@@ -577,6 +577,12 @@ export function ComponentStatusPage() {
             <XCircle className="h-3 w-3" /> Planned
           </Badge>
         );
+      case 'web-only':
+        return (
+          <Badge variant="outline" className="gap-1 font-medium">
+            <Ban className="h-3 w-3" /> Web only
+          </Badge>
+        );
     }
   };
 
@@ -601,7 +607,7 @@ export function ComponentStatusPage() {
               <span className="text-3xl font-bold">{stats.webCount}</span>
               <span className="text-muted-foreground text-xs">/ {stats.total} Components</span>
             </div>
-            <p className="text-muted-foreground mt-1 text-xs">100% Production Ready</p>
+            <p className="text-muted-foreground mt-1 text-xs">Ready rows in the table</p>
           </CardContent>
         </Card>
 
@@ -616,7 +622,7 @@ export function ComponentStatusPage() {
               <span className="text-3xl font-bold">{stats.nativeCount}</span>
               <span className="text-muted-foreground text-xs">/ {stats.total} Components</span>
             </div>
-            <p className="text-muted-foreground mt-1 text-xs">100% Production Ready</p>
+            <p className="text-muted-foreground mt-1 text-xs">Exported from @gv-tech/ui-native</p>
           </CardContent>
         </Card>
 

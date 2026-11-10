@@ -64,6 +64,8 @@ Prefer `@rn-primitives/*` when one exists; otherwise `View`/`Text`/`Pressable`/`
 
 Fill in `StatDocs.tsx` (web + native) with `ComponentShowcase` + `PropsTable` examples. Confirm route appears in `doc-routes.tsx` under `path: 'stat'`.
 
+When the contract exports a variant or size array, build the props-table type from that array. Button does this with `quoteUnion` in `apps/playground-web/src/lib/button-contract-docs.ts`, and `button-contract-docs.test.ts` fails if either Button page stops referencing `buttonSizeValues`.
+
 Run:
 
 ```bash

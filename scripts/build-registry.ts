@@ -209,6 +209,16 @@ function buildRegistry() {
     'nativewind-env.d.ts',
     'theme-provider.tsx',
     'theme-toggle.tsx',
+    // Web-only or planned. Not part of the public native entry.
+    'chart.tsx',
+    'command.tsx',
+    'resizable.tsx',
+    'attachment.tsx',
+    'bubble.tsx',
+    'marker.tsx',
+    'message.tsx',
+    'message-scroller.tsx',
+    'questionnaire.tsx',
   ];
   scanAndBuild(NATIVE_COMPONENTS_PATH, NATIVE_REGISTRY_PATH, nativeIgnores, 'gvtech-design-native', NATIVE_PKG_PATH);
   console.log('✅ Native Registry built successfully in public/registry/native and packages/ui-native/registry.json');

@@ -15,7 +15,9 @@ Then update `docs/reference/component-registry.md`:
 
 - Flip ✅ / ⏳ for Web / Native / Tests columns.
 - Bump the `Last verified:` date at the top.
-- If a component intentionally stays web-only (Chart/recharts, Command/cmdk, Resizable/drag, Scroll Area/custom scrollbar, Sonner), note it in [Parity Matrix](../reference/parity-matrix.md) instead of forcing a stub.
+- If a component stays web-only (Chart, Command, Resizable, Sonner), keep it out of `packages/ui-native/src/index.ts` and on the native ignore list in `scripts/build-registry.ts`. Note the substitute in [Parity Matrix](../reference/parity-matrix.md).
+- Planned native work (Attachment, Bubble, Marker, Message, Message Scroller, Questionnaire) stays unexported the same way.
+- Variant and size unions in playground props tables come from the contract arrays. Button uses `quoteUnion` in `apps/playground-web/src/lib/button-contract-docs.ts`. Follow that for the next component instead of pasting a string union.
 
 ## How it works
 

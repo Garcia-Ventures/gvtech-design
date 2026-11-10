@@ -1,3 +1,4 @@
+// Not exported from @gv-tech/ui-native until the native behavior is real. See docs/reference/parity-matrix.md.
 import type {
   BubbleBaseProps,
   BubbleContentBaseProps,

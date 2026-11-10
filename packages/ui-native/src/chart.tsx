@@ -1,3 +1,4 @@
+// Not exported from @gv-tech/ui-native. Web-only. See docs/reference/parity-matrix.md.
 import type {
   ChartContainerBaseProps,
   ChartLegendContentBaseProps,
