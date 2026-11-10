@@ -43,6 +43,7 @@ docs/
 Related roots (not moved, linked):
 
 - Root [README.md](../README.md) — 30-second install + demo.
+- Root [DESIGN.md](../DESIGN.md) — product UI visual language for design agents.
 - [.github/CONTRIBUTING.md](../.github/CONTRIBUTING.md) — contribution gate (Conventional Commits + lint/test).
 - [.github/RELEASING.md](../.github/RELEASING.md) — pointer to Nx Release how-to.
 - Playground site: `apps/playground-web` (web + native tabs), `apps/native-playground` (Expo on-device).

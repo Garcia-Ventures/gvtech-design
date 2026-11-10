@@ -1,5 +1,7 @@
 # Explanation: Brand — The Monolith Signature
 
+The product UI beside this mark is specified in the root [DESIGN.md](../../../DESIGN.md). The electric green slit stays in the mark. Product colors are the forest green and warm paper in that file.
+
 ![Monolith Signature Icon](./assets/icon.png)
 
 ## Core idea
