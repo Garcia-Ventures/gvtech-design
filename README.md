@@ -125,7 +125,7 @@ New contributor? Start with [Local Setup](docs/tutorials/01-local-setup.md) and 
 
 ## Roadmap
 
-See issues and milestones for planned work.
+Tracked design and engineering work lives in the [enhancement program](docs/explanation/enhancement-program.md). The [roadmap note](docs/explanation/roadmap.md) keeps the original vision and points at that program.
 
 ## Support
 

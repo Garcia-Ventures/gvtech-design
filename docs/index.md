@@ -20,6 +20,7 @@
 2. [Create a Component](./tutorials/03-create-component.md) — contract-first with `generate:component`.
 3. [Run Tests, Lint, Contracts](./how-to/run-tests-lint-contracts.md) — validate before PR.
 4. [Contract-First Philosophy](./explanation/contract-first.md) — why `ui-core` is source of truth.
+5. [Enhancement program](./explanation/enhancement-program.md) — tracked DX and UX work, with IDs and acceptance lines.
 
 ### App consumer (web / native / flutter)
 
@@ -27,6 +28,7 @@
 2. [Use Tokens](./how-to/use-tokens-tailwind-v4.md) — `theme.css` import, dark mode.
 3. [Component Status](./reference/component-registry.md) + [Parity Matrix](./reference/parity-matrix.md).
 4. [Divergence Registry](./reference/divergence-registry.md) — `onClick` vs `onPress`, `Dialog` vs modal, etc.
+5. [Enhancement program](./explanation/enhancement-program.md) — known gaps and the order we will close them.
 
 ## Map
 
@@ -36,7 +38,7 @@ docs/
   tutorials/               ← learning: setup, first usage, create component
   how-to/                 ← tasks: tokens, primitives, nativewind, release, troubleshoot
   reference/              ← facts: registry, parity, divergence, contracts, tokens, CLI
-  explanation/            ← understanding: architecture, contract-first, ADRs, brand, roadmap
+  explanation/            ← understanding: architecture, contract-first, ADRs, brand, roadmap, enhancement program
   archive/                ← superseded docs with deprecation banners
 ```
 

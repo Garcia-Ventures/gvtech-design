@@ -2,41 +2,28 @@
 
 Vision: every component synchronized across platforms, docs never stale, new features frictionless via automation.
 
-## 1. Automation & Tooling
+The living backlog is the [enhancement program](./enhancement-program.md). Update that file when an item moves. This page keeps the original vision and the status log.
 
-- [x] Component scaffolding CLI (`generate:component`)
-- [x] Automated registry updates (`build:registry`)
-- [ ] Type-safe docs (extract examples/props from source, no hardcoded strings)
+## Where the June 2026 items went
 
-## 2. Platform Parity (zero-stub goal)
+| June 2026 item                                 | Now                                                                    |
+| :--------------------------------------------- | :--------------------------------------------------------------------- |
+| Type-safe docs                                 | [EP-04](./enhancement-program.md)                                      |
+| Charts (`victory-native`)                      | [EP-20](./enhancement-program.md) — stay web-only until a product asks |
+| Mobile accessibility testing                   | Follow-on under [EP-17](./enhancement-program.md)                      |
+| Visual regression                              | [EP-17](./enhancement-program.md)                                      |
+| Playground search over props and variants      | [EP-13](./enhancement-program.md)                                      |
+| Dark-mode previews on every component          | Deferred in the enhancement program                                    |
+| Native interaction previews (Snack / Appetize) | Deferred in the enhancement program                                    |
 
-- [x] Form + validation (native `Form` + react-hook-form)
-- [x] Complex navigation (`Breadcrumb`, `Pagination`, `NavigationMenu` native)
-- [x] Advanced inputs (`Calendar`, `Combobox`, `Slider` native where primitive exists)
-- [ ] Charts (evaluate `victory-native` vs recharts shims)
-
-## 3. Contract & QA
-
-- [x] Strict contract linting (`ui-web`/`ui-native` vs `ui-core`)
-- [ ] Mobile a11y testing (native interaction + audits)
-- [ ] Visual regression (web + native screenshot drift)
-
-## 4. Docs & Discovery
-
-- [ ] Playground search over props/variants
-- [ ] Dark-mode previews for all components
-- [ ] Native interaction previews (Expo Snack / Appetize embed, speculative)
-
-## 5. Docs Parity
-
-- [x] Native doc pages updated from shims to real impls
-- [x] Registry continuously audited
+Completed items from the June checklist stay completed: `generate:component`, `build:registry`, native Form, Breadcrumb, Pagination, Navigation Menu, Calendar, Combobox, Slider, contract lint, native doc pages, and the registry audit. Later review found the registry and the parity matrix disagreeing with source. [EP-01](./enhancement-program.md) closes that gap.
 
 ## Status log
 
-| Date       | Milestone                                                    | Status    |
-| :--------- | :----------------------------------------------------------- | :-------- |
-| 2026-06-08 | Initial roadmap                                              | Started   |
-| 2026-06-08 | Scaffolding CLI / parity audit / docs parity / contract lint | Completed |
+| Date       | Milestone                                                    | Status     |
+| :--------- | :----------------------------------------------------------- | :--------- |
+| 2026-06-08 | Initial roadmap                                              | Started    |
+| 2026-06-08 | Scaffolding CLI / parity audit / docs parity / contract lint | Completed  |
+| 2026-11-09 | Open checklist moved to the enhancement program              | Superseded |
 
-Source history: [`../archive/bulletproof-dx-plan-2026-06-08.md`](../archive/bulletproof-dx-plan-2026-06-08.md). Parity data: [`../archive/universal-implementation-2026-03-05.md`](../archive/universal-implementation-2026-03-05.md).
+Source history: [`../archive/bulletproof-dx-plan-2026-06-08.md`](../archive/bulletproof-dx-plan-2026-06-08.md). Parity data from that era: [`../archive/universal-implementation-2026-03-05.md`](../archive/universal-implementation-2026-03-05.md).
