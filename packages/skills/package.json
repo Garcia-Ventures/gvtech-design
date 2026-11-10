@@ -7,7 +7,6 @@
     "gvtech",
     "nativewind",
     "react-native",
-    "rules",
     "skills",
     "tailwind"
   ],
@@ -25,7 +24,6 @@
   "files": [
     "bin",
     "skills",
-    "rules",
     "README.md"
   ],
   "main": "./bin/cli.mjs",

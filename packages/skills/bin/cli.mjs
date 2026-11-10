@@ -11,117 +11,96 @@ const packageRoot = path.resolve(__dirname, '..');
 const args = process.argv.slice(2);
 const command = args[0] || 'init';
 
+// Older published names install the same skill.
+const SKILL_ALIASES = {
+  gvtech: 'gvtech',
+  'setup-ui-web': 'gvtech',
+  'setup-ui-native': 'gvtech',
+  'use-ui-web': 'gvtech',
+  'use-ui-native': 'gvtech',
+};
+
 function printHelp() {
   console.log(`
 @gv-tech/skills CLI
 
 Usage:
-  npx @gv-tech/skills init                     Install all skills and rules into your project
-  npx @gv-tech/skills add <skill-name>        Install a specific skill (e.g. setup-ui-native, setup-ui-web)
-  npx @gv-tech/skills list                    List all available skills and rules
-  npx @gv-tech/skills --help                  Show this help message
+  npx @gv-tech/skills init                 Install the gvtech skill into .agents/skills/
+  npx @gv-tech/skills add <skill-name>     Install a skill (gvtech, or a legacy alias)
+  npx @gv-tech/skills list                 List skills
+  npx @gv-tech/skills --help               Show this help message
 `);
 }
 
-function getTargetDirs(cwd) {
-  const targets = [];
+function skillsRoot() {
+  return path.join(packageRoot, 'skills');
+}
 
-  const agentDir = path.join(cwd, '.agent');
-  const agentsDir = path.join(cwd, '.agents');
-
-  if (fs.existsSync(agentDir)) {
-    targets.push({ root: agentDir, skills: path.join(agentDir, 'skills'), rules: path.join(agentDir, 'rules') });
-  }
-
-  targets.push({ root: agentsDir, skills: path.join(agentsDir, 'skills'), rules: path.join(agentsDir, 'rules') });
-
-  return targets;
+function listSkillDirs() {
+  const root = skillsRoot();
+  if (!fs.existsSync(root)) return [];
+  return fs.readdirSync(root).filter((name) => fs.existsSync(path.join(root, name, 'SKILL.md')));
 }
 
 function listAvailable() {
-  const skillsDir = path.join(packageRoot, 'skills');
-  const rulesDir = path.join(packageRoot, 'rules');
-
-  const skills = fs.existsSync(skillsDir) ? fs.readdirSync(skillsDir) : [];
-  const rules = fs.existsSync(rulesDir) ? fs.readdirSync(rulesDir) : [];
-
   console.log('\nAvailable Skills:');
-  skills.forEach((s) => console.log(`  - ${s}`));
-
-  console.log('\nAvailable Rules:');
-  rules.forEach((r) => console.log(`  - ${r}`));
+  for (const name of listSkillDirs()) console.log(`  - ${name}`);
   console.log('');
 }
 
 function copyDirRecursive(src, dest) {
   fs.mkdirSync(dest, { recursive: true });
-  const entries = fs.readdirSync(src, { withFileTypes: true });
-
-  for (const entry of entries) {
+  for (const entry of fs.readdirSync(src, { withFileTypes: true })) {
     const srcPath = path.join(src, entry.name);
     const destPath = path.join(dest, entry.name);
-
-    if (entry.isDirectory()) {
-      copyDirRecursive(srcPath, destPath);
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
+    if (entry.isDirectory()) copyDirRecursive(srcPath, destPath);
+    else fs.copyFileSync(srcPath, destPath);
   }
 }
 
-function installSkillsAndRules(skillFilter = null) {
+function resolveSkillName(requested) {
+  return SKILL_ALIASES[requested] ?? requested;
+}
+
+function installSkills(requestedName = null) {
   const cwd = process.cwd();
-  const targetDirs = getTargetDirs(cwd);
-  const srcSkillsDir = path.join(packageRoot, 'skills');
-  const srcRulesDir = path.join(packageRoot, 'rules');
+  const available = listSkillDirs();
+  let toInstall = available;
 
-  const availableSkills = fs.existsSync(srcSkillsDir) ? fs.readdirSync(srcSkillsDir) : [];
-  const availableRules = fs.existsSync(srcRulesDir) ? fs.readdirSync(srcRulesDir) : [];
-
-  const skillsToInstall = skillFilter ? availableSkills.filter((s) => s === skillFilter) : availableSkills;
-
-  if (skillFilter && skillsToInstall.length === 0) {
-    console.error(`\nError: Skill "${skillFilter}" not found.`);
-    listAvailable();
-    process.exit(1);
-  }
-
-  console.log(`\n🚀 Installing GV Tech Customizations...`);
-
-  for (const target of targetDirs) {
-    for (const skillName of skillsToInstall) {
-      const srcSkillFolder = path.join(srcSkillsDir, skillName);
-      const destSkillFolder = path.join(target.skills, skillName);
-      copyDirRecursive(srcSkillFolder, destSkillFolder);
-      console.log(`  ✓ Installed skill [${skillName}] -> ${path.relative(cwd, destSkillFolder)}`);
-    }
-
-    if (!skillFilter) {
-      fs.mkdirSync(target.rules, { recursive: true });
-      for (const ruleFile of availableRules) {
-        const srcRulePath = path.join(srcRulesDir, ruleFile);
-        const destRulePath = path.join(target.rules, ruleFile);
-        fs.copyFileSync(srcRulePath, destRulePath);
-        console.log(`  ✓ Installed rule [${ruleFile}] -> ${path.relative(cwd, destRulePath)}`);
-      }
+  if (requestedName) {
+    const resolved = resolveSkillName(requestedName);
+    toInstall = available.filter((name) => name === resolved);
+    if (toInstall.length === 0) {
+      console.error(`\nError: Skill "${requestedName}" not found.`);
+      listAvailable();
+      process.exit(1);
     }
   }
 
-  console.log(`\n✅ Done! Skills and rules successfully installed.\n`);
+  const destRoot = path.join(cwd, '.agents', 'skills');
+  console.log('\nInstalling GV Tech skills...');
+
+  for (const skillName of toInstall) {
+    const dest = path.join(destRoot, skillName);
+    copyDirRecursive(path.join(skillsRoot(), skillName), dest);
+    console.log(`  Installed [${skillName}] -> ${path.relative(cwd, dest)}`);
+  }
+
+  console.log('\nDone. Skills installed under .agents/skills/.\n');
 }
 
 switch (command) {
   case 'init':
-    installSkillsAndRules();
+    installSkills();
     break;
   case 'add': {
     const skillName = args[1];
     if (!skillName) {
-      console.error('\nError: Please specify a skill name to add. Example: npx @gv-tech/skills add setup-ui-native');
+      console.error('\nError: Please specify a skill name. Example: npx @gv-tech/skills add gvtech');
       listAvailable();
       process.exit(1);
     }
-    installSkillsAndRules(skillName);
+    installSkills(skillName);
     break;
   }
   case 'list':
