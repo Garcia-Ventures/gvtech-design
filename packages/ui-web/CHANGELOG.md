@@ -1,3 +1,13 @@
+## 2.29.4 (2026-11-13)
+
+### 🩹 Fixes
+
+- **deps:** restore radix-ui dependency in ui-web package ([d924a42](https://github.com/Garcia-Ventures/gvtech-design/commit/d924a42))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.29.3 (2026-11-09)
 
 ### 🩹 Fixes

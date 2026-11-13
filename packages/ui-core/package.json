@@ -1,6 +1,6 @@
 {
   "name": "@gv-tech/ui-core",
-  "version": "2.29.3",
+  "version": "2.29.4",
   "description": "Shared component contracts (props, variants, sizes) for the GV Tech design system",
   "license": "MIT",
   "author": "Eric N. Garcia <eng618@garciaericn.com>",

@@ -1,3 +1,13 @@
+## 2.29.4 (2026-11-13)
+
+### 🚀 Features
+
+- **docs:** update component documentation and status for native compatibility ([384dced](https://github.com/Garcia-Ventures/gvtech-design/commit/384dced))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.29.3 (2026-11-09)
 
 No changes for this project
