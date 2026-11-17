@@ -1,3 +1,13 @@
+## 2.30.0 (2026-11-17)
+
+### 🚀 Features
+
+- **docs:** update documentation and improve native setup instructions ([a157296](https://github.com/Garcia-Ventures/gvtech-design/commit/a157296))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.29.5 (2026-11-17)
 
 No changes for this project
