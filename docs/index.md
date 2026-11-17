@@ -24,11 +24,12 @@
 
 ### App consumer (web / native / flutter)
 
-1. [Use in Your App](./tutorials/02-first-app-usage.md) — install `@gv-tech/*`, shadcn CLI, Tailwind v4 setup.
-2. [Use Tokens](./how-to/use-tokens-tailwind-v4.md) — `theme.css` import, dark mode.
-3. [Component Status](./reference/component-registry.md) + [Parity Matrix](./reference/parity-matrix.md).
-4. [Divergence Registry](./reference/divergence-registry.md) — `onClick` vs `onPress`, `Dialog` vs modal, etc.
-5. [Enhancement program](./explanation/enhancement-program.md) — known gaps and the order we will close them.
+1. [Use in Your App](./tutorials/02-first-app-usage.md) — pick web, native, or owned source.
+2. [Set up React Native](./how-to/setup-react-native.md) — Metro, Babel, `native.css`, `ThemeProvider`.
+3. [Use Tokens](./how-to/use-tokens-tailwind-v4.md) — web `theme.css` import, dark mode.
+4. [Component Status](./reference/component-registry.md) + [Parity Matrix](./reference/parity-matrix.md).
+5. [Divergence Registry](./reference/divergence-registry.md) — `onClick` vs `onPress`, `Dialog` vs modal, etc.
+6. [Enhancement program](./explanation/enhancement-program.md) — known gaps and the order we will close them.
 
 ## Map
 
@@ -36,7 +37,7 @@
 docs/
   index.md                  ← you are here
   tutorials/               ← learning: setup, first usage, create component
-  how-to/                 ← tasks: tokens, primitives, nativewind, release, troubleshoot
+  how-to/                 ← tasks: tokens, react native setup, primitives, nativewind, release, troubleshoot
   reference/              ← facts: registry, parity, divergence, contracts, tokens, CLI
   explanation/            ← understanding: architecture, contract-first, ADRs, brand, roadmap, enhancement program
   archive/                ← superseded docs with deprecation banners

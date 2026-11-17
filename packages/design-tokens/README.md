@@ -20,6 +20,22 @@ To use these design tokens in your project, you must import the generated CSS fi
 
 _(Note: Ensure you import the design tokens **before** `tailwindcss` so that the variables are available to the theme)_
 
+## Setup (NativeWind)
+
+React Native does not use `theme.css`. That file carries shadcn variants for the web. Import `native.css` instead. It has the NativeWind `@theme` color map, light `:root` values, and a `prefers-color-scheme: dark` override. The steps live in [Set up React Native](../../docs/how-to/setup-react-native.md).
+
+```css
+@import '@gv-tech/design-tokens/native.css';
+```
+
+```js
+const { inlineVariables } = require('@gv-tech/design-tokens/native-preset');
+```
+
+Pass `inlineVariables` to `withNativeWind`. Otherwise Metro inlines the light color and the dark media query never runs.
+
+`bun run sync-tokens` rewrites `theme.css`, `native.css`, and `native-preset.cjs` from `palette.ts` and `theme.ts`. Do not hand-edit those files.
+
 ## Features
 
 - **CSS Variables**: Pre-generated `--background`, `--primary`, etc. ready for Tailwind v4.

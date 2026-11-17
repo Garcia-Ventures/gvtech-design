@@ -2,6 +2,8 @@
 
 Task: fix styling or build failures in `ui-native` / Expo playground.
 
+Setting up an app? Use [Set up React Native](./setup-react-native.md). This page is the contributor checklist after that setup is in place. App `package.json` files need their own `lightningcss` `1.30.1` override. The root pin below does not apply outside this repository.
+
 ## The lightningcss override (do not remove blindly)
 
 Root `package.json` pins:

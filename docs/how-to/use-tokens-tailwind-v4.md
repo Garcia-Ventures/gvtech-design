@@ -2,6 +2,8 @@
 
 Task: wire `@gv-tech/design-tokens` into a web app with light/dark support.
 
+React Native uses a different entry. Follow [Set up React Native](./setup-react-native.md) and import `@gv-tech/design-tokens/native.css` plus the `native-preset`. Do not import `theme.css` from NativeWind.
+
 ## Steps
 
 1. Install: `bun add @gv-tech/design-tokens`

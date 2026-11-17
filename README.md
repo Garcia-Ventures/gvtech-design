@@ -46,43 +46,41 @@ The design system includes a Vite-based playground site. Run it locally with `bu
 
 ## Install
 
-The public package is published as `@gv-tech/design-system`:
+Pick one path. `@gv-tech/ui-web`, `@gv-tech/ui-native`, `@gv-tech/design-tokens`, and `@gv-tech/ui-core` release together.
 
-```bash
-# npm
-npm install @gv-tech/design-system
+| You want…                                  | Install                                           |
+| :----------------------------------------- | :------------------------------------------------ |
+| Web components from the published build    | `@gv-tech/ui-web` and `@gv-tech/design-tokens`    |
+| Native components from the published build | `@gv-tech/ui-native` and `@gv-tech/design-tokens` |
+| Every web component from one package       | `@gv-tech/design-system`                          |
+| To own the web source                      | The shadcn command below                          |
 
-# bun
-bun add @gv-tech/design-system
+Web, in the global stylesheet, import tokens before Tailwind:
+
+```css
+@import '@gv-tech/design-tokens/theme.css';
+@import 'tailwindcss';
 ```
 
-## Adding Components via Shadcn CLI
+```tsx
+import { Button } from '@gv-tech/ui-web';
 
-If you don't want to install the entire library and prefer to own the source code, you can use the `shadcn` CLI to pull individual components directly from our GitHub registry.
+export function App() {
+  return <Button>Click me</Button>;
+}
+```
 
-For **Web** components:
+Native needs Metro, Babel, NativeWind v5, and `ThemeProvider` before a Button paints. Follow [Set up React Native](docs/how-to/setup-react-native.md).
+
+To own the web source instead of the npm build:
 
 ```bash
 npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-web"
 ```
 
-For **React Native** components:
+That command copies web components. It does not set up React Native. The supported native install is `@gv-tech/ui-native` plus the how-to above.
 
-```bash
-npx shadcn@latest add "https://github.com/Garcia-Ventures/gvtech-design/tree/main/packages/ui-native"
-```
-
-## Usage
-
-Example import:
-
-```js
-import { Button } from '@gv-tech/design-system';
-
-function App() {
-  return <Button>Click me</Button>;
-}
-```
+The first-use walkthrough is [Use in Your App](docs/tutorials/02-first-app-usage.md).
 
 ## Development
 

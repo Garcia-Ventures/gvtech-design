@@ -16,7 +16,7 @@ export function NativeInstallationDocs() {
           <p className="text-muted-foreground text-lg">
             Complete end-to-end setup guide for integrating{' '}
             <code className="bg-muted rounded px-1.5 py-0.5 font-mono text-sm">@gv-tech/ui-native</code> with Expo,
-            React Native CLI, Tailwind CSS v4, and NativeWind v5 preview releases.
+            React Native CLI, Tailwind CSS v4, and NativeWind 5.0.0-rc.1.
           </p>
         </div>
         <div className="bg-muted/30 rounded-xl border p-4">
@@ -60,10 +60,10 @@ export function NativeInstallationDocs() {
             <h3 className="text-xl font-bold tracking-tight">Install NativeWind v5 & Dependencies</h3>
           </div>
           <p className="text-muted-foreground">
-            To support Tailwind CSS v4 natively on React Native, you{' '}
-            <strong>must use NativeWind v5 preview releases</strong> (
-            <code className="bg-muted rounded px-1">nativewind@^5.0.0-preview.4</code>) along with required mobile
-            primitives.
+            To support Tailwind CSS v4 natively on React Native, install NativeWind{' '}
+            <code className="bg-muted rounded px-1">5.0.0-rc.1</code> and{' '}
+            <code className="bg-muted rounded px-1">react-native-css@3.1.0-rc.1</code> exactly, along with the required
+            mobile primitives.
           </p>
         </div>
         <Tabs value={packageManager} onValueChange={(v) => setPackageManager(v as PackageManager)}>
@@ -76,31 +76,31 @@ export function NativeInstallationDocs() {
           </TabsList>
           <TabsContent value="npm" className="mt-4">
             <CodeBlock
-              code="npm install @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg"
+              code="npm install @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1 lucide-react-native react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="bun" className="mt-4">
             <CodeBlock
-              code="bun add @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg"
+              code="bun add @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1 lucide-react-native react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="pnpm" className="mt-4">
             <CodeBlock
-              code="pnpm add @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg"
+              code="pnpm add @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1 lucide-react-native react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="yarn" className="mt-4">
             <CodeBlock
-              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg"
+              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1 lucide-react-native react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
           <TabsContent value="yarn-classic" className="mt-4">
             <CodeBlock
-              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg"
+              code="yarn add @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1 lucide-react-native react-native-reanimated react-native-svg"
               language="bash"
             />
           </TabsContent>
@@ -111,7 +111,7 @@ export function NativeInstallationDocs() {
           <AlertTitle className="text-primary font-bold">NativeWind v5 & Lightningcss Override Required</AlertTitle>
           <AlertDescription className="mt-1 text-sm leading-relaxed">
             NativeWind v5 enables Tailwind CSS v4 support in React Native. To prevent deserialization build errors with
-            NativeWind v5 previews, add the{' '}
+            NativeWind 5.0.0-rc.1, add the{' '}
             <code className="bg-background rounded px-1 font-mono text-xs">lightningcss</code> override to your root{' '}
             <code className="bg-background rounded px-1 font-mono text-xs">package.json</code>:
             <div className="mt-2 font-mono text-xs">

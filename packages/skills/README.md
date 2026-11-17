@@ -16,7 +16,7 @@ These older names install the same skill: `setup-ui-web`, `setup-ui-native`, `us
 
 ## Skill
 
-`gvtech` covers web setup (Tailwind v4, `@gv-tech/design-tokens/theme.css`, `ThemeProvider`), native setup (NativeWind v5, the `lightningcss` pin, Metro, Babel, TypeScript), and day-to-day component usage for both platforms.
+`gvtech` covers web setup (Tailwind v4, `@gv-tech/design-tokens/theme.css`, `ThemeProvider`), native setup (NativeWind v5, `@gv-tech/design-tokens/native.css`, the `native-preset`, the `lightningcss` pin, Metro, Babel, TypeScript), and day-to-day component usage for both platforms.
 
 ## License
 

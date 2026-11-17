@@ -34,50 +34,56 @@ import { Button, Card, CardContent, CardHeader, CardTitle } from '@gv-tech/ui-we
 
 ## Native
 
-NativeWind v5 preview. Pin `lightningcss` to `1.30.1` in `overrides` (and in `resolutions` when the installer reads that field).
+Matches `docs/how-to/setup-react-native.md`. Expo SDK 58, NativeWind `5.0.0-rc.1`, `react-native-css` `3.1.0-rc.1`. Do not paste HSL channels and do not import `theme.css`. The app imports `@gv-tech/design-tokens/native.css`. That file's `@theme` block registers the color utilities. Dark values use `prefers-color-scheme`. Pass `inlineVariables` from `@gv-tech/design-tokens/native-preset` into Metro so those colors stay dynamic. Do not `require('nativewind/preset')`. NativeWind v5 does not export it.
+
+`nativewind` and `tailwindcss` are peers of `@gv-tech/ui-native`. Install them in the app so Metro loads one copy.
 
 ```bash
-npm install @gv-tech/ui-native @gv-tech/design-tokens nativewind@^5.0.0-preview.4 lucide-react-native react-native-reanimated react-native-svg
+npm install @gv-tech/ui-native @gv-tech/design-tokens nativewind@5.0.0-rc.1 react-native-css@3.1.0-rc.1
+npx expo install react-native-reanimated react-native-svg react-native-worklets lucide-react-native
 ```
+
+Pin `lightningcss` to `1.30.1` in the app (`overrides`, and `resolutions` when the installer reads that field). A pin in the design-system repo does not apply here.
 
 ```json
 {
   "overrides": {
     "lightningcss": "1.30.1"
+  },
+  "resolutions": {
+    "lightningcss": "1.30.1"
   }
 }
 ```
 
-`src/global.css` uses NativeWind's layered entry, then the same `:root` and `.dark` channel variables that ship in `@gv-tech/design-tokens` `theme.css` (`@layer base` only, not the `@theme` block):
+`src/global.css`:
 
 ```css
 @import 'tailwindcss/theme.css' layer(theme);
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css';
 @import 'nativewind/theme';
+@import '@gv-tech/design-tokens/native.css';
+
+@source './**/*.{js,jsx,ts,tsx}';
+@source '../node_modules/@gv-tech/ui-native/src/**/*.{js,jsx,ts,tsx}';
 ```
 
-Import that file from the app entry (`App.tsx` or `index.js`).
-
-Tailwind must see the published components or classes are purged:
-
-```js
-content: [
-  './App.{js,jsx,ts,tsx}',
-  './src/**/*.{js,jsx,ts,tsx}',
-  './node_modules/@gv-tech/ui-native/dist/**/*.mjs',
-],
-```
+Import that file from the app entry (`App.tsx` or `index.js`). `@source` scans source, not `dist`. Metro resolves the `react-native` export to source. Paths are relative to the CSS file.
 
 Metro:
 
 ```js
 const { getDefaultConfig } = require('expo/metro-config');
 const { withNativeWind } = require('nativewind/metro');
+const { inlineVariables } = require('@gv-tech/design-tokens/native-preset');
 
 const config = getDefaultConfig(__dirname);
 
-module.exports = withNativeWind(config, { input: './src/global.css' });
+module.exports = withNativeWind(config, {
+  input: './src/global.css',
+  inlineVariables,
+});
 ```
 
 `nativewind-env.d.ts` at the project root, included from `tsconfig.json`:
@@ -86,7 +92,7 @@ module.exports = withNativeWind(config, { input: './src/global.css' });
 /// <reference types="nativewind/types" />
 ```
 
-Babel (`react-native-worklets/plugin` last):
+Babel. `react-native-worklets/plugin` last. Reanimated 4 does not use `react-native-reanimated/plugin`.
 
 ```js
 module.exports = function (api) {
@@ -98,7 +104,7 @@ module.exports = function (api) {
 };
 ```
 
-Screen roots use `flex-1 bg-background`. Text strings go inside `<Text>`. Press handlers are `onPress`, not `onClick`.
+Screen roots use `flex-1 bg-background`. Text strings go inside `<Text>`. Press handlers are `onPress`, not `onClick`. `ThemeProvider` calls `Appearance.setColorScheme`, which is what the dark media query follows. Set `userInterfaceStyle` to `automatic`.
 
 ```tsx
 import { Button, Text, ThemeProvider } from '@gv-tech/ui-native';

@@ -22,6 +22,8 @@ bun run sync-tokens
 That rewrites:
 
 - `packages/design-tokens/src/theme.css`
+- `packages/design-tokens/src/native.css` (NativeWind `@theme` colors, light values, and the dark media query)
+- `packages/design-tokens/src/native-preset.cjs` (Metro `inlineVariables` exclude list, and the JS color mirror)
 - `packages/ui-flutter/lib/src/tokens/gv_tokens.g.dart`
 
 Check the result in the web playground (`bun run dev`) on the tokens page, in light and dark. `bun run validate` is the full gate.

@@ -2,6 +2,7 @@ const { withNxMetro } = require('@nx/expo');
 const { getDefaultConfig } = require('expo/metro-config');
 const { mergeConfig } = require('@expo/metro/metro-config');
 const { withNativeWind } = require('nativewind/metro');
+const { inlineVariables } = require('@gv-tech/design-tokens/native-preset');
 
 const defaultConfig = getDefaultConfig(__dirname);
 const { assetExts, sourceExts } = defaultConfig.resolver;
@@ -23,4 +24,7 @@ const config = withNxMetro(mergeConfig(defaultConfig, customConfig), {
   watchFolders: [],
 });
 
-module.exports = withNativeWind(config, { input: './src/global.css' });
+module.exports = withNativeWind(config, {
+  input: './src/global.css',
+  inlineVariables,
+});

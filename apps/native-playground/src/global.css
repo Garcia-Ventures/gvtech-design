@@ -2,50 +2,7 @@
 @import 'tailwindcss/preflight.css' layer(base);
 @import 'tailwindcss/utilities.css';
 @import 'nativewind/theme';
+@import '@gv-tech/design-tokens/native.css';
 
-@layer base {
-  :root {
-    --background: 35 25% 88%;
-    --foreground: 150 50% 22%;
-    --card: 35 20% 94%;
-    --card-foreground: 150 50% 22%;
-    --popover: 35 20% 94%;
-    --popover-foreground: 150 50% 22%;
-    --primary: 150 50% 28%;
-    --primary-foreground: 35 33% 97%;
-    --secondary: 150 25% 40%;
-    --secondary-foreground: 35 33% 97%;
-    --muted: 35 15% 80%;
-    --muted-foreground: 150 15% 32%;
-    --accent: 35 18% 82%;
-    --accent-foreground: 150 50% 22%;
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 35 33% 97%;
-    --border: 35 15% 80%;
-    --input: 35 15% 80%;
-    --ring: 150 50% 28%;
-    --radius: 0.5rem;
-  }
-
-  .dark {
-    --background: 30 15% 12%;
-    --foreground: 35 20% 92%;
-    --card: 30 12% 16%;
-    --card-foreground: 35 20% 92%;
-    --popover: 30 12% 16%;
-    --popover-foreground: 35 20% 92%;
-    --primary: 150 40% 55%;
-    --primary-foreground: 150 45% 10%;
-    --secondary: 150 30% 65%;
-    --secondary-foreground: 150 45% 10%;
-    --muted: 30 10% 22%;
-    --muted-foreground: 35 12% 70%;
-    --accent: 30 12% 18%;
-    --accent-foreground: 35 20% 92%;
-    --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 35 20% 92%;
-    --border: 30 10% 22%;
-    --input: 30 10% 22%;
-    --ring: 150 40% 55%;
-  }
-}
+@source './**/*.{js,jsx,ts,tsx}';
+@source '../../../packages/ui-native/src/**/*.{js,jsx,ts,tsx}';

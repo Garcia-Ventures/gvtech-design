@@ -8,7 +8,7 @@ This file is the backlog. Change a row in the same pull request that does the wo
 
 1. Set **Status** to `accepted`, `in progress`, `done`, or `dropped`.
 2. Check the box when status is `done`.
-3. Keep the ID. Add new work as `EP-21` and onward.
+3. Keep the ID. Add new work as `EP-22` and onward.
 4. When an item changes a status doc (`component-registry.md`, `parity-matrix.md`, `divergence-registry.md`), update that doc in the same pull request.
 
 | Status        | Meaning                                 |
@@ -34,7 +34,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 | EP-07 | Touch target rule for the 24px controls                 |    P1    | Design, Web, Native |   M    | `proposed` |
 | EP-08 | Loading and icon-only buttons have names and busy state |    P1    | Web, Native, Docs   |   M    | `proposed` |
 | EP-09 | Motion tokens and reduced motion                        |    P1    | Design, Web, Native |   L    | `proposed` |
-| EP-10 | One install path that paints with tokens                |    P1    | Docs                |   S    | `proposed` |
+| EP-10 | One install path that paints with tokens                |    P1    | Docs                |   S    | `done`     |
 | EP-11 | shadcn intake checklist after `--overwrite`             |    P1    | Docs                |   S    | `proposed` |
 | EP-12 | Foundations for type, space, radius, and elevation      |    P1    | Design, Web         |   M    | `proposed` |
 | EP-13 | Docs search covers props and variants                   |    P1    | Web                 |   M    | `proposed` |
@@ -45,6 +45,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 | EP-18 | Registry test column matches files on disk              |    P2    | Docs, Native        |   M    | `proposed` |
 | EP-19 | Native Select types, and the stale Sheet TODO           |    P2    | Native              |   M    | `proposed` |
 | EP-20 | Charts stay web-only until a product asks               |    P2    | Docs                |   S    | `done`     |
+| EP-21 | Native install imports generated tokens                 |    P1    | Native, Docs        |   M    | `done`     |
 
 - [x] EP-01
 - [x] EP-02
@@ -55,7 +56,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 - [ ] EP-07
 - [ ] EP-08
 - [ ] EP-09
-- [ ] EP-10
+- [x] EP-10
 - [ ] EP-11
 - [ ] EP-12
 - [ ] EP-13
@@ -66,6 +67,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 - [ ] EP-18
 - [ ] EP-19
 - [x] EP-20
+- [x] EP-21
 
 Do P0 before adding components. P0 is what makes the other rows safe to trust.
 
@@ -111,11 +113,11 @@ At review time, `docs/` named accessibility only on the June roadmap and in `doc
 
 ### What people building with the system hit
 
-`docs/tutorials/02-first-app-usage.md` offers `@gv-tech/design-system`, the slice packages, and a shadcn copy as peer options. The first Button sample appears before the `theme.css` import.
+`docs/tutorials/02-first-app-usage.md` is a decision tree. The web path imports `theme.css` before the first Button. Native setup is `docs/how-to/setup-react-native.md` (EP-21).
 
 `package.json` script `shadcn:update` runs `shadcn add --all --overwrite --yes` inside `packages/ui-web`. There is no note that lists what that overwrite must preserve.
 
-`@gv-tech/ui-web` and `@gv-tech/ui-native` depend on `@gv-tech/design-tokens` and `@gv-tech/ui-core` at `^2.12.0`. The workspace version is `2.29.3`.
+`@gv-tech/ui-web` and `@gv-tech/ui-native` depend on `@gv-tech/design-tokens` and `@gv-tech/ui-core` at `^2.29.4` (raised from `^2.12.0` with EP-10). The workspace version is `2.29.4`.
 
 `packages/ui-flutter/README.md` is the stock Flutter starter. `pubspec.yaml` is `version: 1.0.0` and `publish_to: none`. Tests are `test/gv_button_test.dart` and `test/gv_card_test.dart`. Dart widgets with no Flutter playground page: aspect ratio, button group, carousel, chart, command, direction, form, label, resizable, scroll area, scroll to top, sidebar, table, table of contents, theme toggle.
 
@@ -264,7 +266,7 @@ Steps:
 
 ### EP-10 — Install path that paints with tokens
 
-**Lane:** Docs. **Effort:** S.
+**Lane:** Docs. **Effort:** S. **Status:** `done`.
 
 A new app can follow the tutorial, render a Button, and miss the token stylesheet. Three install options read as interchangeable.
 
@@ -273,12 +275,12 @@ Steps:
 1. Rewrite `docs/tutorials/02-first-app-usage.md` as a decision tree:
    - App depends on the published build: `@gv-tech/ui-web` or `@gv-tech/ui-native`.
    - App wants every component from one package and accepts the meta bundle: `@gv-tech/design-system`.
-   - App wants to own the source: the shadcn registry URL.
+   - App wants to own the web source: the shadcn registry URL for `packages/ui-web`. The native URL copies source and does not configure Metro. Native steps live in [Set up React Native](../how-to/setup-react-native.md) (EP-21).
 2. Show the `theme.css` import before the first Button on the web path. Link the token how-to for dark mode.
-3. State that `@gv-tech/ui-web` and `@gv-tech/ui-native` are released in lockstep with `design-tokens` and `ui-core`. The package manifests still allow `^2.12.0`. Either raise that floor in the same change or say, on the tutorial, that consumers should install the versions from one release.
+3. State that `@gv-tech/ui-web` and `@gv-tech/ui-native` are released in lockstep with `design-tokens` and `ui-core`. The package floor is `^2.29.4`.
 4. Mirror the decision tree in the root `README.md` install section so the two pages agree.
 
-**Acceptance:** Following the web section of the tutorial produces a Button on semantic tokens, with `theme.css` imported before Tailwind.
+**Acceptance:** Following the web section of the tutorial produces a Button on semantic tokens, with `theme.css` imported before Tailwind. The native branch of that tutorial links the React Native how-to.
 
 ### EP-11 — shadcn intake checklist
 
@@ -429,6 +431,21 @@ Steps:
 
 **Acceptance:** The roadmap and the parity matrix describe Chart as web-only. Neither tells a reader that a native chart port is in progress.
 
+### EP-21 — Native install imports generated tokens
+
+**Lane:** Native, Docs. **Effort:** M. **Status:** `done`.
+
+The native tutorial, the package README, and the `gvtech` skill each described a different install. The playground painted from a hand-copied HSL subset. `scripts/bootstrap.ts` wrote a NativeWind v4 app.
+
+Steps:
+
+1. `bun run sync-tokens` writes `packages/design-tokens/src/native.css` (`@theme` utilities, `:root` light values, and `prefers-color-scheme: dark`) and `packages/design-tokens/src/native-preset.cjs` (the same color map, px radii, and the Metro `inlineVariables.exclude` list).
+2. Export `@gv-tech/design-tokens/native.css` and `@gv-tech/design-tokens/native-preset`. The playground imports the CSS, `@source`s `ui-native`, and passes `inlineVariables` into Metro. `global.css` no longer pastes `--background`.
+3. Move `nativewind` and `tailwindcss` to peers of `@gv-tech/ui-native` so Metro loads one copy. Raise the `design-tokens` and `ui-core` floor to `^2.29.4` on `ui-web` and `ui-native`.
+4. Delete `scripts/bootstrap.ts`. Document the Expo path in `docs/how-to/setup-react-native.md`, and point the tutorial, READMEs, and skill at it.
+
+**Acceptance:** Following the how-to installs peers, imports `native.css`, uses the native preset, and renders `Button` inside `ThemeProvider`. The playground `global.css` has no hand-written `--background`.
+
 ## Deferred
 
 These were open on the June 2026 roadmap. They are recorded so they are not lost, and they are not scheduled.
@@ -452,3 +469,4 @@ This program leaves the following in place.
 | :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`.                                                                                                                            |
 | 2026-11-09 | EP-01 through EP-04 done. Button props tables follow the contract. Other component pages still hand-write their unions. EP-20 closed in the same pass: Chart is web-only in the parity matrix and the native chart page. |
+| 2026-11-17 | EP-10 and EP-21 done. Tutorial and README share one install tree. Native setup imports generated `native.css` and `native-preset`. `nativewind` is a peer. Dependency floor is `^2.29.4`.                                |
