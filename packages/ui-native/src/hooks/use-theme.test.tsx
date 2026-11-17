@@ -2,6 +2,7 @@ import { theme as designTokens } from '@gv-tech/design-tokens';
 import { renderHook } from '@testing-library/react';
 import { describe, expect, it, vi } from 'vitest';
 
+import { ThemeProvider } from '../theme-provider';
 import { useTheme } from './use-theme';
 
 // Mock react-native's useColorScheme
@@ -40,5 +41,16 @@ describe('useTheme (Native)', () => {
     expect(result.current.theme).toBe('dark');
     expect(result.current.resolvedTheme).toBe('dark');
     expect(result.current.tokens).toEqual(designTokens.dark);
+  });
+
+  it('prefers ThemeProvider when the system scheme disagrees', () => {
+    mockColorScheme = 'dark';
+    const { result } = renderHook(() => useTheme(), {
+      wrapper: ({ children }) => <ThemeProvider value="light">{children}</ThemeProvider>,
+    });
+
+    expect(result.current.theme).toBe('light');
+    expect(result.current.resolvedTheme).toBe('light');
+    expect(result.current.tokens).toEqual(designTokens.light);
   });
 });

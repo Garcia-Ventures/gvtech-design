@@ -6,11 +6,13 @@ import { ThemeContext } from '../theme-provider';
 
 export function useTheme() {
   const context = React.useContext(ThemeContext);
+  // Read the system scheme on every render. Skipping it when ThemeProvider
+  // is present changes hook order if the provider mounts or unmounts.
+  const colorScheme = useColorScheme();
+
   if (context) {
     return context;
   }
-
-  const colorScheme = useColorScheme();
 
   const resolvedTheme = colorScheme as 'light' | 'dark';
 
