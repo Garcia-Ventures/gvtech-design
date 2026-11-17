@@ -1,3 +1,13 @@
+## 2.29.5 (2026-11-17)
+
+### 🚀 Features
+
+- **switch:** enhance Switch component with data-state attribute and additional tests ([69ad67e](https://github.com/Garcia-Ventures/gvtech-design/commit/69ad67e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.29.4 (2026-11-13)
 
 ### 🚀 Features
