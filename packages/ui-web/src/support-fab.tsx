@@ -50,15 +50,15 @@ const buildEmbedUrl = (supportUrl: string, creatorId: string) => {
   return `${base}/widget/page/${creator}`;
 };
 
-const useIsMobile = () => {
-  const getInitial = () => {
-    if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
-      return false;
-    }
-    return window.matchMedia(MOBILE_QUERY).matches;
-  };
+const getInitialIsMobile = () => {
+  if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {
+    return false;
+  }
+  return window.matchMedia(MOBILE_QUERY).matches;
+};
 
-  const [isMobile, setIsMobile] = React.useState(getInitial);
+const useIsMobile = () => {
+  const [isMobile, setIsMobile] = React.useState(getInitialIsMobile);
 
   React.useEffect(() => {
     if (typeof window === 'undefined' || typeof window.matchMedia !== 'function') {

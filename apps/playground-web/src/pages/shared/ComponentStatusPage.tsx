@@ -527,6 +527,44 @@ const componentStatuses: ComponentStatusItem[] = [
   },
 ];
 
+function renderStatusBadge(status: 'implemented' | 'in-progress' | 'planned' | 'web-only') {
+  switch (status) {
+    case 'implemented':
+      return (
+        <Badge
+          variant="outline"
+          className="gap-1 border-emerald-500/30 bg-emerald-500/10 font-medium text-emerald-600 dark:text-emerald-400"
+        >
+          <CheckCircle2 className="h-3 w-3" /> Ready
+        </Badge>
+      );
+    case 'in-progress':
+      return (
+        <Badge
+          variant="outline"
+          className="gap-1 border-amber-500/30 bg-amber-500/10 font-medium text-amber-600 dark:text-amber-400"
+        >
+          <Clock className="h-3 w-3" /> In Progress
+        </Badge>
+      );
+    case 'planned':
+      return (
+        <Badge
+          variant="outline"
+          className="border-muted-foreground/30 bg-muted/40 text-muted-foreground gap-1 font-medium"
+        >
+          <XCircle className="h-3 w-3" /> Planned
+        </Badge>
+      );
+    case 'web-only':
+      return (
+        <Badge variant="outline" className="gap-1 font-medium">
+          <Ban className="h-3 w-3" /> Web only
+        </Badge>
+      );
+  }
+}
+
 export function ComponentStatusPage() {
   useDocMetadata({
     title: 'Component Status Matrix',
@@ -546,44 +584,6 @@ export function ComponentStatusPage() {
     webCount: componentStatuses.filter((i) => i.web === 'implemented').length,
     nativeCount: componentStatuses.filter((i) => i.native === 'implemented').length,
     flutterCount: componentStatuses.filter((i) => i.flutter === 'implemented').length,
-  };
-
-  const renderStatusBadge = (status: 'implemented' | 'in-progress' | 'planned' | 'web-only') => {
-    switch (status) {
-      case 'implemented':
-        return (
-          <Badge
-            variant="outline"
-            className="gap-1 border-emerald-500/30 bg-emerald-500/10 font-medium text-emerald-600 dark:text-emerald-400"
-          >
-            <CheckCircle2 className="h-3 w-3" /> Ready
-          </Badge>
-        );
-      case 'in-progress':
-        return (
-          <Badge
-            variant="outline"
-            className="gap-1 border-amber-500/30 bg-amber-500/10 font-medium text-amber-600 dark:text-amber-400"
-          >
-            <Clock className="h-3 w-3" /> In Progress
-          </Badge>
-        );
-      case 'planned':
-        return (
-          <Badge
-            variant="outline"
-            className="border-muted-foreground/30 bg-muted/40 text-muted-foreground gap-1 font-medium"
-          >
-            <XCircle className="h-3 w-3" /> Planned
-          </Badge>
-        );
-      case 'web-only':
-        return (
-          <Badge variant="outline" className="gap-1 font-medium">
-            <Ban className="h-3 w-3" /> Web only
-          </Badge>
-        );
-    }
   };
 
   return (

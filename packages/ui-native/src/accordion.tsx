@@ -69,6 +69,8 @@ const AccordionTrigger: React.ForwardRefExoticComponent<
         )}
         {...props}
       >
+        {/* Children may be a Pressable render callback, which is not a ReactNode sibling of the chevron. */}
+        {/* oxlint-disable-next-line react/jsx-no-useless-fragment */}
         <>{children}</>
         <Animated.View style={chevronStyle}>
           <ChevronDown className="text-muted-foreground h-4 w-4 shrink-0 transition-transform duration-200" />

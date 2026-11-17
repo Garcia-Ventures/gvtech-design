@@ -1,5 +1,6 @@
 import { theme as designTokens } from '@gv-tech/design-tokens';
 import { renderHook } from '@testing-library/react';
+import type * as ReactNative from 'react-native';
 import { describe, expect, it, vi } from 'vitest';
 
 import { ThemeProvider } from '../theme-provider';
@@ -9,7 +10,7 @@ import { useTheme } from './use-theme';
 let mockColorScheme = 'light';
 
 vi.mock('react-native', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('react-native')>();
+  const actual = await importOriginal<typeof ReactNative>();
   return {
     ...actual,
     useColorScheme: () => mockColorScheme,

@@ -16,7 +16,7 @@ import { Pressable, ScrollView, View } from 'react-native';
 // the export surface with ScrollView semantics.
 // See docs/reference/parity-matrix.md.
 export const MessageScrollerProvider: React.FC<MessageScrollerProviderBaseProps> = ({ children }) => {
-  return <>{children}</>;
+  return children;
 };
 
 export const MessageScroller: React.FC<MessageScrollerBaseProps> = ({ children, className }) => {

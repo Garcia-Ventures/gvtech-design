@@ -13,7 +13,7 @@ function getDocItem(slug: string) {
   return docItemsMap.get(slug) || null;
 }
 
-export function OpenPanelProvider({ children }: { children: React.ReactNode }): React.ReactElement {
+export function OpenPanelProvider({ children }: { children: React.ReactNode }): React.ReactNode {
   const location = useLocation();
   const [isReady, setIsReady] = React.useState(false);
 
@@ -32,7 +32,7 @@ export function OpenPanelProvider({ children }: { children: React.ReactNode }): 
         return false;
       }
       const enabled = import.meta.env.VITE_ANALYTICS_ENABLED ?? import.meta.env.NEXT_PUBLIC_ANALYTICS_ENABLED;
-      if (enabled == null || enabled === '') {
+      if (enabled === undefined || enabled === null || enabled === '') {
         return true;
       }
       return enabled !== 'false' && enabled !== '0';
@@ -101,5 +101,5 @@ export function OpenPanelProvider({ children }: { children: React.ReactNode }): 
     });
   }, [isReady, location.pathname]);
 
-  return <>{children}</>;
+  return children;
 }

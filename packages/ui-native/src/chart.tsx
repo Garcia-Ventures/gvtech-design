@@ -20,11 +20,11 @@ export const ChartLegendContent: React.FC<ChartLegendContentBaseProps> = ({ clas
 };
 
 export const ChartTooltip: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>;
+  return children;
 };
 
 export const ChartLegend: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>;
+  return children;
 };
 
 export const ChartStyle: React.FC = () => {

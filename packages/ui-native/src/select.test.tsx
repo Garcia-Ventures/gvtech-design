@@ -14,7 +14,8 @@ vi.mock('react-native-reanimated', () => {
 });
 
 vi.mock('lucide-react-native', () => {
-  const Icon = ({ ...props }: Record<string, unknown>) => React.createElement('svg', props);
+  const react = require('react');
+  const Icon = (props: Record<string, unknown>) => react.createElement('svg', props);
   return {
     Check: Icon,
     ChevronDown: Icon,
@@ -24,6 +25,7 @@ vi.mock('lucide-react-native', () => {
 
 // Mock primitives
 vi.mock('@rn-primitives/select', () => {
+  const react = require('react');
   const Stub = ({
     children,
     className,
@@ -35,7 +37,7 @@ vi.mock('@rn-primitives/select', () => {
     className?: string;
     asChild?: boolean;
     hostName?: string;
-  }) => React.createElement('div', { className, ...props }, children);
+  }) => react.createElement('div', { className, ...props }, children);
 
   return {
     Root: ({ children }: { children: React.ReactNode }) => React.createElement('div', {}, children),

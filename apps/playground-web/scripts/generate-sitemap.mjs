@@ -19,7 +19,7 @@ for (const match of routesSource.matchAll(routePattern)) {
 }
 
 const staticPaths = ['/'];
-const docPaths = [...docSlugs].sort((first, second) => first.localeCompare(second)).map((slug) => `/docs/${slug}`);
+const docPaths = [...docSlugs].toSorted((first, second) => first.localeCompare(second)).map((slug) => `/docs/${slug}`);
 
 const urls = [...staticPaths, ...docPaths];
 const lastmod = new Date().toISOString().split('T')[0];

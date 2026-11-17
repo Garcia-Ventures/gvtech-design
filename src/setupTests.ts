@@ -53,8 +53,7 @@ class IntersectionObserver {
   unobserve() {}
   disconnect() {}
 }
-//  -next-line @typescript-eslint/no-explicit-any
-window.IntersectionObserver = IntersectionObserver as any;
+window.IntersectionObserver = IntersectionObserver as unknown as typeof window.IntersectionObserver;
 
 // Mock scrollIntoView
 window.HTMLElement.prototype.scrollIntoView = function () {};

@@ -7,62 +7,62 @@ import { Sheet, SheetContent, SheetDescription, SheetTitle, SheetTrigger } from 
 // Mock primitives
 /*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/dialog', () => {
-  const React = require('react');
-  const DialogContext = React.createContext({ open: false, onOpenChange: (_any: any) => {} });
+  const ReactMock = require('react');
+  const DialogContext = ReactMock.createContext({ open: false, onOpenChange: (_any: any) => {} });
 
   return {
     Root: ({ children, open, onOpenChange }: any) =>
-      React.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
+      ReactMock.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
     Trigger: ({ children, _asChild, ...props }: any) => {
-      const { open, onOpenChange } = React.useContext(DialogContext);
-      return React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
+      const { open, onOpenChange } = ReactMock.useContext(DialogContext);
+      return ReactMock.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
     },
     Portal: ({ children }: any) => {
-      const { open } = React.useContext(DialogContext);
-      return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
+      const { open } = ReactMock.useContext(DialogContext);
+      return open ? ReactMock.createElement('div', { 'data-testid': 'portal' }, children) : null;
     },
-    Overlay: React.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
-      const { open } = React.useContext(DialogContext);
+    Overlay: ReactMock.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
+      const { open } = ReactMock.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('div', { ref, ...props }, children);
+      return ReactMock.createElement('div', { ref, ...props }, children);
     }),
-    Content: React.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
-      const { open } = React.useContext(DialogContext);
+    Content: ReactMock.forwardRef(({ children, _asChild, forceMount, ...props }: any, ref: any) => {
+      const { open } = ReactMock.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('div', { ref, ...props }, children);
+      return ReactMock.createElement('div', { ref, ...props }, children);
     }),
-    Title: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
-      React.createElement('h2', { ref, ...props }, children),
+    Title: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
+      ReactMock.createElement('h2', { ref, ...props }, children),
     ),
-    Description: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
-      React.createElement('p', { ref, ...props }, children),
+    Description: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
+      ReactMock.createElement('p', { ref, ...props }, children),
     ),
-    Close: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
-      const { onOpenChange } = React.useContext(DialogContext);
+    Close: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
+      const { onOpenChange } = ReactMock.useContext(DialogContext);
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
+      return ReactMock.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
     }),
-    useRootContext: () => React.useContext(DialogContext),
+    useRootContext: () => ReactMock.useContext(DialogContext),
   };
 });
 
 // Mock reanimated
 /*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('react-native-reanimated', () => {
-  const React = require('react');
+  const ReactMock = require('react');
   return {
     default: {
-      View: React.forwardRef(({ children, ...props }: any, ref: any) =>
-        React.createElement('div', { ref, ...props }, children),
+      View: ReactMock.forwardRef(({ children, ...props }: any, ref: any) =>
+        ReactMock.createElement('div', { ref, ...props }, children),
       ),
     },
     FadeIn: { duration: () => ({}) },
@@ -77,21 +77,21 @@ vi.mock('lucide-react-native', () => ({
   X: () => null,
 }));
 
+function TestComponent() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Sheet open={open} onOpenChange={setOpen}>
+      <SheetTrigger>Open</SheetTrigger>
+      <SheetContent side="right">
+        <SheetTitle>Sheet Title</SheetTitle>
+        <SheetDescription>Sheet Description</SheetDescription>
+      </SheetContent>
+    </Sheet>
+  );
+}
+
 describe('Sheet (Native Implementation)', () => {
   it('opens and closes correctly', async () => {
-    const TestComponent = () => {
-      const [open, setOpen] = React.useState(false);
-      return (
-        <Sheet open={open} onOpenChange={setOpen}>
-          <SheetTrigger>Open</SheetTrigger>
-          <SheetContent side="right">
-            <SheetTitle>Sheet Title</SheetTitle>
-            <SheetDescription>Sheet Description</SheetDescription>
-          </SheetContent>
-        </Sheet>
-      );
-    };
-
     render(<TestComponent />);
 
     expect(screen.queryByText('Sheet Title')).toBeNull();

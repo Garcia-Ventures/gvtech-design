@@ -19,7 +19,7 @@ export const Command: React.FC<CommandBaseProps> = ({ children, className }) => 
 };
 
 export const CommandDialog: React.FC<{ children?: React.ReactNode }> = ({ children }) => {
-  return <>{children}</>;
+  return children;
 };
 
 export const CommandInput: React.FC<CommandInputBaseProps> = ({ className }) => {

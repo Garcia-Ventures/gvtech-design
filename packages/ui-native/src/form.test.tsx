@@ -27,9 +27,7 @@ const TestFormWrapper = () => {
         render={() => (
           <FormItem>
             <FormLabel>Test Label</FormLabel>
-            <FormControl>
-              <></>
-            </FormControl>
+            <FormControl />
             <FormMessage />
           </FormItem>
         )}

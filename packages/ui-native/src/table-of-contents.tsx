@@ -57,7 +57,12 @@ export function TableOfContents({ children, activeId: activeIdOverride }: TableO
         ? prev.map((h) => (h.id === id ? { id, text, level, pageY } : h))
         : [...prev, { id, text, level, pageY }];
 
-      return newHeadings.sort((a, b) => a.pageY - b.pageY);
+      // This package targets ES2020, so `toSorted` is not in its TypeScript lib.
+      // Expo SDK 58 provides it at runtime, and the copy is what state stores.
+      const sortable = newHeadings as HeadingItem[] & {
+        toSorted(compare: (left: HeadingItem, right: HeadingItem) => number): HeadingItem[];
+      };
+      return sortable.toSorted((left, right) => left.pageY - right.pageY);
     });
   }, []);
 

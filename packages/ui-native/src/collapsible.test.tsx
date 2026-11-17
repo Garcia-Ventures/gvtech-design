@@ -7,17 +7,21 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from './collapsib
 // Mock the primitive
 /*   @typescript-eslint/no-require-imports, @typescript-eslint/no-explicit-any */
 vi.mock('@rn-primitives/collapsible', () => {
-  const React = require('react');
-  const CollapsibleContext = React.createContext({ open: false, onOpenChange: () => {} });
+  const ReactMock = require('react');
+  const CollapsibleContext = ReactMock.createContext({ open: false, onOpenChange: () => {} });
 
   return {
     Root: ({ children, open, onOpenChange, ...props }: any) => {
-      const value = React.useMemo(() => ({ open, onOpenChange }), [open, onOpenChange]);
-      return React.createElement('div', props, React.createElement(CollapsibleContext.Provider, { value }, children));
+      const value = ReactMock.useMemo(() => ({ open, onOpenChange }), [open, onOpenChange]);
+      return ReactMock.createElement(
+        'div',
+        props,
+        ReactMock.createElement(CollapsibleContext.Provider, { value }, children),
+      );
     },
     Trigger: ({ children, ...props }: any) => {
-      const { open, onOpenChange } = React.useContext(CollapsibleContext);
-      return React.createElement(
+      const { open, onOpenChange } = ReactMock.useContext(CollapsibleContext);
+      return ReactMock.createElement(
         'button',
         {
           onClick: () => onOpenChange?.(!open),
@@ -28,24 +32,24 @@ vi.mock('@rn-primitives/collapsible', () => {
       );
     },
     Content: ({ children, ...props }: any) => {
-      const { open } = React.useContext(CollapsibleContext);
-      return open ? React.createElement('div', props, children) : null;
+      const { open } = ReactMock.useContext(CollapsibleContext);
+      return open ? ReactMock.createElement('div', props, children) : null;
     },
   };
 });
 
+function TestComponent() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Collapsible open={open} onOpenChange={setOpen}>
+      <CollapsibleTrigger>Toggle</CollapsibleTrigger>
+      <CollapsibleContent>Content</CollapsibleContent>
+    </Collapsible>
+  );
+}
+
 describe('Collapsible (Native Implementation)', () => {
   it('renders correctly and toggles content', async () => {
-    const TestComponent = () => {
-      const [open, setOpen] = React.useState(false);
-      return (
-        <Collapsible open={open} onOpenChange={setOpen}>
-          <CollapsibleTrigger>Toggle</CollapsibleTrigger>
-          <CollapsibleContent>Content</CollapsibleContent>
-        </Collapsible>
-      );
-    };
-
     render(<TestComponent />);
 
     expect(screen.queryByText('Content')).toBeNull();

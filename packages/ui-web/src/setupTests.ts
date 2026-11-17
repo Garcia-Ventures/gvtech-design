@@ -77,8 +77,8 @@ if (!globalThis.PointerEvent) {
       this.isPrimary = params.isPrimary || false;
     }
   }
-  globalThis.PointerEvent = PointerEvent as any;
-  window.PointerEvent = PointerEvent as any;
+  globalThis.PointerEvent = PointerEvent as unknown as typeof globalThis.PointerEvent;
+  window.PointerEvent = PointerEvent as unknown as typeof window.PointerEvent;
 }
 
 // Layout mocks

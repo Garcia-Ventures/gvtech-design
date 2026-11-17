@@ -213,7 +213,7 @@ function ChartTooltipContent({
                         {nestLabel ? tooltipLabel : null}
                         <span className="text-muted-foreground">{itemConfig?.label ?? item.name}</span>
                       </div>
-                      {item.value != null && (
+                      {item.value !== null && item.value !== undefined && (
                         <span className="text-foreground font-mono font-medium tabular-nums">
                           {typeof item.value === 'number' ? item.value.toLocaleString() : String(item.value)}
                         </span>

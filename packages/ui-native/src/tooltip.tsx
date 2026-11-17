@@ -37,6 +37,6 @@ const TooltipContent: React.ForwardRefExoticComponent<
 ));
 TooltipContent.displayName = TooltipPrimitive.Content?.displayName || 'TooltipContent';
 
-const TooltipProvider = ({ children }: { children: React.ReactNode }) => <>{children}</>;
+const TooltipProvider = ({ children }: { children: React.ReactNode }) => children;
 
 export { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger };

@@ -6,64 +6,64 @@ import { Dialog, DialogContent, DialogDescription, DialogTitle, DialogTrigger } 
 
 // Mock primitives
 vi.mock('@rn-primitives/dialog', () => {
-  const React = require('react');
-  const DialogContext = React.createContext({ open: false, onOpenChange: (_any: any) => {} });
+  const ReactMock = require('react');
+  const DialogContext = ReactMock.createContext({ open: false, onOpenChange: (_any: any) => {} });
 
   return {
     Root: ({ children, open, onOpenChange }: any) =>
-      React.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
+      ReactMock.createElement(DialogContext.Provider, { value: { open, onOpenChange } }, children),
     Trigger: ({ children, _asChild, ...props }: any) => {
-      const { open, onOpenChange } = React.useContext(DialogContext);
-      return React.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
+      const { open, onOpenChange } = ReactMock.useContext(DialogContext);
+      return ReactMock.createElement('button', { onClick: () => onOpenChange?.(!open), ...props }, children);
     },
     Portal: ({ children }: any) => {
-      const { open } = React.useContext(DialogContext);
-      return open ? React.createElement('div', { 'data-testid': 'portal' }, children) : null;
+      const { open } = ReactMock.useContext(DialogContext);
+      return open ? ReactMock.createElement('div', { 'data-testid': 'portal' }, children) : null;
     },
-    Overlay: React.forwardRef(({ children, _asChild, forceMount, style, ...props }: any, ref: any) => {
-      const { open } = React.useContext(DialogContext);
+    Overlay: ReactMock.forwardRef(({ children, _asChild, forceMount, style, ...props }: any, ref: any) => {
+      const { open } = ReactMock.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
+      return ReactMock.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
-    Content: React.forwardRef(({ children, _asChild, forceMount, style, ...props }: any, ref: any) => {
-      const { open } = React.useContext(DialogContext);
+    Content: ReactMock.forwardRef(({ children, _asChild, forceMount, style, ...props }: any, ref: any) => {
+      const { open } = ReactMock.useContext(DialogContext);
       if (!open && !forceMount) {
         return null;
       }
       const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
+      return ReactMock.createElement('div', { ref, style: flattenedStyle, ...props }, children);
     }),
-    Title: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
-      React.createElement('h2', { ref, ...props }, children),
+    Title: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
+      ReactMock.createElement('h2', { ref, ...props }, children),
     ),
-    Description: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
-      React.createElement('p', { ref, ...props }, children),
+    Description: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) =>
+      ReactMock.createElement('p', { ref, ...props }, children),
     ),
-    Close: React.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
-      const { onOpenChange } = React.useContext(DialogContext);
+    Close: ReactMock.forwardRef(({ children, _asChild, ...props }: any, ref: any) => {
+      const { onOpenChange } = ReactMock.useContext(DialogContext);
       // Test mocks forward refs into host elements by design
       // eslint-disable-next-line react/refs
-      return React.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
+      return ReactMock.createElement('button', { onClick: () => onOpenChange?.(false), ref, ...props }, children);
     }),
-    useRootContext: () => React.useContext(DialogContext),
+    useRootContext: () => ReactMock.useContext(DialogContext),
   };
 });
 
 // Mock reanimated
 vi.mock('react-native-reanimated', () => {
-  const React = require('react');
+  const ReactMock = require('react');
   return {
     default: {
-      View: React.forwardRef(({ children, style, ...props }: any, ref: any) => {
+      View: ReactMock.forwardRef(({ children, style, ...props }: any, ref: any) => {
         const flattenedStyle = Array.isArray(style) ? Object.assign({}, ...style) : style;
-        return React.createElement('div', { ref, style: flattenedStyle, ...props }, children);
+        return ReactMock.createElement('div', { ref, style: flattenedStyle, ...props }, children);
       }),
     },
     FadeIn: { duration: () => ({}) },
@@ -76,21 +76,21 @@ vi.mock('lucide-react-native', () => ({
   X: () => null,
 }));
 
+function TestComponent() {
+  const [open, setOpen] = React.useState(false);
+  return (
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger>Open</DialogTrigger>
+      <DialogContent>
+        <DialogTitle>Title</DialogTitle>
+        <DialogDescription>Description</DialogDescription>
+      </DialogContent>
+    </Dialog>
+  );
+}
+
 describe('Dialog (Native Implementation)', () => {
   it('opens and closes correctly', async () => {
-    const TestComponent = () => {
-      const [open, setOpen] = React.useState(false);
-      return (
-        <Dialog open={open} onOpenChange={setOpen}>
-          <DialogTrigger>Open</DialogTrigger>
-          <DialogContent>
-            <DialogTitle>Title</DialogTitle>
-            <DialogDescription>Description</DialogDescription>
-          </DialogContent>
-        </Dialog>
-      );
-    };
-
     render(<TestComponent />);
 
     expect(screen.queryByText('Title')).toBeNull();

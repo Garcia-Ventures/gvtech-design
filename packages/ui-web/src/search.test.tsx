@@ -1,4 +1,5 @@
 'use client';
+import type * as UiWeb from '@gv-tech/ui-web';
 import { fireEvent, render, screen } from '@testing-library/react';
 import * as React from 'react';
 import { describe, expect, it, vi } from 'vitest';
@@ -7,7 +8,7 @@ import { CommandEmpty, CommandGroup, CommandInput, CommandItem, CommandList, Sea
 
 // Mock CommandDialog since it uses Radix Dialog which might need a portal
 vi.mock('@gv-tech/ui-web', async (importOriginal) => {
-  const actual = await importOriginal<typeof import('@gv-tech/ui-web')>();
+  const actual = await importOriginal<typeof UiWeb>();
   return {
     ...actual,
     Dialog: ({ children, open }: { children: React.ReactNode; open: boolean }) => (open ? <div>{children}</div> : null),

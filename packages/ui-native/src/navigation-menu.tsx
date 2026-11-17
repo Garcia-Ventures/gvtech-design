@@ -94,7 +94,7 @@ export const NavigationMenuTrigger = React.forwardRef<
       )}
       {...props}
     >
-      <>{children}</>
+      {children}
       <ChevronDown
         size={12}
         className="text-muted-foreground transition-transform duration-200 group-data-[state=open]:rotate-180"

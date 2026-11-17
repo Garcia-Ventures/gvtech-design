@@ -7,7 +7,7 @@ import { cn } from './lib/utils';
 
 // Toast for native doesn't use a Provider or Viewport in the same way as web.
 // We export fragments if they are needed for structural parity in shared components.
-const ToastProvider = ({ children }: { children: React.ReactNode }) => <>{children}</>;
+const ToastProvider = ({ children }: { children: React.ReactNode }) => children;
 const ToastViewport = () => null;
 
 const Toast = React.forwardRef<

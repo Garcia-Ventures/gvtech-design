@@ -1,5 +1,4 @@
 'use client';
-import { Button, Input } from '@gv-tech/ui-web';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
@@ -7,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { describe, expect, it } from 'vitest';
 import { z } from 'zod';
 
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from '.';
+import { Button, Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage, Input } from '.';
 
 const formSchema = z.object({
   username: z.string().min(2, {

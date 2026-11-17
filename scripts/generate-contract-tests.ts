@@ -63,14 +63,14 @@ function generateTestFile(platform: 'web' | 'native', platformExports: string[])
 import {
   ${imports
     .filter((v, i, a) => a.indexOf(v) === i && !v.endsWith('BaseProps'))
-    .sort()
+    .toSorted()
     .join(',\n  ')}
 } from './index';
 
 import type {
   ${imports
     .filter((v, i, a) => a.indexOf(v) === i && v.endsWith('BaseProps'))
-    .sort()
+    .toSorted()
     .join(',\n  ')}
 } from '@gv-tech/ui-core';
 
