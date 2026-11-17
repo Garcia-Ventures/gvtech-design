@@ -12,23 +12,27 @@ vi.mock('@rn-primitives/switch', () => {
       checked,
       onCheckedChange,
       className,
+      dataSet,
     }: {
       children: React.ReactNode;
       checked?: boolean;
       onCheckedChange?: (checked: boolean) => void;
       className?: string;
+      dataSet?: { state?: string };
     }) =>
       React.createElement(
         'button',
         {
           className,
+          'data-state': dataSet?.state,
           onClick: () => onCheckedChange?.(!checked),
           'aria-checked': checked,
           role: 'switch',
         },
         children,
       ),
-    Thumb: ({ className }: { className?: string }) => React.createElement('div', { className }),
+    Thumb: ({ className, dataSet }: { className?: string; dataSet?: { state?: string } }) =>
+      React.createElement('div', { className, 'data-state': dataSet?.state, 'data-testid': 'switch-thumb' }),
   };
 });
 
@@ -54,5 +58,26 @@ describe('Switch (Native Implementation)', () => {
     const switchElement = screen.getByRole('switch');
     fireEvent.click(switchElement);
     expect(onCheckedChange).toHaveBeenCalledWith(false);
+  });
+
+  it('paints the checked state without data-state from the native primitive', () => {
+    render(<Switch checked />);
+
+    const switchElement = screen.getByRole('switch');
+    const thumb = screen.getByTestId('switch-thumb');
+    expect(switchElement.getAttribute('data-state')).toBe('checked');
+    expect(switchElement.className).toContain('bg-primary');
+    expect(thumb.getAttribute('data-state')).toBe('checked');
+    expect(thumb.className).toContain('translate-x-[18px]');
+  });
+
+  it('paints the unchecked state', () => {
+    render(<Switch checked={false} />);
+
+    const switchElement = screen.getByRole('switch');
+    const thumb = screen.getByTestId('switch-thumb');
+    expect(switchElement.getAttribute('data-state')).toBe('unchecked');
+    expect(switchElement.className).toContain('bg-input');
+    expect(thumb.className).toContain('translate-x-0');
   });
 });
