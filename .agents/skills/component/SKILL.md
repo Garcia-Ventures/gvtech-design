@@ -31,6 +31,8 @@ Leave these off the `@gv-tech/ui-native` entrypoint and record that in `docs/ref
 
 ## Pull from shadcn
 
+Follow `docs/how-to/intake-shadcn.md`. The checklist is `docs/reference/shadcn-preserve.md`. Run the command on a branch and read the diff before committing.
+
 Update everything already vendored:
 
 ```bash
@@ -49,6 +51,7 @@ Then:
 2. Type the web component as the React element props plus `<Name>BaseProps`. Keep `cn` from `cn` and `@/./<name>` sibling imports.
 3. Implement or shim the same contract in `packages/ui-native`. Export it from that package's `index.ts`.
 4. If the generator did not run, add the playground pages and register them in `doc-routes.tsx` and `docs.ts`.
+5. Leave upstream slot callback parameter names as the CLI wrote them. Add a new file to the `eslint/no-shadow` override in `oxlint.config.mts` when the warning is that pattern. Do not rename `className`, `props`, `open`, `api`, `config`, or `toast` to silence it.
 
 ## Playground UI
 

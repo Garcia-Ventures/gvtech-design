@@ -2,6 +2,8 @@
 
 Task: keep `reference/component-registry.md` and the shadcn JSON in sync after adding/changing a component.
 
+Pulling upstream source is a different task. Do that first, on a branch, and read the diff: [Intake a shadcn component](./intake-shadcn.md).
+
 ## Steps
 
 ```bash

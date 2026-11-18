@@ -5,12 +5,13 @@
 
 ## How to navigate
 
-| I want to…                       | Go to                                                 | Diataxis quadrant                    |
-| :------------------------------- | :---------------------------------------------------- | :----------------------------------- |
-| Learn by doing, step-by-step     | [Tutorials](./tutorials/01-local-setup.md)            | Tutorials — learning-oriented        |
-| Solve a specific task            | [How-to Guides](./how-to/cut-release.md)              | How-to — task-oriented               |
-| Look up an API or status         | [Reference](./reference/component-registry.md)        | Reference — information-oriented     |
-| Understand why we do it this way | [Explanation](./explanation/architecture-overview.md) | Explanation — understanding-oriented |
+| I want to…                       | Go to                                                  | Diataxis quadrant                    |
+| :------------------------------- | :----------------------------------------------------- | :----------------------------------- |
+| Learn by doing, step-by-step     | [Tutorials](./tutorials/01-local-setup.md)             | Tutorials — learning-oriented        |
+| Solve a specific task            | [How-to Guides](./how-to/cut-release.md)               | How-to — task-oriented               |
+| Look up an API or status         | [Reference](./reference/component-registry.md)         | Reference — information-oriented     |
+| Understand why we do it this way | [Explanation](./explanation/architecture-overview.md)  | Explanation — understanding-oriented |
+| Pull a shadcn component safely   | [Intake a shadcn component](./how-to/intake-shadcn.md) | How-to — task-oriented               |
 
 ## Entry points by role
 
@@ -20,7 +21,8 @@
 2. [Create a Component](./tutorials/03-create-component.md) — contract-first with `generate:component`.
 3. [Run Tests, Lint, Contracts](./how-to/run-tests-lint-contracts.md) — validate before PR.
 4. [Contract-First Philosophy](./explanation/contract-first.md) — why `ui-core` is source of truth.
-5. [Enhancement program](./explanation/enhancement-program.md) — tracked DX and UX work, with IDs and acceptance lines.
+5. [Shadcn intake](./explanation/shadcn-intake.md) — what an overwrite may change, and what it must keep.
+6. [Enhancement program](./explanation/enhancement-program.md) — tracked DX and UX work, with IDs and acceptance lines.
 
 ### App consumer (web / native / flutter)
 

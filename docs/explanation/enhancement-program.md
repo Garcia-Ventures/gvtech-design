@@ -35,7 +35,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 | EP-08 | Loading and icon-only buttons have names and busy state |    P1    | Web, Native, Docs   |   M    | `proposed` |
 | EP-09 | Motion tokens and reduced motion                        |    P1    | Design, Web, Native |   L    | `proposed` |
 | EP-10 | One install path that paints with tokens                |    P1    | Docs                |   S    | `done`     |
-| EP-11 | shadcn intake checklist after `--overwrite`             |    P1    | Docs                |   S    | `proposed` |
+| EP-11 | shadcn intake checklist after `--overwrite`             |    P1    | Docs                |   S    | `done`     |
 | EP-12 | Foundations for type, space, radius, and elevation      |    P1    | Design, Web         |   M    | `proposed` |
 | EP-13 | Docs search covers props and variants                   |    P1    | Web                 |   M    | `proposed` |
 | EP-14 | Four composition recipes                                |    P1    | Design, Web         |   M    | `proposed` |
@@ -57,7 +57,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 - [ ] EP-08
 - [ ] EP-09
 - [x] EP-10
-- [ ] EP-11
+- [x] EP-11
 - [ ] EP-12
 - [ ] EP-13
 - [ ] EP-14
@@ -284,7 +284,7 @@ Steps:
 
 ### EP-11 — shadcn intake checklist
 
-**Lane:** Docs. **Effort:** S.
+**Lane:** Docs. **Effort:** S. **Status:** `done`.
 
 `bun run shadcn:update` overwrites ui-web from upstream. Token classes, contract imports, and GV-only components can disappear in that diff.
 
@@ -465,9 +465,10 @@ This program leaves the following in place.
 
 ## Log
 
-| Date       | Change                                                                                                                                                                                                                   |
-| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`.                                                                                                                            |
-| 2026-11-09 | EP-01 through EP-04 done. Button props tables follow the contract. Other component pages still hand-write their unions. EP-20 closed in the same pass: Chart is web-only in the parity matrix and the native chart page. |
-| 2026-11-17 | EP-10 and EP-21 done. Tutorial and README share one install tree. Native setup imports generated `native.css` and `native-preset`. `nativewind` is a peer. Dependency floor is `^2.29.4`.                                |
-| 2026-11-17 | EP-19 done. Native Select scroll buttons and item text no longer use `@ts-expect-error`. Sheet `entering` and `exiting` use the Reanimated layout types. All four sides stay animated, so no divergence-registry row.    |
+| Date       | Change                                                                                                                                                                                                                         |
+| :--------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`.                                                                                                                                  |
+| 2026-11-09 | EP-01 through EP-04 done. Button props tables follow the contract. Other component pages still hand-write their unions. EP-20 closed in the same pass: Chart is web-only in the parity matrix and the native chart page.       |
+| 2026-11-17 | EP-10 and EP-21 done. Tutorial and README share one install tree. Native setup imports generated `native.css` and `native-preset`. `nativewind` is a peer. Dependency floor is `^2.29.4`.                                      |
+| 2026-11-17 | EP-19 done. Native Select scroll buttons and item text no longer use `@ts-expect-error`. Sheet `entering` and `exiting` use the Reanimated layout types. All four sides stay animated, so no divergence-registry row.          |
+| 2026-11-17 | EP-11 done. Shadcn intake is `docs/explanation/shadcn-intake.md`, `docs/how-to/intake-shadcn.md`, and `docs/reference/shadcn-preserve.md`. Upstream slot callbacks keep their names. Nested components may be passed as props. |

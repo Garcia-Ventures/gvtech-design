@@ -16,6 +16,9 @@ export default defineConfig({
     'eslint/no-underscore-dangle': ['warn', { allow: ['__filename', '__dirname', '_values'] }],
     // CSS and test/type side-effect imports are intentional.
     'import/no-unassigned-import': ['warn', { allow: ['**/*.css', '@testing-library/jest-dom', 'react-native'] }],
+    // DayPicker and other libraries take a component as a prop value.
+    // The rule still warns when that component is rendered as JSX in the same function.
+    'react/no-unstable-nested-components': ['warn', { allowAsProps: true }],
   },
   overrides: [
     {
@@ -40,6 +43,23 @@ export default defineConfig({
       files: ['scripts/**', 'tools/**', 'packages/skills/bin/**', 'apps/playground-web/scripts/**'],
       rules: {
         'no-console': 'off',
+      },
+    },
+    {
+      // Upstream slot and callback parameters reuse the outer binding
+      // (`className`, `props`, `open`, `api`, `config`, `toast`).
+      // `shadcn:update` restores those names. See docs/explanation/shadcn-intake.md.
+      files: [
+        'packages/ui-web/src/calendar.tsx',
+        'packages/ui-web/src/carousel.tsx',
+        'packages/ui-web/src/chart.tsx',
+        'packages/ui-web/src/hooks/use-toast.ts',
+        'packages/ui-web/src/sidebar.tsx',
+        'packages/ui-web/src/toaster.tsx',
+        'packages/ui-native/src/hooks/use-toast.ts',
+      ],
+      rules: {
+        'eslint/no-shadow': 'off',
       },
     },
   ],

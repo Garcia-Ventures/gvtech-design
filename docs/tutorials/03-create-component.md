@@ -94,3 +94,5 @@ Then open a PR with Conventional Commits (`feat(stat): …`). CI runs lint + typ
 - [ ] `bun run build:registry` re-run
 
 Reference: [CLI Scripts](../reference/cli-scripts.md).
+
+When the component comes from shadcn, follow [Intake a shadcn component](../how-to/intake-shadcn.md) instead of hand-copying the upstream file. The scaffold is still how the contract, the native file, and the playground pages start.
