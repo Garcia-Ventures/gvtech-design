@@ -58,11 +58,8 @@ const SheetContent: React.ForwardRefExoticComponent<SheetContentProps & React.Re
   React.forwardRef<SheetContentRef, SheetContentProps>(
     ({ className, children, side = 'right', overlayClassName, overlayStyle, ...props }, ref) => {
       const isWeb = Platform.OS === 'web';
-      // TODO: Add support for other sides
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      let entering: any = undefined;
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      let exiting: any = undefined;
+      let entering: React.ComponentProps<typeof Animated.View>['entering'] = undefined;
+      let exiting: React.ComponentProps<typeof Animated.View>['exiting'] = undefined;
 
       if (!isWeb) {
         if (side === 'bottom') {

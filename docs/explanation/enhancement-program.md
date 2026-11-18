@@ -43,7 +43,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 | EP-16 | axe on Button, field, Dialog, and Alert                 |    P2    | Tooling, Web        |   M    | `proposed` |
 | EP-17 | Web screenshot checks, light and dark                   |    P2    | Tooling             |   L    | `proposed` |
 | EP-18 | Registry test column matches files on disk              |    P2    | Docs, Native        |   M    | `proposed` |
-| EP-19 | Native Select types, and the stale Sheet TODO           |    P2    | Native              |   M    | `proposed` |
+| EP-19 | Native Select types, and the stale Sheet TODO           |    P2    | Native              |   M    | `done`     |
 | EP-20 | Charts stay web-only until a product asks               |    P2    | Docs                |   S    | `done`     |
 | EP-21 | Native install imports generated tokens                 |    P1    | Native, Docs        |   M    | `done`     |
 
@@ -65,7 +65,7 @@ Effort: **S** is about a day, **M** is a few days, **L** is a milestone.
 - [ ] EP-16
 - [ ] EP-17
 - [ ] EP-18
-- [ ] EP-19
+- [x] EP-19
 - [x] EP-20
 - [x] EP-21
 
@@ -405,7 +405,7 @@ Steps:
 
 ### EP-19 — Select types and the Sheet comment
 
-**Lane:** Native. **Effort:** M.
+**Lane:** Native. **Effort:** M. **Status:** `done`.
 
 `select.tsx` suppresses three type errors. `sheet.tsx` asks for side support the file already has, and types the Reanimated transitions as `any`.
 
@@ -470,3 +470,4 @@ This program leaves the following in place.
 | 2026-11-09 | Program opened from a review of tokens, contracts, playground, and docs. All rows `proposed`.                                                                                                                            |
 | 2026-11-09 | EP-01 through EP-04 done. Button props tables follow the contract. Other component pages still hand-write their unions. EP-20 closed in the same pass: Chart is web-only in the parity matrix and the native chart page. |
 | 2026-11-17 | EP-10 and EP-21 done. Tutorial and README share one install tree. Native setup imports generated `native.css` and `native-preset`. `nativewind` is a peer. Dependency floor is `^2.29.4`.                                |
+| 2026-11-17 | EP-19 done. Native Select scroll buttons and item text no longer use `@ts-expect-error`. Sheet `entering` and `exiting` use the Reanimated layout types. All four sides stay animated, so no divergence-registry row.    |

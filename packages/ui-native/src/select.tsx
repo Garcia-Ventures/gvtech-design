@@ -74,43 +74,28 @@ SelectTrigger.displayName = SelectPrimitive.Trigger?.displayName || 'SelectTrigg
 export interface SelectScrollUpButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollUpButton>, SelectScrollUpButtonBaseProps {}
 
-const SelectScrollUpButton = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.ScrollUpButton>,
-  SelectScrollUpButtonProps
->(({ className, ...props }, ref) => (
+const SelectScrollUpButton = ({ className, ...props }: SelectScrollUpButtonProps) => (
   <SelectPrimitive.ScrollUpButton
-    // @ts-expect-error TODO: fix type
-    ref={ref}
     className={cn('flex cursor-default items-center justify-center py-1', className)}
     {...props}
   >
     <ChevronUp size={14} className="text-foreground" />
   </SelectPrimitive.ScrollUpButton>
-));
-SelectScrollUpButton.displayName =
-  ((SelectPrimitive.ScrollUpButton as unknown as Record<string, unknown>)?.displayName as string | undefined) ||
-  'SelectScrollUpButton';
+);
+SelectScrollUpButton.displayName = 'SelectScrollUpButton';
 
 export interface SelectScrollDownButtonProps
   extends React.ComponentPropsWithoutRef<typeof SelectPrimitive.ScrollDownButton>, SelectScrollDownButtonBaseProps {}
 
-const SelectScrollDownButton = React.forwardRef<
-  React.ComponentRef<typeof SelectPrimitive.ScrollDownButton>,
-  SelectScrollDownButtonProps
->(({ className, ...props }, ref) => (
+const SelectScrollDownButton = ({ className, ...props }: SelectScrollDownButtonProps) => (
   <SelectPrimitive.ScrollDownButton
-    // @ts-expect-error TODO: fix type
-    ref={ref}
     className={cn('flex cursor-default items-center justify-center py-1', className)}
     {...props}
   >
     <ChevronDown size={14} className="text-foreground" />
   </SelectPrimitive.ScrollDownButton>
-));
-
-SelectScrollDownButton.displayName =
-  ((SelectPrimitive.ScrollDownButton as unknown as Record<string, unknown>)?.displayName as string | undefined) ||
-  'SelectScrollDownButton';
+);
+SelectScrollDownButton.displayName = 'SelectScrollDownButton';
 
 export interface SelectContentProps
   extends Omit<React.ComponentPropsWithoutRef<typeof SelectPrimitive.Content>, 'position'>, SelectContentBaseProps {
@@ -201,10 +186,7 @@ const SelectItem = React.forwardRef<React.ComponentRef<typeof SelectPrimitive.It
             <Check size={14} strokeWidth={3} className="text-foreground" {...({} as Record<string, unknown>)} />
           </SelectPrimitive.ItemIndicator>
         </View>
-        {/* @ts-expect-error TODO: fix type */}
-        <SelectPrimitive.ItemText className="text-foreground native:text-base text-sm">
-          {children}
-        </SelectPrimitive.ItemText>
+        <SelectPrimitive.ItemText className="text-foreground native:text-base text-sm" />
       </SelectPrimitive.Item>
     );
   },
