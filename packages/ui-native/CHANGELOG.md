@@ -1,3 +1,13 @@
+## 2.30.1 (2026-11-22)
+
+### 🩹 Fixes
+
+- **native:** resolve type errors in Select and Sheet components ([5318e4e](https://github.com/Garcia-Ventures/gvtech-design/commit/5318e4e))
+
+### ❤️ Thank You
+
+- Eric N. Garcia @eng618
+
 ## 2.30.0 (2026-11-17)
 
 ### 🚀 Features
